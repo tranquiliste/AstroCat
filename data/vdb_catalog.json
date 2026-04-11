@@ -1,0 +1,324 @@
+{
+  "VdB": {
+    "VdB 1": {
+      "name": "Nébuleuse Cassiopée",
+      "type": "Reflection Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "OctNovDec",
+      "description": "VdB 1 (Nébuleuse Cassiopée) est une nébuleuse à réflexion dans la constellation de Cassiopée, à environ 1 600 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966 dans son catalogue de nébuleuses à réflexion associées à des étoiles chaudes. VdB 1 est illuminée par une étoile de type B de la région du bras de Persée. Sa teinte bleutée caractéristique résulte de la diffusion de Rayleigh de la lumière stellaire sur les grains de poussière submicroniques du nuage parent. C'est une cible compacte (5′) qui révèle une structure interne fine sur les images à longue focale. L'environnement de Cassiopée est riche en nébuleuses d'émission (Sh2-185, IC 59/63), offrant des champs larges contrastés. Astrophotographie : Dec +61.9°, circumpolaire depuis la France. Cible d'automne-hiver. Objet compact (5′) : longue focale recommandée (>800mm). LRVB profond pour la couleur bleue de réflexion. Intégration 4–6h. Association possible avec VdB 2 dans un champ commun.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 2": {
+      "name": "Nébuleuse Cassiopée NW",
+      "type": "Reflection Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "OctNovDec",
+      "description": "VdB 2 (Nébuleuse Cassiopée NW) est une nébuleuse à réflexion dans la constellation de Cassiopée, à environ 1 600 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. VdB 2 est le pendant nord-ouest de VdB 1 dans le même complexe de nuages moléculaires de Cassiopée. Son étoile illuminatrice est une étoile chaude de type B enfouie dans le même nuage parent. La faible magnitude de surface (10.0) et la taille compacte (4′) en font une cible exigeante nécessitant une longue focale et des conditions de ciel excellentes. L'environnement circumpolaire de Cassiopée garantit une accessibilité toute saison. Astrophotographie : Dec +63.4°, circumpolaire depuis la France. Toujours à imager conjointement avec VdB 1 (même région). Longue focale. LRVB profond. Intégration 6–8h pour révéler la nébulosité bleue diffuse. Conditions de ciel Bortle 4 ou mieux indispensables.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 14": {
+      "name": "Nébuleuse Persée SE",
+      "type": "Reflection Nebula",
+      "distance_ly": 1000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "NovDecJan",
+      "description": "VdB 14 (Nébuleuse Persée SE) est une nébuleuse à réflexion dans la constellation de Persée, à environ 1 000 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 3′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte dans les nuages moléculaires de Persée (Perseus OB2 Association), l'une des régions de formation stellaire à basse masse les plus actives du voisinage solaire. Le complexe de Persée inclut IC 348, NGC 1333 et de nombreuses nébuleuses à réflexion faibles. VdB 14 est illuminée par une jeune étoile de type B encore partiellement enfouie dans son nuage natal. Sa magnitude de surface très faible (10.5) requiert un ciel particulièrement sombre et une longue intégration. Astrophotographie : Dec +47.7°, excellente accessibilité hivernale (culmination ~80°). Très compact (3′) : très longue focale (>1000mm). LRVB profond. Intégration >6h. Peut s'intégrer dans un champ plus large du complexe de Persée.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 15": {
+      "name": "Nébuleuse Persée Est",
+      "type": "Reflection Nebula",
+      "distance_ly": 1000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "NovDecJan",
+      "description": "VdB 15 (Nébuleuse Persée Est) est une nébuleuse à réflexion dans la constellation de Persée, à environ 1 000 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 3′. Cataloguée par Sidney van den Bergh en 1966. Autre représentant des nébuleuses à réflexion compactes du complexe moléculaire de Persée. VdB 15 est associée à une étoile de type B/A dans la périphérie de l'association OB2 de Persée. Sa position à Dec +31.9° la rend légèrement moins favorable que VdB 14 mais toujours très accessible depuis les latitudes françaises en hiver. Le fond stellaire de Persée, riche et dense, fournit un contexte esthétique même pour les cibles sombres. Astrophotographie : Dec +31.9°, culmination ~74° depuis Rémalard. Cible hivernale. Très compact (3′) : longue focale indispensable. LRVB profond. Intégration 6–8h. Conditions de ciel Bortle ≤4 recommandées.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 16": {
+      "name": "Nébuleuse Tau-Persée",
+      "type": "Reflection Nebula",
+      "distance_ly": 700.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "NovDecJan",
+      "description": "VdB 16 (Nébuleuse Taureau-Persée) est une nébuleuse à réflexion à la frontière Taureau-Persée, à environ 700 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion appartenant à la zone de transition entre les complexes moléculaires du Taureau (TMC) et de Persée (PMC), deux des régions de formation stellaire à basse masse les plus proches du Soleil. Son étoile illuminatrice est de type A ou B tardif, conférant une teinte bleue-blanche caractéristique. La région est traversée par des filaments de poussière qui s'étendent sur plusieurs degrés, révélant des IFN en imagerie très profonde. Astrophotographie : Dec +24.1°, culmination ~67° depuis Rémalard. Cible hivernale accessible. Taille 5′ : longue focale. LRVB profond. Fond de ciel riche en structures diffuses Tau-Per. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 17": {
+      "name": "Nébuleuse Alcyone (Pléiades)",
+      "type": "Reflection Nebula",
+      "distance_ly": 444.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "NovDecJan",
+      "description": "VdB 17 (Nébuleuse des Pléiades / Alcyone) est la grande nébuleuse à réflexion associée à l'amas des Pléiades (M45) dans le Taureau, à environ 444 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 30′ autour d'Alcyone (η Tau), la plus brillante des Pléiades. Cataloguée par Sidney van den Bergh en 1966 comme représentante des nébuleuses à réflexion de M45 ; les nébuleuses des Pléiades ont été décrites dès 1859 par Wilhelm Tempel. La nébuleuse des Pléiades est la nébuleuse à réflexion la plus lumineuse et la plus aisément photographiée du ciel. Elle n'est pas le reste du nuage natal des Pléiades (dispersé depuis longtemps) mais un nuage interstellaire indépendant que l'amas traverse actuellement. Ses filaments de poussière bleutés entourant les étoiles brillantes sont spectaculaires et révèlent une structure en toile complexe sur les images profondes. Astrophotographie : Dec +24.1°, culmination ~67° depuis Rémalard. Cible hivernale emblématique. Grand champ recommandé pour couvrir tout l'amas (30′ à 2°). LRVB profond ; les halos diffus autour des étoiles brillantes nécessitent une gestion soigneuse des saturations. 4–8h d'intégration. Une des cibles les plus accessibles du catalogue VdB.",
+      "external_link": "https://en.wikipedia.org/wiki/Pleiades"
+    },
+    "VdB 20": {
+      "name": "Nébuleuse BD+22",
+      "type": "Reflection Nebula",
+      "distance_ly": 1200.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "NovDecJan",
+      "description": "VdB 20 (Nébuleuse BD+22) est une nébuleuse à réflexion dans la constellation du Taureau, à environ 1 200 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Son nom fait référence à l'étoile illuminatrice cataloguée BD+22 (Bonner Durchmusterung, zone +22° de déclinaison). Nébuleuse compacte et peu documentée du complexe moléculaire du Taureau, illuminée par une étoile chaude de type B. Sa faible brillance de surface (mag 10.0) en fait une cible discrète, intéressante à intégrer dans un champ large du nuage sombre du Taureau. Le contraste entre la nébulosité bleue ponctuelle et les nuages sombres environnants est caractéristique des nébuleuses à réflexion isolées du TMC. Astrophotographie : Dec +22.8°, culmination ~65° depuis Rémalard. Cible hivernale. Compact (4′) : longue focale. LRVB profond. Intégration 6–8h. Contexte du Taureau riche en structures sombres environnantes.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 21": {
+      "name": "Nébuleuse Orion RN",
+      "type": "Reflection Nebula",
+      "distance_ly": 1300.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "DecJanFeb",
+      "description": "VdB 21 (Nébuleuse Orion à Réflexion) est une nébuleuse à réflexion dans la constellation d'Orion, à environ 1 300 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte appartenant au vaste complexe moléculaire d'Orion (OMC), le plus grand et le plus actif des régions de formation stellaire proches. Elle est illuminée par une jeune étoile chaude de l'association OB1 d'Orion. Son environnement est extraordinairement riche : à quelques degrés se trouvent M42, M43, la Nébuleuse de la Flamme (NGC 2024), la Tête de Cheval (B 33) et Barnard's Loop (Sh2-276). L'imagerie très profonde révèle souvent des connections nébuleuses ténues avec les structures environnantes. Astrophotographie : Dec +15.8°, culmination ~58° depuis Rémalard. Cible hivernale. Compact (5′) : longue focale. LRVB profond. Intégration 6–8h. Le contexte nébuleux d'Orion enrichit considérablement les champs larges incluant VdB 21.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 28": {
+      "name": "Nébuleuse Lambda Orionis",
+      "type": "Reflection Nebula",
+      "distance_ly": 1300.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "DecJanFeb",
+      "description": "VdB 28 (Nébuleuse Lambda Orionis) est une nébuleuse à réflexion dans la région de Lambda Orionis (Meissa), dans la constellation d'Orion, à environ 1 300 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 10′. Cataloguée par Sidney van den Bergh en 1966. VdB 28 est associée au vaste anneau de Barnard (Lambda Orionis Ring, SH2-264), une immense bulle de gaz ionisé de ~8° de diamètre centrée sur l'étoile O Lambda Ori. La nébuleuse à réflexion elle-même est illuminée par une étoile de l'association Lambda Ori OB1. Ce complexe est une région HII + nébuleuse à réflexion + nuages sombres (B 30, B 35) exceptionnellement riche. Astrophotographie : Dec +9.9°, culmination ~52° depuis Rémalard. Cible hivernale. Taille 10′ : focale intermédiaire. LRVB + Ha pour capturer à la fois la réflexion bleue et l'émission Ha environnante de SH2-264. Champ large pour inclure l'anneau.",
+      "external_link": "https://en.wikipedia.org/wiki/Lambda_Orionis"
+    },
+    "VdB 38": {
+      "name": "Nébuleuse Monoceros",
+      "type": "Reflection Nebula",
+      "distance_ly": 2500.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "JanFebMar",
+      "description": "VdB 38 (Nébuleuse Monoceros) est une nébuleuse à réflexion dans la constellation de la Licorne (Monoceros), à environ 2 500 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte appartenant au complexe de formation stellaire de la Licorne, une région dense en nuages moléculaires et en jeunes étoiles de l'anticentre galactique. Son étoile illuminatrice est de type B, conférant la teinte bleutée caractéristique de ces objets. La Licorne est une constellation riche pour l'astrophotographie profonde : Nébuleuse de la Rosette, Nébuleuse du Cône, Christmas Tree Cluster et de nombreuses nébuleuses à réflexion disséminées dans le complexe moléculaire Mon OB2. Astrophotographie : Dec +8.7°, culmination ~51° depuis Rémalard. Cible hivernale de fin de saison. Compact (4′) : longue focale. LRVB profond. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 62": {
+      "name": "Nébuleuse ρ Ophiuchi Nord",
+      "type": "Reflection Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "MayJunJul",
+      "description": "VdB 62 (Nébuleuse rho Ophiuchi Nord) est une nébuleuse à réflexion dans la constellation du Serpentaire (Ophiuchus), à environ 460 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 15′. Cataloguée par Sidney van den Bergh en 1966. VdB 62 fait partie du spectaculaire complexe de nébuleuses à réflexion de rho Ophiuchi, l'un des tableaux astrophotographiques les plus colorés du ciel : un mélange unique de nébulosités bleues à réflexion, de nuages sombres et de nébulosités rougeâtres d'émission Ha et de fond galactique. Avec VdB 92 et VdB 99 au voisinage, ces nébuleuses forment l'iconique région rho Oph. L'étoile illuminatrice est une jeune étoile de type B/A du complexe rho Oph. Astrophotographie : Dec -24.6°, culmination ~18° depuis Rémalard — cible basse d'été. Grand champ pour inclure tout le complexe rho Oph (VdB 62, 92, 99 + nuages sombres). LRVB très profond. Nuits d'été à faible turbulence. Malgré la hauteur limitée, l'un des champs les plus récompensants du ciel.",
+      "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
+    },
+    "VdB 67": {
+      "name": "Nébuleuse Gémeaux",
+      "type": "Reflection Nebula",
+      "distance_ly": 2200.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "JanFebMar",
+      "description": "VdB 67 (Nébuleuse Gémeaux) est une nébuleuse à réflexion dans la constellation des Gémeaux, à environ 2 200 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 3′. Cataloguée par Sidney van den Bergh en 1966. Petite nébuleuse à réflexion compacte dans le plan galactique des Gémeaux, illuminée par une étoile de type B. Les Gémeaux sont traversés par la Voie Lactée de l'anticentre galactique, une région moins spectaculaire que le centre mais ponctuée de petites nébuleuses et d'amas. La faible taille (3′) requiert une très longue focale. Dans le même secteur de ciel se trouvent plusieurs autres régions HII et nébuleuses diffuses du complexe Gem OB1. Astrophotographie : Dec +16.2°, culmination ~59° depuis Rémalard. Cible hivernale de fin de saison. Très compact (3′) : très longue focale recommandée (>1000mm). LRVB profond. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 82": {
+      "name": "Nébuleuse Grande Ourse",
+      "type": "Reflection Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "MarAprMay",
+      "description": "VdB 82 (Nébuleuse Grande Ourse) est une nébuleuse à réflexion dans la constellation de la Grande Ourse (Ursa Major), à environ 1 500 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion isolée dans une région de haute latitude galactique de la Grande Ourse, où les nébuleuses brillantes sont rares. Sa position éloignée du plan galactique lui confère un fond stellaire moins dense, mais des IFN (Integrated Flux Nebulae) cirrus galactiques peuvent être présents en imagerie très profonde. L'objet est peu documenté et rarement imagé. Son étoile illuminatrice est de type B modéré. Astrophotographie : Dec +43.8°, culmination ~77° depuis Rémalard — excellente accessibilité printanière. Compact (4′) : longue focale. LRVB très profond. Intégration >8h pour compenser la faible brillance de surface. Ciel parfaitement sombre indispensable.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 92": {
+      "name": "Nébuleuse ρ Ophiuchi",
+      "type": "Reflection Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "MayJunJul",
+      "description": "VdB 92 (Nébuleuse rho Ophiuchi) est la nébuleuse à réflexion principale du complexe rho Ophiuchi dans la constellation du Serpentaire, à environ 460 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Sidney van den Bergh en 1966. VdB 92 est l'un des joyaux de l'astrophotographie profonde : illuminée par l'étoile rho Ophiuchi (B2V), cette nébuleuse bleue s'inscrit dans un tableau extraordinaire associant nuages sombres (LDN 1689, B 44), nébulosités rouges d'émission Ha, et le fond orangé de l'étoile géante Antares et sa propre nébuleuse à réflexion. L'ensemble du complexe rho Oph est l'une des régions de formation stellaire les plus proches (460 al) et les plus étudiées. La palette chromatique unique (bleu, rouge, orangé, sombre) en fait une des cibles les plus prisées des astrophotographes. Astrophotographie : Dec -24.4°, culmination ~18° depuis Rémalard — cible basse d'été. Grand champ absolument nécessaire pour couvrir tout le complexe (2–3°). LRVB très profond. Nuits d'été à seeing excellent. L'une des cibles les plus récompensantes malgré la faible hauteur.",
+      "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
+    },
+    "VdB 99": {
+      "name": "Nébuleuse ρ Ophiuchi Sud",
+      "type": "Reflection Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "MayJunJul",
+      "description": "VdB 99 (Nébuleuse rho Ophiuchi Sud) est une nébuleuse à réflexion dans la partie méridionale du complexe rho Ophiuchi, dans la constellation du Scorpion/Serpentaire, à environ 460 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 10′. Cataloguée par Sidney van den Bergh en 1966. VdB 99 est le membre méridional du trio VdB 62–92–99 formant le cœur du complexe rho Oph. Elle éclaire les couches inférieures du nuage moléculaire LDN 1688 et se distingue par une teinte légèrement différente des autres membres du complexe selon la nature de son étoile illuminatrice. Sa position plus australe (Dec -26.4°) la rend encore plus difficile depuis les latitudes nord tempérées. Astrophotographie : Dec -26.4°, culmination ~16° depuis Rémalard — cible très basse d'été. Toujours imagée dans le même grand champ que VdB 92 et VdB 62. LRVB très profond. Nuits d'été à très faible turbulence.",
+      "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
+    },
+    "VdB 101": {
+      "name": "Nébuleuse Scorpion",
+      "type": "Reflection Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "JunJulAug",
+      "description": "VdB 101 (Nébuleuse Scorpion) est une nébuleuse à réflexion dans la constellation du Scorpion, à environ 500 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte appartenant aux vastes complexes moléculaires de Scorpion-Centaure (Sco OB2), l'association OB la plus proche du Soleil. L'étoile illuminatrice est une jeune étoile de type B de l'association Upper Sco. La région du Scorpion est extraordinairement riche en nébuleuses à réflexion, diffuses et en émission, mais sa déclinaison très australe limite fortement l'accessibilité depuis les latitudes françaises. Astrophotographie : Dec -22.6°, culmination ~20° depuis Rémalard — cible basse d'été. Compact (5′) : longue focale. LRVB profond. Créneau d'imagerie très restreint depuis la France. Préférer les observatoires méridionaux pour cette cible.",
+      "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
+    },
+    "VdB 107": {
+      "name": "Nébuleuse Scorpion Bleue",
+      "type": "Reflection Nebula",
+      "distance_ly": 550.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "JunJulAug",
+      "description": "VdB 107 (Nébuleuse Scorpion Bleue) est une nébuleuse à réflexion dans la constellation du Scorpion, à environ 550 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte et peu documentée du complexe Sco-Cen (Scorpius-Centaurus OB2), illuminée par une étoile chaude de type B précoce. Sa teinte bleue intense, caractéristique des nébuleuses à réflexion associées à des étoiles très chaudes, lui vaut son surnom. Sa déclinaison très australe (-36.8°) la rend pratiquement inaccessible depuis les latitudes françaises (hauteur maximale ~5° depuis Rémalard). Astrophotographie : Dec -36.8°, culmination ~5° depuis Rémalard — quasiment inaccessible depuis la France. Cible réservée aux observatoires du sud de l'Europe (>lat. 40°S) ou aux voyages astrophoto. Mentionnée pour l'exhaustivité du catalogue.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 126": {
+      "name": "Nébuleuse Cygne RN",
+      "type": "Reflection Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 126 (Nébuleuse Cygne à Réflexion) est une nébuleuse à réflexion dans la constellation du Cygne, à environ 2 000 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 6′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion dans le complexe de formation stellaire Cygnus OB, l'une des régions les plus riches du ciel boréal en nébuleuses d'émission, de réflexion et nuages sombres. VdB 126 est illuminée par une étoile de type B associée aux nuages moléculaires du Grand Rift galactique du Cygne. Son environnement inclut de nombreuses autres nébuleuses à réflexion (VdB 130–133) et structures sombres du Rift. Les images profondes en grand champ révèlent souvent des conexions ténues avec les nébuleuses d'émission Ha environnantes. Astrophotographie : Dec +40.5°, culmination ~73° depuis Rémalard — excellente accessibilité estivale. Taille 6′ : longue focale préférable. LRVB profond + Ha optionnel pour le contexte. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 130": {
+      "name": "Nébuleuse Cygne RN2",
+      "type": "Reflection Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 130 (Nébuleuse Cygne à Réflexion 2) est une nébuleuse à réflexion dans la constellation du Cygne, à environ 2 000 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte du complexe du Grand Rift galactique du Cygne, voisine de VdB 131 et VdB 132 dans le même secteur de ciel. Ces nébuleuses forment un groupe dense de petites nébulosités bleues dispersées dans la richesse nébuleuse du Cygne central. VdB 130 est illuminée par une étoile chaude enfouie dans le nuage parent. La faible magnitude de surface (10.5) nécessite un ciel parfaitement sombre et une intégration longue. Astrophotographie : Dec +38.4°, culmination ~71° depuis Rémalard. Cible estivale-automnale. Compact (5′) : longue focale. LRVB profond. À intégrer dans un champ commun avec VdB 131 et VdB 132 pour un tableau de nébuleuses bleutées. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 131": {
+      "name": "Nébuleuse Cygne Nord-Est",
+      "type": "Reflection Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 131 (Nébuleuse Cygne Nord-Est) est une nébuleuse à réflexion dans la constellation du Cygne, à environ 2 000 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Membre du groupe dense de nébuleuses à réflexion du Cygne central avec VdB 130, 132 et 133. VdB 131 occupe la position nord-est du groupe et est illuminée par une étoile de type B dans le nuage moléculaire parent. La richesse du fond nébuleux Ha du Cygne (complexe Cygnus X, Dentelle, etc.) fournit un contexte spectaculaire pour les images grand champ qui capturent simultanément ces petites nébulosités bleues sur fond rouge d'émission. Astrophotographie : Dec +40.6°, culmination ~73° depuis Rémalard. Cible estivale-automnale. Compact (5′). LRVB profond + Ha. Intérêt maximal en grand champ incluant VdB 130–133 ensemble. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 132": {
+      "name": "Nébuleuse Cygne Est",
+      "type": "Reflection Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 132 (Nébuleuse Cygne Est) est une nébuleuse à réflexion dans la constellation du Cygne, à environ 2 000 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Quatrième membre du groupe de nébuleuses à réflexion du Cygne central, au voisinage de VdB 130, 131 et 133. Ces quatre nébulosités bleues sont physiquement liées aux nuages moléculaires du Grand Rift du Cygne et illuminées par des étoiles chaudes enfouies dans le même complexe. Ensemble, elles offrent un tableau astrophotographique remarquable lorsqu'elles sont imagées sur fond de la Voie Lactée du Cygne et des nébuleuses Ha environnantes. Astrophotographie : Dec +40.1°, culmination ~73° depuis Rémalard. Cible estivale-automnale. Compact (5′) : longue focale. LRVB + Ha. À imager systématiquement dans le même champ que VdB 130–133. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 133": {
+      "name": "Nébuleuse Cygne Sud-Est",
+      "type": "Reflection Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 133 (Nébuleuse Cygne Sud-Est) est une nébuleuse à réflexion dans la constellation du Cygne, à environ 2 000 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. Cinquième membre du groupe de nébuleuses à réflexion du Cygne central, occupant la position la plus méridionale du groupe (Dec +35.9°). Illuminée par une étoile chaude associée aux nuages du Rift galactique, VdB 133 est la plus facilement accessible grâce à sa déclinaison légèrement plus basse. L'association Cygnus OB2 voisine, l'une des associations OB les plus massives de la Galaxie, fournit le contexte nébuleux Ha dominant. Un filament de nuage sombre sépare parfois VdB 133 de ses voisins du nord, créant un contraste bleu/sombre esthétique. Astrophotographie : Dec +35.9°, culmination ~68° depuis Rémalard. Cible estivale. LRVB + Ha. Champ large pour inclure le groupe VdB 130–133. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 136": {
+      "name": "Nébuleuse Pégase",
+      "type": "Reflection Nebula",
+      "distance_ly": 1800.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 136 (Nébuleuse Pégase) est une nébuleuse à réflexion dans la constellation de Pégase, à environ 1 800 al. Elle apparaît autour de la magnitude 11.0, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion faible et peu documentée dans la constellation de Pégase, une région de haute latitude galactique où les nébuleuses brillantes sont rares. Son étoile illuminatrice est de type B, mais la faible densité de poussière dans cette direction (loin du plan galactique) limite la brillance de surface. Des IFN galactiques ténus peuvent être détectés en imagerie très profonde dans ce secteur de ciel. Sa magnitude de surface (11.0) en fait l'une des cibles les plus exigeantes de la liste. Astrophotographie : Dec +12.2°, culmination ~55° depuis Rémalard. Cible d'automne. Compact (4′) : longue focale. LRVB très profond. Intégration >8h. Ciel Bortle ≤3 quasi-indispensable. Cible de défi pour imageurs avancés.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 139": {
+      "name": "Nébuleuse Iris",
+      "type": "Reflection Nebula",
+      "distance_ly": 1300.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 139 (Nébuleuse Iris / NGC 7023) est la nébuleuse à réflexion la plus lumineuse et la plus spectaculaire du catalogue VdB dans la constellation de Céphée, à environ 1 300 al. Elle apparaît autour de la magnitude 7.1, couvrant environ 18′ — la plus accessible de la liste. Cataloguée par Sidney van den Bergh en 1966 ; l'objet est connu depuis William Herschel (1794) qui la répertoria comme NGC 7023. NGC 7023 est la nébuleuse à réflexion emblématique du ciel boréal : illuminée par l'étoile HD 200775 (de type B2/B3Ve), ses pétales bleus lumineux et son cœur dense, parsemé de filaments de poussière sombre, évoquent les pétales d'une iris. Elle a été minutieusement étudiée comme PDR (Photodissociation Region) modèle. Ses filaments de poussière révèlent une structure en émission ERE (Extended Red Emission) sur les images très profondes, avec une teinte rougeâtre/orangée paradoxale visible en plus du bleu dominant. Astrophotographie : Dec +68.2°, circumpolaire depuis la France. Cible d'automne par excellence. Taille 18′ : focale intermédiaire à longue (400–800mm). LRVB profond pour les nuances bleu + orangé ERE. L'une des cibles VdB les plus accessibles et les plus récompensantes. 6–10h d'intégration.",
+      "external_link": "https://en.wikipedia.org/wiki/Iris_Nebula"
+    },
+    "VdB 141": {
+      "name": "Fantôme de Céphée",
+      "type": "Reflection Nebula",
+      "distance_ly": 1200.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 141 (Sh2-136 / Fantôme de Céphée / Ghost Nebula) est une nébuleuse à réflexion dans la constellation de Céphée, à environ 1 200 al. Elle apparaît autour de la magnitude 11.0, couvrant environ 10′. Cataloguée par Sidney van den Bergh en 1966 (aussi Sh2-136 dans le catalogue Sharpless). VdB 141 est l'une des nébuleuses à réflexion les plus fantomatiques et esthétiques du catalogue : ses volutes de poussière éclairées par deux étoiles centrales dessinent une silhouette spectrale à l'aspect de fantôme ou de figure encapuchonnée, d'où son surnom. Elle est entourée par des nuages sombres du Cepheus Flare qui accentuent sa pâleur apparente. Sa faible magnitude de surface (11.0) exige un ciel parfaitement sombre et une longue intégration pour révéler les nuances dans les voiles de poussière. Astrophotographie : Dec +57.5°, circumpolaire depuis la France. Cible d'automne de choix. Taille 10′ : longue focale. LRVB très profond. 8–12h d'intégration pour les détails fantasmagoriques. L'une des nébuleuses à réflexion les plus populaires auprès des astrophotographes avancés.",
+      "external_link": "https://en.wikipedia.org/wiki/VdB_141"
+    },
+    "VdB 142": {
+      "name": "Trompe d'Éléphant RN",
+      "type": "Reflection Nebula",
+      "distance_ly": 2400.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 142 (Trompe d'Éléphant — Nébuleuse à Réflexion / IC 1396A) est la composante à réflexion du pilier de la Trompe d'Éléphant dans la constellation de Céphée, à environ 2 400 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 15′. Cataloguée par Sidney van den Bergh en 1966. IC 1396A est l'un des globules cométaires les plus célèbres du ciel : un pilier de gaz et de poussière dense en cours d'érosion photoélectrique par l'étoile géante HD 206267 (O6.5V) au centre de la nébuleuse IC 1396. La pointe du pilier abrite de jeunes protoétoiles en cours de formation. En lumière visible, VdB 142 présente une faible nébulosité à réflexion bleutée à la pointe ; en Ha, la coquille d'ionisation rouge brillante entoure le pilier sombre. L'association réflexion + émission + pilier sombre est l'un des tableaux astrophotographiques les plus expressifs. Astrophotographie : Dec +57.6°, circumpolaire depuis la France. Cible d'automne. Taille 15′ : longue focale pour résoudre le détail du pilier. LRVB + Ha absolument nécessaire pour la combinaison couleur-émission. 6–10h d'intégration.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_1396"
+    },
+    "VdB 143": {
+      "name": "Nébuleuse Céphée",
+      "type": "Reflection Nebula",
+      "distance_ly": 800.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 143 (Nébuleuse Céphée) est une nébuleuse à réflexion dans la constellation de Céphée, à environ 800 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion compacte du complexe de Céphée, proche de la déclinaison +73° — l'une des plus septentrionales du catalogue VdB. Elle appartient aux complexes de nuages froids de la périphérie polaire de Céphée, à haute latitude galactique, où les IFN galactiques (cirrus) sont parfois détectables en imagerie très profonde. Son étoile illuminatrice de type B éclaire un nuage de poussière isolé dans cet environnement peu dense. Astrophotographie : Dec +73.4°, strictement circumpolaire depuis la France. Visible toute l'année, meilleure en automne. Compact (4′) : longue focale. LRVB très profond pour IFN environnants. Intégration >8h. Ciel Bortle ≤4 indispensable.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 148": {
+      "name": "Nébuleuse Céphée Est",
+      "type": "Reflection Nebula",
+      "distance_ly": 900.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 148 (Nébuleuse Céphée Est) est une nébuleuse à réflexion dans la constellation de Céphée, à environ 900 al. Elle apparaît autour de la magnitude 11.0, couvrant environ 3′. Cataloguée par Sidney van den Bergh en 1966. Petite nébuleuse à réflexion très peu documentée de la région orientale de Céphée, illuminée par une étoile de type B dans un nuage isolé du Cepheus Flare. Sa magnitude de surface extrêmement faible (11.0) et sa taille réduite (3′) en font l'une des cibles les plus difficiles du catalogue. La région de Céphée est néanmoins favorable à ce type d'imagerie grâce à la circumpolaire circumpolaire garantissant des fenêtres d'intégration étendues. Les IFN galactiques et les cirrus de fond peuvent compléter l'image en profondeur extrême. Astrophotographie : Dec +65.5°, circumpolaire depuis la France. Cible d'automne-hiver. Très compact (3′) : très longue focale (>1000mm). LRVB très profond. Intégration >10h. Cible de défi extrême.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 149": {
+      "name": "Nébuleuse Céphée SE",
+      "type": "Reflection Nebula",
+      "distance_ly": 650.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 149 (Nébuleuse Céphée Sud-Est) est une nébuleuse à réflexion dans la constellation de Céphée, à environ 650 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 3′. Cataloguée par Sidney van den Bergh en 1966. VdB 149 est souvent imagée conjointement avec VdB 150 et la nébuleuse sombre LDN 1235 (Dark Shark Nebula) dans le même grand champ. Ce trio constitue l'un des tableaux les plus esthétiques du ciel d'automne boréal : les deux nébulosités bleues de réflexion se détachent sur la silhouette sombre en forme de requin de LDN 1235, créant un contraste bleu/sombre spectaculaire. VdB 149 est la plus petite et la plus diffuse des deux nébulosités bleues du champ. Astrophotographie : Dec +69.8°, circumpolaire depuis la France. Cible d'automne. Compact (3′) : longue focale. LRVB profond. À imager systématiquement en grand champ avec VdB 150 et LDN 1235 pour le tableau complet. Intégration 8–12h pour les IFN de fond.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 150": {
+      "name": "Nébuleuse Céphée Sud",
+      "type": "Reflection Nebula",
+      "distance_ly": 650.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "AugSepOct",
+      "description": "VdB 150 (Nébuleuse Céphée Sud) est une nébuleuse à réflexion dans la constellation de Céphée, à environ 650 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 5′. Cataloguée par Sidney van den Bergh en 1966. VdB 150 est le pendant principal de VdB 149 dans le fameux champ LDN 1235 (Dark Shark Nebula). Légèrement plus étendue et plus lumineuse que VdB 149, elle représente la nébulosité bleue dominante du champ. L'association visuelle avec la silhouette sombre de LDN 1235 est l'une des compositions astrophotographiques les plus recherchées du catalogue Céphée. Sur les images très profondes, des IFN galactiques ténus et des filaments de poussière supplémentaires émergent du fond de ciel, enrichissant encore le tableau. Astrophotographie : Dec +57.6°, circumpolaire depuis la France. Cible d'automne. Taille 5′ : longue focale. LRVB très profond. À imager impérativement avec VdB 149 + LDN 1235 dans un même champ large. Intégration 8–12h. Bortle 4 de Rémalard : condition favorable.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    },
+    "VdB 152": {
+      "name": "Nébuleuse de Wolf",
+      "type": "Reflection Nebula",
+      "distance_ly": 1400.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 152 (Nébuleuse de Wolf / Wolf's Cave Nebula) est une nébuleuse à réflexion dans la constellation de Céphée, à environ 1 400 al. Elle apparaît autour de la magnitude 10.5, couvrant environ 10′. Cataloguée par Sidney van den Bergh en 1966. VdB 152 est l'une des nébuleuses à réflexion les plus photogéniques du ciel d'automne. Illuminée par l'étoile HD 222046 (B2), ses voiles de poussière d'un bleu intense sont sculptées par les vents stellaires en structures évocatrices de cavernes ou de grottes. Elle est noyée dans un nuage sombre dense (B 175 / LDN voisin) qui amplifie dramatiquement le contraste. Sur les images très profondes, des filaments orangés d'ERE (Extended Red Emission) ont été détectés en périphérie, similaires à la Nébuleuse Iris. Des IFN galactiques ténus complètent le fond sur les poses extrêmes. Astrophotographie : Dec +69.9°, circumpolaire depuis la France. Cible automnale par excellence. Taille 10′ : longue focale (600–1000mm). LRVB très profond. 8–12h d'intégration pour les filaments et IFN. Bortle 4 de Rémalard est un atout déterminant.",
+      "external_link": "https://en.wikipedia.org/wiki/VdB_152"
+    },
+    "VdB 158": {
+      "name": "Nébuleuse Pégase Sud",
+      "type": "Reflection Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Sidney van den Bergh",
+      "discovery_year": 1966,
+      "best_months": "SepOctNov",
+      "description": "VdB 158 (Nébuleuse Pégase Sud) est une nébuleuse à réflexion dans la constellation de Pégase, à environ 1 500 al. Elle apparaît autour de la magnitude 11.0, couvrant environ 4′. Cataloguée par Sidney van den Bergh en 1966. Nébuleuse à réflexion très peu documentée dans la région méridionale de Pégase, une constellation de haute latitude galactique où les nébuleuses interstellaires sont rares et très diffuses. L'étoile illuminatrice est de type B, mais la faible densité de poussière dans cette direction limite la brillance de surface à une valeur extrêmement faible (mag 11.0). Sa Dec +27.1° la rend raisonnablement accessible depuis la France, mais les conditions de ciel doivent être exceptionnelles pour détecter la nébulosité. Des IFN galactiques cirrus constituent souvent l'intérêt principal des images profondes dans cette région. Astrophotographie : Dec +27.1°, culmination ~70° depuis Rémalard. Cible d'automne. Compact (4′) : longue focale. LRVB extrêmement profond. Intégration >10h. Ciel Bortle ≤3 quasi-indispensable. Cible de défi réservée aux imageurs expérimentés.",
+      "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
+    }
+  }
+}

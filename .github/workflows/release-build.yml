@@ -39,14 +39,14 @@ jobs:
           while IFS= read -r line; do
             notes="${notes}\n- ${line}"
           done < <(git log --oneline "${range}")
-          notes="${notes}\n\nMigration note: If you lost notes after updating, you can migrate from an older app bundle:\n- python3 scripts/migrate_metadata_notes.py --app-bundle \"/path/to/old/Astro Catalogue Viewer.app\""
+          notes="${notes}\n\nMigration note: If you lost notes after updating, you can migrate from an older app bundle:\n- python3 scripts/migrate_metadata_notes.py --app-bundle \"/path/to/old/AstroCat.app\""
           printf "body<<EOF\n%s\nEOF\n" "$notes" >> "$GITHUB_OUTPUT"
 
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          name: Astro Catalogue Viewer ${{ env.RELEASE_TAG }}
+          name: AstroCat ${{ env.RELEASE_TAG }}
           body: ${{ steps.notes.outputs.body }}
           generate_release_notes: false
           prerelease: true
@@ -75,17 +75,17 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-windows.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
 
       - name: Package
         run: |
-          Compress-Archive -Path "dist/Astro Catalogue Viewer/*" -DestinationPath "AstroCatalogueViewer-Windows.zip"
+          Compress-Archive -Path "dist/AstroCat/*" -DestinationPath "AstroCat-Windows.zip"
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCatalogueViewer-Windows.zip
+          files: AstroCat-Windows.zip
 
   build-linux:
     runs-on: ubuntu-latest
@@ -111,18 +111,18 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-linux.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-linux.spec
 
       - name: Package
         run: |
           cd dist
-          zip -r ../AstroCatalogueViewer-Linux.zip "Astro Catalogue Viewer"
+          zip -r ../AstroCat-Linux.zip "AstroCat"
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCatalogueViewer-Linux.zip
+          files: AstroCat-Linux.zip
 
   build-macos:
     runs-on: macos-latest
@@ -148,19 +148,19 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/Astro Catalogue Viewer.app" \
-            "AstroCatalogueViewer-macOS-AppleSilicon.zip"
+            "dist/AstroCat.app" \
+            "AstroCat-macOS-AppleSilicon.zip"
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCatalogueViewer-macOS-AppleSilicon.zip
+          files: AstroCat-macOS-AppleSilicon.zip
 
   build-macos-intel:
     runs-on: macos-15-intel
@@ -186,16 +186,16 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/Astro Catalogue Viewer.app" \
-            "AstroCatalogueViewer-macOS-Intel.zip"
+            "dist/AstroCat.app" \
+            "AstroCat-macOS-Intel.zip"
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCatalogueViewer-macOS-Intel.zip
+          files: AstroCat-macOS-Intel.zip

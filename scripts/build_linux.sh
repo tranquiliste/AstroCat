@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ZIP_NAME="AstroCatalogueViewer-Linux.zip"
+ZIP_NAME="AstroCat-Linux.zip"
 
 python3 -m pip install --upgrade pyinstaller
 python3 -m pip install --upgrade -r requirements.txt
@@ -14,5 +14,5 @@ if [ -f "$ZIP_NAME" ]; then
 fi
 
 cd dist
-zip -r "../$ZIP_NAME" "Astro Catalogue Viewer"
+zip -r "../$ZIP_NAME" "AstroCat"
 echo "Created $ZIP_NAME"

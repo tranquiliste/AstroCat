@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_NAME="Astro Catalogue Viewer"
-ZIP_NAME="AstroCatalogueViewer-macOS.zip"
+APP_NAME="AstroCat"
+ZIP_NAME="AstroCat-macOS.zip"
 
 python3 -m pip install --upgrade pyinstaller
 python3 -m pip install --upgrade -r requirements.txt

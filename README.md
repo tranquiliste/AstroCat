@@ -1,6 +1,6 @@
-# Astro Catalogue Viewer
+# AstroCat
 
-Astro Catalogue Viewer is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It gives you a fast image grid, filters, rich object metadata, and notes so you can track progress and plan what to capture next.
+AstroCat is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It gives you a fast image grid, filters, rich object metadata, and notes so you can track progress and plan what to capture next.
 
 Website: https://astro-catalogue-viewer.com/
 
@@ -69,8 +69,8 @@ python3 -m pip install -r requirements.txt
 ```
 
 The packaged app will be in `dist/`. GitHub releases include separate macOS builds:
-- Apple Silicon: `AstroCatalogueViewer-macOS-AppleSilicon.zip`
-- Intel: `AstroCatalogueViewer-macOS-Intel.zip`
+- Apple Silicon: `AstroCat-macOS-AppleSilicon.zip`
+- Intel: `AstroCat-macOS-Intel.zip`
 
 ## Windows Build
 Clone this repo on Windows and run one of the build scripts (requires Python 3.10+):
@@ -138,7 +138,7 @@ Messier metadata is complete and includes expanded descriptions with astrophotog
 
 ### Resetting saved settings
 If the app has a bad image path or filter state saved, delete the config file:
-- macOS: `~/Library/Application Support/AstroCatalogueViewer/config.json`
+- macOS: `~/Library/Application Support/AstroCat/config.json`
 
 ## Support
 If this helps your astrophotography workflow, consider supporting ongoing development:

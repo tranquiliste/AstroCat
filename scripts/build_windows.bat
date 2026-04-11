@@ -1,8 +1,8 @@
 @echo off
 setlocal
 set PYTHON=python
-set APPNAME=Astro Catalogue Viewer
-set ZIPNAME=AstroCatalogueViewer-Windows.zip
+set APPNAME=AstroCat
+set ZIPNAME=AstroCat-Windows.zip
 
 %PYTHON% -m pip install --upgrade pyinstaller || exit /b 1
 %PYTHON% -m pip install --upgrade -r requirements.txt || exit /b 1

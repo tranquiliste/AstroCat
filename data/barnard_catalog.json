@@ -1,0 +1,234 @@
+{
+  "Barnard": {
+    "B 33": {
+      "name": "Tête de Cheval",
+      "type": "Dark Nebula",
+      "distance_ly": 1350.0,
+      "discoverer": "Williamina Fleming",
+      "discovery_year": 1888,
+      "best_months": "DecJanFeb",
+      "description": "B 33 (Nébuleuse de la Tête de Cheval / Horsehead Nebula) est la nébuleuse sombre la plus iconique du ciel, dans la constellation d'Orion, à environ 1 350 al. Opacité maximale sur un champ d'environ 8′. Identifiée en 1888 par Williamina Fleming sur les plaques photographiques de l'Observatoire de Harvard, et cataloguée par Edward Emerson Barnard en 1919. B 33 est un pilier de gaz et de poussière dense en forme de tête de cheval se détachant sur la nébulosité rouge brillante d'IC 434, une région HII ionisée par l'étoile Sigma Orionis (O9.5V). Le pilier est lui-même le front d'un nuage moléculaire en cours d'érosion photoélectrique. À l'avant-plan se détache également NGC 2023 (nébuleuse à réflexion bleue) et en périphérie la Nébuleuse de la Flamme NGC 2024. B 33 constitue l'une des PDR (Photodissociation Regions) les mieux étudiées au monde. Astrophotographie : Dec -2.5°, culmination ~40° depuis Rémalard. Cible hivernale absolument incontournable. Taille compacte (8′) : longue focale préférable (>600mm). Filtre Ha indispensable pour le fond rouge IC 434. LRVB + Ha pour la couleur complète. Combiner avec NGC 2023 et NGC 2024 en grand champ. Intégration 6–10h.",
+      "external_link": "https://en.wikipedia.org/wiki/Horsehead_Nebula"
+    },
+    "B 34": {
+      "name": "Sombre Orion",
+      "type": "Dark Nebula",
+      "distance_ly": 1300.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "DecJanFeb",
+      "description": "B 34 (Sombre Orion) est une nébuleuse sombre dans la constellation d'Orion, à environ 1 300 al. Opacité élevée sur un champ de ~20′. Cataloguée par Edward Emerson Barnard vers 1905. Nuage sombre appartenant au complexe moléculaire d'Orion (Orion Molecular Cloud, OMC), le plus vaste et le plus actif des régions de formation stellaire proches de la Terre. B 34 se distingue par sa situation à une déclinaison relativement nordique (+14°) pour un objet d'Orion, le rendant plus accessible que les nébuleuses australes du complexe. Il se découpe sur le riche fond stellaire et nébuleux du bras d'Orion. Des nébulosités diffuses IFN peuvent être détectées en imagerie profonde dans son environnement. Astrophotographie : Dec +14.8°, culmination ~57° depuis Rémalard — excellente accessibilité hivernale. Taille modérée (20′) : focale intermédiaire à longue. LRVB profond sur fond stellaire dense. Ha optionnel pour révéler les nébulosités d'émission environnantes. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 59": {
+      "name": "Tête de Pipe (Nœud)",
+      "type": "Dark Nebula",
+      "distance_ly": 450.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "JunJulAug",
+      "description": "B 59 (Pipe Nebula — Nœud / Bol de la Pipe) est un globule dense dans la constellation d'Ophiuchus, à environ 450 al. Opacité maximale sur un champ de ~30′. Catalogué par Edward Emerson Barnard vers 1905. B 59 constitue le « bol » de la célèbre Nébuleuse de la Pipe, le renflement occidental dense du complexe, par opposition à la tige rectiligne (LDN 204). Il abrite l'amas jeune [CF2006] Pipe 109 dont les membres, âgés de seulement quelques millions d'années, sont en cours de dispersion. B 59 est l'un des rares sites actifs de formation stellaire du complexe de la Pipe. Le fond stellaire extraordinairement dense de la Voie Lactée au voisinage du centre galactique amplifie dramatiquement le contraste de la silhouette sombre. Astrophotographie : Dec -27.4°, culmination ~15° depuis Rémalard (lat. 48.4°N) — cible basse d'été. Grand champ conseillé pour inclure la tige (LDN 204) et former la Pipe complète (~plusieurs degrés). LRVB sur fond galactique dense. Nuits d'été courtes ; viser la fenêtre de culmination.",
+      "external_link": "https://en.wikipedia.org/wiki/Pipe_Nebula"
+    },
+    "B 68": {
+      "name": "Globule B68",
+      "type": "Dark Nebula",
+      "distance_ly": 160.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "JunJulAug",
+      "description": "B 68 (Globule de Bok B68) est un globule de Bok isolé dans la constellation du Serpentaire (Ophiuchus), à environ 160 al, l'un des plus proches de la Terre. Opacité absolument maximale sur ~12′. Catalogué par Edward Emerson Barnard vers 1905. B 68 est l'archétype des cœurs préstellaires en équilibre de Bonnor-Ebert, non encore engagé dans l'effondrement gravitationnel. Sa structure interne a été résolue par le VLT en lumière infrarouge : le bord du globule présente une frange bleutée due à la diffusion de la lumière galactique par les grains de poussière. À seulement 160 al, il bloque intégralement la lumière de toutes les étoiles situées derrière lui, créant un « trou » parfait dans le champ stellaire dense de la direction galactique. Température interne ~8–10 K. Astrophotographie : Dec -23.8°, culmination ~18° depuis Rémalard — cible basse d'été. Objet très compact (12′) : longue focale pour révéler les détails de bord. LRVB profond : l'extinction totale des étoiles d'arrière-plan est le signal photographique principal. Le fond galactique dense du Sagittaire/Ophiuchus est le vrai sujet du champ.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_68"
+    },
+    "B 72": {
+      "name": "Serpent",
+      "type": "Dark Nebula",
+      "distance_ly": 650.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1919,
+      "best_months": "JunJulAug",
+      "description": "B 72 (Snake Nebula / Nébuleuse Serpent) est une nébuleuse sombre sinueuse dans la constellation d'Ophiuchus, à environ 650 al. Opacité maximale sur ~30′. Cataloguée par Edward Emerson Barnard dans son atlas photographique de 1919. B 72 est l'une des nébuleuses sombres les plus photogéniques du ciel boréal. Sa forme sinueuse en S se détachant sur le fond stellaire extraordinairement dense du centre galactique lui a valu son surnom de « Serpent ». Elle fait partie d'un groupe dense de nuages sombres du complexe d'Ophiuchus (B 68, B 69, B 70, B 74 à proximité), formant un arc de structures sombres parfois surnommé « la chaîne de Barnard ». La direction vers le centre galactique fournit un fond stellaire incomparable pour maximiser le contraste de la silhouette. Astrophotographie : Dec -23.4°, culmination ~19° depuis Rémalard — cible basse d'été. LRVB grand champ pour inclure l'ensemble de la chaîne de nuages (B 68, B 72, B 78). Fond galactique dense comme signature photographique principale. Nuits d'été à faible turbulence atmosphérique.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_72"
+    },
+    "B 78": {
+      "name": "Pipe Bol",
+      "type": "Dark Nebula",
+      "distance_ly": 450.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "JunJulAug",
+      "description": "B 78 (Pipe Nebula — Bol étendu) est le vaste nuage sombre qui constitue la partie orientale et élargie du complexe de la Nébuleuse de la Pipe, dans la constellation d'Ophiuchus, à environ 450 al. Objet d'opacité maximale et d'extension remarquable (~120′). Catalogué par Edward Emerson Barnard vers 1905. B 78 est le nuage sombre le plus étendu de la liste : ses 120′ (2°) couvrent une surface imposante sur le fond galactique du Sagittaire-Ophiuchus. Il correspond à l'ensemble « bol + tige droite » de la Pipe vue dans sa totalité. La région héberge de nombreux cœurs denses froids dont certains sont au seuil de l'effondrement stellaire. Sa situation dans la direction du centre galactique lui confère un fond stellaire d'une richesse exceptionnelle, idéal pour l'imagerie des structures sombres. Astrophotographie : Dec -27.1°, culmination ~15° depuis Rémalard — cible basse d'été. Très grand champ obligatoire (120′) : objectif photo grand-angle ou mosaïque avec petite lunette. LRVB sur fond galactique ; Ha optionnel. Créneau d'imagerie étroit depuis les latitudes nord tempérées.",
+      "external_link": "https://en.wikipedia.org/wiki/Pipe_Nebula"
+    },
+    "B 86": {
+      "name": "Trou d'Encre",
+      "type": "Dark Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "JulAugSep",
+      "description": "B 86 (Ink Spot / Trou d'Encre) est un globule de Bok très compact dans la constellation du Sagittaire, à environ 6 000 al. Opacité absolument maximale sur seulement ~5′. Catalogué par Edward Emerson Barnard vers 1905. B 86 est l'un des objets sombres les plus saisissants du ciel austral boréal : sa forme quasi-circulaire et son opacité totale lui donnent l'aspect d'un trou d'encre parfait sur le fond stellaire extraordinairement dense du nuage stellaire du Sagittaire. Il est souvent observé et photographié en compagnie de l'amas ouvert NGC 6520 qui se trouve immédiatement à son bord nord-est — contraste saisissant entre la densité stellaire de l'amas et le vide absolu du globule. Ce couple B 86 + NGC 6520 est l'un des contrastes astrophotographiques les plus spectaculaires du ciel d'été. Astrophotographie : Dec -27.9°, culmination ~14° depuis Rémalard — cible très basse d'été. Objet très compact (5′) : longue focale indispensable (>800mm). LRVB profond. Préférer les nuits d'été à seeing excellent pour tirer parti de la longue focale malgré la faible hauteur. Le duo B 86 + NGC 6520 est la vraie cible.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_86"
+    },
+    "B 92": {
+      "name": "Tache Noire M24",
+      "type": "Dark Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "JulAugSep",
+      "description": "B 92 (Barnard 92 / Tache noire de M24) est un nuage sombre dans la constellation du Sagittaire, à environ 6 000 al. Opacité maximale sur ~12′. Catalogué par Edward Emerson Barnard vers 1905. B 92 est probablement le nuage sombre du catalogue Barnard le plus fréquemment photographié après B 33, en raison de son emplacement spectaculaire en avant-plan du nuage stellaire de Messier 24 (IC 4715), la plus grande concentration stellaire visible à l'œil nu dans le ciel. La silhouette sombre de B 92 se détache sur les dizaines de milliers d'étoiles du fond galactique de M24, accompagnée de son voisin B 93 légèrement au nord. Le contraste entre l'abondance stellaire absolue de M24 et le vide total des nuages sombres est parmi les plus dramatiques du ciel. Astrophotographie : Dec -18.1°, culmination ~24° depuis Rémalard — cible d'été difficile mais faisable. Grand champ conseillé pour inclure M24 entier avec B 92 et B 93. LRVB standard ; le fond stellaire dense de M24 est le vrai sujet. Éviter la turbulence atmosphérique par faible hauteur.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_92"
+    },
+    "B 142": {
+      "name": "Haltère Sombre",
+      "type": "Dark Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 142 (Barnard 142 / E-Nebula — partie Ouest) est une nébuleuse sombre dans la constellation de l'Aigle (Aquila), à environ 460 al. Opacité maximale sur ~40′. Cataloguée par Edward Emerson Barnard vers 1905. B 142 forme avec son voisin immédiat B 143 le célèbre système double surnommé « E Nebula » ou « Barnard's E » (en référence à la forme de la lettre E), l'un des objets sombres les plus photographiés de la Voie Lactée boréale. Ensemble, les deux nuages couvrent un vaste champ de près d'un degré et se détachent nettement sur le fond stellaire riche de la Voie Lactée de l'Aigle, dans la direction du grand Rift galactique. B 142 constitue la barre verticale gauche de la lettre E, avec deux ou trois prolongements horizontaux composés en partie par B 143. Astrophotographie : Dec +10.7°, culmination ~53° depuis Rémalard — excellente accessibilité estivale-automnale. Grand champ recommandé pour englober B 142 + B 143 ensemble (>1°). LRVB profond sur fond de Voie Lactée. Ha optionnel pour révéler les nébulosités d'émission environnantes. Cible de choix pour les setups grand champ.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_142_and_143"
+    },
+    "B 143": {
+      "name": "Haltère Sombre Est",
+      "type": "Dark Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 143 (Barnard 143 / E-Nebula — partie Est) est une nébuleuse sombre dans la constellation de l'Aigle, à environ 460 al. Opacité maximale sur ~30′. Cataloguée par Edward Emerson Barnard vers 1905. B 143 est le compagnon oriental de B 142 au sein du système « E Nebula ». Il contribue aux prolongements horizontaux caractéristiques de la lettre E. Les deux nuages sont physiquement liés et font partie du même complexe de nuages sombres du Rift galactique de l'Aigle. Ce complexe est l'une des régions d'extinction interstellaire les plus étudiées de la Voie Lactée boréale, connue pour interrompre visuellement la bande galactique sur plusieurs dizaines de degrés. B 143 seul présente des structures filamenteuses intéressantes sur les images à longue focale. Astrophotographie : Dec +10.8°, culmination ~53° depuis Rémalard — mêmes conditions que B 142. Toujours à imager en même temps que B 142 dans un champ commun (grand-angle). LRVB profond. La paire B 142–143 est l'une des cibles sombres les plus accessibles et les plus gratifiantes du catalogue Barnard depuis les latitudes françaises.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_142_and_143"
+    },
+    "B 144": {
+      "name": "Sombre Cygne",
+      "type": "Dark Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 144 (Sombre Cygne) est une nébuleuse sombre dans la constellation du Cygne, à environ 2 000 al. Opacité maximale sur ~20′. Cataloguée par Edward Emerson Barnard vers 1905. B 144 fait partie du vaste réseau de nuages sombres du Grand Rift galactique du Cygne, qui scinde visuellement la Voie Lactée en deux branches depuis Cygnus jusqu'à Aquila. Ces nuages, appartenant au bras local de la Galaxie (bras d'Orion), se superposent aux bras plus distants du Cygne pour créer les fameux « Sacs à Charbon » de la Voie Lactée boréale. B 144 est voisin de B 145 au nord et de B 163 au sud, formant un complexe de structures sombres entrelacées dans la région centrale du Cygne. La richesse du fond stellaire et des nébulosités d'émission du Cygne (Dentelle, NGC 7000, IC 5070) enrichit considérablement les champs larges. Astrophotographie : Dec +35.6°, culmination ~77° depuis Rémalard — excellente accessibilité estivale. Imagerie grand champ (20′ à 1°) pour inclure les structures voisines. LRVB + Ha pour le fond Voie Lactée et les nébulosités d'émission environnantes.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 145": {
+      "name": "Sombre Cygne Nord",
+      "type": "Dark Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 145 (Sombre Cygne Nord) est une nébuleuse sombre dans la constellation du Cygne, à environ 2 000 al. Opacité maximale sur ~15′. Cataloguée par Edward Emerson Barnard vers 1905. B 145 est le pendant septentrional de B 144 au sein du complexe de nuages sombres du Grand Rift du Cygne. Situé légèrement au nord de B 144 (séparation ~1°), il partage le même contexte galactique : un fond stellaire dense et riche en nébulosités d'émission (principalement Ha) du complexe Cygnus OB2 et du bras galactique du Cygne. Sa taille plus modeste (15′) en fait une cible préférablement imagée en compagnie de B 144 dans un champ commun. Ensemble, ces deux nuages offrent un condensé des contrastes obscur/stellaire typiques du Rift galactique boréal. Astrophotographie : Dec +36.8°, culmination ~79° depuis Rémalard — quasi au zénith en été. Grand champ recommandé pour inclure B 144 et B 163 dans le même cadre. LRVB + Ha. Cible estivale facile depuis la France.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 147": {
+      "name": "Taureau Sombre",
+      "type": "Dark Nebula",
+      "distance_ly": 450.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "NovDecJan",
+      "description": "B 147 (Taureau sombre) est une nébuleuse sombre dans la constellation du Taureau / Aigle (limite), à environ 450 al. Opacité maximale sur ~30′. Cataloguée par Edward Emerson Barnard vers 1905. Nuage sombre appartenant au complexe de formation stellaire du Taureau (Taurus Molecular Cloud, TMC), l'un des nuages moléculaires à basse masse les plus proches de la Terre. Le TMC est une pépinière d'étoiles de type solaire et de naines brunes dont l'étude a profondément influencé notre compréhension de la formation stellaire. B 147 se situe en limite entre le Taureau et l'Aigle et se détache sur un fond stellaire modérément dense. Des nébulosités diffuses et des filaments IFN sont détectables en imagerie très profonde dans son environnement. Astrophotographie : Dec +19.6°, culmination ~62° depuis Rémalard — bonne accessibilité hivernale. Taille 30′ : focale intermédiaire à longue. LRVB profond. Peut être intégré dans un champ large incluant d'autres nuages sombres du Taureau.",
+      "external_link": "https://en.wikipedia.org/wiki/Taurus_Molecular_Cloud"
+    },
+    "B 150": {
+      "name": "Cheval de Mer",
+      "type": "Dark Nebula",
+      "distance_ly": 400.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 150 (Seahorse Nebula / Nébuleuse Cheval de Mer) est une nébuleuse sombre sinueuse dans la constellation de Céphée, à environ 400 al. Opacité maximale sur ~60′. Cataloguée par Edward Emerson Barnard vers 1905. B 150 est l'une des nébuleuses sombres les plus photographiées et les plus esthétiques du catalogue Barnard. Sa forme allongée et recourbée évoque irrésistiblement un hippocampe ou cheval de mer vu de profil. Elle appartient au complexe de nuages sombres de Céphée (Cepheus Flare), une région de formation stellaire à basse masse relativement proche. Le fond nébuleux de cette région du Cygne-Céphée, souvent enrichi de faibles nébulosités IFN et de la lueur diffuse de la Voie Lactée, amplifie le relief de la silhouette sombre. Plusieurs faibles nébuleuses à réflexion et sources infrarouges de jeunes étoiles sont enfouies dans ses flancs. Astrophotographie : Dec +60.3°, circumpolaire depuis la France. Cible d'automne par excellence. Grand champ conseillé (60′). LRVB très profond pour détecter les IFN de fond de ciel. 8–12h d'intégration pour révéler les nuances diffuses. Bortle 4 de Rémalard : atout décisif pour cette cible.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_150"
+    },
+    "B 163": {
+      "name": "Nébuleuse Cygne Sud",
+      "type": "Dark Nebula",
+      "distance_ly": 1800.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 163 (Sombre Cygne Sud) est une nébuleuse sombre dans la constellation du Cygne, à environ 1 800 al. Opacité maximale sur ~25′. Cataloguée par Edward Emerson Barnard vers 1905. Nuage sombre du Grand Rift galactique du Cygne, situé légèrement au sud du complexe B 144 / B 145. Il fait partie des nombreuses structures d'absorption interstellaire qui parsèment la Voie Lactée du Cygne, une région parmi les plus riches en nébulosités d'émission (Ha, OIII, SII) de l'hémisphère boréal. En imagerie grand champ, B 163 se fond dans un tableau complet de contrastes sombres/lumineux où se mêlent nébuleuses d'émission, réflexion et absorption. Sa position dans le même secteur de ciel que la Dentelle du Cygne et NGC 7000 en fait un complément naturel aux grands champs du Cygne. Astrophotographie : Dec +37.6°, culmination ~80° depuis Rémalard — au zénith en été. Grand champ pour l'intégrer dans le tableau du Cygne. LRVB + Ha. Cible de remplissage de champ pour les sessions Cygne de l'été.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 168": {
+      "name": "Cocon Sombre",
+      "type": "Dark Nebula",
+      "distance_ly": 2700.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 168 (Cocon Sombre / IC 5146 Dark Lane) est une nébuleuse sombre associée à la Nébuleuse du Cocon (IC 5146) dans la constellation du Cygne, à environ 2 700 al. Opacité maximale sur ~30′. Cataloguée par Edward Emerson Barnard vers 1905. B 168 est le long filament sombre qui semble « alimenter » la Nébuleuse du Cocon (IC 5146), une région HII spectaculaire en forme de cocon ionisée par le jeune amas ouvert Collinder 470. Le filament sombre s'étend sur plus de 2° en direction est-ouest et contraste saisissamment avec la nébulosité rose vif d'IC 5146 à son extrémité occidentale. L'ensemble forme l'une des associations nébuleuse d'émission / nuage sombre les plus spectaculaires du ciel boréal. B 168 abrite de nombreuses protoétoiles de classe 0 et I enfouies dans le nuage opaque. Astrophotographie : Dec +47.1°, culmination ~79° depuis Rémalard — quasi au zénith. Champ large recommandé pour inclure IC 5146 + le filament complet. LRVB + Ha pour la couleur de la nébuleuse et le relief du nuage sombre. Cible d'été-automne facile.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_5146"
+    },
+    "B 169": {
+      "name": "Sombre Céphée",
+      "type": "Dark Nebula",
+      "distance_ly": 900.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 169 (Sombre Céphée) est une nébuleuse sombre dans la constellation de Céphée, à environ 900 al. Opacité maximale sur ~25′. Cataloguée par Edward Emerson Barnard vers 1905. Nuage sombre appartenant aux complexes moléculaires de Céphée (Cepheus Flare et complexe OB2-OB3), une région de formation stellaire modérée à basse masse. B 169 est proche de B 170 et B 171, formant un groupe de structures sombres adjacentes dans la même zone de Céphée. Le fond nébuleux de cette région de la Voie Lactée, riche en faibles nébulosités diffuses et IFN, enrichit les images profondes grand champ. Sa déclinaison élevée (+57°) le rend accessible en quasi-permanence depuis les latitudes françaises. Astrophotographie : Dec +57.6°, circumpolaire depuis la France. Cible d'automne. Taille 25′ : focale intermédiaire. LRVB profond. Intérêt accru en grand champ incluant B 170 et B 171 pour un tableau de nuages sombres multiples.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 170": {
+      "name": "Sombre Céphée Nord",
+      "type": "Dark Nebula",
+      "distance_ly": 900.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "AugSepOct",
+      "description": "B 170 (Sombre Céphée Nord) est une nébuleuse sombre dans la constellation de Céphée, à environ 900 al. Opacité élevée sur ~20′. Cataloguée par Edward Emerson Barnard vers 1905. B 170 est le pendant septentrional de B 169, situé à ~45′ au nord. Il fait partie du même complexe de nuages sombres de Céphée et partage le même environnement nébuleux et stellaire. Les deux nuages (B 169 et B 170) sont souvent imagés conjointement dans un même champ de 1–2°. Leur association avec les faibles nébulosités à réflexion de la région et les IFN galactiques de fond offre un tableau profond caractéristique de la Voie Lactée boréale. Des sources infrarouges de jeunes étoiles ont été répertoriées dans le voisinage immédiat. Astrophotographie : Dec +58.4°, circumpolaire depuis la France. Toujours associé à B 169 en imagerie (même champ). LRVB profond. Intégration longue pour les IFN. Bortle 4 de Rémalard est favorable.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 171": {
+      "name": "Sombre Céphée Nord-Est",
+      "type": "Dark Nebula",
+      "distance_ly": 950.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "SepOctNov",
+      "description": "B 171 (Sombre Céphée Nord-Est) est une nébuleuse sombre dans la constellation de Céphée, à environ 950 al. Opacité élevée sur ~20′. Cataloguée par Edward Emerson Barnard vers 1905. Troisième membre du trio de nuages sombres B 169–B 170–B 171 dans la région nord de Céphée. B 171 est décalé vers le nord-est par rapport aux deux autres, formant un triplet de structures sombres réparties sur ~2° de ciel. Ces nuages s'inscrivent dans le vaste contexte des complexes moléculaires de Céphée dont la richesse en sources jeunes et en nébulosités diffuses offre un terrain de choix pour l'imagerie profonde. La déclinaison +60° garantit une accessibilité circumpolaire depuis toute l'Europe. Astrophotographie : Dec +60.2°, circumpolaire. Automne-hiver. Intérêt maximal en champ large incluant les trois nuages B 169–171. LRVB profond. L'environnement circumpolaire de Céphée offre des nuits d'intégration très longues en hiver.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 174": {
+      "name": "Sombre Céphée Nord-Ouest",
+      "type": "Dark Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "SepOctNov",
+      "description": "B 174 (Sombre Céphée Nord-Ouest) est une nébuleuse sombre dans la constellation de Céphée, à environ 500 al. Opacité élevée sur ~15′. Cataloguée par Edward Emerson Barnard vers 1905. Nuage sombre très septentrional du catalogue Barnard, appartenant aux complexes de nuages froids de Céphée dans leur extension polaire. À Dec +73°, B 174 est l'un des objets Barnard les plus proches du pôle nord céleste accessibles depuis la France, circumpolaire en permanence. Il s'inscrit dans un environnement de faibles nébulosités diffuses de fond caractéristiques des hautes latitudes galactiques, où les IFN (Integrated Flux Nebulae) cirrus galactiques peuvent être détectés sur les images très profondes. La compacité de l'objet (15′) requiert une focale longue pour révéler sa structure interne. Astrophotographie : Dec +73.3°, strictement circumpolaire depuis la France. Visible toute l'année, meilleur en automne. Longue focale conseillée (15′). LRVB très profond pour les IFN environnants. Longue intégration (>8h).",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 175": {
+      "name": "Sombre Céphée Sud",
+      "type": "Dark Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "OctNovDec",
+      "description": "B 175 (Sombre Céphée Sud) est une nébuleuse sombre dans la constellation de Céphée, à environ 500 al. Opacité élevée sur ~15′. Cataloguée par Edward Emerson Barnard vers 1905. B 175 se situe dans la partie méridionale de Céphée, à Dec +62°, toujours circumpolaire depuis les latitudes françaises. Il appartient au vaste complexe de nuages froids disséminés dans Céphée, en relation avec le Cepheus Flare (zone de formation stellaire à basse masse). Sa situation dans une région peu marquée de la Voie Lactée lui offre un fond plus discret que les nuages du centre galactique, mais les IFN galactiques restent détectables en imagerie très profonde. Des nébuleuses à réflexion faibles peuvent être associées dans le voisinage immédiat. Astrophotographie : Dec +62.3°, circumpolaire. Meilleur en automne-hiver. Taille compacte (15′) : longue focale. LRVB profond pour IFN. La nuit polaire figurative de Céphée en hiver offre de très longues fenêtres d'intégration.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 227": {
+      "name": "Sombre Auriga",
+      "type": "Dark Nebula",
+      "distance_ly": 450.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "NovDecJan",
+      "description": "B 227 (Sombre Auriga) est une nébuleuse sombre dans la constellation du Cocher (Auriga), à environ 450 al. Opacité maximale sur ~30′. Cataloguée par Edward Emerson Barnard vers 1905. Nuage sombre appartenant aux complexes de nuages de l'anticentre galactique dans Auriga, une région moins spectaculaire que le centre galactique mais riche en structures de l'hémisphère boréal. B 227 se détache sur un fond stellaire modérément dense de la Voie Lactée du Cocher, une zone également peuplée de nébuleuses en émission (IC 405, IC 410, IC 417, Sh2-235). Il peut être intégré dans des champs grands-angles incluant ces nébulosités. Sa déclinaison +35° en fait une cible hivernale bien accessible. Astrophotographie : Dec +35.5°, culmination ~78° depuis Rémalard — quasi au zénith en hiver. Taille 30′ : focale intermédiaire. LRVB profond + Ha pour le fond nébuleux d'Auriga. Cible de remplissage de champ idéale lors des sessions IC 405 / IC 410 d'hiver.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
+    },
+    "B 312": {
+      "name": "Sombre Ophiuchus",
+      "type": "Dark Nebula",
+      "distance_ly": 700.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1905,
+      "best_months": "JunJulAug",
+      "description": "B 312 (Sombre Ophiuchus) est une nébuleuse sombre dans la constellation d'Ophiuchus, à environ 700 al. Opacité maximale sur ~50′. Cataloguée par Edward Emerson Barnard vers 1905. Vaste nuage sombre appartenant au complexe moléculaire d'Ophiuchus, qui comprend les structures sombres les plus proches du Soleil dans cette direction (ρ Oph, L 1689, B 68, B 72). B 312 est l'un des nuages les plus étendus du complexe, couvrant 50′ sur le fond galactique dense de la région. La direction d'Ophiuchus vers le centre galactique fournit l'un des fonds stellaires les plus riches du ciel, maximisant le contraste des silhouettes sombres. Des protoétoiles de classe 0 et des sources IRAS sont répertoriées dans le voisinage immédiat. Astrophotographie : Dec -24.2°, culmination ~18° depuis Rémalard (lat. 48.4°N) — cible basse d'été. Très grand champ pour couvrir les 50′. LRVB sur fond galactique dense ; Ha optionnel. Nuits estivales à faible turbulence atmosphérique. La richesse du fond stellaire compense partiellement la faible hauteur.",
+      "external_link": "https://en.wikipedia.org/wiki/Ophiuchus_molecular_cloud"
+    }
+  }
+}

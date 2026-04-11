@@ -1,0 +1,284 @@
+{
+  "Sharpless": {
+    "Sh2-2": {
+      "name": "Nébuleuse Scorpius",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JulAugSep",
+      "description": "Sh2-2 (Nébuleuse Scorpius) est une région HII dans la constellation du Scorpion, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 60′. Répertoriée par Stewart Sharpless dans son catalogue de régions HII de 1959. Petite nébuleuse en émission faiblement étendue, ionisée par des étoiles chaudes de type O/B dans une région de formation stellaire de la Voie lactée du centre galactique. Astrophotographie : position dans le ciel austral/équatorial dans le Scorpion. Caractéristiques : magnitude ~8.5, taille apparente 60′. Ha et OIII sont les filtres de choix. Cible basse sur l'horizon depuis les latitudes nord tempérées ; viser en été autour de la culmination.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-27": {
+      "name": "Zeta Oph Nebula",
+      "type": "Emission Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JulAugSep",
+      "description": "Sh2-27 (Zeta Oph Nebula) est une vaste région HII dans la constellation d'Ophiuchus, à environ 460 al. Elle apparaît autour de la magnitude 7.0, couvrant environ 240′. Répertoriée par Stewart Sharpless en 1959. Cette imposante nébuleuse en émission est ionisée principalement par l'étoile brillante Zeta Ophiuchi (O9.5V), une étoile runaway éjectée de son système binaire originel. Sa grande taille angulaire en fait un défi en astrophotographie grands champs. Astrophotographie : position équatoriale dans Ophiuchus (Dec ~-10°). Caractéristiques : mag ~7.0, taille apparente 240′. Cible idéale avec objectif grand champ ou petite lunette. Filtre Ha fortement recommandé pour révéler la structure d'émission.",
+      "external_link": "https://en.wikipedia.org/wiki/Zeta_Ophiuchi"
+    },
+    "Sh2-29": {
+      "name": "W Nébuleuse Sgr",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JulAugSep",
+      "description": "Sh2-29 (W Nébuleuse Sgr) est une région HII dans la constellation du Sagittaire, à environ 5 000 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 25′. Répertoriée par Stewart Sharpless en 1959. Nébuleuse d'émission compacte dans la direction du centre galactique, au sein des vastes complexes moléculaires du Sagittaire. La forte extinction due à la poussière interstellaire dans cette direction atténue le signal visible, rendant l'imagerie Ha/OIII particulièrement pertinente. Astrophotographie : cible australe dans le Sagittaire (Dec ~-22°). Filtres Ha recommandés. Depuis l'Europe, culmination basse ; préférer les nuits d'été à faible turbulence atmosphérique.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-49": {
+      "name": "Aigle ext",
+      "type": "Emission Nebula",
+      "distance_ly": 7000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JulAugSep",
+      "description": "Sh2-49 (Aigle ext) est une région HII dans la constellation de l'Aigle (Aquila), à environ 7 000 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 60′. Répertoriée par Stewart Sharpless en 1959. Il s'agit de l'enveloppe d'émission étendue entourant le complexe de la Nébuleuse de l'Aigle (M16), constituée de gaz ionisé par le jeune amas OB ouvert NGC 6611. La nébulosité s'étend bien au-delà du champ standard de M16 et est mieux révélée en imagerie à bande étroite. Astrophotographie : Dec ~-14°, nécessite un champ large pour couvrir la totalité de la nébuleuse. Filtres Ha et SII en priorité. Association possible avec Sh2-54 dans un même complexe moléculaire.",
+      "external_link": "https://en.wikipedia.org/wiki/Eagle_Nebula"
+    },
+    "Sh2-101": {
+      "name": "Tulipe",
+      "type": "Emission Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "AugSepOct",
+      "description": "Sh2-101 (Nébuleuse Tulipe) est une région HII dans la constellation du Cygne, à environ 6 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 16′. Répertoriée par Stewart Sharpless en 1959. Elle est ionisée par l'étoile HD 227018 de type O8 et fait partie du vaste complexe OB Cygnus X. À proximité se trouve le microquasar Cygnus X-1, source de rayons X brillante associée à un trou noir stellaire, visible dans le même champ de vue. Astrophotographie : cible nordique dans le Cygne (Dec +35°), accessible depuis les latitudes tempérées. Taille compacte (~16′) : télescope de focale moyenne à longue préconisé. Filtres Ha+OIII pour la structure bicolore caractéristique en forme de tulipe.",
+      "external_link": "https://en.wikipedia.org/wiki/Tulip_Nebula"
+    },
+    "Sh2-106": {
+      "name": "Étoile Furie",
+      "type": "Emission Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "AugSepOct",
+      "description": "Sh2-106 (Star Fury Nebula / Nébuleuse Étoile Furie) est une nébuleuse en émission bipolaire dans la constellation du Cygne, à environ 2 000 al. Elle apparaît autour de la magnitude 10.0, couvrant environ 3′. Répertoriée par Stewart Sharpless en 1959. Cette nébuleuse remarquable est alimentée par l'étoile centrale S106 IR (IRS 4), une étoile jeune massive de type O de classe Y encore en phase de formation. Les deux lobes symétriques d'un bleu intense en [OIII] lui ont valu son surnom de 'nébuleuse de ski'. Sa petite taille requiert une longue focale. Astrophotographie : objet compact (<3′), nécessite un télescope de longue focale (>1000 mm). Traitement HOO conseillé pour la couleur Ha rouge + OIII bleu.",
+      "external_link": "https://en.wikipedia.org/wiki/Sh2-106"
+    },
+    "Sh2-112": {
+      "name": "Nébuleuse Cygne E",
+      "type": "Emission Nebula",
+      "distance_ly": 4500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "AugSepOct",
+      "description": "Sh2-112 (Nébuleuse Cygne E) est une région HII dans la constellation du Cygne, à environ 4 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 15′. Répertoriée par Stewart Sharpless en 1959. Nébuleuse d'émission compacte située dans la partie orientale du plan galactique du Cygne, à proximité du complexe moléculaire Cygnus X. Elle est ionisée par une étoile de type O associée à un amas ouvert peu visible. Riche en hydrogène ionisé et en soufre, elle présente une belle palette SHO. Astrophotographie : Dec +45°, excellente accessibilité depuis le nord. Taille modérée (15′) : rapport F/D moyen à long préférable. Filtres Ha et SII prioritaires.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-119": {
+      "name": "Nébuleuse Cygne",
+      "type": "Emission Nebula",
+      "distance_ly": 2500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "AugSepOct",
+      "description": "Sh2-119 (Nébuleuse Cygne) est une région HII dans la constellation du Cygne, à environ 2 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 60′. Répertoriée par Stewart Sharpless en 1959. Grande nébuleuse d'émission diffuse dans le bras galactique local, ionisée par 68 Cygni, une étoile O chaude. Sa structure filamenteuse complexe est visible en Ha, avec de faibles émissions OIII en périphérie. Souvent négligée au profit des grandes nébuleuses du Cygne comme NGC 7000, elle offre pourtant un champ riche en structures. Astrophotographie : grand champ recommandé (60′). Cible circumpolaire depuis la France à l'automne. Filtres Ha + OIII pour révéler les filaments. Idéale pour les setup grand champ (80mm F6).",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-132": {
+      "name": "Lion",
+      "type": "Emission Nebula",
+      "distance_ly": 10000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "SepOctNov",
+      "description": "Sh2-132 (Nébuleuse du Lion) est une région HII dans la constellation de Céphée, à environ 10 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 50′. Répertoriée par Stewart Sharpless en 1959. Cette nébuleuse d'émission est ionisée par deux étoiles Wolf-Rayet (WR 152 et WR 153), ce qui lui confère une forte émission en OIII et une structure caractéristique en bulle soufflée. Sa forme évocatrice d'une tête de lion est mieux visible en palette bicolore Ha/OIII. Astrophotographie : Dec +56°, circumpolaire depuis la France. Excellent candidat Ha+OIII. La présence d'étoiles WR génère des émissions OIII inhabituellement intenses. Prévoir 6–10h d'intégration pour les détails fins.",
+      "external_link": "https://en.wikipedia.org/wiki/Sh2-132"
+    },
+    "Sh2-140": {
+      "name": "Nébuleuse Céph",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "OctNovDec",
+      "description": "Sh2-140 (Nébuleuse Céph) est une région HII dans la constellation de Céphée, à environ 3 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 10′. Répertoriée par Stewart Sharpless en 1959. Il s'agit d'une région de formation stellaire active associée au nuage moléculaire L1204/S140. Elle abrite une des sources infrarouges les plus lumineuses du ciel (IRS1, IRS2, IRS3) et présente une structure d'interface PDR (Photodissociation Region) bien étudiée. Compacte et nécessitant une longue focale. Astrophotographie : objet compact (10′), focale >800 mm recommandée. Dec +63°, circumpolaire depuis les latitudes françaises. Ha + OIII ; intégration longue nécessaire vu la magnitude de surface faible.",
+      "external_link": "https://en.wikipedia.org/wiki/Sh2-140"
+    },
+    "Sh2-155": {
+      "name": "Grotte",
+      "type": "Emission Nebula",
+      "distance_ly": 2400.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "OctNovDec",
+      "description": "Sh2-155 (Nébuleuse de la Grotte) est une région HII dans la constellation de Céphée, à environ 2 400 al. Elle apparaît autour de la magnitude 7.7, couvrant environ 50′. Répertoriée par Stewart Sharpless en 1959. La Nébuleuse de la Grotte (Cave Nebula) est une nébuleuse à réflexion et d'émission mixte au sein du nuage moléculaire Cepheus B. L'aspect en « grotte » provient d'une cavité creusée dans le gaz par les vents d'étoiles massives voisines. Elle est souvent imagée en compagnie de l'amas ouvert NGC 7380. Astrophotographie : Dec +62°, circumpolaire depuis la France. Cible de choix en automne/hiver. Filtres Ha + OIII pour la partie émission, LRVB pour la nébuleuse bleue de réflexion. Taille de 50′ : grand champ ou focale moyenne.",
+      "external_link": "https://en.wikipedia.org/wiki/Cave_Nebula"
+    },
+    "Sh2-157": {
+      "name": "Griffe Homard",
+      "type": "Emission Nebula",
+      "distance_ly": 7500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "OctNovDec",
+      "description": "Sh2-157 (Nébuleuse Griffe de Homard / Lobster Claw Nebula) est une région HII dans la constellation de Cassiopée, à environ 7 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 60′. Répertoriée par Stewart Sharpless en 1959. Cette nébuleuse d'émission spectaculaire est associée au complexe W157 du bras de Persée. Sa structure en forme de pinces de homard est formée par les vents d'une étoile Wolf-Rayet centrale qui comprime le gaz environnant en arcs lumineux. Elle est souvent imagée en compagnie de la Nébuleuse des Bulles (NGC 7635) dans le même champ. Astrophotographie : Dec +60°, circumpolaire depuis la France. Grand champ requis (60′). Palette SHO ou HOO pour révéler la structure complexe. Association avec Sh2-158 permet un mosaïque saisissant.",
+      "external_link": "https://en.wikipedia.org/wiki/Sh2-157"
+    },
+    "Sh2-158": {
+      "name": "Nébuleuse Cassio",
+      "type": "Emission Nebula",
+      "distance_ly": 9000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "OctNovDec",
+      "description": "Sh2-158 (Nébuleuse Cassiopée / NGC 7538) est une région HII dans la constellation de Cassiopée, à environ 9 000 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 20′. Répertoriée par Stewart Sharpless en 1959. NGC 7538 est une région de formation stellaire massive connue pour abriter la plus grande protoprotoétoile connue (IRS9). Le nuage dense cache de nombreuses sources infrarouges et est l'un des environnements de formation stellaire massifs les plus actifs du bras de Persée. Sa morphologie en émission Ha est marquée par un arc brillant d'ionisation. Astrophotographie : Dec +61°, circumpolaire. Taille modérée (20′) : télescope de focale intermédiaire. Filtres Ha + OIII. Champ riche en nébuleuses environnantes (Sh2-157 à proximité).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7538"
+    },
+    "Sh2-171": {
+      "name": "NGC 7822",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "OctNovDec",
+      "description": "Sh2-171 (NGC 7822) est une région HII dans la constellation de Céphée, à environ 3 000 al. Elle apparaît autour de la magnitude 7.0, couvrant environ 60′. Répertoriée par Stewart Sharpless en 1959. NGC 7822 est une nébuleuse d'émission de grande dimension appartenant au complexe moléculaire Cepheus OB4. Elle présente des piliers de formation stellaire et des structures de globules évaporants (EGG) semblables aux Piliers de la Création de M16. Au centre se trouve l'amas ouvert Berkeley 59, dont l'étoile ionisante principale est une binaire O4. Astrophotographie : Dec +68°, circumpolaire depuis toute l'Europe. Champ large (60′). Palette SHO pour les détails de piliers. Cible de choix en automne/hiver.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7822"
+    },
+    "Sh2-174": {
+      "name": "PN Ceptr",
+      "type": "Planetary Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "OctNovDec",
+      "description": "Sh2-174 (PN Céphée) est une nébuleuse planétaire dans la constellation de Céphée, à environ 1 600 al. Elle apparaît autour de la magnitude 14.0, couvrant environ 10′. Répertoriée par Stewart Sharpless en 1959. Nébuleuse planétaire âgée et étendue, en phase avancée de dispersion. L'étoile centrale est un nain blanc dégénéré faible. Sa morphologie présente un halo diffus d'oxygène ionisé (OIII) dominant, avec peu d'émission Ha résiduelle — ce qui en fait un candidat préférentiel pour l'imagerie monochromatique OIII. C'est l'un des rares objets Sharpless classés PN. Astrophotographie : Dec +73°, circumpolaire depuis la France. Magnitude de surface extrêmement faible ; nécessite de longues intégrations (>8h OIII). Filtre OIII quasi exclusif.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-185": {
+      "name": "IC 59/63",
+      "type": "Reflection Nebula",
+      "distance_ly": 600.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "NovDecJan",
+      "description": "Sh2-185 (IC 59 / IC 63) est un complexe de nébuleuses à réflexion et d'émission dans la constellation de Cassiopée, à environ 600 al. Il apparaît autour de la magnitude 9.5, couvrant environ 20′. Répertorié par Stewart Sharpless en 1959. IC 63 et IC 59 sont deux nébuleuses distinctes illuminées par l'étoile massive Gamma Cassiopeiae (γ Cas), une étoile Be variable. IC 63 est principalement une nébuleuse d'émission Ha (PDR très active), tandis que IC 59 présente une dominante de réflexion bleue. L'ensemble constitue l'une des PDR les plus proches de la Terre, très étudiée en astronomie moléculaire. Astrophotographie : Dec +61°, circumpolaire. Taille 20′ : focale intermédiaire à longue. LRVB + Ha pour capturer les deux composantes couleurs.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_59_and_IC_63"
+    },
+    "Sh2-190": {
+      "name": "Cœur IC1805",
+      "type": "Emission Nebula",
+      "distance_ly": 7500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "NovDecJan",
+      "description": "Sh2-190 (Nébuleuse du Cœur / IC 1805) est une région HII dans la constellation de Cassiopée, à environ 7 500 al. Elle apparaît autour de la magnitude 6.5, couvrant environ 60′. Répertoriée par Stewart Sharpless en 1959. La Nébuleuse du Cœur est l'une des nébuleuses d'émission les plus spectaculaires du ciel boréal. Elle est ionisée par l'amas ouvert Melotte 15 au centre, dont les étoiles O massives creusent des cavités dans le gaz environnant. La morphologie générale évoque une forme de cœur. Elle forme un célèbre duo astrophotographique avec la Nébuleuse de l'Âme (Sh2-199 / IC 1848) dans le même champ grand angle. Astrophotographie : Dec +61°, circumpolaire depuis la France. Idéale pour les setup grands champs. Palette SHO ou HOO. Cible hivernale incontournable.",
+      "external_link": "https://en.wikipedia.org/wiki/Heart_Nebula"
+    },
+    "Sh2-199": {
+      "name": "Âme IC1848",
+      "type": "Emission Nebula",
+      "distance_ly": 7500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "NovDecJan",
+      "description": "Sh2-199 (Nébuleuse de l'Âme / IC 1848 / W5) est une région HII dans la constellation de Cassiopée, à environ 7 500 al. Elle apparaît autour de la magnitude 6.5, couvrant environ 60′. Répertoriée par Stewart Sharpless en 1959. La Nébuleuse de l'Âme est une vaste région de formation stellaire du bras de Persée de la Voie lactée. Elle contient plusieurs sous-régions actives (W5-E et W5-W) et de nombreux piliers de gaz en cours d'érosion photoélectrique. Deux jeunes amas ouverts (IC 1848 et IC 1805 adjacent) illuminent la nébuleuse. Souvent imagée avec la Nébuleuse du Cœur en mosaïque grand angle. Astrophotographie : Dec +60°, circumpolaire. Grand champ indispensable. Palette SHO magistrale. Cible hivernale phare pour les astrophotographes.",
+      "external_link": "https://en.wikipedia.org/wiki/Soul_Nebula"
+    },
+    "Sh2-212": {
+      "name": "Nébuleuse Aur NE",
+      "type": "Emission Nebula",
+      "distance_ly": 7200.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "DecJanFeb",
+      "description": "Sh2-212 (Nébuleuse Auriga NE) est une région HII dans la constellation du Cocher (Auriga), à environ 7 200 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Répertoriée par Stewart Sharpless en 1959. Nébuleuse d'émission compacte de l'anticentre galactique dans Auriga, faisant partie d'un complexe de régions HII moins imagées que la célèbre IC 405. Elle est ionisée par une étoile O associée à un amas enfoui peu lumineux. Riche en Ha, elle est bien accessible depuis l'hémisphère nord en hiver. Astrophotographie : Dec +46°, excellente accessibilité hivernale. Taille 20′ : télescope de focale intermédiaire. Filtre Ha principalement ; intégration de 4–6h recommandée.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-220": {
+      "name": "IC 405 ext",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "DecJanFeb",
+      "description": "Sh2-220 (IC 405 étendue / Nébuleuse de l'Étoile Flamboyante) est une nébuleuse mixte (émission et réflexion) dans la constellation du Cocher, à environ 1 500 al. Elle apparaît autour de la magnitude 6.5, couvrant environ 50′. Répertoriée par Stewart Sharpless en 1959. Sh2-220 désigne l'enveloppe d'émission étendue entourant IC 405 (Flaming Star Nebula), ionisée par l'étoile runaway AE Aurigae (O9.5V). Le gaz est à la fois ionisé en Ha (rouge) et réfléchi en bleu, donnant une palette bicolore saisissante. L'étoile AE Aur n'est pas née ici : elle a été éjectée de la nébuleuse d'Orion il y a ~2,7 millions d'années. Astrophotographie : Dec +34°, accessible en hiver depuis la France. Grand champ (50′). Combinaison LRVB + Ha pour capturer émission et réflexion.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_405"
+    },
+    "Sh2-235": {
+      "name": "Nébuleuse Auriga",
+      "type": "Emission Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JanFebMar",
+      "description": "Sh2-235 (Nébuleuse Auriga) est une région HII dans la constellation du Cocher, à environ 6 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Répertoriée par Stewart Sharpless en 1959. Nébuleuse d'émission compacte associée au complexe moléculaire S235 de l'anticentre galactique, connu pour une activité de formation stellaire en plusieurs sites distincts (S235A, S235B, S235C). Elle abrite de jeunes objets stellaires (YSO) et des masers OH/méthanol, indicateurs d'une formation stellaire massive en cours. Astrophotographie : Dec +35°, bien accessible depuis l'Europe en hiver. Taille 20′ : longue focale préférable. Filtre Ha dominant. Intégration 4–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-240": {
+      "name": "Toile d'araignée",
+      "type": "Supernova Remnant",
+      "distance_ly": 3000.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JanFebMar",
+      "description": "Sh2-240 (Simeis 147 / Spaghetti Nebula / Toile d'araignée) est un rémanent de supernova dans la constellation du Taureau, à environ 3 000 al. Il apparaît autour de la magnitude 8.0, couvrant environ 180′. Répertorié par Stewart Sharpless en 1959. Simeis 147, découvert en 1952 à l'Observatoire de Crimée (Shajn & Gaze), est l'un des rémanents de supernova les plus spectaculaires du ciel boréal. Son réseau de filaments fins d'hydrogène et d'oxygène ionisés couvre plus de 3° de diamètre. L'explosion d'origine remonte à environ 40 000 ans. Un pulsar (PSR J0538+2817) au centre confirme l'origine en supernova. Astrophotographie : immense (180′) — mosaïque ou objectif grand champ indispensable. Filtres Ha + OIII absolument nécessaires. L'un des défis ultime pour l'astrophotographe : nécessite typiquement >15h d'intégration par filtre.",
+      "external_link": "https://en.wikipedia.org/wiki/Simeis_147"
+    },
+    "Sh2-252": {
+      "name": "NGC 2175",
+      "type": "Emission Nebula",
+      "distance_ly": 6400.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JanFebMar",
+      "description": "Sh2-252 (NGC 2175 / Monkey Head Nebula) est une région HII dans la constellation d'Orion, à environ 6 400 al. Elle apparaît autour de la magnitude 6.8, couvrant environ 18′. Répertoriée par Stewart Sharpless en 1959. NGC 2175 est une nébuleuse d'émission ionisée par l'amas ouvert NGC 2175s (aussi appelé Teutsch 132). Sa forme évoque une tête de singe, avec une cavité centrale creusée par les vents stellaires de l'amas. C'est une région de formation stellaire active du bras d'Orion, présentant de beaux piliers de gaz en imagerie à haute résolution. Astrophotographie : Dec +20°, très accessible depuis l'Europe en hiver. Taille modérée (18′) : focale intermédiaire. Filtres Ha + OIII. Champ riche dans Orion.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2175"
+    },
+    "Sh2-261": {
+      "name": "Lower's Nébuleuse",
+      "type": "Emission Nebula",
+      "distance_ly": 2500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JanFebMar",
+      "description": "Sh2-261 (Lower's Nebula) est une région HII dans la constellation de la Licorne (Monoceros), à environ 2 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Répertoriée par Stewart Sharpless en 1959. Lower's Nebula est une nébuleuse d'émission diffuse découverte par Harold Lower en 1939. Elle est ionisée par les étoiles chaudes de l'association OB Mon OB2 et présente une faible émission Ha uniforme avec quelques filaments OIII. Rarement imagée en raison de sa faible brillance de surface, elle constitue une cible intéressante pour les configurations à longue intégration. Astrophotographie : Dec +12°, accessible depuis l'Europe. Taille 30′. Filtre Ha indispensable. Longue intégration nécessaire (>6h) compte tenu de la faible brillance de surface.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-273": {
+      "name": "Nébuleuse Monoceros",
+      "type": "Emission Nebula",
+      "distance_ly": 2600.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "JanFebMar",
+      "description": "Sh2-273 (Nébuleuse Monoceros) est une région HII dans la constellation de la Licorne, à environ 2 600 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 90′. Répertoriée par Stewart Sharpless en 1959. Vaste nébuleuse d'émission de la Licorne associée au complexe de formation stellaire Mon R2, l'une des régions de formation stellaire massives les plus proches de la Terre. La région contient des amas jeunes enfouis, des masers H2O et des sources infrarouges brillantes. La grande taille angulaire (90′) en fait un objet de prédilection pour les setups grands champs. Astrophotographie : Dec +10°, accessible depuis l'Europe en hiver. Grand champ indispensable (90′). Filtre Ha + OIII. Association possible avec la Nébuleuse de la Rosette dans le même champ très large.",
+      "external_link": "https://en.wikipedia.org/wiki/Monoceros_R2"
+    },
+    "Sh2-276": {
+      "name": "Barnard's Loop",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Edward Emerson Barnard",
+      "discovery_year": 1894,
+      "best_months": "DecJanFeb",
+      "description": "Sh2-276 (Barnard's Loop) est une vaste nébuleuse d'émission en arc dans la constellation d'Orion, à environ 1 600 al. Elle apparaît autour de la magnitude 5.0, couvrant environ 600′. Découverte par Edward Emerson Barnard en 1894 par photographie astronomique et cataloguée dans le catalogue Sharpless en 1959. Barnard's Loop est un arc semi-circulaire géant d'hydrogène ionisé s'étendant sur plus de 10° de ciel, englobant une grande partie du complexe moléculaire d'Orion. Son origine est vraisemblablement une ou plusieurs supernovas anciennes qui ont soufflé une bulle dans le milieu interstellaire local. Extrêmement diffuse, cette nébuleuse est l'une des plus grandes structures visibles du ciel. Astrophotographie : immense (600′) — grand-angle ou objectif photo indispensable (24–50mm). Filtre Ha quasi obligatoire. Mosaïque de plusieurs panneaux pour une couverture complète. Cible hivernale emblématique.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard%27s_Loop"
+    },
+    "Sh2-302": {
+      "name": "Nébuleuse Pupis",
+      "type": "Emission Nebula",
+      "distance_ly": 6500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "FebMarApr",
+      "description": "Sh2-302 (Nébuleuse de la Poupe / Puppis) est une région HII dans la constellation de la Poupe, à environ 6 500 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 15′. Répertoriée par Stewart Sharpless en 1959. Nébuleuse d'émission compacte dans le plan galactique de la Poupe, une région riche en régions HII peu imagées. Elle est ionisée par une étoile O enfouie dans un nuage moléculaire dense. Sa déclinaison australe la rend difficile d'accès depuis les latitudes françaises (culmination basse). Astrophotographie : Dec ~-20°, culmination à ~22° depuis Rémalard. Créneau d'imagerie étroit en hiver/printemps. Filtres Ha nécessaires pour compenser la faible hauteur et la turbulence atmosphérique. Longues poses unitaires recommandées.",
+      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
+    },
+    "Sh2-311": {
+      "name": "RCW 16",
+      "type": "Emission Nebula",
+      "distance_ly": 5500.0,
+      "discoverer": "Stewart Sharpless",
+      "discovery_year": 1959,
+      "best_months": "FebMarApr",
+      "description": "Sh2-311 (RCW 16) est une région HII dans la constellation de Vela, à environ 5 500 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 40′. Répertoriée par Stewart Sharpless en 1959 et figurant également dans le catalogue RCW (Rodgers, Campbell & Whiteoak, 1960). Nébuleuse d'émission de taille intermédiaire dans le complexe de Vela, une région galactique parsemée de rémanents de supernova et de régions HII actives. Ionisée par des étoiles O/B du bras de Sagittaire-Carène. Sa déclinaison très australe (-40°) la rend inaccessible depuis la plupart des latitudes françaises. Astrophotographie : Dec ~-40°, hauteur maximale ~2° depuis Rémalard (lat. 48.4°N) — pratiquement inimaginable depuis la France. Réservée aux observatoires australs ou voyages astrophoto. Filtres Ha + OIII recommandés.",
+      "external_link": "https://en.wikipedia.org/wiki/RCW_16"
+    }
+  }
+}

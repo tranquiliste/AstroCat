@@ -1,6 +1,6 @@
 # Sponsor Pitch
 
-Astro Catalogue Viewer helps astrophotographers stay organized, plan targets, and track progress across Messier, NGC, IC, Caldwell, and more. I build and maintain it as a solo developer.
+AstroCat helps astrophotographers stay organized, plan targets, and track progress across Messier, NGC, IC, Caldwell, and more. I build and maintain it as a solo developer.
 
 Your support helps cover:
 - catalog data cleanup and verification

@@ -13,6 +13,8 @@ import re
 
 PROJECT_ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 
+
+
 DEFAULT_CONFIG = {
     "catalogs": [
         {
@@ -26,13 +28,43 @@ DEFAULT_CONFIG = {
             "image_dirs": [],
         },
         {
-            "name": "Caldwell",
-            "metadata_file": "data/caldwell_metadata.json",
+            "name": "IC",
+            "metadata_file": "data/ic_metadata.json",
             "image_dirs": [],
         },
         {
             "name": "Solar system",
             "metadata_file": "data/solar_system_metadata.json",
+            "image_dirs": [],
+        },
+        {
+            "name": "Sh2",
+            "metadata_file": "data/sh2_catalog.json",
+            "image_dirs": [],
+        },
+        {
+            "name": "LDN",
+            "metadata_file": "data/ldn_catalog.json",
+            "image_dirs": [],
+        },
+        {
+            "name": "Barnard",
+            "metadata_file": "data/barnard_catalog.json",
+            "image_dirs": [],
+        },
+        {
+            "name": "VdB",
+            "metadata_file": "data/vdb_catalog.json",
+            "image_dirs": [],
+        },
+        {
+            "name": "LBN",
+            "metadata_file": "data/lbn_catalog.json",
+            "image_dirs": [],
+        },
+        {
+            "name": "PNG",
+            "metadata_file": "data/png_catalog.json",
             "image_dirs": [],
         },
     ],
@@ -413,8 +445,73 @@ def _load_catalog_metadata(metadata_path: Path) -> Dict[str, Dict]:
             return json.load(handle)
 
 
-def load_catalog_items(config: Dict) -> List[CatalogItem]:
+def _load_json(path: Path) -> object:
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            return json.load(handle)
+    except UnicodeDecodeError:
+        with path.open("r", encoding="latin-1") as handle:
+            return json.load(handle)
+
+
+def _load_user_image_notes(notes_path: Optional[Path]) -> Dict[str, str]:
+    if notes_path is None or not notes_path.exists():
+        return {}
+    try:
+        data = _load_json(notes_path)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    notes: Dict[str, str] = {}
+    for key, value in data.items():
+        if isinstance(key, str) and isinstance(value, str):
+            normalized = value.strip()
+            if normalized:
+                notes[key] = normalized
+    return notes
+
+
+def _save_user_image_note(notes_path: Path, image_name: str, notes: str) -> None:
+    data = _load_user_image_notes(notes_path) if notes_path.exists() else {}
+    if notes.strip():
+        data[image_name] = notes.strip()
+    else:
+        data.pop(image_name, None)
+    notes_path.parent.mkdir(parents=True, exist_ok=True)
+    with notes_path.open("w", encoding="utf-8") as handle:
+        json.dump(data, handle, indent=2, ensure_ascii=False)
+
+
+def _cleanup_metadata_image_note(metadata_path: Path, catalog_name: str, object_id: str, image_name: str) -> None:
+    if not metadata_path.exists():
+        return
+    data = _load_catalog_metadata(metadata_path)
+    catalog = data.get(catalog_name)
+    if not isinstance(catalog, dict):
+        return
+    entry = catalog.get(object_id)
+    if not isinstance(entry, dict):
+        return
+    image_notes = entry.get("image_notes")
+    if not isinstance(image_notes, dict):
+        return
+    if image_name not in image_notes:
+        return
+    image_notes.pop(image_name, None)
+    if not image_notes:
+        entry.pop("image_notes", None)
+    if not entry:
+        catalog.pop(object_id, None)
+    if not catalog:
+        data.pop(catalog_name, None)
+    with metadata_path.open("w", encoding="utf-8") as handle:
+        json.dump(data, handle, indent=2, ensure_ascii=False)
+
+
+def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> List[CatalogItem]:
     items: List[CatalogItem] = []
+    user_image_notes = _load_user_image_notes(user_notes_path)
     extensions = config.get("image_extensions", DEFAULT_CONFIG["image_extensions"])
     observer = config.get("observer", {})
     latitude = observer.get("latitude")
@@ -452,6 +549,12 @@ def load_catalog_items(config: Dict) -> List[CatalogItem]:
             best_months = _adjust_best_months(meta.get("best_months"), latitude)
             if not best_months and ra_hours is not None and dec_deg is not None and latitude is not None:
                 best_months = _compute_best_months(ra_hours, dec_deg, latitude, longitude)
+            notes = _normalize_text(meta.get("notes"))
+            image_notes = _normalize_image_notes(meta.get("image_notes"))
+            for image_path in image_paths:
+                note_text = user_image_notes.get(image_path.name)
+                if note_text:
+                    image_notes[image_path.name] = note_text
             items.append(
                 CatalogItem(
                     object_id=object_id,
@@ -463,8 +566,8 @@ def load_catalog_items(config: Dict) -> List[CatalogItem]:
                     discovery_year=meta.get("discovery_year"),
                     best_months=best_months,
                     description=_normalize_text(meta.get("description")),
-                    notes=_normalize_text(meta.get("notes")),
-                    image_notes=_normalize_image_notes(meta.get("image_notes")),
+                    notes=notes,
+                    image_notes=image_notes,
                     external_link=_normalize_text(
                         meta.get("external_link")
                     ) or _default_external_link(object_id, meta.get("name")),
@@ -543,11 +646,35 @@ def _select_catalog_entries(catalog_data: Dict[str, Dict], catalog_name: str) ->
 
 
 def collect_object_types(items: Iterable[CatalogItem]) -> List[str]:
-    types = sorted({item.object_type for item in items if item.object_type})
-    return types
+    # Ordre d'affichage préférentiel pour les types connus
+    _TYPE_ORDER = [
+        "Galaxy",
+        "Galaxy Cluster",
+        "Globular Cluster",
+        "Open Cluster",
+        "Emission Nebula",
+        "Reflection Nebula",
+        "Dark Nebula",
+        "Planetary Nebula",
+        "Supernova Remnant",
+        "HII Region",
+        "Star",
+        "Double Star",
+        "Asterism",
+    ]
+    all_types = {item.object_type for item in items if item.object_type}
+    ordered = [t for t in _TYPE_ORDER if t in all_types]
+    remaining = sorted(all_types - set(ordered))
+    return ordered + remaining
 
 
-def save_note(metadata_path: Path, catalog_name: str, object_id: str, notes: str) -> None:
+def save_note(
+    metadata_path: Path,
+    catalog_name: str,
+    object_id: str,
+    notes: str,
+    user_notes_path: Optional[Path] = None,
+) -> None:
     if not metadata_path.exists():
         return
     data = _load_catalog_metadata(metadata_path)
@@ -567,7 +694,12 @@ def save_image_note(
     object_id: str,
     image_name: str,
     notes: str,
+    user_notes_path: Optional[Path] = None,
 ) -> None:
+    if user_notes_path is not None and user_notes_path != metadata_path:
+        _save_user_image_note(user_notes_path, image_name, notes)
+        _cleanup_metadata_image_note(metadata_path, catalog_name, object_id, image_name)
+        return
     if not metadata_path.exists():
         return
     data = _load_catalog_metadata(metadata_path)
@@ -608,6 +740,7 @@ def _merge_default_config(loaded: Dict) -> Dict:
     }
     existing_catalogs.pop("IC", None)
     catalogs = []
+    # Tous les catalogues définis dans DEFAULT_CONFIG sont toujours inclus
     for default_catalog in DEFAULT_CONFIG["catalogs"]:
         name = default_catalog.get("name")
         if name in existing_catalogs:
@@ -616,9 +749,10 @@ def _merge_default_config(loaded: Dict) -> Dict:
             catalogs.append(updated)
         else:
             catalogs.append(default_catalog.copy())
-    # include any custom catalogs not in defaults
+    # Inclure les catalogues personnalisés absents des defaults
+    default_names = {c.get("name") for c in catalogs}
     for name, catalog in existing_catalogs.items():
-        if name not in {c.get("name") for c in catalogs}:
+        if name not in default_names:
             catalogs.append(catalog)
     merged["catalogs"] = catalogs
     _normalize_catalog_paths(merged)
@@ -743,13 +877,72 @@ def _alias_matches(stem: str, alias: str) -> bool:
 def _extract_object_ids(stem: str) -> List[str]:
     ids: List[str] = []
     lower_stem = stem.lower()
+
+    # ── Système solaire ──────────────────────────────────────────────────────
     for object_id in SOLAR_OBJECTS:
         if any(_alias_matches(lower_stem, alias) for alias in _solar_aliases(object_id)):
             ids.append(object_id.upper())
+
+    # ── Messier / NGC / IC / Caldwell ────────────────────────────────────────
     pattern = re.compile(r"(NGC|IC|M|(?<!I)(?<!NG)C)[\s_-]*0*(\d{1,5})(?!\d)")
     for match in pattern.finditer(stem):
         prefix, number = match.groups()
         ids.append(f"{prefix}{int(number)}")
+
+    # ── Sharpless (Sh2) ──────────────────────────────────────────────────────
+    # Reconnaît : Sh2-155, Sh2155, Sh2_155, SH2-155, sh2155, ...
+    sh2_pattern = re.compile(r"(?<![A-Z0-9])SH2[\s_-]*0*(\d{1,3}[a-z]?)(?![A-Z0-9])",
+                             re.IGNORECASE)
+    for m in sh2_pattern.finditer(stem):
+        ids.append(f"Sh2-{m.group(1)}")
+
+    # ── LDN (Lynds Dark Nebulae) ─────────────────────────────────────────────
+    # Reconnaît : LDN1630, LDN_1630, LDN 1630, ldn183, ...
+    ldn_pattern = re.compile(r"(?<![A-Z0-9])LDN[\s_-]*0*(\d{1,4})(?!\d)",
+                             re.IGNORECASE)
+    for m in ldn_pattern.finditer(stem):
+        ids.append(f"LDN {int(m.group(1))}")
+
+    # ── Barnard (B) ──────────────────────────────────────────────────────────
+    # Reconnaît : B33, B_33, B-33, B 33, b150, ...
+    # Préfixe seul ("B") trop court → on exige au moins 2 chiffres ou
+    # un séparateur explicite pour éviter les faux positifs.
+    barnard_pattern = re.compile(
+        r"(?<![A-Z0-9])"
+        r"B"
+        r"(?:[\s_-]+0*(\d{1,3})|0*(\d{2,3}))"  # séparateur OU 2-3 chiffres directs
+        r"(?![A-Z0-9])",
+        re.IGNORECASE,
+    )
+    for m in barnard_pattern.finditer(stem):
+        num = m.group(1) or m.group(2)
+        ids.append(f"B {int(num)}")
+
+    # ── VdB (van den Bergh) ──────────────────────────────────────────────────
+    # Reconnaît : VdB139, VDB139, VDB_139, vdb 139, ...
+    vdb_pattern = re.compile(r"(?<![A-Z0-9])VDB[\s_-]*0*(\d{1,3})(?!\d)",
+                             re.IGNORECASE)
+    for m in vdb_pattern.finditer(stem):
+        ids.append(f"VdB {int(m.group(1))}")
+
+    # ── LBN (Lynds Bright Nebulae) ───────────────────────────────────────────
+    # Reconnaît : LBN667, LBN_667, LBN 667, lbn667a, ...
+    lbn_pattern = re.compile(r"(?<![A-Z0-9])LBN[\s_-]*0*(\d{1,4}[a-z]?)(?![A-Z0-9])",
+                             re.IGNORECASE)
+    for m in lbn_pattern.finditer(stem):
+        ids.append(f"LBN {m.group(1)}")
+
+    # ── PNG (Strasbourg-ESO PN catalogue) ────────────────────────────────────
+    # IDs très complexes (ex. PNG 59.0-13.9) — on tente une correspondance
+    # souple sur le motif PNG suivi de chiffres/points/signes.
+    # Reconnaît : PNG59.0-13.9, PNG_59.0+13.9, PNG590-139, ...
+    png_pattern = re.compile(
+        r"(?<![A-Z0-9])PNG[\s_-]*([\d]+\.?\d*[+\-][\d]+\.?\d*)(?![A-Z0-9])",
+        re.IGNORECASE,
+    )
+    for m in png_pattern.finditer(stem):
+        ids.append(f"PNG {m.group(1)}")
+
     return list(dict.fromkeys(ids))
 
 
@@ -792,20 +985,44 @@ def _catalog_prefix(catalog_name: str) -> str:
         return "IC"
     if name == "caldwell":
         return "C"
+    if name == "sh2":
+        return "Sh2"
+    if name == "ldn":
+        return "LDN"
+    if name == "barnard":
+        return "B"
+    if name == "vdb":
+        return "VdB"
+    if name == "lbn":
+        return "LBN"
+    if name == "png":
+        return "PNG"
     return ""
 
 
 def _matches_catalog_object_id(catalog_name: str, object_id: str) -> bool:
     name = (catalog_name or "").strip().lower()
-    value = (object_id or "").strip().upper()
+    value = (object_id or "").strip()
     if name == "messier":
-        return re.match(r"^M\\d+$", value) is not None
+        return re.match(r"^M\d+$", value, re.IGNORECASE) is not None
     if name == "caldwell":
-        return re.match(r"^C\\d+$", value) is not None
+        return re.match(r"^C\d+$", value, re.IGNORECASE) is not None
     if name == "ngc":
-        return re.match(r"^NGC\\d+$", value) is not None
+        return re.match(r"^NGC\d+$", value, re.IGNORECASE) is not None
     if name == "ic":
-        return re.match(r"^IC\\d+$", value) is not None
+        return re.match(r"^IC\d+$", value, re.IGNORECASE) is not None
+    if name == "sh2":
+        return re.match(r"^Sh2-\d+[a-z]?$", value, re.IGNORECASE) is not None
+    if name == "ldn":
+        return re.match(r"^LDN\s+\d+$", value, re.IGNORECASE) is not None
+    if name == "barnard":
+        return re.match(r"^B\s+\d+$", value, re.IGNORECASE) is not None
+    if name == "vdb":
+        return re.match(r"^VdB\s+\d+$", value, re.IGNORECASE) is not None
+    if name == "lbn":
+        return re.match(r"^LBN\s+\d+[a-z]?$", value, re.IGNORECASE) is not None
+    if name == "png":
+        return re.match(r"^PNG\s+[\d.+\-]+$", value, re.IGNORECASE) is not None
     return True
 
 

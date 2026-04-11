@@ -25,7 +25,7 @@ def _fetch_json(url: str) -> Dict:
             "--retry-delay",
             "1",
             "-H",
-            "User-Agent: AstroCatalogueViewer/1.0",
+            "User-Agent: AstroCat/1.0",
             url,
         ],
         check=True,

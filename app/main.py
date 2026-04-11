@@ -1,5 +1,63 @@
 from __future__ import annotations
 
+# ============================================================================
+# INTÉGRATION DES NOUVEAUX CATALOGUES — À AJOUTER DANS catalog.py
+# ============================================================================
+# Dans catalog.py, dans le dictionnaire DEFAULT_CONFIG["catalogs"], ajouter
+# les 6 entrées suivantes après les catalogues existants (Messier, NGC…) :
+#
+#     {
+#         "name": "Sh2",
+#         "catalog_file": "data/sh2_catalog.json",
+#         "metadata_file": "data/sh2_metadata.json",
+#         "image_dirs": [],
+#         "enabled": True,
+#     },
+#     {
+#         "name": "LDN",
+#         "catalog_file": "data/ldn_catalog.json",
+#         "metadata_file": "data/ldn_metadata.json",
+#         "image_dirs": [],
+#         "enabled": True,
+#     },
+#     {
+#         "name": "Barnard",
+#         "catalog_file": "data/barnard_catalog.json",
+#         "metadata_file": "data/barnard_metadata.json",
+#         "image_dirs": [],
+#         "enabled": True,
+#     },
+#     {
+#         "name": "VdB",
+#         "catalog_file": "data/vdb_catalog.json",
+#         "metadata_file": "data/vdb_metadata.json",
+#         "image_dirs": [],
+#         "enabled": True,
+#     },
+#     {
+#         "name": "LBN",
+#         "catalog_file": "data/lbn_catalog.json",
+#         "metadata_file": "data/lbn_metadata.json",
+#         "image_dirs": [],
+#         "enabled": True,
+#     },
+#     {
+#         "name": "PNG",
+#         "catalog_file": "data/png_catalog.json",
+#         "metadata_file": "data/png_metadata.json",
+#         "image_dirs": [],
+#         "enabled": True,
+#     },
+#
+# Les fichiers JSON (sh2_catalog.json, ldn_catalog.json, barnard_catalog.json,
+# vdb_catalog.json, lbn_catalog.json, png_catalog.json) doivent être placés
+# dans le dossier  data/  à la racine du projet.
+#
+# Les fichiers *_metadata.json seront créés automatiquement au premier
+# lancement si la fonction de création de métadonnées est implémentée,
+# sinon les créer manuellement avec un JSON vide : {}
+# ============================================================================
+
 import sys
 import hashlib
 import re
@@ -23,8 +81,8 @@ from catalog import PROJECT_ROOT
 from image_cache import ThumbnailCache
 
 
-APP_NAME = "Astro Catalogue Viewer"
-ORG_NAME = "AstroCatalogueViewer"
+APP_NAME = "AstroCat"
+ORG_NAME = "AstroCat"
 UPDATE_REPO = "thebioguy/Astro-Catalogue-Viewer"
 SUPPORTERS_URL = f"https://raw.githubusercontent.com/{UPDATE_REPO}/main/data/supporters.json"
 APP_VERSION_FILE = "data/version.json"
@@ -320,7 +378,7 @@ class WikiThumbnailTask(QtCore.QRunnable):
                 "--retry-delay",
                 "1",
                 "-H",
-                "User-Agent: AstroCatalogueViewer/1.0",
+                "User-Agent: AstroCat/1.0",
                 url,
             ],
             check=True,
@@ -358,13 +416,14 @@ class ImageLoadTask(QtCore.QRunnable):
 
 
 class CatalogLoadTask(QtCore.QRunnable):
-    def __init__(self, config: Dict) -> None:
+    def __init__(self, config: Dict, user_notes_path: Optional[Path] = None) -> None:
         super().__init__()
         self.config = config
+        self.user_notes_path = user_notes_path
         self.signals = CatalogLoadSignals()
 
     def run(self) -> None:
-        items = load_catalog_items(self.config)
+        items = load_catalog_items(self.config, self.user_notes_path)
         self.signals.loaded.emit(items)
 
 
@@ -423,7 +482,7 @@ class MapTileFetchTask(QtCore.QRunnable):
                     try:
                         request = urllib.request.Request(
                             url,
-                            headers={"User-Agent": "AstroCatalogueViewer/1.0"},
+                            headers={"User-Agent": "AstroCat/1.0"},
                         )
                         with urllib.request.urlopen(request, timeout=6) as response:
                             tile_data = response.read()
@@ -459,6 +518,31 @@ class CatalogModel(QtCore.QAbstractListModel):
     _wiki_thumbnail_blocklist = {
         "Caldwell": {"C64"},
         "NGC": {"NGC146", "NGC771", "NGC1502"},
+        # PNG : entrées dupliquées ou sans page Wikipedia dédiée
+        "PNG": {
+            "PNG64.7-73.5",   # doublon NGC 246
+            "PNG118.8-74.7",  # doublon NGC 246
+            "PNG234.9+2.4",   # doublon NGC 2438
+            "PNG292.5+4.4",   # doublon NGC 3918
+            "PNG342.5+27.5",  # doublon NGC 6026
+            "PNG348.0+31.4",  # extension NGC 6210, pas de page propre
+            "PNG85.4-0.1",    # Sh2-120, page HII pas PN
+            "PNG97.0-2.0",    # Sh2-124, page HII pas PN
+            "PNG114.0-4.6",   # NGC 7538, page HII pas PN
+            "PNG107.6+2.3",   # IC 1396, page EN pas PN
+        },
+        # LDN : nébuleuses sombres sans image Wikipedia utilisable
+        "LDN": {
+            "LDN1",
+            "LDN43",
+            "LDN694",
+            "LDN1333",
+        },
+        # Barnard : objets sans image Wikipedia distincte
+        "Barnard": {
+            "B144", "B145", "B163", "B169", "B170",
+            "B171", "B174", "B175", "B312",
+        },
     }
     _wiki_thumbnail_refresh = {
         "Solar system": {"CHARIKLO", "SWIFT-TUTTLE"},
@@ -1747,6 +1831,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.config = load_config(self.config_path)
         self._data_version = self._load_cached_data_version()
         self._ensure_user_metadata_files()
+        self.user_notes_path = self._user_notes_path()
         if not self.config.get("cleanup_invalid_image_only_entries_done", False):
             self._cleanup_invalid_image_only_entries()
             self.config["cleanup_invalid_image_only_entries_done"] = True
@@ -1872,8 +1957,24 @@ class MainWindow(QtWidgets.QMainWindow):
                 if source_path and meta_path.exists():
                     if self._merge_metadata_updates(source_path, meta_path, catalog.get("name", "")):
                         updated = True
+        notes_file = self._user_notes_path()
+        if notes_file is not None:
+            notes_file.parent.mkdir(parents=True, exist_ok=True)
+            if not notes_file.exists():
+                try:
+                    with notes_file.open("w", encoding="utf-8") as handle:
+                        json.dump({}, handle, indent=2, ensure_ascii=False)
+                    updated = True
+                except OSError:
+                    pass
         if updated:
             save_config(self.config_path, self.config)
+
+    def _user_notes_path(self) -> Optional[Path]:
+        location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
+        if not location:
+            return None
+        return Path(location) / "photo_notes.json"
 
     def _bundled_metadata_path(self, catalog_name: str) -> Optional[Path]:
         name = (catalog_name or "").strip().lower()
@@ -1944,10 +2045,17 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _cleanup_invalid_image_only_entries(self) -> None:
         catalog_rules = {
-            "Messier": re.compile(r"^M\\d+$", re.IGNORECASE),
-            "Caldwell": re.compile(r"^C\\d+$", re.IGNORECASE),
-            "NGC": re.compile(r"^NGC\\d+$", re.IGNORECASE),
-            "IC": re.compile(r"^IC\\d+$", re.IGNORECASE),
+            "Messier": re.compile(r"^M\d+$", re.IGNORECASE),
+            "Caldwell": re.compile(r"^C\d+$", re.IGNORECASE),
+            "NGC": re.compile(r"^NGC\d+$", re.IGNORECASE),
+            "IC": re.compile(r"^IC\d+$", re.IGNORECASE),
+            # Nouveaux catalogues
+            "Sh2": re.compile(r"^Sh2-\d+[a-z]?$", re.IGNORECASE),
+            "LDN": re.compile(r"^LDN\s+\d+$", re.IGNORECASE),
+            "Barnard": re.compile(r"^B\s+\d+$", re.IGNORECASE),
+            "VdB": re.compile(r"^VdB\s+\d+$", re.IGNORECASE),
+            "LBN": re.compile(r"^LBN\s+\d+[a-z]?$", re.IGNORECASE),
+            "PNG": re.compile(r"^PNG\s+[\d.+\-]+$", re.IGNORECASE),
         }
         updated = False
         for catalog in self.config.get("catalogs", []):
@@ -2698,6 +2806,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self._start_catalog_load(base_config)
             return
         self.config = dialog.updated_config
+        self.user_notes_path = self._user_notes_path()
         save_config(self.config_path, self.config)
         self.thumbnail_cache = ThumbnailCache(self._cache_dir(), self.config.get("thumb_size", 240))
         self._auto_fit_enabled = True
@@ -2724,7 +2833,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._loading_config = config
         self._set_ui_enabled(False)
         self.status_label.setText("Loading catalog…")
-        task = CatalogLoadTask(config)
+        task = CatalogLoadTask(config, self.user_notes_path)
         task.signals.loaded.connect(self._on_catalog_loaded)
         self._catalog_pool.start(task)
 
@@ -3095,12 +3204,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 continue
             item_key = f"{catalog}:{object_id}"
             if image_name:
-                save_image_note(metadata_path, catalog, object_id, image_name, notes)
+                save_image_note(metadata_path, catalog, object_id, image_name, notes, user_notes_path=self.user_notes_path)
                 self.model.update_item_image_note(item_key, image_name, notes)
                 if current and current.unique_key == item_key:
                     self.detail.update_current_item_notes(image_name, notes)
             else:
-                save_note(metadata_path, catalog, object_id, notes)
+                save_note(metadata_path, catalog, object_id, notes, user_notes_path=self.user_notes_path)
                 self.model.update_item_notes(item_key, notes)
                 if current and current.unique_key == item_key:
                     self.detail.update_current_item_notes(None, None, notes)
@@ -3258,6 +3367,13 @@ class SettingsDialog(QtWidgets.QDialog):
         archive_row.addWidget(browse_archive)
         form.addRow("Archive Image Folder", archive_row)
 
+        # Notes are stored in the settings directory
+        open_settings_folder = QtWidgets.QPushButton()
+        open_settings_folder.setIcon(self.style().standardIcon(QtWidgets.QStyle.StandardPixmap.SP_DirOpenIcon))
+        open_settings_folder.setToolTip("Open settings folder")
+        open_settings_folder.clicked.connect(self._open_settings_folder)
+        form.addRow("Settings Folder", open_settings_folder)
+
         clear_cache = QtWidgets.QPushButton("Clear thumbnail cache")
         clear_cache.clicked.connect(self._clear_thumbnail_cache)
         form.addRow("Thumbnail Cache", clear_cache)
@@ -3316,6 +3432,8 @@ class SettingsDialog(QtWidgets.QDialog):
         }
         updated["master_image_dir"] = self.master_folder.text().strip()
         updated["archive_image_dir"] = self.archive_folder.text().strip()
+        # Notes folder is hardcoded to settings directory, remove any old config
+        updated.pop("notes_folder", None)
 
         catalogs = []
         for catalog in updated.get("catalogs", []):
@@ -3353,6 +3471,11 @@ class SettingsDialog(QtWidgets.QDialog):
             return
         self.archive_folder.setText(directory)
         self._emit_preview()
+
+    def _open_settings_folder(self) -> None:
+        location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
+        if location:
+            QtGui.QDesktopServices.openUrl(QtCore.QUrl.fromLocalFile(location))
 
     def _clear_thumbnail_cache(self) -> None:
         parent = self.parent()
@@ -3735,7 +3858,7 @@ class WelcomeDialog(QtWidgets.QDialog):
         self.setWindowTitle("Welcome")
         self.setMinimumWidth(560)
 
-        title = QtWidgets.QLabel("Welcome to Astro Catalogue Viewer")
+        title = QtWidgets.QLabel("Welcome to AstroCat")
         title.setObjectName("welcomeTitle")
 
         body = QtWidgets.QTextBrowser()
@@ -3752,7 +3875,15 @@ class WelcomeDialog(QtWidgets.QDialog):
               <li>Click an object to view metadata and add notes.</li>
             </ul>
             <p><b>Image naming</b></p>
-            <p>Filenames should include the standard object ID, such as <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, or <b>C14</b>.</p>
+            <p>Filenames should include the standard object ID:</p>
+            <ul>
+              <li>Messier / NGC / IC / Caldwell : <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, <b>C14</b></li>
+              <li>Sharpless : <b>Sh2-155</b>, <b>Sh2-101</b></li>
+              <li>Lynds Dark / Bright : <b>LDN1630</b>, <b>LBN667</b></li>
+              <li>Barnard : <b>B33</b>, <b>B150</b></li>
+              <li>van den Bergh : <b>VdB139</b>, <b>VdB152</b></li>
+              <li>Planétaires PNG : <b>PNG59.0-13.9</b>, <b>PNG104.2-29.6</b></li>
+            </ul>
             <p><b>Missing images</b></p>
             <p>Enable <b>Wiki thumbnails</b> in the toolbar to preview missing targets while you build your library.</p>
             <p><b>Support development</b></p>
@@ -3803,7 +3934,7 @@ class AboutDialog(QtWidgets.QDialog):
         self._app_version = app_version
         self._data_version = data_version
 
-        title = QtWidgets.QLabel("Astro Catalogue Viewer")
+        title = QtWidgets.QLabel("AstroCat")
         title.setObjectName("aboutTitle")
         self.app_version_label = QtWidgets.QLabel(f"App Version: {app_version}")
         self.app_version_label.setObjectName("aboutVersion")
@@ -3811,7 +3942,7 @@ class AboutDialog(QtWidgets.QDialog):
         self.data_version_label.setObjectName("aboutDataVersion")
 
         about = QtWidgets.QLabel(
-            "Astro Catalogue Viewer helps you organize deep-sky catalogs with your own imagery, "
+            "AstroCat helps you organize deep-sky catalogs with your own imagery, "
             "track capture progress, and plan what to shoot next."
         )
         about.setWordWrap(True)
@@ -4013,7 +4144,7 @@ class UpdateCheckTask(QtCore.QRunnable):
                 "--retry-delay",
                 "1",
                 "-H",
-                "User-Agent: AstroCatalogueViewer/1.0",
+                "User-Agent: AstroCat/1.0",
                 url,
             ],
             check=True,

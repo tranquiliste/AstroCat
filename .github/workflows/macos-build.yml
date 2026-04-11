@@ -30,19 +30,19 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/Astro Catalogue Viewer.app" \
-            "AstroCatalogueViewer-macOS-AppleSilicon.zip"
+            "dist/AstroCat.app" \
+            "AstroCat-macOS-AppleSilicon.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AstroCatalogueViewer-macOS-AppleSilicon
-          path: AstroCatalogueViewer-macOS-AppleSilicon.zip
+          name: AstroCat-macOS-AppleSilicon
+          path: AstroCat-macOS-AppleSilicon.zip
 
   build-macos-intel:
     runs-on: macos-15-intel
@@ -67,16 +67,16 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/Astro Catalogue Viewer.app" \
-            "AstroCatalogueViewer-macOS-Intel.zip"
+            "dist/AstroCat.app" \
+            "AstroCat-macOS-Intel.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AstroCatalogueViewer-macOS-Intel
-          path: AstroCatalogueViewer-macOS-Intel.zip
+          name: AstroCat-macOS-Intel
+          path: AstroCat-macOS-Intel.zip

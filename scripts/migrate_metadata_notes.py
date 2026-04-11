@@ -12,13 +12,13 @@ from typing import Dict, Tuple
 def _default_metadata_dir() -> Path:
     home = Path.home()
     if sys.platform == "darwin":
-        return home / "Library" / "Preferences" / "AstroCatalogueViewer" / "Astro Catalogue Viewer" / "metadata"
+        return home / "Library" / "Preferences" / "AstroCat" / "AstroCat" / "metadata"
     if sys.platform.startswith("win"):
         appdata = os.environ.get("APPDATA")
         if appdata:
-            return Path(appdata) / "AstroCatalogueViewer" / "Astro Catalogue Viewer" / "metadata"
-        return home / "AppData" / "Roaming" / "AstroCatalogueViewer" / "Astro Catalogue Viewer" / "metadata"
-    return home / ".config" / "AstroCatalogueViewer" / "Astro Catalogue Viewer" / "metadata"
+            return Path(appdata) / "AstroCat" / "AstroCat" / "metadata"
+        return home / "AppData" / "Roaming" / "AstroCat" / "AstroCat" / "metadata"
+    return home / ".config" / "AstroCat" / "AstroCat" / "metadata"
 
 
 def _load_json(path: Path) -> Dict:
@@ -72,7 +72,7 @@ def main() -> None:
     parser.add_argument(
         "--app-bundle",
         required=True,
-        help="Path to the old 'Astro Catalogue Viewer.app' bundle.",
+        help="Path to the old 'AstroCat.app' bundle.",
     )
     parser.add_argument(
         "--dest",
@@ -82,8 +82,8 @@ def main() -> None:
     args = parser.parse_args()
 
     app_bundle = Path(args.app_bundle).expanduser()
-    if app_bundle.name != "Astro Catalogue Viewer.app":
-        print("Expected an app bundle named 'Astro Catalogue Viewer.app'.", file=sys.stderr)
+    if app_bundle.name != "AstroCat.app":
+        print("Expected an app bundle named 'AstroCat.app'.", file=sys.stderr)
     if not app_bundle.exists():
         raise SystemExit(f"App bundle not found: {app_bundle}")
 

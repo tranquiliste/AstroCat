@@ -1,0 +1,134 @@
+{
+  "LDN": {
+    "LDN 1": {
+      "name": "Nébuleuse sombre Céphée",
+      "type": "Dark Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "SepOctNov",
+      "description": "LDN 1 (Nébuleuse sombre Céphée) est une nébuleuse sombre dans la constellation de Céphée, à environ 500 al. Objet sombre sans magnitude propre (opacité maximale dans le catalogue Lynds). Cataloguée par Beverly Turner Lynds en 1962 dans son relevé photographique des nébuleuses sombres sur les plaques de la National Geographic Society – Palomar Observatory Sky Survey (POSS). LDN 1 est l'un des nuages sombres les plus septentrionaux du catalogue, faisant partie du complexe moléculaire de Céphée. Il se détache en silhouette sur le fond diffus de la Voie lactée boréale et sur la nébulosité de fond de la région. Ce type d'objet est un nuage moléculaire dense en cours d'effondrement gravitationnel, potentiellement siège d'une formation stellaire naissante. Astrophotographie : Dec +77°, circumpolaire depuis la France à toute heure de l'année. Imagerie en fond de ciel Ha ou en LRVB sur fond stellaire dense. L'objet se révèle par contraste avec la nébulosité environnante ; un fond riche en émission Ha ou une région chargée en étoiles amplifie le contraste de l'obscurité. Intégration longue recommandée pour descendre sous le fond de ciel.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
+    },
+    "LDN 43": {
+      "name": "RNO 1",
+      "type": "Dark Nebula",
+      "distance_ly": 520.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "SepOctNov",
+      "description": "LDN 43 (RNO 1) est une nébuleuse sombre dans la constellation de Cassiopée / Céphée, à environ 520 al. Objet sombre d'opacité maximale (classe 6 Lynds). Cataloguée par Beverly Turner Lynds en 1962. LDN 43 est associée à l'objet RNO 1 (Red Nebulous Object 1), une petite nébuleuse à réflexion rouge générée par une protoétoile enfouie de classe 0/I. Ce type d'objet en rougeoiement protostellaire est rare et scientifiquement précieux : il traduit la diffusion de la lumière d'une étoile jeune très enveloppée dans la poussière froide du cocon parent. La combinaison nébuleuse sombre + RNO donne un contraste saisissant en imagerie couleur profonde. Astrophotographie : Dec +57°, excellente accessibilité en automne depuis la France. Taille modérée (20′). LRVB profond ou Ha + LRVB pour révéler à la fois la nébulosité rouge RNO et la silhouette sombre environnante. Longue intégration conseillée (>6h) pour faire ressortir la nébulosité rouge diffuse.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
+    },
+    "LDN 183": {
+      "name": "Âme Noire",
+      "type": "Dark Nebula",
+      "distance_ly": 110.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "MayJunJul",
+      "description": "LDN 183 (Black Soul Nebula / Âme Noire) est une nébuleuse sombre dans la constellation du Serpent (Serpens Cauda), à environ 110 al, ce qui en fait l'un des nuages moléculaires denses les plus proches de la Terre. Cataloguée par Beverly Turner Lynds en 1962, et également connue sous le nom B68 adjacente dans le catalogue Barnard. LDN 183 est un cœur dense préstellaire en équilibre quasi-critique de Bonnor-Ebert, souvent cité comme l'archétype des globules de Bok pré-effondrés. À seulement 110 al, il bloque intégralement la lumière des étoiles situées derrière lui sur un champ d'environ 40′. Sa proximité en fait une cible scientifique de première importance pour l'étude de la chimie des nuages froids (T ~ 10 K). Astrophotographie : Dec -3°, position équatoriale accessible depuis la France en été (culmination ~50°). Contraste spectaculaire par rapport au riche fond stellaire du Serpent/Voie Lactée. Imagerie LRVB profonde : le nuage apparaît comme un « trou » absolu dans le champ stellaire. Fond Ha optionnel. Éviter les périodes de pleine Lune.",
+      "external_link": "https://en.wikipedia.org/wiki/LDN_183"
+    },
+    "LDN 204": {
+      "name": "Pipe Tige",
+      "type": "Dark Nebula",
+      "distance_ly": 450.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "JunJulAug",
+      "description": "LDN 204 (Pipe Nebula — Tige) est une nébuleuse sombre dans la constellation d'Ophiuchus, à environ 450 al. Objet d'opacité maximale (classe 6 Lynds), couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1962. LDN 204 correspond à la tige (ou tuyau) de la célèbre Nébuleuse de la Pipe, un complexe de nuages sombres s'étendant sur plusieurs degrés dans la direction du centre galactique. La Nébuleuse de la Pipe dans son ensemble englobe LDN 204 (la tige), le Bowl (bol, = B59 à l'ouest) et plusieurs cœurs denses numérotés (B68, B69, B78…). La tige est orientée approximativement est-ouest et se détache nettement sur le fond étoilé dense de la Voie Lactée du Sagittaire-Ophiuchus. Astrophotographie : Dec -26°, culmination ~16° depuis Rémalard (lat. 48.4°N) — cible basse mais imageable en été. Imagerie grand champ obligatoire pour couvrir la structure de plusieurs degrés. LRVB sur fond de Voie Lactée ; Ha optionnel pour révéler la nébulosité d'arrière-plan. Préférer les nuits estivales à faible turbulence atmosphérique.",
+      "external_link": "https://en.wikipedia.org/wiki/Pipe_Nebula"
+    },
+    "LDN 694": {
+      "name": "Globule Taure",
+      "type": "Dark Nebula",
+      "distance_ly": 820.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "NovDecJan",
+      "description": "LDN 694 est un globule de Bok dense dans la constellation du Taureau, à environ 820 al. Objet sombre compact de ~15′ d'opacité maximale. Catalogué par Beverly Turner Lynds en 1962. LDN 694 est un cœur préstellaire très étudié au sein du complexe de formation stellaire du Taureau (Taurus Molecular Cloud, TMC). Ce globule dense présente les signatures chimiques typiques des cœurs froids en phase pré-effondrée : déplétion du CO, abondance en N₂H⁺, et profil de densité de Bonnor-Ebert. Sa compacité (15′) en fait une cible exigeante, mais son contraste élevé sur le fond stellaire du Taureau le rend identifiable même avec un équipement modeste. Astrophotographie : Dec +43°, excellente accessibilité hivernale depuis la France. Compact (15′) : focale longue préférable. LRVB profond pour le contraste étoiles/obscurité. Le fond stellaire riche de TMC amplifie le relief du globule. Peut être intégré dans un champ plus large incluant d'autres structures sombres du Taureau.",
+      "external_link": "https://en.wikipedia.org/wiki/LDN_694"
+    },
+    "LDN 1235": {
+      "name": "Requin Sombre",
+      "type": "Dark Nebula",
+      "distance_ly": 650.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "AugSepOct",
+      "description": "LDN 1235 (Dark Shark Nebula / Requin Sombre) est une nébuleuse sombre dans la constellation de Céphée, à environ 650 al. Objet d'opacité élevée couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1962. Sa morphologie évocatrice, ressemblant à un requin en pleine nage avec ses nageoires et sa gueule, lui a valu son surnom populaire d'astrophotographe. Elle appartient au vaste complexe de nuages sombres de Céphée (Cepheus Flare), une région de formation stellaire modérée à basse masse. Dans le même champ de vue se trouvent souvent vdB 149 et vdB 150, deux nébuleuses à réflexion bleues qui accentuent spectaculairement le contraste avec la silhouette sombre du « requin ». Astrophotographie : Dec +77°, strictement circumpolaire depuis la France. Cible d'automne par excellence. Grand champ recommandé (60′ et plus) pour inclure les nébuleuses bleues vdB environnantes. LRVB profond indispensable : l'association nébulosité bleue de réflexion + silhouette sombre est le signal photographique distinctif. 6–10h d'intégration pour révéler les nuances.",
+      "external_link": "https://en.wikipedia.org/wiki/Dark_Shark_Nebula"
+    },
+    "LDN 1251": {
+      "name": "Nébuleuse Céph",
+      "type": "Dark Nebula",
+      "distance_ly": 300.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "AugSepOct",
+      "description": "LDN 1251 est un nuage moléculaire sombre étendu dans la constellation de Céphée, à environ 300 al. Objet d'opacité maximale couvrant environ 80′. Catalogué par Beverly Turner Lynds en 1962. LDN 1251 est un filament sombre du complexe Cepheus Flare, l'un des nuages de formation stellaire à basse masse les plus actifs de l'hémisphère boréal. Il abrite plusieurs cœurs denses, des objets de Herbig-Haro et des flots bipolaires associés à des protoétoiles de classe 0. Sa grande extension (80′) en fait un objet de prédilection pour les imageurs grand champ. L'environnement est enrichi de nébulosités diffuses IFN (Flux Nébuleux Intégré) révélées en imagerie profonde. Astrophotographie : Dec +75°, circumpolaire depuis la France. Grand champ recommandé (80′). LRVB très profond pour détecter les IFN de fond de ciel et les nébulosités diffuses environnantes. Longue intégration nécessaire (>8h). L'absence de pollution lumineuse (Bortle 4 à Rémalard) est un atout pour ces cibles diffuses.",
+      "external_link": "https://en.wikipedia.org/wiki/LDN_1251"
+    },
+    "LDN 1333": {
+      "name": "Requin Cass",
+      "type": "Dark Nebula",
+      "distance_ly": 700.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "SepOctNov",
+      "description": "LDN 1333 (Requin de Cassiopée) est une nébuleuse sombre dans la constellation de Cassiopée, à environ 700 al. Objet d'opacité élevée couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1962. Nuage sombre appartenant au complexe moléculaire du bras local (bras d'Orion) dans la direction de Cassiopée, une région de la Voie Lactée particulièrement riche en nuages froids et nébuleuses diffuses. Sa morphologie allongée et recourbée évoque une silhouette de requin, en référence à LDN 1235 plus nord. La région présente de faibles nébulosités IFN de fond sur les images profondes. Des nébuleuses à réflexion discrètes peuvent être présentes dans le champ. Astrophotographie : Dec +76°, strictement circumpolaire depuis la France. Cible d'automne. Champ large (40′ et plus) pour inclure les structures environnantes. LRVB profond avec longue intégration pour révéler les IFN et les nébulosités diffuses de fond. Associer éventuellement avec LDN 1235 en mosaïque.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
+    },
+    "LDN 1622": {
+      "name": "Nébuleuse Bogeyman",
+      "type": "Dark Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "DecJanFeb",
+      "description": "LDN 1622 (Bogeyman Nebula / Nébuleuse du Croquemitaine) est une nébuleuse sombre dans la constellation d'Orion, à environ 400–500 al. Objet d'opacité maximale couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1962. LDN 1622 est l'une des nébuleuses sombres les plus photographiées du ciel boréal. Sa silhouette humanoïde évoquant un fantôme ou un croquemitaine bras tendus, se découpe spectaculairement sur la nébulosité orangée/rouge de Barnard's Loop (Sh2-276) en arrière-plan. Elle fait partie du complexe de nuages sombres de l'association Orion OB1, mais est physiquement plus proche de nous que la grande Nébuleuse d'Orion. Ce n'est pas une nébuleuse en émission : elle est purement sombre, visible uniquement par l'extinction des sources lumineuses derrière elle. Astrophotographie : Dec +1.5°, accessible depuis la France en hiver (culmination ~42°). Le fond rouge-orangé de Barnard's Loop en Ha est indispensable pour révéler la silhouette. Imagerie Ha + LRVB : la couche Ha révèle le fond, le LRVB la couleur. Grand champ conseillé pour inclure la courbure de Barnard's Loop.",
+      "external_link": "https://en.wikipedia.org/wiki/LDN_1622"
+    },
+    "LDN 1630": {
+      "name": "B33 Région",
+      "type": "Dark Nebula",
+      "distance_ly": 1350.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "DecJanFeb",
+      "description": "LDN 1630 (Barnard 33 / Région de la Tête de Cheval) est un complexe de nébuleuses sombres dans la constellation d'Orion, à environ 1 350 al. Objet d'opacité maximale couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1962 ; le globule B33 (Tête de Cheval) est préalablement identifié par Williamina Fleming en 1888 sur des plaques photographiques de l'Observatoire de Harvard. LDN 1630 désigne le nuage sombre parent du célèbre Barnard 33 (Horsehead Nebula / IC 434), la nébuleuse en silhouette de cheval la plus iconique du ciel. La Tête de Cheval est un pilier de gaz et de poussière se détachant sur la lueur rouge de la nébuleuse en émission IC 434, elle-même ionisée par l'étoile Sigma Orionis. À proximité se trouve NGC 2023 (nébuleuse à réflexion bleue) et la Nébuleuse de la Flamme (NGC 2024). Astrophotographie : Dec -2°, culmination ~40° depuis Rémalard. Cible hivernale iconique. Filtres Ha pour le fond rouge d'IC 434 + LRVB pour la couleur et NGC 2023. Longue focale recommandée pour résoudre la Tête de Cheval (relief ~15′). 6–10h d'intégration.",
+      "external_link": "https://en.wikipedia.org/wiki/Horsehead_Nebula"
+    },
+    "LDN 1689": {
+      "name": "Ophiuchus Sombre",
+      "type": "Dark Nebula",
+      "distance_ly": 140.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "MayJunJul",
+      "description": "LDN 1689 est un nuage moléculaire sombre dense dans la constellation d'Ophiuchus, à environ 140 al, ce qui en fait l'un des nuages de formation stellaire les plus proches du Soleil. Objet d'opacité maximale couvrant environ 120′. Catalogué par Beverly Turner Lynds en 1962. LDN 1689 fait partie du complexe ρ Ophiuchi – Lupus, le berceau de formation stellaire à basse masse le plus proche de la Terre. Ce nuage contient plusieurs cœurs denses (LDN 1689N, 1689S) abritant des protoétoiles de classe 0, notamment IRAS 16293-2422, une des protoétoiles les mieux étudiées pour la chimie prébiotique. Sa grande taille angulaire (120′) et sa proximité exceptionnelle en font un terrain d'étude de premier plan. Astrophotographie : Dec -24°, culmination ~18° depuis Rémalard — cible basse mais accessible brièvement en été. Très grand champ requis (120′). Imagerie LRVB profonde sur fond du riche champ stellaire d'Ophiuchus. Les nébulosités rougeâtres de fond rho Oph complètent le tableau. Nuits d'été à turbulence minimale.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_1688"
+    },
+    "LDN 1780": {
+      "name": "Mouche",
+      "type": "Dark Nebula",
+      "distance_ly": 110.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "MayJunJul",
+      "description": "LDN 1780 (Musca Dark Cloud / Nébuleuse de la Mouche) est un nuage moléculaire sombre isolé dans la constellation de la Vierge / Hydre, à environ 100–110 al. Objet d'opacité élevée couvrant environ 30′. Catalogué par Beverly Turner Lynds en 1962. LDN 1780 est un nuage sombre remarquable par son isolement : contrairement à la plupart des nuages moléculaires, il n'est associé à aucun complexe de formation stellaire connu à proximité. On l'appelle parfois « nuage transluent » car il est moins opaque en son bord que les globules typiques. Des traces de nébulosité à réflexion bleutée ont été détectées sur les côtés ensoleillés illuminés par la lumière diffuse galactique. Sa forme allongée évoque une mouche ou un insecte en vol. Astrophotographie : Dec -35°, hauteur maximale ~7° depuis Rémalard — pratiquement inaccessible depuis les latitudes françaises. Réservée aux observatoires situés en zone méditerranéenne ou plus au sud. LRVB profond sur fond stellaire riche. Nuits d'été austral.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
+    },
+    "LDN 1795": {
+      "name": "B72 Serpent",
+      "type": "Dark Nebula",
+      "distance_ly": 650.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1962,
+      "best_months": "JunJulAug",
+      "description": "LDN 1795 (Barnard 72 / Snake Nebula / Nébuleuse Serpent) est une nébuleuse sombre sinueuse dans la constellation d'Ophiuchus, à environ 650 al. Objet d'opacité maximale couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1962 ; la structure B72 est identifiée dès 1919 par Edward Emerson Barnard dans son catalogue de régions sombres. B72 est une des nébuleuses sombres les plus photogéniques du ciel : sa forme en S ondulant devant le fond stellaire dense de la Voie Lactée du Sagittaire lui a valu son surnom de Nébuleuse Serpent. Elle s'étend sur environ 30′ et est entourée d'autres structures sombres du même complexe (B68, B69, B70, B74). La richesse du fond étoilé sous-jacent (direction centre galactique) maximise le contraste de la silhouette. Astrophotographie : Dec -23°, culmination ~19° depuis Rémalard — cible basse mais imageable en été. Le fond stellaire extraordinairement dense du centre galactique est le véritable atout de cette cible. LRVB grand champ + Ha optionnel. Nuits courtes d'été ; profiter de la fenêtre de culmination.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard_72"
+    }
+  }
+}

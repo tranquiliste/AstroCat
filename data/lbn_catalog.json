@@ -1,0 +1,924 @@
+{
+  "LBN": {
+    "LBN 6": {
+      "name": "Nébuleuse Cassiopée NW",
+      "type": "Emission Nebula",
+      "distance_ly": 7000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 6 (Nébuleuse Cassiopée NW) est une nébuleuse en émission dans la constellation de Cassiopée, à environ 7 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965 dans son catalogue des nébuleuses brillantes (LBN, ApJS 12, 163). Région HII diffuse du bras de Persée de la Voie Lactée, appartenant au riche complexe nébuleux de Cassiopée qui comprend notamment les nébuleuses du Cœur et de l'Âme. LBN 6 constitue une extension nord-ouest peu documentée de ce complexe, avec une nébulosité Ha diffuse ionisée par des étoiles OB du bras de Persée. Astrophotographie : Dec +64.2°, circumpolaire depuis la France. Cible d'automne-hiver. Champ large (30′). Filtre Ha indispensable. Intégration 4–6h. À intégrer dans un champ commun avec LBN 11 voisin.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 11": {
+      "name": "Nébuleuse Cassiopée",
+      "type": "Emission Nebula",
+      "distance_ly": 7000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 11 (Nébuleuse Cassiopée) est une nébuleuse en émission dans la constellation de Cassiopée, à environ 7 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII du bras de Persée dans le complexe nébuleux central de Cassiopée. Les nébuleuses LBN 6, 11 et 20 forment un groupe de régions HII diffuses étroitement voisines dans cette partie de Cassiopée, probablement toutes reliées au même complexe moléculaire parent. LBN 11 est la plus lumineuse et la plus compacte du trio. Des étoiles OB enfouies dans le nuage ionisent le gaz environnant. Astrophotographie : Dec +64.6°, circumpolaire depuis la France. Cible d'automne-hiver. Filtre Ha. Grand champ pour inclure le trio LBN 6–11–20. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 20": {
+      "name": "Nébuleuse Cassiopée Est",
+      "type": "Emission Nebula",
+      "distance_ly": 7000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 20 (Nébuleuse Cassiopée Est) est une nébuleuse en émission dans la constellation de Cassiopée, à environ 7 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Extension orientale du groupe LBN 6–11–20 dans la région centrale de Cassiopée. Région HII diffuse et peu condensée, partie du complexe nébuleux du bras de Persée. Sa magnitude de surface légèrement inférieure aux deux voisins (9.0 vs 8.5) traduit une densité columnaire de gaz ionisé plus faible. Riche contexte de Voie Lactée circumpolaire. Astrophotographie : Dec +63.7°, circumpolaire. Cible d'automne-hiver. Grand champ (20′). Filtre Ha. Intégration 4–6h. Imagerie conjointe avec LBN 6 et LBN 11 recommandée.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 92": {
+      "name": "Nébuleuse Persée Moléculaire",
+      "type": "Emission Nebula",
+      "distance_ly": 1000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "NovDecJan",
+      "description": "LBN 92 (Nébuleuse Persée Moléculaire) est une nébuleuse en émission dans la constellation de Persée, à environ 1 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse associée au complexe de formation stellaire de Persée (Perseus OB2 / Perseus Molecular Cloud), l'une des régions de formation d'étoiles à basse masse les plus proches du Soleil. Le complexe de Persée héberge IC 348 et NGC 1333, deux régions de formation stellaire active. LBN 92 représente une extension d'émission Ha peu condensée de ce complexe. Astrophotographie : Dec +32.6°, culmination ~75° depuis Rémalard. Cible hivernale. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Perseus_molecular_cloud"
+    },
+    "LBN 105": {
+      "name": "Nébuleuse Persée",
+      "type": "Emission Nebula",
+      "distance_ly": 1000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "NovDecJan",
+      "description": "LBN 105 (Nébuleuse Persée) est une nébuleuse en émission dans la constellation de Persée, à environ 1 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII du complexe de formation stellaire de Persée, plus étendue que LBN 92 et associée aux nuages moléculaires denses du Perseus OB2. Sa déclinaison à +31° la rend très accessible depuis les latitudes européennes. Elle inclut potentiellement des sous-régions ionisées par plusieurs étoiles OB de l'association. Des nébuleuses à réflexion (VdB 14, VdB 15) sont présentes dans le même complexe. Astrophotographie : Dec +31.2°, culmination ~74° depuis Rémalard. Cible hivernale. Grand champ (40′). Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Perseus_molecular_cloud"
+    },
+    "LBN 123": {
+      "name": "Nébuleuse Calibrations RN",
+      "type": "Reflection Nebula",
+      "distance_ly": 444.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "NovDecJan",
+      "description": "LBN 123 (Nébuleuse Pléiades / Calibration RN) est la nébuleuse à réflexion du complexe des Pléiades dans le Taureau, à environ 444 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. LBN 123 correspond à une portion de la nébuleuse à réflexion de M45 (Pléiades), centrée sur l'une des étoiles satellites de l'amas. Le nuage interstellaire que traversent actuellement les Pléiades crée plusieurs zones de réflexion distinctes, cataloguées séparément par Lynds (VdB 17 pour la zone d'Alcyone). La teinte bleutée est caractéristique de la diffusion de Rayleigh. Astrophotographie : Dec +24.1°, culmination ~67° depuis Rémalard. Cible hivernale. Taille 20′. LRVB profond pour la réflexion bleue. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Pleiades"
+    },
+    "LBN 149": {
+      "name": "Nébuleuse Taureau",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 149 (Nébuleuse Taureau) est une nébuleuse en émission dans la constellation du Taureau, à environ 1 500 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans la direction du complexe moléculaire du Taureau, à l'interface entre les nuages sombres du Taureau (Taurus Molecular Cloud) et les régions HII plus distantes du plan galactique. Sa faible brillance de surface (mag 9.5) requiert un ciel sombre et une longue intégration. Le contexte nébuleux du Taureau, riche en nuages sombres (B 18, B 22, LDN 1495), enrichit les images grand champ. Astrophotographie : Dec +15.7°, culmination ~58° depuis Rémalard. Cible hivernale. Taille 30′. Filtre Ha. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 187": {
+      "name": "Nébuleuse Orion Sud",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 187 (Nébuleuse Orion Sud) est une nébuleuse en émission dans la partie méridionale de la constellation d'Orion, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII étendue au sud du complexe moléculaire d'Orion, appartenant au vaste halo d'émission qui entoure l'ensemble de la constellation. Sa position à Dec -5° la rend accessible depuis la France mais avec une culmination modérée (~37°). Elle fait partie de l'immense structure de Barnard's Loop étendue qui englobe tout le complexe d'Orion. Astrophotographie : Dec -5.4°, culmination ~37° depuis Rémalard. Cible hivernale. Grand champ (40′). Filtre Ha. Intégration 6–8h. Nuits d'hiver à faible turbulence.",
+      "external_link": "https://en.wikipedia.org/wiki/Orion_Molecular_Cloud_Complex"
+    },
+    "LBN 189": {
+      "name": "Nébuleuse Orion SW",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 189 (Nébuleuse Orion SW) est une nébuleuse en émission dans la partie sud-ouest d'Orion, à environ 1 600 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII faisant partie du halo d'émission étendu du complexe d'Orion, englobant les arcs extérieurs de Barnard's Loop (Sh2-276). La luminosité relativement élevée (mag 8.0) et la grande taille (60′) en font un objet imageable avec un équipement grand champ. Les filaments Ha de Barnard's Loop dominent l'imagerie à bande étroite dans cette direction. Astrophotographie : Dec +0.3°, culmination ~42° depuis Rémalard. Cible hivernale. Très grand champ (60′). Filtre Ha indispensable. Intégration 6–10h. Objectif photo grand-angle ou petite lunette conseillé.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard%27s_Loop"
+    },
+    "LBN 194": {
+      "name": "Nébuleuse Orion NW",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 194 (Nébuleuse Orion NW) est une nébuleuse en émission dans la partie nord-ouest d'Orion, à environ 1 600 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Extension nord-ouest du complexe nébuleux d'Orion, associée aux structures diffuses de Barnard's Loop et à la nébulosité HII de l'association Orion OB1b. Dans cette direction se trouvent lambda Orionis et l'anneau de Barnard (SH2-264), une bulle d'émission géante de ~8° centrée sur λ Ori. LBN 194 fait partie de cet environnement nébuleux très étendu. Astrophotographie : Dec +4.4°, culmination ~46° depuis Rémalard. Cible hivernale. Taille 40′. Filtre Ha. Grand champ conseillé. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Orion_Molecular_Cloud_Complex"
+    },
+    "LBN 210": {
+      "name": "Nébuleuse Orion Nord (Barnard's Loop)",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 210 (Nébuleuse Orion Nord / Barnard's Loop N) est une nébuleuse en émission dans le nord d'Orion, à environ 1 600 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 90′. Cataloguée par Beverly Turner Lynds en 1965. LBN 210 correspond à la portion nord du célèbre arc de Barnard (Sh2-276), l'une des structures nébuleuses les plus imposantes du ciel boréal. Avec une taille de 90′ et une magnitude de 7.5, c'est l'une des entrées LBN les plus brillantes de la région d'Orion. L'arc de Barnard s'étend sur plus de 10° et serait le vestige de la bulle soufflée par d'anciennes supernovas de l'association Orion OB1. Astrophotographie : Dec +12.3°, culmination ~55° depuis Rémalard. Cible hivernale. Immense (90′) : objectif grand-angle ou mosaïque. Filtre Ha quasi obligatoire. Intégration 8–12h pour les filaments fins. Cible hivernale emblématique.",
+      "external_link": "https://en.wikipedia.org/wiki/Barnard%27s_Loop"
+    },
+    "LBN 215": {
+      "name": "Nébuleuse Lambda Orionis",
+      "type": "Emission Nebula",
+      "distance_ly": 1300.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 215 (Nébuleuse Lambda Orionis / SH2-264) est une région HII circulaire géante dans le nord d'Orion, à environ 1 300 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 60′ pour cette portion cataloguée. Cataloguée par Beverly Turner Lynds en 1965. LBN 215 fait partie de SH2-264, l'anneau de Lambda Orionis, une bulle d'émission Ha d'environ 8° de diamètre centrée sur l'étoile O λ Ori (Meissa). Cette bulle serait issue d'une ou plusieurs supernovas anciennes associées à l'association Lambda Ori OB1. Des nuages sombres (B 30, B 35) parsèment le bord de l'anneau. En imagerie grand champ, la structure circulaire complète est spectaculaire en Ha. Astrophotographie : Dec +9.9°, culmination ~52° depuis Rémalard. Cible hivernale. Grand champ (60′ à 8°). Filtre Ha. Objectif photo pour l'anneau complet. Intégration 8–12h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lambda_Orionis"
+    },
+    "LBN 218": {
+      "name": "Nébuleuse Orion ρ",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 218 (Nébuleuse Orion rho) est une nébuleuse en émission dans Orion, à environ 1 600 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans la ceinture équatoriale du complexe d'Orion, associée à l'environnement de l'étoile rho Orionis et aux arcs extérieurs du complexe moléculaire OMC. Sa position équatoriale (Dec +0.8°) en fait une cible accessible depuis les deux hémisphères. Le fond nébuleux riche en Ha du complexe d'Orion constitue le contexte principal. Astrophotographie : Dec +0.8°, culmination ~43° depuis Rémalard. Cible hivernale. Taille 40′. Filtre Ha. Intégration 6–8h. Nuits d'hiver à faible turbulence atmosphérique.",
+      "external_link": "https://en.wikipedia.org/wiki/Orion_Molecular_Cloud_Complex"
+    },
+    "LBN 225": {
+      "name": "Nébuleuse IC 434 (région Cheval)",
+      "type": "Emission Nebula",
+      "distance_ly": 1350.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 225 (Région IC 434 / Nébuleuse de la Tête de Cheval) est la grande région HII contenant IC 434 dans Orion, à environ 1 350 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1965. LBN 225 est la région HII étendue dont IC 434 est la partie centrale brillante. C'est le fond rouge lumineux sur lequel se découpe le célèbre globule sombre B 33 (Tête de Cheval / Horsehead Nebula). L'ionisation est assurée par l'étoile O Sigma Orionis, qui irradie tout le complexe. Dans le même champ se trouvent la Nébuleuse de la Flamme (NGC 2024) à l'est et la nébuleuse à réflexion NGC 2023. L'une des régions astrophotographiques les plus iconiques du ciel. Astrophotographie : Dec -2°, culmination ~40° depuis Rémalard. Cible hivernale incontournable. Grand champ (60′). Filtre Ha essentiel pour le fond rouge. LRVB + Ha pour la couleur complète. Intégration 6–10h.",
+      "external_link": "https://en.wikipedia.org/wiki/Horsehead_Nebula"
+    },
+    "LBN 235": {
+      "name": "Nébuleuse Gémeaux SW",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JanFebMar",
+      "description": "LBN 235 (Nébuleuse Gémeaux SW) est une nébuleuse en émission dans la constellation des Gémeaux, à environ 3 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans la direction de l'anticentre galactique (Gémeaux), appartenant probablement au complexe Gem OB1. Sa position à Dec +14° la rend bien accessible depuis les latitudes françaises. Les Gémeaux sont traversés par la Voie Lactée de l'anticentre, région moins spectaculaire que le centre galactique mais riche en structures diffuses. Astrophotographie : Dec +14.4°, culmination ~57° depuis Rémalard. Cible hivernale. Taille 30′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 245": {
+      "name": "Nébuleuse Monoceros Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 2500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JanFebMar",
+      "description": "LBN 245 (Nébuleuse Monoceros Nord) est une nébuleuse en émission dans la Licorne (Monoceros), à environ 2 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 50′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII du complexe moléculaire Mon OB1/OB2 dans la Licorne, l'une des régions de formation stellaire les plus actives de l'anticentre galactique. La Licorne abrite la Nébuleuse de la Rosette (NGC 2237), la Nébuleuse du Cône (NGC 2264), et de nombreuses structures HII étendues dont LBN 245 fait partie. Son étendue de 50′ en fait un objet de grand champ. Astrophotographie : Dec +8.6°, culmination ~51° depuis Rémalard. Cible hivernale-printanière. Grand champ (50′). Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Monoceros_OB2"
+    },
+    "LBN 263": {
+      "name": "Nébuleuse Grand Chien",
+      "type": "Emission Nebula",
+      "distance_ly": 3500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JanFebMar",
+      "description": "LBN 263 (Nébuleuse Grand Chien / Canis Major) est une nébuleuse en émission dans la constellation du Grand Chien, à environ 3 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans la partie du plan galactique visible au sud du Grand Chien, associée au complexe CMa OB1 qui comprend la célèbre nébuleuse de la Tête de Loup (NGC 2359 / Thor's Helmet). Sa déclinaison australe (-11.5°) réduit l'accessibilité depuis la France (culmination ~30°). Des étoiles Wolf-Rayet de l'association CMa OB1 peuvent contribuer aux émissions OIII. Astrophotographie : Dec -11.5°, culmination ~30° depuis Rémalard — cible basse. Taille 40′. Filtre Ha. Créneau d'imagerie restreint en hiver. Longues poses unitaires pour compenser la turbulence.",
+      "external_link": "https://en.wikipedia.org/wiki/Canis_Major_OB1"
+    },
+    "LBN 265": {
+      "name": "Nébuleuse Sirius",
+      "type": "Reflection Nebula",
+      "distance_ly": 8.6,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JanFebMar",
+      "description": "LBN 265 (Nébuleuse Sirius) est une nébuleuse à réflexion très diffuse associée à Sirius (α CMa), l'étoile la plus brillante du ciel, à seulement 8.6 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 15′. Cataloguée par Beverly Turner Lynds en 1965. Il s'agit d'une nébulosité ténu de poussière interstellaire illuminée par la lumière blanche intense de Sirius (A1V, magnitude -1.46). Sa détection photographique est rendue difficile par la saturation extrême de l'étoile centrale et son extraordinaire brillance de surface stellaire comparée à la faiblesse de la nébulosité. La région autour de Sirius présente aussi de faibles cirrus galactiques IFN en imagerie très profonde. Astrophotographie : Dec -2.2°, culmination ~40° depuis Rémalard. Cible hivernale. Compact (15′) mais Sirius est un obstacle majeur à l'imagerie (halos, diffraction). Nécessite une gestion experte de la saturation stellaire. Intégration très longue pour la nébulosité diffuse.",
+      "external_link": "https://en.wikipedia.org/wiki/Sirius"
+    },
+    "LBN 292": {
+      "name": "Nébuleuse Monoceros-Puppis",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "FebMarApr",
+      "description": "LBN 292 (Nébuleuse Monoceros-Puppis) est une nébuleuse en émission à la frontière Licorne-Poupe, à environ 3 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 35′. Cataloguée par Beverly Turner Lynds en 1965. Région HII appartenant au complexe nébuleux de la Poupe (Puppis OB), une zone du plan galactique riche en régions HII peu imagées depuis les latitudes nord. Sa déclinaison à -14.5° en fait une cible basse depuis la France (culmination ~28°), réservée aux nuits de printemps à faible turbulence atmosphérique. Astrophotographie : Dec -14.5°, culmination ~28° depuis Rémalard — cible basse. Taille 35′. Filtre Ha. Créneau limité en printemps. Longues poses unitaires recommandées.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 316": {
+      "name": "Nébuleuse Vela Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "FebMarApr",
+      "description": "LBN 316 (Nébuleuse Vela Nord) est une nébuleuse en émission dans la constellation des Voiles (Vela), à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII dans le complexe de Vela, l'une des régions galactiques les plus riches du ciel austral, incluant le rémanent de supernova de Vela (Vela SNR), le pulsar de Vela et de nombreuses régions HII actives. Sa déclinaison très australe (-44°) la rend inaccessible depuis les latitudes françaises (hauteur <0° depuis Rémalard). Cible réservée aux observatoires du sud de l'Europe ou aux voyages astrophoto sous des cieux australs. Astrophotographie : Dec -44.1°, inaccessible depuis Rémalard (lat. 48.4°N). Cible australe. Réservée aux latitudes <35°N.",
+      "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
+    },
+    "LBN 331a": {
+      "name": "Nébuleuse Vela Sud",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "FebMarApr",
+      "description": "LBN 331 (Nébuleuse Vela Sud) est une nébuleuse en émission dans la constellation des Voiles, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 50′. Cataloguée par Beverly Turner Lynds en 1965. Pendant méridional de LBN 316 dans le vaste complexe de Vela, à déclinaison encore plus australe (-47.5°). Fait partie du même réseau de régions HII et de rémanents de supernova du complexe de Vela. Sa latitude galactique basse traduit une forte concentration de gaz ionisé le long du plan galactique. Totalement inaccessible depuis les latitudes nord tempérées. Astrophotographie : Dec -47.5°, inaccessible depuis Rémalard. Cible australe exclusive. Réservée aux observatoires situés en deçà de la latitude 30°N.",
+      "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
+    },
+    "LBN 331b": {
+      "name": "Nébuleuse Vela-Puppis",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "FebMarApr",
+      "description": "LBN 331 (variante Vel-Pup) est une nébuleuse en émission à la frontière Vela-Puppis, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 45′. Cataloguée par Beverly Turner Lynds en 1965. Cette entrée correspond à une zone légèrement distincte du même complexe nébuleux Vela-Puppis, à déclinaison -44.6°. Les deux entrées LBN 331 du catalogue reflètent probablement deux condensations différentes du même complexe de régions HII de Vela, indexées sous le même numéro. Inaccessible depuis les latitudes françaises. Astrophotographie : Dec -44.6°, inaccessible depuis Rémalard. Cible australe.",
+      "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
+    },
+    "LBN 340": {
+      "name": "Nébuleuse Poupe",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MarAprMay",
+      "description": "LBN 340 (Nébuleuse Poupe / Puppis) est une nébuleuse en émission dans la constellation de la Poupe, à environ 4 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique de Puppis, appartenant au complexe Puppis OB2. Sa déclinaison australe (-35.4°) la rend difficile depuis les latitudes nord (culmination ~7° depuis Rémalard), voire marginalement accessible lors de nuits exceptionnellement transparentes en automne-hiver. Astrophotographie : Dec -35.4°, culmination ~7° depuis Rémalard — très difficile. Réservée aux observatoires méditerranéens ou plus au sud.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 350": {
+      "name": "Nébuleuse Poupe Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MarAprMay",
+      "description": "LBN 350 (Nébuleuse Poupe Nord) est une nébuleuse en émission dans la constellation de la Poupe, à environ 4 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Extension septentrionale du complexe HII de Puppis, légèrement plus accessible que LBN 340 grâce à sa déclinaison un peu moins australe (-33.7°). Fait partie du même complexe Puppis OB de formation stellaire. Sa luminosité de surface modérée (mag 9.0) et la faible hauteur depuis les latitudes françaises la réservent aux conditions de ciel optimales. Astrophotographie : Dec -33.7°, culmination ~9° depuis Rémalard — très difficile. Conditions de seeing excellent indispensables.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 355": {
+      "name": "Nébuleuse Voiles",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MarAprMay",
+      "description": "LBN 355 (Nébuleuse Voiles / Vela) est une nébuleuse en émission dans la constellation des Voiles, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII du complexe de Vela, dans la même zone que le rémanent de supernova de Vela (Vela SNR). Le complexe de Vela est l'un des plus riches du ciel austral, avec des structures Ha et OIII spectaculaires issues à la fois de régions HII actives et de rémanents de supernova anciens. Sa déclinaison -43.3° la rend inaccessible depuis Rémalard. Astrophotographie : Dec -43.3°, inaccessible depuis Rémalard. Cible australe.",
+      "external_link": "https://en.wikipedia.org/wiki/Vela_Supernova_Remnant"
+    },
+    "LBN 360": {
+      "name": "Nébuleuse Voiles Est",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MarAprMay",
+      "description": "LBN 360 (Nébuleuse Voiles Est) est une nébuleuse en émission dans la partie orientale de la constellation des Voiles, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 35′. Cataloguée par Beverly Turner Lynds en 1965. Extension orientale du complexe de Vela, à la frontière avec la constellation de la Carène (Carina). Sa déclinaison très australe (-48.7°) la rend totalement inaccessible depuis les latitudes nord tempérées. Cible de choix pour les astrophotographes du sud de l'hémisphère boréal ou australs. Astrophotographie : Dec -48.7°, inaccessible depuis Rémalard. Cible australe exclusive.",
+      "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
+    },
+    "LBN 405": {
+      "name": "Nébuleuse ρ Ophiuchi Nord",
+      "type": "Reflection Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MayJunJul",
+      "description": "LBN 405 (Nébuleuse rho Ophiuchi Nord) est une nébuleuse à réflexion dans la partie nord du complexe rho Ophiuchi, à environ 460 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1965. Extension septentrionale du célèbre complexe rho Oph, le champ de nébuleuses colorées le plus iconique de l'astrophotographie. LBN 405 correspond à la nébulosité à réflexion diffuse la plus nordique du complexe, avec des tons bleutés mêlés à des filaments de poussière sombre. Dans le même grand champ se trouvent le complexe rho Oph central (LBN 408 / VdB 92), les nuages sombres LDN 1689 et la nébulosité orangée autour d'Antares. Astrophotographie : Dec -22.6°, culmination ~20° depuis Rémalard — cible basse d'été. Grand champ indispensable (60′ à 3°) pour le tableau complet. LRVB très profond. Nuits d'été à seeing excellent.",
+      "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
+    },
+    "LBN 408": {
+      "name": "Nébuleuse ρ Ophiuchi",
+      "type": "Reflection Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MayJunJul",
+      "description": "LBN 408 (Nébuleuse rho Ophiuchi centrale) est la nébuleuse à réflexion principale du complexe rho Ophiuchi, à environ 460 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. LBN 408 correspond à la zone centrale du complexe rho Oph, centrée sur l'étoile ρ Ophiuchi (B2V) dont la lumière illumine les nuages de poussière. Identique à VdB 92 en termes de position centrale, mais LBN 408 inclut une zone plus étendue. Le complexe rho Oph est l'une des régions de formation stellaire les plus proches (460 al) et les plus chromées du ciel : bleu (réflexion), rouge (émission Ha), orangé (Antares), sombre (LDN 1689). Astrophotographie : Dec -24.4°, culmination ~18° depuis Rémalard — cible basse d'été. Grand champ (40′). LRVB très profond. Nuits d'été à seeing excellent. L'un des tableaux astrophotographiques les plus récompensants du catalogue.",
+      "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
+    },
+    "LBN 412": {
+      "name": "Nébuleuse ρ Ophiuchi Sud",
+      "type": "Reflection Nebula",
+      "distance_ly": 460.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MayJunJul",
+      "description": "LBN 412 (Nébuleuse rho Ophiuchi Sud) est une nébuleuse à réflexion dans la partie méridionale du complexe rho Ophiuchi, à environ 460 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Extension méridionale du complexe rho Oph, incluant des nébuleuses à réflexion associées à des étoiles jeunes de l'association Upper Scorpius. Sa déclinaison encore plus australe (-26.4°) et sa magnitude de surface légèrement inférieure la rendent un peu plus difficile que LBN 408. Dans le même grand champ élargi on trouve aussi la nébuleuse d'Antares. Astrophotographie : Dec -26.4°, culmination ~16° depuis Rémalard — très basse. Toujours imagée dans le même grand champ que LBN 405 et LBN 408. LRVB profond. Nuits d'été à seeing excellent.",
+      "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
+    },
+    "LBN 437a": {
+      "name": "Nébuleuse Ophiuchus-Scorpion",
+      "type": "Emission Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 437 (Nébuleuse Ophiuchus-Scorpion) est une nébuleuse en émission à la frontière Ophiuchus-Scorpion, à environ 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans le plan galactique de la transition Oph-Sco, appartenant à la zone de formation stellaire de l'association Scorpius-Centaurus (Sco OB2). Sa déclinaison australe (-34°) la rend très difficile depuis les latitudes françaises (culmination ~8°). Le plan galactique dans cette direction est riche en structures Ha et en nuages sombres. Astrophotographie : Dec -34.1°, culmination ~8° depuis Rémalard — quasiment inaccessible. Réservée aux observatoires méridionaux.",
+      "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
+    },
+    "LBN 437b": {
+      "name": "Nébuleuse Antares",
+      "type": "Reflection Nebula",
+      "distance_ly": 550.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MayJunJul",
+      "description": "LBN 437 (Nébuleuse d'Antares) est la somptueuse nébuleuse à réflexion orangée entourant l'étoile supergéante Antares (α Scorpii), à environ 550 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 180′. Cataloguée par Beverly Turner Lynds en 1965. La nébuleuse d'Antares est l'une des nébuleuses à réflexion les plus grandes et les plus spectaculaires du ciel. Elle est illuminée par Antares (M1.5 Iab, mag 1.0), dont la lumière rouge-orangée confère à la nébulosité une teinte chaude unique, en contraste frappant avec les nébulosités bleues à réflexion de rho Ophiuchi voisines (VdB 92, LBN 408). L'ensemble du champ Antares–rho Oph constitue l'un des tableaux astrophotographiques les plus chromatiques du ciel. Astrophotographie : Dec -26.4°, culmination ~16° depuis Rémalard — cible basse d'été. Très grand champ (180′) : objectif photo conseillé. LRVB très profond. La gestion de l'étoile brillante Antares est un défi (saturation, halos). Nuits d'été à seeing excellent. Patience et longue intégration (>10h) requises.",
+      "external_link": "https://en.wikipedia.org/wiki/Antares"
+    },
+    "LBN 453": {
+      "name": "Nébuleuse Centaure",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AprMayJun",
+      "description": "LBN 453 (Nébuleuse Centaure) est une nébuleuse en émission dans la constellation du Centaure, à environ 5 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique du Centaure, une constellation de l'hémisphère austral riche en régions HII, amas globulaires et nébuleuses. À Dec -58.9°, cette nébuleuse est totalement inaccessible depuis les latitudes françaises. Elle appartient probablement au complexe galactique du bras de la Carène-Sagittaire vu dans la direction de Centaurus. Astrophotographie : Dec -58.9°, totalement inaccessible depuis Rémalard (lat. 48.4°N). Cible du ciel austral. Réservée aux observatoires à l'hémisphère sud.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 462": {
+      "name": "Nébuleuse Norma",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 462 (Nébuleuse Norma) est une nébuleuse en émission dans la constellation de la Règle (Norma), à environ 5 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique de Norma, une constellation australe dans la direction de la zone de transition entre les bras galactiques de Sagittaire et de Norma-Cygne. Sa déclinaison très australe (-42.7°) la rend totalement inaccessible depuis les latitudes françaises. Astrophotographie : Dec -42.7°, inaccessible depuis Rémalard. Cible australe.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 468": {
+      "name": "Nébuleuse Scorpion Bleu",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 468 (Nébuleuse Scorpion Bleu) est une nébuleuse en émission dans le Scorpion méridional, à environ 3 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique du Scorpion méridional, profondément australe (Dec -43.6°). Fait partie des nombreuses régions HII disséminées dans le bras de Sagittaire vu dans la direction du centre galactique. Totalement inaccessible depuis les latitudes françaises. Astrophotographie : Dec -43.6°, inaccessible depuis Rémalard. Cible australe exclusive.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 476": {
+      "name": "Nébuleuse Autel",
+      "type": "Emission Nebula",
+      "distance_ly": 4500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 476 (Nébuleuse Autel / Ara) est une nébuleuse en émission dans la constellation de l'Autel (Ara), à environ 4 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique d'Ara, constellation australe voisine du Scorpion et du Télescope. Le complexe d'Ara est une zone de formation stellaire active du bras de Sagittaire. Sa déclinaison très australe (-49.6°) la rend totalement inaccessible depuis les latitudes françaises. Astrophotographie : Dec -49.6°, inaccessible depuis Rémalard. Cible du ciel austral.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 484": {
+      "name": "Nébuleuse Sagittaire SW",
+      "type": "Emission Nebula",
+      "distance_ly": 7000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 484 (Nébuleuse Sagittaire SW) est une nébuleuse en émission dans la partie sud-ouest du Sagittaire, à environ 7 000 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII dans la direction du centre galactique, appartenant au vaste complexe de formation stellaire du Sagittaire. Sa position vers le bulbe galactique garantit un fond d'étoiles extraordinairement dense. La forte extinction interstellaire dans cette direction (poussières galactiques du centre) rend les filtres Ha indispensables. Sa déclinaison (-32°) en fait une cible basse depuis la France. Astrophotographie : Dec -32.2°, culmination ~10° depuis Rémalard — très basse. Cible d'été difficile. Filtre Ha. Créneau d'imagerie très étroit. Fond galactique exceptionnel.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 528": {
+      "name": "Nébuleuse M8 étendue (Lagune ext.)",
+      "type": "Emission Nebula",
+      "distance_ly": 4100.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 528 (Nébuleuse de la Lagune étendue / M8 ext.) est l'enveloppe d'émission étendue de la Nébuleuse de la Lagune (Messier 8) dans le Sagittaire, à environ 4 100 al. Elle apparaît autour de la magnitude 7.0, couvrant environ 90′. Cataloguée par Beverly Turner Lynds en 1965. LBN 528 désigne le halo étendu de la célèbre nébuleuse M8, bien au-delà des limites classiques de la Lagune. Cette nébuleuse d'émission, l'une des plus lumineuses du ciel austral, est ionisée par l'amas ouvert NGC 6530 et l'étoile O Herschel 36. L'enveloppe étendue révèle des structures filamenteuses Ha et des connexions avec M20 (Trifide) au nord sur les images grand champ. Magnitude 7.0 sur 90′ en fait l'une des entrées LBN les plus imposantes. Astrophotographie : Dec -24.4°, culmination ~18° depuis Rémalard — cible basse d'été. Très grand champ (90′). Filtre Ha + OIII. Intégration longue. Nuits d'été à seeing excellent depuis la France.",
+      "external_link": "https://en.wikipedia.org/wiki/Lagoon_Nebula"
+    },
+    "LBN 532": {
+      "name": "Nébuleuse Sagittaire Nord (M24 region)",
+      "type": "Emission Nebula",
+      "distance_ly": 10000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 532 (Nébuleuse Sagittaire Nord / région M24) est une grande nébuleuse en émission dans le Sagittaire, à environ 10 000 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 80′. Cataloguée par Beverly Turner Lynds en 1965. LBN 532 est la nébulosité Ha diffuse entourant le nuage stellaire de Messier 24 (IC 4715), la plus vaste concentration stellaire visible à l'œil nu. Elle fait partie du complexe W33-W35 du plan galactique intérieur du Sagittaire. Ce secteur de ciel est extraordinairement riche : M8 au sud, M20 proche, M24 central, B 92–93 en avant-plan. La profondeur de la Voie Lactée dans cette direction (bras de Sagittaire) donne un fond stellaire incomparable. Astrophotographie : Dec -20.1°, culmination ~22° depuis Rémalard — cible basse d'été. Grand champ (80′). Filtre Ha. Intégration 6–10h. L'une des plus belles régions du ciel d'été malgré la hauteur limitée.",
+      "external_link": "https://en.wikipedia.org/wiki/Messier_24"
+    },
+    "LBN 534": {
+      "name": "Nébuleuse M17 étendue (Oméga ext.)",
+      "type": "Emission Nebula",
+      "distance_ly": 5500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 534 (Nébuleuse Oméga étendue / M17 ext.) est l'enveloppe étendue de la Nébuleuse Oméga (Messier 17 / Nébuleuse du Cygne) dans le Sagittaire, à environ 5 500 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 80′. Cataloguée par Beverly Turner Lynds en 1965. LBN 534 désigne l'immense halo d'émission Ha entourant le noyau brillant de M17, bien visible sur les images grand champ. M17 est l'une des nébuleuses HII les plus actives de la Galaxie, ionisée par l'amas OB NGC 6618 dont les étoiles massives ont soufflé une cavité dans le nuage moléculaire parent. L'enveloppe étendue révèle des filaments et arcs Ha sur 80′ en imagerie profonde. Astrophotographie : Dec -16.2°, culmination ~26° depuis Rémalard — cible basse d'été. Grand champ (80′). Filtre Ha + OIII. Intégration 6–10h. Nuits d'été à seeing excellent indispensables.",
+      "external_link": "https://en.wikipedia.org/wiki/Omega_Nebula"
+    },
+    "LBN 539": {
+      "name": "Nébuleuse Écu de Sobieski",
+      "type": "Emission Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 539 (Nébuleuse Écu de Sobieski / Scutum) est une nébuleuse en émission dans la constellation du Bouclier (Scutum), à environ 6 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique de Scutum, une constellation petite mais riche en concentrations stellaires (nuage stellaire de Scutum) et en amas globulaires (M11). Le complexe W35–W37 de formation stellaire est présent dans cette direction du bras galactique du Sagittaire-Carène. Sa déclinaison de -14° en fait une cible basse depuis la France (culmination ~28°). Astrophotographie : Dec -14.1°, culmination ~28° depuis Rémalard — cible basse d'été. Taille 30′. Filtre Ha. Créneau d'été restreint.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 549": {
+      "name": "Nébuleuse Bulle (NGC 7635)",
+      "type": "Emission Nebula",
+      "distance_ly": 7100.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 549 (Nébuleuse de la Bulle / NGC 7635) est la région HII étendue contenant la Nébuleuse de la Bulle dans Cassiopée, à environ 7 100 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 15′ pour le noyau classique de NGC 7635. Cataloguée par Beverly Turner Lynds en 1965. LBN 549 est associée à la célèbre Nébuleuse de la Bulle (NGC 7635), une bulle de gaz ionisé soufflée par les vents de l'étoile O BD+60 2522 (O6.5). Cette bulle est nichée dans une grande région HII (Sh2-162) dont les extensions sont cataloguées par Lynds. M52, un amas ouvert brillant, se trouve dans le même champ. La structure de bulle parfaite de NGC 7635 est spectaculaire en Ha + OIII. Astrophotographie : Dec +61.2°, circumpolaire depuis la France. Cible d'automne-hiver. Compact pour la bulle (15′) : longue focale pour NGC 7635 seul, grand champ pour le contexte Ha. Filtres Ha + OIII. Intégration 6–10h.",
+      "external_link": "https://en.wikipedia.org/wiki/Bubble_Nebula"
+    },
+    "LBN 552": {
+      "name": "Nébuleuse Écu Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 5500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 552 (Nébuleuse Écu Nord) est une nébuleuse en émission dans le nord du Bouclier (Scutum), à environ 5 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans la partie septentrionale de Scutum, à la transition vers Aquila. Le nuage stellaire de Scutum-Centaurus fournit un fond stellaire exceptionnellement dense dans cette direction du bras galactique intérieur. Sa déclinaison -9.8° en fait une cible encore difficile depuis la France (culmination ~32°). Astrophotographie : Dec -9.8°, culmination ~32° depuis Rémalard — basse d'été. Taille 25′. Filtre Ha. Créneau d'été limité.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 559": {
+      "name": "Nébuleuse Serpent-Aigle",
+      "type": "Emission Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 559 (Nébuleuse Serpent-Aigle) est une nébuleuse en émission à la frontière Serpens-Aquila, à environ 6 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique de la transition Serpens Cauda–Aquila, appartenant au complexe de formation stellaire W39–W40. Le complexe W40 (Serpens South) est l'une des régions de formation stellaire les plus proches de ce secteur galactique. Sa déclinaison de -5° la rend accessible depuis la France (culmination ~37°) mais basse. Astrophotographie : Dec -5.2°, culmination ~37° depuis Rémalard — cible basse d'été. Taille 40′. Filtre Ha. Créneau d'été.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 562": {
+      "name": "Nébuleuse Aigle NW",
+      "type": "Emission Nebula",
+      "distance_ly": 5500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 562 (Nébuleuse Aigle NW) est une nébuleuse en émission dans le nord-ouest de l'Aigle (Aquila), à environ 5 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse à l'ouest de l'Aigle, dans le plan galactique entre Serpens et Aquila. La zone de l'Aigle est traversée par la Voie Lactée du Rift galactique, riche en nuages sombres et en régions HII disséminées. Sa position quasi-équatoriale (Dec +0.4°) la rend accessible de pratiquement toutes les latitudes. Astrophotographie : Dec +0.4°, culmination ~42° depuis Rémalard. Cible d'été. Taille 30′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 569": {
+      "name": "Nébuleuse Aigle",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 569 (Nébuleuse Aigle) est une nébuleuse en émission dans la constellation de l'Aigle, à environ 5 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique central de l'Aigle, berceau de nombreuses régions de formation stellaire. La constellation de l'Aigle est traversée par le Grand Rift galactique, créant un mélange caractéristique de nuages sombres et de régions HII. La célebre Nébuleuse de l'Aigle (M16) avec ses Piliers de la Création se trouve dans le Sagittaire voisin. LBN 569 est dans la même zone de formation stellaire étendue. Astrophotographie : Dec +5.4°, culmination ~48° depuis Rémalard. Cible d'été. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 576": {
+      "name": "Nébuleuse Aigle Nord-Est",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 576 (Nébuleuse Aigle NE) est une nébuleuse en émission dans le nord-est de l'Aigle, à environ 5 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Extension nord-est du complexe HII de l'Aigle, à la transition vers les régions du Serpentaire et de la Flèche (Sagitta). Le plan galactique dans cette direction est riche en petites régions HII peu documentées du bras galactique intérieur. Sa déclinaison +8.8° la rend bien accessible depuis la France. Astrophotographie : Dec +8.8°, culmination ~51° depuis Rémalard. Cible d'été. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 583": {
+      "name": "Nébuleuse Aigle-Flèche",
+      "type": "Emission Nebula",
+      "distance_ly": 4500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 583 (Nébuleuse Aigle-Flèche) est une nébuleuse en émission à la frontière Aquila-Sagitta, à environ 4 500 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse peu lumineuse (mag 9.5) dans la transition entre l'Aigle et la Flèche. La faible brillance de surface requiert un ciel sombre et une intégration longue. Sa déclinaison +17° en fait une cible très accessible depuis la France. Le contexte du Rift galactique (bandes de nuages sombres alternant avec les régions HII) enrichit les images grand champ. Astrophotographie : Dec +17°, culmination ~60° depuis Rémalard. Cible d'été-automne. Taille 20′. Filtre Ha. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 592": {
+      "name": "Nébuleuse Flèche",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 592 (Nébuleuse Flèche / Sagitta) est une nébuleuse en émission dans la constellation de la Flèche, à environ 4 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII faible dans le plan galactique de Sagitta, une petite constellation riche malgré sa taille (elle contient M71, un amas globulaire). La Flèche est traversée par la Voie Lactée et plusieurs régions HII disséminées. Sa magnitude de surface de 9.5 en fait une cible exigeante. Astrophotographie : Dec +18.6°, culmination ~61° depuis Rémalard. Cible d'été-automne. Taille 20′. Filtre Ha. Intégration 6–8h. Ciel sombre indispensable.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 601": {
+      "name": "Nébuleuse Renard-Flèche",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 601 (Nébuleuse Renard-Flèche / Vulpecula-Sagitta) est une nébuleuse en émission à la frontière Vulpecula-Sagitta, à environ 4 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique de Vulpecula-Sagitta, une zone riche en structures nébuleuses (Nébuleuse de la Dumbbell M27, complexe NGC 6820). Des régions HII étendues parcourent cette partie de la Voie Lactée boréale. Sa déclinaison +27° en fait une cible très accessible depuis les latitudes françaises. Astrophotographie : Dec +27.3°, culmination ~70° depuis Rémalard. Cible d'été-automne. Taille 30′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 606": {
+      "name": "Nébuleuse Renard",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 606 (Nébuleuse Renard / Vulpecula) est une nébuleuse en émission dans la constellation du Petit Renard, à environ 4 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique de Vulpecula, une constellation de la Voie Lactée boréale riche en nébuleuses. Le complexe NGC 6820 / NGC 6823 est l'une des régions HII les plus imagées de cette constellation. LBN 606 est une extension diffuse de ce complexe. Sa déclinaison +23.5° la rend facilement accessible depuis la France. Astrophotographie : Dec +23.5°, culmination ~66° depuis Rémalard. Cible d'été-automne. Taille 25′. Filtre Ha + SII. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 620": {
+      "name": "Nébuleuse Cygne SW",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 620 (Nébuleuse Cygne SW) est une nébuleuse en émission dans le sud-ouest du Cygne, à environ 5 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII dans la partie sud-ouest du Cygne, appartenant au vaste complexe Cygnus X, l'une des régions de formation stellaire massives les plus actives de la Galaxie observable depuis l'hémisphère nord. La zone est riche en régions HII, nébuleuses à réflexion et nuages sombres. Sa déclinaison +36° offre une excellente accessibilité depuis la France. Astrophotographie : Dec +35.9°, culmination ~79° depuis Rémalard — quasi au zénith. Cible d'été-automne. Grand champ (40′). Filtre Ha + SII pour la palette SHO. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
+    },
+    "LBN 630": {
+      "name": "Nébuleuse Cygne Centrale",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 630 (Nébuleuse Cygne Centrale) est une nébuleuse en émission dans le Cygne central, à environ 5 000 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 60′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII (mag 8.0, 60′) dans le cœur du complexe Cygnus X. Le Cygne est l'une des régions les plus riches du ciel boréal en nébulosités : NGC 7000, IC 5070, Sh2-101, Sh2-119, et de nombreuses régions HII diffuses se chevauchent dans un fond de Voie Lactée extraordinairement dense. LBN 630 fait partie de ce tableau grandiose. Sa déclinaison +40.7° offre d'excellentes conditions depuis la France. Astrophotographie : Dec +40.7°, culmination ~73° depuis Rémalard. Cible d'été-automne. Grand champ (60′). Filtre Ha + SII. Palette SHO pour la richesse spectrale. Intégration 6–8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
+    },
+    "LBN 636": {
+      "name": "Nébuleuse Cygne Nord-Est",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 636 (Nébuleuse Cygne NE) est une nébuleuse en émission dans le nord-est du Cygne, à environ 5 000 al. Elle apparaît autour de la magnitude 8.0, couvrant environ 50′. Cataloguée par Beverly Turner Lynds en 1965. Extension nord-est du complexe Cygnus X, à la jonction avec la constellation de Cepheus. Appartient au même plan galactique riche que les grandes nébuleuses du Cygne. Sa déclinaison +45° garantit une très bonne accessibilité depuis les latitudes françaises. La zone de transition Cygnus-Cepheus est peuplée de nombreuses régions HII (Sh2-112, Sh2-119) et de nuages sombres du Grand Rift. Astrophotographie : Dec +45°, culmination ~78° depuis Rémalard. Cible d'été-automne. Grand champ (50′). Filtre Ha + SII. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
+    },
+    "LBN 641": {
+      "name": "Nébuleuse Cygne Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 641 (Nébuleuse Cygne Nord) est une nébuleuse en émission dans le nord du Cygne, à environ 5 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Partie septentrionale du complexe Cygnus X, à la frontière avec Lacerta et Cepheus. Le plan galactique du Cygne nord est traversé par le bras local (bras d'Orion) et le bras du Cygne, superposant deux couches de nébulosités à différentes distances. Sa déclinaison +47° offre une excellente accessibilité circumpolaire partielle depuis la France. Astrophotographie : Dec +47°, culmination ~80° depuis Rémalard — quasi au zénith. Cible d'été-automne. Taille 40′. Filtre Ha + SII. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
+    },
+    "LBN 656": {
+      "name": "Nébuleuse Pélican étendue",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 656 (Nébuleuse du Pélican étendue / IC 5070 ext.) est l'enveloppe HII étendue de la Nébuleuse du Pélican dans le Cygne, à environ 1 600 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 90′. Cataloguée par Beverly Turner Lynds en 1965. LBN 656 désigne le halo d'émission élargi de la Nébuleuse du Pélican (IC 5070), physiquement liée à la grande Nébuleuse Amérique du Nord (NGC 7000). Ensemble, NGC 7000 et IC 5070 forment l'un des complexes nébuleux les plus photographiés du ciel boréal, ionisé par l'étoile 2MASS J20554800+4401301. Les interfaces gaz-poussière de la Nébuleuse du Pélican révèlent des piliers et des jets (objets HH) spectaculaires en Ha. Astrophotographie : Dec +45°, circumpolaire depuis la France. Cible d'été-automne iconique. Très grand champ (90′). Filtre Ha + OIII + SII (palette SHO). Intégration 8–12h. L'une des cibles les plus populaires de l'astrophotographie nordique.",
+      "external_link": "https://en.wikipedia.org/wiki/Pelican_Nebula"
+    },
+    "LBN 667": {
+      "name": "Nébuleuse Amérique du Nord étendue",
+      "type": "Emission Nebula",
+      "distance_ly": 1600.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 667 (Nébuleuse Amérique du Nord étendue / NGC 7000 ext.) est l'enveloppe HII étendue de la célebre Nébuleuse Amérique du Nord dans le Cygne, à environ 1 600 al. Elle apparaît autour de la magnitude 7.0, couvrant environ 120′ — l'une des entrées LBN les plus lumineuses et les plus grandes. Cataloguée par Beverly Turner Lynds en 1965. LBN 667 correspond au halo Ha étendu de NGC 7000, dont la forme évoque le continent nord-américain. L'ensemble NGC 7000 + IC 5070 est un complexe ionisé par une ou plusieurs étoiles O massives enfouies dans le nuage parent. Sa très grande taille (120′ = 2°) et sa luminosité (mag 7.0) en font une cible de prédilection pour les objectifs photo et les petites lunettes. Astrophotographie : Dec +44.5°, circumpolaire depuis la France. Cible d'été-automne absolument incontournable. Très grand champ (120′). Objectif photo ou lunette grand champ. Palette SHO magistrale. Intégration 8–15h. L'une des plus grandes nébuleuses du catalogue pour les latitudes françaises.",
+      "external_link": "https://en.wikipedia.org/wiki/North_America_Nebula"
+    },
+    "LBN 672": {
+      "name": "Nébuleuse Cygne-Lyre",
+      "type": "Emission Nebula",
+      "distance_ly": 4500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 672 (Nébuleuse Cygne-Lyre) est une nébuleuse en émission à la frontière Cygne-Lyre, à environ 4 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans le plan galactique entre le Cygne et la Lyre, deux constellations de la Voie Lactée boréale. La zone est riche en nébuleuses faibles (Anneau de la Lyre M57 proche, mais nébuleuse planétaire et non HII). Des structures Ha diffuses du Rift galactique parcourent la région. Sa déclinaison +37.4° offre une très bonne accessibilité depuis la France. Astrophotographie : Dec +37.4°, culmination ~80° depuis Rémalard. Cible d'été-automne. Taille 30′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 704": {
+      "name": "Nébuleuse Cygne NW",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "SepOctNov",
+      "description": "LBN 704 (Nébuleuse Cygne NW) est une nébuleuse en émission dans le nord-ouest du Cygne / Céphée, à environ 4 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII à la frontière entre le Cygne et Céphée, appartenant au complexe de formation stellaire du bras de Cygne. Sa déclinaison +56.7° en fait une cible circumpolaire depuis la France, accessible toute l'année. Le contexte nébuleux de la région (Sh2-132, Sh2-157, LDN 1235) est riche en structures sombres et brillantes. Astrophotographie : Dec +56.7°, circumpolaire depuis la France. Cible d'automne préférentielle. Taille 40′. Filtre Ha + SII. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 776": {
+      "name": "Nébuleuse IC 5146 étendue (Cocon)",
+      "type": "Emission Nebula",
+      "distance_ly": 2700.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "SepOctNov",
+      "description": "LBN 776 (Nébuleuse du Cocon étendue / IC 5146 ext.) est l'enveloppe HII étendue de la Nébuleuse du Cocon dans le Cygne, à environ 2 700 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. LBN 776 désigne le halo d'émission Ha entourant le noyau brillant d'IC 5146, la Nébuleuse du Cocon. L'ensemble IC 5146 + LBN 776 est associé au filament sombre B 168 (Barnard 168) qui alimente visuellement la nébuleuse depuis l'est sur plus de 2° de ciel. La combinaison du cocon rose-rouge Ha et du filament sombre est l'une des associations les plus esthétiques de l'astrophotographie automnale. Astrophotographie : Dec +47.4°, culmination ~80° depuis Rémalard. Cible d'automne. Taille 25′ pour le cocon + grand champ pour B 168. Filtre Ha + LRVB. Intégration 6–10h.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_5146"
+    },
+    "LBN 782": {
+      "name": "Nébuleuse Céphée SW",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "SepOctNov",
+      "description": "LBN 782 (Nébuleuse Céphée SW) est une nébuleuse en émission dans le sud-ouest de Céphée, à environ 3 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 35′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique méridional de Céphée, appartenant au complexe de formation stellaire du bras de Cygne vu dans cette direction. Sa déclinaison +59.3° garantit une accessibilité circumpolaire depuis la France. Le voisinage riche en nébuleuses de Céphée (IC 1396, Sh2-155, VdB 141/142) offre un contexte astrophotographique remarquable. Astrophotographie : Dec +59.3°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 35′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 801": {
+      "name": "Nébuleuse Céphée Centrale",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 801 (Nébuleuse Céphée Centrale) est une nébuleuse en émission dans le centre de la constellation de Céphée, à environ 3 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Région HII étendue dans le plan galactique central de Céphée, entre les complexes IC 1396 au sud-ouest et Sh2-155 au nord-est. LBN 801 fait partie du riche réseau de régions HII du bras de Cygne vu dans la direction de Céphée. Sa déclinaison +58.6° la rend circumpolaire depuis la France. Astrophotographie : Dec +58.6°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 40′. Filtre Ha + SII. Intégration 4–6h. Combinaison avec les autres nébuleuses de Céphée en grand champ.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 814": {
+      "name": "Nébuleuse NGC 7822 (Céphée NE)",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 814 (Nébuleuse NGC 7822 / Céphée NE) est la grande nébuleuse en émission de NGC 7822 dans Céphée, à environ 3 000 al. Elle apparaît autour de la magnitude 7.5, couvrant environ 50′. Cataloguée par Beverly Turner Lynds en 1965. LBN 814 correspond à la nébulosité Ha du complexe NGC 7822 / Sh2-171, l'une des régions de formation stellaire les plus nordiques et les plus accessibles du catalogue. NGC 7822 abrite des piliers de formation stellaire et des globules évaporants (EGG) remarquables, ionisés par l'amas Berkeley 59 dont l'étoile principale est une binaire O4. Sa déclinaison +68.6° la rend circumpolaire depuis toute l'Europe. Astrophotographie : Dec +68.6°, strictement circumpolaire depuis la France. Cible d'automne-hiver de choix. Grand champ (50′). Palette SHO pour les détails de piliers. Intégration 6–10h. Cible facile depuis toutes les latitudes européennes.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7822"
+    },
+    "LBN 816": {
+      "name": "Nébuleuse Céphée Nord-Est",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 816 (Nébuleuse Céphée NE) est une nébuleuse en émission dans le nord-est de Céphée, à environ 3 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Extension nord-est du complexe nébuleux de Céphée, dans la même zone de ciel que NGC 7822 (LBN 814). Région HII appartenant au complexe du bras de Cygne vu dans la direction polaire. Sa déclinaison +66.7° la rend circumpolaire depuis la France. Voisine de LBN 814, elle peut être incluse dans le même grand champ. Astrophotographie : Dec +66.7°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 30′. Filtre Ha. Intégration 4–6h. Imagerie conjointe avec LBN 814 / NGC 7822 recommandée.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 853": {
+      "name": "Nébuleuse Andromède",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 853 (Nébuleuse Andromède) est une nébuleuse en émission dans la constellation d'Andromède, à environ 5 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans le plan galactique d'Andromède, une constellation qui, en dehors de la célèbre galaxie M31, traverse aussi la Voie Lactée dans sa partie nord. Cette nébuleuse appartient au bras galactique local vu dans la direction d'Andromède. Sa déclinaison +47.8° offre une excellente accessibilité depuis la France en automne. Astrophotographie : Dec +47.8°, culmination ~80° depuis Rémalard. Cible d'automne-hiver. Taille 30′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 854": {
+      "name": "Nébuleuse Cassiopée-Andromède",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 854 (Nébuleuse Cassiopée-Andromède) est une nébuleuse en émission à la frontière Cassiopée-Andromède, à environ 5 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique à la transition Cassiopée-Andromède, appartenant au complexe du bras de Persée. Sa déclinaison +51.1° offre une excellente accessibilité circumpolaire partielle depuis la France. Le fond de Voie Lactée est riche dans cette zone, avec de nombreuses nébuleuses et amas circumpolaires. Astrophotographie : Dec +51.1°, culmination ~84° depuis Rémalard. Cible d'automne-hiver. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 856": {
+      "name": "Nébuleuse Cassiopée Centrale",
+      "type": "Emission Nebula",
+      "distance_ly": 6000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 856 (Nébuleuse Cassiopée Centrale) est une nébuleuse en émission dans la constellation de Cassiopée, à environ 6 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII dans le plan galactique central de Cassiopée, appartenant au complexe du bras de Persée. La région de Cassiopée est extraordinairement riche en nébuleuses : Cœur et Âme, Bulle, Sharpless-185 et de nombreuses régions HII. LBN 856 est une extension diffuse de ce complexe. Sa déclinaison +62.3° la rend circumpolaire depuis la France. Astrophotographie : Dec +62.3°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 40′. Filtre Ha + SII. Intégration 4–6h. Contexte nébuleux circumpolaire exceptionnellement riche.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 858": {
+      "name": "Nébuleuse Cassiopée NE",
+      "type": "Emission Nebula",
+      "distance_ly": 6500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 858 (Nébuleuse Cassiopée NE) est une nébuleuse en émission dans la partie nord-est de Cassiopée, à environ 6 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Extension nord-est du complexe HII de Cassiopée, appartenant au bras de Persée. À Dec +64.1°, circumpolaire depuis la France. Dans la même zone de ciel que les nébuleuses LBN 856 et les Nébuleuses du Cœur-Âme plus à l'est. Astrophotographie : Dec +64.1°, circumpolaire. Cible d'automne-hiver. Taille 25′. Filtre Ha. Intégration 4–6h. À intégrer dans un champ commun avec LBN 856.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 862": {
+      "name": "Nébuleuse Cassiopée-Persée",
+      "type": "Emission Nebula",
+      "distance_ly": 6500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "OctNovDec",
+      "description": "LBN 862 (Nébuleuse Cassiopée-Persée) est une nébuleuse en émission à la frontière Cassiopée-Persée, à environ 6 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII compacte à la transition entre le complexe de Cassiopée et celui de Persée, appartenant au bras de Persée de la Voie Lactée. Sa déclinaison +60.2° en fait une cible circumpolaire partielle depuis la France. L'environnement nébuleux de la frontière Cass-Per est riche (Double amas, Nébuleuse du Cœur). Astrophotographie : Dec +60.2°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 20′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 864": {
+      "name": "Nébuleuse Persée NW",
+      "type": "Emission Nebula",
+      "distance_ly": 5500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "NovDecJan",
+      "description": "LBN 864 (Nébuleuse Persée NW) est une nébuleuse en émission dans le nord-ouest de Persée, à environ 5 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique nord-ouest de Persée, appartenant au bras de Persée. À Dec +57.6°, accessible en quasi-circumpolaire depuis la France. L'environnement de Persée nord héberge les nébuleuses profondes du complexe IC 1795 / Nébuleuse du Cœur et de nombreuses régions HII du bras de Persée. Astrophotographie : Dec +57.6°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 20′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 868": {
+      "name": "Nébuleuse Persée Centrale",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "NovDecJan",
+      "description": "LBN 868 (Nébuleuse Persée Centrale) est une nébuleuse en émission dans le centre de Persée, à environ 5 000 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans la Voie Lactée centrale de Persée, appartenant au même complexe que IC 1805 (Nébuleuse du Cœur) et IC 1848 (Nébuleuse de l'Âme). À Dec +57.6°, circumpolaire depuis la France. Le plan galactique de Persée est l'une des zones les plus productives pour l'imagerie Ha en hiver. Astrophotographie : Dec +57.6°, circumpolaire depuis la France. Cible d'automne-hiver. Taille 30′. Filtre Ha + SII. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 877": {
+      "name": "Nébuleuse Persée-Taureau",
+      "type": "Emission Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "NovDecJan",
+      "description": "LBN 877 (Nébuleuse Persée-Taureau) est une nébuleuse en émission à la frontière Persée-Taureau, à environ 2 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII à la transition des complexes moléculaires du Taureau (TMC) et de Persée (PMC), deux des berceux de formation stellaire les plus proches du Soleil. Cette zone de frontière est riche en nuages moléculaires froids et en petites régions HII isolées. Sa déclinaison +28° en fait une cible d'accès aisé depuis l'Europe. Astrophotographie : Dec +28.1°, culmination ~71° depuis Rémalard. Cible hivernale. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 883": {
+      "name": "Nébuleuse Taureau-Orion",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 883 (Nébuleuse Taureau-Orion) est une nébuleuse en émission à la frontière Taureau-Orion, à environ 1 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse à la transition entre le complexe moléculaire du Taureau et les régions d'Orion, appartenant au bras galactique local (bras d'Orion). Sa position équatoriale (Dec +10.4°) la rend accessible de l'ensemble des latitudes. Dans le contexte du grand halo d'émission Ha qui entoure Orion (incluant Barnard's Loop). Astrophotographie : Dec +10.4°, culmination ~53° depuis Rémalard. Cible hivernale. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 893": {
+      "name": "Nébuleuse Orion-Monoceros",
+      "type": "Emission Nebula",
+      "distance_ly": 1500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "DecJanFeb",
+      "description": "LBN 893 (Nébuleuse Orion-Monoceros) est une nébuleuse en émission à la frontière Orion-Monoceros, à environ 1 500 al. Elle apparaît autour de la magnitude 8.5, couvrant environ 40′. Cataloguée par Beverly Turner Lynds en 1965. Grande région HII à la transition entre le complexe d'Orion et la Licorne, appartenant à la même ceinture nébuleuse du bras galactique d'Orion. Sa position légèrement australe (Dec -6.3°) la rend accessible depuis la France avec une culmination d'environ 36°. L'environnement est riche : Barnard's Loop, Nébuleuse de la Rosette à l'est. Astrophotographie : Dec -6.3°, culmination ~36° depuis Rémalard. Cible hivernale. Taille 40′. Filtre Ha. Intégration 6–8h. Nuits d'hiver à faible turbulence.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 900": {
+      "name": "Nébuleuse Monoceros-Gémeaux",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JanFebMar",
+      "description": "LBN 900 (Nébuleuse Monoceros-Gémeaux) est une nébuleuse en émission à la frontière Monoceros-Gémeaux, à environ 3 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse à la transition entre la Licorne et les Gémeaux, dans le plan galactique de l'anticentre. Sa déclinaison +22.6° en fait une cible accessible depuis l'Europe en hiver-printemps. Le complexe de la Licorne-Gémeaux héberge de nombreuses régions HII dispersées dans le bras galactique local. Astrophotographie : Dec +22.6°, culmination ~65° depuis Rémalard. Cible hivernale-printanière. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 914": {
+      "name": "Nébuleuse Gémeaux-Cancer",
+      "type": "Emission Nebula",
+      "distance_ly": 3500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "FebMarApr",
+      "description": "LBN 914 (Nébuleuse Gémeaux-Cancer) est une nébuleuse en émission à la frontière Gémeaux-Cancer, à environ 3 500 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII très diffuse (mag 9.5) à la frontière entre les Gémeaux et le Cancer, dans la Voie Lactée de l'anticentre galactique. Cette zone est éloignée du plan galactique strict et les nébuleuses y sont peu lumineuses. Sa déclinaison +29° en fait une cible accessible depuis l'Europe en hiver-printemps. Astrophotographie : Dec +29°, culmination ~72° depuis Rémalard. Cible hivernale-printanière. Taille 20′. Filtre Ha. Intégration 6–8h. Ciel Bortle ≤4 recommandé.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 920": {
+      "name": "Nébuleuse Grande Ourse Sud",
+      "type": "Emission Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MarAprMay",
+      "description": "LBN 920 (Nébuleuse Grande Ourse Sud) est une nébuleuse en émission dans la Grande Ourse méridionale, à environ 2 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse à haute latitude galactique dans la Grande Ourse, une constellation éloignée du plan galactique. Les nébuleuses y sont rares et très diffuses ; LBN 920 représente une des rares régions d'émission Ha cataloguées dans cette direction. Des IFN galactiques (cirrus) peuvent être présents en imagerie très profonde. Sa déclinaison +54.7° offre une accessibilité circumpolaire partielle depuis la France. Astrophotographie : Dec +54.7°, circumpolaire depuis la France. Cible printanière. Taille 20′. Filtre Ha. Intégration 6–8h. Ciel Bortle ≤4 indispensable pour cette cible très diffuse.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 922": {
+      "name": "Nébuleuse Grande Ourse",
+      "type": "Emission Nebula",
+      "distance_ly": 2000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MarAprMay",
+      "description": "LBN 922 (Nébuleuse Grande Ourse) est une nébuleuse en émission dans la Grande Ourse, à environ 2 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII faible à haute latitude galactique dans la Grande Ourse, similaire à LBN 920 voisine. Ces deux nébuleuses diffuses de la Grande Ourse sont parmi les cibles LBN les plus exigeantes par leur faible brillance de surface (mag 9.5) et leur position éloignée du plan galactique. Les IFN galactiques constituent souvent l'intérêt principal des images profondes dans cette région. Sa déclinaison +57.4° est circumpolaire depuis la France. Astrophotographie : Dec +57.4°, circumpolaire. Cible printanière. Taille 20′. Filtre Ha + LRVB profond pour IFN. Intégration >8h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 931": {
+      "name": "Nébuleuse Chiens de Chasse",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AprMayJun",
+      "description": "LBN 931 (Nébuleuse Chiens de Chasse / Canes Venatici) est une nébuleuse en émission dans les Chiens de Chasse, à environ 3 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII très diffuse à très haute latitude galactique dans les Chiens de Chasse (CVn), loin du plan galactique. Les nébuleuses y sont extrêmement rares. LBN 931 est une des rares entrées LBN dans cette zone du ciel. Sa faible brillance de surface (mag 9.5) et l'absence de fond galactique dense requièrent des conditions de ciel exceptionnelles. Sa déclinaison +43.2° offre une bonne accessibilité printanière-estivale. Astrophotographie : Dec +43.2°, culmination ~76° depuis Rémalard. Cible printanière-estivale. Taille 20′. Filtre Ha. Intégration >8h. Ciel Bortle ≤3 quasi-indispensable.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 934": {
+      "name": "Nébuleuse Chiens de Chasse Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AprMayJun",
+      "description": "LBN 934 (Nébuleuse Chiens de Chasse Nord) est une nébuleuse en émission dans le nord des Chiens de Chasse, à environ 3 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 18′. Cataloguée par Beverly Turner Lynds en 1965. Région HII très diffuse voisine de LBN 931, à très haute latitude galactique dans CVn nord. Comme LBN 931, c'est l'une des rares nébuleuses cataloguées dans une région du ciel dominée par les galaxies (M51, M63, M94). La faible brillance de surface (mag 9.5, 18′) en fait une cible de défi absolu nécessitant des conditions de ciel extrêmement sombres. Astrophotographie : Dec +46.9°, culmination ~79° depuis Rémalard. Cible printanière-estivale. Très compact (18′) : longue focale. Filtre Ha. Intégration >10h. Réservée aux imageurs experts avec ciel Bortle ≤3.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 938": {
+      "name": "Nébuleuse Chevelure de Bérénice",
+      "type": "Emission Nebula",
+      "distance_ly": 3000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AprMayJun",
+      "description": "LBN 938 (Nébuleuse Chevelure de Bérénice / Coma Berenices) est une nébuleuse en émission dans la Chevelure de Bérénice, à environ 3 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII extrêmement diffuse à très haute latitude galactique dans Coma Berenices, une constellation réputée pour son amas de galaxies (Coma Cluster). Les nébuleuses gazeuses y sont rarissimes. LBN 938 est l'une des entrées LBN les plus atypiques géographiquement. Sa détection photographique est un exploit nécessitant des conditions de ciel parfaites et une intégration exceptionnelle. Astrophotographie : Dec +25.9°, culmination ~69° depuis Rémalard. Cible printanière. Filtre Ha. Intégration >10h. Ciel parfaitement sombre (Bortle ≤3) absolument indispensable. Cible de défi extrême.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 943": {
+      "name": "Nébuleuse Vierge",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AprMayJun",
+      "description": "LBN 943 (Nébuleuse Vierge / Virgo) est une nébuleuse en émission dans la Vierge, à environ 4 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII très diffuse dans la Vierge, constellation de haute latitude galactique dominée par les galaxies (Amas de la Vierge, M87). Les nébuleuses gazeuses y sont extrêmement rares et cette entrée LBN est l'une des plus inattendues du catalogue. Sa faible brillance de surface (mag 9.5) et l'absence de fond galactique la rendent quasiment imperceptible sans équipement et intégration dédiés. Astrophotographie : Dec +5.8°, culmination ~48° depuis Rémalard. Cible printanière. Filtre Ha. Intégration >10h. Bortle ≤3 indispensable. Cible de défi absolu.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 950": {
+      "name": "Nébuleuse Balance",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MayJunJul",
+      "description": "LBN 950 (Nébuleuse Balance / Libra) est une nébuleuse en émission dans la Balance, à environ 4 000 al. Elle apparaît autour de la magnitude 9.5, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans la Balance, constellation de latitude galactique modérée. La Balance borde le Scorpion au sud et l'Ophiuchus à l'est, des régions galactiques beaucoup plus riches en nébuleuses. LBN 950 est une nébulosité faible à la périphérie du complexe Sco-Oph. Sa déclinaison australe (-15.8°) réduit l'accessibilité depuis la France (culmination ~26°). Astrophotographie : Dec -15.8°, culmination ~26° depuis Rémalard — cible basse d'été. Filtre Ha. Intégration >6h. Créneau d'été limité.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 953": {
+      "name": "Nébuleuse Scorpion Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "MayJunJul",
+      "description": "LBN 953 (Nébuleuse Scorpion Nord) est une nébuleuse en émission dans la partie nord du Scorpion, à environ 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse appartenant au complexe de formation stellaire de Scorpius-Centaurus (Sco OB2 / Upper Sco). Sa position relativement nordique pour le Scorpion (Dec -18.4°) la rend accessible depuis la France avec une culmination d'environ 23°. La région Upper Sco est riche en nébulosités à réflexion et en émission Ha. Astrophotographie : Dec -18.4°, culmination ~24° depuis Rémalard — cible basse d'été. Taille 30′. Filtre Ha. Créneau d'été restreint.",
+      "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
+    },
+    "LBN 956": {
+      "name": "Nébuleuse Scorpion Centrale",
+      "type": "Emission Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 956 (Nébuleuse Scorpion Centrale) est une nébuleuse en émission dans le Scorpion central, à environ 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII du complexe Sco OB2 (Upper Scorpius), appartenant à l'association OB la plus proche du Soleil (~500 al). Sa déclinaison -19.7° la place à une culmination d'environ 22° depuis Rémalard — cible difficile mais imageable lors des nuits d'été à faible turbulence. Le fond stellaire dense du Scorpion central enrichit les images malgré la hauteur limitée. Astrophotographie : Dec -19.7°, culmination ~22° depuis Rémalard — cible basse d'été. Taille 25′. Filtre Ha. Créneau d'été.",
+      "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
+    },
+    "LBN 960": {
+      "name": "Nébuleuse Ophiuchus Ouest",
+      "type": "Emission Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 960 (Nébuleuse Ophiuchus Ouest) est une nébuleuse en émission dans le Serpentaire occidental, à environ 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse à la frontière occidentale du complexe ρ Ophiuchi, appartenant aux nuages du bras galactique local dans la direction d'Ophiuchus. Sa déclinaison -17.8° la rend difficile depuis la France (culmination ~24°) mais accessible brièvement en été. Fait partie du même complexe de formation stellaire que rho Oph et Antares. Astrophotographie : Dec -17.8°, culmination ~24° depuis Rémalard — cible basse d'été. Taille 30′. Filtre Ha. Créneau d'été restreint.",
+      "external_link": "https://en.wikipedia.org/wiki/Ophiuchus_molecular_cloud"
+    },
+    "LBN 965": {
+      "name": "Nébuleuse Ophiuchus Centrale",
+      "type": "Emission Nebula",
+      "distance_ly": 500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 965 (Nébuleuse Ophiuchus Centrale) est une nébuleuse en émission dans le Serpentaire central, à environ 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse au centre du complexe moléculaire d'Ophiuchus, dans le voisinage du grand nuage sombre de rho Oph. À cette distance (~500 al), la région fait partie du complexe Scorpius-Centaurus (ρ Oph / Upper Sco). Sa déclinaison -16.7° donne une culmination d'environ 25° depuis Rémalard — accessible brièvement en été. Astrophotographie : Dec -16.7°, culmination ~25° depuis Rémalard — cible basse d'été. Taille 25′. Filtre Ha. Créneau d'été restreint.",
+      "external_link": "https://en.wikipedia.org/wiki/Ophiuchus_molecular_cloud"
+    },
+    "LBN 1036": {
+      "name": "Nébuleuse Lyre",
+      "type": "Emission Nebula",
+      "distance_ly": 4000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "AugSepOct",
+      "description": "LBN 1036 (Nébuleuse Lyre / Lyra) est une nébuleuse en émission dans la constellation de la Lyre, à environ 4 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII diffuse dans le plan galactique de la Lyre, une constellation de la Voie Lactée boréale plus connue pour la Nébuleuse de l'Anneau (M57) — une nébuleuse planétaire sans rapport avec cette HII diffuse. LBN 1036 appartient au complexe de régions HII du bras galactique local dans le secteur Lyre-Cygne. Sa déclinaison +32° offre une très bonne accessibilité depuis la France. Astrophotographie : Dec +32.2°, culmination ~75° depuis Rémalard. Cible d'été-automne. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 1044": {
+      "name": "Nébuleuse Hercule-Lyre",
+      "type": "Emission Nebula",
+      "distance_ly": 4500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 1044 (Nébuleuse Hercule-Lyre) est une nébuleuse en émission à la frontière Hercule-Lyre, à environ 4 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 20′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique à la transition Hercule-Lyre. Le plan galactique dans cette direction est moins spectaculaire que le centre galactique mais comporte des régions HII diffuses du bras local. Sa déclinaison +23.7° en fait une cible accessible depuis l'Europe en été-automne. Astrophotographie : Dec +23.7°, culmination ~66° depuis Rémalard. Cible d'été-automne. Taille 20′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 1048": {
+      "name": "Nébuleuse Hercule",
+      "type": "Emission Nebula",
+      "distance_ly": 4500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 1048 (Nébuleuse Hercule / Hercules) est une nébuleuse en émission dans la constellation d'Hercule, à environ 4 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique d'Hercule, une constellation de l'été riche en amas globulaires (M13, M92) mais rare en nébuleuses. LBN 1048 représente une des rares régions d'émission Ha cataloguées dans Hercule, appartenant aux bras galactiques vu dans cette direction. Sa déclinaison +17° en fait une cible accessible depuis l'Europe. Astrophotographie : Dec +17°, culmination ~60° depuis Rémalard. Cible d'été. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 1055": {
+      "name": "Nébuleuse Hercule Sud",
+      "type": "Emission Nebula",
+      "distance_ly": 5000.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JulAugSep",
+      "description": "LBN 1055 (Nébuleuse Hercule Sud) est une nébuleuse en émission dans le sud d'Hercule, à environ 5 000 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique méridional d'Hercule, à la transition vers Ophiuchus et le Serpentaire. Le plan galactique dans cette direction commence à s'enrichir en nébuleuses au fur et à mesure qu'on approche de la direction du centre galactique (Sagittaire). Sa déclinaison +12.5° en fait une cible accessible depuis l'Europe en été. Astrophotographie : Dec +12.5°, culmination ~55° depuis Rémalard. Cible d'été. Taille 25′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 1060": {
+      "name": "Nébuleuse Ophiuchus Nord",
+      "type": "Emission Nebula",
+      "distance_ly": 3500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 1060 (Nébuleuse Ophiuchus Nord) est une nébuleuse en émission dans le nord d'Ophiuchus, à environ 3 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 30′. Cataloguée par Beverly Turner Lynds en 1965. Région HII dans le plan galactique septentrional d'Ophiuchus, plus accessible depuis les latitudes nord que les régions centrales du complexe rho Oph. Sa déclinaison +9.8° en fait une cible raisonnable depuis la France en été (culmination ~53°). Le plan galactique dans cette direction montre un mélange caractéristique de nuages sombres (Grand Rift) et de régions HII diffuses. Astrophotographie : Dec +9.8°, culmination ~53° depuis Rémalard. Cible d'été. Taille 30′. Filtre Ha. Intégration 4–6h.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    },
+    "LBN 1063": {
+      "name": "Nébuleuse Ophiuchus Nord-Est",
+      "type": "Emission Nebula",
+      "distance_ly": 3500.0,
+      "discoverer": "Beverly Turner Lynds",
+      "discovery_year": 1965,
+      "best_months": "JunJulAug",
+      "description": "LBN 1063 (Nébuleuse Ophiuchus NE) est une nébuleuse en émission dans le nord-est d'Ophiuchus, à environ 3 500 al. Elle apparaît autour de la magnitude 9.0, couvrant environ 25′. Cataloguée par Beverly Turner Lynds en 1965. Extension nord-est du complexe HII du nord d'Ophiuchus, voisine de LBN 1060. Sa déclinaison +12.5° la rend bien accessible depuis l'Europe en été. La region nord d'Ophiuchus est traversée par le plan galactique à une latitude modérée, créant des nébuleuses diffuses moins denses qu'au centre galactique mais visibles en Ha profond. Astrophotographie : Dec +12.5°, culmination ~55° depuis Rémalard. Cible d'été. Taille 25′. Filtre Ha. Intégration 4–6h. À imager conjointement avec LBN 1060.",
+      "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
+    }
+  }
+}

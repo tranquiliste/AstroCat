@@ -30,10 +30,10 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-windows.spec
+          python -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AstroCatalogueViewer-Windows
-          path: dist/Astro Catalogue Viewer
+          name: AstroCat-Windows
+          path: dist/AstroCat

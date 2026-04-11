@@ -1,7 +1,7 @@
 param(
   [string]$Python = "python",
-  [string]$Name = "Astro Catalogue Viewer",
-  [string]$ZipName = "AstroCatalogueViewer-Windows.zip"
+  [string]$Name = "AstroCat",
+  [string]$ZipName = "AstroCat-Windows.zip"
 )
 
 $ErrorActionPreference = "Stop"
