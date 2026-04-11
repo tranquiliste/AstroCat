@@ -1,12 +1,18 @@
 # AstroCat
 
 AstroCat is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It gives you a fast image grid, filters, rich object metadata, and notes so you can track progress and plan what to capture next.
+This is a fork from Astro Catalogue vewver
+NOTE: most of the modification have been done using IA 
 
-Website: https://astro-catalogue-viewer.com/
+
 
 Status: beta
 
-## Highlights
+## version 1.0.0-beta
+- adding new catalogs (thanks to denis 2704 for the catalogs and code)
+- photos notes are now stores in a separate json file and associated to the picure file name
+
+## Highlights (from original Astro Catalogue Viewver)
 - Fast grid with zoom, search, and filters (catalog, object type, status)
 - Two-column detail view with zoom/pan, notes, and external info links
 - Archive action to move selected images into an archive folder
@@ -19,19 +25,6 @@ Status: beta
 - Optional catalog-specific image folders
 - Offline-safe location picker (browser-based map)
 
-## New in 3.0 (since 1.7.x)
-- NGC/Caldwell metadata refresh with richer descriptions, distances, RA/Dec, and discoverer info
-- Curated Wikipedia thumbnails in the NGC data plus smarter filtering to avoid map/diagram images
-- Improved TIFF/high-bit image handling (tone mapping, imagecodecs support, Pillow fallback)
-- Metadata updates now merge into user metadata to preserve notes; About shows both app + data versions
-- Default catalog list is Messier, NGC, Caldwell, and Solar system (IC removed from the default list)
-
-## Previously in 1.7.x
-- Solar system catalog with wiki thumbnails
-- Duplicate scan for exact matches (SHA-256) with report link and optional archive move
-- Master image auto-sorting into catalog folders during duplicate scans
-- Clear thumbnail cache tool
-- Right-click image menu to open containing folder or copy path
 
 ## Quick start (dev)
 ```bash
@@ -132,7 +125,7 @@ Metadata is stored in JSON files under `data/`. Example files included:
 - `data/ic_metadata.json` (sample)
 - `data/caldwell_metadata.json` (sample)
 
-Notes you add in the app are saved back into the catalog JSON under the `notes` field.
+Notes you add in the app are saved in the photo_notes.json in the setting folder (new).
 
 Messier metadata is complete and includes expanded descriptions with astrophotography guidance. The NGC, IC, and Caldwell metadata sets are in progress.
 
@@ -141,11 +134,8 @@ If the app has a bad image path or filter state saved, delete the config file:
 - macOS: `~/Library/Application Support/AstroCat/config.json`
 
 ## Support
-If this helps your astrophotography workflow, consider supporting ongoing development:
-- https://buymeacoffee.com/PaulSpinelli
-- https://www.paypal.com/donate/?hosted_button_id=9GDUBHS78MH52
-
-Feedback, suggestions, and bug reports are welcome via GitHub issues.
+Feedback, suggestions, and bug reports are welcome via GitHub issues, but I do not guarantee I will be very reactive
 
 ## License
 See `LICENSE`.
+see `COPYRIGHT`
