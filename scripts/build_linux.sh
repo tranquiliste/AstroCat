@@ -7,7 +7,7 @@ python3 -m pip install --upgrade pyinstaller
 python3 -m pip install --upgrade -r requirements.txt
 python3 scripts/strip_metadata_notes.py
 
-python3 -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-linux.spec
+python3 -m PyInstaller --clean --noconfirm spec/AstroCat-linux.spec
 
 if [ -f "$ZIP_NAME" ]; then
   rm "$ZIP_NAME"

@@ -8,7 +8,7 @@ set ZIPNAME=AstroCat-Windows.zip
 %PYTHON% -m pip install --upgrade -r requirements.txt || exit /b 1
 %PYTHON% scripts\\strip_metadata_notes.py || exit /b 1
 
-%PYTHON% -m PyInstaller --clean --noconfirm spec/AstroCatalogueViewer-windows.spec
+%PYTHON% -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
 
 if exist "%ZIPNAME%" del "%ZIPNAME%"
 powershell -NoProfile -Command "Compress-Archive -Path \"dist\\%APPNAME%\\*\" -DestinationPath \"%ZIPNAME%\""
