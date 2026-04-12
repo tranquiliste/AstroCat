@@ -1450,6 +1450,13 @@ class DetailPanel(QtWidgets.QWidget):
         self.notes.setPlaceholderText(tr("detail.notes_placeholder"))
         self.notes.setMinimumHeight(80)
         self.notes.setMaximumHeight(140)
+        self._detail_text_min_size = 9.0
+        self._detail_text_max_size = 24.0
+        self._detail_text_size = self.description.font().pointSizeF()
+        if self._detail_text_size <= 0:
+            self._detail_text_size = QtWidgets.QApplication.font().pointSizeF()
+        if self._detail_text_size <= 0:
+            self._detail_text_size = 10.0
         self.external_link = QtWidgets.QLabel("")
         self.external_link.setOpenExternalLinks(True)
         self.external_link.setObjectName("externalLink")
@@ -1481,6 +1488,14 @@ class DetailPanel(QtWidgets.QWidget):
         layout.addWidget(self.title)
         fit_row = QtWidgets.QHBoxLayout()
         fit_row.addWidget(self.fit_button)
+        self.text_smaller_button = QtWidgets.QPushButton(tr("detail.text_button_smaller"))
+        self.text_larger_button = QtWidgets.QPushButton(tr("detail.text_button_larger"))
+        self.text_smaller_button.setToolTip(tr("detail.text_smaller"))
+        self.text_larger_button.setToolTip(tr("detail.text_larger"))
+        self.text_smaller_button.clicked.connect(lambda: self._change_detail_text_size(-1.0))
+        self.text_larger_button.clicked.connect(lambda: self._change_detail_text_size(1.0))
+        fit_row.addWidget(self.text_smaller_button)
+        fit_row.addWidget(self.text_larger_button)
         fit_row.addStretch(1)
         layout.addLayout(fit_row)
 
@@ -1509,6 +1524,7 @@ class DetailPanel(QtWidgets.QWidget):
         right_layout.setContentsMargins(0, 0, 0, 0)
         right_layout.addWidget(self.description, stretch=2)
         right_layout.addWidget(self.notes, stretch=1)
+        self._change_detail_text_size(0.0)
 
         columns_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
         columns_splitter.addWidget(left_widget)
@@ -1754,6 +1770,18 @@ class DetailPanel(QtWidgets.QWidget):
             return
         path = self._current_item.image_paths[self._image_index]
         self.archive_requested.emit(str(path))
+
+    def _change_detail_text_size(self, delta: float) -> None:
+        self._detail_text_size = max(
+            self._detail_text_min_size,
+            min(self._detail_text_max_size, self._detail_text_size + delta),
+        )
+        for widget in (self.title, self.metadata, self.image_info, self.external_link, self.description, self.notes):
+            font = widget.font()
+            font.setPointSizeF(self._detail_text_size)
+            widget.setFont(font)
+        self.text_smaller_button.setEnabled(self._detail_text_size > self._detail_text_min_size)
+        self.text_larger_button.setEnabled(self._detail_text_size < self._detail_text_max_size)
 
     def _show_image_context_menu(self, position: QtCore.QPoint) -> None:
         path = self.current_image_path()

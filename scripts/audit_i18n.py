@@ -104,17 +104,22 @@ def main() -> int:
     if not py_files:
         raise SystemExit(f"No Python files found in {app_dir}")
 
-    en_path = app_dir / "locales" / "en.json"
-    fr_path = app_dir / "locales" / "fr.json"
+    locales_dir = app_dir / "locales"
+    locale_files = sorted(locales_dir.glob("*.json"))
+    if not locale_files:
+        raise SystemExit(f"No locale files found in {locales_dir}")
 
-    en_keys = load_locale_keys(en_path)
-    fr_keys = load_locale_keys(fr_path)
+    locale_keys: dict[str, set[str]] = {}
+    for locale_file in locale_files:
+        locale_keys[locale_file.name] = load_locale_keys(locale_file)
+
     used_keys = find_used_tr_keys(py_files)
 
-    missing_in_en = sorted(key for key in used_keys if key not in en_keys)
-    missing_in_fr = sorted(key for key in used_keys if key not in fr_keys)
-    unused_in_en = sorted(key for key in en_keys if key not in used_keys)
-    unused_in_fr = sorted(key for key in fr_keys if key not in used_keys)
+    missing_by_locale: dict[str, list[str]] = {}
+    unused_by_locale: dict[str, list[str]] = {}
+    for locale_name, keys in locale_keys.items():
+        missing_by_locale[locale_name] = sorted(key for key in used_keys if key not in keys)
+        unused_by_locale[locale_name] = sorted(key for key in keys if key not in used_keys)
 
     hardcoded = find_hardcoded_candidates(main_file)
 
@@ -122,24 +127,21 @@ def main() -> int:
     print(f"- app dir: {app_dir}")
     print(f"- python files scanned: {len(py_files)}")
     print(f"- used translation keys: {len(used_keys)}")
-    print(f"- en keys: {len(en_keys)}")
-    print(f"- fr keys: {len(fr_keys)}")
+    print(f"- locale files scanned: {len(locale_files)}")
+    for locale_name, keys in locale_keys.items():
+        print(f"- {locale_name} keys: {len(keys)}")
 
-    print_section("\nMissing in en.json", missing_in_en)
-    print_section("\nMissing in fr.json", missing_in_fr)
-    print_section("\nUnused in en.json", unused_in_en)
-    print_section("\nUnused in fr.json", unused_in_fr)
+    for locale_name in locale_keys:
+        print_section(f"\nMissing in {locale_name}", missing_by_locale[locale_name])
+    for locale_name in locale_keys:
+        print_section(f"\nUnused in {locale_name}", unused_by_locale[locale_name])
 
     hardcoded_rows = [f"L{line}: {text}" for line, text in hardcoded]
     print_section("\nLikely hardcoded UI strings in main.py", hardcoded_rows)
 
-    issue_count = (
-        len(missing_in_en)
-        + len(missing_in_fr)
-        + len(unused_in_en)
-        + len(unused_in_fr)
-        + len(hardcoded)
-    )
+    issue_count = sum(len(v) for v in missing_by_locale.values())
+    issue_count += sum(len(v) for v in unused_by_locale.values())
+    issue_count += len(hardcoded)
     if args.strict and issue_count > 0:
         return 1
     return 0

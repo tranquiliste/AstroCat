@@ -10,6 +10,9 @@ from typing import Dict, List, Tuple
 SUPPORTED_UI_LOCALES = {
     "en": "English",
     "fr": "Français",
+    "es": "Español",
+    "de": "Deutsch",
+    "it": "Italiano",
 }
 
 
@@ -100,6 +103,9 @@ class TranslationManager:
             ("system", self.translate("settings.language.system", language=system_language)),
             ("en", SUPPORTED_UI_LOCALES["en"]),
             ("fr", SUPPORTED_UI_LOCALES["fr"]),
+            ("es", SUPPORTED_UI_LOCALES["es"]),
+            ("de", SUPPORTED_UI_LOCALES["de"]),
+            ("it", SUPPORTED_UI_LOCALES["it"]),
         ]
 
     def language_name(self, locale_code: object) -> str:
