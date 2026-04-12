@@ -588,6 +588,11 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
             if object_id in catalog_entries:
                 continue
             thumbnail_path = image_paths[0] if image_paths else None
+            image_notes: Dict[str, str] = {}
+            for image_path in image_paths:
+                note_text = user_image_notes.get(image_path.name)
+                if note_text:
+                    image_notes[image_path.name] = note_text
             items.append(
                 CatalogItem(
                     object_id=object_id,
@@ -600,7 +605,7 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     best_months=None,
                     description=None,
                     notes=None,
-                    image_notes={},
+                    image_notes=image_notes,
                     external_link=_default_external_link(object_id, None),
                     wiki_thumbnail=None,
                     ra_hours=None,
