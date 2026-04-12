@@ -3393,6 +3393,21 @@ class SettingsDialog(QtWidgets.QDialog):
         self.cleanup_button.clicked.connect(self._run_cleanup_now)
         form.addRow("Cleanup", self.cleanup_button)
 
+        # Migration section
+        migrate_row = QtWidgets.QHBoxLayout()
+        migrate_button = QtWidgets.QPushButton("Migrate Notes from AstroCatalogueViewer")
+        migrate_button.clicked.connect(self._migrate_notes_from_old_app)
+        migrate_row.addWidget(migrate_button)
+        
+        help_button = QtWidgets.QPushButton("?")
+        help_button.setMaximumWidth(30)
+        help_button.setToolTip(
+            "Migrate your notes from the old AstroCatalogueViewer application to the new AstroCat format.\n\n"
+            "This allows old users to seamlessly transition their notes without losing any data.\n"
+            "Your original notes remain safe and you can switch back to AstroCatalogueViewer without issues."
+        )
+        migrate_row.addWidget(help_button)
+        form.addRow("Migration", migrate_row)
 
         self.catalog_fields: Dict[str, QtWidgets.QLineEdit] = {}
         catalogs = config.get("catalogs", [])
@@ -3605,6 +3620,199 @@ class SettingsDialog(QtWidgets.QDialog):
         parent.config["cleanup_invalid_image_only_entries_done"] = True
         save_config(parent.config_path, parent.config)
         QtWidgets.QMessageBox.information(self, "Cleanup", "Cleanup complete.")
+
+    def _migrate_notes_from_old_app(self) -> None:
+        choice = QtWidgets.QMessageBox.question(
+            self,
+            "Migrate Notes",
+            "Migrate notes from your old AstroCatalogueViewer installation?\n\n"
+            "This will not modify your original notes, and you can switch back to "
+            "AstroCatalogueViewer without any issues.",
+            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
+        )
+        if choice != QtWidgets.QMessageBox.StandardButton.Yes:
+            return
+        
+        # Run the migration script
+        try:
+            migrate_script = PROJECT_ROOT / "scripts" / "migrate_user_notes.py"
+            if not migrate_script.exists():
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    "Migration Error",
+                    f"Migration script not found: {migrate_script}"
+                )
+                return
+            
+            # Run the script without specifying the old app directory
+            # It will auto-detect from standard locations
+            result = subprocess.run(
+                [sys.executable, str(migrate_script)],
+                capture_output=True,
+                text=True,
+                timeout=300
+            )
+            
+            if result.returncode != 0:
+                # Build error message from stderr
+                error_msg = result.stderr.strip() if result.stderr.strip() else "Unknown error"
+                
+                # Provide user-friendly error messages
+                if "Could not find old AstroCatalogueViewer" in error_msg:
+                    QtWidgets.QMessageBox.warning(
+                        self,
+                        "No Previous Installation Found",
+                        "AstroCat could not find a previous AstroCatalogueViewer installation.\n\n"
+                        "This could mean:\n"
+                        "- AstroCatalogueViewer was never installed\n"
+                        "- It has been uninstalled\n"
+                        "- No notes were ever saved in it\n\n"
+                        "If you have notes in the old app, please ensure it's still installed."
+                    )
+                elif "No notes found" in error_msg:
+                    QtWidgets.QMessageBox.information(
+                        self,
+                        "No Notes to Migrate",
+                        "No notes were found in your old AstroCatalogueViewer installation.\n\n"
+                        "There's nothing to migrate, but you can continue using AstroCat!"
+                    )
+                else:
+                    QtWidgets.QMessageBox.warning(
+                        self,
+                        "Migration Error",
+                        f"Migration failed:\n\n{error_msg}"
+                    )
+                return
+            
+            # Show success message with detailed summary
+            success_msg = result.stdout.strip() if result.stdout.strip() else "Migration completed successfully!"
+            self._show_migration_summary(success_msg)
+        except subprocess.TimeoutExpired:
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Migration Error",
+                "Migration script took too long to complete (timeout)."
+            )
+        except Exception as e:
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Migration Error",
+                f"An unexpected error occurred during migration:\n\n{str(e)}"
+            )
+
+    def _show_migration_summary(self, output: str) -> None:
+        """Show migration summary in a dialog with copy functionality."""
+        # Parse the output to extract migration statistics
+        lines = output.split('\n')
+        summary_lines = []
+        log_lines = []
+        
+        in_summary = False
+        in_log = False
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            if "MIGRATION SUMMARY" in line:
+                in_summary = True
+                in_log = False
+                summary_lines.append(line)
+            elif "Migration log saved to:" in line:
+                in_log = True
+                in_summary = False
+                log_lines.append(line)
+            elif in_summary:
+                summary_lines.append(line)
+            elif in_log or "STARTING MIGRATION" in line or any(keyword in line for keyword in ["MIGRATED", "IGNORED", "Extracted", "Total notes extracted"]):
+                log_lines.append(line)
+            elif any(keyword in line for keyword in ["Object notes migrated:", "Image notes migrated:", "Total notes migrated:"]):
+                summary_lines.append(line)
+        
+        # Create the dialog
+        dialog = QtWidgets.QDialog(self)
+        dialog.setWindowTitle("Migration Complete")
+        dialog.setModal(True)
+        dialog.resize(600, 400)
+        
+        layout = QtWidgets.QVBoxLayout(dialog)
+        
+        # Title
+        title_label = QtWidgets.QLabel("Your notes have been successfully migrated to AstroCat!")
+        title_label.setStyleSheet("font-weight: bold; font-size: 12px; margin-bottom: 10px;")
+        layout.addWidget(title_label)
+        
+        # Summary section (statistics first)
+        if summary_lines:
+            summary_group = QtWidgets.QGroupBox("Migration Statistics")
+            summary_layout = QtWidgets.QVBoxLayout(summary_group)
+            
+            summary_text = QtWidgets.QTextEdit()
+            summary_text.setPlainText('\n'.join(summary_lines))
+            summary_text.setReadOnly(True)
+            summary_text.setMaximumHeight(100)
+            summary_text.setStyleSheet("""
+                QTextEdit {
+                    background-color: transparent;
+                    color: #ffffff;
+                    border: 1px solid #4b5563;
+                    border-radius: 4px;
+                    padding: 8px;
+                    font-family: monospace;
+                    font-size: 10px;
+                }
+            """)
+            summary_layout.addWidget(summary_text)
+            layout.addWidget(summary_group)
+        
+        # Log section
+        if log_lines:
+            log_group = QtWidgets.QGroupBox("Migration Details")
+            log_layout = QtWidgets.QVBoxLayout(log_group)
+            
+            log_text = QtWidgets.QTextEdit()
+            log_text.setPlainText('\n'.join(log_lines))
+            log_text.setReadOnly(True)
+            log_text.setStyleSheet("""
+                QTextEdit {
+                    background-color: transparent;
+                    color: #ffffff;
+                    border: 1px solid #4b5563;
+                    border-radius: 4px;
+                    padding: 8px;
+                    font-family: monospace;
+                    font-size: 9px;
+                }
+            """)
+            log_layout.addWidget(log_text)
+            layout.addWidget(log_group)
+        
+        # Buttons
+        button_layout = QtWidgets.QHBoxLayout()
+        
+        copy_button = QtWidgets.QPushButton("Copy to Clipboard")
+        copy_button.clicked.connect(lambda: self._copy_migration_summary(output))
+        button_layout.addWidget(copy_button)
+        
+        button_layout.addStretch()
+        
+        close_button = QtWidgets.QPushButton("Close")
+        close_button.clicked.connect(dialog.accept)
+        close_button.setDefault(True)
+        button_layout.addWidget(close_button)
+        
+        layout.addLayout(button_layout)
+        
+        dialog.exec()
+
+    def _copy_migration_summary(self, text: str) -> None:
+        """Copy the migration summary to clipboard."""
+        clipboard = QtWidgets.QApplication.clipboard()
+        clipboard.setText(text)
+        # Show a brief tooltip or status message
+        if hasattr(self, 'statusBar'):
+            self.statusBar().showMessage("Migration summary copied to clipboard", 2000)
 
     def _describe_duplicate_object(self, groups: List[Dict[str, object]]) -> str:
         for group in groups:

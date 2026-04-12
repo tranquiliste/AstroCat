@@ -59,6 +59,13 @@ Notes are stored in the catalog metadata and stay with the object or image.
 ## Cleanup
 - Use Settings -> Clean invalid entries to remove stale references to missing files.
 
+## Migrating from AstroCatalogueViewer
+If you are upgrading from the old AstroCatalogueViewer application, you can easily migrate your notes to AstroCat:
+- Open Settings -> Migration -> Migrate Notes from AstroCatalogueViewer.
+- Click Yes to confirm.
+- The migration will automatically find your old notes and import them.
+- Your original notes remain safe—you can switch back to AstroCatalogueViewer without any issues.
+
 ## Location Map
 - Pick on Map opens a local map in your browser.
 - Click to set coordinates or use the location button to auto-detect.
