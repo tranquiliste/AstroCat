@@ -81,6 +81,7 @@ from shiboken6 import isValid
 
 from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note
 from catalog import PROJECT_ROOT
+from i18n import format_best_months, language_choices, set_ui_locale, tr
 from image_cache import ThumbnailCache
 
 
@@ -1380,7 +1381,7 @@ def _load_tiff_with_pillow(path: Path) -> Tuple[Optional[QtGui.QImage], Optional
 class LightboxDialog(QtWidgets.QDialog):
     def __init__(self, pixmap: QtGui.QPixmap, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Image Preview")
+        self.setWindowTitle(tr("detail.image_preview"))
         self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint, True)
         self.setWindowFlag(QtCore.Qt.WindowType.WindowStaysOnTopHint, True)
         self.setWindowModality(QtCore.Qt.WindowModality.ApplicationModal)
@@ -1389,7 +1390,7 @@ class LightboxDialog(QtWidgets.QDialog):
         self.image_view = ImageView()
         self.image_view.set_pixmap(pixmap)
 
-        close_button = QtWidgets.QPushButton("Exit")
+        close_button = QtWidgets.QPushButton(tr("detail.exit"))
         close_button.clicked.connect(self.close)
 
         layout = QtWidgets.QVBoxLayout(self)
@@ -1431,7 +1432,7 @@ class DetailPanel(QtWidgets.QWidget):
     def __init__(self) -> None:
         super().__init__()
         self.image_view = ImageView()
-        self.title = QtWidgets.QLabel("Select an object")
+        self.title = QtWidgets.QLabel(tr("detail.select_object"))
         self.title.setObjectName("detailTitle")
         self.metadata = QtWidgets.QLabel("")
         self.metadata.setWordWrap(True)
@@ -1446,7 +1447,7 @@ class DetailPanel(QtWidgets.QWidget):
         self.description.setObjectName("descriptionBox")
         self.notes = QtWidgets.QTextEdit()
         self.notes.setObjectName("notesBox")
-        self.notes.setPlaceholderText("Notes...")
+        self.notes.setPlaceholderText(tr("detail.notes_placeholder"))
         self.notes.setMinimumHeight(80)
         self.notes.setMaximumHeight(140)
         self.external_link = QtWidgets.QLabel("")
@@ -1454,15 +1455,15 @@ class DetailPanel(QtWidgets.QWidget):
         self.external_link.setObjectName("externalLink")
         self.external_link.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
         self.external_link.setContentsMargins(0, 0, 0, 0)
-        self.fit_button = QtWidgets.QPushButton("Fit to Window")
+        self.fit_button = QtWidgets.QPushButton(tr("detail.fit_to_window"))
         self.fit_button.clicked.connect(self.image_view.fit_to_window)
         self.image_view.fullscreen_requested.connect(self._open_lightbox)
         self.image_view.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.image_view.customContextMenuRequested.connect(self._show_image_context_menu)
         self.prev_button = QtWidgets.QPushButton("◀")
         self.next_button = QtWidgets.QPushButton("▶")
-        self.thumb_button = QtWidgets.QPushButton("Set as thumbnail")
-        self.archive_button = QtWidgets.QPushButton("Archive image")
+        self.thumb_button = QtWidgets.QPushButton(tr("detail.set_as_thumbnail"))
+        self.archive_button = QtWidgets.QPushButton(tr("detail.archive_image"))
         self.prev_button.clicked.connect(self._show_prev_image)
         self.next_button.clicked.connect(self._show_next_image)
         self.thumb_button.clicked.connect(self._set_thumbnail)
@@ -1538,7 +1539,7 @@ class DetailPanel(QtWidgets.QWidget):
         self._wiki_pixmap = None
         self._image_load_id += 1
         if item is None:
-            self.title.setText("Select an object")
+            self.title.setText(tr("detail.select_object"))
             self.metadata.setText("")
             self.description.setPlainText("")
             self.notes.setPlainText("")
@@ -1552,24 +1553,24 @@ class DetailPanel(QtWidgets.QWidget):
             return
         self.title.setText(item.display_name)
         metadata_lines = [
-            f"Catalog: {item.catalog}",
-            f"Type: {item.object_type or 'Unknown'}",
+            tr("detail.metadata.catalog", value=item.catalog),
+            tr("detail.metadata.type", value=item.object_type or tr("detail.metadata.unknown")),
         ]
         if item.distance_ly:
-            metadata_lines.append(f"Distance: {item.distance_ly:,.0f} ly")
+            metadata_lines.append(tr("detail.metadata.distance", value=f"{item.distance_ly:,.0f}"))
         if item.discoverer:
-            label = f"Discoverer: {item.discoverer}"
             if item.discovery_year:
-                label += f" ({item.discovery_year})"
-            metadata_lines.append(label)
+                metadata_lines.append(
+                    tr("detail.metadata.discoverer_year", value=item.discoverer, year=item.discovery_year)
+                )
+            else:
+                metadata_lines.append(tr("detail.metadata.discoverer", value=item.discoverer))
         if item.best_months:
-            metadata_lines.append(
-                f"Best visibility: {self._format_months(item.best_months)}"
-            )
+            metadata_lines.append(tr("detail.metadata.best_visibility", value=self._format_months(item.best_months)))
         self.metadata.setText("\n".join(metadata_lines))
         self.description.setPlainText(item.description or "")
         if item.external_link:
-            self.external_link.setText(f'<a href="{item.external_link}">More info</a>')
+            self.external_link.setText(f'<a href="{item.external_link}">{tr("detail.more_info")}</a>')
             self.external_link.show()
         else:
             self.external_link.hide()
@@ -1585,10 +1586,7 @@ class DetailPanel(QtWidgets.QWidget):
 
     @staticmethod
     def _format_months(value: str) -> str:
-        if not value:
-            return ""
-        months = [value[i:i + 3] for i in range(0, len(value), 3)]
-        return " ".join(months)
+        return format_best_months(value)
 
     def connect_notes_changed(self, callback) -> None:
         self.notes.textChanged.connect(callback)
@@ -1622,10 +1620,10 @@ class DetailPanel(QtWidgets.QWidget):
             if self._wiki_pixmap and not self._wiki_pixmap.isNull():
                 self.image_view.set_pixmap(self._wiki_pixmap)
                 size_info = f"{self._wiki_pixmap.width()}x{self._wiki_pixmap.height()}"
-                self.image_info.setText(f"Wikipedia preview (not captured) | {size_info}")
+                self.image_info.setText(tr("detail.image.wikipedia_preview", size=size_info))
             else:
                 self.image_view.set_pixmap(None)
-                self.image_info.setText("No image available")
+                self.image_info.setText(tr("detail.image.none"))
             self.prev_button.setEnabled(False)
             self.next_button.setEnabled(False)
             self.thumb_button.setEnabled(False)
@@ -1640,8 +1638,13 @@ class DetailPanel(QtWidgets.QWidget):
             self.image_view.set_pixmap(cached)
             size_info = f"{cached.width()}x{cached.height()}"
             self.image_info.setText(
-                f"Image {self._image_index + 1}/{len(paths)} | File: {path.name}"
-                + (f" | {size_info}" if size_info else "")
+                tr(
+                    "detail.image.info",
+                    index=self._image_index + 1,
+                    total=len(paths),
+                    name=path.name,
+                    size_suffix=tr("detail.image.size_suffix", size=size_info) if size_info else "",
+                )
             )
             self.prev_button.setEnabled(len(paths) > 1)
             self.next_button.setEnabled(len(paths) > 1)
@@ -1649,7 +1652,7 @@ class DetailPanel(QtWidgets.QWidget):
             self.archive_button.setEnabled(True)
             return
         self.image_view.set_pixmap(None)
-        self.image_info.setText(f"Loading image... | File: {path.name}")
+        self.image_info.setText(tr("detail.image.loading", name=path.name))
         self.prev_button.setEnabled(len(paths) > 1)
         self.next_button.setEnabled(len(paths) > 1)
         self.thumb_button.setEnabled(True)
@@ -1681,8 +1684,13 @@ class DetailPanel(QtWidgets.QWidget):
         self.image_view.set_pixmap(pixmap)
         size_info = f"{pixmap.width()}x{pixmap.height()}"
         self.image_info.setText(
-            f"Image {self._image_index + 1}/{len(self._current_item.image_paths)} | File: {current_path.name}"
-            + (f" | {size_info}" if size_info else "")
+            tr(
+                "detail.image.info",
+                index=self._image_index + 1,
+                total=len(self._current_item.image_paths),
+                name=current_path.name,
+                size_suffix=tr("detail.image.size_suffix", size=size_info) if size_info else "",
+            )
         )
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
@@ -1691,7 +1699,7 @@ class DetailPanel(QtWidgets.QWidget):
         if request_id != self._image_load_id:
             return
         self.image_view.set_pixmap(None)
-        self.image_info.setText(message or "Unable to load image.")
+        self.image_info.setText(message or tr("detail.image.load_failed"))
         self.thumb_button.setEnabled(False)
         self.archive_button.setEnabled(False)
 
@@ -1751,7 +1759,7 @@ class DetailPanel(QtWidgets.QWidget):
         path = self.current_image_path()
         menu = QtWidgets.QMenu(self)
         if path is None:
-            empty = QtGui.QAction("No image file selected", menu)
+            empty = QtGui.QAction(tr("detail.menu.no_image"), menu)
             empty.setEnabled(False)
             menu.addAction(empty)
             menu.exec(self.image_view.mapToGlobal(position))
@@ -1760,10 +1768,10 @@ class DetailPanel(QtWidgets.QWidget):
         path_action.setEnabled(False)
         menu.addAction(path_action)
         menu.addSeparator()
-        open_action = QtGui.QAction("Open containing folder", menu)
+        open_action = QtGui.QAction(tr("detail.menu.open_folder"), menu)
         open_action.triggered.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl.fromLocalFile(str(path.parent))))
         menu.addAction(open_action)
-        copy_action = QtGui.QAction("Copy file path", menu)
+        copy_action = QtGui.QAction(tr("detail.menu.copy_path"), menu)
         copy_action.triggered.connect(lambda: QtWidgets.QApplication.clipboard().setText(str(path)))
         menu.addAction(copy_action)
         menu.exec(self.image_view.mapToGlobal(position))
@@ -1828,10 +1836,11 @@ class DetailPanel(QtWidgets.QWidget):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, config_path: Path) -> None:
         super().__init__()
-        self.setWindowTitle(APP_NAME)
 
         self.config_path = config_path
         self.config = load_config(self.config_path)
+        set_ui_locale(self.config.get("ui_locale", "system"))
+        self.setWindowTitle(APP_NAME)
         self._data_version = self._load_local_data_version()
         self._ensure_user_metadata_files()
         self.user_notes_path = self._user_notes_path()
@@ -1883,11 +1892,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self._pending_selection_key: Optional[str] = None
         self._pending_image_name: Optional[str] = None
         self._about_dialog: Optional[AboutDialog] = None
-        self._update_status = "Not checked"
+        self._update_status = tr("about.not_checked")
         self._latest_version: Optional[str] = None
         self._update_url: Optional[str] = None
         self._remote_data_version: Optional[str] = None
-        self._data_update_status = "Checking data updates…"
+        self._data_update_status = tr("about.checking_data_updates")
         self._update_tasks: List[UpdateCheckTask] = []
         self._data_version_task: Optional[DataVersionFetchTask] = None
         self._closing = False
@@ -2129,7 +2138,7 @@ class MainWindow(QtWidgets.QMainWindow):
         toolbar.setContentsMargins(0, 0, 0, 0)
         toolbar.setSpacing(10)
         self.search = QtWidgets.QLineEdit()
-        self.search.setPlaceholderText("Search by object ID or name")
+        self.search.setPlaceholderText(tr("main.search.placeholder"))
         self.search.textChanged.connect(self._on_search_changed)
         self.search.setMinimumWidth(280)
         self.search.setMaximumWidth(700)
@@ -2176,14 +2185,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.zoom_slider.setValue(self.thumbnail_cache.thumb_size)
         self.zoom_slider.valueChanged.connect(self._on_zoom_changed)
 
-        self.wiki_thumbs = QtWidgets.QCheckBox("Wiki thumbnails")
+        self.wiki_thumbs = QtWidgets.QCheckBox(tr("main.wiki_thumbnails"))
         self.wiki_thumbs.setChecked(bool(self.config.get("use_wiki_thumbnails", False)))
         self.wiki_thumbs.toggled.connect(self._on_wiki_thumbs_toggled)
-        self.refresh_button = QtWidgets.QPushButton("Refresh")
+        self.refresh_button = QtWidgets.QPushButton(tr("main.refresh"))
         self.refresh_button.clicked.connect(self._refresh_catalog)
-        self.settings_button = QtWidgets.QPushButton("Settings")
+        self.settings_button = QtWidgets.QPushButton(tr("main.settings"))
         self.settings_button.clicked.connect(self._open_settings)
-        self.about_button = QtWidgets.QPushButton("About")
+        self.about_button = QtWidgets.QPushButton(tr("main.about"))
         self.about_button.clicked.connect(self._open_about)
 
         self.compact_filters_container = QtWidgets.QWidget()
@@ -2192,8 +2201,8 @@ class MainWindow(QtWidgets.QMainWindow):
         compact_filters_layout.setSpacing(8)
 
         self.compact_toolbar_catalog_button = QtWidgets.QToolButton()
-        self.compact_toolbar_catalog_button.setText("Catalogue")
-        self.compact_toolbar_catalog_button.setToolTip("Catalogue")
+        self.compact_toolbar_catalog_button.setText(tr("main.catalog"))
+        self.compact_toolbar_catalog_button.setToolTip(tr("main.catalog"))
         self.compact_toolbar_catalog_button.setPopupMode(
             QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup
         )
@@ -2202,8 +2211,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.compact_toolbar_catalog_button.setMenu(self.compact_toolbar_catalog_menu)
 
         self.compact_toolbar_type_button = QtWidgets.QToolButton()
-        self.compact_toolbar_type_button.setText("Object Type")
-        self.compact_toolbar_type_button.setToolTip("Object Type")
+        self.compact_toolbar_type_button.setText(tr("main.object_type"))
+        self.compact_toolbar_type_button.setToolTip(tr("main.object_type"))
         self.compact_toolbar_type_button.setPopupMode(
             QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup
         )
@@ -2212,8 +2221,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.compact_toolbar_type_button.setMenu(self.compact_toolbar_type_menu)
 
         self.compact_toolbar_status_button = QtWidgets.QToolButton()
-        self.compact_toolbar_status_button.setText("Status")
-        self.compact_toolbar_status_button.setToolTip("Status")
+        self.compact_toolbar_status_button.setText(tr("main.status"))
+        self.compact_toolbar_status_button.setToolTip(tr("main.status"))
         self.compact_toolbar_status_button.setPopupMode(
             QtWidgets.QToolButton.ToolButtonPopupMode.InstantPopup
         )
@@ -2221,7 +2230,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.compact_toolbar_status_menu = QtWidgets.QMenu(self)
         self.compact_toolbar_status_button.setMenu(self.compact_toolbar_status_menu)
 
-        pill_label = "Object Type"
+        pill_label = tr("main.object_type")
         pill_width = QtGui.QFontMetrics(self.compact_toolbar_type_button.font()).horizontalAdvance(
             pill_label
         ) + 32
@@ -2247,9 +2256,9 @@ class MainWindow(QtWidgets.QMainWindow):
         toolbar.addStretch(1)
         toolbar.addWidget(self.catalog_summary_container)
         toolbar.addStretch(1)
-        self.catalog_label = QtWidgets.QLabel("Catalog")
-        self.type_label = QtWidgets.QLabel("Object Type")
-        self.status_filter_label = QtWidgets.QLabel("Status")
+        self.catalog_label = QtWidgets.QLabel(tr("main.catalog"))
+        self.type_label = QtWidgets.QLabel(tr("main.object_type"))
+        self.status_filter_label = QtWidgets.QLabel(tr("main.status"))
         controls_layout.addWidget(self.catalog_label)
         controls_layout.addWidget(self.catalog_filter)
         controls_layout.addSpacing(6)
@@ -2268,7 +2277,7 @@ class MainWindow(QtWidgets.QMainWindow):
         grid_controls_layout = QtWidgets.QHBoxLayout(self.grid_controls_container)
         grid_controls_layout.setContentsMargins(0, 0, 0, 0)
         grid_controls_layout.setSpacing(10)
-        self.zoom_label = QtWidgets.QLabel("Zoom")
+        self.zoom_label = QtWidgets.QLabel(tr("main.zoom"))
         grid_controls_layout.addWidget(self.zoom_label)
         grid_controls_layout.addWidget(self.zoom_slider)
         grid_controls_layout.addWidget(self.wiki_thumbs)
@@ -2379,10 +2388,11 @@ class MainWindow(QtWidgets.QMainWindow):
         menu.clear()
         for index in range(source.count()):
             text = source.itemText(index)
+            value = source.itemData(index)
             action = QtGui.QAction(text, menu)
             action.setCheckable(True)
-            action.setChecked(text == current_value)
-            action.triggered.connect(lambda _checked=False, value=text: handler(value))
+            action.setChecked(value == current_value)
+            action.triggered.connect(lambda _checked=False, selected=value: handler(selected))
             menu.addAction(action)
 
     def _sync_compact_filters(self) -> None:
@@ -2475,25 +2485,26 @@ class MainWindow(QtWidgets.QMainWindow):
         catalogs = {item.catalog for item in self.items}
         configured = {c.get("name") for c in self.config.get("catalogs", []) if c.get("name")}
         catalogs = sorted(catalogs | configured)
-        current_catalog = self.catalog_filter.currentText() if self.catalog_filter.count() else ""
+        current_catalog = self._combo_value(self.catalog_filter) if self.catalog_filter.count() else ""
         self.catalog_filter.blockSignals(True)
         self.catalog_filter.clear()
-        self.catalog_filter.addItem("All")
-        self.catalog_filter.addItems([self._catalog_display_name(name) for name in catalogs])
-        if current_catalog:
-            self.catalog_filter.setCurrentText(current_catalog)
+        self._add_combo_item(self.catalog_filter, tr("catalog.all"), "")
+        for name in catalogs:
+            self._add_combo_item(self.catalog_filter, self._catalog_display_name(name), name)
+        self._set_combo_value(self.catalog_filter, current_catalog, fallback="")
         self.catalog_filter.blockSignals(False)
         self.catalog_filter.view().setMinimumWidth(160)
 
         self._update_type_filter(current_catalog)
 
-        current_status = self.status_filter.currentText() if self.status_filter.count() else ""
+        current_status = self._combo_value(self.status_filter) if self.status_filter.count() else ""
         self.status_filter.blockSignals(True)
         self.status_filter.clear()
-        self.status_filter.addItem("All")
-        self.status_filter.addItems(["Captured", "Missing", "Suggested"])
-        if current_status:
-            self.status_filter.setCurrentText(current_status)
+        self._add_combo_item(self.status_filter, tr("catalog.all"), "")
+        self._add_combo_item(self.status_filter, tr("status.captured"), "Captured")
+        self._add_combo_item(self.status_filter, tr("status.missing"), "Missing")
+        self._add_combo_item(self.status_filter, tr("status.suggested"), "Suggested")
+        self._set_combo_value(self.status_filter, current_status, fallback="")
         self.status_filter.blockSignals(False)
         self.status_filter.view().setMinimumWidth(160)
         self._update_catalog_summary()
@@ -2524,31 +2535,25 @@ class MainWindow(QtWidgets.QMainWindow):
     def _on_image_changed(self, _image_name: str) -> None:
         self._flush_notes()
 
-    def _on_catalog_changed(self, value: str) -> None:
-        if value == "All":
-            self.proxy.set_catalog_filter("")
-        else:
-            self.proxy.set_catalog_filter(self._catalog_internal_name(value))
+    def _on_catalog_changed(self, _value: str) -> None:
+        value = self._combo_value(self.catalog_filter)
+        self.proxy.set_catalog_filter(value)
         self._update_type_filter(value)
         self._update_catalog_summary()
         self._schedule_auto_fit()
         if not self._syncing_compact:
             self._sync_compact_filters()
 
-    def _on_type_changed(self, value: str) -> None:
-        if value == "All":
-            self.proxy.set_type_filter("")
-        else:
-            self.proxy.set_type_filter(value)
+    def _on_type_changed(self, _value: str) -> None:
+        value = self._combo_value(self.type_filter)
+        self.proxy.set_type_filter(value)
         self._schedule_auto_fit()
         if not self._syncing_compact:
             self._sync_compact_filters()
 
-    def _on_status_changed(self, value: str) -> None:
-        if value == "All":
-            self.proxy.set_status_filter("")
-        else:
-            self.proxy.set_status_filter(value)
+    def _on_status_changed(self, _value: str) -> None:
+        value = self._combo_value(self.status_filter)
+        self.proxy.set_status_filter(value)
         self._schedule_auto_fit()
         if not self._syncing_compact:
             self._sync_compact_filters()
@@ -2630,54 +2635,70 @@ class MainWindow(QtWidgets.QMainWindow):
             self._syncing_compact = False
 
     def _update_catalog_summary(self) -> None:
-        current = self.catalog_filter.currentText()
-        if current == "All" or not current:
+        current = self._combo_value(self.catalog_filter)
+        if not current:
             filtered = self.items
-            title = "All Catalogues"
+            title = tr("catalog.all_catalogues")
         else:
-            internal = self._catalog_internal_name(current)
-            filtered = [item for item in self.items if item.catalog == internal]
-            title = internal
+            filtered = [item for item in self.items if item.catalog == current]
+            title = self._catalog_title_text(current)
         total = len(filtered)
         captured = sum(1 for item in filtered if item.image_paths)
-        suffix = "" if title == "All Catalogues" else " Catalogue"
-        if total:
-            self.catalog_title.setText(self._catalog_title_text(title, suffix))
-            self.catalog_count.setText(f"{captured}/{total} captured")
-        else:
-            self.catalog_title.setText(self._catalog_title_text(title, suffix))
-            self.catalog_count.setText("0/0 captured")
+        self.catalog_title.setText(title)
+        self.catalog_count.setText(tr("main.captured_count", captured=captured, total=total))
+
+    @staticmethod
+    def _combo_value(combo: QtWidgets.QComboBox) -> str:
+        data = combo.currentData()
+        if isinstance(data, str):
+            return data
+        return combo.currentText()
+
+    @staticmethod
+    def _add_combo_item(combo: QtWidgets.QComboBox, text: str, value: str) -> None:
+        combo.addItem(text, value)
+
+    @staticmethod
+    def _set_combo_value(combo: QtWidgets.QComboBox, value: str, fallback: str = "") -> None:
+        index = combo.findData(value)
+        if index < 0:
+            index = combo.findData(fallback)
+        if index < 0 and combo.count():
+            index = 0
+        if index >= 0:
+            combo.setCurrentIndex(index)
 
     @staticmethod
     def _catalog_display_name(name: str) -> str:
+        base = tr("catalog.solar_system") if name == "Solar system" else name
         if name in {"IC"}:
-            return f"{name} (In progress)"
-        return name
+            return tr("catalog.in_progress", catalog=base)
+        return base
 
     @staticmethod
-    def _catalog_title_text(title: str, suffix: str) -> str:
+    def _catalog_title_text(title: str) -> str:
         if title in {"IC"}:
-            return f"{title}{suffix} (In progress)"
-        return f"{title}{suffix}"
+            return tr("catalog.in_progress", catalog=title)
+        base = tr("catalog.solar_system") if title == "Solar system" else title
+        return tr("catalog.summary_title", catalog=base)
 
     @staticmethod
     def _catalog_internal_name(display_name: str) -> str:
         return display_name.replace(" (In progress)", "")
 
     def _update_type_filter(self, catalog_value: str) -> None:
-        current_type = self.type_filter.currentText() if self.type_filter.count() else ""
-        internal = self._catalog_internal_name(catalog_value) if catalog_value else ""
-        if internal and internal != "All":
-            filtered = [item for item in self.items if item.catalog == internal]
+        current_type = self._combo_value(self.type_filter) if self.type_filter.count() else ""
+        if catalog_value:
+            filtered = [item for item in self.items if item.catalog == catalog_value]
             types = collect_object_types(filtered)
         else:
             types = collect_object_types(self.items)
         self.type_filter.blockSignals(True)
         self.type_filter.clear()
-        self.type_filter.addItem("All")
-        self.type_filter.addItems(types)
-        if current_type and current_type in {"All", *types}:
-            self.type_filter.setCurrentText(current_type)
+        self._add_combo_item(self.type_filter, tr("catalog.all"), "")
+        for object_type in types:
+            self._add_combo_item(self.type_filter, object_type, object_type)
+        self._set_combo_value(self.type_filter, current_type, fallback="")
         self.type_filter.blockSignals(False)
         self.type_filter.view().setMinimumWidth(220)
         self._sync_compact_filters()
@@ -2806,6 +2827,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self._preview_active = False
                 self._start_catalog_load(base_config)
             return
+        previous_ui_locale = str(self.config.get("ui_locale") or "system")
         self.config = dialog.updated_config
         self.user_notes_path = self._user_notes_path()
         save_config(self.config_path, self.config)
@@ -2813,6 +2835,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self._auto_fit_enabled = True
         self._start_catalog_load()
         self._preview_active = False
+        if str(self.config.get("ui_locale") or "system") != previous_ui_locale:
+            QtWidgets.QMessageBox.information(
+                self,
+                tr("settings.locale_restart_needed_title"),
+                tr("settings.locale_restart_needed_message"),
+            )
 
     def closeEvent(self, event: QtGui.QCloseEvent) -> None:
         self._closing = True
@@ -2833,7 +2861,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._loading = True
         self._loading_config = config
         self._set_ui_enabled(False)
-        self.status_label.setText("Loading catalog…")
+        self.status_label.setText(tr("main.loading_catalog"))
         task = CatalogLoadTask(config, self.user_notes_path)
         task.signals.loaded.connect(self._on_catalog_loaded)
         self._catalog_pool.start(task)
@@ -2995,25 +3023,23 @@ class MainWindow(QtWidgets.QMainWindow):
     def _apply_remote_data_version(self, version: str) -> None:
         self._data_version_task = None
         if not version:
-            self._data_update_status = "Data update check unavailable."
+            self._data_update_status = tr("updates.data_unavailable")
             if self._about_dialog:
                 self._about_dialog.set_data_update_status(self._data_update_status)
                 self._about_dialog.set_remote_data_version(None, self._data_version)
             return
         self._remote_data_version = version
         if version != self._data_version:
-            self._data_update_status = (
-                f"New data version available: {version} (installed: {self._data_version})"
-            )
+            self._data_update_status = tr("updates.data_available", remote=version, installed=self._data_version)
         else:
-            self._data_update_status = "Data is up to date."
+            self._data_update_status = tr("updates.data_uptodate")
         if self._about_dialog:
             self._about_dialog.set_data_update_status(self._data_update_status)
             self._about_dialog.set_remote_data_version(version, self._data_version)
 
     def _data_version_fetch_failed(self, _message: str) -> None:
         self._data_version_task = None
-        self._data_update_status = "Unable to check data updates (offline or server unavailable)."
+        self._data_update_status = tr("updates.data_check_failed")
         if self._about_dialog:
             self._about_dialog.set_data_update_status(self._data_update_status)
             self._about_dialog.set_remote_data_version(None, self._data_version)
@@ -3040,24 +3066,32 @@ class MainWindow(QtWidgets.QMainWindow):
     def _on_update_available(self, tag: str, url: str, silent: bool) -> None:
         if self._closing:
             return
-        self._update_status = f"Update available: {tag}"
+        self._update_status = tr("updates.status_available", tag=tag)
         self._latest_version = tag
         self._update_url = url
         if self._about_dialog:
             self._about_dialog.set_update_status(self._update_status, self._latest_version, self._update_url)
         elif not silent:
-            QtWidgets.QMessageBox.information(self, "Update available", f"New version available: {tag}")
+            QtWidgets.QMessageBox.information(
+                self,
+                tr("updates.available_title"),
+                tr("updates.available_message", tag=tag),
+            )
 
     def _on_update_uptodate(self, tag: str, silent: bool) -> None:
         if self._closing:
             return
-        self._update_status = f"Up to date ({tag})"
+        self._update_status = tr("updates.status_uptodate", tag=tag)
         self._latest_version = tag
         self._update_url = None
         if self._about_dialog:
             self._about_dialog.set_update_status(self._update_status, self._latest_version, self._update_url)
         elif not silent:
-            QtWidgets.QMessageBox.information(self, "Up to date", f"You're on the latest version ({tag}).")
+            QtWidgets.QMessageBox.information(
+                self,
+                tr("updates.uptodate_title"),
+                tr("updates.uptodate_message", tag=tag),
+            )
 
     def _on_update_failed(self, message: str, silent: bool) -> None:
         if self._closing:
@@ -3068,7 +3102,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self._about_dialog:
             self._about_dialog.set_update_status(self._update_status, self._latest_version, self._update_url)
         elif not silent:
-            QtWidgets.QMessageBox.warning(self, "Update check failed", message)
+            QtWidgets.QMessageBox.warning(self, tr("updates.check_failed_title"), message)
 
     def _on_wiki_thumbnail_loaded(self, item_key: str, pixmap: QtGui.QPixmap) -> None:
         current = self.detail.current_item()
@@ -3100,8 +3134,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if not archive_dir:
             choice = QtWidgets.QMessageBox.question(
                 self,
-                "Archive folder not set",
-                "Set an Archive Image Folder in Settings to enable archiving.",
+                tr("archive.folder_not_set"),
+                tr("archive.folder_not_set_message"),
                 QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel,
             )
             if choice == QtWidgets.QMessageBox.StandardButton.Yes:
@@ -3112,8 +3146,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if not path.exists():
             QtWidgets.QMessageBox.warning(
                 self,
-                "Image not found",
-                "The selected image no longer exists on disk.",
+                tr("archive.image_not_found"),
+                tr("archive.image_not_found_message"),
             )
             return
 
@@ -3126,8 +3160,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if archive_root == source_dir:
             QtWidgets.QMessageBox.warning(
                 self,
-                "Archive folder invalid",
-                "The archive folder is the same as the image folder.",
+                tr("archive.folder_invalid"),
+                tr("archive.folder_invalid_message"),
             )
             return
         archive_inside_scanned = []
@@ -3154,9 +3188,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if archive_inside_scanned:
             choice = QtWidgets.QMessageBox.question(
                 self,
-                "Archive folder inside image library",
-                "The archive folder is inside a scanned image folder, so archived files may still appear.\n\n"
-                "Continue anyway?",
+                tr("archive.folder_inside_library"),
+                tr("archive.folder_inside_library_message"),
                 QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel,
             )
             if choice != QtWidgets.QMessageBox.StandardButton.Yes:
@@ -3170,14 +3203,14 @@ class MainWindow(QtWidgets.QMainWindow):
 
         confirm = QtWidgets.QMessageBox.question(
             self,
-            "Archive image",
-            (
-                "Move this image to the archive folder?\n\n"
-                f"File: {path.name}\n"
-                f"Size: {size}\n"
-                f"Modified: {modified}\n"
-                f"From: {path}\n"
-                f"To: {target}"
+            tr("archive.confirm_title"),
+            tr(
+                "archive.confirm_message",
+                file_name=path.name,
+                size=size,
+                modified=modified,
+                source=path,
+                target=target,
             ),
             QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel,
         )
@@ -3189,18 +3222,18 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as exc:
             QtWidgets.QMessageBox.critical(
                 self,
-                "Archive failed",
-                f"Unable to move the image.\n\n{exc}",
+                tr("archive.failed_title"),
+                tr("archive.failed_message", error=exc),
             )
             return
         if path.exists():
             QtWidgets.QMessageBox.warning(
                 self,
-                "Archive incomplete",
-                "The file still exists at the original location after moving.",
+                tr("archive.incomplete_title"),
+                tr("archive.incomplete_message"),
             )
 
-        self.status_label.setText(f"Archived {path.name}")
+        self.status_label.setText(tr("main.archived", name=path.name))
         current_item = self.detail.current_item()
         if current_item:
             current_image = self.detail.current_image_name()
@@ -3247,34 +3280,28 @@ class MainWindow(QtWidgets.QMainWindow):
         self._on_search_changed(self.search.text())
 
         self.catalog_filter.blockSignals(True)
-        self.catalog_filter.setCurrentText(catalog if catalog in [self.catalog_filter.itemText(i) for i in range(self.catalog_filter.count())] else "All")
+        self._set_combo_value(self.catalog_filter, catalog, fallback="")
         self.catalog_filter.blockSignals(False)
-        self._on_catalog_changed(self.catalog_filter.currentText())
+        self._on_catalog_changed("")
 
         self.type_filter.blockSignals(True)
-        if type_filter and type_filter in [self.type_filter.itemText(i) for i in range(self.type_filter.count())]:
-            self.type_filter.setCurrentText(type_filter)
-        else:
-            self.type_filter.setCurrentText("All")
+        self._set_combo_value(self.type_filter, type_filter, fallback="")
         self.type_filter.blockSignals(False)
-        self._on_type_changed(self.type_filter.currentText())
+        self._on_type_changed("")
 
         self.status_filter.blockSignals(True)
-        if status_filter and status_filter in [self.status_filter.itemText(i) for i in range(self.status_filter.count())]:
-            self.status_filter.setCurrentText(status_filter)
-        else:
-            self.status_filter.setCurrentText("All")
+        self._set_combo_value(self.status_filter, status_filter, fallback="")
         self.status_filter.blockSignals(False)
-        self._on_status_changed(self.status_filter.currentText())
+        self._on_status_changed("")
 
     def _capture_ui_state(self) -> None:
         self.config["ui_state"] = {
             "window_size": [self.width(), self.height()],
             "splitter_sizes": self.splitter.sizes() if self.splitter else [],
             "filters": {
-                "catalog": self.catalog_filter.currentText() if self.catalog_filter else "",
-                "type": self.type_filter.currentText() if self.type_filter else "",
-                "status": self.status_filter.currentText() if self.status_filter else "",
+                "catalog": self._combo_value(self.catalog_filter) if self.catalog_filter else "",
+                "type": self._combo_value(self.type_filter) if self.type_filter else "",
+                "status": self._combo_value(self.status_filter) if self.status_filter else "",
             },
             "search": self.search.text() if self.search else "",
         }
@@ -3321,7 +3348,7 @@ class SettingsDialog(QtWidgets.QDialog):
 
     def __init__(self, config: Dict, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Settings")
+        self.setWindowTitle(tr("settings.title"))
         self.setMinimumWidth(520)
         self._config = config
         self.updated_config: Dict = {}
@@ -3331,6 +3358,14 @@ class SettingsDialog(QtWidgets.QDialog):
         self._scan_thread_pool = QtCore.QThreadPool.globalInstance()
         self._scan_task: Optional[DuplicateScanTask] = None
         self._report_path: Optional[Path] = None
+
+        self.ui_language = QtWidgets.QComboBox()
+        for value, label in language_choices():
+            self.ui_language.addItem(label, value)
+        current_ui_locale = str(config.get("ui_locale") or "system")
+        ui_index = self.ui_language.findData(current_ui_locale)
+        self.ui_language.setCurrentIndex(ui_index if ui_index >= 0 else 0)
+        self.ui_language.currentIndexChanged.connect(self._emit_preview)
 
         observer = config.get("observer", {})
         self.latitude = QtWidgets.QDoubleSpinBox()
@@ -3350,25 +3385,25 @@ class SettingsDialog(QtWidgets.QDialog):
         self.elevation.setValue(observer.get("elevation_m", 0.0))
 
         form = QtWidgets.QFormLayout()
-        form.addRow("Latitude", self.latitude)
-        form.addRow("Longitude", self.longitude)
-        form.addRow("Elevation", self.elevation)
+        form.addRow(tr("settings.language.ui"), self.ui_language)
+        form.addRow(tr("settings.latitude"), self.latitude)
+        form.addRow(tr("settings.longitude"), self.longitude)
+        form.addRow(tr("settings.elevation"), self.elevation)
 
-        map_button = QtWidgets.QPushButton("Pick on Map")
+        map_button = QtWidgets.QPushButton(tr("settings.pick_on_map"))
         map_button.clicked.connect(self._open_map_picker)
         form.addRow("", map_button)
 
         self.master_folder = QtWidgets.QLineEdit()
         self.master_folder.setText(config.get("master_image_dir", ""))
-        browse_master = QtWidgets.QPushButton("Browse…")
+        browse_master = QtWidgets.QPushButton(tr("settings.browse"))
         browse_master.clicked.connect(self._browse_master_folder)
         master_row = QtWidgets.QHBoxLayout()
         master_row.addWidget(self.master_folder)
         master_row.addWidget(browse_master)
-        form.addRow("Master Image Folder", master_row)
+        form.addRow(tr("settings.master_folder"), master_row)
         master_note = QtWidgets.QLabel(
-            "Images placed in the Master Image Folder will be automatically sorted into "
-            "catalog folders when running a duplicate scan."
+            tr("settings.master_note")
         )
         master_note.setWordWrap(True)
         master_note.setStyleSheet("color: #bcbcbc;")
@@ -3376,26 +3411,26 @@ class SettingsDialog(QtWidgets.QDialog):
 
         self.archive_folder = QtWidgets.QLineEdit()
         self.archive_folder.setText(config.get("archive_image_dir", ""))
-        browse_archive = QtWidgets.QPushButton("Browse…")
+        browse_archive = QtWidgets.QPushButton(tr("settings.browse"))
         browse_archive.clicked.connect(self._browse_archive_folder)
         archive_row = QtWidgets.QHBoxLayout()
         archive_row.addWidget(self.archive_folder)
         archive_row.addWidget(browse_archive)
-        form.addRow("Archive Image Folder", archive_row)
+        form.addRow(tr("settings.archive_folder"), archive_row)
 
         # Notes are stored in the settings directory
         open_settings_folder = QtWidgets.QPushButton()
         open_settings_folder.setIcon(self.style().standardIcon(QtWidgets.QStyle.StandardPixmap.SP_DirOpenIcon))
-        open_settings_folder.setToolTip("Open settings folder")
+        open_settings_folder.setToolTip(tr("settings.open_settings_folder"))
         open_settings_folder.clicked.connect(self._open_settings_folder)
-        form.addRow("Settings Folder", open_settings_folder)
+        form.addRow(tr("settings.settings_folder"), open_settings_folder)
 
-        clear_cache = QtWidgets.QPushButton("Clear thumbnail cache")
+        clear_cache = QtWidgets.QPushButton(tr("settings.clear_thumbnail_cache"))
         clear_cache.clicked.connect(self._clear_thumbnail_cache)
-        form.addRow("Thumbnail Cache", clear_cache)
+        form.addRow(tr("settings.thumbnail_cache"), clear_cache)
 
         scan_row = QtWidgets.QHBoxLayout()
-        self.scan_button = QtWidgets.QPushButton("Scan")
+        self.scan_button = QtWidgets.QPushButton(tr("settings.scan"))
         self.scan_button.clicked.connect(self._scan_duplicate_images)
         scan_row.addWidget(self.scan_button)
         self.report_label = QtWidgets.QLabel("")
@@ -3403,27 +3438,23 @@ class SettingsDialog(QtWidgets.QDialog):
         self.report_label.linkActivated.connect(self._open_duplicate_report)
         self.report_label.hide()
         scan_row.addWidget(self.report_label, stretch=1)
-        form.addRow("Duplicate Scan", scan_row)
+        form.addRow(tr("settings.duplicate_scan"), scan_row)
 
-        self.cleanup_button = QtWidgets.QPushButton("Clean invalid entries")
+        self.cleanup_button = QtWidgets.QPushButton(tr("settings.clean_invalid_entries"))
         self.cleanup_button.clicked.connect(self._run_cleanup_now)
-        form.addRow("Cleanup", self.cleanup_button)
+        form.addRow(tr("settings.cleanup"), self.cleanup_button)
 
         # Migration section
         migrate_row = QtWidgets.QHBoxLayout()
-        migrate_button = QtWidgets.QPushButton("Migrate Notes from AstroCatalogueViewer")
+        migrate_button = QtWidgets.QPushButton(tr("settings.migrate_notes"))
         migrate_button.clicked.connect(self._migrate_notes_from_old_app)
         migrate_row.addWidget(migrate_button)
         
         help_button = QtWidgets.QPushButton("?")
         help_button.setMaximumWidth(30)
-        help_button.setToolTip(
-            "Migrate your notes from the old AstroCatalogueViewer application to the new AstroCat format.\n\n"
-            "This allows old users to seamlessly transition their notes without losing any data.\n"
-            "Your original notes remain safe and you can switch back to AstroCatalogueViewer without issues."
-        )
+        help_button.setToolTip(tr("settings.migrate_help"))
         migrate_row.addWidget(help_button)
-        form.addRow("Migration", migrate_row)
+        form.addRow(tr("settings.migration"), migrate_row)
 
         self.catalog_fields: Dict[str, QtWidgets.QLineEdit] = {}
         catalogs = config.get("catalogs", [])
@@ -3434,7 +3465,7 @@ class SettingsDialog(QtWidgets.QDialog):
             field = QtWidgets.QLineEdit()
             image_dirs = catalog.get("image_dirs", [])
             field.setText(image_dirs[0] if image_dirs else "")
-            browse = QtWidgets.QPushButton("Browse…")
+            browse = QtWidgets.QPushButton(tr("settings.browse"))
             browse.clicked.connect(lambda _checked=False, n=name: self._browse_catalog_folder(n))
             row = QtWidgets.QHBoxLayout()
             row.addWidget(field)
@@ -3456,6 +3487,7 @@ class SettingsDialog(QtWidgets.QDialog):
 
     def accept(self) -> None:
         updated = dict(self._config)
+        updated["ui_locale"] = str(self.ui_language.currentData() or "system")
         updated["observer"] = {
             "latitude": self.latitude.value(),
             "longitude": self.longitude.value(),
@@ -3483,21 +3515,24 @@ class SettingsDialog(QtWidgets.QDialog):
         field = self.catalog_fields.get(name)
         if field is None:
             return
-        directory = QtWidgets.QFileDialog.getExistingDirectory(self, f"Select {name} Image Folder")
+        directory = QtWidgets.QFileDialog.getExistingDirectory(
+            self,
+            tr("settings.select_catalog_image_folder", catalog=name),
+        )
         if not directory:
             return
         field.setText(directory)
         self._emit_preview()
 
     def _browse_master_folder(self) -> None:
-        directory = QtWidgets.QFileDialog.getExistingDirectory(self, "Select Master Image Folder")
+        directory = QtWidgets.QFileDialog.getExistingDirectory(self, tr("settings.select_master_image_folder"))
         if not directory:
             return
         self.master_folder.setText(directory)
         self._emit_preview()
 
     def _browse_archive_folder(self) -> None:
-        directory = QtWidgets.QFileDialog.getExistingDirectory(self, "Select Archive Image Folder")
+        directory = QtWidgets.QFileDialog.getExistingDirectory(self, tr("settings.select_archive_image_folder"))
         if not directory:
             return
         self.archive_folder.setText(directory)
@@ -3511,12 +3546,12 @@ class SettingsDialog(QtWidgets.QDialog):
     def _clear_thumbnail_cache(self) -> None:
         parent = self.parent()
         if parent is None or not hasattr(parent, "clear_thumbnail_cache"):
-            QtWidgets.QMessageBox.warning(self, "Thumbnail Cache", "Unable to clear thumbnail cache.")
+            QtWidgets.QMessageBox.warning(self, tr("settings.thumbnail_cache"), tr("settings.thumbnail_cache_clear_failed"))
             return
         if parent.clear_thumbnail_cache():
-            QtWidgets.QMessageBox.information(self, "Thumbnail Cache", "Thumbnail cache cleared.")
+            QtWidgets.QMessageBox.information(self, tr("settings.thumbnail_cache"), tr("settings.thumbnail_cache_cleared"))
             return
-        QtWidgets.QMessageBox.warning(self, "Thumbnail Cache", "Unable to clear thumbnail cache.")
+        QtWidgets.QMessageBox.warning(self, tr("settings.thumbnail_cache"), tr("settings.thumbnail_cache_clear_failed"))
 
     def _scan_duplicate_images(self) -> None:
         config = self._build_preview_config()
@@ -3531,7 +3566,7 @@ class SettingsDialog(QtWidgets.QDialog):
             [".jpg", ".jpeg", ".png", ".tif", ".tiff", ".webp", ".bmp"],
         )
         self.scan_button.setEnabled(False)
-        self.scan_button.setText("Scanning...")
+        self.scan_button.setText(tr("settings.scanning"))
         self.report_label.hide()
         self.report_label.setText("")
         task = DuplicateScanTask(config_path, extensions, report_path)
@@ -3541,30 +3576,29 @@ class SettingsDialog(QtWidgets.QDialog):
 
     def _on_duplicate_scan_finished(self, report_path: str, error: str) -> None:
         self.scan_button.setEnabled(True)
-        self.scan_button.setText("Scan")
+        self.scan_button.setText(tr("settings.scan"))
         if error:
             QtWidgets.QMessageBox.warning(
                 self,
-                "Duplicate Scan",
-                f"Unable to complete duplicate scan.\n\n{error}",
+                tr("settings.duplicate_scan"),
+                tr("settings.duplicate_scan_failed", error=error),
             )
             return
         self._report_path = Path(report_path)
-        self.report_label.setText(f'<a href="{report_path}">Duplicate report available</a>')
+        self.report_label.setText(f'<a href="{report_path}">{tr("settings.duplicate_report_available")}</a>')
         self.report_label.show()
         groups = self._load_duplicate_groups(self._report_path)
         if not groups:
             QtWidgets.QMessageBox.information(
                 self,
-                "Duplicate Scan",
-                "Duplicate scan complete. No duplicates found.",
+                tr("settings.duplicate_scan"),
+                tr("settings.duplicate_scan_none"),
             )
             return
         choice = QtWidgets.QMessageBox.question(
             self,
-            "Duplicate Scan",
-            f"Duplicate scan complete. {len(groups)} duplicate group(s) found.\n\n"
-            "Move duplicate files to the archive folder?",
+            tr("settings.duplicate_scan"),
+            tr("settings.duplicate_scan_found", count=len(groups)),
             QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
         )
         if choice != QtWidgets.QMessageBox.StandardButton.Yes:
@@ -3592,9 +3626,8 @@ class SettingsDialog(QtWidgets.QDialog):
             object_name = self._describe_duplicate_object(groups)
             QtWidgets.QMessageBox.information(
                 self,
-                "Archive folder required",
-                f"You have duplicate images of '{object_name}'. "
-                "Choose an archive folder to safely store your duplicate images.",
+                tr("settings.archive_folder_required"),
+                tr("settings.archive_folder_required_message", object_name=object_name),
             )
             self._browse_archive_folder()
             archive_dir = self.archive_folder.text().strip()
@@ -3623,27 +3656,25 @@ class SettingsDialog(QtWidgets.QDialog):
                     continue
         QtWidgets.QMessageBox.information(
             self,
-            "Duplicate Scan",
-            f"Moved {moved} duplicate file(s) to the archive folder.",
+            tr("settings.duplicate_scan"),
+            tr("settings.duplicate_files_moved", count=moved),
         )
 
     def _run_cleanup_now(self) -> None:
         parent = self.parent()
         if parent is None or not hasattr(parent, "_cleanup_invalid_image_only_entries"):
-            QtWidgets.QMessageBox.warning(self, "Cleanup", "Unable to run cleanup.")
+            QtWidgets.QMessageBox.warning(self, tr("settings.cleanup"), tr("settings.cleanup_failed"))
             return
         parent._cleanup_invalid_image_only_entries()
         parent.config["cleanup_invalid_image_only_entries_done"] = True
         save_config(parent.config_path, parent.config)
-        QtWidgets.QMessageBox.information(self, "Cleanup", "Cleanup complete.")
+        QtWidgets.QMessageBox.information(self, tr("settings.cleanup"), tr("settings.cleanup_complete"))
 
     def _migrate_notes_from_old_app(self) -> None:
         choice = QtWidgets.QMessageBox.question(
             self,
-            "Migrate Notes",
-            "Migrate notes from your old AstroCatalogueViewer installation?\n\n"
-            "This will not modify your original notes, and you can switch back to "
-            "AstroCatalogueViewer without any issues.",
+            tr("settings.migration"),
+            tr("settings.migrate_notes_confirm"),
             QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
         )
         if choice != QtWidgets.QMessageBox.StandardButton.Yes:
@@ -3655,8 +3686,8 @@ class SettingsDialog(QtWidgets.QDialog):
             if not migrate_script.exists():
                 QtWidgets.QMessageBox.warning(
                     self,
-                    "Migration Error",
-                    f"Migration script not found: {migrate_script}"
+                    tr("settings.migration_error"),
+                    tr("settings.migration_script_missing", path=migrate_script),
                 )
                 return
 
@@ -3693,26 +3724,20 @@ class SettingsDialog(QtWidgets.QDialog):
                 if "Could not find old AstroCatalogueViewer" in error_msg:
                     QtWidgets.QMessageBox.warning(
                         self,
-                        "No Previous Installation Found",
-                        "AstroCat could not find a previous AstroCatalogueViewer installation.\n\n"
-                        "This could mean:\n"
-                        "- AstroCatalogueViewer was never installed\n"
-                        "- It has been uninstalled\n"
-                        "- No notes were ever saved in it\n\n"
-                        "If you have notes in the old app, please ensure it's still installed."
+                        tr("settings.migration_no_previous_title"),
+                        tr("settings.migration_no_previous_message"),
                     )
                 elif "No notes found" in error_msg:
                     QtWidgets.QMessageBox.information(
                         self,
-                        "No Notes to Migrate",
-                        "No notes were found in your old AstroCatalogueViewer installation.\n\n"
-                        "There's nothing to migrate, but you can continue using AstroCat!"
+                        tr("settings.migration_no_notes_title"),
+                        tr("settings.migration_no_notes_message"),
                     )
                 else:
                     QtWidgets.QMessageBox.warning(
                         self,
-                        "Migration Error",
-                        f"Migration failed:\n\n{error_msg}"
+                        tr("settings.migration_error"),
+                        tr("settings.migration_failed", error=error_msg),
                     )
                 return
             
@@ -3722,8 +3747,8 @@ class SettingsDialog(QtWidgets.QDialog):
         except Exception as e:
             QtWidgets.QMessageBox.warning(
                 self,
-                "Migration Error",
-                f"An unexpected error occurred during migration:\n\n{str(e)}"
+                tr("settings.migration_error"),
+                tr("settings.migration_unexpected", error=str(e)),
             )
 
     def _show_migration_summary(self, output: str) -> None:
@@ -3758,20 +3783,20 @@ class SettingsDialog(QtWidgets.QDialog):
         
         # Create the dialog
         dialog = QtWidgets.QDialog(self)
-        dialog.setWindowTitle("Migration Complete")
+        dialog.setWindowTitle(tr("settings.migration_complete"))
         dialog.setModal(True)
         dialog.resize(600, 400)
         
         layout = QtWidgets.QVBoxLayout(dialog)
         
         # Title
-        title_label = QtWidgets.QLabel("Your notes have been successfully migrated to AstroCat!")
+        title_label = QtWidgets.QLabel(tr("settings.migration_success"))
         title_label.setStyleSheet("font-weight: bold; font-size: 12px; margin-bottom: 10px;")
         layout.addWidget(title_label)
         
         # Summary section (statistics first)
         if summary_lines:
-            summary_group = QtWidgets.QGroupBox("Migration Statistics")
+            summary_group = QtWidgets.QGroupBox(tr("settings.migration_statistics"))
             summary_layout = QtWidgets.QVBoxLayout(summary_group)
             
             summary_text = QtWidgets.QTextEdit()
@@ -3794,7 +3819,7 @@ class SettingsDialog(QtWidgets.QDialog):
         
         # Log section
         if log_lines:
-            log_group = QtWidgets.QGroupBox("Migration Details")
+            log_group = QtWidgets.QGroupBox(tr("settings.migration_details"))
             log_layout = QtWidgets.QVBoxLayout(log_group)
             
             log_text = QtWidgets.QTextEdit()
@@ -3817,13 +3842,13 @@ class SettingsDialog(QtWidgets.QDialog):
         # Buttons
         button_layout = QtWidgets.QHBoxLayout()
         
-        copy_button = QtWidgets.QPushButton("Copy to Clipboard")
+        copy_button = QtWidgets.QPushButton(tr("settings.copy_to_clipboard"))
         copy_button.clicked.connect(lambda: self._copy_migration_summary(output))
         button_layout.addWidget(copy_button)
         
         button_layout.addStretch()
         
-        close_button = QtWidgets.QPushButton("Close")
+        close_button = QtWidgets.QPushButton(tr("settings.close"))
         close_button.clicked.connect(dialog.accept)
         close_button.setDefault(True)
         button_layout.addWidget(close_button)
@@ -3838,7 +3863,7 @@ class SettingsDialog(QtWidgets.QDialog):
         clipboard.setText(text)
         # Show a brief tooltip or status message
         if hasattr(self, 'statusBar'):
-            self.statusBar().showMessage("Migration summary copied to clipboard", 2000)
+            self.statusBar().showMessage(tr("settings.copied_to_clipboard"), 2000)
 
     def _describe_duplicate_object(self, groups: List[Dict[str, object]]) -> str:
         for group in groups:
@@ -3930,7 +3955,7 @@ class SettingsDialog(QtWidgets.QDialog):
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pick Location</title>
+    <title>{tr("settings.location_picker_title")}</title>
   <style>
     html, body, #map {{ height: 100%; margin: 0; background: #111; }}
     .controls {{
@@ -3946,8 +3971,8 @@ class SettingsDialog(QtWidgets.QDialog):
 <body>
   <div id="map"></div>
   <div class="controls">
-    <button id="geo">Use My Location</button>
-    <span id="status">Click on the map to set location</span>
+        <button id="geo">{tr("settings.location_use_my_location")}</button>
+        <span id="status">{tr("settings.location_click_to_set")}</span>
   </div>
   <script>
     const map = L.map('map').setView([{lat}, {lon}], 3);
@@ -3963,7 +3988,7 @@ class SettingsDialog(QtWidgets.QDialog):
         headers: {{ 'Content-Type': 'application/json' }},
         body: JSON.stringify({{ lat, lon }})
       }}).catch(() => {{}});
-      document.getElementById('status').textContent = `Selected: ${{lat.toFixed(5)}}, ${{lon.toFixed(5)}}`;
+            document.getElementById('status').textContent = `{tr("settings.location_selected", lat="${lat.toFixed(5)}", lon="${lon.toFixed(5)}")}`;
     }}
     map.on('click', (e) => sendLocation(e.latlng.lat, e.latlng.lng));
     document.getElementById('geo').addEventListener('click', () => {{
@@ -3974,7 +3999,7 @@ class SettingsDialog(QtWidgets.QDialog):
           map.setView([lat, lon], 7);
           sendLocation(lat, lon);
         }},
-        () => {{ document.getElementById('status').textContent = 'Location permission denied.'; }}
+                () => {{ document.getElementById('status').textContent = '{tr("settings.location_permission_denied")}'; }}
       );
     }});
   </script>
@@ -3999,6 +4024,7 @@ class SettingsDialog(QtWidgets.QDialog):
 
     def _build_preview_config(self) -> Dict:
         updated = dict(self._config)
+        updated["ui_locale"] = str(self.ui_language.currentData() or "system")
         updated["observer"] = {
             "latitude": self.latitude.value(),
             "longitude": self.longitude.value(),
@@ -4089,55 +4115,22 @@ class _MapHttpServer:
 class WelcomeDialog(QtWidgets.QDialog):
     def __init__(self, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
-        self.setWindowTitle("Welcome")
+        self.setWindowTitle(tr("welcome.title"))
         self.setMinimumWidth(560)
 
-        title = QtWidgets.QLabel("Welcome to AstroCat")
+        title = QtWidgets.QLabel(tr("welcome.heading"))
         title.setObjectName("welcomeTitle")
 
         body = QtWidgets.QTextBrowser()
         body.setOpenExternalLinks(True)
         body.setObjectName("welcomeBody")
-        body.setHtml(
-            """
-            <p>This app helps you browse deep-sky catalogs with your own imagery.</p>
-            <p><em>Based on AstroCatalogueViewer</em></p>
-            <p><b>Quick start</b></p>
-            <ul>
-            <li>Open <b>Settings</b> to choose image folders for each catalog.</li>
-            <li>Set your observer location so visibility hints match your sky.</li>
-            <li>Migrate your notes from the old AstroCatalogueViewer.</li>
-            <li>Use the filters and search to find objects fast.</li>
-            <li>Click an object to view metadata and add notes.</li>
-            <p><b>What's new compared to AstroCatalogueViewer</b></p>
-            <ul>
-              <li><b>New catalogs added</b>: LBN, SH2, VdB, and more (thanks to denis2704)</li>
-              <li><b>Separate notes storage</b>: Image notes are now stored in a dedicated file</li>
-              <li><b>Notes migration</b>: You can migrate your notes from the old AstroCatalogueViewer</li>
-            </ul>
-            <p><b>Image naming</b></p>
-            <p>Filenames should include the standard object ID:</p>
-            <ul>
-              <li>Messier / NGC / IC / Caldwell : <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, <b>C14</b></li>
-              <li>Sharpless : <b>Sh2-155</b>, <b>Sh2-101</b></li>
-              <li>Lynds Dark / Bright : <b>LDN1630</b>, <b>LBN667</b></li>
-              <li>Barnard : <b>B33</b>, <b>B150</b></li>
-              <li>van den Bergh : <b>VdB139</b>, <b>VdB152</b></li>
-              <li>Planétaires PNG : <b>PNG59.0-13.9</b>, <b>PNG104.2-29.6</b></li>
-            </ul>
-            <p><b>Missing images</b></p>
-            <p>Enable <b>Wiki thumbnails</b> in the toolbar to preview missing targets while you build your library.</p>
-            <p><b>Support development</b></p>
-            <p><b>Feedback</b></p>
-            <p>Please share suggestions and bug reports via the GitHub repo issues page.</p>
-            """
-        )
+        body.setHtml(tr("welcome.body"))
         body.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         body.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         body.document().setTextWidth(520)
         body.setMinimumHeight(int(body.document().size().height()) + 16)
 
-        self.skip_checkbox = QtWidgets.QCheckBox("Don't show again")
+        self.skip_checkbox = QtWidgets.QCheckBox(tr("welcome.skip"))
 
         buttons = QtWidgets.QDialogButtonBox(
             QtWidgets.QDialogButtonBox.StandardButton.Ok
@@ -4166,7 +4159,7 @@ class AboutDialog(QtWidgets.QDialog):
         parent: Optional[QtWidgets.QWidget] = None,
     ) -> None:
         super().__init__(parent)
-        self.setWindowTitle("About")
+        self.setWindowTitle(tr("about.title"))
         self.setMinimumWidth(760)
         self._config = config
         self._app_version = app_version
@@ -4174,16 +4167,15 @@ class AboutDialog(QtWidgets.QDialog):
 
         title = QtWidgets.QLabel("AstroCat")
         title.setObjectName("aboutTitle")
-        self.app_version_label = QtWidgets.QLabel(f"App Version: {app_version}")
+        self.app_version_label = QtWidgets.QLabel(tr("about.app_version", version=app_version))
         self.app_version_label.setObjectName("aboutVersion")
-        self.data_version_label = QtWidgets.QLabel(f"Data Version: {data_version}")
+        self.data_version_label = QtWidgets.QLabel(tr("about.data_version", version=data_version))
         self.data_version_label.setObjectName("aboutDataVersion")
-        self.remote_data_version_label = QtWidgets.QLabel("Latest Data Version: checking…")
+        self.remote_data_version_label = QtWidgets.QLabel(tr("about.latest_data_version_checking"))
         self.remote_data_version_label.setObjectName("aboutVersion")
 
         about = QtWidgets.QLabel(
-            "AstroCat helps you organize deep-sky catalogs with your own imagery, "
-            "track capture progress, and plan what to shoot next."
+            tr("about.description")
         )
         about.setWordWrap(True)
 
@@ -4193,9 +4185,9 @@ class AboutDialog(QtWidgets.QDialog):
         links.setOpenExternalLinks(True)
         links.setObjectName("aboutLinks")
 
-        sponsor_box = QtWidgets.QGroupBox("Sponsors")
+        sponsor_box = QtWidgets.QGroupBox(tr("about.sponsors"))
         sponsor_layout = QtWidgets.QVBoxLayout(sponsor_box)
-        self.supporters_status = QtWidgets.QLabel("Loading supporters…")
+        self.supporters_status = QtWidgets.QLabel(tr("about.loading_supporters"))
         self.supporters_status.setWordWrap(True)
         self.supporters_status.setTextFormat(QtCore.Qt.TextFormat.RichText)
         self.supporters_status.setOpenExternalLinks(True)
@@ -4220,28 +4212,23 @@ class AboutDialog(QtWidgets.QDialog):
         left_layout.addWidget(sponsor_box)
         left_layout.addStretch(1)
 
-        quick_title = QtWidgets.QLabel("Quick start")
+        quick_title = QtWidgets.QLabel(tr("about.quick_start"))
         quick_title.setObjectName("aboutSectionTitle")
-        quick_list = QtWidgets.QLabel(
-            "1. Open Settings to set catalog image folders.\n"
-            "2. Set your observer location for accurate visibility hints.\n"
-            "3. Use filters and search to find targets fast.\n"
-            "4. Open an object to view metadata and add notes."
-        )
+        quick_list = QtWidgets.QLabel(tr("about.quick_start_list"))
         quick_list.setWordWrap(True)
 
-        updates_title = QtWidgets.QLabel("Updates")
+        updates_title = QtWidgets.QLabel(tr("about.updates"))
         updates_title.setObjectName("aboutSectionTitle")
-        self.update_status = QtWidgets.QLabel("Not checked")
+        self.update_status = QtWidgets.QLabel(tr("about.not_checked"))
         self.update_status.setObjectName("aboutUpdateStatus")
         self.update_status.setWordWrap(True)
-        self.data_update_status = QtWidgets.QLabel("Checking data updates…")
+        self.data_update_status = QtWidgets.QLabel(tr("about.checking_data_updates"))
         self.data_update_status.setObjectName("aboutUpdateStatus")
         self.data_update_status.setWordWrap(True)
-        self.auto_check = QtWidgets.QCheckBox("Check for updates automatically")
+        self.auto_check = QtWidgets.QCheckBox(tr("about.auto_check_updates"))
         self.auto_check.setChecked(bool(config.get("auto_check_updates", True)))
         self.auto_check.toggled.connect(self.auto_check_toggled.emit)
-        self.check_updates = QtWidgets.QPushButton("Check for updates")
+        self.check_updates = QtWidgets.QPushButton(tr("about.check_for_updates"))
         self.check_updates.clicked.connect(self.check_updates_requested.emit)
 
         right = QtWidgets.QWidget()
@@ -4262,7 +4249,7 @@ class AboutDialog(QtWidgets.QDialog):
         content.addWidget(right, stretch=2)
         content.setSpacing(24)
 
-        close_button = QtWidgets.QPushButton("Close")
+        close_button = QtWidgets.QPushButton(tr("settings.close"))
         close_button.clicked.connect(self.accept)
 
         layout = QtWidgets.QVBoxLayout(self)
@@ -4275,7 +4262,7 @@ class AboutDialog(QtWidgets.QDialog):
 
     def set_update_status(self, status: str, latest: Optional[str], url: Optional[str]) -> None:
         if url:
-            self.update_status.setText(f'{status} <a href="{url}">View release</a>')
+            self.update_status.setText(f'{status} <a href="{url}">{tr("about.view_release")}</a>')
             self.update_status.setOpenExternalLinks(True)
         else:
             self.update_status.setText(status)
@@ -4285,21 +4272,19 @@ class AboutDialog(QtWidgets.QDialog):
         if not version:
             return
         self._data_version = version
-        self.data_version_label.setText(f"Data Version: {version}")
+        self.data_version_label.setText(tr("about.data_version", version=version))
 
     def set_data_update_status(self, status: str) -> None:
         self.data_update_status.setText(status)
 
     def set_remote_data_version(self, version: Optional[str], installed: str) -> None:
         if not version:
-            self.remote_data_version_label.setText("Latest Data Version: unavailable")
+            self.remote_data_version_label.setText(tr("about.latest_data_version_unavailable"))
             return
         if version != installed:
-            self.remote_data_version_label.setText(
-                f"Latest Data Version: {version} (update available)"
-            )
+            self.remote_data_version_label.setText(tr("about.latest_data_version_available", version=version))
             return
-        self.remote_data_version_label.setText(f"Latest Data Version: {version} (up to date)")
+        self.remote_data_version_label.setText(tr("about.latest_data_version_uptodate", version=version))
 
     def _start_supporters_fetch(self) -> None:
         task = SupportersFetchTask(SUPPORTERS_URL, user_agent=f"{APP_NAME}/{self._app_version}")
@@ -4310,7 +4295,7 @@ class AboutDialog(QtWidgets.QDialog):
 
     def _apply_supporters(self, supporters: List[str]) -> None:
         if not supporters:
-            self.supporters_status.setText("No supporters listed yet.")
+            self.supporters_status.setText(tr("about.no_supporters"))
             return
         self.supporters_status.setText("<br>".join(supporters))
 
@@ -4334,14 +4319,14 @@ class UpdateCheckTask(QtCore.QRunnable):
             latest = self._normalize_version(tag)
             current = self._normalize_version(self.current_version)
             if not latest:
-                self._emit_failed("No release tag found.")
+                self._emit_failed(tr("updates.status_not_found"))
                 return
             if latest != current:
                 self._emit_available(tag, html_url)
             else:
                 self._emit_up_to_date(tag)
         except Exception:
-            self._emit_failed("Update check failed.")
+            self._emit_failed(tr("updates.status_failed"))
         finally:
             self._emit_finished()
 
@@ -4433,7 +4418,7 @@ class SupportersFetchTask(QtCore.QRunnable):
             supporters = self._normalize_supporters(payload)
             self._emit_loaded(supporters)
         except Exception:
-            self._emit_failed("Unable to load supporters.")
+            self._emit_failed(tr("supporters.load_failed"))
 
     def _emit_loaded(self, supporters: List[str]) -> None:
         if SHUTDOWN_EVENT.is_set() or not isValid(self.signals):
@@ -4530,9 +4515,9 @@ class DataVersionFetchTask(QtCore.QRunnable):
             if version:
                 self._emit_loaded(version)
             else:
-                self._emit_failed("Unable to load version.")
+                self._emit_failed(tr("data.load_failed"))
         except Exception:
-            self._emit_failed("Unable to load version.")
+            self._emit_failed(tr("data.load_failed"))
 
     def _emit_loaded(self, version: str) -> None:
         if SHUTDOWN_EVENT.is_set() or not isValid(self.signals):

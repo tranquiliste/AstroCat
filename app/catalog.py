@@ -76,6 +76,7 @@ DEFAULT_CONFIG = {
     "archive_image_dir": "",
     "use_wiki_thumbnails": False,
     "auto_check_updates": True,
+    "ui_locale": "system",
 }
 
 

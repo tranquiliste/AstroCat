@@ -156,6 +156,12 @@ Notes you add in the app are saved in the photo_notes.json in the setting folder
 
 Messier metadata is complete and includes expanded descriptions with astrophotography guidance. The NGC, IC, and Caldwell metadata sets are in progress.
 
+### Localization
+AstroCat UI localization uses JSON resources stored in `app/locales/<lang>.json`.
+
+Configuration keys:
+- `ui_locale`: interface language (`system`, `en`, `fr`, ...)
+
 ### Resetting saved settings
 If the app has a bad image path or filter state saved, delete the config file:
 - macOS: `~/Library/Application Support/AstroCat/config.json`
