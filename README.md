@@ -6,6 +6,8 @@ This project is an independent fork of AstroCatalogueViewer.
 
 > **AI assistance disclaimer:** New features in this fork (including notes migration, notes storage refactor, and selected UI updates) were implemented with AI coding assistance.
 
+Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
+
 
 
 Status: beta
@@ -175,4 +177,4 @@ Feedback, suggestions, and bug reports are welcome via GitHub issues, but I do n
 
 ## License
 See `LICENSE`.
-see `COPYRIGHT`
+See [COPYRIGHT](COPYRIGHT).

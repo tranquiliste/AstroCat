@@ -83,7 +83,7 @@ from image_cache import ThumbnailCache
 
 APP_NAME = "AstroCat"
 ORG_NAME = "AstroCat"
-UPDATE_REPO = "thebioguy/Astro-Catalogue-Viewer"
+UPDATE_REPO = "tranquiliste/AstroCat"
 SUPPORTERS_URL = f"https://raw.githubusercontent.com/{UPDATE_REPO}/main/data/supporters.json"
 APP_VERSION_FILE = "data/version.json"
 DATA_VERSION_FILE = "data/data_version.json"
@@ -1829,7 +1829,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.config_path = config_path
         self.config = load_config(self.config_path)
-        self._data_version = self._load_cached_data_version()
+        self._data_version = self._load_local_data_version()
         self._ensure_user_metadata_files()
         self.user_notes_path = self._user_notes_path()
         if not self.config.get("cleanup_invalid_image_only_entries_done", False):
@@ -1883,6 +1883,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self._update_status = "Not checked"
         self._latest_version: Optional[str] = None
         self._update_url: Optional[str] = None
+        self._remote_data_version: Optional[str] = None
+        self._data_update_status = "Checking data updates…"
         self._update_tasks: List[UpdateCheckTask] = []
         self._data_version_task: Optional[DataVersionFetchTask] = None
         self._closing = False
@@ -1904,16 +1906,19 @@ class MainWindow(QtWidgets.QMainWindow):
         location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.CacheLocation)
         return Path(location)
 
-    def _load_cached_data_version(self) -> str:
-        cached = str(self.config.get("data_version_override") or "").strip()
-        if not cached:
-            legacy = str(self.config.get("app_version_override") or "").strip()
-            if legacy:
-                self.config["data_version_override"] = legacy
-                self.config.pop("app_version_override", None)
-                save_config(self.config_path, self.config)
-                cached = legacy
-        return cached or DEFAULT_DATA_VERSION
+    def _load_local_data_version(self) -> str:
+        # Data version shown in About must always reflect the local bundled data.
+        # Clean up legacy override keys from older behavior.
+        updated = False
+        if "data_version_override" in self.config:
+            self.config.pop("data_version_override", None)
+            updated = True
+        if "app_version_override" in self.config:
+            self.config.pop("app_version_override", None)
+            updated = True
+        if updated:
+            save_config(self.config_path, self.config)
+        return DEFAULT_DATA_VERSION
 
     def _ensure_user_metadata_files(self) -> None:
         location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
@@ -2310,13 +2315,6 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addWidget(splitter, stretch=1)
 
         footer = QtWidgets.QHBoxLayout()
-        support = QtWidgets.QLabel(
-            'Support development: <a href="https://buymeacoffee.com/PaulSpinelli">buymeacoffee.com/PaulSpinelli</a> | '
-            '<a href="https://www.paypal.com/donate/?hosted_button_id=9GDUBHS78MH52">paypal.com/donate</a>'
-        )
-        support.setOpenExternalLinks(True)
-        support.setObjectName("supportLink")
-        footer.addWidget(support)
         footer.addStretch(1)
         layout.addLayout(footer)
         self.setCentralWidget(central)
@@ -2969,6 +2967,8 @@ class MainWindow(QtWidgets.QMainWindow):
         dialog.check_updates_requested.connect(self._check_updates_user)
         dialog.auto_check_toggled.connect(self._set_auto_check_updates)
         dialog.set_update_status(self._update_status, self._latest_version, self._update_url)
+        dialog.set_data_update_status(self._data_update_status)
+        dialog.set_remote_data_version(self._remote_data_version, self._data_version)
         self._about_dialog = dialog
         dialog.finished.connect(lambda _result: self._clear_about_dialog())
         dialog.show()
@@ -2991,16 +2991,29 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _apply_remote_data_version(self, version: str) -> None:
         self._data_version_task = None
-        if not version or version == self._data_version:
+        if not version:
+            self._data_update_status = "Data update check unavailable."
+            if self._about_dialog:
+                self._about_dialog.set_data_update_status(self._data_update_status)
+                self._about_dialog.set_remote_data_version(None, self._data_version)
             return
-        self._data_version = version
-        self.config["data_version_override"] = version
-        save_config(self.config_path, self.config)
+        self._remote_data_version = version
+        if version != self._data_version:
+            self._data_update_status = (
+                f"New data version available: {version} (installed: {self._data_version})"
+            )
+        else:
+            self._data_update_status = "Data is up to date."
         if self._about_dialog:
-            self._about_dialog.set_data_version(version)
+            self._about_dialog.set_data_update_status(self._data_update_status)
+            self._about_dialog.set_remote_data_version(version, self._data_version)
 
     def _data_version_fetch_failed(self, _message: str) -> None:
         self._data_version_task = None
+        self._data_update_status = "Unable to check data updates (offline or server unavailable)."
+        if self._about_dialog:
+            self._about_dialog.set_data_update_status(self._data_update_status)
+            self._about_dialog.set_remote_data_version(None, self._data_version)
 
     def _check_updates_silent(self) -> None:
         self._start_update_check(silent=True)
@@ -4152,6 +4165,8 @@ class AboutDialog(QtWidgets.QDialog):
         self.app_version_label.setObjectName("aboutVersion")
         self.data_version_label = QtWidgets.QLabel(f"Data Version: {data_version}")
         self.data_version_label.setObjectName("aboutDataVersion")
+        self.remote_data_version_label = QtWidgets.QLabel("Latest Data Version: checking…")
+        self.remote_data_version_label.setObjectName("aboutVersion")
 
         about = QtWidgets.QLabel(
             "AstroCat helps you organize deep-sky catalogs with your own imagery, "
@@ -4160,9 +4175,6 @@ class AboutDialog(QtWidgets.QDialog):
         about.setWordWrap(True)
 
         links = QtWidgets.QLabel(
-            'Website: <a href="https://astro-catalogue-viewer.com/">astro-catalogue-viewer.com</a><br>'
-            'Support: <a href="https://buymeacoffee.com/PaulSpinelli">buymeacoffee.com/PaulSpinelli</a><br>'
-            'PayPal: <a href="https://www.paypal.com/donate/?hosted_button_id=9GDUBHS78MH52">paypal.com/donate</a><br>'
             f'Repo: <a href="https://github.com/{UPDATE_REPO}">github.com/{UPDATE_REPO}</a>'
         )
         links.setOpenExternalLinks(True)
@@ -4186,6 +4198,7 @@ class AboutDialog(QtWidgets.QDialog):
         left_layout.addWidget(title)
         left_layout.addWidget(self.app_version_label)
         left_layout.addWidget(self.data_version_label)
+        left_layout.addWidget(self.remote_data_version_label)
         left_layout.addSpacing(8)
         left_layout.addWidget(about)
         left_layout.addSpacing(10)
@@ -4209,6 +4222,9 @@ class AboutDialog(QtWidgets.QDialog):
         self.update_status = QtWidgets.QLabel("Not checked")
         self.update_status.setObjectName("aboutUpdateStatus")
         self.update_status.setWordWrap(True)
+        self.data_update_status = QtWidgets.QLabel("Checking data updates…")
+        self.data_update_status.setObjectName("aboutUpdateStatus")
+        self.data_update_status.setWordWrap(True)
         self.auto_check = QtWidgets.QCheckBox("Check for updates automatically")
         self.auto_check.setChecked(bool(config.get("auto_check_updates", True)))
         self.auto_check.toggled.connect(self.auto_check_toggled.emit)
@@ -4223,6 +4239,7 @@ class AboutDialog(QtWidgets.QDialog):
         right_layout.addSpacing(16)
         right_layout.addWidget(updates_title)
         right_layout.addWidget(self.update_status)
+        right_layout.addWidget(self.data_update_status)
         right_layout.addWidget(self.auto_check)
         right_layout.addWidget(self.check_updates)
         right_layout.addStretch(1)
@@ -4256,6 +4273,20 @@ class AboutDialog(QtWidgets.QDialog):
             return
         self._data_version = version
         self.data_version_label.setText(f"Data Version: {version}")
+
+    def set_data_update_status(self, status: str) -> None:
+        self.data_update_status.setText(status)
+
+    def set_remote_data_version(self, version: Optional[str], installed: str) -> None:
+        if not version:
+            self.remote_data_version_label.setText("Latest Data Version: unavailable")
+            return
+        if version != installed:
+            self.remote_data_version_label.setText(
+                f"Latest Data Version: {version} (update available)"
+            )
+            return
+        self.remote_data_version_label.setText(f"Latest Data Version: {version} (up to date)")
 
     def _start_supporters_fetch(self) -> None:
         task = SupportersFetchTask(SUPPORTERS_URL, user_agent=f"{APP_NAME}/{self._app_version}")

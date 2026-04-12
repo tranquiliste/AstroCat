@@ -3,7 +3,7 @@
 AstroCat is a desktop app for organizing and browsing astrophotography catalogs with your own images. It combines a fast thumbnail grid, filters, metadata, and notes so you can track capture progress and plan future targets.
 
 ## Install
-- Download the latest build from https://astro-catalogue-viewer.com/ or the GitHub releases page.
+- Download the latest build from https://github.com/tranquiliste/AstroCat/releases.
 - Launch the app and allow file access when prompted by your OS.
 
 ## First Launch Setup
