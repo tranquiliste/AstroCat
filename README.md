@@ -1,18 +1,21 @@
 # AstroCat
 
-AstroCat is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It gives you a fast image grid, filters, rich object metadata, and notes so you can track progress and plan what to capture next.
-This is a fork from Astro Catalogue vewver
-NOTE: most of the modification have been done using IA 
+AstroCat is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It provides a fast image grid, filters, rich object metadata, and notes to help plan captures and track progress.
+
+This project is an independent fork of AstroCatalogueViewer.
+
+> **AI assistance disclaimer:** New features in this fork (including notes migration, notes storage refactor, and selected UI updates) were implemented with AI coding assistance.
 
 
 
 Status: beta
 
-## version 1.0.0-beta
-- adding new catalogs (thanks to denis 2704 for the catalogs and code)
-- photos notes are now stores in a separate json file and associated to the picure file name
+## Version 1.0.0-beta
+- Added new catalogs (thanks to denis2704 for catalogs and code contributions)
+- Image notes are now stored in a dedicated JSON file and linked to picture filenames
+- Added one-shot migration for notes from AstroCatalogueViewer
 
-## Highlights (from original Astro Catalogue Viewver)
+## Highlights (from original AstroCatalogueViewer)
 - Fast grid with zoom, search, and filters (catalog, object type, status)
 - Two-column detail view with zoom/pan, notes, and external info links
 - Archive action to move selected images into an archive folder
@@ -24,6 +27,11 @@ Status: beta
 - Master image folder support (if all images live in one place)
 - Optional catalog-specific image folders
 - Offline-safe location picker (browser-based map)
+
+## What AstroCat adds
+- New catalogs (including LBN, Sh2, VdB, and others)
+- Notes storage refactor with image notes in `photo_notes.json`
+- Built-in migration path from AstroCatalogueViewer notes
 
 
 ## Quick start (dev)
@@ -98,6 +106,23 @@ python3 -m pip install -r requirements.txt
 
 The packaged app will be in `dist/`.
 
+## Migration from AstroCatalogueViewer
+AstroCat can migrate notes from a previous AstroCatalogueViewer installation from the Settings screen.
+
+Compatibility note:
+- Migration behavior has been tested against AstroCatalogueViewer `v3.0-beta`
+- Compatibility with earlier, different, or future AstroCatalogueViewer versions is not guaranteed
+- If upstream changes the notes structure, migration may require updates in AstroCat
+
+What is migrated:
+- Object notes from `*_metadata.json`
+- Image notes to `photo_notes.json` (AstroCat format)
+
+Behavior:
+- Existing destination notes are preserved
+- Already existing notes are counted as ignored
+- A migration log is generated for troubleshooting
+
 ## Configuration
 Open **Settings** to set:
 - **Master Image Folder** (optional): a single folder containing all your images
@@ -132,6 +157,18 @@ Messier metadata is complete and includes expanded descriptions with astrophotog
 ### Resetting saved settings
 If the app has a bad image path or filter state saved, delete the config file:
 - macOS: `~/Library/Application Support/AstroCat/config.json`
+- Windows: `%APPDATA%\AstroCat\config.json`
+- Linux: `~/.config/AstroCat/config.json`
+
+## Known limitations
+- Status is beta: behavior and file formats may still evolve
+- Metadata coverage is still in progress for some catalogs
+- Support is best effort via GitHub issues
+
+## Credits
+- Original project: AstroCatalogueViewer by Paul Spinelli
+- AstroCat fork and maintenance: Nicolas Aguttes
+- Additional catalogs and contributions: denis2704
 
 ## Support
 Feedback, suggestions, and bug reports are welcome via GitHub issues, but I do not guarantee I will be very reactive
