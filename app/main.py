@@ -4075,12 +4075,19 @@ class WelcomeDialog(QtWidgets.QDialog):
         body.setHtml(
             """
             <p>This app helps you browse deep-sky catalogs with your own imagery.</p>
+            <p><em>Based on AstroCatalogueViewer</em></p>
             <p><b>Quick start</b></p>
             <ul>
-              <li>Open <b>Settings</b> to choose image folders for each catalog.</li>
-              <li>Set your observer location so visibility hints match your sky.</li>
-              <li>Use the filters and search to find objects fast.</li>
-              <li>Click an object to view metadata and add notes.</li>
+            <li>Open <b>Settings</b> to choose image folders for each catalog.</li>
+            <li>Set your observer location so visibility hints match your sky.</li>
+            <li>Migrate your notes from the old AstroCatalogueViewer.</li>
+            <li>Use the filters and search to find objects fast.</li>
+            <li>Click an object to view metadata and add notes.</li>
+            <p><b>What's new compared to AstroCatalogueViewer</b></p>
+            <ul>
+              <li><b>New catalogs added</b>: LBN, SH2, VdB, and more (thanks to denis2704)</li>
+              <li><b>Separate notes storage</b>: Image notes are now stored in a dedicated file</li>
+              <li><b>Notes migration</b>: You can migrate your notes from the old AstroCatalogueViewer</li>
             </ul>
             <p><b>Image naming</b></p>
             <p>Filenames should include the standard object ID:</p>
@@ -4095,9 +4102,6 @@ class WelcomeDialog(QtWidgets.QDialog):
             <p><b>Missing images</b></p>
             <p>Enable <b>Wiki thumbnails</b> in the toolbar to preview missing targets while you build your library.</p>
             <p><b>Support development</b></p>
-            <p>This project takes time and money to develop. If you find it useful, please consider supporting:</p>
-            <p><a href="https://buymeacoffee.com/PaulSpinelli">buymeacoffee.com/PaulSpinelli</a><br>
-               <a href="https://www.paypal.com/donate/?hosted_button_id=9GDUBHS78MH52">paypal.com/donate</a></p>
             <p><b>Feedback</b></p>
             <p>Please share suggestions and bug reports via the GitHub repo issues page.</p>
             """
