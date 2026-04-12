@@ -13,7 +13,10 @@ a = Analysis(
     [str(project_root / "app" / "main.py")],
     pathex=[str(project_root)],
     binaries=pyside6_binaries + tiff_binaries,
-    datas=[(str(project_root / "data"), "data")] + pyside6_datas + tiff_datas,
+    datas=[
+        (str(project_root / "data"), "data"),
+        (str(project_root / "scripts" / "migrate_user_notes.py"), "scripts"),
+    ] + pyside6_datas + tiff_datas,
     hiddenimports=pyside6_hidden + tiff_hidden,
     hookspath=[],
     hooksconfig={},

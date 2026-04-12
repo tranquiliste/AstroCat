@@ -12,7 +12,10 @@ a = Analysis(
     [str(project_root / "app" / "main.py")],
     pathex=[str(project_root)],
     binaries=tiff_binaries,
-    datas=[(str(project_root / "data"), "data")] + tiff_datas,
+    datas=[
+        (str(project_root / "data"), "data"),
+        (str(project_root / "scripts" / "migrate_user_notes.py"), "scripts"),
+    ] + tiff_datas,
     hiddenimports=tiff_hidden,
     hookspath=[],
     hooksconfig={},

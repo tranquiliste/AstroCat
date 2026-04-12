@@ -63,6 +63,9 @@ import hashlib
 import re
 import subprocess
 import shutil
+import io
+import runpy
+from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 from typing import Callable, Dict, List, Optional, Tuple
 import http.server
@@ -3656,19 +3659,35 @@ class SettingsDialog(QtWidgets.QDialog):
                     f"Migration script not found: {migrate_script}"
                 )
                 return
-            
-            # Run the script without specifying the old app directory
-            # It will auto-detect from standard locations
-            result = subprocess.run(
-                [sys.executable, str(migrate_script)],
-                capture_output=True,
-                text=True,
-                timeout=300
-            )
-            
-            if result.returncode != 0:
+
+            # Run the migration script in-process so it works in frozen builds.
+            # It keeps compatibility with source runs and allows capturing output.
+            out_buffer = io.StringIO()
+            err_buffer = io.StringIO()
+            return_code = 0
+            original_argv = list(sys.argv)
+            try:
+                sys.argv = [str(migrate_script)]
+                with redirect_stdout(out_buffer), redirect_stderr(err_buffer):
+                    try:
+                        runpy.run_path(str(migrate_script), run_name="__main__")
+                    except SystemExit as exc:
+                        code = exc.code
+                        if code is None:
+                            return_code = 0
+                        elif isinstance(code, int):
+                            return_code = code
+                        else:
+                            return_code = 1
+            finally:
+                sys.argv = original_argv
+
+            stdout_text = out_buffer.getvalue().strip()
+            stderr_text = err_buffer.getvalue().strip()
+
+            if return_code != 0:
                 # Build error message from stderr
-                error_msg = result.stderr.strip() if result.stderr.strip() else "Unknown error"
+                error_msg = stderr_text if stderr_text else "Unknown error"
                 
                 # Provide user-friendly error messages
                 if "Could not find old AstroCatalogueViewer" in error_msg:
@@ -3698,14 +3717,8 @@ class SettingsDialog(QtWidgets.QDialog):
                 return
             
             # Show success message with detailed summary
-            success_msg = result.stdout.strip() if result.stdout.strip() else "Migration completed successfully!"
+            success_msg = stdout_text if stdout_text else "Migration completed successfully!"
             self._show_migration_summary(success_msg)
-        except subprocess.TimeoutExpired:
-            QtWidgets.QMessageBox.warning(
-                self,
-                "Migration Error",
-                "Migration script took too long to complete (timeout)."
-            )
         except Exception as e:
             QtWidgets.QMessageBox.warning(
                 self,
