@@ -39,7 +39,6 @@ jobs:
           while IFS= read -r line; do
             notes="${notes}\n- ${line}"
           done < <(git log --oneline "${range}")
-          notes="${notes}\n\nMigration note: If you lost notes after updating, you can run:\n- python3 scripts/migrate_user_notes.py"
           printf "body<<EOF\n%s\nEOF\n" "$notes" >> "$GITHUB_OUTPUT"
 
       - name: Create release
@@ -68,10 +67,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
-
-      - name: Strip metadata notes
-        run: |
-          python scripts/strip_metadata_notes.py
 
       - name: Build
         run: |
@@ -104,10 +99,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
-
-      - name: Strip metadata notes
-        run: |
-          python scripts/strip_metadata_notes.py
 
       - name: Build
         run: |
@@ -142,10 +133,6 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
 
-      - name: Strip metadata notes
-        run: |
-          python scripts/strip_metadata_notes.py
-
       - name: Build
         run: |
           python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
@@ -179,10 +166,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
-
-      - name: Strip metadata notes
-        run: |
-          python scripts/strip_metadata_notes.py
 
       - name: Build
         run: |

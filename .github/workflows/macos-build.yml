@@ -2,9 +2,6 @@ name: Build macOS
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - "v*"
 
 jobs:
   build-macos:
@@ -23,10 +20,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
-
-      - name: Strip metadata notes
-        run: |
-          python scripts/strip_metadata_notes.py
 
       - name: Build
         run: |
@@ -60,10 +53,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
-
-      - name: Strip metadata notes
-        run: |
-          python scripts/strip_metadata_notes.py
 
       - name: Build
         run: |
