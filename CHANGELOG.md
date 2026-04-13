@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.1-beta] - 2026-04-13
+### Fixed
+- i18n locale files not found at runtime in frozen build (PyInstaller)
+- All three platform specs (Windows, macOS, Linux) updated to include `app/locales`
+
 ## [1.1.0-beta] - 2026-04-13
 ### Added
 - Multi-language support across the user interface
