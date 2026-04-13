@@ -44,6 +44,8 @@
   "detail.text_button_larger": "A+",
   "detail.text_smaller": "Smaller text",
   "detail.text_larger": "Larger text",
+  "detail.focus_mode_enter": "Hide thumbnails and description",
+  "detail.focus_mode_exit": "Show thumbnails and description",
   "detail.metadata.catalog": "Catalog: {value}",
   "detail.metadata.type": "Type: {value}",
   "detail.metadata.unknown": "Unknown",

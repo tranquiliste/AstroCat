@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 # ============================================================================
 # INTÉGRATION DES NOUVEAUX CATALOGUES — À AJOUTER DANS catalog.py
@@ -129,6 +129,24 @@ def _load_bundled_data_version() -> str:
 APP_VERSION = _load_bundled_app_version()
 DEFAULT_DATA_VERSION = _load_bundled_data_version()
 SHUTDOWN_EVENT = threading.Event()
+
+
+def _build_focus_toggle_icon(direction: str, color: str = "#d9a441") -> QtGui.QIcon:
+    pixmap = QtGui.QPixmap(18, 18)
+    pixmap.fill(QtCore.Qt.GlobalColor.transparent)
+    painter = QtGui.QPainter(pixmap)
+    painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing)
+    pen = QtGui.QPen(QtGui.QColor(color), 2.2, QtCore.Qt.PenStyle.SolidLine, QtCore.Qt.PenCapStyle.RoundCap, QtCore.Qt.PenJoinStyle.RoundJoin)
+    painter.setPen(pen)
+    if direction == "left":
+        chevrons = [((11, 4), (7, 9), (11, 14)), ((7, 4), (3, 9), (7, 14))]
+    else:
+        chevrons = [((7, 4), (11, 9), (7, 14)), ((11, 4), (15, 9), (11, 14))]
+    for start, middle, end in chevrons:
+        painter.drawLine(*start, *middle)
+        painter.drawLine(*middle, *end)
+    painter.end()
+    return QtGui.QIcon(pixmap)
 
 
 class ThumbnailSignals(QtCore.QObject):
@@ -1428,6 +1446,7 @@ class DetailPanel(QtWidgets.QWidget):
     thumbnail_selected = QtCore.Signal(str, str, str)
     archive_requested = QtCore.Signal(str)
     image_changed = QtCore.Signal(str)
+    focus_mode_toggled = QtCore.Signal(bool)
 
     def __init__(self) -> None:
         super().__init__()
@@ -1483,6 +1502,8 @@ class DetailPanel(QtWidgets.QWidget):
         self._image_load_id = 0
         self._image_thread_pool = QtCore.QThreadPool.globalInstance()
         self._image_cache: Dict[str, QtGui.QPixmap] = {}
+        self._focus_mode = False
+        self._saved_detail_sizes: Optional[List[int]] = None
 
         layout = QtWidgets.QVBoxLayout(self)
         layout.addWidget(self.title)
@@ -1494,8 +1515,18 @@ class DetailPanel(QtWidgets.QWidget):
         self.text_larger_button.setToolTip(tr("detail.text_larger"))
         self.text_smaller_button.clicked.connect(lambda: self._change_detail_text_size(-1.0))
         self.text_larger_button.clicked.connect(lambda: self._change_detail_text_size(1.0))
+        self.focus_toggle_button = QtWidgets.QToolButton()
+        self.focus_toggle_button.setObjectName("focusToggleButton")
+        self.focus_toggle_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        self.focus_toggle_button.setFixedSize(30, 30)
+        self.focus_toggle_button.setIconSize(QtCore.QSize(18, 18))
+        self.focus_toggle_button.setIcon(_build_focus_toggle_icon("left"))
+        self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
+        self.focus_toggle_button.setAutoRaise(False)
+        self.focus_toggle_button.clicked.connect(self._toggle_focus_mode)
         fit_row.addWidget(self.text_smaller_button)
         fit_row.addWidget(self.text_larger_button)
+        fit_row.addWidget(self.focus_toggle_button)
         fit_row.addStretch(1)
         layout.addLayout(fit_row)
 
@@ -1534,6 +1565,7 @@ class DetailPanel(QtWidgets.QWidget):
         columns_splitter.setChildrenCollapsible(False)
         columns_splitter.setHandleWidth(6)
         columns_splitter.setSizes([320, 960])
+        self._columns_splitter = columns_splitter
         main_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Vertical)
         main_splitter.addWidget(image_container)
         main_splitter.addWidget(columns_splitter)
@@ -1548,6 +1580,29 @@ class DetailPanel(QtWidgets.QWidget):
         self._initial_detail_sized = False
 
         layout.addWidget(main_splitter, stretch=1)
+
+    def set_focus_mode(self, enabled: bool) -> None:
+        if self._focus_mode == enabled:
+            return
+        self._focus_mode = enabled
+        if enabled:
+            current_sizes = self._main_splitter.sizes()
+            if len(current_sizes) >= 2 and current_sizes[0] > 0 and current_sizes[1] > 0:
+                self._saved_detail_sizes = current_sizes
+            self._columns_splitter.hide()
+            self._main_splitter.setHandleWidth(0)
+            self._main_splitter.setSizes([1, 0])
+            self.focus_toggle_button.setIcon(_build_focus_toggle_icon("right"))
+            self.focus_toggle_button.setToolTip(tr("detail.focus_mode_exit"))
+            return
+        self._columns_splitter.show()
+        self._main_splitter.setHandleWidth(6)
+        self._main_splitter.setSizes(self._saved_detail_sizes or [520, 200])
+        self.focus_toggle_button.setIcon(_build_focus_toggle_icon("left"))
+        self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
+
+    def _toggle_focus_mode(self) -> None:
+        self.focus_mode_toggled.emit(not self._focus_mode)
 
     def update_item(self, item: Optional[CatalogItem]) -> None:
         self._current_item = item
@@ -1721,6 +1776,8 @@ class DetailPanel(QtWidgets.QWidget):
 
     def _apply_initial_sizes(self) -> None:
         if self._initial_detail_sized:
+            return
+        if self._focus_mode:
             return
         if not hasattr(self, "_left_widget") or not hasattr(self, "_main_splitter"):
             return
@@ -2340,6 +2397,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.detail.thumbnail_selected.connect(self._on_thumbnail_selected)
         self.detail.image_changed.connect(self._on_image_changed)
         self.detail.archive_requested.connect(self._on_archive_requested)
+        self.detail.focus_mode_toggled.connect(self._on_detail_focus_mode_toggled)
         self.model.wiki_thumbnail_loaded.connect(self._on_wiki_thumbnail_loaded)
 
         splitter = QtWidgets.QSplitter()
@@ -2351,6 +2409,7 @@ class MainWindow(QtWidgets.QMainWindow):
         splitter.setHandleWidth(6)
         splitter.splitterMoved.connect(self._schedule_auto_fit)
         self.splitter = splitter
+        self._saved_main_sizes: Optional[List[int]] = None
 
         layout.addWidget(splitter, stretch=1)
 
@@ -2361,6 +2420,23 @@ class MainWindow(QtWidgets.QMainWindow):
         self._toolbar_full_width = self.toolbar_container.sizeHint().width()
         self._sync_grid_controls_width()
 
+    def _on_detail_focus_mode_toggled(self, enabled: bool) -> None:
+        if self.splitter is None:
+            return
+        self.detail.set_focus_mode(enabled)
+        if enabled:
+            current_sizes = self.splitter.sizes()
+            if len(current_sizes) >= 2 and current_sizes[0] > 0 and current_sizes[1] > 0:
+                self._saved_main_sizes = current_sizes
+            self.grid.hide()
+            self.splitter.setHandleWidth(0)
+            self.splitter.setSizes([0, 1])
+            return
+        self.grid.show()
+        self.splitter.setHandleWidth(6)
+        self.splitter.setSizes(self._saved_main_sizes or [720, 480])
+        self._schedule_auto_fit()
+
     def _apply_dark_theme(self) -> None:
         self.setStyleSheet(
             """
@@ -2369,6 +2445,9 @@ class MainWindow(QtWidgets.QMainWindow):
             QToolButton[compactPill="true"] { background: #212121; border: 1px solid #3b3b3b; border-radius: 16px; padding: 4px 22px 4px 12px; }
             QToolButton[compactPill="true"]:hover { background: #2a2a2a; }
             QToolButton[compactPill="true"]::menu-indicator { image: none; }
+            QToolButton#focusToggleButton { background: #1b1b1b; border: 1px solid #4a4a4a; border-radius: 15px; padding: 0; }
+            QToolButton#focusToggleButton:hover { background: #252525; border-color: #d9a441; }
+            QToolButton#focusToggleButton:pressed { background: #2b2b2b; }
             QListView { background: #101010; border: 1px solid #2a2a2a; }
             QSplitter::handle { background: #1f1f1f; }
             QSplitter::handle:horizontal { width: 6px; }

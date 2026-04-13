@@ -44,6 +44,8 @@
   "detail.text_button_larger": "A+",
   "detail.text_smaller": "Text verkleinern",
   "detail.text_larger": "Text vergrößern",
+  "detail.focus_mode_enter": "Miniaturen und Beschreibung ausblenden",
+  "detail.focus_mode_exit": "Miniaturen und Beschreibung wieder anzeigen",
   "detail.metadata.catalog": "Katalog: {value}",
   "detail.metadata.type": "Typ: {value}",
   "detail.metadata.unknown": "Unbekannt",

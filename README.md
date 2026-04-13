@@ -12,21 +12,9 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 Status: beta
 
-## [1.1.1-beta] 
-### Fixed
-- i18n locale files not found at runtime in frozen build (PyInstaller)
-- All three platform specs (Windows, macOS, Linux) updated to include `app/locales`
+Latest release: `1.2.0-beta`
 
-## [1.1.0-beta]
-### Added
-- Multi-language support across the user interface
-- New translations available for English, French, German, Spanish, and Italian
-- In-app language selection
-- Locale fallback mechanism to English when a translation key is missing
-- Internal i18n audit tooling to detect missing or inconsistent translation k## Version 1.0.0-beta
-- Added new catalogs (thanks to denis2704 for catalogs and code contributions)
-- Image notes are now stored in a dedicated JSON file and linked to picture filenames
-- Added one-shot migration for notes from AstroCatalogueViewer
+Release history: [CHANGELOG.md](CHANGELOG.md)
 
 ## Highlights (from original AstroCatalogueViewer)
 - Fast grid with zoom, search, and filters (catalog, object type, status)

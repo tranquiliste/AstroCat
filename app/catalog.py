@@ -744,7 +744,6 @@ def _merge_default_config(loaded: Dict) -> Dict:
     existing_catalogs = {
         c.get("name"): c for c in loaded.get("catalogs", []) if isinstance(c, dict)
     }
-    existing_catalogs.pop("IC", None)
     catalogs = []
     # Tous les catalogues définis dans DEFAULT_CONFIG sont toujours inclus
     for default_catalog in DEFAULT_CONFIG["catalogs"]:

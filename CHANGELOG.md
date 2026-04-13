@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.2.0-beta] - 2026-04-13
+### Added
+- New << / >> toggle in the photo view to hide or restore thumbnails and the description panel
+- Translated tooltips for the photo focus toggle in all supported locales
+
+### Changed
+- Improved the appearance of the photo focus toggle with a dedicated chevron icon
+
+### Fixed
+- IC catalog image path could disappear from settings after restarting the application
+
 ## [1.1.1-beta] - 2026-04-13
 ### Fixed
 - i18n locale files not found at runtime in frozen build (PyInstaller)
