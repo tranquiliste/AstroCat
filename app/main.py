@@ -67,7 +67,7 @@ import io
 import runpy
 from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
-from typing import Callable, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Tuple
 import http.server
 import json
 import threading
@@ -83,6 +83,10 @@ from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_conf
 from catalog import PROJECT_ROOT
 from i18n import format_best_months, language_choices, set_ui_locale, tr
 from image_cache import ThumbnailCache
+
+# Keep numpy import type-only to satisfy static analysis without adding startup cost.
+if TYPE_CHECKING:
+    import numpy as np
 
 
 APP_NAME = "AstroCat"
