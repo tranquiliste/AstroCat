@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 import locale
 import os
+import sys
 from typing import Dict, List, Tuple
 
 
@@ -125,7 +126,13 @@ class TranslationManager:
         return {str(key): str(value) for key, value in payload.items()}
 
 
-_MANAGER = TranslationManager(Path(__file__).resolve().parent / "locales")
+def _get_locales_dir() -> Path:
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS) / "app" / "locales"
+    return Path(__file__).resolve().parent / "locales"
+
+
+_MANAGER = TranslationManager(_get_locales_dir())
 
 
 def set_ui_locale(locale_setting: object) -> str:

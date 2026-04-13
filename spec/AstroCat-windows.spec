@@ -15,6 +15,7 @@ a = Analysis(
     binaries=pyside6_binaries + tiff_binaries,
     datas=[
         (str(project_root / "data"), "data"),
+        (str(project_root / "app" / "locales"), "app/locales"),
         (str(project_root / "scripts" / "migrate_user_notes.py"), "scripts"),
     ] + pyside6_datas + tiff_datas,
     hiddenimports=pyside6_hidden + tiff_hidden,
