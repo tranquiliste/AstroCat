@@ -990,6 +990,14 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.status_filter = value
         self.invalidate()
 
+    @staticmethod
+    def _normalize_object_search(value: str) -> str:
+        return "".join(value.casefold().split())
+
+    @staticmethod
+    def _normalize_name_search(value: str) -> str:
+        return value.casefold()
+
     def filterAcceptsRow(self, source_row: int, source_parent: QtCore.QModelIndex) -> bool:
         model = self.sourceModel()
         index = model.index(source_row, 0, source_parent)
@@ -1009,8 +1017,16 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
             if self.status_filter == "Suggested" and not self._is_suggested(item):
                 return False
         if self.search_text:
-            search = self.search_text.lower()
-            if search not in item.object_id.lower() and search not in item.name.lower():
+            search = self._normalize_name_search(self.search_text)
+            normalized_search = self._normalize_object_search(self.search_text)
+            object_id = self._normalize_object_search(item.object_id)
+            name = self._normalize_name_search(item.name)
+            compact_name = self._normalize_object_search(item.name)
+            if (
+                normalized_search not in object_id
+                and search not in name
+                and normalized_search not in compact_name
+            ):
                 return False
         return True
 
