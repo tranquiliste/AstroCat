@@ -7,6 +7,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "VdB 1 (Cassiopeia Nebula) is a reflection nebula in Cassiopeia, about 1,600 ly away. It appears around magnitude 9.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it is illuminated by a B-type star in the Perseus Arm region. Its characteristic bluish colour comes from starlight scattered by fine dust grains in the parent cloud. Astrophotography: Dec +61.9 deg, circumpolar from France. Best in autumn and winter. A long focal length and deep LRGB work well, and it can be framed together with VdB 2.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -17,6 +18,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "VdB 2 (Northwest Cassiopeia Nebula) is a reflection nebula in Cassiopeia, about 1,600 ly away. It appears around magnitude 10.0 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it is the northwestern counterpart of VdB 1 in the same molecular-cloud complex. Its low surface brightness and small size make it a demanding target. Astrophotography: Dec +63.4 deg, circumpolar from France. Best imaged together with VdB 1 using long focal length and deep LRGB.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -27,6 +29,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "NovDecJan",
+      "constellation": "Perseus",
       "description": "VdB 14 (Southeast Perseus Nebula) is a reflection nebula in Perseus, about 1,000 ly away. It appears around magnitude 10.5 and spans about 3'. Catalogued by Sidney van den Bergh in 1966, it is a compact reflection nebula in the Perseus molecular-cloud complex, illuminated by a young B-type star still partly embedded in its natal cloud. Astrophotography: Dec +47.7 deg, extremely well placed in winter. Its tiny size and low surface brightness favour very long focal length and deep LRGB.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -37,6 +40,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "NovDecJan",
+      "constellation": "Perseus",
       "description": "VdB 15 (Eastern Perseus Nebula) is a reflection nebula in Perseus, about 1,000 ly away. It appears around magnitude 10.0 and spans about 3'. Catalogued by Sidney van den Bergh in 1966, it is another compact reflection object in the Perseus molecular complex, associated with a B/A-type star on the edge of the Perseus OB2 region. Astrophotography: Dec +31.9 deg, very accessible from France in winter. Long focal length and deep LRGB are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -47,6 +51,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "NovDecJan",
+      "constellation": null,
       "description": "VdB 16 (Taurus-Perseus Nebula) is a reflection nebula on the Taurus-Perseus border, about 700 ly away. It appears around magnitude 9.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it belongs to the transition zone between the Taurus and Perseus molecular-cloud complexes. Its illuminating star is likely a late B- or A-type star, giving the nebula a pale blue-white reflection colour. Astrophotography: Dec +24.1 deg, well placed in winter. Deep LRGB and a longer focal length work well.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -57,6 +62,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "NovDecJan",
+      "constellation": "Taurus",
       "description": "VdB 17 (Alcyone Nebula, Pleiades) is the main reflection nebula associated with the Pleiades cluster, M45, in Taurus, about 444 ly away. It appears around magnitude 8.0 and spans about 30' around Alcyone, the brightest Pleiad. The Pleiades reflection nebula is one of the brightest and most easily photographed reflection nebulae in the sky. It is not leftover birth material from the cluster, but an unrelated interstellar cloud currently being crossed by the cluster. Astrophotography: Dec +24.1 deg, very well placed in winter. A wide field and deep LRGB are ideal.",
       "external_link": "https://en.wikipedia.org/wiki/Pleiades"
     },
@@ -67,6 +73,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "NovDecJan",
+      "constellation": "Taurus",
       "description": "VdB 20 (BD+22 Nebula) is a reflection nebula in Taurus, about 1,200 ly away. It appears around magnitude 10.0 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, its name comes from the illuminating Bonner Durchmusterung star in the +22 deg declination zone. It is a compact, faintly documented reflection nebula in the Taurus molecular-cloud environment. Astrophotography: Dec +22.8 deg, well placed in winter. A long focal length and deep LRGB are appropriate.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -77,6 +84,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "VdB 21 (Orion Reflection Nebula) is a reflection nebula in Orion, about 1,300 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it belongs to the Orion Molecular Cloud complex and is illuminated by a young hot star from the Orion OB1 association. Astrophotography: Dec +15.8 deg, well placed in winter. Long focal length and deep LRGB work well, especially in the rich Orion environment.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -87,6 +95,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "DecJanFeb",
+      "constellation": null,
       "description": "VdB 28 (Lambda Orionis Nebula) is a reflection nebula in the Lambda Orionis, or Meissa, region of Orion, about 1,300 ly away. It appears around magnitude 9.5 and spans about 10'. Catalogued by Sidney van den Bergh in 1966, it is associated with the vast Lambda Orionis Ring, Sh2-264, an ionized bubble about 8 deg across. Astrophotography: Dec +9.9 deg, good in winter. Medium focal length with deep LRGB and optional Ha works well in this rich field.",
       "external_link": "https://en.wikipedia.org/wiki/Lambda_Orionis"
     },
@@ -97,6 +106,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "JanFebMar",
+      "constellation": "Monoceros",
       "description": "VdB 38 (Monoceros Nebula) is a reflection nebula in Monoceros, about 2,500 ly away. It appears around magnitude 10.0 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it belongs to the rich Monoceros star-forming environment, where many molecular clouds and young stars are found toward the Galactic anticentre. Astrophotography: Dec +8.7 deg, a good late-winter target. Deep LRGB and long focal length are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -107,6 +117,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "MayJunJul",
+      "constellation": "Ophiuchus",
       "description": "VdB 62 (Northern Rho Ophiuchi Nebula) is a reflection nebula in Ophiuchus, about 460 ly away. It appears around magnitude 9.5 and spans about 15'. Catalogued by Sidney van den Bergh in 1966, it is part of the famous Rho Ophiuchi complex, one of the most colourful and rewarding astrophotographic regions in the sky. Astrophotography: Dec -24.6 deg, low from Remalard in summer. A wide field and very deep LRGB are preferred.",
       "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
     },
@@ -117,6 +128,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "JanFebMar",
+      "constellation": "Gemini",
       "description": "VdB 67 (Gemini Nebula) is a reflection nebula in Gemini, about 2,200 ly away. It appears around magnitude 10.0 and spans about 3'. Catalogued by Sidney van den Bergh in 1966, it is a small, compact reflection nebula in the Galactic-anticentre Milky Way of Gemini, illuminated by a B-type star. Astrophotography: Dec +16.2 deg, good in late winter. Its tiny size favours very long focal length and deep LRGB.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -127,6 +139,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "MarAprMay",
+      "constellation": "Ursa Major",
       "description": "VdB 82 (Ursa Major Nebula) is a reflection nebula in Ursa Major, about 1,500 ly away. It appears around magnitude 10.5 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it is an isolated high-galactic-latitude reflection nebula in a part of the sky where bright nebulae are rare and faint IFN may also appear in very deep images. Astrophotography: Dec +43.8 deg, very well placed in spring. Deep LRGB and dark skies are important.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -137,6 +150,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "MayJunJul",
+      "constellation": null,
       "description": "VdB 92 (Rho Ophiuchi Nebula) is the main reflection nebula of the Rho Ophiuchi complex, about 460 ly away. It appears around magnitude 9.5 and spans about 20'. Catalogued by Sidney van den Bergh in 1966, it is one of the showpieces of deep-sky astrophotography, combining blue reflection nebulosity, dark clouds, red Ha emission and the orange Antares region nearby. Astrophotography: Dec -24.4 deg, very low from Remalard in summer. A wide field and very deep LRGB are essential.",
       "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
     },
@@ -147,6 +161,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "MayJunJul",
+      "constellation": null,
       "description": "VdB 99 (Southern Rho Ophiuchi Nebula) is a reflection nebula in the southern part of the Rho Ophiuchi complex, on the Scorpius-Ophiuchus border, about 460 ly away. It appears around magnitude 10.0 and spans about 10'. Catalogued by Sidney van den Bergh in 1966, it forms the southern part of the VdB 62-92-99 trio at the heart of the complex. Astrophotography: Dec -26.4 deg, very low from northern mid-latitudes. It is usually framed in the same wide field as VdB 62 and VdB 92.",
       "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
     },
@@ -157,6 +172,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "JunJulAug",
+      "constellation": "Scorpius",
       "description": "VdB 101 (Scorpius Nebula) is a reflection nebula in Scorpius, about 500 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it belongs to the vast Scorpius-Centaurus molecular-cloud environment and is illuminated by a young B-type star from Upper Scorpius. Astrophotography: Dec -22.6 deg, low from France in summer. Long focal length and deep LRGB are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
     },
@@ -167,6 +183,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "JunJulAug",
+      "constellation": "Scorpius",
       "description": "VdB 107 (Blue Scorpius Nebula) is a reflection nebula in Scorpius, about 550 ly away. It appears around magnitude 10.0 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it is a compact blue reflection nebula in the Sco-Cen complex, illuminated by a hot early B-type star. Astrophotography: Dec -36.8 deg, extremely low from France and much better suited to southern observatories.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -177,6 +194,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "VdB 126 (Cygnus Reflection Nebula) is a reflection nebula in Cygnus, about 2,000 ly away. It appears around magnitude 10.0 and spans about 6'. Catalogued by Sidney van den Bergh in 1966, it lies in the rich Cygnus star-forming region and is illuminated by a B-type star linked to the molecular clouds of the Great Cygnus Rift. Astrophotography: Dec +40.5 deg, excellent in summer. Deep LRGB with optional Ha for context works well.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -187,6 +205,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "VdB 130 (Cygnus Reflection Nebula 2) is a reflection nebula in Cygnus, about 2,000 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it is part of a compact group of blue reflection nebulae in the Great Cygnus Rift, near VdB 131 and VdB 132. Astrophotography: Dec +38.4 deg, good in summer and autumn. Long focal length and deep LRGB are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -197,6 +216,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "VdB 131 (Northeast Cygnus Nebula) is a reflection nebula in Cygnus, about 2,000 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it is part of the dense central Cygnus group that also includes VdB 130, 132 and 133. Astrophotography: Dec +40.6 deg, excellent in summer and autumn. It is especially interesting in a wider field covering the whole group.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -207,6 +227,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "VdB 132 (Eastern Cygnus Nebula) is a reflection nebula in Cygnus, about 2,000 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it is another member of the central Cygnus reflection-nebula group, physically linked to the molecular clouds of the Cygnus Rift. Astrophotography: Dec +40.1 deg, very good in summer and autumn. It is best framed together with the nearby VdB 130-133 objects.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -217,6 +238,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "VdB 133 (Southeast Cygnus Nebula) is a reflection nebula in Cygnus, about 2,000 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it is the southern member of the central Cygnus reflection-nebula group. Astrophotography: Dec +35.9 deg, well placed in summer. Deep LRGB, with optional Ha for context, works well in a field that includes the rest of the group.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -227,6 +249,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Pegasus",
       "description": "VdB 136 (Pegasus Nebula) is a reflection nebula in Pegasus, about 1,800 ly away. It appears around magnitude 11.0 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it is a faint and sparsely documented high-galactic-latitude reflection nebula in a part of Pegasus where bright nebulosity is uncommon. Astrophotography: Dec +12.2 deg, best in autumn. Very deep LRGB under dark skies is needed.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -237,6 +260,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "VdB 139 (Iris Nebula, NGC 7023) is the brightest and most spectacular reflection nebula in the VdB catalogue, in Cepheus, about 1,300 ly away. It appears around magnitude 7.1 and spans about 18'. Known as NGC 7023 since William Herschel, it is illuminated by HD 200775 and shows bright blue petals cut by dark dust lanes, with faint reddish ERE visible in very deep images. Astrophotography: Dec +68.2 deg, circumpolar from France. One of the best autumn reflection-nebula targets.",
       "external_link": "https://en.wikipedia.org/wiki/Iris_Nebula"
     },
@@ -247,6 +271,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "VdB 141 (Sh2-136, Ghost of Cepheus, Ghost Nebula) is a reflection nebula in Cepheus, about 1,200 ly away. It appears around magnitude 11.0 and spans about 10'. Catalogued by Sidney van den Bergh in 1966, it is one of the most ghostly and photogenic reflection nebulae in the catalogue, with illuminated dust lanes forming a spectral hooded shape. Astrophotography: Dec +57.5 deg, circumpolar from France. Deep LRGB and long integration are needed to reveal its faint dust structure.",
       "external_link": "https://en.wikipedia.org/wiki/VdB_141"
     },
@@ -257,6 +282,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "VdB 142 (Elephant's Trunk Reflection Nebula, IC 1396A) is the reflection component of the Elephant's Trunk pillar in Cepheus, about 2,400 ly away. It appears around magnitude 9.0 and spans about 15'. Catalogued by Sidney van den Bergh in 1966, it is the visible-light reflection counterpart of one of the sky's best-known cometary globules, embedded in the IC 1396 complex. Astrophotography: Dec +57.6 deg, circumpolar from France. LRGB plus Ha is especially effective here.",
       "external_link": "https://en.wikipedia.org/wiki/IC_1396"
     },
@@ -267,6 +293,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "VdB 143 (Cepheus Nebula) is a reflection nebula in Cepheus, about 800 ly away. It appears around magnitude 10.5 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it is a compact high-declination object in the Cepheus cloud complex and one of the northernmost entries in the VdB catalogue. Astrophotography: Dec +73.4 deg, circumpolar from France. Deep LRGB is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -277,6 +304,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "VdB 148 (Eastern Cepheus Nebula) is a reflection nebula in Cepheus, about 900 ly away. It appears around magnitude 11.0 and spans about 3'. Catalogued by Sidney van den Bergh in 1966, it is a very faint and poorly documented compact reflection nebula in the eastern Cepheus Flare region. Astrophotography: Dec +65.5 deg, circumpolar from France. Very long focal length and extremely deep LRGB are needed.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -287,6 +315,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "VdB 149 (Southeast Cepheus Nebula) is a reflection nebula in Cepheus, about 650 ly away. It appears around magnitude 10.5 and spans about 3'. Catalogued by Sidney van den Bergh in 1966, it is often photographed together with VdB 150 and LDN 1235, the Dark Shark Nebula, forming one of the most striking autumn wide-field scenes in the northern sky. Astrophotography: Dec +69.8 deg, circumpolar from France. Best framed in a wider field with VdB 150 and the dark nebula.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -297,6 +326,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "VdB 150 (Southern Cepheus Nebula) is a reflection nebula in Cepheus, about 650 ly away. It appears around magnitude 10.5 and spans about 5'. Catalogued by Sidney van den Bergh in 1966, it is the brighter counterpart to VdB 149 in the celebrated Dark Shark field around LDN 1235. Astrophotography: Dec +57.6 deg, circumpolar from France. It is best imaged in the same wide field as VdB 149 and LDN 1235.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     },
@@ -307,6 +337,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "VdB 152 (Wolf's Cave Nebula) is a reflection nebula in Cepheus, about 1,400 ly away. It appears around magnitude 10.5 and spans about 10'. Catalogued by Sidney van den Bergh in 1966, it is one of the most photogenic autumn reflection nebulae, with intense blue dust illuminated by HD 222046 and embedded in a dark cloud. Astrophotography: Dec +69.9 deg, circumpolar from France. Deep LRGB with long integration works especially well.",
       "external_link": "https://en.wikipedia.org/wiki/VdB_152"
     },
@@ -317,6 +348,7 @@
       "discoverer": "Sidney van den Bergh",
       "discovery_year": 1966,
       "best_months": "SepOctNov",
+      "constellation": "Pegasus",
       "description": "VdB 158 (Southern Pegasus Nebula) is a reflection nebula in Pegasus, about 1,500 ly away. It appears around magnitude 11.0 and spans about 4'. Catalogued by Sidney van den Bergh in 1966, it is a very faint and poorly documented southern Pegasus reflection nebula in a high-galactic-latitude region where dust is sparse. Astrophotography: Dec +27.1 deg, accessible in autumn but demanding, requiring very deep LRGB under dark skies.",
       "external_link": "https://en.wikipedia.org/wiki/Van_den_Bergh_catalogue"
     }

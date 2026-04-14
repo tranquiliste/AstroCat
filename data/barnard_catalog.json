@@ -7,6 +7,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1888,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "B 33 (Horsehead Nebula) is the most iconic dark nebula in the sky, in the constellation Orion, about 1,350 light-years away. It reaches maximum opacity across a field roughly 8′ wide. It was identified in 1888 by Williamina Fleming on Harvard Observatory photographic plates and later cataloged by Edward Emerson Barnard in 1919. B 33 is a dense pillar of gas and dust shaped like a horse's head, silhouetted against the bright red glow of IC 434, an H II region ionized by Sigma Orionis (O9.5V). The pillar itself is the eroding front of a molecular cloud undergoing photoevaporation. NGC 2023, a blue reflection nebula, also stands in the foreground, with the Flame Nebula NGC 2024 nearby. B 33 is one of the best-studied photodissociation regions in the world. Astrophotography: Dec -2.5°, culmination ~40° from Rémalard. An essential winter target. Compact size (8′): longer focal length preferred (>600 mm). An Ha filter is highly recommended for the red IC 434 background. LRGB + Ha works well for full color. Combine with NGC 2023 and NGC 2024 in a wider field. Integration time 6–10 h.",
       "external_link": "https://en.wikipedia.org/wiki/Horsehead_Nebula"
     },
@@ -17,6 +18,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "B 34 (Dark Orion) is a dark nebula in Orion, about 1,300 light-years away. It shows high opacity across a field of roughly 20′. It was cataloged by Edward Emerson Barnard around 1905. This dark cloud belongs to the Orion Molecular Cloud complex, the largest and most active nearby star-forming region. B 34 stands out because of its relatively northerly declination (+14°) for an Orion object, making it more accessible than the southern nebulae of the complex. It is silhouetted against the rich stellar and nebulous background of the Orion Arm. Faint integrated flux nebulae can be detected nearby in deep imaging. Astrophotography: Dec +14.8°, culmination ~57° from Rémalard, giving excellent winter accessibility. Moderate size (20′): medium to long focal length. Deep LRGB on a dense star field. Ha is optional for bringing out surrounding emission nebulosity. Integration time 4–6 h.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -27,6 +29,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "B 59 (Pipe Nebula Bowl / Knot) is a dense globule in Ophiuchus, about 450 light-years away. It reaches maximum opacity over a field of roughly 30′. It was cataloged by Edward Emerson Barnard around 1905. B 59 forms the bowl of the famous Pipe Nebula, the dense western bulge of the complex, as opposed to the straight stem identified with LDN 204. It contains the young cluster [CF2006] Pipe 109, whose members are only a few million years old and are beginning to disperse. B 59 is one of the rare active star-forming sites within the Pipe complex. The extraordinarily dense Milky Way background near the Galactic Center dramatically increases the contrast of the dark silhouette. Astrophotography: Dec -27.4°, culmination ~15° from Rémalard (lat. 48.4°N), a low summer target. A wide field is recommended to include the stem (LDN 204) and show the whole Pipe Nebula. LRGB on a dense galactic star field. Summer nights are short, so image close to culmination.",
       "external_link": "https://en.wikipedia.org/wiki/Pipe_Nebula"
     },
@@ -37,6 +40,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "B 68 (Barnard 68 Bok globule) is an isolated Bok globule in Ophiuchus, about 160 light-years away, making it one of the nearest such objects to Earth. It has extremely high opacity across roughly 12′. It was cataloged by Edward Emerson Barnard around 1905. B 68 is the archetype of a prestellar core in Bonnor-Ebert equilibrium, not yet undergoing gravitational collapse. Its internal structure was resolved by the VLT in infrared light, showing a bluish rim caused by scattering of galactic light by dust grains. At only 160 light-years, it blocks essentially all the light from background stars, creating a perfect dark hole in the rich galactic star field. Internal temperature is about 8–10 K. Astrophotography: Dec -23.8°, culmination ~18° from Rémalard, a low summer target. Very compact object (12′): long focal length helps reveal edge structure. Deep LRGB is ideal, as complete extinction of background stars is the main photographic signal. The dense Sagittarius/Ophiuchus galactic background is the real subject of the frame.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_68"
     },
@@ -47,6 +51,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1919,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "B 72 (Snake Nebula) is a sinuous dark nebula in Ophiuchus, about 650 light-years away. It reaches maximum opacity across roughly 30′. It was cataloged by Edward Emerson Barnard in his 1919 photographic atlas. B 72 is one of the most photogenic dark nebulae in the northern sky. Its winding S-shape, silhouetted against the extraordinarily dense stellar background toward the Galactic Center, earned it the nickname Snake Nebula. It belongs to a compact group of dark clouds in the Ophiuchus complex, with B 68, B 69, B 70, and B 74 nearby, sometimes described as Barnard's chain. The direction toward the Galactic Center provides an unmatched star field for maximizing contrast. Astrophotography: Dec -23.4°, culmination ~19° from Rémalard, a low summer target. Wide-field LRGB is recommended to include the whole chain of clouds such as B 68, B 72, and B 78. The dense galactic background is the main photographic signature. Best attempted on calm summer nights.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_72"
     },
@@ -57,6 +62,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "B 78 is the broad dark cloud forming the eastern, widened part of the Pipe Nebula complex in Ophiuchus, about 450 light-years away. It is an object of maximum opacity with remarkable angular size, roughly 120′ across. It was cataloged by Edward Emerson Barnard around 1905. B 78 is the largest dark cloud in this list: its 120′ span, or about 2°, covers an impressive area against the Sagittarius-Ophiuchus galactic background. It corresponds to the bowl plus straight stem of the Pipe Nebula taken as a whole. The region contains many cold dense cores, some on the verge of stellar collapse. Its position toward the Galactic Center gives it an exceptionally rich stellar backdrop, ideal for imaging dark structures. Astrophotography: Dec -27.1°, culmination ~15° from Rémalard, a low summer target. A very wide field is required (120′), ideally a camera lens or a mosaic with a small refractor. LRGB on the galactic background, with optional Ha. Imaging windows are short from temperate northern latitudes.",
       "external_link": "https://en.wikipedia.org/wiki/Pipe_Nebula"
     },
@@ -67,6 +73,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "JulAugSep",
+      "constellation": "Sagittarius",
       "description": "B 86 (Ink Spot) is a very compact Bok globule in Sagittarius, about 6,000 light-years away. It reaches nearly complete opacity across only about 5′. It was cataloged by Edward Emerson Barnard around 1905. B 86 is one of the most striking dark objects in the northern view of the southern Milky Way: its nearly circular shape and total opacity make it look like a perfect ink blot against the extraordinarily dense Sagittarius star cloud. It is often observed and photographed together with the open cluster NGC 6520 immediately to its northeast, producing a dramatic contrast between the dense cluster and the absolute emptiness of the globule. This B 86 + NGC 6520 pairing is one of the most spectacular astrophotographic contrasts of the summer sky. Astrophotography: Dec -27.9°, culmination ~14° from Rémalard, a very low summer target. Very compact (5′): long focal length is essential (>800 mm). Deep LRGB is preferred. Excellent summer seeing helps make the most of the long focal length despite the low altitude. The B 86 + NGC 6520 pair is the real target.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_86"
     },
@@ -77,6 +84,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "JulAugSep",
+      "constellation": "Sagittarius",
       "description": "B 92 (Barnard 92 / M24 Black Patch) is a dark cloud in Sagittarius, about 6,000 light-years away. It reaches maximum opacity across roughly 12′. It was cataloged by Edward Emerson Barnard around 1905. B 92 is probably the most frequently photographed Barnard dark cloud after B 33, thanks to its spectacular position in front of the Messier 24 star cloud (IC 4715), the largest naked-eye concentration of stars in the sky. Its dark silhouette stands out against the tens of thousands of stars in the galactic background of M24, along with neighboring B 93 slightly to the north. The contrast between the overwhelming richness of M24 and the total emptiness of the dark clouds is among the most dramatic in the sky. Astrophotography: Dec -18.1°, culmination ~24° from Rémalard, a challenging but feasible summer target. A wide field is recommended to include the whole of M24 with B 92 and B 93. Standard LRGB works well; the dense stellar field of M24 is the real subject. Avoid nights with poor low-altitude seeing.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_92"
     },
@@ -87,6 +95,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Aquila",
       "description": "B 142 (Barnard 142 / Barnard's E, western part) is a dark nebula in Aquila, about 460 light-years away. It reaches maximum opacity across roughly 40′. It was cataloged by Edward Emerson Barnard around 1905. Together with its immediate neighbor B 143, it forms the famous double dark system known as the E Nebula or Barnard's E, one of the most photographed dark objects in the northern Milky Way. Together the two clouds cover nearly a full degree and stand out clearly against the rich Milky Way background in Aquila, in the direction of the Great Galactic Rift. B 142 forms the left vertical bar of the letter E, while B 143 contributes much of the horizontal structure. Astrophotography: Dec +10.7°, culmination ~53° from Rémalard, with excellent summer and autumn accessibility. A wide field is recommended to include B 142 and B 143 together (>1°). Deep LRGB on the Milky Way background. Ha is optional for surrounding emission nebulosity. A strong target for wide-field setups.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_142_and_143"
     },
@@ -97,6 +106,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Aquila",
       "description": "B 143 (Barnard 143 / Barnard's E, eastern part) is a dark nebula in Aquila, about 460 light-years away. It reaches maximum opacity across roughly 30′. It was cataloged by Edward Emerson Barnard around 1905. B 143 is the eastern counterpart to B 142 within the Barnard's E system. It contributes the characteristic horizontal extensions of the letter E. The two clouds are physically related and belong to the same dark-cloud complex of the Aquila Rift. This region is one of the best-known zones of interstellar extinction in the northern Milky Way, famous for visibly interrupting the galactic band across a large part of the sky. On its own, B 143 shows interesting filamentary structure in longer focal-length images. Astrophotography: Dec +10.8°, culmination ~53° from Rémalard, under the same conditions as B 142. Best imaged together with B 142 in a common field. Deep LRGB is recommended. The B 142–143 pair is one of the most accessible and rewarding dark-nebula targets in the Barnard catalog from France.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_142_and_143"
     },
@@ -107,6 +117,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "B 144 (Dark Cygnus) is a dark nebula in Cygnus, about 2,000 light-years away. It reaches maximum opacity across roughly 20′. It was cataloged by Edward Emerson Barnard around 1905. B 144 is part of the vast network of dark clouds in the Great Rift of Cygnus, which visually splits the Milky Way into two branches from Cygnus to Aquila. These clouds, belonging to the Local Arm, overlap with more distant Cygnus spiral-arm structures to create the famous northern Coal Sacks. B 144 lies near B 145 to the north and B 163 to the south, forming an intertwined complex of dark structures in central Cygnus. The richness of the stellar background and the surrounding Cygnus emission nebulae such as the Veil, NGC 7000, and IC 5070 greatly enrich wide-field compositions. Astrophotography: Dec +35.6°, culmination ~77° from Rémalard, with excellent summer accessibility. Wide-field imaging is preferred (20′ to 1°) to include neighboring structures. LRGB + Ha works well for the Milky Way background and surrounding emission nebulosity.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -117,6 +128,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "B 145 (North Dark Cygnus) is a dark nebula in Cygnus, about 2,000 light-years away. It reaches maximum opacity across roughly 15′. It was cataloged by Edward Emerson Barnard around 1905. B 145 is the northern counterpart to B 144 within the Cygnus Great Rift cloud complex. Located about 1° north of B 144, it shares the same galactic setting: a dense stellar background rich in emission nebulosity, mainly Ha, associated with Cygnus OB2 and the Cygnus Arm. Its smaller size makes it best imaged together with B 144 in a common field. Taken together, these two clouds provide a compact summary of the dark-versus-stellar contrast typical of the northern Great Rift. Astrophotography: Dec +36.8°, culmination ~79° from Rémalard, almost at the zenith in summer. A wide field is recommended to include B 144 and B 163 in the same frame. LRGB + Ha. An easy summer target from France.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -127,6 +139,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "NovDecJan",
+      "constellation": null,
       "description": "B 147 (Dark Taurus) is a dark nebula on the Taurus/Aquila border, about 450 light-years away. It reaches maximum opacity across roughly 30′. It was cataloged by Edward Emerson Barnard around 1905. This dark cloud belongs to the Taurus Molecular Cloud, one of the nearest low-mass star-forming complexes to Earth. The TMC is a nursery of solar-type stars and brown dwarfs whose study has strongly influenced our understanding of star formation. B 147 lies near the boundary of the Taurus cloud system and stands out against a moderately rich star field. Diffuse nebulosity and integrated flux nebula filaments can be detected nearby in very deep imaging. Astrophotography: Dec +19.6°, culmination ~62° from Rémalard, giving good winter accessibility. Size 30′: medium to long focal length. Deep LRGB. It can also be included in a wider field with other Taurus dark clouds.",
       "external_link": "https://en.wikipedia.org/wiki/Taurus_Molecular_Cloud"
     },
@@ -137,6 +150,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "B 150 (Seahorse Nebula) is a sinuous dark nebula in Cepheus, about 400 light-years away. It reaches maximum opacity across roughly 60′. It was cataloged by Edward Emerson Barnard around 1905. B 150 is one of the most photographed and aesthetically striking dark nebulae in the Barnard catalog. Its elongated, curved shape strongly resembles a seahorse seen in profile. It belongs to the Cepheus Flare dark-cloud complex, a relatively nearby low-mass star-forming region. The nebulous background of the Cygnus-Cepheus area, often enriched by faint IFN and diffuse Milky Way glow, enhances the relief of the dark silhouette. Several faint reflection nebulae and embedded infrared young stellar sources lie within its flanks. Astrophotography: Dec +60.3°, circumpolar from France. A quintessential autumn target. Wide field recommended (60′). Very deep LRGB is needed to detect the background IFN. Integration time 8–12 h to reveal the subtle diffuse structure. Rémalard's Bortle 4 sky is a major advantage for this target.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_150"
     },
@@ -147,6 +161,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "B 163 (South Dark Cygnus) is a dark nebula in Cygnus, about 1,800 light-years away. It reaches maximum opacity across roughly 25′. It was cataloged by Edward Emerson Barnard around 1905. This dark cloud of the Cygnus Great Rift lies slightly south of the B 144 / B 145 complex. It is one of the many interstellar absorption structures that pattern the Cygnus Milky Way, one of the richest northern regions for emission nebulosity in Ha, O III, and S II. In wide-field imaging, B 163 merges into a full scene of dark/bright contrasts combining emission, reflection, and absorption nebulae. Its position in the same part of the sky as the Veil Nebula and NGC 7000 makes it a natural addition to wide Cygnus compositions. Astrophotography: Dec +37.6°, culmination ~80° from Rémalard, essentially overhead in summer. Wide field recommended. LRGB + Ha. A useful filler target for summer Cygnus sessions.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -157,6 +172,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "B 168 (Dark Cocoon / IC 5146 dark lane) is a dark nebula associated with the Cocoon Nebula (IC 5146) in Cygnus, about 2,700 light-years away. It reaches maximum opacity across roughly 30′. It was cataloged by Edward Emerson Barnard around 1905. B 168 is the long dark filament that appears to feed the Cocoon Nebula, a striking H II region ionized by the young open cluster Collinder 470. The dark lane extends for more than 2° east-west and contrasts dramatically with the bright pink glow of IC 5146 at its western end. Together they form one of the most spectacular emission-nebula/dark-cloud associations in the northern sky. B 168 contains many embedded Class 0 and Class I protostars. Astrophotography: Dec +47.1°, culmination ~79° from Rémalard, nearly overhead. A wide field is recommended to include IC 5146 and the full filament. LRGB + Ha will capture both the nebular color and the relief of the dark cloud. An easy late-summer to autumn target.",
       "external_link": "https://en.wikipedia.org/wiki/IC_5146"
     },
@@ -167,6 +183,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "B 169 (Dark Cepheus) is a dark nebula in Cepheus, about 900 light-years away. It reaches maximum opacity across roughly 25′. It was cataloged by Edward Emerson Barnard around 1905. This cloud belongs to the molecular complexes of Cepheus, including the Cepheus Flare and the OB2-OB3 region, an area of moderate low-mass star formation. B 169 lies close to B 170 and B 171, forming a small group of adjacent dark structures in the same part of Cepheus. The faint nebulous Milky Way background, rich in diffuse nebulosity and IFN, adds interest to deep wide-field images. Its high declination (+57°) makes it accessible almost year-round from France. Astrophotography: Dec +57.6°, circumpolar from France. Best in autumn. Size 25′: medium focal length. Deep LRGB. Best interest comes from a wide field including B 170 and B 171 as a multiple dark-cloud composition.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -177,6 +194,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "B 170 (North Dark Cepheus) is a dark nebula in Cepheus, about 900 light-years away. It shows high opacity across roughly 20′. It was cataloged by Edward Emerson Barnard around 1905. B 170 is the northern counterpart to B 169, located roughly 45′ to the north. It belongs to the same dark-cloud complex in Cepheus and shares the same stellar and nebulous environment. B 169 and B 170 are often imaged together in a common field spanning 1–2°. Their association with faint reflection nebulosity and background galactic IFN creates a classic deep northern Milky Way scene. Infrared young stellar sources have been cataloged in the immediate vicinity. Astrophotography: Dec +58.4°, circumpolar from France. Best imaged together with B 169 in the same field. Deep LRGB. Long integration is helpful for the IFN. Rémalard's Bortle 4 sky is favorable.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -187,6 +205,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "B 171 (Northeast Dark Cepheus) is a dark nebula in Cepheus, about 950 light-years away. It shows high opacity across roughly 20′. It was cataloged by Edward Emerson Barnard around 1905. It is the third member of the B 169–B 170–B 171 trio in northern Cepheus. B 171 is shifted to the northeast relative to the other two, forming a triplet of dark structures spread over roughly 2° of sky. These clouds sit within the broader Cepheus molecular complexes, whose abundance of young sources and diffuse nebulosity makes them excellent deep-imaging territory. The +60° declination guarantees circumpolar visibility throughout Europe. Astrophotography: Dec +60.2°, circumpolar. Best in autumn and winter. Most interesting in a wide field including the full B 169–171 trio. Deep LRGB. The circumpolar Cepheus region allows very long winter integration runs.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -197,6 +216,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "B 174 (Northwest Dark Cepheus) is a dark nebula in Cepheus, about 500 light-years away. It shows high opacity across roughly 15′. It was cataloged by Edward Emerson Barnard around 1905. This is a very far northern Barnard object, belonging to the cold-cloud extensions of Cepheus near the celestial pole. At Dec +73°, B 174 is one of the Barnard objects closest to the north celestial pole that can be observed from France, and it is fully circumpolar. It lies in an environment of faint diffuse background nebulosity typical of high galactic latitudes, where integrated flux nebula cirrus can appear in very deep images. Its compact size (15′) favors longer focal lengths to show internal structure. Astrophotography: Dec +73.3°, strictly circumpolar from France. Visible all year, but best in autumn. Long focal length recommended. Very deep LRGB for surrounding IFN. Long integration (>8 h).",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -207,6 +227,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "B 175 (South Dark Cepheus) is a dark nebula in Cepheus, about 500 light-years away. It shows high opacity across roughly 15′. It was cataloged by Edward Emerson Barnard around 1905. B 175 lies in southern Cepheus, at Dec +62°, and remains circumpolar from French latitudes. It belongs to the broad complex of cold clouds scattered through Cepheus, related to the Cepheus Flare low-mass star-forming region. Because it lies in a less dramatic part of the Milky Way, its background is more subdued than that of Galactic Center clouds, though galactic IFN can still be detected with very deep imaging. Faint reflection nebulae may be associated nearby. Astrophotography: Dec +62.3°, circumpolar. Best in autumn and winter. Compact size (15′): long focal length. Deep LRGB for IFN. The effectively endless winter darkness of Cepheus allows very long integration windows.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -217,6 +238,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "NovDecJan",
+      "constellation": "Auriga",
       "description": "B 227 (Dark Auriga) is a dark nebula in Auriga, about 450 light-years away. It reaches maximum opacity across roughly 30′. It was cataloged by Edward Emerson Barnard around 1905. This cloud belongs to the anticenter dark-cloud complexes in Auriga, a region less spectacular than the Galactic Center but still rich in northern-sky structure. B 227 stands out against a moderately dense Auriga Milky Way background, in an area that also contains emission nebulae such as IC 405, IC 410, IC 417, and Sh2-235. It can be included in wide-field compositions featuring these nebulae. Its declination of +35° makes it a well-placed winter target. Astrophotography: Dec +35.5°, culmination ~78° from Rémalard, nearly overhead in winter. Size 30′: medium focal length. Deep LRGB + Ha for the nebulous Auriga background. An ideal filler target during IC 405 / IC 410 winter sessions.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_catalogue"
     },
@@ -227,6 +249,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1905,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "B 312 (Dark Ophiuchus) is a dark nebula in Ophiuchus, about 700 light-years away. It reaches maximum opacity across roughly 50′. It was cataloged by Edward Emerson Barnard around 1905. This broad dark cloud belongs to the Ophiuchus molecular complex, which includes some of the nearest dark structures to the Sun in this direction, such as ρ Oph, L 1689, B 68, and B 72. B 312 is one of the most extended clouds of the complex, spanning 50′ against the region's dense galactic background. The Ophiuchus line of sight toward the Galactic Center provides one of the richest star fields in the sky, maximizing the contrast of dark silhouettes. Class 0 protostars and IRAS sources have been cataloged nearby. Astrophotography: Dec -24.2°, culmination ~18° from Rémalard (lat. 48.4°N), a low summer target. A very wide field is recommended to cover the full 50′. LRGB on a dense galactic background, with optional Ha. Quiet summer nights help offset the low altitude. The richness of the star field partly compensates for the low elevation.",
       "external_link": "https://en.wikipedia.org/wiki/Ophiuchus_molecular_cloud"
     }

@@ -7,6 +7,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JulAugSep",
+      "constellation": "Scorpius",
       "description": "Sh2-2 (Scorpius Nebula) is an H II region in Scorpius, about 1,500 light-years away. It appears around magnitude 8.5 and spans roughly 60′. It was listed by Stewart Sharpless in his 1959 catalog of H II regions. This is a small, faintly extended emission nebula ionized by hot O- and B-type stars in a star-forming section of the Milky Way toward the Galactic Center. Astrophotography: located in the southern/equatorial sky in Scorpius. Characteristics: magnitude ~8.5, apparent size 60′. Ha and O III are the preferred filters. It stays low over the horizon from temperate northern latitudes, so summer imaging near culmination is best.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -17,6 +18,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JulAugSep",
+      "constellation": "Ophiuchus",
       "description": "Sh2-27 (Zeta Ophiuchi Nebula) is a vast H II region in Ophiuchus, about 460 light-years away. It appears around magnitude 7.0 and spans roughly 240′. It was cataloged by Stewart Sharpless in 1959. This large emission nebula is ionized mainly by the bright star Zeta Ophiuchi (O9.5V), a runaway star ejected from its original binary system. Its great angular size makes it a challenging wide-field astrophotography target. Astrophotography: equatorial position in Ophiuchus (Dec ~-10°). Characteristics: mag ~7.0, apparent size 240′. Ideal with a wide-field lens or small refractor. An Ha filter is strongly recommended to reveal the emission structure.",
       "external_link": "https://en.wikipedia.org/wiki/Zeta_Ophiuchi"
     },
@@ -27,6 +29,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JulAugSep",
+      "constellation": "Sagittarius",
       "description": "Sh2-29 (Sagittarius W Nebula) is an H II region in Sagittarius, about 5,000 light-years away. It appears around magnitude 8.0 and spans roughly 25′. It was cataloged by Stewart Sharpless in 1959. This compact emission nebula lies toward the Galactic Center within the vast molecular complexes of Sagittarius. Strong extinction from interstellar dust in this direction weakens the visible signal, making Ha/O III imaging especially relevant. Astrophotography: a southern target in Sagittarius (Dec ~-22°). Ha filters are recommended. From Europe it culminates low, so calm summer nights are preferable.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -37,6 +40,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JulAugSep",
+      "constellation": "Aquila",
       "description": "Sh2-49 (Extended Eagle Nebula) is an H II region in Aquila, about 7,000 light-years away. It appears around magnitude 7.5 and spans roughly 60′. It was cataloged by Stewart Sharpless in 1959. It is the extended emission envelope surrounding the Eagle Nebula complex (M16), made of gas ionized by the young OB open cluster NGC 6611. The nebulosity extends well beyond the usual M16 framing and is best revealed through narrowband imaging. Astrophotography: Dec ~-14°, requiring a wide field to capture the whole nebula. Ha and S II filters are the priority. It can be associated with Sh2-54 within the same molecular complex.",
       "external_link": "https://en.wikipedia.org/wiki/Eagle_Nebula"
     },
@@ -47,6 +51,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "Sh2-101 (Tulip Nebula) is an H II region in Cygnus, about 6,000 light-years away. It appears around magnitude 8.5 and spans roughly 16′. It was cataloged by Stewart Sharpless in 1959. The nebula is ionized by the O8 star HD 227018 and belongs to the vast Cygnus X OB complex. Nearby lies the microquasar Cygnus X-1, a bright X-ray source associated with a stellar black hole, visible in the same field. Astrophotography: northern target in Cygnus (Dec +35°), easily accessible from temperate latitudes. Compact size (~16′): a medium- to long-focal-length telescope is preferred. Ha + O III filters work well for its characteristic two-color tulip-like structure.",
       "external_link": "https://en.wikipedia.org/wiki/Tulip_Nebula"
     },
@@ -57,6 +62,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "Sh2-106 (Star Queen Nebula) is a bipolar emission nebula in Cygnus, about 2,000 light-years away. It appears around magnitude 10.0 and spans roughly 3′. It was cataloged by Stewart Sharpless in 1959. This remarkable nebula is powered by the central source S106 IR (IRS 4), a massive young O-type star still in formation. Its two symmetrical lobes, strikingly blue in [O III], have also earned it the nickname Snow Angel Nebula. Its small size calls for a long focal length. Astrophotography: compact object (<3′), requiring a long-focus telescope (>1000 mm). HOO processing is recommended for the red Ha and blue O III color balance.",
       "external_link": "https://en.wikipedia.org/wiki/Sh2-106"
     },
@@ -67,6 +73,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "Sh2-112 (East Cygnus Nebula) is an H II region in Cygnus, about 4,500 light-years away. It appears around magnitude 9.0 and spans roughly 15′. It was cataloged by Stewart Sharpless in 1959. This compact emission nebula lies in the eastern part of the Cygnus galactic plane, near the Cygnus X molecular complex. It is ionized by an O-type star associated with a faint open cluster. Rich in ionized hydrogen and sulfur, it is a strong target for SHO palette imaging. Astrophotography: Dec +45°, with excellent northern accessibility. Moderate size (15′): medium to long focal ratio preferred. Ha and S II filters are the priority.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -77,6 +84,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "Sh2-119 (Cygnus Nebula) is an H II region in Cygnus, about 2,500 light-years away. It appears around magnitude 8.5 and spans roughly 60′. It was cataloged by Stewart Sharpless in 1959. This large diffuse emission nebula in the Local Arm is ionized by 68 Cygni, a hot O-type star. Its complex filamentary structure is visible in Ha, with faint O III emission around the edges. Often overlooked in favor of larger Cygnus nebulae such as NGC 7000, it still offers a very rich field of structure. Astrophotography: wide field recommended (60′). A circumpolar autumn target from France. Ha + O III filters help reveal the filaments. Ideal for wide-field setups such as an 80 mm F6 refractor.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -87,6 +95,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "Sh2-132 (Lion Nebula) is an H II region in Cepheus, about 10,000 light-years away. It appears around magnitude 8.5 and spans roughly 50′. It was cataloged by Stewart Sharpless in 1959. This emission nebula is ionized by two Wolf-Rayet stars, WR 152 and WR 153, which give it strong O III emission and a characteristic wind-blown bubble structure. Its lion-head appearance is best seen in a two-color Ha/O III presentation. Astrophotography: Dec +56°, circumpolar from France. An excellent Ha + O III target. The Wolf-Rayet stars produce unusually strong O III signal. Plan on 6–10 h of integration for fine detail.",
       "external_link": "https://en.wikipedia.org/wiki/Sh2-132"
     },
@@ -97,6 +106,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "Sh2-140 (Cepheus Nebula) is an H II region in Cepheus, about 3,000 light-years away. It appears around magnitude 9.0 and spans roughly 10′. It was cataloged by Stewart Sharpless in 1959. This is an active star-forming region associated with the L1204/S140 molecular cloud. It contains one of the brightest infrared source groups in the sky, IRS1, IRS2, and IRS3, and shows a well-studied photodissociation-region interface. Compact and best suited to longer focal lengths. Astrophotography: compact object (10′), with focal lengths >800 mm recommended. Dec +63°, circumpolar from French latitudes. Ha + O III; long integration is needed because of the low surface brightness.",
       "external_link": "https://en.wikipedia.org/wiki/Sh2-140"
     },
@@ -107,6 +117,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "Sh2-155 (Cave Nebula) is an H II region in Cepheus, about 2,400 light-years away. It appears around magnitude 7.7 and spans roughly 50′. It was cataloged by Stewart Sharpless in 1959. The Cave Nebula is a mixed reflection and emission nebula within the Cepheus B molecular cloud. Its cave-like appearance comes from a cavity carved into the gas by the winds of nearby massive stars. It is often imaged together with the open cluster NGC 7380. Astrophotography: Dec +62°, circumpolar from France. A prime autumn and winter target. Ha + O III filters for the emission component, LRGB for the blue reflection nebula. Size 50′: suitable for a wide field or medium focal length.",
       "external_link": "https://en.wikipedia.org/wiki/Cave_Nebula"
     },
@@ -117,6 +128,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "Sh2-157 (Lobster Claw Nebula) is an H II region in Cassiopeia, about 7,500 light-years away. It appears around magnitude 8.5 and spans roughly 60′. It was cataloged by Stewart Sharpless in 1959. This striking emission nebula is associated with the W157 complex in the Perseus Arm. Its claw-like structure is shaped by winds from a central Wolf-Rayet star compressing the surrounding gas into bright arcs. It is often imaged together with the Bubble Nebula (NGC 7635) in the same field. Astrophotography: Dec +60°, circumpolar from France. A wide field is required (60′). SHO or HOO palettes work well for the complex structure. Pairing it with Sh2-158 makes for a dramatic mosaic.",
       "external_link": "https://en.wikipedia.org/wiki/Sh2-157"
     },
@@ -127,6 +139,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "Sh2-158 (NGC 7538) is an H II region in Cassiopeia, about 9,000 light-years away. It appears around magnitude 8.0 and spans roughly 20′. It was cataloged by Stewart Sharpless in 1959. NGC 7538 is a massive star-forming region known for containing one of the largest known protostars, IRS9. The dense cloud hides many infrared sources and is one of the most active massive star-forming environments in the Perseus Arm. Its Ha morphology is marked by a bright ionization arc. Astrophotography: Dec +61°, circumpolar. Moderate size (20′): medium focal length telescope. Ha + O III filters. Rich field with nearby nebulae including Sh2-157.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7538"
     },
@@ -137,6 +150,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "Sh2-171 (NGC 7822) is an H II region in Cepheus, about 3,000 light-years away. It appears around magnitude 7.0 and spans roughly 60′. It was cataloged by Stewart Sharpless in 1959. NGC 7822 is a large emission nebula belonging to the Cepheus OB4 molecular complex. It contains star-forming pillars and evaporating gaseous globules reminiscent of the Pillars of Creation in M16. At its center lies the open cluster Berkeley 59, whose main ionizing source is an O4 binary. Astrophotography: Dec +68°, circumpolar across Europe. Wide field (60′). SHO palette works well for pillar detail. A strong autumn and winter target.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7822"
     },
@@ -147,6 +161,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "Sh2-174 (Cepheus Planetary Nebula) is a planetary nebula in Cepheus, about 1,600 light-years away. It appears around magnitude 14.0 and spans roughly 10′. It was cataloged by Stewart Sharpless in 1959. This is an old, extended planetary nebula in an advanced dispersal stage. Its central star is a faint degenerate white dwarf. The morphology is dominated by a diffuse halo of ionized oxygen (O III), with little remaining Ha emission, making it a strong candidate for monochrome O III imaging. It is one of the few Sharpless objects classified as a planetary nebula. Astrophotography: Dec +73°, circumpolar from France. Extremely low surface brightness, requiring very long integration (>8 h in O III). O III is the dominant filter.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -157,6 +172,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "NovDecJan",
+      "constellation": "Cassiopeia",
       "description": "Sh2-185 (IC 59 / IC 63) is a complex of reflection and emission nebulae in Cassiopeia, about 600 light-years away. It appears around magnitude 9.5 and spans roughly 20′. It was cataloged by Stewart Sharpless in 1959. IC 63 and IC 59 are two separate nebulae illuminated by the massive star Gamma Cassiopeiae, a variable Be star. IC 63 is primarily an Ha emission nebula with a very active photodissociation region, while IC 59 is dominated by blue reflection light. Together they form one of the nearest and best-studied photodissociation regions to Earth. Astrophotography: Dec +61°, circumpolar. Size 20′: medium to long focal length. LRGB + Ha is recommended to capture both color components.",
       "external_link": "https://en.wikipedia.org/wiki/IC_59_and_IC_63"
     },
@@ -167,6 +183,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "NovDecJan",
+      "constellation": "Cassiopeia",
       "description": "Sh2-190 (Heart Nebula / IC 1805) is an H II region in Cassiopeia, about 7,500 light-years away. It appears around magnitude 6.5 and spans roughly 60′. It was cataloged by Stewart Sharpless in 1959. The Heart Nebula is one of the most spectacular emission nebulae in the northern sky. It is ionized by the open cluster Melotte 15 at its center, whose massive O-type stars carve cavities in the surrounding gas. Its overall shape resembles a heart. It forms a famous wide-field astrophotography duo with the Soul Nebula (Sh2-199 / IC 1848). Astrophotography: Dec +61°, circumpolar from France. Ideal for wide-field setups. SHO or HOO palette. A classic winter target.",
       "external_link": "https://en.wikipedia.org/wiki/Heart_Nebula"
     },
@@ -177,6 +194,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "NovDecJan",
+      "constellation": "Cassiopeia",
       "description": "Sh2-199 (Soul Nebula / IC 1848 / W5) is an H II region in Cassiopeia, about 7,500 light-years away. It appears around magnitude 6.5 and spans roughly 60′. It was cataloged by Stewart Sharpless in 1959. The Soul Nebula is a vast star-forming region in the Perseus Arm of the Milky Way. It contains several active subregions, including W5-E and W5-W, and many pillars of gas undergoing photoerosion. Two young open clusters, IC 1848 and the adjacent IC 1805 complex, help illuminate the nebula. It is often imaged with the Heart Nebula in a wide-field mosaic. Astrophotography: Dec +60°, circumpolar. Wide field is essential. Superb in SHO palette. A flagship winter target for astrophotographers.",
       "external_link": "https://en.wikipedia.org/wiki/Soul_Nebula"
     },
@@ -187,6 +205,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "DecJanFeb",
+      "constellation": "Auriga",
       "description": "Sh2-212 (Northeast Auriga Nebula) is an H II region in Auriga, about 7,200 light-years away. It appears around magnitude 9.5 and spans roughly 20′. It was cataloged by Stewart Sharpless in 1959. This compact emission nebula lies in the galactic anticenter direction in Auriga and belongs to a set of H II regions less often imaged than the famous IC 405. It is ionized by an O-type star associated with a faint embedded cluster. Rich in Ha, it is well placed for winter imaging from the Northern Hemisphere. Astrophotography: Dec +46°, with excellent winter accessibility. Size 20′: medium focal length telescope. Ha is the main filter; 4–6 h integration is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -197,6 +216,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "DecJanFeb",
+      "constellation": "Auriga",
       "description": "Sh2-220 (Extended IC 405 / Flaming Star Nebula) is a mixed emission and reflection nebula in Auriga, about 1,500 light-years away. It appears around magnitude 6.5 and spans roughly 50′. It was cataloged by Stewart Sharpless in 1959. Sh2-220 designates the extended emission envelope surrounding IC 405, ionized by the runaway star AE Aurigae (O9.5V). The gas glows both in red Ha and in blue reflected light, creating a striking two-color palette. AE Aur did not form here: it was ejected from the Orion region about 2.7 million years ago. Astrophotography: Dec +34°, accessible in winter from France. Wide field (50′). LRGB + Ha is recommended to capture both emission and reflection.",
       "external_link": "https://en.wikipedia.org/wiki/IC_405"
     },
@@ -207,6 +227,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JanFebMar",
+      "constellation": "Auriga",
       "description": "Sh2-235 (Auriga Nebula) is an H II region in Auriga, about 6,000 light-years away. It appears around magnitude 9.5 and spans roughly 20′. It was cataloged by Stewart Sharpless in 1959. This compact emission nebula is associated with the S235 molecular complex in the galactic anticenter direction, a region known for star formation in several distinct sites such as S235A, S235B, and S235C. It contains young stellar objects and OH/methanol masers, signs of ongoing massive star formation. Astrophotography: Dec +35°, well placed from Europe in winter. Size 20′: longer focal length preferred. Ha-dominated target. Integration time 4–8 h.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -217,6 +238,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JanFebMar",
+      "constellation": "Taurus",
       "description": "Sh2-240 (Simeis 147 / Spaghetti Nebula) is a supernova remnant in Taurus, about 3,000 light-years away. It appears around magnitude 8.0 and spans roughly 180′. It was cataloged by Stewart Sharpless in 1959. Simeis 147, discovered in 1952 at the Crimean Observatory by Shajn and Gaze, is one of the most spectacular supernova remnants in the northern sky. Its network of fine filaments of ionized hydrogen and oxygen stretches over more than 3° of sky. The originating explosion occurred about 40,000 years ago. A central pulsar, PSR J0538+2817, confirms the supernova origin. Astrophotography: immense (180′), so a mosaic or wide-field lens is essential. Ha + O III filters are absolutely required. It is one of the ultimate challenges for astrophotographers, often demanding more than 15 h of integration per filter.",
       "external_link": "https://en.wikipedia.org/wiki/Simeis_147"
     },
@@ -227,6 +249,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JanFebMar",
+      "constellation": "Orion",
       "description": "Sh2-252 (NGC 2175 / Monkey Head Nebula) is an H II region in Orion, about 6,400 light-years away. It appears around magnitude 6.8 and spans roughly 18′. It was cataloged by Stewart Sharpless in 1959. NGC 2175 is an emission nebula ionized by the open cluster NGC 2175s, also called Teutsch 132. Its shape evokes a monkey's head, with a central cavity carved by the stellar winds of the cluster. This is an active star-forming region in the Orion Arm and shows beautiful gas pillars at higher resolution. Astrophotography: Dec +20°, very accessible from Europe in winter. Moderate size (18′): medium focal length. Ha + O III filters. Rich field in Orion.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_2175"
     },
@@ -237,6 +260,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JanFebMar",
+      "constellation": "Monoceros",
       "description": "Sh2-261 (Lower's Nebula) is an H II region in Monoceros, about 2,500 light-years away. It appears around magnitude 9.0 and spans roughly 30′. It was cataloged by Stewart Sharpless in 1959. Lower's Nebula is a diffuse emission nebula discovered by Harold Lower in 1939. It is ionized by hot stars in the Mon OB2 association and shows faint, fairly uniform Ha emission with a few O III filaments. Rarely imaged because of its low surface brightness, it is nevertheless an interesting target for long-integration setups. Astrophotography: Dec +12°, accessible from Europe. Size 30′. Ha is essential. Long integration (>6 h) is needed because of the low surface brightness.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -247,6 +271,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "JanFebMar",
+      "constellation": "Monoceros",
       "description": "Sh2-273 (Monoceros Nebula) is an H II region in Monoceros, about 2,600 light-years away. It appears around magnitude 8.0 and spans roughly 90′. It was cataloged by Stewart Sharpless in 1959. This large emission nebula in Monoceros is associated with the Mon R2 star-forming complex, one of the nearest massive star-forming regions to Earth. The region contains embedded young clusters, H2O masers, and bright infrared sources. Its large angular size (90′) makes it especially suited to wide-field setups. Astrophotography: Dec +10°, accessible from Europe in winter. Wide field is essential (90′). Ha + O III filters. It can be paired with the Rosette Nebula in a very wide composition.",
       "external_link": "https://en.wikipedia.org/wiki/Monoceros_R2"
     },
@@ -257,6 +282,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1894,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "Sh2-276 (Barnard's Loop) is a huge arc-shaped emission nebula in Orion, about 1,600 light-years away. It appears around magnitude 5.0 and spans roughly 600′. It was discovered photographically by Edward Emerson Barnard in 1894 and later included in the Sharpless catalog in 1959. Barnard's Loop is a giant semicircular arc of ionized hydrogen extending over more than 10° of sky and enclosing a large part of the Orion molecular complex. Its origin is likely tied to one or more ancient supernovae that blew a bubble in the local interstellar medium. Extremely diffuse, it is one of the largest visible structures in the sky. Astrophotography: enormous (600′), requiring a wide-angle lens or camera lens in the 24–50 mm range. Ha is nearly mandatory. A multi-panel mosaic is often needed for complete coverage. An iconic winter target.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard%27s_Loop"
     },
@@ -267,6 +293,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "FebMarApr",
+      "constellation": "Puppis",
       "description": "Sh2-302 (Puppis Nebula) is an H II region in Puppis, about 6,500 light-years away. It appears around magnitude 9.5 and spans roughly 15′. It was cataloged by Stewart Sharpless in 1959. This compact emission nebula lies in the galactic plane of Puppis, a region rich in H II regions that is not often imaged. It is ionized by an O-type star embedded in a dense molecular cloud. Its southern declination makes it difficult to observe from France, where it culminates low. Astrophotography: Dec ~-20°, culminating at about 22° from Rémalard. The imaging window is narrow in late winter and spring. Ha filters are needed to offset the low altitude and atmospheric turbulence. Longer subexposures are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -277,6 +304,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "FebMarApr",
+      "constellation": "Vela",
       "description": "Sh2-311 (RCW 16) is an H II region in Vela, about 5,500 light-years away. It appears around magnitude 8.0 and spans roughly 40′. It was cataloged by Stewart Sharpless in 1959 and also appears in the RCW catalog by Rodgers, Campbell, and Whiteoak (1960). This medium-sized emission nebula lies in the Vela complex, a galactic region filled with supernova remnants and active H II regions. It is ionized by O- and B-type stars in the Sagittarius-Carina Arm. Its far southern declination (-40°) makes it inaccessible from most French latitudes. Astrophotography: Dec ~-40°, maximum altitude about 2° from Rémalard (lat. 48.4°N), making it essentially unimageable from France. It is best reserved for southern observatories or dedicated astrophoto travel. Ha + O III filters are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/RCW_16"
     }

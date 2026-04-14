@@ -11,6 +11,8 @@ from typing import Dict, Iterable, List, Optional, Set
 from urllib.parse import quote
 import re
 
+from constellations import canonical_constellation_name, extract_constellation_from_description
+
 PROJECT_ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 
 
@@ -314,6 +316,7 @@ class CatalogItem:
     discoverer: Optional[str]
     discovery_year: Optional[int]
     best_months: Optional[str]
+    constellation: Optional[str]
     description: Optional[str]
     notes: Optional[str]
     image_notes: Dict[str, str]
@@ -566,6 +569,8 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     discoverer=_normalize_text(meta.get("discoverer")),
                     discovery_year=meta.get("discovery_year"),
                     best_months=best_months,
+                    constellation=canonical_constellation_name(meta.get("constellation"))
+                    or extract_constellation_from_description(meta.get("description")),
                     description=_normalize_text(meta.get("description")),
                     notes=notes,
                     image_notes=image_notes,
@@ -604,6 +609,7 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     discoverer=None,
                     discovery_year=None,
                     best_months=None,
+                    constellation=None,
                     description=None,
                     notes=None,
                     image_notes=image_notes,

@@ -7,6 +7,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "PNG 7.8+3.2 (NGC 6309, Box Nebula) is a planetary nebula in Ophiuchus, about 5,000 ly away. It appears around magnitude 11.5 and spans about 1'. Listed in the Strasbourg-ESO Catalogue of Galactic Planetary Nebulae, NGC 6309 shows a complex bipolar structure with two bright lobes around a hot white-dwarf central star. Its distinctive box-like outline comes from the interaction between fast stellar winds and gas expelled during the progenitor star's AGB phase. The nebula is strongest in OIII and Ha. Astrophotography: Dec -12.6 deg, culminating around 29 deg from Remalard, so it is a low summer target. Its tiny 1' size makes a very long focal length essential. OIII and Ha filters work best, with about 4-6 hours of integration and excellent seeing.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6309"
     },
@@ -17,6 +18,7 @@
       "discoverer": "Wilhelm Struve",
       "discovery_year": 1825,
       "best_months": "JulAugSep",
+      "constellation": "Ophiuchus",
       "description": "PNG 27.6+4.2 (NGC 6572, Emerald Nebula) is a bright planetary nebula in Ophiuchus, about 1,800 ly away. It appears around magnitude 8.1 and spans about 1'. Discovered by Wilhelm Struve in 1825, it is one of the brightest planetary nebulae in the northern sky and shows a vivid emerald-turquoise colour because of strong OIII 5007 A emission. Its compact size and high surface brightness make it visible even in small telescopes, but long focal length is needed to show it as more than a stellar point in photographs. Astrophotography: Dec +6.9 deg, culminating around 49 deg from Remalard. A summer target. OIII is especially useful, with about 3-5 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6572"
     },
@@ -27,6 +29,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "OctNovDec",
+      "constellation": "Cetus",
       "description": "PNG 36.1-57.1 (NGC 246, Skull Nebula) is a planetary nebula in Cetus, about 1,600 ly away. It appears around magnitude 8.5 and spans about 4'. Discovered by William Herschel in 1785, it is one of the larger and brighter objects in this PNG selection. Its circular shell, translucent inner regions and irregular filaments give it the skull-like appearance behind its common name. The central star is a white dwarf of about magnitude 11.8. Astrophotography: Dec -11.9 deg, culminating around 30 deg from Remalard. A good autumn target. Its 4' size suits medium to long focal lengths, with LRGB plus OIII helpful for the filamentary structure.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_246"
     },
@@ -37,6 +40,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1892,
       "best_months": "AugSepOct",
+      "constellation": "Aquila",
       "description": "PNG 38.5-0.9 (NGC 6751, Glowing Eye Nebula) is a planetary nebula in Aquila, about 6,500 ly away. It appears around magnitude 11.9 and spans about 1'. Discovered by E. E. Barnard in 1892, it has a bright inner shell and asymmetric filamentary extensions that create its eye-like appearance. Hubble images show dense reddish knots embedded in bluish-green OIII emission around the hot central star. Astrophotography: Dec -6 deg, culminating around 36 deg from Remalard. A low summer-to-autumn target. Its tiny size demands a very long focal length plus OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6751"
     },
@@ -47,6 +51,7 @@
       "discoverer": "Arthur Auwers",
       "discovery_year": 1869,
       "best_months": "AugSepOct",
+      "constellation": "Aquila",
       "description": "PNG 42.5-14.5 (NGC 6781) is a planetary nebula in Aquila, about 2,500 ly away. It appears around magnitude 11.8 and spans about 2'. Discovered by Arthur Auwers in 1869, it has a ring-like structure often compared to M57, though larger and more diffuse. The shell is well defined in both Ha and OIII, with a slight north-south asymmetry, while the central white dwarf is faint at about magnitude 16.5. Astrophotography: Dec +6.5 deg, culminating around 48 deg from Remalard. A summer-to-autumn target. Long focal length plus Ha and OIII works well.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6781"
     },
@@ -57,6 +62,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1887,
       "best_months": "AugSepOct",
+      "constellation": "Lyra",
       "description": "PNG 49.4+2.4 (NGC 6765) is a faint planetary nebula in Lyra, about 10,000 ly away. It appears around magnitude 12.9 and spans about 1'. Discovered by E. E. Barnard in 1887, it is a compact, weakly documented bipolar planetary nebula whose OIII emission dominates. Its large distance and low surface brightness make it a demanding target best suited to long focal length under dark skies. Astrophotography: Dec +14.3 deg, culminating around 57 deg from Remalard. A summer-to-autumn target. OIII is the key filter, with more than 6 hours of integration recommended.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6765"
     },
@@ -67,6 +73,7 @@
       "discoverer": "Ralph Copeland",
       "discovery_year": 1884,
       "best_months": "AugSepOct",
+      "constellation": "Aquila",
       "description": "PNG 53.8-3.0 (NGC 6803, Little Gem) is a compact planetary nebula in Aquila, about 6,500 ly away. It appears around magnitude 11.4 and spans about 1'. Discovered by Ralph Copeland in 1884, it has a bright, fairly symmetrical shell and strong OIII emission that gives it a striking blue-green colour in images. Its nickname reflects its small but jewel-like appearance. Astrophotography: Dec +17.5 deg, culminating around 60 deg from Remalard. A summer-to-autumn target. A very long focal length with OIII and Ha is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6803"
     },
@@ -77,6 +84,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "AugSepOct",
+      "constellation": "Vulpecula",
       "description": "PNG 57.4-3.6 (NGC 6820) is an emission nebula in Vulpecula, about 6,000 ly away. It appears around magnitude 8.5 and spans about 40'. Although listed in the PNG catalogue, it is treated here as an emission nebula. NGC 6820 is the H II region around the open cluster NGC 6823, whose young massive stars ionize the surrounding gas. The nebula includes star-forming pillars and cometary globules reminiscent of those in M16. Astrophotography: Dec +23.2 deg, culminating around 66 deg from Remalard. A wide-field summer-to-autumn target. Ha and SII are useful, with about 6-10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6820"
     },
@@ -87,6 +95,7 @@
       "discoverer": "Charles Messier",
       "discovery_year": 1764,
       "best_months": "AugSepOct",
+      "constellation": "Vulpecula",
       "description": "PNG 59.0-13.9 (NGC 6853, Dumbbell Nebula, M27) is the brightest planetary nebula in the northern sky and the first one ever discovered, in Vulpecula about 1,360 ly away. It appears around magnitude 7.4 and spans about 8'. Discovered by Charles Messier in 1764, it is a benchmark planetary nebula for astrophotography: bright, large, rich in Ha and OIII structure, and with a visible central star. Its classic bilobed shape resembles a dumbbell or butterfly, and deep Ha imaging reveals outer filaments far beyond the bright core. Astrophotography: Dec +22.7 deg, culminating around 65 deg from Remalard. An essential summer target. Medium focal length works well, with Ha, OIII and SII especially useful.",
       "external_link": "https://en.wikipedia.org/wiki/Dumbbell_Nebula"
     },
@@ -97,6 +106,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "PNG 60.8-3.6 (NGC 6857) is a compact emission nebula in Cygnus, about 6,500 ly away. It appears around magnitude 11.0 and spans about 1'. Although included in the PNG catalogue, it is treated here as an H II region. It belongs to the Cygnus X complex and has high surface brightness for such a small object, with strong Ha emission and intricate internal structure. Astrophotography: Dec +33.7 deg, culminating around 76 deg from Remalard. A summer-to-autumn target. Long focal length plus Ha works well.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6857"
     },
@@ -107,6 +117,7 @@
       "discoverer": "Friedrich Georg Wilhelm Struve",
       "discovery_year": 1825,
       "best_months": "JunJulAug",
+      "constellation": "Hercules",
       "description": "PNG 63.6+13.9 (NGC 6210, Turtle Nebula) is a bright planetary nebula in Hercules, about 6,500 ly away. It appears around magnitude 8.8 and spans about 1'. Discovered by F. G. W. Struve in 1825, it is one of the most colourful and best studied compact planetaries. A bright blue-green OIII core is surrounded by more irregular, diffuse Ha structure that evokes a turtle shell in deep images. Astrophotography: Dec +23.8 deg, culminating around 66 deg from Remalard. A summer target. Very long focal length with OIII and Ha is ideal.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6210"
     },
@@ -117,6 +128,7 @@
       "discoverer": "Ralph Copeland",
       "discovery_year": 1884,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 64.7+5.0 (NGC 6884) is a compact planetary nebula in Cygnus, about 6,000 ly away. It appears around magnitude 10.9 and spans about 1'. Discovered by Ralph Copeland in 1884, it is a bright northern Galactic-plane planetary with strong OIII emission and a slightly asymmetric internal structure. Its high surface brightness makes it detectable in modest instruments, but resolving detail requires long focal length. Astrophotography: Dec +46.6 deg, very high from Remalard in autumn. OIII and Ha work well, with about 3-5 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6884"
     },
@@ -127,6 +139,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "OctNovDec",
+      "constellation": "Cetus",
       "description": "PNG 64.7-73.5 (NGC 246, Skull Nebula) is a duplicate PNG entry for the same object listed under PNG 36.1-57.1, using a different set of Galactic coordinates. The physical object is still NGC 246 in Cetus, about 1,600 ly away. See PNG 36.1-57.1 for the full description and imaging notes.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_246"
     },
@@ -137,6 +150,7 @@
       "discoverer": "Karl Ludwig Harding",
       "discovery_year": 1824,
       "best_months": "OctNovDec",
+      "constellation": "Aquarius",
       "description": "PNG 65.9-27.1 (NGC 7293, Helix Nebula) is the largest planetary nebula in apparent size in the sky and, at about 650 ly, the nearest object in this PNG list. In Aquarius, it appears around magnitude 7.3 and spans about 16'. Discovered by Karl Ludwig Harding in 1824, it is often called the Eye of God. Its structure includes nested ionized rings, thousands of cometary knots pointing toward the central star, and a very diffuse outer halo extending beyond 30'. Astrophotography: Dec -20.8 deg, culminating around 21 deg from Remalard, so it is low in autumn from France. A wide field with Ha and OIII is ideal, and 8-12 hours helps reveal the faint outer structure.",
       "external_link": "https://en.wikipedia.org/wiki/Helix_Nebula"
     },
@@ -147,6 +161,7 @@
       "discoverer": "Ralph Copeland",
       "discovery_year": 1884,
       "best_months": "SepOctNov",
+      "constellation": "Delphinus",
       "description": "PNG 66.7+1.0 (NGC 6891) is a planetary nebula near Delphinus and the Cygnus border, about 4,800 ly away. It appears around magnitude 10.5 and spans about 1'. Discovered by Ralph Copeland in 1884, it has a bright inner OIII shell surrounded by a fainter diffuse Ha halo, indicating more than one mass-loss phase from the progenitor star. Astrophotography: Dec +12.7 deg, culminating around 55 deg from Remalard. An autumn target. Long focal length with OIII and Ha is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6891"
     },
@@ -157,6 +172,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "SepOctNov",
+      "constellation": "Delphinus",
       "description": "PNG 70.5+2.4 (NGC 6905, Blue Flash Nebula) is a planetary nebula in Delphinus, about 7,000 ly away. It appears around magnitude 11.1 and spans about 1'. Discovered by William Herschel in 1784, it has a nearly circular outline with strong internal asymmetry, including two bright opposing lobes around a darker centre, a typical face-on bipolar appearance. Strong OIII gives it its blue colour in images. Astrophotography: Dec +20.1 deg, culminating around 63 deg from Remalard. An autumn target. Use long focal length with OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6905"
     },
@@ -167,6 +183,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1782,
       "best_months": "SepOctNov",
+      "constellation": "Aquarius",
       "description": "PNG 72.7-17.1 (NGC 7009, Saturn Nebula) is one of the most spectacular planetary nebulae in the catalogue, in Aquarius about 2,000 ly away. It appears around magnitude 8.0 and spans about 1' for the bright core. Discovered by William Herschel in 1782, it is famous for its ansae, handle-like extensions that suggest the rings of Saturn. The central shell is bright in OIII, while Ha helps bring out the reddish outer structures. Astrophotography: Dec -11.4 deg, culminating around 31 deg from Remalard. A low autumn target. Long focal length, OIII and Ha, and excellent seeing are important.",
       "external_link": "https://en.wikipedia.org/wiki/Saturn_Nebula"
     },
@@ -177,6 +194,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "PNG 74.5+2.1 (NGC 6979, Northern Veil, Pickering's Triangle) is part of the Veil Nebula supernova remnant in Cygnus, about 2,600 ly away. It appears around magnitude 7.0 and spans about 60'. Although it appears in the PNG catalogue, it is actually part of the Cygnus Loop supernova remnant, not a planetary nebula. The blast occurred roughly 10,000 to 20,000 years ago, and today the remnant shows spectacular Ha and OIII filaments over several degrees of sky. Astrophotography: Dec +32.2 deg, high from Remalard in summer and autumn. A wide field with Ha and OIII is almost mandatory, and deep integration greatly improves the fine filaments.",
       "external_link": "https://en.wikipedia.org/wiki/Cygnus_Loop"
     },
@@ -187,6 +205,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "PNG 74.9+1.2 (NGC 6992, Eastern Veil) is the brightest main section of the eastern filament of the Veil Nebula supernova remnant, about 2,600 ly away. It appears around magnitude 7.0 and spans about 60'. Discovered by William Herschel in 1784, it is one of the most beautiful filamentary objects in the northern sky, with red Ha and blue-green OIII intricately interwoven. Together with NGC 6995, NGC 6960 and Pickering's Triangle, it forms the Cygnus Loop. Astrophotography: Dec +31.7 deg, high from Remalard in summer and autumn. A very wide field with Ha and OIII is ideal, and long integration is highly rewarding.",
       "external_link": "https://en.wikipedia.org/wiki/Veil_Nebula"
     },
@@ -197,6 +216,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "PNG 75.5+1.7 (NGC 6995) is part of the Veil Nebula supernova remnant, about 2,600 ly away. It appears around magnitude 7.0 and spans about 40'. Discovered by William Herschel in 1784, it forms the southern section of the eastern Veil filament adjacent to NGC 6992. The fine Ha and OIII filaments vividly trace the turbulent shock front of the expanding supernova remnant. Astrophotography: Dec +31.6 deg, high from Remalard in summer and autumn. A wide field with Ha and OIII works best, especially when framed with NGC 6992.",
       "external_link": "https://en.wikipedia.org/wiki/Veil_Nebula"
     },
@@ -207,6 +227,7 @@
       "discoverer": "Isaac Roberts",
       "discovery_year": 1893,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "PNG 75.9+1.3 (IC 1340, Southeast Veil) is the southeastern section of the Veil Nebula supernova remnant, about 2,600 ly away. It appears around magnitude 7.0 and spans about 20'. Discovered by Isaac Roberts in 1893, it is often overlooked compared with brighter nearby filaments, but it helps complete the circular structure of the Cygnus Loop in wide mosaics. Astrophotography: Dec +31.4 deg, high from Remalard in summer and autumn. Ha and OIII are recommended, especially for full Veil mosaics.",
       "external_link": "https://en.wikipedia.org/wiki/Veil_Nebula"
     },
@@ -217,6 +238,7 @@
       "discoverer": "Eduard Schönfeld",
       "discovery_year": 1878,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 84.9-3.4 (NGC 7027, Jewel Bug Nebula) is one of the brightest and best studied planetary nebulae in the sky, in Cygnus about 2,500 ly away. It appears around magnitude 8.5 and spans about 1'. Discovered by Eduard Schonfeld in 1878, it is extremely bright at radio wavelengths and also one of the strongest optical planetaries. It is a very young nebula, only about 600 years old, with a compact rectangular structure, rich internal Ha filaments, and an exceptionally hot central star. Astrophotography: Dec +42.2 deg, very high from Remalard in autumn. Long focal length with OIII and Ha is ideal.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7027"
     },
@@ -227,6 +249,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 85.4-0.1 (Sh2-120) is a compact emission nebula in Cygnus, about 4,500 ly away. It appears around magnitude 10.5 and spans about 10'. Although present in the PNG catalogue, it is really a compact Sharpless H II region ionized by an O-type star associated with an embedded young cluster. It lies within the wider Cygnus X star-forming complex. Astrophotography: Dec +46.9 deg, very high from Remalard in autumn. Ha is the key filter, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -237,6 +260,7 @@
       "discoverer": "Arthur Auwers",
       "discovery_year": 1862,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 86.4-0.5 (NGC 7048) is a ring-shaped planetary nebula in Cygnus, about 6,000 ly away. It appears around magnitude 11.3 and spans about 1'. Discovered by Arthur Auwers in 1862, it resembles a fainter, more distant version of M57, with a fairly regular shell and a diffuse inner region. Astrophotography: Dec +46.3 deg, very high from Remalard in autumn. Long focal length plus OIII and Ha is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7048"
     },
@@ -247,6 +271,7 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1888,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 86.5-6.1 (NGC 7026, Butterfly Nebula) is a bipolar planetary nebula in Cygnus, about 5,000 ly away. It appears around magnitude 10.9 and spans about 1'. Discovered by E. E. Barnard in 1888, it shows two symmetrical ionized lobes separated by an equatorial dust lane, giving it a butterfly-like appearance. OIII dominates the polar lobes, while Ha helps show the equatorial torus. Astrophotography: Dec +47.7 deg, very high from Remalard in autumn. A long focal length with Ha and OIII is ideal.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7026"
     },
@@ -257,6 +282,7 @@
       "discoverer": "Karl Reinmuth",
       "discovery_year": 1922,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 89.0-0.3 (IC 5117) is a compact, faint planetary nebula near the Cygnus-Cepheus border, about 7,000 ly away. It appears around magnitude 11.5 and spans about 1'. Discovered by Karl Reinmuth in 1922, it is a tiny high-surface-brightness planetary that looks almost stellar in small instruments, but longer focal length reveals a slightly extended disk with strong OIII emission. Astrophotography: Dec +44.9 deg, high from Remalard in autumn. Very long focal length and OIII are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/IC_5117"
     },
@@ -267,6 +293,7 @@
       "discoverer": "Ralph Copeland",
       "discovery_year": 1884,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "PNG 96.4+9.6 (NGC 7139) is a faint planetary nebula in Cepheus, about 3,000 ly away. It appears around magnitude 13.3 and spans about 1'. Discovered by Ralph Copeland in 1884, it is an evolved planetary nebula with low surface brightness, a regular circular form and a weakly visible central star. Astrophotography: Dec +63.8 deg, circumpolar from France. A good autumn-to-winter target for long focal length and OIII under dark skies.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7139"
     },
@@ -277,6 +304,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "PNG 97.0-2.0 (Sh2-124) is a compact emission nebula in Cygnus, about 5,000 ly away. It appears around magnitude 11.0 and spans about 12'. It is a Sharpless H II region included in the PNG list, likely because of historical classification overlap. Ha dominates its emission, with weaker OIII. Astrophotography: Dec +47.4 deg, very high from Remalard in autumn. Medium to long focal length with Ha works well.",
       "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
     },
@@ -287,6 +315,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "OctNovDec",
+      "constellation": "Andromeda",
       "description": "PNG 104.2-29.6 (NGC 7662, Blue Snowball Nebula) is one of the brightest and most beautiful planetary nebulae in the northern sky, in Andromeda about 1,800 ly away. It appears around magnitude 8.3 and spans about 1'. Discovered by William Herschel in 1784, it shows the intense blue-turquoise colour typical of strong OIII emission. The nebula has a slightly elliptical bright shell surrounded by a more diffuse halo, with a hot central white dwarf of about magnitude 13.2. Astrophotography: Dec +42.5 deg, high from Remalard in autumn and winter. Long focal length with OIII and Ha works very well.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7662"
     },
@@ -297,6 +326,7 @@
       "discoverer": "Stewart Sharpless",
       "discovery_year": 1959,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "PNG 107.6+2.3 is a faint planetary nebula projected in the field of Sh2-131 / IC 1396 in Cepheus, about 3,000 ly away. It appears around magnitude 12.0 and spans about 1'. It lies by chance in the same field as the famous Elephant's Trunk region, making it an interesting background object but a difficult one to separate from the surrounding Ha nebulosity. Astrophotography: Dec +57.6 deg, circumpolar from France. OIII helps isolate it from the emission-nebula background.",
       "external_link": "https://en.wikipedia.org/wiki/IC_1396"
     },
@@ -307,6 +337,7 @@
       "discoverer": "Heinrich d'Arrest",
       "discovery_year": 1862,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "PNG 111.8-2.8 (NGC 7354) is a planetary nebula in Cepheus, about 3,000 ly away. It appears around magnitude 12.9 and spans about 1'. Discovered by Heinrich d'Arrest in 1862, it is a faint planetary with a circular form, a diffuse outer Ha shell and a brighter OIII-rich core. Astrophotography: Dec +61.1 deg, circumpolar from France. A good autumn-to-winter target, best with long focal length, OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7354"
     },
@@ -317,6 +348,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1959,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "PNG 114.0-4.6 (NGC 7538, Sh2-158) is a compact emission nebula in Cassiopeia, about 9,000 ly away. It appears around magnitude 9.0 and spans about 10'. In the PNG list it corresponds to an H II region rather than a true planetary nebula. NGC 7538 is a massive star-forming region known for hosting one of the largest known protostars, IRS9, and is marked by a bright ionization arc in Ha. Astrophotography: Dec +61.5 deg, circumpolar from France. Ha and OIII work well.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7538"
     },
@@ -327,6 +359,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "OctNovDec",
+      "constellation": "Cetus",
       "description": "PNG 118.8-74.7 is another duplicate PNG entry for NGC 246, the Skull Nebula in Cetus. It reflects catalogue inconsistencies between different coordinate systems and merged sub-catalogues. See PNG 36.1-57.1 for the main description and imaging notes.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_246"
     },
@@ -337,6 +370,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1902,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "PNG 119.6+0.0 (IC 1747) is a ring-shaped planetary nebula in Cassiopeia, about 3,000 ly away. It appears around magnitude 11.9 and spans about 2'. Discovered by Williamina Fleming in 1902, it is somewhat M57-like in structure, with a regular circular shell and strong OIII emission. Astrophotography: Dec +63.3 deg, circumpolar from France. A good autumn-to-winter target for long focal length plus OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/IC_1747"
     },
@@ -347,6 +381,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1788,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "PNG 120.0+9.8 (NGC 40, Bow-Tie Nebula) is a planetary nebula in Cepheus, about 3,500 ly away. It appears around magnitude 10.7 and spans about 1'. Discovered by William Herschel in 1788, it has an unusual elongated central shell resembling a bow tie, surrounded by a diffuse outer halo. Its central star is a rare WC8 Wolf-Rayet type, whose powerful winds help shape the nebula. Unlike many planetaries, Ha is stronger here than OIII, so the nebula often appears redder in images. Astrophotography: Dec +72.5 deg, circumpolar from France. Ha is especially important.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_40"
     },
@@ -357,6 +392,7 @@
       "discoverer": "Ralph Copeland",
       "discovery_year": 1884,
       "best_months": "NovDecJan",
+      "constellation": "Cassiopeia",
       "description": "PNG 130.9-10.5 (IC 289) is a faint planetary nebula in Cassiopeia, about 3,000 ly away. It appears around magnitude 13.0 and spans about 1'. Discovered by Ralph Copeland in 1884, it is an evolved, diffuse planetary with low surface brightness and a slightly elongated elliptical shape. Astrophotography: Dec +61.1 deg, circumpolar from France. It needs dark skies, long focal length, OIII and long integration.",
       "external_link": "https://en.wikipedia.org/wiki/IC_289"
     },
@@ -367,6 +403,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1892,
       "best_months": "DecJanFeb",
+      "constellation": "Perseus",
       "description": "PNG 136.3+5.5 (IC 351) is a planetary nebula in Perseus, about 2,200 ly away. It appears around magnitude 12.4 and spans about 1'. Discovered by Williamina Fleming in 1892, it is a compact, high-surface-brightness planetary with a small elliptical form and strong OIII emission. Astrophotography: Dec +34.8 deg, very well placed from Remalard in winter. Long focal length with OIII and Ha is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/IC_351"
     },
@@ -377,6 +414,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1901,
       "best_months": "DecJanFeb",
+      "constellation": "Perseus",
       "description": "PNG 138.1+4.1 (IC 2003) is a compact planetary nebula in Perseus, about 3,800 ly away. It appears around magnitude 11.4 and spans about 1'. Discovered by Williamina Fleming in 1901, it is brighter than nearby IC 351 and has a compact, nearly circular shell dominated by OIII emission. Astrophotography: Dec +33.9 deg, high from Remalard in winter. Long focal length with OIII and Ha is appropriate.",
       "external_link": "https://en.wikipedia.org/wiki/IC_2003"
     },
@@ -387,6 +425,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1906,
       "best_months": "DecJanFeb",
+      "constellation": "Auriga",
       "description": "PNG 143.6+6.6 (IC 2149) is a compact planetary nebula in Auriga, about 2,000 ly away. It appears around magnitude 11.1 and spans about 1'. Discovered by Williamina Fleming in 1906, it is one of the brighter planetaries in Auriga, with a slightly elongated shape, a bright inner OIII shell and more diffuse Ha extensions. Astrophotography: Dec +46.8 deg, very high from Remalard in winter. Long focal length with OIII and Ha is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/IC_2149"
     },
@@ -397,6 +436,7 @@
       "discoverer": "Pierre Méchain",
       "discovery_year": 1781,
       "best_months": "MarAprMay",
+      "constellation": "Ursa Major",
       "description": "PNG 148.4+57.0 (NGC 3587, Owl Nebula, M97) is one of the most famous planetary nebulae in the northern sky, in Ursa Major about 2,000 ly away. It appears around magnitude 11.2 and spans about 3'. Discovered by Pierre Mechain in 1781 and added to Messier's catalogue, it is known for the two dark internal regions that resemble an owl's eyes in high-resolution images. The central star is faint, and the field is especially attractive because M108 lies nearby. Astrophotography: Dec +55 deg, circumpolar from France. A spring target. Medium focal length with OIII and Ha works well.",
       "external_link": "https://en.wikipedia.org/wiki/Owl_Nebula"
     },
@@ -407,6 +447,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1899,
       "best_months": "JanFebMar",
+      "constellation": "Auriga",
       "description": "PNG 158.9+17.8 (IC 2120) is a very faint planetary nebula in Auriga, about 5,000 ly away. It appears around magnitude 13.0 and spans about 1'. Discovered by Williamina Fleming in 1899, it is little imaged and has very low surface brightness, making it a true challenge target. Astrophotography: Dec +43.1 deg, high from Remalard in winter. Long focal length, OIII, dark skies and more than 8 hours of integration are advisable.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -417,6 +458,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1891,
       "best_months": "JanFebMar",
+      "constellation": "Lepus",
       "description": "PNG 161.2-14.8 (IC 418, Spirograph Nebula) is a bright compact planetary nebula in Lepus, about 2,000 ly away. It appears around magnitude 9.4 and spans about 1'. Discovered by Williamina Fleming in 1891, it is famous for intricate inner filaments that resemble spirograph patterns in Hubble images. Unlike many planetary nebulae, IC 418 is stronger in Ha than in OIII, giving it a distinctly reddish-orange colour. Astrophotography: Dec -12.7 deg, culminating around 30 deg from Remalard. A low winter target. Ha is especially important.",
       "external_link": "https://en.wikipedia.org/wiki/IC_418"
     },
@@ -427,6 +469,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "JanFebMar",
+      "constellation": "Gemini",
       "description": "PNG 164.8+31.1 (NGC 2392, Eskimo Nebula) is one of the most popular planetary nebulae in the catalogue, in Gemini about 5,000 ly away. It appears around magnitude 10.1 and spans about 1'. Discovered by William Herschel in 1787, it owes its nickname to the face-like inner shell surrounded by a fur-like outer halo. OIII dominates the inner structure, with Ha more apparent in the outer extensions. Astrophotography: Dec +20.9 deg, culminating around 63 deg from Remalard. A prime winter target for long focal length imaging.",
       "external_link": "https://en.wikipedia.org/wiki/Eskimo_Nebula"
     },
@@ -437,6 +480,7 @@
       "discoverer": "Williamina Fleming",
       "discovery_year": 1893,
       "best_months": "JanFebMar",
+      "constellation": "Canis Minor",
       "description": "PNG 167.0-0.9 (IC 2165) is a compact, high-surface-brightness planetary nebula in Canis Minor, about 8,000 ly away. It appears around magnitude 11.6 and spans about 1'. Discovered by Williamina Fleming in 1893, it is dominated by OIII emission and appears intensely blue, with a nearly circular but slightly asymmetric structure. Astrophotography: Dec -8.1 deg, culminating around 34 deg from Remalard. A low winter target. Long focal length and OIII are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/IC_2165"
     },
@@ -447,6 +491,7 @@
       "discoverer": "George O. Abell",
       "discovery_year": 1966,
       "best_months": "FebMarApr",
+      "constellation": "Gemini",
       "description": "PNG 175.4-0.8 (Abell 14) is a very faint planetary nebula in Gemini, about 8,000 ly away. It appears around magnitude 15.0 and spans about 1'. Discovered by George O. Abell in 1966, it is an extremely evolved and diffuse planetary nebula whose shell has expanded so much that it is barely detectable in standard optical imaging. It is one of the hardest objects in this catalogue. Astrophotography: Dec +17.3 deg, culminating around 60 deg from Remalard. This is an extreme challenge target, best attempted in OIII with more than 20 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Abell_catalogue_of_planetary_nebulae"
     },
@@ -457,6 +502,7 @@
       "discoverer": "Jules Jonckheere",
       "discovery_year": 1916,
       "best_months": "FebMarApr",
+      "constellation": "Gemini",
       "description": "PNG 189.8+7.3 (J 900, Jonckheere 900) is a very compact planetary nebula in Gemini, about 5,000 ly away. It appears around magnitude 12.4 and spans about 1'. Discovered by Jules Jonckheere in 1916, it is a young, high-surface-brightness planetary nebula that looks nearly stellar in smaller instruments. High-resolution imaging reveals a complex bipolar structure with lobes and an equatorial torus, and its OIII emission is especially strong. Astrophotography: Dec +18.1 deg, culminating around 61 deg from Remalard. A winter-to-spring target that benefits from very long focal length and OIII.",
       "external_link": "https://en.wikipedia.org/wiki/Jonckheere_900"
     },
@@ -467,6 +513,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": "Gemini",
       "description": "PNG 194.2+2.5 (NGC 2371-72, Twin Nebula) is a bipolar planetary nebula in Gemini, about 4,400 ly away. It appears around magnitude 11.2 and spans about 1'. Discovered by William Herschel in 1785, it was originally catalogued as two separate objects because its two bright lobes were seen as distinct nebulae. The central star lies between the lobes, OIII dominates the brighter structure, and Ha helps reveal the diffuse outer material. Astrophotography: Dec +29.5 deg, culminating around 72 deg from Remalard. A winter-to-spring target for long focal length, OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_2371"
     },
@@ -477,6 +524,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1786,
       "best_months": "FebMarApr",
+      "constellation": "Puppis",
       "description": "PNG 197.8+17.3 (NGC 2438) is a ring-shaped planetary nebula projected against the open cluster M46 in Puppis, about 2,900 ly away. It appears around magnitude 10.8 and spans about 1'. Discovered by William Herschel in 1786, it is famous because of this visual superposition, even though the nebula and cluster are at very different distances. The nebula has a regular ring structure with strong OIII emission and a faint Ha component. Astrophotography: Dec -7.6 deg, culminating around 35 deg from Remalard. A low target that works well with OIII and Ha, ideally in a wider field including M46.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_2438"
     },
@@ -487,6 +535,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "DecJanFeb",
+      "constellation": "Eridanus",
       "description": "PNG 206.4-40.5 (NGC 1535, Cleopatra's Eye Nebula) is one of the brighter planetary nebulae in the catalogue, in Eridanus about 5,000 ly away. It appears around magnitude 9.6 and spans about 1'. Discovered by William Herschel in 1785, it is noted for its striking double-shell structure: a bright blue-green inner shell in OIII surrounded by a more diffuse outer shell. This layered form records more than one mass-loss episode from the progenitor star. Astrophotography: Dec -12.8 deg, culminating around 29 deg from Remalard. A low winter target. Long focal length with OIII and Ha is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_1535"
     },
@@ -497,6 +546,7 @@
       "discoverer": "George O. Abell",
       "discovery_year": 1955,
       "best_months": "FebMarApr",
+      "constellation": "Gemini",
       "description": "PNG 215.6+11.1 (Abell 21, Medusa Nebula) is a large, old planetary nebula in Gemini, about 1,500 ly away. It spans about 10' and is very evolved, with a highly expanded shell whose diffuse, semi-circular filaments give it its Medusa-like appearance. Discovered by George O. Abell in 1955, it is one of the best examples of a planetary nebula close to final dispersal. Astrophotography: Dec +34.6 deg, very high from Remalard in winter and spring. OIII is the key filter, and 10-15 hours under dark skies is a sensible target.",
       "external_link": "https://en.wikipedia.org/wiki/Medusa_Nebula"
     },
@@ -507,6 +557,7 @@
       "discoverer": "Antoine Darquier",
       "discovery_year": 1779,
       "best_months": "JanFebMar",
+      "constellation": "Monoceros",
       "description": "PNG 221.3-12.3 (NGC 2346, Butterfly Nebula) is a spectacular bipolar planetary nebula in Monoceros, about 5,000 ly away. It appears around magnitude 11.0 and spans about 1'. Historically known since the eighteenth century, it is characterised by two symmetrical lobes separated by a dense equatorial dust lane. Its short-period binary central star is thought to have played a key role in shaping the nebula. Astrophotography: Dec -0.8 deg, culminating around 41 deg from Remalard. A winter target for long focal length, OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_2346"
     },
@@ -517,6 +568,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1790,
       "best_months": "FebMarApr",
+      "constellation": "Puppis",
       "description": "PNG 232.8+5.7 (NGC 2440, Southern Butterfly) is a bright bipolar planetary nebula in Puppis, about 3,600 ly away. It appears around magnitude 10.8 and spans about 1'. Discovered by William Herschel in 1790, it contains one of the hottest known central stars among planetary nebulae, around 200,000 K. Its structure is complex, with multiple lobes and arcs visible in high-resolution images, and strong OIII with additional Ha extensions. Astrophotography: Dec -18.2 deg, culminating around 24 deg from Remalard. A low target best imaged at long focal length with OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_2440"
     },
@@ -527,6 +579,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1786,
       "best_months": "FebMarApr",
+      "constellation": "Puppis",
       "description": "PNG 234.9+2.4 is a duplicate PNG entry for NGC 2438, the planetary nebula projected on the open cluster M46 in Puppis. It reflects the use of different Galactic-coordinate entries in merged Strasbourg-ESO sub-catalogues. See PNG 197.8+17.3 for the main description.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_2438"
     },
@@ -537,6 +590,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1835,
       "best_months": "AprMayJun",
+      "constellation": "Vela",
       "description": "PNG 261.0+32.0 (NGC 3132, Southern Ring Nebula, Eight-Burst Nebula) is the most famous ring-shaped planetary nebula in the southern sky, in Vela about 2,000 ly away. It appears around magnitude 8.2 and spans about 1'. Discovered by John Herschel in 1835, it resembles a brighter southern counterpart to M57 and contains both a bright foreground star and the true central white dwarf of the nebula. Its far southern declination makes it inaccessible from France. Astrophotography: Dec -40.4 deg. It is a southern-only target.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_3132"
     },
@@ -547,6 +601,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1834,
       "best_months": "AprMayJun",
+      "constellation": "Centaurus",
       "description": "PNG 283.6+25.3 (NGC 3918, Blue Planetary) is a bright planetary nebula in Centaurus, about 3,000 ly away. It appears around magnitude 8.4 and spans about 1'. Discovered by John Herschel in 1834, it is often described as a southern counterpart to the Blue Snowball because of its strong blue-turquoise OIII emission. Its very southerly declination makes it inaccessible from France. Astrophotography: Dec -57.2 deg. A southern-sky target only.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_3918"
     },
@@ -557,6 +612,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1834,
       "best_months": "AprMayJun",
+      "constellation": "Centaurus",
       "description": "PNG 290.5+7.9 (NGC 3699) is a planetary nebula in Centaurus, about 5,000 ly away. It appears around magnitude 11.5 and spans about 1'. Discovered by John Herschel in 1834, it is a little-studied southern planetary nebula with a slightly elongated, mildly asymmetric shape. Astrophotography: Dec -60 deg. It is completely inaccessible from northern mid-latitudes and is strictly a southern object.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_3699"
     },
@@ -567,6 +623,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1834,
       "best_months": "AprMayJun",
+      "constellation": null,
       "description": "PNG 292.5+4.4 is a duplicate PNG entry for NGC 3918 using slightly different Galactic coordinates. See PNG 283.6+25.3 for the main description.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_3918"
     },
@@ -577,6 +634,7 @@
       "discoverer": "Karl Gordon Henize",
       "discovery_year": 1967,
       "best_months": "MayJunJul",
+      "constellation": "Lupus",
       "description": "PNG 306.4+15.6 (Hen 2-47, Henize 2-47) is a faint planetary nebula in Lupus, about 6,000 ly away. It appears around magnitude 13.0 and spans about 1'. Discovered by Karl Gordon Henize in 1967, it is a poorly documented southern planetary nebula with low surface brightness and a southerly declination that makes it inaccessible from France. Astrophotography: Dec -46.3 deg. A southern-only target.",
       "external_link": "https://en.wikipedia.org/wiki/Henize_catalogue"
     },
@@ -587,6 +645,7 @@
       "discoverer": "Edward Charles Pickering",
       "discovery_year": 1891,
       "best_months": "MayJunJul",
+      "constellation": "Lupus",
       "description": "PNG 315.1-13.0 (IC 4406, Retina Nebula) is one of the most striking bipolar planetary nebulae in the catalogue, in Lupus about 2,000 ly away. It appears around magnitude 10.8 and spans about 2'. Discovered by Edward Charles Pickering in 1891, it is seen almost edge-on, with a dark equatorial dust torus and bright Ha and OIII lobes that create its retina-like pattern. Its southern declination makes it inaccessible from France. Astrophotography: Dec -44.1 deg. A southern-sky target only.",
       "external_link": "https://en.wikipedia.org/wiki/IC_4406"
     },
@@ -597,6 +656,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1836,
       "best_months": "MayJunJul",
+      "constellation": "Lupus",
       "description": "PNG 320.9+2.0 (NGC 5882) is a compact, bright planetary nebula in Lupus, about 5,000 ly away. It appears around magnitude 10.5 and spans about 1'. Discovered by John Herschel in 1836, it is one of the brighter planetaries in Lupus and shows strong OIII emission with a compact circular form. Astrophotography: Dec -45.6 deg. It is inaccessible from France and is a southern target.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_5882"
     },
@@ -607,6 +667,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1837,
       "best_months": "JunJulAug",
+      "constellation": "Lupus",
       "description": "PNG 327.8+10.0 (NGC 5979) is a planetary nebula in Lupus, about 5,000 ly away. It appears around magnitude 12.2 and spans about 1'. Discovered by John Herschel in 1837, it is a moderately difficult, little-studied southern planetary nebula with a compact angular size and moderate surface brightness. Astrophotography: Dec -44.1 deg. It is inaccessible from France and belongs to the southern sky.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_5979"
     },
@@ -617,6 +678,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1836,
       "best_months": "JunJulAug",
+      "constellation": "Lupus",
       "description": "PNG 336.2+14.8 (NGC 6026) is a planetary nebula in Lupus, about 6,000 ly away. It appears around magnitude 12.7 and spans about 2'. Discovered by John Herschel in 1836, it is a low-surface-brightness southern planetary nebula with a relatively extended shell for its distance. Astrophotography: Dec -34 deg, reaching only about 8 deg from Remalard, so it is essentially a southern target.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6026"
     },
@@ -627,6 +689,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1836,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "PNG 342.5+27.5 is a duplicate PNG entry associated with NGC 6026, using different Galactic coordinates. See PNG 336.2+14.8 for the main description.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6026"
     },
@@ -637,6 +700,7 @@
       "discoverer": "Friedrich Georg Wilhelm Struve",
       "discovery_year": 1825,
       "best_months": "JunJulAug",
+      "constellation": "Hercules",
       "description": "PNG 348.0+31.4 is a PNG entry associated with an extension or outer halo of NGC 6210, the Turtle Nebula in Hercules. It likely refers to the faint external halo, catalogued separately in some sub-catalogues under different Galactic coordinates. See PNG 63.6+13.9 for the main description.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6210"
     },
@@ -647,6 +711,7 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "PNG 355.4-2.4 (NGC 6369, Little Ghost Nebula) is a bright ring-shaped planetary nebula in Ophiuchus, about 3,000 ly away. It appears around magnitude 11.4 and spans about 1'. Discovered by William Herschel in 1784, it resembles a smaller version of M57, with a bright OIII-dominated circular shell around a darker centre. High-resolution images reveal fine internal condensations and arcs. Astrophotography: Dec -23.8 deg, culminating around 18 deg from Remalard. A low summer target, best imaged at long focal length with OIII and Ha.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6369"
     },
@@ -657,6 +722,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1836,
       "best_months": "JunJulAug",
+      "constellation": "Scorpius",
       "description": "PNG 356.2-4.4 (NGC 6337, Checkerboard Nebula) is a ring-shaped planetary nebula in Scorpius, about 5,000 ly away. It appears around magnitude 12.3 and spans about 1'. Discovered by John Herschel in 1836, it shows asymmetric condensations that create the checkerboard-like appearance seen in high-resolution images. Astrophotography: Dec -38.5 deg, rising only to about 4 deg from Remalard, so it is effectively a southern target.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6337"
     },
@@ -667,6 +733,7 @@
       "discoverer": "John Herschel",
       "discovery_year": 1836,
       "best_months": "JunJulAug",
+      "constellation": "Scorpius",
       "description": "PNG 356.5-3.6 (NGC 6326) is a planetary nebula in Scorpius, about 10,000 ly away, making it one of the most distant entries in this list. It appears around magnitude 12.2 and spans about 1'. Discovered by John Herschel in 1836, it has a complex bipolar structure with helical filaments and knots revealed in Hubble images. Despite its distance, it still shows measurable OIII surface brightness. Astrophotography: Dec -40.1 deg. It is inaccessible from France and is a southern-only target.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_6326"
     }

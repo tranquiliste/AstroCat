@@ -20,7 +20,7 @@ HARDCODED_UI_RE = re.compile(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Audit i18n keys and likely hardcoded UI strings."
+        description="Audit i18n keys, likely hardcoded UI strings, and constellation locale files."
     )
     parser.add_argument(
         "--app-dir",
@@ -42,17 +42,27 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def load_locale_keys(path: Path) -> set[str]:
+def load_string_map(path: Path, label: str) -> dict[str, str]:
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
-        raise SystemExit(f"Missing locale file: {path}")
+        raise SystemExit(f"Missing {label}: {path}")
     except json.JSONDecodeError as exc:
         raise SystemExit(f"Invalid JSON in {path}: {exc}")
 
     if not isinstance(payload, dict):
-        raise SystemExit(f"Locale file must contain a JSON object: {path}")
-    return {str(key) for key in payload.keys()}
+        raise SystemExit(f"{label.capitalize()} must contain a JSON object: {path}")
+
+    result: dict[str, str] = {}
+    for key, value in payload.items():
+        if not isinstance(key, str):
+            continue
+        result[str(key)] = "" if value is None else str(value)
+    return result
+
+
+def load_locale_keys(path: Path) -> set[str]:
+    return set(load_string_map(path, "locale file").keys())
 
 
 def find_used_tr_keys(py_files: list[Path]) -> set[str]:
@@ -74,7 +84,7 @@ def find_hardcoded_candidates(main_file: Path) -> list[tuple[int, str]]:
         start=1,
     ):
         line = raw_line.strip()
-        if not line or "tr(\"" in line:
+        if not line or 'tr("' in line:
             continue
         if ".join(" in line:
             continue
@@ -83,6 +93,37 @@ def find_hardcoded_candidates(main_file: Path) -> list[tuple[int, str]]:
         if HARDCODED_UI_RE.search(line):
             results.append((line_number, line))
     return results
+
+
+def audit_constellation_locales(
+    constellations_dir: Path,
+) -> tuple[dict[str, list[str]], dict[str, list[str]], dict[str, list[str]], dict[str, int]]:
+    locale_files = sorted(constellations_dir.glob("*.json"))
+    if not locale_files:
+        raise SystemExit(f"No constellation locale files found in {constellations_dir}")
+
+    fallback_path = constellations_dir / "en.json"
+    fallback_map = load_string_map(fallback_path, "constellation fallback locale file")
+    expected_keys = set(fallback_map)
+    if not expected_keys:
+        raise SystemExit(f"Constellation fallback locale file is empty: {fallback_path}")
+
+    missing_by_locale: dict[str, list[str]] = {}
+    extra_by_locale: dict[str, list[str]] = {}
+    blank_by_locale: dict[str, list[str]] = {}
+    count_by_locale: dict[str, int] = {}
+
+    for locale_file in locale_files:
+        locale_map = load_string_map(locale_file, "constellation locale file")
+        locale_keys = set(locale_map)
+        missing_by_locale[locale_file.name] = sorted(expected_keys - locale_keys)
+        extra_by_locale[locale_file.name] = sorted(locale_keys - expected_keys)
+        blank_by_locale[locale_file.name] = sorted(
+            key for key in expected_keys & locale_keys if not locale_map.get(key, "").strip()
+        )
+        count_by_locale[locale_file.name] = len(locale_keys)
+
+    return missing_by_locale, extra_by_locale, blank_by_locale, count_by_locale
 
 
 def print_section(title: str, rows: list[str]) -> None:
@@ -121,6 +162,11 @@ def main() -> int:
         missing_by_locale[locale_name] = sorted(key for key in used_keys if key not in keys)
         unused_by_locale[locale_name] = sorted(key for key in keys if key not in used_keys)
 
+    constellation_dir = locales_dir / "constellations"
+    constellation_missing, constellation_extra, constellation_blank, constellation_counts = audit_constellation_locales(
+        constellation_dir
+    )
+
     hardcoded = find_hardcoded_candidates(main_file)
 
     print("i18n audit report")
@@ -130,17 +176,37 @@ def main() -> int:
     print(f"- locale files scanned: {len(locale_files)}")
     for locale_name, keys in locale_keys.items():
         print(f"- {locale_name} keys: {len(keys)}")
+    print(f"- constellation locale files scanned: {len(constellation_counts)}")
+    for locale_name, count in constellation_counts.items():
+        print(f"- {locale_name} constellation names: {count}")
 
     for locale_name in locale_keys:
         print_section(f"\nMissing in {locale_name}", missing_by_locale[locale_name])
     for locale_name in locale_keys:
         print_section(f"\nUnused in {locale_name}", unused_by_locale[locale_name])
 
+    for locale_name in constellation_counts:
+        print_section(
+            f"\nMissing constellations in {locale_name}",
+            constellation_missing[locale_name],
+        )
+        print_section(
+            f"\nUnexpected constellations in {locale_name}",
+            constellation_extra[locale_name],
+        )
+        print_section(
+            f"\nBlank constellation translations in {locale_name}",
+            constellation_blank[locale_name],
+        )
+
     hardcoded_rows = [f"L{line}: {text}" for line, text in hardcoded]
     print_section("\nLikely hardcoded UI strings in main.py", hardcoded_rows)
 
     issue_count = sum(len(v) for v in missing_by_locale.values())
     issue_count += sum(len(v) for v in unused_by_locale.values())
+    issue_count += sum(len(v) for v in constellation_missing.values())
+    issue_count += sum(len(v) for v in constellation_extra.values())
+    issue_count += sum(len(v) for v in constellation_blank.values())
     issue_count += len(hardcoded)
     if args.strict and issue_count > 0:
         return 1

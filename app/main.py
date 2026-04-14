@@ -80,6 +80,7 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from shiboken6 import isValid
 
 from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note
+from constellations import format_constellation_display
 from catalog import PROJECT_ROOT
 from i18n import format_best_months, language_choices, set_ui_locale, tr
 from image_cache import ThumbnailCache
@@ -794,25 +795,7 @@ class CatalogModel(QtCore.QAbstractListModel):
         if row is None:
             return
         item = self._items[row]
-        updated = CatalogItem(
-            object_id=item.object_id,
-            catalog=item.catalog,
-            name=item.name,
-            object_type=item.object_type,
-            distance_ly=item.distance_ly,
-            discoverer=item.discoverer,
-            discovery_year=item.discovery_year,
-            best_months=item.best_months,
-            description=item.description,
-            notes=notes,
-            image_notes=item.image_notes,
-            external_link=item.external_link,
-            wiki_thumbnail=item.wiki_thumbnail,
-            ra_hours=item.ra_hours,
-            dec_deg=item.dec_deg,
-            image_paths=item.image_paths,
-            thumbnail_path=item.thumbnail_path,
-        )
+        updated = replace(item, notes=notes)
         self._items[row] = updated
         index = self.index(row)
         self.dataChanged.emit(index, index, [QtCore.Qt.ItemDataRole.DisplayRole])
@@ -827,25 +810,7 @@ class CatalogModel(QtCore.QAbstractListModel):
             image_notes[image_name] = notes
         else:
             image_notes.pop(image_name, None)
-        updated = CatalogItem(
-            object_id=item.object_id,
-            catalog=item.catalog,
-            name=item.name,
-            object_type=item.object_type,
-            distance_ly=item.distance_ly,
-            discoverer=item.discoverer,
-            discovery_year=item.discovery_year,
-            best_months=item.best_months,
-            description=item.description,
-            notes=item.notes,
-            image_notes=image_notes,
-            external_link=item.external_link,
-            wiki_thumbnail=item.wiki_thumbnail,
-            ra_hours=item.ra_hours,
-            dec_deg=item.dec_deg,
-            image_paths=item.image_paths,
-            thumbnail_path=item.thumbnail_path,
-        )
+        updated = replace(item, image_notes=image_notes)
         self._items[row] = updated
         index = self.index(row)
         self.dataChanged.emit(index, index, [QtCore.Qt.ItemDataRole.DisplayRole])
@@ -859,25 +824,7 @@ class CatalogModel(QtCore.QAbstractListModel):
             (path for path in item.image_paths if path.name == thumbnail_name or path.stem == thumbnail_name),
             item.thumbnail_path,
         )
-        updated = CatalogItem(
-            object_id=item.object_id,
-            catalog=item.catalog,
-            name=item.name,
-            object_type=item.object_type,
-            distance_ly=item.distance_ly,
-            discoverer=item.discoverer,
-            discovery_year=item.discovery_year,
-            best_months=item.best_months,
-            description=item.description,
-            notes=item.notes,
-            image_notes=item.image_notes,
-            external_link=item.external_link,
-            wiki_thumbnail=item.wiki_thumbnail,
-            ra_hours=item.ra_hours,
-            dec_deg=item.dec_deg,
-            image_paths=item.image_paths,
-            thumbnail_path=thumbnail_path,
-        )
+        updated = replace(item, thumbnail_path=thumbnail_path)
         self._items[row] = updated
         self._pixmaps.pop(item_key, None)
         index = self.index(row)
@@ -1658,6 +1605,9 @@ class DetailPanel(QtWidgets.QWidget):
                 metadata_lines.append(tr("detail.metadata.discoverer", value=item.discoverer))
         if item.best_months:
             metadata_lines.append(tr("detail.metadata.best_visibility", value=self._format_months(item.best_months)))
+        constellation_display = format_constellation_display(item.constellation)
+        if constellation_display:
+            metadata_lines.append(tr("detail.metadata.constellation", value=constellation_display))
         self.metadata.setText("\n".join(metadata_lines))
         self.description.setPlainText(item.description or "")
         if item.external_link:
@@ -2126,6 +2076,7 @@ class MainWindow(QtWidgets.QMainWindow):
             "discoverer",
             "discovery_year",
             "best_months",
+            "constellation",
             "description",
             "external_link",
             "ra_hours",

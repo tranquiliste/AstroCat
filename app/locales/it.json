@@ -53,6 +53,7 @@
   "detail.metadata.discoverer": "Scopritore: {value}",
   "detail.metadata.discoverer_year": "Scopritore: {value} ({year})",
   "detail.metadata.best_visibility": "Migliore visibilità: {value}",
+  "detail.metadata.constellation": "Costellazione: {value}",
   "detail.image.wikipedia_preview": "Anteprima Wikipedia (non acquisita) | {size}",
   "detail.image.none": "Nessuna immagine disponibile",
   "detail.image.loading": "Caricamento immagine... | File: {name}",

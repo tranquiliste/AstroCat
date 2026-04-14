@@ -7,6 +7,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "SepOctNov",
+      "constellation": "Cepheus",
       "description": "LDN 1 (Cepheus Dark Nebula) is a dark nebula in the constellation Cepheus, about 500 ly away. It is a dark object with no intrinsic magnitude of its own, with maximum opacity in the Lynds catalogue. It was catalogued by Beverly Turner Lynds in 1962 in her photographic survey of dark nebulae based on the National Geographic Society - Palomar Observatory Sky Survey (POSS) plates. LDN 1 is one of the northernmost dark clouds in the catalogue and belongs to the Cepheus molecular complex. It stands out in silhouette against the diffuse background of the northern Milky Way and the faint background nebulosity of the region. This kind of object is a dense molecular cloud undergoing gravitational collapse and may host the earliest stages of star formation. Astrophotography: Dec +77 deg, circumpolar from France all year round. Ha background imaging or LRGB on a dense star field works well. The object reveals itself through contrast with the surrounding nebulosity; a background rich in Ha emission or a star-crowded region increases the visibility of the dark silhouette. Long integration is recommended to go below the sky background.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
     },
@@ -17,6 +18,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "SepOctNov",
+      "constellation": "Cassiopeia",
       "description": "LDN 43 (RNO 1) is a dark nebula in the Cassiopeia / Cepheus region, about 520 ly away. It is a maximum-opacity dark object (Lynds class 6). It was catalogued by Beverly Turner Lynds in 1962. LDN 43 is associated with RNO 1 (Red Nebulous Object 1), a small red reflection nebula produced by an embedded Class 0/I protostar. This kind of protostellar glowing object is rare and scientifically valuable because it traces starlight scattered through the cold dust of the parent cocoon. The combination of dark nebula plus RNO creates a striking contrast in deep colour imaging. Astrophotography: Dec +57 deg, very well placed in autumn from France. Moderate size (20'). Deep LRGB or Ha + LRGB can reveal both the red RNO nebulosity and the surrounding dark silhouette. Long integration is recommended (>6h) to bring out the faint diffuse red nebulosity.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
     },
@@ -27,6 +29,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "MayJunJul",
+      "constellation": "Serpens",
       "description": "LDN 183 (Black Soul Nebula) is a dark nebula in the constellation Serpens Cauda, about 110 ly away, making it one of the closest dense molecular clouds to Earth. It was catalogued by Beverly Turner Lynds in 1962 and is often discussed alongside nearby dark Barnard clouds in the same region. LDN 183 is a dense pre-stellar core in near-critical Bonnor-Ebert equilibrium and is often cited as an archetype of a pre-collapse Bok globule. At only 110 ly, it completely blocks the light of background stars across a field about 40' wide. Its proximity makes it a prime scientific target for studying the chemistry of cold clouds (T about 10 K). Astrophotography: Dec -3 deg, an equatorial target accessible from France in summer with culmination around 50 deg. The contrast against the rich Serpens / Milky Way star field is spectacular. In deep LRGB imaging, the cloud appears as an absolute hole in the star field. Ha background is optional. Avoid full Moon periods.",
       "external_link": "https://en.wikipedia.org/wiki/LDN_183"
     },
@@ -37,6 +40,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "JunJulAug",
+      "constellation": "Sagittarius",
       "description": "LDN 204 (Pipe Nebula Stem) is a dark nebula in the constellation Ophiuchus, about 450 ly away. It is a maximum-opacity object (Lynds class 6) spanning roughly 60'. It was catalogued by Beverly Turner Lynds in 1962. LDN 204 corresponds to the stem, or pipe, of the famous Pipe Nebula, a complex of dark clouds extending across several degrees toward the Galactic Centre. The Pipe Nebula as a whole includes LDN 204 as the stem, the Bowl to the west (B59), and several dense numbered cores such as B68, B69 and B78. The stem runs roughly east-west and stands out clearly against the dense Milky Way star field in Sagittarius and Ophiuchus. Astrophotography: Dec -26 deg, culmination around 16 deg from Remalard (lat. 48.4 deg N), so it is low but still imageable in summer. A wide field is required to capture the multi-degree structure. LRGB on a Milky Way background works well; Ha is optional to reveal background nebulosity. Prefer steady summer nights with low atmospheric turbulence.",
       "external_link": "https://en.wikipedia.org/wiki/Pipe_Nebula"
     },
@@ -47,6 +51,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "NovDecJan",
+      "constellation": "Taurus",
       "description": "LDN 694 is a dense Bok globule in the constellation Taurus, about 820 ly away. It is a compact dark object about 15' across with maximum opacity. It was catalogued by Beverly Turner Lynds in 1962. LDN 694 is a well-studied pre-stellar core within the Taurus Molecular Cloud (TMC) star-forming complex. This dense globule shows the chemical signatures typical of cold pre-collapse cores, including CO depletion, enhanced N2H+, and a Bonnor-Ebert density profile. Its compact size (15') makes it a demanding target, but its strong contrast against the Taurus star field makes it identifiable even with modest equipment. Astrophotography: Dec +43 deg, very well placed in winter from France. Because it is compact (15'), a longer focal length is preferable. Deep LRGB works well for star-versus-darkness contrast. The rich TMC background enhances the globule's shape, and it can also be framed in a wider field with other dark Taurus structures.",
       "external_link": "https://en.wikipedia.org/wiki/LDN_694"
     },
@@ -57,6 +62,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "LDN 1235 (Dark Shark Nebula) is a dark nebula in the constellation Cepheus, about 650 ly away. It is a high-opacity object spanning about 60'. It was catalogued by Beverly Turner Lynds in 1962. Its evocative shape, resembling a swimming shark with fins and open jaws, gave rise to its popular astrophotography nickname. It belongs to the broad Cepheus Flare dark-cloud complex, a region of moderate low-mass star formation. The same field often includes vdB 149 and vdB 150, two blue reflection nebulae that dramatically increase the contrast with the shark-shaped dark silhouette. Astrophotography: Dec +77 deg, strictly circumpolar from France. It is an excellent autumn target. A wide field (60' or more) is recommended to include the nearby blue vdB nebulae. Deep LRGB is essential because the combination of blue reflection nebulosity and dark silhouette is the defining photographic signal. About 6-10 hours of integration helps reveal the subtle structure.",
       "external_link": "https://en.wikipedia.org/wiki/Dark_Shark_Nebula"
     },
@@ -67,6 +73,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "LDN 1251 is an extended dark molecular cloud in the constellation Cepheus, about 300 ly away. It is a maximum-opacity object spanning roughly 80'. It was catalogued by Beverly Turner Lynds in 1962. LDN 1251 is a dark filament within the Cepheus Flare complex, one of the most active low-mass star-forming cloud systems in the northern sky. It contains several dense cores, Herbig-Haro objects and bipolar outflows associated with Class 0 protostars. Its large extent (80') makes it a favourite target for wide-field imagers. The surrounding field often includes faint Integrated Flux Nebula (IFN) visible in deep imaging. Astrophotography: Dec +75 deg, circumpolar from France. A wide field is recommended (80'). Very deep LRGB is needed to pick up the IFN and the surrounding diffuse nebulosity. Long integration (>8h) is required. Low light pollution, such as Bortle 4 skies at Remalard, is a major advantage for this kind of diffuse target.",
       "external_link": "https://en.wikipedia.org/wiki/LDN_1251"
     },
@@ -77,6 +84,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "SepOctNov",
+      "constellation": "Cassiopeia",
       "description": "LDN 1333 (Cassiopeia Shark) is a dark nebula in the constellation Cassiopeia, about 700 ly away. It is a high-opacity object spanning about 40'. It was catalogued by Beverly Turner Lynds in 1962. This dark cloud belongs to the molecular material of the Local Arm in the direction of Cassiopeia, a Milky Way region especially rich in cold clouds and diffuse nebulae. Its elongated, curved shape suggests a shark-like silhouette, in clear visual analogy with the more northerly LDN 1235. Deep images often reveal faint background IFN in the area, and subtle reflection nebulae may also appear in the field. Astrophotography: Dec +76 deg, strictly circumpolar from France. It is a good autumn target. A field of 40' or wider is recommended to include the surrounding structures. Deep LRGB with long integration helps reveal the IFN and faint diffuse background nebulosity. It can also be paired with LDN 1235 in a mosaic.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
     },
@@ -87,6 +95,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "LDN 1622 (Bogeyman Nebula) is a dark nebula in the constellation Orion, about 400-500 ly away. It is a maximum-opacity object spanning roughly 60'. It was catalogued by Beverly Turner Lynds in 1962. LDN 1622 is one of the most photographed dark nebulae in the northern sky. Its humanoid silhouette, often compared to a ghost or bogeyman with outstretched arms, stands out dramatically against the orange-red background of Barnard's Loop (Sh2-276). It belongs to the Orion OB1 dark-cloud complex but is physically closer to us than the Great Orion Nebula. It is not an emission nebula: it is purely dark and is visible only by extinguishing the light sources behind it. Astrophotography: Dec +1.5 deg, accessible from France in winter with culmination around 42 deg. The red-orange Ha background of Barnard's Loop is essential to reveal the shape. Ha + LRGB imaging works well: Ha brings out the background, while LRGB adds natural colour. A wide field is recommended to include the curve of Barnard's Loop.",
       "external_link": "https://en.wikipedia.org/wiki/LDN_1622"
     },
@@ -97,6 +106,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "LDN 1630 (Horsehead Region) is a complex of dark nebulae in the constellation Orion, about 1,350 ly away. It is a maximum-opacity object spanning about 40'. It was catalogued by Beverly Turner Lynds in 1962; the B33 globule, the Horsehead itself, had already been identified by Williamina Fleming in 1888 on Harvard Observatory photographic plates. LDN 1630 refers to the parent dark cloud of the famous Barnard 33, the Horsehead Nebula silhouetted against IC 434, one of the most iconic horse-shaped nebulae in the sky. The Horsehead is a pillar of gas and dust standing out against the red glow of the IC 434 emission nebula, ionized by Sigma Orionis. Nearby are NGC 2023, a blue reflection nebula, and the Flame Nebula (NGC 2024). Astrophotography: Dec -2 deg, culmination around 40 deg from Remalard. This is an iconic winter target. Ha is useful for the red IC 434 background, with LRGB for colour and NGC 2023. A longer focal length is recommended to resolve the Horsehead itself, whose relief is about 15'. Around 6-10 hours of integration is typically appropriate.",
       "external_link": "https://en.wikipedia.org/wiki/Horsehead_Nebula"
     },
@@ -107,6 +117,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "MayJunJul",
+      "constellation": "Ophiuchus",
       "description": "LDN 1689 is a dense dark molecular cloud in the constellation Ophiuchus, about 140 ly away, making it one of the star-forming clouds closest to the Sun. It is a maximum-opacity object spanning roughly 120'. It was catalogued by Beverly Turner Lynds in 1962. LDN 1689 is part of the rho Ophiuchi-Lupus complex, the nearest low-mass star-formation nursery to Earth. This cloud contains several dense cores, including LDN 1689N and 1689S, which host Class 0 protostars such as IRAS 16293-2422, one of the best-studied protostellar systems for prebiotic chemistry. Its very large angular size (120') and exceptional proximity make it a major scientific target. Astrophotography: Dec -24 deg, culmination around 18 deg from Remalard, so it remains low but can be reached briefly in summer. A very wide field is required. Deep LRGB on the rich Ophiuchus star field works well, and the reddish background nebulosity of the rho Oph region adds visual context. Best attempted on stable summer nights.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_1688"
     },
@@ -117,6 +128,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "MayJunJul",
+      "constellation": "Virgo",
       "description": "LDN 1780 (Musca Dark Cloud) is an isolated dark molecular cloud in the Virgo / Hydra region, about 100-110 ly away. It is a high-opacity object spanning about 30'. It was catalogued by Beverly Turner Lynds in 1962. LDN 1780 is notable for its isolation: unlike most molecular clouds, it is not clearly associated with any nearby large star-forming complex. It is sometimes described as a translucent cloud because its outer edges are less opaque than those of more typical globules. Faint bluish reflection nebulosity has been detected on its illuminated sides, lit by diffuse Galactic light. Its elongated shape suggests a fly or other insect in flight. Astrophotography: Dec -35 deg, with a maximum altitude of only about 7 deg from Remalard, so it is essentially inaccessible from most French latitudes. It is better suited to Mediterranean or more southerly observing sites. Deep LRGB on a rich star field is appropriate. Southern summer nights are best.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_dark_nebulae"
     },
@@ -127,6 +139,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1962,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "LDN 1795 (Barnard 72, Snake Nebula) is a winding dark nebula in the constellation Ophiuchus, about 650 ly away. It is a maximum-opacity object spanning about 30'. It was catalogued by Beverly Turner Lynds in 1962, while the B72 structure had already been identified in 1919 by Edward Emerson Barnard in his catalogue of dark regions. B72 is one of the most photogenic dark nebulae in the sky: its sinuous S-shape crossing the dense Sagittarius Milky Way star field gave rise to the common name Snake Nebula. It extends for roughly 30' and is surrounded by other dark structures in the same complex, including B68, B69, B70 and B74. The extremely rich background star field toward the Galactic Centre maximises the silhouette contrast. Astrophotography: Dec -23 deg, culmination around 19 deg from Remalard, so it is low but still imageable in summer. The exceptionally dense Galactic Centre star field is the real strength of this target. Wide-field LRGB is appropriate, with optional Ha. Short summer nights mean it is best captured near culmination.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard_72"
     }

@@ -7,10 +7,11 @@
       "discoverer": "John Frederick William Herschel",
       "discovery_year": 1831,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "NGC 188 (also known as Caldwell 1 or the Polarissima Cluster) is an open cluster in the constellation Cepheus. It was discovered by John Herschel in 1825.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_188",
       "ra_hours": 0.7909805555555556,
-      "dec_deg": 85.26963888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_188"
+      "dec_deg": 85.26963888888889
     },
     "C2": {
       "name": "Bow-Tie nebula",
@@ -19,10 +20,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1788,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "NGC 40 (also known as the Bow-Tie Nebula and Caldwell 2) is a planetary nebula discovered by William Herschel on November 25, 1788, and is composed of hot gas around a dying star. The star has ejected its outer layer which has left behind a small, hot star.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_40",
       "ra_hours": 0.21695277777777777,
-      "dec_deg": 72.52194444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_40"
+      "dec_deg": 72.52194444444444
     },
     "C3": {
       "name": "",
@@ -31,10 +33,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1793,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4236",
       "ra_hours": 12.278366666666667,
-      "dec_deg": 69.46258333333334,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4236"
+      "dec_deg": 69.46258333333334
     },
     "C4": {
       "name": "Iris Nebula",
@@ -43,10 +46,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1794,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "Identified as IR cirrus by Strauss, et al (1992, ApJS, 83, 29).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7023",
       "ra_hours": 21.02656111111111,
-      "dec_deg": 68.16955555555556,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7023"
+      "dec_deg": 68.16955555555556
     },
     "C5": {
       "name": "",
@@ -55,10 +59,11 @@
       "discoverer": "William Frederick Denning",
       "discovery_year": 1892,
       "best_months": "SepOctNov",
+      "constellation": "Camelopardalis",
       "description": "IC 342 (also known as Caldwell 5) is an intermediate spiral galaxy in the constellation Camelopardalis, located relatively close to the Milky Way. Despite its size and actual brightness, its location behind dusty areas near the galactic equator makes it difficult to observe, leading to the nickname \"The Hidden Galaxy\", though it can readily be detected even with binoculars.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_342",
       "ra_hours": 3.7801388888888887,
-      "dec_deg": 68.09636111111111,
-      "external_link": "https://en.wikipedia.org/wiki/IC_342"
+      "dec_deg": 68.09636111111111
     },
     "C6": {
       "name": "Cat's Eye Nebula",
@@ -67,10 +72,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1786,
       "best_months": "AprMayJun",
+      "constellation": null,
       "description": "The fainter outer shell has a diameter of 5.5 arcmin ca.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6543",
       "ra_hours": 17.975941666666664,
-      "dec_deg": 66.63319444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6543"
+      "dec_deg": 66.63319444444444
     },
     "C7": {
       "name": "",
@@ -79,10 +85,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1788,
       "best_months": "NovDecJan",
+      "constellation": "Camelopardalis",
       "description": "NGC 2403 (also known as Caldwell 7) is an intermediate spiral galaxy in the constellation Camelopardalis. It is an outlying member of the M81 Group, and is approximately 8 million light-years distant.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2403",
       "ra_hours": 7.614277777777778,
-      "dec_deg": 65.60255555555555,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2403"
+      "dec_deg": 65.60255555555555
     },
     "C8": {
       "name": "",
@@ -91,10 +98,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "AugSepOct",
+      "constellation": "Cassiopeia",
       "description": "NGC 559 (also known as Caldwell 8) is an open cluster and Caldwell object in the constellation Cassiopeia. It shines at magnitude +9.5.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_559",
       "ra_hours": 1.4925472222222222,
-      "dec_deg": 63.30144444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_559"
+      "dec_deg": 63.30144444444444
     },
     "C9": {
       "name": "Cave Nebula",
@@ -103,11 +111,12 @@
       "discoverer": null,
       "discovery_year": null,
       "best_months": "JulAugSep",
+      "constellation": "Cepheus",
       "description": "Sh 2-155 (also designated Caldwell 9, Sharpless 155 or S155, or LBN529) is a diffuse nebula in the constellation Cepheus, within a larger nebula complex containing emission, reflection, and dark nebulosity. It is widely known as the Cave Nebula, though that name was applied earlier to Ced 201, a different nebula in Cepheus.",
-      "ra_hours": 22.965,
-      "dec_deg": 62.51833333333333,
       "external_link": "https://en.wikipedia.org/wiki/Sh_2-155",
-      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/CaveHunterWilson.jpg/960px-CaveHunterWilson.jpg"
+      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/CaveHunterWilson.jpg/960px-CaveHunterWilson.jpg",
+      "ra_hours": 22.965,
+      "dec_deg": 62.51833333333333
     },
     "C10": {
       "name": "",
@@ -116,10 +125,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "AugSepOct",
+      "constellation": "Cassiopeia",
       "description": "NGC 663 (also known as Caldwell 10) is a young open cluster located 8,800 light years from Earth in the constellation of Cassiopeia. It has an estimated 400 stars and spans about a quarter of a degree across the sky.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_663",
       "ra_hours": 1.7711249999999998,
-      "dec_deg": 61.21819444444445,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_663"
+      "dec_deg": 61.21819444444445
     },
     "C11": {
       "name": "Bubble Nebula",
@@ -128,10 +138,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "JulAugSep",
+      "constellation": "Cassiopeia",
       "description": "NGC 7635, also known as the Bubble Nebula, Sharpless 162, or Caldwell 11, is an H II region emission nebula in the constellation Cassiopeia. It lies close to the open cluster Messier 52.",
+      "external_link": "https://en.wikipedia.org/wiki/Bubble_Nebula",
       "ra_hours": 23.346,
-      "dec_deg": 61.212361111111115,
-      "external_link": "https://en.wikipedia.org/wiki/Bubble_Nebula"
+      "dec_deg": 61.212361111111115
     },
     "C12": {
       "name": "Fireworks Galaxy",
@@ -140,10 +151,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1798,
       "best_months": "JunJulAug",
+      "constellation": "Ursa Major",
       "description": "NGC 6946, sometimes referred to as the Fireworks Galaxy, is a grand design, face-on intermediate spiral galaxy with a small bright nucleus, whose location in the sky straddles the boundary between the northern constellations of Cepheus and Cygnus. Its distance from Earth is about 25.2 million light-years or 7.72 megaparsecs, similar to the distance of M101 (NGC 5457) in the constellation Ursa Major.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6946",
       "ra_hours": 20.5812,
-      "dec_deg": 60.15391666666667,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6946"
+      "dec_deg": 60.15391666666667
     },
     "C13": {
       "name": "Owl Cluster",
@@ -152,10 +164,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "AugSepOct",
+      "constellation": "Cassiopeia",
       "description": "NGC 457 (also designated Caldwell 13, and known as the Dragonfly Cluster, E.T. Cluster, Owl Cluster, Kachina Doll Cluster or Phi Cassiopeiae Cluster) is an open star cluster in the constellation Cassiopeia.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_457",
       "ra_hours": 1.325736111111111,
-      "dec_deg": 58.29069444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_457"
+      "dec_deg": 58.29069444444444
     },
     "C14": {
       "name": "Double Cluster",
@@ -164,11 +177,12 @@
       "discoverer": null,
       "discovery_year": null,
       "best_months": "SepOctNov",
+      "constellation": "Perseus",
       "description": "The Double Cluster, also known as Caldwell 14, consists of the open clusters NGC 869 and NGC 884 (often designated h Persei and χ (chi) Persei, respectively), which are close together in the constellation Perseus. Both visible to the naked eye, NGC 869 and NGC 884 lie at a distance of about 7,500 light-years (2,300 pc) in the Perseus Arm of the Milky Way galaxy.",
-      "ra_hours": 2.345,
-      "dec_deg": 57.1375,
       "external_link": "https://en.wikipedia.org/wiki/Double_Cluster",
-      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Double_Cluster.jpg/960px-Double_Cluster.jpg"
+      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Double_Cluster.jpg/960px-Double_Cluster.jpg",
+      "ra_hours": 2.345,
+      "dec_deg": 57.1375
     },
     "C15": {
       "name": "Blinking Planetary",
@@ -177,10 +191,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1793,
       "best_months": "MayJunJul",
+      "constellation": "Cygnus",
       "description": "NGC 6826 (also known as Caldwell 15) is a planetary nebula located  in the constellation Cygnus. It is commonly referred to as the \"Blinking Planetary\", although many other nebulae exhibit such \"blinking\".",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6826",
       "ra_hours": 19.746697222222224,
-      "dec_deg": 50.52502777777778,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6826"
+      "dec_deg": 50.52502777777778
     },
     "C16": {
       "name": "",
@@ -189,10 +204,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1788,
       "best_months": "JulAugSep",
+      "constellation": "Lacerta",
       "description": "NGC 7243 (also known as Caldwell 16) is an open cluster and Caldwell object in the constellation Lacerta. It shines at magnitude +6.4.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7243",
       "ra_hours": 22.252383333333334,
-      "dec_deg": 49.8975,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7243"
+      "dec_deg": 49.8975
     },
     "C17": {
       "name": "",
@@ -201,10 +217,11 @@
       "discoverer": "John Frederick William Herschel",
       "discovery_year": 1829,
       "best_months": "AugSepOct",
+      "constellation": "Cassiopeia",
       "description": "NGC 147 (also known as DDO3 or Caldwell 17) is a dwarf spheroidal galaxy about 2.58 Mly away in the constellation Cassiopeia.  NGC 147 is a member of the Local Group of galaxies and a satellite galaxy of the Andromeda Galaxy (M31).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_147",
       "ra_hours": 0.5533666666666667,
-      "dec_deg": 48.50875,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_147"
+      "dec_deg": 48.50875
     },
     "C18": {
       "name": "",
@@ -213,10 +230,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "AugSepOct",
+      "constellation": "Cassiopeia",
       "description": "NGC 185 (also known as Caldwell 18) is a dwarf spheroidal galaxy located 2.08 million light-years from Earth, appearing in the constellation Cassiopeia. It is a member of the Local Group, and is a satellite of the Andromeda Galaxy (M31).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_185",
       "ra_hours": 0.6494361111111111,
-      "dec_deg": 48.33738888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_185"
+      "dec_deg": 48.33738888888889
     },
     "C19": {
       "name": "Cocoon Nebula",
@@ -225,10 +243,11 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1893,
       "best_months": "JunJulAug",
+      "constellation": "Cygnus",
       "description": "IC 5146 (also Caldwell 19, Sh 2-125, Barnard 168, and the Cocoon Nebula) is a reflection/emission nebula and Caldwell object in the constellation Cygnus. The NGC description refers to IC 5146 as a cluster of 9.5 mag stars involved in a bright and dark nebula.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_5146",
       "ra_hours": 21.89132222222222,
-      "dec_deg": 47.26691666666667,
-      "external_link": "https://en.wikipedia.org/wiki/IC_5146"
+      "dec_deg": 47.26691666666667
     },
     "C20": {
       "name": "North America Nebula",
@@ -237,10 +256,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1786,
       "best_months": "JunJulAug",
+      "constellation": "Cygnus",
       "description": "The North America Nebula (NGC 7000 or Caldwell 20) is an emission nebula in the constellation Cygnus, close to Deneb (the tail of the swan and its brightest star) in the night sky. It is named because its shape resembles North America.",
+      "external_link": "https://en.wikipedia.org/wiki/North_America_Nebula",
       "ra_hours": 20.988094444444446,
-      "dec_deg": 44.528777777777776,
-      "external_link": "https://en.wikipedia.org/wiki/North_America_Nebula"
+      "dec_deg": 44.528777777777776
     },
     "C21": {
       "name": "",
@@ -249,10 +269,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1788,
       "best_months": "FebMarApr",
+      "constellation": "Canes Venatici",
       "description": "NGC 4449, also known as Caldwell 21, is an irregular Magellanic type galaxy in the constellation Canes Venatici, being located about 13 million light-years away. It was discovered by German-British astronomer William Herschel on 27 April 1788.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4449",
       "ra_hours": 12.46975,
-      "dec_deg": 44.09363888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4449"
+      "dec_deg": 44.09363888888889
     },
     "C22": {
       "name": "Copeland's Blue Snowball",
@@ -261,10 +282,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JulAugSep",
+      "constellation": "Andromeda",
       "description": "NGC 7662 is a planetary nebula located in the northern constellation Andromeda. It is known as the Blue Snowball Nebula, Snowball Nebula, and Caldwell 22.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7662",
       "ra_hours": 23.43163888888889,
-      "dec_deg": 42.53494444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7662"
+      "dec_deg": 42.53494444444444
     },
     "C23": {
       "name": "",
@@ -273,10 +295,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "SepOctNov",
+      "constellation": "Andromeda",
       "description": "NGC 891 (also known as Caldwell 23, the Silver Sliver Galaxy, and the Outer Limits Galaxy) is an edge-on unbarred spiral galaxy about 30 million light-years away in the constellation Andromeda. It was discovered by William Herschel on October 6, 1784.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_891",
       "ra_hours": 2.3759472222222224,
-      "dec_deg": 42.34913888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_891"
+      "dec_deg": 42.34913888888889
     },
     "C24": {
       "name": "Perseus A",
@@ -285,10 +308,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1786,
       "best_months": "SepOctNov",
+      "constellation": "Perseus",
       "description": "NGC 1275 (also known as Perseus A or Caldwell 24) is a type 1.5 Seyfert galaxy located around 225 million light-years away from Earth in the direction of the constellation of Perseus. NGC 1275 is a member of the large Perseus Cluster of galaxies.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_1275",
       "ra_hours": 3.3300444444444444,
-      "dec_deg": 41.511694444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_1275"
+      "dec_deg": 41.511694444444444
     },
     "C25": {
       "name": "Intergalactic Wanderer",
@@ -297,10 +321,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1788,
       "best_months": "NovDecJan",
+      "constellation": "Lynx",
       "description": "NGC 2419 (also known as Caldwell 25) is a globular cluster in the constellation Lynx. It was discovered by William Herschel on December 31, 1788.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2419",
       "ra_hours": 7.635541666666666,
-      "dec_deg": 38.87997222222222,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2419"
+      "dec_deg": 38.87997222222222
     },
     "C26": {
       "name": "",
@@ -309,10 +334,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "FebMarApr",
+      "constellation": "Canes Venatici",
       "description": "NGC 4244, also known as Caldwell 26, is an edge-on loose spiral galaxy in  the constellation Canes Venatici, and is part of the M94 Group or Canes Venatici I Group, a galaxy group relatively close to the Local Group containing the Milky Way. In the sky, it is located near the yellow naked-eye star, Beta Canum Venaticorum, but also near the barred spiral galaxy NGC 4151 and irregular galaxy NGC 4214.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4244",
       "ra_hours": 12.291572222222221,
-      "dec_deg": 37.807111111111105,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4244"
+      "dec_deg": 37.807111111111105
     },
     "C27": {
       "name": "Crescent Nebula",
@@ -321,10 +347,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1792,
       "best_months": "JunJulAug",
+      "constellation": "Cygnus",
       "description": "The Crescent Nebula (also known as NGC 6888, Caldwell 27, Sharpless 105) is an emission nebula in the constellation Cygnus, about 5000 light-years away from Earth. It was discovered by William Herschel in 1792.",
+      "external_link": "https://en.wikipedia.org/wiki/Crescent_Nebula",
       "ra_hours": 20.201819444444443,
-      "dec_deg": 38.35494444444445,
-      "external_link": "https://en.wikipedia.org/wiki/Crescent_Nebula"
+      "dec_deg": 38.35494444444445
     },
     "C28": {
       "name": "",
@@ -333,10 +360,11 @@
       "discoverer": "Giovan Battista Hodierna",
       "discovery_year": 1654,
       "best_months": "AugSepOct",
+      "constellation": "Andromeda",
       "description": "NGC 752 (also known as Caldwell 28) is an open cluster in the constellation Andromeda. The cluster was discovered by Caroline Herschel in 1783 and cataloged by her brother William Herschel in 1786, although an object that may have been NGC 752 was described by Giovanni Batista Hodierna before 1654.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_752",
       "ra_hours": 1.9596722222222223,
-      "dec_deg": 37.83338888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_752"
+      "dec_deg": 37.83338888888889
     },
     "C29": {
       "name": "",
@@ -345,10 +373,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": "Canes Venatici",
       "description": "NGC 5005, also known as Caldwell 29, is an inclined spiral galaxy in the constellation Canes Venatici. It was discovered by German-British astronomer William Herschel on 1 May 1785.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_5005",
       "ra_hours": 13.182286111111111,
-      "dec_deg": 37.059194444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_5005"
+      "dec_deg": 37.059194444444444
     },
     "C30": {
       "name": "",
@@ -357,10 +386,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JulAugSep",
+      "constellation": "Pegasus",
       "description": "NGC 7331, also known as Caldwell 30, is an unbarred spiral galaxy about 13.427 megaparsecs (43.79 million light-years) away in the constellation Pegasus.  It was discovered by William Herschel on 6 September 1784.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7331",
       "ra_hours": 22.617780555555555,
-      "dec_deg": 34.415527777777775,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7331"
+      "dec_deg": 34.415527777777775
     },
     "C31": {
       "name": "Flaming Star Nebula",
@@ -369,10 +399,11 @@
       "discoverer": "John Martin Schaeberle",
       "discovery_year": 1892,
       "best_months": "OctNovDec",
+      "constellation": "Auriga",
       "description": "IC 405 (also known as the Flaming Star Nebula, SH 2-229, or Caldwell 31) is an emission and reflection nebula in the constellation Auriga north of the celestial equator, surrounding the bluish, irregular variable star AE Aurigae. It shines at magnitude +6.0.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_405",
       "ra_hours": 5.274855555555556,
-      "dec_deg": 34.35616666666667,
-      "external_link": "https://en.wikipedia.org/wiki/IC_405"
+      "dec_deg": 34.35616666666667
     },
     "C32": {
       "name": "Whale Galaxy",
@@ -381,10 +412,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "FebMarApr",
+      "constellation": "Canes Venatici",
       "description": "NGC 4631 (also known as the Whale Galaxy or Caldwell 32) is a  barred spiral galaxy in the constellation Canes Venatici about 30 million light years away from Earth. It was discovered on 20 March 1787 by German-British astronomer William Herschel.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4631",
       "ra_hours": 12.702224999999999,
-      "dec_deg": 32.5415,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4631"
+      "dec_deg": 32.5415
     },
     "C33": {
       "name": "Eastern Veil",
@@ -393,10 +425,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6992",
       "ra_hours": 20.938630555555555,
-      "dec_deg": 31.74275,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6992"
+      "dec_deg": 31.74275
     },
     "C34": {
       "name": "Veil Nebula",
@@ -405,10 +438,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JunJulAug",
+      "constellation": "Cygnus",
       "description": "The Veil Nebula is a cloud of heated and ionized gas and dust in the constellation Cygnus.\nIt constitutes the brightest parts of the visible portion of the Cygnus Loop, a supernova remnant, many portions of which have acquired their own individual names and catalogue identifiers.",
+      "external_link": "https://en.wikipedia.org/wiki/Veil_Nebula",
       "ra_hours": 20.76616111111111,
-      "dec_deg": 30.595138888888886,
-      "external_link": "https://en.wikipedia.org/wiki/Veil_Nebula"
+      "dec_deg": 30.595138888888886
     },
     "C35": {
       "name": "",
@@ -417,10 +451,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "NGC 4889 (also known as Caldwell 35) is an E4 supergiant elliptical galaxy. It was discovered in 1785 by the British astronomer Frederick William Herschel I, who catalogued it as a bright, nebulous patch.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4889",
       "ra_hours": 13.002258333333334,
-      "dec_deg": 27.976999999999997,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4889"
+      "dec_deg": 27.976999999999997
     },
     "C36": {
       "name": "",
@@ -429,10 +464,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": "Coma Berenices",
       "description": "NGC 4559 (also known as Caldwell 36) is an intermediate spiral galaxy with a weak inner ring structure in the constellation Coma Berenices. Its velocity with respect to the cosmic microwave background is 1,096±20 km/s, which corresponds to a Hubble distance of 52.7 ± 3.8 Mly (16.17 ± 1.17 Mpc).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4559",
       "ra_hours": 12.599347222222223,
-      "dec_deg": 27.96,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4559"
+      "dec_deg": 27.96
     },
     "C37": {
       "name": "",
@@ -441,10 +477,11 @@
       "discoverer": null,
       "discovery_year": null,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "Identification as NGC 6682 is not certain.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6882",
       "ra_hours": 20.19885,
-      "dec_deg": 26.488805555555558,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6882"
+      "dec_deg": 26.488805555555558
     },
     "C38": {
       "name": "Needle Galaxy",
@@ -453,10 +490,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": "Coma Berenices",
       "description": "NGC 4565 (also known as the Needle Galaxy or Caldwell 38) is an edge-on spiral galaxy about 30 to 50 million light-years away in the constellation Coma Berenices. It lies close to the North Galactic Pole and has a visual magnitude of approximately 10.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4565",
       "ra_hours": 12.605772222222221,
-      "dec_deg": 25.98766666666667,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4565"
+      "dec_deg": 25.98766666666667
     },
     "C39": {
       "name": "Eskimo Nebula",
@@ -465,10 +503,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "NovDecJan",
+      "constellation": null,
       "description": "The Eskimo Nebula (NGC 2392), also known as the Clown Face Nebula, Lion Nebula, or Caldwell 39, is a bipolar double-shell planetary nebula (PN). It was discovered by astronomer William Herschel in 1787.",
+      "external_link": "https://en.wikipedia.org/wiki/Eskimo_Nebula",
       "ra_hours": 7.486322222222222,
-      "dec_deg": 20.91183333333333,
-      "external_link": "https://en.wikipedia.org/wiki/Eskimo_Nebula"
+      "dec_deg": 20.91183333333333
     },
     "C40": {
       "name": "",
@@ -477,10 +516,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JanFebMar",
+      "constellation": "Leo",
       "description": "NGC 3632 (also known as Caldwell 40) and NGC 3626 is an unbarred lenticular galaxy and Caldwell object in the constellation Leo. It was discovered by William Herschel, on 14 March 1784.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3632",
       "ra_hours": 11.334391666666667,
-      "dec_deg": 18.356833333333334,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3632"
+      "dec_deg": 18.356833333333334
     },
     "C41": {
       "name": "Hyades",
@@ -489,11 +529,12 @@
       "discoverer": null,
       "discovery_year": null,
       "best_months": "OctNovDec",
+      "constellation": null,
       "description": "The Hyades (; Greek: Ὑάδες; also known as Caldwell 41, Collinder 50, or Melotte 25) is the nearest open cluster and one of the best-studied star clusters. Located about 153 light-years (47 parsecs) away from the Sun, it consists of a roughly spherical group of hundreds of stars sharing the same age, place of origin, chemical characteristics, and motion through space.",
-      "ra_hours": 4.448333333333333,
-      "dec_deg": 15.866666666666667,
       "external_link": "https://en.wikipedia.org/wiki/Hyades_(star_cluster)",
-      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hyades.jpg/960px-Hyades.jpg"
+      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Hyades.jpg/960px-Hyades.jpg",
+      "ra_hours": 4.448333333333333,
+      "dec_deg": 15.866666666666667
     },
     "C42": {
       "name": "",
@@ -502,10 +543,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JunJulAug",
+      "constellation": "Delphinus",
       "description": "NGC 7006 (also known as Caldwell 42) is a globular cluster  in the constellation Delphinus. NGC 7006 resides in the outskirts of the Milky Way.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7006",
       "ra_hours": 21.024791666666665,
-      "dec_deg": 16.187527777777778,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7006"
+      "dec_deg": 16.187527777777778
     },
     "C43": {
       "name": "",
@@ -514,10 +556,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "AugSepOct",
+      "constellation": "Pegasus",
       "description": "NGC 7814 (also known as UGC 8 or Caldwell 43) is a spiral galaxy about 40 million light-years away in the constellation Pegasus.  The galaxy is seen edge-on from Earth.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7814",
       "ra_hours": 0.054136111111111114,
-      "dec_deg": 16.145416666666666,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7814"
+      "dec_deg": 16.145416666666666
     },
     "C44": {
       "name": "",
@@ -526,10 +569,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "JulAugSep",
+      "constellation": "Pegasus",
       "description": "NGC 7479 (also known as Caldwell 44 or the Superman Galaxy) is a barred spiral galaxy about 105 million light-years away in the constellation Pegasus.  William Herschel discovered it in 1784.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_7479",
       "ra_hours": 23.082402777777776,
-      "dec_deg": 12.322888888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_7479"
+      "dec_deg": 12.322888888888889
     },
     "C45": {
       "name": "",
@@ -538,10 +582,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "FebMarApr",
+      "constellation": "Bootes",
       "description": "NGC 5248 (also known as Caldwell 45) is a compact intermediate spiral galaxy in the constellation Boötes. Its velocity with respect to the cosmic microwave background is 1437 ± 20 km/s, which corresponds to a Hubble distance of 69.1 ± 4.9 Mly (21.19 ± 1.51 Mpc).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_5248",
       "ra_hours": 13.62556111111111,
-      "dec_deg": 8.885166666666667,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_5248"
+      "dec_deg": 8.885166666666667
     },
     "C46": {
       "name": "Hubble's Nebula",
@@ -550,10 +595,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1783,
       "best_months": "NovDecJan",
+      "constellation": "Monoceros",
       "description": "NGC 2261 (also known as Hubble's Variable Nebula or Caldwell 46) is a variable nebula located in the constellation Monoceros. The nebula is illuminated by the star R Monocerotis (R Mon), which is not directly visible itself.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2261",
       "ra_hours": 6.652641666666667,
-      "dec_deg": 8.744333333333332,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2261"
+      "dec_deg": 8.744333333333332
     },
     "C47": {
       "name": "",
@@ -562,10 +608,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "JunJulAug",
+      "constellation": "Delphinus",
       "description": "NGC 6934 (also known as Caldwell 47) is a globular cluster of stars in the northern constellation of Delphinus, about 52 kilolight-years distant from the Sun. It was discovered by the German-born astronomer William Herschel on 24 September 1785.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6934",
       "ra_hours": 20.569858333333332,
-      "dec_deg": 7.404111111111112,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6934"
+      "dec_deg": 7.404111111111112
     },
     "C48": {
       "name": "",
@@ -574,10 +621,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1783,
       "best_months": "DecJanFeb",
+      "constellation": "Cancer",
       "description": "NGC 2775, also known as Caldwell 48, is a spiral galaxy in the constellation Cancer. It is 67 million light-years (20.5 megaparsecs) away from the Milky Way.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2775",
       "ra_hours": 9.172255555555555,
-      "dec_deg": 7.037944444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2775"
+      "dec_deg": 7.037944444444444
     },
     "C49": {
       "name": "Rosette Nebula",
@@ -586,10 +634,11 @@
       "discoverer": "Albert Marth",
       "discovery_year": 1864,
       "best_months": "NovDecJan",
+      "constellation": "Monoceros",
       "description": "The Rosette Nebula (also known as Caldwell 49) is an H II region located near one end of a giant molecular cloud in the Monoceros region of the Milky Way Galaxy. The open cluster NGC 2244 (Caldwell 50) is closely associated with the nebulosity, the stars of the cluster having been formed from the nebula's matter.",
+      "external_link": "https://en.wikipedia.org/wiki/Rosette_Nebula",
       "ra_hours": 6.511213888888889,
-      "dec_deg": 5.013055555555556,
-      "external_link": "https://en.wikipedia.org/wiki/Rosette_Nebula"
+      "dec_deg": 5.013055555555556
     },
     "C50": {
       "name": "",
@@ -598,10 +647,11 @@
       "discoverer": "John Flamsteed",
       "discovery_year": 1690,
       "best_months": "NovDecJan",
+      "constellation": "Monoceros",
       "description": "NGC 2244 (also known as Caldwell 50 or the Satellite Cluster) is an open cluster in the Rosette Nebula, which is located in the constellation Monoceros. This cluster has several O-type stars, super hot stars that generate large amounts of radiation and stellar wind.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2244",
       "ra_hours": 6.5321,
-      "dec_deg": 4.942944444444445,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2244"
+      "dec_deg": 4.942944444444445
     },
     "C51": {
       "name": "",
@@ -610,10 +660,11 @@
       "discoverer": "Max Wolf",
       "discovery_year": 1906,
       "best_months": "AugSepOct",
+      "constellation": "Cetus",
       "description": "IC 1613 (also known as Caldwell 51) is an irregular dwarf galaxy located on the outskirts of the Local group around 730 kiloparsecs from Earth in the constellation of Cetus near the star 26 Ceti. It has a low mass with its mass only being around 10^8 solar masses.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_1613",
       "ra_hours": 1.0799416666666666,
-      "dec_deg": 2.117777777777778,
-      "external_link": "https://en.wikipedia.org/wiki/IC_1613"
+      "dec_deg": 2.117777777777778
     },
     "C52": {
       "name": "",
@@ -622,10 +673,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "FebMarApr",
+      "constellation": "Virgo",
       "description": "NGC 4697 (also known as Caldwell 52) is an elliptical galaxy some 40 to 50 million light-years away in the constellation Virgo. It is a member of the NGC 4697 Group, a group of galaxies also containing NGC 4731 and several generally much smaller galaxies.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4697",
       "ra_hours": 12.809966666666668,
-      "dec_deg": -5.80075,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4697"
+      "dec_deg": -5.80075
     },
     "C53": {
       "name": "Spindle Galaxy",
@@ -634,10 +686,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1787,
       "best_months": "JanFebMar",
+      "constellation": "Sextans",
       "description": "NGC 3115 (also called the Spindle Galaxy or Caldwell 53) is a field lenticular (S0) galaxy in the constellation Sextans.  The galaxy was discovered by William Herschel on February 22, 1787.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3115",
       "ra_hours": 10.087216666666666,
-      "dec_deg": -7.718583333333333,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3115"
+      "dec_deg": -7.718583333333333
     },
     "C54": {
       "name": "",
@@ -646,10 +699,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1791,
       "best_months": "DecJanFeb",
+      "constellation": "Monoceros",
       "description": "NGC 2506 (also known as Caldwell 54) is a mildly-elongated open cluster of stars in the equatorial constellation of Monoceros, located at a distance of 12.7 kly from the Sun near the Galactic anti-center. It was discovered by William Herschel in 1791.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2506",
       "ra_hours": 8.000494444444444,
-      "dec_deg": -10.76963888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2506"
+      "dec_deg": -10.76963888888889
     },
     "C55": {
       "name": "Saturn Nebula",
@@ -658,10 +712,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1782,
       "best_months": "JunJulAug",
+      "constellation": "Aquarius",
       "description": "The Saturn Nebula (also known as NGC 7009 or Caldwell 55) is a planetary nebula in the constellation Aquarius. It appears as a greenish-yellowish hue in a small amateur telescope.",
+      "external_link": "https://en.wikipedia.org/wiki/Saturn_Nebula",
       "ra_hours": 21.06966388888889,
-      "dec_deg": -11.363249999999999,
-      "external_link": "https://en.wikipedia.org/wiki/Saturn_Nebula"
+      "dec_deg": -11.363249999999999
     },
     "C56": {
       "name": "",
@@ -670,10 +725,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "AugSepOct",
+      "constellation": "Cetus",
       "description": "NGC 246 (also known as the Skull Nebula or Caldwell 56) is a planetary nebula in the constellation Cetus. It was discovered in 1785 by William Herschel.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_246",
       "ra_hours": 0.7842666666666667,
-      "dec_deg": -11.871944444444445,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_246"
+      "dec_deg": -11.871944444444445
     },
     "C57": {
       "name": "Barnard's Galaxy",
@@ -682,10 +738,11 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1884,
       "best_months": "MayJunJul",
+      "constellation": "Sagittarius",
       "description": "NGC 6822 (also known as Barnard's Galaxy, IC 4895, or Caldwell 57) is a barred irregular galaxy approximately 1.6 million light-years away in the constellation Sagittarius.  Part of the Local Group of galaxies, it was discovered by E. E. Barnard in 1884, with a six-inch refractor telescope.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6822",
       "ra_hours": 19.749372222222224,
-      "dec_deg": -14.803444444444445,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6822"
+      "dec_deg": -14.803444444444445
     },
     "C58": {
       "name": "Caroline's Cluster",
@@ -694,10 +751,11 @@
       "discoverer": "Caroline Herschel",
       "discovery_year": 1783,
       "best_months": "NovDecJan",
+      "constellation": "Canis Major",
       "description": "NGC 2360 (also known as Caroline's Cluster or Caldwell 58) is an open cluster in the constellation Canis Major. It was discovered on 26 February 1783 by Caroline Herschel, who described it as a \"beautiful cluster of pretty compressed stars near 1/2 degree in diameter\".",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2360",
       "ra_hours": 7.295311111111111,
-      "dec_deg": -15.641305555555554,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2360"
+      "dec_deg": -15.641305555555554
     },
     "C59": {
       "name": "Jupiter's Ghost Nebula",
@@ -706,10 +764,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "JanFebMar",
+      "constellation": "Hydra",
       "description": "NGC 3242 (also known as the Ghost of Jupiter, Eye Nebula or Caldwell 59) is a planetary nebula located  in the constellation Hydra.\nWilliam Herschel discovered the nebula on February 7, 1785, and catalogued it as H IV.27.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3242",
       "ra_hours": 10.4128,
-      "dec_deg": -18.642222222222223,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3242"
+      "dec_deg": -18.642222222222223
     },
     "C60": {
       "name": "Antennae Galaxies",
@@ -718,10 +777,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": "Corvus",
       "description": "The Antennae Galaxies (also known as NGC 4038/NGC 4039 or Caldwell 60/Caldwell 61) are a pair of interacting galaxies in the constellation Corvus. They are currently going through a starburst phase, in which the collision of clouds of gas and dust, with entangled magnetic fields, causes rapid star formation.",
+      "external_link": "https://en.wikipedia.org/wiki/Antennae_Galaxies",
       "ra_hours": 12.031391666666668,
-      "dec_deg": -18.867611111111113,
-      "external_link": "https://en.wikipedia.org/wiki/Antennae_Galaxies"
+      "dec_deg": -18.867611111111113
     },
     "C61": {
       "name": "Antennae Galaxies",
@@ -730,10 +790,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1785,
       "best_months": "FebMarApr",
+      "constellation": "Corvus",
       "description": "The Antennae Galaxies (also known as NGC 4038/NGC 4039 or Caldwell 60/Caldwell 61) are a pair of interacting galaxies in the constellation Corvus. They are currently going through a starburst phase, in which the collision of clouds of gas and dust, with entangled magnetic fields, causes rapid star formation.",
+      "external_link": "https://en.wikipedia.org/wiki/Antennae_Galaxies",
       "ra_hours": 12.031530555555557,
-      "dec_deg": -18.886194444444445,
-      "external_link": "https://en.wikipedia.org/wiki/Antennae_Galaxies"
+      "dec_deg": -18.886194444444445
     },
     "C62": {
       "name": "",
@@ -742,10 +803,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "AugSepOct",
+      "constellation": "Cetus",
       "description": "NGC 247 (also known as Caldwell 62 and commonly known as the Claw Galaxy) is an intermediate spiral galaxy about 11.1 Mly away in the constellation Cetus. This distance was confirmed in late February 2011.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_247",
       "ra_hours": 0.7857083333333333,
-      "dec_deg": -20.76038888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_247"
+      "dec_deg": -20.76038888888889
     },
     "C63": {
       "name": "Helix Nebula",
@@ -754,10 +816,11 @@
       "discoverer": "Karl Ludwig Harding",
       "discovery_year": 1824,
       "best_months": "JulAugSep",
+      "constellation": "Aquarius",
       "description": "The Helix Nebula (also known as NGC 7293 or Caldwell 63) is a planetary nebula (PN) located in the constellation Aquarius. Discovered by Karl Ludwig Harding, most likely before 1824, this object is one of the closest of all the bright planetary nebulae to Earth.",
+      "external_link": "https://en.wikipedia.org/wiki/Helix_Nebula",
       "ra_hours": 22.494047222222225,
-      "dec_deg": -20.837333333333333,
-      "external_link": "https://en.wikipedia.org/wiki/Helix_Nebula"
+      "dec_deg": -20.837333333333333
     },
     "C64": {
       "name": "",
@@ -766,10 +829,11 @@
       "discoverer": "Giovan Battista Hodierna",
       "discovery_year": 1654,
       "best_months": "NovDecJan",
+      "constellation": "Canis Major",
       "description": "NGC 2362, also known as Caldwell 64, is an open cluster of stars in the southern constellation of Canis Major. It was discovered by the Italian court astronomer Giovanni Batista Hodierna, who published his finding in 1654.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2362",
       "ra_hours": 7.3115194444444445,
-      "dec_deg": -24.954194444444443,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2362"
+      "dec_deg": -24.954194444444443
     },
     "C65": {
       "name": "Sculptor Filament",
@@ -778,10 +842,11 @@
       "discoverer": "Caroline Herschel",
       "discovery_year": 1783,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "Extended HIPASS source",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_253",
       "ra_hours": 0.7925333333333333,
-      "dec_deg": -25.288222222222224,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_253"
+      "dec_deg": -25.288222222222224
     },
     "C66": {
       "name": "",
@@ -790,10 +855,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1784,
       "best_months": "MarAprMay",
+      "constellation": "Hydra",
       "description": "NGC 5694 (also known as Caldwell 66) is a globular cluster in the constellation Hydra.  It was discovered in 1784 by William Herschel.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_5694",
       "ra_hours": 14.660141666666666,
-      "dec_deg": -26.538333333333334,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_5694"
+      "dec_deg": -26.538333333333334
     },
     "C67": {
       "name": "",
@@ -802,10 +868,11 @@
       "discoverer": "William Herschel",
       "discovery_year": 1790,
       "best_months": "SepOctNov",
+      "constellation": "Fornax",
       "description": "NGC 1097 (also known as Caldwell 67) is a barred spiral galaxy about 45 million light years away in the constellation Fornax.  It was discovered by William Herschel on 9 October 1790.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_1097",
       "ra_hours": 2.771958333333333,
-      "dec_deg": -30.27488888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_1097"
+      "dec_deg": -30.27488888888889
     },
     "C68": {
       "name": "",
@@ -814,10 +881,11 @@
       "discoverer": null,
       "discovery_year": 1861,
       "best_months": "MayJunJul",
+      "constellation": "Corona Australis",
       "description": "NGC 6729 (also known as Caldwell 68) is a reflection/emission nebula of the Corona Australis Molecular Cloud in the constellation Corona Australis. It was discovered by Johann Friedrich Julius Schmidt in 1861.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6729",
       "ra_hours": 19.032055555555555,
-      "dec_deg": -36.957638888888894,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6729"
+      "dec_deg": -36.957638888888894
     },
     "C69": {
       "name": "Bug Nebula",
@@ -826,10 +894,11 @@
       "discoverer": "Edward Emerson Barnard",
       "discovery_year": 1880,
       "best_months": "AprMayJun",
+      "constellation": "Scorpius",
       "description": "NGC 6302 (also known as the Bug Nebula, Butterfly Nebula, or Caldwell 69) is a bipolar type planetary nebula in the constellation Scorpius. The structure in this planetary nebula is among the most complex ever seen in any planetary nebulae.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6302",
       "ra_hours": 17.229063888888888,
-      "dec_deg": -37.10313888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6302"
+      "dec_deg": -37.10313888888889
     },
     "C70": {
       "name": "",
@@ -838,10 +907,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AugSepOct",
+      "constellation": "Sculptor",
       "description": "NGC 300 (also known as Caldwell 70 or the Sculptor Pinwheel Galaxy) is a spiral galaxy in the constellation Sculptor. It was discovered on 5 August 1826 by Scottish astronomer James Dunlop.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_300",
       "ra_hours": 0.9148555555555555,
-      "dec_deg": -37.68438888888888,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_300"
+      "dec_deg": -37.68438888888888
     },
     "C71": {
       "name": "",
@@ -850,10 +920,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "NovDecJan",
+      "constellation": "Puppis",
       "description": "NGC 2477 (also known as Caldwell 71 or the Termite Hole Cluster) is an open cluster in the constellation Puppis. It contains about 300 stars, and was discovered by Abbé Lacaille in 1751.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2477",
       "ra_hours": 7.869383333333333,
-      "dec_deg": -38.53325,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2477"
+      "dec_deg": -38.53325
     },
     "C72": {
       "name": "",
@@ -862,10 +933,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AugSepOct",
+      "constellation": "Sculptor",
       "description": "NGC 55, also known as the String of Pearls Galaxy, is a Magellanic type barred spiral galaxy located about 6.5 million light-years away in the constellation Sculptor. It was discovered on 7 July 1826 by Scottish astronomer James Dunlop.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_55",
       "ra_hours": 0.24822222222222223,
-      "dec_deg": -39.196638888888884,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_55"
+      "dec_deg": -39.196638888888884
     },
     "C73": {
       "name": "",
@@ -874,10 +946,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "OctNovDec",
+      "constellation": "Columba",
       "description": "NGC 1851 (also known as Caldwell 73) is a relatively massive globular cluster located in the southern constellation of Columba. Astronomer John Dreyer described it as not very bright but very large, round, well resolved, and clearly consisting of stars.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_1851",
       "ra_hours": 5.235202777777777,
-      "dec_deg": -40.04661111111111,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_1851"
+      "dec_deg": -40.04661111111111
     },
     "C74": {
       "name": "Eight-Burst Nebula",
@@ -886,10 +959,11 @@
       "discoverer": "John Frederick William Herschel",
       "discovery_year": 1835,
       "best_months": "JanFebMar",
+      "constellation": "Vela",
       "description": "NGC 3132 (also known as the Eight-Burst Nebula, the Southern Ring Nebula, or Caldwell 74) is a bright and extensively studied planetary nebula in the constellation Vela.  Its distance from Earth is estimated at 613 pc or 2,000 light-years.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3132",
       "ra_hours": 10.117147222222222,
-      "dec_deg": -40.43658333333333,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3132"
+      "dec_deg": -40.43658333333333
     },
     "C75": {
       "name": "",
@@ -898,10 +972,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "AprMayJun",
+      "constellation": "Scorpius",
       "description": "NGC 6124 (also known as Caldwell 75) is an open cluster located 1,860 light years away in the constellation Scorpius. It was discovered by Abbe Lacaille in 1751 during his South African tour.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6124",
       "ra_hours": 16.42223888888889,
-      "dec_deg": -40.65369444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6124"
+      "dec_deg": -40.65369444444444
     },
     "C76": {
       "name": "",
@@ -910,10 +985,11 @@
       "discoverer": "Giovan Battista Hodierna",
       "discovery_year": 1654,
       "best_months": "AprMayJun",
+      "constellation": "Scorpius",
       "description": "NGC 6231 (also known as Caldwell 76 or the Baby Scorpion Cluster) is an open cluster in the southern sky located half a degrees north of Zeta Scorpii. NGC 6231 is part of a swath of young, bluish stars in the constellation Scorpius known as the Scorpius OB1 association.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6231",
       "ra_hours": 16.903033333333333,
-      "dec_deg": -41.824250000000006,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6231"
+      "dec_deg": -41.824250000000006
     },
     "C77": {
       "name": "Centaurus A",
@@ -922,10 +998,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "FebMarApr",
+      "constellation": "Centaurus",
       "description": "Centaurus A (also known as NGC 5128 or Caldwell 77) is a galaxy in the constellation of Centaurus. It was discovered in 1826 by Scottish astronomer James Dunlop from his home in Parramatta, in New South Wales, Australia.",
+      "external_link": "https://en.wikipedia.org/wiki/Centaurus_A",
       "ra_hours": 13.424338888888888,
-      "dec_deg": -43.01911111111111,
-      "external_link": "https://en.wikipedia.org/wiki/Centaurus_A"
+      "dec_deg": -43.01911111111111
     },
     "C78": {
       "name": "",
@@ -934,10 +1011,11 @@
       "discoverer": "Niccolò Cacciatore",
       "discovery_year": 1826,
       "best_months": "MayJunJul",
+      "constellation": "Corona Australis",
       "description": "NGC 6541 (also known as Caldwell 78) is a globular cluster of stars in the southern constellation of Corona Australis. The globular cluster was discovered by Niccolò Cacciatore at the Palermo Astronomical Observatory, Sicily, on March 19, 1826.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6541",
       "ra_hours": 18.133980555555556,
-      "dec_deg": -43.71588888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6541"
+      "dec_deg": -43.71588888888889
     },
     "C79": {
       "name": "",
@@ -946,10 +1024,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "JanFebMar",
+      "constellation": null,
       "description": "",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3201",
       "ra_hours": 10.293544444444445,
-      "dec_deg": -46.41122222222222,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3201"
+      "dec_deg": -46.41122222222222
     },
     "C80": {
       "name": "Omega Centauri",
@@ -958,10 +1037,11 @@
       "discoverer": "Edmond Halley",
       "discovery_year": null,
       "best_months": "FebMarApr",
+      "constellation": "Centaurus",
       "description": "Omega Centauri (ω Cen, NGC 5139, or Caldwell 80) is a globular cluster in the constellation of Centaurus that was first identified as a non-stellar object by Edmond Halley in 1677. Located at a distance of 17,090 light-years (5,240 parsecs), it is the largest known globular cluster in the Milky Way at a diameter of roughly 150 light-years.",
+      "external_link": "https://en.wikipedia.org/wiki/Omega_Centauri",
       "ra_hours": 13.446080555555556,
-      "dec_deg": -47.47686111111111,
-      "external_link": "https://en.wikipedia.org/wiki/Omega_Centauri"
+      "dec_deg": -47.47686111111111
     },
     "C81": {
       "name": "",
@@ -970,10 +1050,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AprMayJun",
+      "constellation": "Ara",
       "description": "NGC 6352 (also known as Caldwell 81) is a globular cluster of stars in the southern constellation of Ara, located approximately 18.3 kly from the Sun. It was discovered by Scottish astronomer James Dunlop on May 14, 1826.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6352",
       "ra_hours": 17.424766666666667,
-      "dec_deg": -48.422694444444446,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6352"
+      "dec_deg": -48.422694444444446
     },
     "C82": {
       "name": "",
@@ -982,10 +1063,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AprMayJun",
+      "constellation": "Ara",
       "description": "NGC 6193 (also known as Caldwell 82) is open cluster containing 27 stars in the constellation Ara, visible to the unaided eye. NGC 6193 lies at the center of the Ara OB1 association, which extends over a square degree.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6193",
       "ra_hours": 16.68895277777778,
-      "dec_deg": -48.76252777777778,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6193"
+      "dec_deg": -48.76252777777778
     },
     "C83": {
       "name": "",
@@ -994,10 +1076,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "FebMarApr",
+      "constellation": "Centaurus",
       "description": "NGC 4945 is a widely-studied barred spiral galaxy in the constellation Centaurus, visible near the optical double star Xi Centauri. It is also known as Caldwell 83.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4945",
       "ra_hours": 13.090966666666667,
-      "dec_deg": -49.468222222222224,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4945"
+      "dec_deg": -49.468222222222224
     },
     "C84": {
       "name": "",
@@ -1006,10 +1089,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "FebMarApr",
+      "constellation": "Centaurus",
       "description": "NGC 5286 (also known as Caldwell 84) is a globular cluster of stars located some 35,900 light years away in the constellation Centaurus. At this distance, the light from the cluster has undergone reddening from interstellar gas and dust equal to E(B – V) = 0.24 magnitude in the UBV photometric system.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_5286",
       "ra_hours": 13.77405,
-      "dec_deg": -51.373472222222226,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_5286"
+      "dec_deg": -51.373472222222226
     },
     "C85": {
       "name": "omi Vel Cluster",
@@ -1018,10 +1102,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "DecJanFeb",
+      "constellation": "Vela",
       "description": "IC 2391 (also known as the Omicron Velorum Cluster or Caldwell 85) is an open cluster in the constellation Vela consisting of hot, young, blueish stars, some of which are binaries and one of which is a quadruple.  Persian astronomer A. a.-R. al-Sufi first described it as \"a nebulous star\" in c. 964.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_2391",
       "ra_hours": 8.675522222222222,
-      "dec_deg": -53.03547222222222,
-      "external_link": "https://en.wikipedia.org/wiki/IC_2391"
+      "dec_deg": -53.03547222222222
     },
     "C86": {
       "name": "",
@@ -1030,10 +1115,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "AprMayJun",
+      "constellation": "Ara",
       "description": "NGC 6397 (also known as Caldwell 86) is a globular cluster in the constellation Ara that was discovered by French astronomer Nicolas-Louis de Lacaille in 1752. It is located about 7,800 light-years from Earth, making it one of the two nearest globular clusters to Earth (the other one being Messier 4).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6397",
       "ra_hours": 17.678155555555556,
-      "dec_deg": -53.67369444444444,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6397"
+      "dec_deg": -53.67369444444444
     },
     "C87": {
       "name": "",
@@ -1042,10 +1128,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "SepOctNov",
+      "constellation": "Horologium",
       "description": "NGC 1261 (also known as Caldwell 87) is a globular cluster of stars in the southern constellation of Horologium, first discovered by Scottish astronomer James Dunlop in 1826. The cluster is located at a distance of 53 kilolight-years from the Sun, and 59 kilolight-years from the Galactic Center.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_1261",
       "ra_hours": 3.2042611111111112,
-      "dec_deg": -55.21680555555556,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_1261"
+      "dec_deg": -55.21680555555556
     },
     "C88": {
       "name": "",
@@ -1054,10 +1141,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "MarAprMay",
+      "constellation": "Circinus",
       "description": "NGC 5823 (also known as Caldwell 88) is an open cluster in the southern constellation of Circinus, near (and extending across) its border with the constellation Lupus. It was discovered by Scottish astronomer James Dunlop in 1826.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_5823",
       "ra_hours": 15.091841666666667,
-      "dec_deg": -55.60375,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_5823"
+      "dec_deg": -55.60375
     },
     "C89": {
       "name": "S Nor Cluster",
@@ -1066,10 +1154,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AprMayJun",
+      "constellation": "Norma",
       "description": "NGC 6087 (also known as Caldwell 89 or the S Normae Cluster) is an open cluster of 40 or more stars centered on the Cepheid variable S Normae in the constellation Norma.  At a distance of about 3500 ly and covering a field of almost one quarter of a degree, the stars range from seventh- to eleventh-magnitude, the brightest being 6.5 magnitude S Normae.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6087",
       "ra_hours": 16.31405,
-      "dec_deg": -57.93458333333333,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6087"
+      "dec_deg": -57.93458333333333
     },
     "C90": {
       "name": "",
@@ -1078,10 +1167,11 @@
       "discoverer": "John Frederick William Herschel",
       "discovery_year": 1834,
       "best_months": "DecJanFeb",
+      "constellation": "Carina",
       "description": "NGC 2867 (also known as Caldwell 90) is an elliptical Type II planetary nebula in the southern constellation of Carina, just over a degree to the NNW of the star Iota Carinae. It was discovered by John Herschel on April 1, 1834.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2867",
       "ra_hours": 9.35693611111111,
-      "dec_deg": -58.31166666666666,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2867"
+      "dec_deg": -58.31166666666666
     },
     "C91": {
       "name": "Wishing Well Cluster",
@@ -1090,10 +1180,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "JanFebMar",
+      "constellation": "Carina",
       "description": "NGC 3532 (Caldwell 91), also commonly known as the Pincushion Cluster, Football Cluster, the Black Arrow Cluster, or the Wishing Well Cluster, is an open cluster some 405 parsecs from Earth in the constellation Carina. Its population of approximately 150 stars of 7th magnitude or fainter includes seven red giants and seven white dwarfs.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3532",
       "ra_hours": 11.096616666666668,
-      "dec_deg": -58.7705,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3532"
+      "dec_deg": -58.7705
     },
     "C92": {
       "name": "Carina Nebula",
@@ -1102,10 +1193,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "JanFebMar",
+      "constellation": "Carina",
       "description": "The Carina Nebula or Eta Carinae Nebula (catalogued as NGC 3372; also known as the Great Carina Nebula) is a large, complex area of bright and dark nebulosity in the constellation Carina, located in the Carina–Sagittarius Arm of the Milky Way galaxy. The nebula is approximately 8,500 light-years (2,600 pc) from Earth.",
+      "external_link": "https://en.wikipedia.org/wiki/Carina_Nebula",
       "ra_hours": 10.752369444444444,
-      "dec_deg": -59.86669444444445,
-      "external_link": "https://en.wikipedia.org/wiki/Carina_Nebula"
+      "dec_deg": -59.86669444444445
     },
     "C93": {
       "name": "",
@@ -1114,10 +1206,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "MayJunJul",
+      "constellation": "Pavo",
       "description": "NGC 6752 (also known as Caldwell 93 and nicknamed the Great Peacock Globular) is a globular cluster in the constellation Pavo. It is the fourth-brightest globular cluster in the sky, after Omega Centauri, 47 Tucanae and Messier 22, respectively.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6752",
       "ra_hours": 19.181050000000003,
-      "dec_deg": -59.981861111111115,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6752"
+      "dec_deg": -59.981861111111115
     },
     "C94": {
       "name": "Herschel's Jewel Box",
@@ -1126,10 +1219,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "FebMarApr",
+      "constellation": "Crux",
       "description": "The Jewel Box (also known as the Kappa Crucis cluster, NGC 4755, or Caldwell 94) is an open cluster in the constellation Crux, originally discovered by Nicolas Louis de Lacaille in 1751–1752. This cluster was later named the Jewel Box by John Herschel when he described its telescopic appearance as \"...",
+      "external_link": "https://en.wikipedia.org/wiki/Jewel_Box_(star_cluster)",
       "ra_hours": 12.893633333333334,
-      "dec_deg": -60.35630555555556,
-      "external_link": "https://en.wikipedia.org/wiki/Jewel_Box_(star_cluster)"
+      "dec_deg": -60.35630555555556
     },
     "C95": {
       "name": "",
@@ -1138,10 +1232,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "AprMayJun",
+      "constellation": "Triangulum Australe",
       "description": "NGC 6025 is an open cluster of stars in the southern constellation of Triangulum Australe, near the northern constellation border with Norma. It was discovered by Abbe Lacaille in 1751 during his expedition to the Cape of Good Hope.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6025",
       "ra_hours": 16.054941666666668,
-      "dec_deg": -60.43136111111111,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6025"
+      "dec_deg": -60.43136111111111
     },
     "C96": {
       "name": "",
@@ -1150,10 +1245,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "NovDecJan",
+      "constellation": "Carina",
       "description": "NGC 2516 (also known as Caldwell 96) is an open star cluster in the southern sky in the constellation Carina discovered by Abbe Lacaille in 1751-1752. It is also called Southern Beehive or  the Sprinter.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2516",
       "ra_hours": 7.968627777777778,
-      "dec_deg": -60.75347222222222,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2516"
+      "dec_deg": -60.75347222222222
     },
     "C97": {
       "name": "Pearl Cluster",
@@ -1162,10 +1258,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "JanFebMar",
+      "constellation": "Centaurus",
       "description": "NGC 3766 (also known as Caldwell 97) is an open star cluster in the southern constellation Centaurus. It is located in the vast star-forming region known as the Carina molecular cloud, and was discovered by Nicolas Louis de Lacaille during his astrometric survey in 1751–1752.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3766",
       "ra_hours": 11.603997222222223,
-      "dec_deg": -61.60516666666667,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3766"
+      "dec_deg": -61.60516666666667
     },
     "C98": {
       "name": "Coalsack Cluster",
@@ -1174,10 +1271,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "FebMarApr",
+      "constellation": "Crux",
       "description": "NGC 4609 (also known as Caldwell 98) is an open cluster of stars in the southern constellation of Crux. It was discovered on May 12, 1826 by the Scottish astronomer James Dunlop.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4609",
       "ra_hours": 12.704675,
-      "dec_deg": -62.99575,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4609"
+      "dec_deg": -62.99575
     },
     "C99": {
       "name": "Coalsack Nebula",
@@ -1186,11 +1284,12 @@
       "discoverer": null,
       "discovery_year": null,
       "best_months": "FebMarApr",
+      "constellation": "Crux",
       "description": "The Coalsack Nebula (Southern Coalsack, or simply the Coalsack) is a dark nebula, which is visible to the naked eye as a dark patch obscuring part of the Milky Way east of Acrux (Alpha Crucis) in the constellation of Crux.",
-      "ra_hours": 12.521944444444445,
-      "dec_deg": -63.74333333333333,
       "external_link": "https://en.wikipedia.org/wiki/Coalsack_Nebula",
-      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Part_of_the_Coalsack_Nebula.jpg/960px-Part_of_the_Coalsack_Nebula.jpg"
+      "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Part_of_the_Coalsack_Nebula.jpg/960px-Part_of_the_Coalsack_Nebula.jpg",
+      "ra_hours": 12.521944444444445,
+      "dec_deg": -63.74333333333333
     },
     "C100": {
       "name": "lam Cen Nebula",
@@ -1199,10 +1298,11 @@
       "discoverer": "Royal Harwood Frost",
       "discovery_year": 1904,
       "best_months": "JanFebMar",
+      "constellation": "Centaurus",
       "description": "IC 2944, also known as the Running Chicken Nebula, the Lambda Centauri Nebula or the λ Centauri Nebula, is an open cluster with an associated emission nebula found in the constellation Centaurus, near the star λ Centauri. It features Bok globules, which are frequently a site of active star formation.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_2944",
       "ra_hours": 11.596369444444445,
-      "dec_deg": -63.01983333333333,
-      "external_link": "https://en.wikipedia.org/wiki/IC_2944"
+      "dec_deg": -63.01983333333333
     },
     "C101": {
       "name": "",
@@ -1211,10 +1311,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "MayJunJul",
+      "constellation": "Pavo",
       "description": "NGC 6744 (also known as Caldwell 101 or the Pavo Galaxy) is an intermediate spiral galaxy in the constellation Pavo (Peacock). Its velocity with respect to the cosmic microwave background is 802 ± 3 km/s, which corresponds to a Hubble distance of 38.6 ± 2.7 Mly (11.82 ± 0.83 Mpc).",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6744",
       "ra_hours": 19.162805555555554,
-      "dec_deg": -63.857527777777776,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6744"
+      "dec_deg": -63.857527777777776
     },
     "C102": {
       "name": "tet Car Cluster",
@@ -1223,10 +1324,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "JanFebMar",
+      "constellation": "Carina",
       "description": "IC 2602 (also known as the Southern Pleiades, Theta Carinae Cluster, or Caldwell 102) is an open cluster in the constellation Carina. Discovered by Abbe Lacaille in 1751 from South Africa, the cluster is easily visible to the unaided eye, and is one of the nearest star clusters, centred about 149 parsecs (486 light-years) away from Earth.",
+      "external_link": "https://en.wikipedia.org/wiki/IC_2602",
       "ra_hours": 10.715963888888888,
-      "dec_deg": -64.39419444444445,
-      "external_link": "https://en.wikipedia.org/wiki/IC_2602"
+      "dec_deg": -64.39419444444445
     },
     "C103": {
       "name": "30 Dor Cluster",
@@ -1235,10 +1337,11 @@
       "discoverer": null,
       "discovery_year": null,
       "best_months": "OctNovDec",
+      "constellation": null,
       "description": "NGC 2070 (also known as Caldwell 103) is a large open cluster and candidate super star cluster forming the heart of the bright region in the centre-south-east of the Large Magellanic Cloud. This cluster was discovered by French astronomer Nicolas-Louis de Lacaille in 1752.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_2070",
       "ra_hours": 5.645099999999999,
-      "dec_deg": -69.10088888888889,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_2070"
+      "dec_deg": -69.10088888888889
     },
     "C104": {
       "name": "",
@@ -1247,10 +1350,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AugSepOct",
+      "constellation": "Tucana",
       "description": "[NGC 362 (also known as Caldwell 104) is a globular cluster located in the constellation Tucana in the Southern Hemisphere, slightly north of the Small Magellanic Cloud, to which it is completely unrelated. It was discovered on August 1, 1826, by James Dunlop.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_362",
       "ra_hours": 1.0539527777777777,
-      "dec_deg": -70.84822222222222,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_362"
+      "dec_deg": -70.84822222222222
     },
     "C105": {
       "name": "",
@@ -1259,10 +1363,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "NGC 4833 is a globular cluster discovered by Abbe Lacaille during his 1751-1752 journey to South Africa, and catalogued in 1755. It was subsequently observed and catalogued by James Dunlop and Sir John Herschel whose instruments could resolve it into individual stars.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4833",
       "ra_hours": 12.993038888888888,
-      "dec_deg": -70.87458333333333,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4833"
+      "dec_deg": -70.87458333333333
     },
     "C106": {
       "name": "47 Tuc Cluster",
@@ -1271,10 +1376,11 @@
       "discoverer": "Nicolas Louis de Lacaille",
       "discovery_year": 1751,
       "best_months": "AugSepOct",
+      "constellation": "Tucana",
       "description": "47 Tucanae or 47 Tuc (also designated as NGC 104 and Caldwell 106) is a globular cluster located in the constellation Tucana. It is about 4.45 ± 0.01 kpc (14,500 ± 32.6 ly) from Earth, and 120 light years in diameter.",
+      "external_link": "https://en.wikipedia.org/wiki/47_Tucanae",
       "ra_hours": 0.4014888888888889,
-      "dec_deg": -72.08144444444444,
-      "external_link": "https://en.wikipedia.org/wiki/47_Tucanae"
+      "dec_deg": -72.08144444444444
     },
     "C107": {
       "name": "",
@@ -1283,10 +1389,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "AprMayJun",
+      "constellation": "Apus",
       "description": "NGC 6101 (also known as Caldwell 107) is a globular cluster in the constellation Apus, which was discovered by James Dunlop and catalogued by him as Δ68. It is located at a distance of about 47,600 light-years from the Sun and about 36,500 light-years from the Galactic Center of the Milky Way.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_6101",
       "ra_hours": 16.430158333333335,
-      "dec_deg": -72.20155555555556,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_6101"
+      "dec_deg": -72.20155555555556
     },
     "C108": {
       "name": "",
@@ -1295,10 +1402,11 @@
       "discoverer": "James Dunlop",
       "discovery_year": 1826,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_4372",
       "ra_hours": 12.429272222222222,
-      "dec_deg": -72.65908333333334,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_4372"
+      "dec_deg": -72.65908333333334
     },
     "C109": {
       "name": "",
@@ -1307,10 +1415,11 @@
       "discoverer": "John Frederick William Herschel",
       "discovery_year": 1835,
       "best_months": "JanFebMar",
+      "constellation": "Chamaeleon",
       "description": "NGC 3195 (also known as Caldwell 109) is a planetary nebula located in the southern constellation of Chamaeleon. Discovered by Sir John Herschel in 1835, this 11.6 apparent magnitude planetary nebula is slightly oval in shape, with dimensions of 40×35 arc seconds, and can be seen visually in telescopic apertures of 10.5 centimetres (4.1 in) at low magnifications.",
+      "external_link": "https://en.wikipedia.org/wiki/NGC_3195",
       "ra_hours": 10.155827777777779,
-      "dec_deg": -80.85858333333333,
-      "external_link": "https://en.wikipedia.org/wiki/NGC_3195"
+      "dec_deg": -80.85858333333333
     }
   }
 }

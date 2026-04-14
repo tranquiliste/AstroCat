@@ -7,6 +7,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "LBN 6 (Northwest Cassiopeia Nebula) is an emission nebula in Cassiopeia, about 7,000 ly away. It appears around magnitude 8.5 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965 in her Catalogue of Bright Nebulae. This diffuse H II region lies in the Perseus Arm and belongs to the rich Cassiopeia nebular complex that also includes the Heart and Soul Nebulae. Astrophotography: Dec +64.2 deg, circumpolar from France. Best in autumn and winter. A wide field and an Ha filter are recommended, with about 4-6 hours of integration. It pairs well with nearby LBN 11 in the same frame.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -17,6 +18,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "LBN 11 (Cassiopeia Nebula) is an emission nebula in Cassiopeia, about 7,000 ly away. It appears around magnitude 8.5 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region in the Perseus Arm belongs to the central Cassiopeia nebular complex. LBN 6, 11 and 20 form a close group of diffuse H II regions that are probably linked to the same parent molecular cloud, with LBN 11 being the brightest and most compact of the three. Astrophotography: Dec +64.6 deg, circumpolar from France. Best in autumn and winter. Use an Ha filter and a wide field to include the whole LBN 6-11-20 trio. About 4-6 hours of integration is suitable.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -27,6 +29,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "LBN 20 (Eastern Cassiopeia Nebula) is an emission nebula in Cassiopeia, about 7,000 ly away. It appears around magnitude 9.0 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. It is the eastern extension of the LBN 6-11-20 group in central Cassiopeia, a diffuse and only weakly condensed H II region within the Perseus Arm complex. Astrophotography: Dec +63.7 deg, circumpolar from France. Best in autumn and winter. A wide field with an Ha filter is recommended, ideally imaging it together with LBN 6 and LBN 11. Around 4-6 hours of integration is appropriate.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -37,6 +40,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "NovDecJan",
+      "constellation": "Perseus",
       "description": "LBN 92 (Perseus Molecular Nebula) is an emission nebula in Perseus, about 1,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region is associated with the Perseus star-forming complex, one of the nearest low-mass star-forming regions to the Sun, which also includes IC 348 and NGC 1333. Astrophotography: Dec +32.6 deg, culminating around 75 deg from Remalard. A good winter target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Perseus_molecular_cloud"
     },
@@ -47,6 +51,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "NovDecJan",
+      "constellation": "Perseus",
       "description": "LBN 105 (Perseus Nebula) is an emission nebula in Perseus, about 1,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region is part of the Perseus star-forming complex and is more extended than LBN 92, linked to the denser Perseus OB2 molecular clouds. Astrophotography: Dec +31.2 deg, culminating around 74 deg from Remalard. Best in winter. A wide field and an Ha filter are recommended, with roughly 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Perseus_molecular_cloud"
     },
@@ -57,6 +62,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "NovDecJan",
+      "constellation": "Taurus",
       "description": "LBN 123 (Pleiades Reflection Nebula) is a reflection nebula in the Pleiades complex in Taurus, about 444 ly away. It appears around magnitude 9.0 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This entry corresponds to part of the reflection nebulosity of M45, produced as the cluster moves through an interstellar dust cloud. Its bluish colour is characteristic of scattered starlight. Astrophotography: Dec +24.1 deg, culminating around 67 deg from Remalard. A winter target. Deep LRGB is preferred to capture the blue reflection nebulosity, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Pleiades"
     },
@@ -67,6 +73,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": "Taurus",
       "description": "LBN 149 (Taurus Nebula) is an emission nebula in Taurus, about 1,500 ly away. It appears around magnitude 9.5 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies toward the Taurus Molecular Cloud and the more distant ionized regions of the Galactic Plane. Its low surface brightness calls for dark skies and long integration. Astrophotography: Dec +15.7 deg, culminating around 58 deg from Remalard. Best in winter. Use an Ha filter and plan on about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -77,6 +84,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": null,
       "description": "LBN 187 (Southern Orion Nebula) is an emission nebula in the southern part of Orion, about 1,500 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This extended H II region is part of the broad emission halo surrounding the Orion Molecular Cloud complex and ties into the larger Barnard's Loop system. Astrophotography: Dec -5.4 deg, culminating around 37 deg from Remalard. A winter target. A wide field and an Ha filter are recommended, with about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Orion_Molecular_Cloud_Complex"
     },
@@ -87,6 +95,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": null,
       "description": "LBN 189 (Southwest Orion Nebula) is an emission nebula in southwestern Orion, about 1,600 ly away. It appears around magnitude 8.0 and spans about 60'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region forms part of the extended Orion halo and includes outer arcs of Barnard's Loop. Astrophotography: Dec +0.3 deg, culminating around 42 deg from Remalard. Best in winter. A very wide field and an Ha filter are strongly recommended, with about 6-10 hours of integration. A camera lens or small refractor works well.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard%27s_Loop"
     },
@@ -97,6 +106,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": null,
       "description": "LBN 194 (Northwest Orion Nebula) is an emission nebula in northwestern Orion, about 1,600 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. It is associated with the diffuse structures of Barnard's Loop and the wider Orion OB1b environment, near Lambda Orionis and the giant ring Sh2-264. Astrophotography: Dec +4.4 deg, culminating around 46 deg from Remalard. A winter target. A wide field with an Ha filter is recommended, with about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Orion_Molecular_Cloud_Complex"
     },
@@ -107,6 +117,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "LBN 210 (Northern Orion Nebula, Barnard's Loop) is an emission nebula in northern Orion, about 1,600 ly away. It appears around magnitude 7.5 and spans about 90'. It was catalogued by Beverly Turner Lynds in 1965. This entry corresponds to the northern part of Barnard's Loop, one of the largest and most famous emission structures in the northern sky. Astrophotography: Dec +12.3 deg, culminating around 55 deg from Remalard. A major winter target. Because of its huge size, a wide-angle lens or mosaic is best. Ha is nearly mandatory, and 8-12 hours of integration helps reveal the fine filaments.",
       "external_link": "https://en.wikipedia.org/wiki/Barnard%27s_Loop"
     },
@@ -117,6 +128,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "LBN 215 (Lambda Orionis Nebula, Sh2-264) is part of the giant circular H II region around Lambda Orionis in northern Orion, about 1,300 ly away. It appears around magnitude 8.0 and spans about 60' for this catalogued section. It was catalogued by Beverly Turner Lynds in 1965. This nebula belongs to the Lambda Orionis ring, an Ha bubble about 8 deg across centred on Meissa. Astrophotography: Dec +9.9 deg, culminating around 52 deg from Remalard. Best in winter. A wide field is needed, especially for the full ring, and an Ha filter is strongly recommended. About 8-12 hours of integration works well.",
       "external_link": "https://en.wikipedia.org/wiki/Lambda_Orionis"
     },
@@ -127,6 +139,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "LBN 218 (Rho Orionis Nebula) is an emission nebula in Orion, about 1,600 ly away. It appears around magnitude 8.0 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the equatorial part of the Orion complex, near Rho Orionis and the outer arcs of the Orion Molecular Cloud. Astrophotography: Dec +0.8 deg, culminating around 43 deg from Remalard. A winter target. Use an Ha filter and plan for about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Orion_Molecular_Cloud_Complex"
     },
@@ -137,6 +150,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": "Orion",
       "description": "LBN 225 (IC 434 Nebula, Horsehead Region) is the large H II region containing IC 434 in Orion, about 1,350 ly away. It appears around magnitude 7.5 and spans about 60'. It was catalogued by Beverly Turner Lynds in 1965. This is the bright red emission background against which the famous dark globule Barnard 33, the Horsehead Nebula, is seen in silhouette. Astrophotography: Dec -2 deg, culminating around 40 deg from Remalard. A classic winter target. Ha is essential for the red background, and Ha + LRGB works well for full-colour imaging. Around 6-10 hours of integration is typical.",
       "external_link": "https://en.wikipedia.org/wiki/Horsehead_Nebula"
     },
@@ -147,6 +161,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JanFebMar",
+      "constellation": "Gemini",
       "description": "LBN 235 (Southwest Gemini Nebula) is an emission nebula in Gemini, about 3,000 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies toward the Galactic anticentre and is probably associated with the Gem OB1 complex. Astrophotography: Dec +14.4 deg, culminating around 57 deg from Remalard. Best in winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -157,6 +172,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JanFebMar",
+      "constellation": "Monoceros",
       "description": "LBN 245 (Northern Monoceros Nebula) is an emission nebula in Monoceros, about 2,500 ly away. It appears around magnitude 8.5 and spans about 50'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the Mon OB1/OB2 star-forming environment, one of the most active areas toward the Galactic anticentre. Astrophotography: Dec +8.6 deg, culminating around 51 deg from Remalard. A winter-to-spring target. A wide field and an Ha filter are recommended, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Monoceros_OB2"
     },
@@ -167,6 +183,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JanFebMar",
+      "constellation": "Canis Major",
       "description": "LBN 263 (Canis Major Nebula) is an emission nebula in Canis Major, about 3,500 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the southern Galactic Plane and is associated with the CMa OB1 complex, which also includes Thor's Helmet. Astrophotography: Dec -11.5 deg, culminating around 30 deg from Remalard, so it is a low winter target. Use an Ha filter and allow for longer exposures to compensate for the low altitude.",
       "external_link": "https://en.wikipedia.org/wiki/Canis_Major_OB1"
     },
@@ -177,6 +194,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JanFebMar",
+      "constellation": null,
       "description": "LBN 265 (Sirius Nebula) is a very diffuse reflection nebula associated with Sirius, the brightest star in the night sky, only 8.6 ly away. It appears around magnitude 9.5 and spans about 15'. It was catalogued by Beverly Turner Lynds in 1965. The faint dust is illuminated by the intense white light of Sirius, but imaging it is difficult because the star itself overwhelms the surrounding nebulosity. Astrophotography: Dec -2.2 deg, culminating around 40 deg from Remalard. A winter target. Although compact, it is a difficult object because of Sirius's extreme glare, halos and diffraction. Very long integration and careful star control are required.",
       "external_link": "https://en.wikipedia.org/wiki/Sirius"
     },
@@ -187,6 +205,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "LBN 292 (Monoceros-Puppis Nebula) is an emission nebula on the Monoceros-Puppis border, about 3,000 ly away. It appears around magnitude 9.0 and spans about 35'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to the Puppis OB nebular environment, an area of the Galactic Plane that is less often imaged from northern latitudes. Astrophotography: Dec -14.5 deg, culminating around 28 deg from Remalard, so it is a low spring target. Use an Ha filter and long subexposures under steady conditions.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -197,6 +216,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "FebMarApr",
+      "constellation": "Vela",
       "description": "LBN 316 (Northern Vela Nebula) is an emission nebula in Vela, about 1,500 ly away. It appears around magnitude 8.5 and spans about 60'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the Vela complex, one of the richest areas of the southern Milky Way, which also includes the Vela supernova remnant and many active emission regions. Astrophotography: Dec -44.1 deg. It is not accessible from Remalard and is essentially a southern-sky target.",
       "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
     },
@@ -207,6 +227,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "FebMarApr",
+      "constellation": "Vela",
       "description": "LBN 331 (Southern Vela Nebula) is an emission nebula in Vela, about 1,500 ly away. It appears around magnitude 8.5 and spans about 50'. It was catalogued by Beverly Turner Lynds in 1965. It is the more southerly counterpart to LBN 316 within the broad Vela complex of H II regions and supernova remnants. Astrophotography: Dec -47.5 deg. It is inaccessible from Remalard and is strictly a southern target.",
       "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
     },
@@ -217,6 +238,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "LBN 331 (Vela-Puppis variant) is an emission nebula on the Vela-Puppis border, about 1,500 ly away. It appears around magnitude 8.5 and spans about 45'. It was catalogued by Beverly Turner Lynds in 1965. This entry likely represents a slightly distinct condensation within the same Vela-Puppis H II complex, which was indexed twice under the same LBN number. Astrophotography: Dec -44.6 deg. It is inaccessible from Remalard and is a southern object.",
       "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
     },
@@ -227,6 +249,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MarAprMay",
+      "constellation": "Puppis",
       "description": "LBN 340 (Puppis Nebula) is an emission nebula in Puppis, about 4,000 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the Galactic Plane and belongs to the Puppis OB environment. Astrophotography: Dec -35.4 deg, reaching only about 7 deg altitude from Remalard, so it is extremely difficult from northern France and better suited to more southerly sites.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -237,6 +260,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MarAprMay",
+      "constellation": "Puppis",
       "description": "LBN 350 (Northern Puppis Nebula) is an emission nebula in Puppis, about 4,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. It is the northern extension of the Puppis H II complex and is only slightly easier than LBN 340 because of its less southerly declination. Astrophotography: Dec -33.7 deg, reaching about 9 deg altitude from Remalard. It remains a very difficult target that needs excellent transparency and seeing.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -247,6 +271,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MarAprMay",
+      "constellation": "Vela",
       "description": "LBN 355 (Vela Nebula) is an emission nebula in Vela, about 1,500 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the rich Vela complex, an area that also contains the Vela supernova remnant and many bright southern emission structures. Astrophotography: Dec -43.3 deg. It is inaccessible from Remalard and is a southern-sky target.",
       "external_link": "https://en.wikipedia.org/wiki/Vela_Supernova_Remnant"
     },
@@ -257,6 +282,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MarAprMay",
+      "constellation": "Vela",
       "description": "LBN 360 (Eastern Vela Nebula) is an emission nebula in eastern Vela, about 1,500 ly away. It appears around magnitude 8.5 and spans about 35'. It was catalogued by Beverly Turner Lynds in 1965. This is the eastern extension of the Vela complex, near the border with Carina. Astrophotography: Dec -48.7 deg. It is completely inaccessible from northern mid-latitudes such as Remalard and is a southern-only target.",
       "external_link": "https://en.wikipedia.org/wiki/Vela_Molecular_Ridge"
     },
@@ -267,6 +293,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MayJunJul",
+      "constellation": null,
       "description": "LBN 405 (Northern Rho Ophiuchi Nebula) is a reflection nebula in the northern part of the Rho Ophiuchi complex, about 460 ly away. It appears around magnitude 8.5 and spans about 60'. It was catalogued by Beverly Turner Lynds in 1965. This is the northern diffuse reflection component of the famous Rho Ophiuchi field, where blue dust, dark lanes and nearby reddish nebulosity create one of the most photogenic regions in the sky. Astrophotography: Dec -22.6 deg, culminating around 20 deg from Remalard, so it is a low summer target. A wide field and very deep LRGB are recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
     },
@@ -277,6 +304,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MayJunJul",
+      "constellation": null,
       "description": "LBN 408 (Rho Ophiuchi Nebula) is the main reflection nebula of the Rho Ophiuchi complex, about 460 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. Centered on Rho Ophiuchi itself, this is the core of one of the nearest and most colourful star-forming regions in the sky, combining blue reflection nebulosity, dark dust and nearby red emission. Astrophotography: Dec -24.4 deg, culminating around 18 deg from Remalard, so it is low from France. Deep wide-field LRGB is ideal.",
       "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
     },
@@ -287,6 +315,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MayJunJul",
+      "constellation": null,
       "description": "LBN 412 (Southern Rho Ophiuchi Nebula) is a reflection nebula in the southern part of the Rho Ophiuchi complex, about 460 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This southern extension includes reflection nebulosity associated with young stars of the Upper Scorpius association and is usually imaged together with the rest of the Rho Ophiuchi-Antares field. Astrophotography: Dec -26.4 deg, culminating around 16 deg from Remalard, so it is very low. Deep LRGB and excellent summer seeing are important.",
       "external_link": "https://en.wikipedia.org/wiki/Rho_Ophiuchi_cloud_complex"
     },
@@ -297,6 +326,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "LBN 437 (Ophiuchus-Scorpius Nebula) is an emission nebula on the Ophiuchus-Scorpius border, about 500 ly away. It appears around magnitude 9.0 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region belongs to the Sco OB2 star-forming environment along the Galactic Plane. Astrophotography: Dec -34.1 deg, reaching only about 8 deg from Remalard, so it is nearly inaccessible from France and better suited to southern observatories.",
       "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
     },
@@ -307,6 +337,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MayJunJul",
+      "constellation": null,
       "description": "LBN 437 (Antares Nebula) is the large orange reflection nebula surrounding the supergiant star Antares, about 550 ly away. It appears around magnitude 8.5 and spans about 180'. It was catalogued by Beverly Turner Lynds in 1965. Illuminated by the red-orange light of Antares, it forms one of the most striking wide-field combinations in astrophotography when framed together with the blue Rho Ophiuchi nebulosity. Astrophotography: Dec -26.4 deg, culminating around 16 deg from Remalard. A very wide field and very deep LRGB are recommended, and controlling the glare of Antares is a major challenge.",
       "external_link": "https://en.wikipedia.org/wiki/Antares"
     },
@@ -317,6 +348,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AprMayJun",
+      "constellation": "Centaurus",
       "description": "LBN 453 (Centaurus Nebula) is an emission nebula in Centaurus, about 5,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the southern Milky Way and is completely inaccessible from French latitudes. It is a southern-sky target.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -327,6 +359,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": "Norma",
       "description": "LBN 462 (Norma Nebula) is an emission nebula in Norma, about 5,000 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the southern Galactic Plane near the transition between the Sagittarius and Norma-Cygnus arms. Astrophotography: Dec -42.7 deg. It is inaccessible from Remalard and is a southern target.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -337,6 +370,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": "Scorpius",
       "description": "LBN 468 (Blue Scorpion Nebula) is an emission nebula in southern Scorpius, about 3,000 ly away. It appears around magnitude 9.5 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies deep in the southern Galactic Plane toward the inner Milky Way. Astrophotography: Dec -43.6 deg. It is inaccessible from France and is a southern-only target.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -347,6 +381,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": "Ara",
       "description": "LBN 476 (Ara Nebula) is an emission nebula in Ara, about 4,500 ly away. It appears around magnitude 9.0 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to the active Sagittarius-arm star-forming environment in the far southern Milky Way. Astrophotography: Dec -49.6 deg. It is inaccessible from Remalard and is a southern-sky object.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -357,6 +392,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": null,
       "description": "LBN 484 (Southwest Sagittarius Nebula) is an emission nebula in southwestern Sagittarius, about 7,000 ly away. It appears around magnitude 8.0 and spans about 60'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region lies toward the Galactic Centre, where the background star field is exceptionally rich but interstellar extinction is also high. Astrophotography: Dec -32.2 deg, culminating around 10 deg from Remalard, so it is a very low and difficult summer target. An Ha filter is essential.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -367,6 +403,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Sagittarius",
       "description": "LBN 528 (Extended Lagoon Nebula) is the extended emission envelope of the Lagoon Nebula, M8, in Sagittarius, about 4,100 ly away. It appears around magnitude 7.0 and spans about 90'. It was catalogued by Beverly Turner Lynds in 1965. This entry covers the wide outer Ha halo of M8 beyond the familiar bright core and can show links toward the Trifid region in deep wide-field images. Astrophotography: Dec -24.4 deg, culminating around 18 deg from Remalard. A low summer target from France. A very wide field with Ha and OIII works well, with long integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lagoon_Nebula"
     },
@@ -377,6 +414,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Sagittarius",
       "description": "LBN 532 (Northern Sagittarius Nebula, M24 Region) is a large emission nebula in Sagittarius, about 10,000 ly away. It appears around magnitude 7.5 and spans about 80'. It was catalogued by Beverly Turner Lynds in 1965. This is the diffuse Ha nebulosity around the M24 star cloud, in one of the richest sections of the summer Milky Way. Astrophotography: Dec -20.1 deg, culminating around 22 deg from Remalard. A low summer target. Use a wide field, an Ha filter and about 6-10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Messier_24"
     },
@@ -387,6 +425,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Sagittarius",
       "description": "LBN 534 (Extended Omega Nebula) is the extended emission envelope of the Omega Nebula, M17, in Sagittarius, about 5,500 ly away. It appears around magnitude 7.5 and spans about 80'. It was catalogued by Beverly Turner Lynds in 1965. This entry covers the large Ha halo around the bright core of M17 and shows broad filaments and arcs in deep imaging. Astrophotography: Dec -16.2 deg, culminating around 26 deg from Remalard. A low summer target. A wide field with Ha and OIII is recommended, with about 6-10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Omega_Nebula"
     },
@@ -397,6 +436,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Scutum",
       "description": "LBN 539 (Scutum Nebula) is an emission nebula in Scutum, about 6,000 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in a rich Milky Way area near the Scutum star cloud and the inner Sagittarius-Carina arm. Astrophotography: Dec -14.1 deg, culminating around 28 deg from Remalard. A low summer target. Use an Ha filter and expect a limited imaging window.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -407,6 +447,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "LBN 549 (Bubble Nebula, NGC 7635) is the extended H II region surrounding the Bubble Nebula in Cassiopeia, about 7,100 ly away. It appears around magnitude 8.5, with the classic bubble itself spanning about 15'. It was catalogued by Beverly Turner Lynds in 1965. The famous bubble is carved by the stellar wind of BD+60 2522 and sits within a wider emission region that also includes the open cluster M52 in the same field. Astrophotography: Dec +61.2 deg, circumpolar from France. Best in autumn and winter. Ha and OIII are especially effective, with longer focal length for the bubble itself or a wider field for the surrounding nebulosity.",
       "external_link": "https://en.wikipedia.org/wiki/Bubble_Nebula"
     },
@@ -417,6 +458,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Scutum",
       "description": "LBN 552 (Northern Scutum Nebula) is an emission nebula in northern Scutum, about 5,500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies near the transition from Scutum toward Aquila, against a very dense inner-Galaxy star field. Astrophotography: Dec -9.8 deg, culminating around 32 deg from Remalard. A low summer target. Use an Ha filter with a limited summer imaging window.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -427,6 +469,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Serpens",
       "description": "LBN 559 (Serpens-Aquila Nebula) is an emission nebula on the Serpens-Aquila border, about 6,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the W39-W40 star-forming area near the Serpens Cauda-Aquila transition. Astrophotography: Dec -5.2 deg, culminating around 37 deg from Remalard. A low summer target. An Ha filter is recommended.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -437,6 +480,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": null,
       "description": "LBN 562 (Northwest Aquila Nebula) is an emission nebula in northwestern Aquila, about 5,500 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies in the Milky Way between Serpens and Aquila, in a section of the Great Rift rich in dark clouds and scattered nebulae. Astrophotography: Dec +0.4 deg, culminating around 42 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -447,6 +491,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Aquila",
       "description": "LBN 569 (Aquila Nebula) is an emission nebula in Aquila, about 5,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the central Aquila Milky Way, where the Great Rift creates a characteristic mix of dark dust and ionized gas. Astrophotography: Dec +5.4 deg, culminating around 48 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -457,6 +502,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Sagitta",
       "description": "LBN 576 (Northeast Aquila Nebula) is an emission nebula in northeastern Aquila, about 5,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. It is the northeastern extension of the Aquila H II complex toward Sagitta and the Ophiuchus direction. Astrophotography: Dec +8.8 deg, culminating around 51 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -467,6 +513,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "LBN 583 (Aquila-Sagitta Nebula) is an emission nebula on the Aquila-Sagitta border, about 4,500 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This faint diffuse H II region sits in the transition between Aquila and Sagitta and benefits from dark skies and long exposure time. Astrophotography: Dec +17 deg, culminating around 60 deg from Remalard. A summer-to-autumn target. Use an Ha filter and about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -477,6 +524,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Sagitta",
       "description": "LBN 592 (Sagitta Nebula) is an emission nebula in Sagitta, about 4,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This faint H II region lies in the Milky Way of Sagitta and is a demanding target because of its low surface brightness. Astrophotography: Dec +18.6 deg, culminating around 61 deg from Remalard. A summer-to-autumn target. Use an Ha filter, dark skies and about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -487,6 +535,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "LBN 601 (Vulpecula-Sagitta Nebula) is an emission nebula on the Vulpecula-Sagitta border, about 4,000 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in a rich Milky Way area that also includes NGC 6820 and other diffuse nebulae. Astrophotography: Dec +27.3 deg, culminating around 70 deg from Remalard. A summer-to-autumn target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -497,6 +546,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Vulpecula",
       "description": "LBN 606 (Vulpecula Nebula) is an emission nebula in Vulpecula, about 4,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region is part of the northern Milky Way nebulosity of Vulpecula and may be viewed as a diffuse extension of the NGC 6820/6823 region. Astrophotography: Dec +23.5 deg, culminating around 66 deg from Remalard. A summer-to-autumn target. Ha and S II can work well, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -507,6 +557,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "LBN 620 (Southwest Cygnus Nebula) is an emission nebula in southwestern Cygnus, about 5,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the Cygnus X complex, one of the most active massive star-forming areas visible from the northern hemisphere. Astrophotography: Dec +35.9 deg, nearly overhead from Remalard. A prime summer-to-autumn target. A wide field with Ha and S II works well.",
       "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
     },
@@ -517,6 +568,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "LBN 630 (Central Cygnus Nebula) is an emission nebula in central Cygnus, about 5,000 ly away. It appears around magnitude 8.0 and spans about 60'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region lies in the heart of Cygnus X, amid one of the densest and richest nebular fields in the northern Milky Way. Astrophotography: Dec +40.7 deg, very high from Remalard. A major summer-to-autumn target. A wide field with Ha and S II is well suited, with about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
     },
@@ -527,6 +579,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Cepheus",
       "description": "LBN 636 (Northeast Cygnus Nebula) is an emission nebula in northeastern Cygnus, about 5,000 ly away. It appears around magnitude 8.0 and spans about 50'. It was catalogued by Beverly Turner Lynds in 1965. It marks the northeastern extension of the Cygnus X complex toward Cepheus, in a region crowded with emission nebulae and dark Rift clouds. Astrophotography: Dec +45 deg, very well placed from France. A wide field with Ha and S II is recommended, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
     },
@@ -537,6 +590,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Lacerta",
       "description": "LBN 641 (Northern Cygnus Nebula) is an emission nebula in northern Cygnus, about 5,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This northern section of Cygnus X lies near the Lacerta and Cepheus borders in a region where multiple Milky Way spiral-arm layers overlap. Astrophotography: Dec +47 deg, nearly overhead from Remalard. A very strong summer-to-autumn target for Ha and S II imaging.",
       "external_link": "https://en.wikipedia.org/wiki/Cygnus_X_(star-forming_region)"
     },
@@ -547,6 +601,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "LBN 656 (Extended Pelican Nebula) is the extended H II envelope of the Pelican Nebula, IC 5070, in Cygnus, about 1,600 ly away. It appears around magnitude 7.5 and spans about 90'. It was catalogued by Beverly Turner Lynds in 1965. Physically linked to the North America Nebula, this is one of the most photographed nebular complexes in the northern sky. Astrophotography: Dec +45 deg, circumpolar from France. A classic summer-to-autumn target. A very wide field with Ha, O III and S II is ideal, with about 8-12 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Pelican_Nebula"
     },
@@ -557,6 +612,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Cygnus",
       "description": "LBN 667 (Extended North America Nebula) is the extended H II envelope of the North America Nebula, NGC 7000, in Cygnus, about 1,600 ly away. It appears around magnitude 7.0 and spans about 120', making it one of the brightest and largest entries in the LBN catalogue. It was catalogued by Beverly Turner Lynds in 1965. Together with IC 5070, it forms one of the most important wide-field emission targets in the northern sky. Astrophotography: Dec +44.5 deg, circumpolar from France. A must-image summer-to-autumn target. A very wide field, camera lens or short refractor, and SHO-style narrowband imaging work especially well.",
       "external_link": "https://en.wikipedia.org/wiki/North_America_Nebula"
     },
@@ -567,6 +623,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": null,
       "description": "LBN 672 (Cygnus-Lyra Nebula) is an emission nebula on the Cygnus-Lyra border, about 4,500 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies in the northern Milky Way between Cygnus and Lyra, where faint Ha structures weave through the Galactic Rift. Astrophotography: Dec +37.4 deg, very well placed from Remalard. A summer-to-autumn target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -577,6 +634,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "SepOctNov",
+      "constellation": null,
       "description": "LBN 704 (Northwest Cygnus Nebula) is an emission nebula on the Cygnus-Cepheus border, about 4,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the Cygnus-arm star-forming environment in a rich field of both bright and dark nebulae. Astrophotography: Dec +56.7 deg, circumpolar from France. Best in autumn. Ha and S II work well, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -587,6 +645,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "SepOctNov",
+      "constellation": "Cygnus",
       "description": "LBN 776 (Extended Cocoon Nebula) is the extended emission envelope of the Cocoon Nebula, IC 5146, in Cygnus, about 2,700 ly away. It appears around magnitude 8.5 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. The Cocoon and its Ha halo are visually linked to the long dark streamer Barnard 168, forming one of the most elegant autumn fields in the northern sky. Astrophotography: Dec +47.4 deg, very high from Remalard. A good autumn target. Ha plus LRGB works well, with about 6-10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/IC_5146"
     },
@@ -597,6 +656,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "SepOctNov",
+      "constellation": null,
       "description": "LBN 782 (Southwest Cepheus Nebula) is an emission nebula in southwestern Cepheus, about 3,000 ly away. It appears around magnitude 8.5 and spans about 35'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to the Cygnus-arm star-forming environment in a part of Cepheus that is rich in well-known emission and reflection nebulae. Astrophotography: Dec +59.3 deg, circumpolar from France. Best in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -607,6 +667,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": null,
       "description": "LBN 801 (Central Cepheus Nebula) is an emission nebula in central Cepheus, about 3,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This extended H II region lies between the IC 1396 and Sh2-155 areas as part of the rich Cepheus network of Cygnus-arm nebulae. Astrophotography: Dec +58.6 deg, circumpolar from France. Best in autumn and winter. Ha and S II work well, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -617,6 +678,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Cepheus",
       "description": "LBN 814 (NGC 7822 Nebula) is the large emission nebula of the NGC 7822 / Sh2-171 complex in Cepheus, about 3,000 ly away. It appears around magnitude 7.5 and spans about 50'. It was catalogued by Beverly Turner Lynds in 1965. This is one of the best northern star-forming regions in the catalogue, well known for its sculpted pillars and evaporating globules. Astrophotography: Dec +68.6 deg, strictly circumpolar from France. An excellent autumn-to-winter target. A wide field and SHO narrowband imaging are especially effective.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7822"
     },
@@ -627,6 +689,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": null,
       "description": "LBN 816 (Northeast Cepheus Nebula) is an emission nebula in northeastern Cepheus, about 3,000 ly away. It appears around magnitude 8.5 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This northeastern extension of the Cepheus nebular complex lies close to NGC 7822 and can easily be included in the same wide field. Astrophotography: Dec +66.7 deg, circumpolar from France. Best in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -637,6 +700,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Andromeda",
       "description": "LBN 853 (Andromeda Nebula) is an emission nebula in Andromeda, about 5,000 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region belongs to the local spiral-arm material seen in the direction of Andromeda. Astrophotography: Dec +47.8 deg, very well placed from France in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -647,6 +711,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": null,
       "description": "LBN 854 (Cassiopeia-Andromeda Nebula) is an emission nebula on the Cassiopeia-Andromeda border, about 5,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to the Perseus Arm complex in a rich circumpolar Milky Way field. Astrophotography: Dec +51.1 deg, very high from Remalard. Best in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -657,6 +722,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Cassiopeia",
       "description": "LBN 856 (Central Cassiopeia Nebula) is an emission nebula in Cassiopeia, about 6,000 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the richly populated Perseus Arm complex of Cassiopeia, near many other well-known nebulae. Astrophotography: Dec +62.3 deg, circumpolar from France. Best in autumn and winter. Ha and S II work well, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -667,6 +733,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": null,
       "description": "LBN 858 (Northeast Cassiopeia Nebula) is an emission nebula in northeastern Cassiopeia, about 6,500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This is the northeastern extension of the Cassiopeia H II complex in a field that also includes LBN 856 and, farther east, the Heart and Soul region. Astrophotography: Dec +64.1 deg, circumpolar from France. Best in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -677,6 +744,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "OctNovDec",
+      "constellation": "Perseus",
       "description": "LBN 862 (Cassiopeia-Perseus Nebula) is an emission nebula on the Cassiopeia-Perseus border, about 6,500 ly away. It appears around magnitude 9.0 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This compact H II region sits at the transition between the Cassiopeia and Perseus nebular complexes in the Perseus Arm. Astrophotography: Dec +60.2 deg, circumpolar from France. Best in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -687,6 +755,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "NovDecJan",
+      "constellation": null,
       "description": "LBN 864 (Northwest Perseus Nebula) is an emission nebula in northwestern Perseus, about 5,500 ly away. It appears around magnitude 9.0 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to the Perseus Arm and lies in a very rich northern Milky Way field. Astrophotography: Dec +57.6 deg, essentially circumpolar from France. Best in autumn and winter. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -697,6 +766,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "NovDecJan",
+      "constellation": null,
       "description": "LBN 868 (Central Perseus Nebula) is an emission nebula in central Perseus, about 5,000 ly away. It appears around magnitude 8.5 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to the same broad Perseus Arm environment as the Heart and Soul Nebulae. Astrophotography: Dec +57.6 deg, circumpolar from France. Best in autumn and winter. Ha and S II work well, with about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -707,6 +777,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "NovDecJan",
+      "constellation": null,
       "description": "LBN 877 (Perseus-Taurus Nebula) is an emission nebula on the Perseus-Taurus border, about 2,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies near the transition between the Perseus and Taurus molecular environments. Astrophotography: Dec +28.1 deg, culminating around 71 deg from Remalard. A winter target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -717,6 +788,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": null,
       "description": "LBN 883 (Taurus-Orion Nebula) is an emission nebula on the Taurus-Orion border, about 1,500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region belongs to the local Orion-arm material and sits in the broader emission environment around Orion. Astrophotography: Dec +10.4 deg, culminating around 53 deg from Remalard. A winter target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -727,6 +799,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "DecJanFeb",
+      "constellation": null,
       "description": "LBN 893 (Orion-Monoceros Nebula) is an emission nebula on the Orion-Monoceros border, about 1,500 ly away. It appears around magnitude 8.5 and spans about 40'. It was catalogued by Beverly Turner Lynds in 1965. This large H II region belongs to the same broad Orion-arm nebular belt that also includes Barnard's Loop and the Rosette direction. Astrophotography: Dec -6.3 deg, culminating around 36 deg from Remalard. A winter target. Use an Ha filter and about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -737,6 +810,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JanFebMar",
+      "constellation": null,
       "description": "LBN 900 (Monoceros-Gemini Nebula) is an emission nebula on the Monoceros-Gemini border, about 3,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies toward the Galactic anticentre in a field scattered with faint nebular structures. Astrophotography: Dec +22.6 deg, culminating around 65 deg from Remalard. A winter-to-spring target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -747,6 +821,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "FebMarApr",
+      "constellation": null,
       "description": "LBN 914 (Gemini-Cancer Nebula) is an emission nebula on the Gemini-Cancer border, about 3,500 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This is a very diffuse H II region away from the densest part of the Galactic Plane, so it is inherently faint. Astrophotography: Dec +29 deg, culminating around 72 deg from Remalard. A winter-to-spring target. Use an Ha filter, dark skies and about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -757,6 +832,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MarAprMay",
+      "constellation": "Ursa Major",
       "description": "LBN 920 (Southern Ursa Major Nebula) is an emission nebula in southern Ursa Major, about 2,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This is a rare high-galactic-latitude H II region in a part of the sky where diffuse nebulae are uncommon and often accompanied by faint IFN. Astrophotography: Dec +54.7 deg, partly circumpolar from France. A spring target. Use an Ha filter, dark skies and about 6-8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -767,6 +843,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MarAprMay",
+      "constellation": "Ursa Major",
       "description": "LBN 922 (Ursa Major Nebula) is an emission nebula in Ursa Major, about 2,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. Similar to nearby LBN 920, it is a very faint high-latitude H II target where the surrounding IFN can be as interesting as the nebula itself. Astrophotography: Dec +57.4 deg, circumpolar from France. A spring target. Deep Ha plus deep LRGB can be useful, with more than 8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -777,6 +854,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AprMayJun",
+      "constellation": "Canes Venatici",
       "description": "LBN 931 (Canes Venatici Nebula) is an emission nebula in Canes Venatici, about 3,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This is a very rare high-galactic-latitude H II nebula in a sky area better known for galaxies than gas clouds. Astrophotography: Dec +43.2 deg, high from Remalard in spring and early summer. Use an Ha filter, very dark skies and more than 8 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -787,6 +865,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AprMayJun",
+      "constellation": "Canes Venatici",
       "description": "LBN 934 (Northern Canes Venatici Nebula) is an emission nebula in northern Canes Venatici, about 3,000 ly away. It appears around magnitude 9.5 and spans about 18'. It was catalogued by Beverly Turner Lynds in 1965. Like LBN 931, it is an exceptionally faint high-latitude target in a region dominated by galaxies. Astrophotography: Dec +46.9 deg, very high from Remalard. A difficult spring-to-summer challenge object. Use an Ha filter, very dark skies, long focal length and more than 10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -797,6 +876,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AprMayJun",
+      "constellation": "Coma Berenices",
       "description": "LBN 938 (Coma Berenices Nebula) is an emission nebula in Coma Berenices, about 3,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This is an extremely unusual high-latitude H II region in a part of the sky better known for galaxy clusters than nebulae. Astrophotography: Dec +25.9 deg, well placed in spring. Use an Ha filter, exceptionally dark skies and more than 10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -807,6 +887,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AprMayJun",
+      "constellation": "Virgo",
       "description": "LBN 943 (Virgo Nebula) is an emission nebula in Virgo, about 4,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This is one of the most unexpected LBN objects because Virgo is dominated by galaxies rather than emission nebulae, making this a very faint challenge target. Astrophotography: Dec +5.8 deg, accessible in spring. Use an Ha filter, very dark skies and more than 10 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -817,6 +898,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MayJunJul",
+      "constellation": "Libra",
       "description": "LBN 950 (Libra Nebula) is an emission nebula in Libra, about 4,000 ly away. It appears around magnitude 9.5 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This faint H II region lies on the edge of the much richer Scorpius-Ophiuchus environment. Astrophotography: Dec -15.8 deg, culminating around 26 deg from Remalard. A low summer target. Use an Ha filter and plan for more than 6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -827,6 +909,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "MayJunJul",
+      "constellation": "Scorpius",
       "description": "LBN 953 (Northern Scorpius Nebula) is an emission nebula in northern Scorpius, about 500 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region belongs to the Scorpius-Centaurus star-forming environment, specifically the Upper Scorpius area. Astrophotography: Dec -18.4 deg, culminating around 24 deg from Remalard. A low summer target. Use an Ha filter.",
       "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
     },
@@ -837,6 +920,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "LBN 956 (Central Scorpius Nebula) is an emission nebula in central Scorpius, about 500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region belongs to Sco OB2, the nearest OB association to the Sun. Astrophotography: Dec -19.7 deg, culminating around 22 deg from Remalard. A difficult but possible low summer target. Use an Ha filter.",
       "external_link": "https://en.wikipedia.org/wiki/Scorpius%E2%80%93Centaurus_association"
     },
@@ -847,6 +931,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "LBN 960 (Western Ophiuchus Nebula) is an emission nebula in western Ophiuchus, about 500 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies on the western side of the Rho Ophiuchi molecular complex and belongs to the same broader star-forming environment. Astrophotography: Dec -17.8 deg, culminating around 24 deg from Remalard. A low summer target. Use an Ha filter.",
       "external_link": "https://en.wikipedia.org/wiki/Ophiuchus_molecular_cloud"
     },
@@ -857,6 +942,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "LBN 965 (Central Ophiuchus Nebula) is an emission nebula in central Ophiuchus, about 500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region lies near the core of the Ophiuchus molecular cloud system, close to the dark Rho Ophiuchi complex. Astrophotography: Dec -16.7 deg, culminating around 25 deg from Remalard. A low summer target. Use an Ha filter.",
       "external_link": "https://en.wikipedia.org/wiki/Ophiuchus_molecular_cloud"
     },
@@ -867,6 +953,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "AugSepOct",
+      "constellation": "Lyra",
       "description": "LBN 1036 (Lyra Nebula) is an emission nebula in Lyra, about 4,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This diffuse H II region belongs to the local-arm nebulosity in the Lyra-Cygnus sector of the Milky Way. Astrophotography: Dec +32.2 deg, very well placed from Remalard. A summer-to-autumn target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -877,6 +964,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": null,
       "description": "LBN 1044 (Hercules-Lyra Nebula) is an emission nebula on the Hercules-Lyra border, about 4,500 ly away. It appears around magnitude 9.0 and spans about 20'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in a quieter section of the northern Milky Way than the Galactic Centre, but still traces diffuse local-arm gas. Astrophotography: Dec +23.7 deg, well placed from Europe in summer and autumn. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -887,6 +975,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Hercules",
       "description": "LBN 1048 (Hercules Nebula) is an emission nebula in Hercules, about 4,500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. Since Hercules is better known for globular clusters than nebulae, this is one of the rarer Ha objects in that constellation. Astrophotography: Dec +17 deg, culminating around 60 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -897,6 +986,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JulAugSep",
+      "constellation": "Hercules",
       "description": "LBN 1055 (Southern Hercules Nebula) is an emission nebula in southern Hercules, about 5,000 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies toward the transition from Hercules to Ophiuchus, where the Milky Way becomes richer as it approaches the inner-Galaxy direction. Astrophotography: Dec +12.5 deg, culminating around 55 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -907,6 +997,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": "Ophiuchus",
       "description": "LBN 1060 (Northern Ophiuchus Nebula) is an emission nebula in northern Ophiuchus, about 3,500 ly away. It appears around magnitude 9.0 and spans about 30'. It was catalogued by Beverly Turner Lynds in 1965. This H II region lies in the northern Ophiuchus Milky Way and is more accessible from Europe than the lower Rho Ophiuchi fields. Astrophotography: Dec +9.8 deg, culminating around 53 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     },
@@ -917,6 +1008,7 @@
       "discoverer": "Beverly Turner Lynds",
       "discovery_year": 1965,
       "best_months": "JunJulAug",
+      "constellation": null,
       "description": "LBN 1063 (Northeast Ophiuchus Nebula) is an emission nebula in northeastern Ophiuchus, about 3,500 ly away. It appears around magnitude 9.0 and spans about 25'. It was catalogued by Beverly Turner Lynds in 1965. This is the northeastern extension of the northern Ophiuchus H II complex and can be imaged together with LBN 1060. Astrophotography: Dec +12.5 deg, culminating around 55 deg from Remalard. A summer target. Use an Ha filter and about 4-6 hours of integration.",
       "external_link": "https://en.wikipedia.org/wiki/Lynds_catalogue_of_bright_nebulae"
     }

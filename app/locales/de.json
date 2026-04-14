@@ -53,6 +53,7 @@
   "detail.metadata.discoverer": "Entdecker: {value}",
   "detail.metadata.discoverer_year": "Entdecker: {value} ({year})",
   "detail.metadata.best_visibility": "Beste Sichtbarkeit: {value}",
+  "detail.metadata.constellation": "Sternbild: {value}",
   "detail.image.wikipedia_preview": "Wikipedia-Vorschau (nicht erfasst) | {size}",
   "detail.image.none": "Kein Bild verfügbar",
   "detail.image.loading": "Bild wird geladen... | Datei: {name}",

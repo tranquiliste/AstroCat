@@ -3,380 +3,434 @@
     "Sun": {
       "name": "Sun",
       "type": "Star",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A G2V main-sequence star and the center of the solar system. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Sun",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Sun"
     },
     "Mercury": {
       "name": "Mercury",
       "type": "Terrestrial planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A rocky inner planet with phases and surface features depending on the target. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Mercury_(planet)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Mercury_(planet)"
     },
     "Venus": {
       "name": "Venus",
       "type": "Terrestrial planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A rocky inner planet with phases and surface features depending on the target. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Venus",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Venus"
     },
     "Earth": {
       "name": "Earth",
       "type": "Terrestrial planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A rocky inner planet with phases and surface features depending on the target. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Earth",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Earth"
     },
     "Moon": {
       "name": "Moon",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Moon",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Moon"
     },
     "Mars": {
       "name": "Mars",
       "type": "Terrestrial planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A rocky inner planet with phases and surface features depending on the target. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Mars",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Mars"
     },
     "Phobos": {
       "name": "Phobos",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Phobos_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Phobos_(moon)"
     },
     "Deimos": {
       "name": "Deimos",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Deimos_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Deimos_(moon)"
     },
     "Jupiter": {
       "name": "Jupiter",
       "type": "Giant planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A gas/ice giant with atmospheric features and dynamic observing conditions. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Jupiter",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Jupiter"
     },
     "Io": {
       "name": "Io",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Io_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Io_(moon)"
     },
     "Europa": {
       "name": "Europa",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Europa_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Europa_(moon)"
     },
     "Ganymede": {
       "name": "Ganymede",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Ganymede_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Ganymede_(moon)"
     },
     "Callisto": {
       "name": "Callisto",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Callisto_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Callisto_(moon)"
     },
     "Saturn": {
       "name": "Saturn",
       "type": "Giant planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A gas/ice giant with atmospheric features and dynamic observing conditions. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Saturn",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Saturn"
     },
     "Titan": {
       "name": "Titan",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Titan_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Titan_(moon)"
     },
     "Enceladus": {
       "name": "Enceladus",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Enceladus",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Enceladus"
     },
     "Rhea": {
       "name": "Rhea",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Rhea_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Rhea_(moon)"
     },
     "Iapetus": {
       "name": "Iapetus",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Iapetus_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Iapetus_(moon)"
     },
     "Dione": {
       "name": "Dione",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Dione_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Dione_(moon)"
     },
     "Tethys": {
       "name": "Tethys",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Tethys_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Tethys_(moon)"
     },
     "Mimas": {
       "name": "Mimas",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Mimas_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Mimas_(moon)"
     },
     "Uranus": {
       "name": "Uranus",
       "type": "Giant planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A gas/ice giant with atmospheric features and dynamic observing conditions. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Uranus",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Uranus"
     },
     "Miranda": {
       "name": "Miranda",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Miranda_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Miranda_(moon)"
     },
     "Ariel": {
       "name": "Ariel",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Ariel_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Ariel_(moon)"
     },
     "Umbriel": {
       "name": "Umbriel",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Umbriel_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Umbriel_(moon)"
     },
     "Titania": {
       "name": "Titania",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Titania_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Titania_(moon)"
     },
     "Oberon": {
       "name": "Oberon",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Oberon_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Oberon_(moon)"
     },
     "Neptune": {
       "name": "Neptune",
       "type": "Giant planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A gas/ice giant with atmospheric features and dynamic observing conditions. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Neptune",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Neptune"
     },
     "Triton": {
       "name": "Triton",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Triton_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Triton_(moon)"
     },
     "Nereid": {
       "name": "Nereid",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Nereid_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Nereid_(moon)"
     },
     "Proteus": {
       "name": "Proteus",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Proteus_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Proteus_(moon)"
     },
     "Pluto": {
       "name": "Pluto",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Pluto",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Pluto"
     },
     "Charon": {
       "name": "Charon",
       "type": "Moons",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A natural satellite with changing phase/illumination and visibility by date. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Charon_(moon)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Charon_(moon)"
     },
     "Ceres": {
       "name": "Ceres",
       "type": "Dwarf planet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)"
     },
     "Vesta": {
       "name": "Vesta",
       "type": "Asteroid",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A minor planet in the asteroid belt with visibility tied to opposition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/4_Vesta",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/4_Vesta"
     },
     "Pallas": {
       "name": "Pallas",
       "type": "Asteroid",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A minor planet in the asteroid belt with visibility tied to opposition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/2_Pallas",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/2_Pallas"
     },
     "Hygiea": {
       "name": "Hygiea",
       "type": "Asteroid",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A minor planet in the asteroid belt with visibility tied to opposition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/10_Hygiea",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/10_Hygiea"
     },
     "Haumea": {
       "name": "Haumea",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Haumea",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Haumea"
     },
     "Makemake": {
       "name": "Makemake",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Makemake",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Makemake"
     },
     "Eris": {
       "name": "Eris",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)"
     },
     "Sedna": {
       "name": "Sedna",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/90377_Sedna",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/90377_Sedna"
     },
     "Orcus": {
       "name": "Orcus",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Orcus_(dwarf_planet)",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Orcus_(dwarf_planet)"
     },
     "Quaoar": {
       "name": "Quaoar",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Quaoar",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Quaoar"
     },
     "Gonggong": {
       "name": "Gonggong",
       "type": "Trans-Neptunian object",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A dwarf planet in the solar system with changing visibility by apparition. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/225088_Gonggong",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/225088_Gonggong"
     },
     "Chiron": {
       "name": "Chiron",
       "type": "Centaur",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A small body between Jupiter and Neptune with shifting visibility. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/2060_Chiron",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/2060_Chiron"
     },
     "Chariklo": {
       "name": "Chariklo",
       "type": "Centaur",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "A small body between Jupiter and Neptune with shifting visibility. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/10199_Chariklo",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/10199_Chariklo"
     },
     "Halley": {
       "name": "Halley's Comet",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Halley%27s_Comet",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Halley%27s_Comet"
     },
     "Encke": {
       "name": "Encke's Comet",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Comet_Encke",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Comet_Encke"
     },
     "Tempel 1": {
       "name": "Tempel 1",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/9P/Tempel",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/9P/Tempel"
     },
     "Borrelly": {
       "name": "Borrelly",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/19P/Borrelly",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/19P/Borrelly"
     },
     "67P Churyumov-Gerasimenko": {
       "name": "67P/Churyumov-Gerasimenko",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/67P/Churyumov%E2%80%93Gerasimenko",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/67P/Churyumov%E2%80%93Gerasimenko"
     },
     "Hartley 2": {
       "name": "Hartley 2",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/103P/Hartley",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/103P/Hartley"
     },
     "Swift-Tuttle": {
       "name": "Swift-Tuttle",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/109P/Swift%E2%80%93Tuttle",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/109P/Swift%E2%80%93Tuttle"
     },
     "Hale-Bopp": {
       "name": "Hale-Bopp",
       "type": "Comet",
+      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec",
+      "constellation": null,
       "description": "An icy body that can develop a coma/tail near perihelion; visibility varies by return. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
-      "external_link": "https://en.wikipedia.org/wiki/Comet_Hale%E2%80%93Bopp",
-      "best_months": "JanFebMarAprMayJunJulAugSepOctNovDec"
+      "external_link": "https://en.wikipedia.org/wiki/Comet_Hale%E2%80%93Bopp"
     }
   }
 }
