@@ -844,24 +844,46 @@ class CatalogModel(QtCore.QAbstractListModel):
 class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
     def paint(self, painter: QtGui.QPainter, option: QtWidgets.QStyleOptionViewItem, index: QtCore.QModelIndex) -> None:
         painter.save()
-        rect = option.rect
+        painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing, True)
+        rect = option.rect.adjusted(4, 4, -4, -4)
         icon = index.data(QtCore.Qt.ItemDataRole.DecorationRole)
         text = index.data(QtCore.Qt.ItemDataRole.DisplayRole) or ""
         metrics = option.fontMetrics
-        text_height = metrics.height() + 6
-        icon_rect = QtCore.QRect(rect.left() + 1, rect.top() + 1, rect.width() - 2, rect.height() - 2)
-        text_rect = QtCore.QRect(rect.left() + 4, rect.bottom() - text_height - 2, rect.width() - 8, text_height)
+        text_height = metrics.height() + 12
+        card_rect = rect
+        image_rect = QtCore.QRect(
+            card_rect.left() + 1,
+            card_rect.top() + 1,
+            card_rect.width() - 2,
+            card_rect.height() - text_height - 12,
+        )
+        text_rect = QtCore.QRect(card_rect.left() + 8, card_rect.bottom() - text_height - 8, card_rect.width() - 16, text_height)
 
-        if isinstance(icon, QtGui.QPixmap):
-            painter.drawPixmap(icon_rect, icon)
+        base_color = QtGui.QColor("#121a2b")
+        border_color = QtGui.QColor("#24304a")
+        accent_color = QtGui.QColor("#d4a85f")
+        painter.setPen(QtCore.Qt.PenStyle.NoPen)
+        painter.setBrush(base_color)
+        painter.drawRoundedRect(QtCore.QRectF(card_rect), 12, 12)
+
+        if isinstance(icon, QtGui.QPixmap) and not icon.isNull():
+            image = icon.toImage()
+            painter.drawImage(image_rect, image, image.rect())
         else:
-            painter.fillRect(icon_rect, QtGui.QColor("#1c1c1c"))
-            pen = QtGui.QPen(QtGui.QColor("#3a3a3a"))
+            painter.fillRect(image_rect, QtGui.QColor("#182235"))
+            pen = QtGui.QPen(border_color)
             painter.setPen(pen)
-            painter.drawRect(icon_rect)
+            painter.setBrush(QtCore.Qt.BrushStyle.NoBrush)
+            painter.drawRoundedRect(QtCore.QRectF(image_rect.adjusted(0, 0, -1, -1)), 11, 11)
+        painter.setBrush(QtCore.Qt.BrushStyle.NoBrush)
+        painter.setPen(QtGui.QPen(border_color, 1))
+        painter.drawRoundedRect(QtCore.QRectF(card_rect.adjusted(0, 0, -1, -1)), 12, 12)
         if option.state & QtWidgets.QStyle.StateFlag.State_Selected:
-            painter.setPen(QtGui.QPen(QtGui.QColor("#d94a4a"), 2))
-            painter.drawRect(icon_rect.adjusted(1, 1, -1, -1))
+            painter.setPen(QtGui.QPen(accent_color, 2))
+            painter.drawRoundedRect(QtCore.QRectF(card_rect.adjusted(1, 1, -1, -1)), 12, 12)
+        elif option.state & QtWidgets.QStyle.StateFlag.State_MouseOver:
+            painter.setPen(QtGui.QPen(QtGui.QColor("#4a628f"), 1))
+            painter.drawRoundedRect(QtCore.QRectF(card_rect.adjusted(1, 1, -1, -1)), 12, 12)
 
         badge_size = 18
         margin = 4
@@ -869,14 +891,15 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
         if item:
             if len(item.image_paths) > 0:
                 count_rect = QtCore.QRect(
-                    icon_rect.left() + margin,
-                    icon_rect.top() + margin,
-                    badge_size + 6,
-                    badge_size,
+                    image_rect.left() + margin,
+                    image_rect.top() + margin,
+                    badge_size + 10,
+                    badge_size + 2,
                 )
-                painter.fillRect(count_rect, QtGui.QColor(0, 0, 0, 160))
-                painter.setPen(QtGui.QColor("#f2f2f2"))
-                painter.drawRect(count_rect)
+                painter.setPen(QtCore.Qt.PenStyle.NoPen)
+                painter.setBrush(QtGui.QColor(7, 14, 25, 190))
+                painter.drawRoundedRect(QtCore.QRectF(count_rect), 9, 9)
+                painter.setPen(QtGui.QColor("#edf1f7"))
                 painter.drawText(
                     count_rect,
                     QtCore.Qt.AlignmentFlag.AlignCenter,
@@ -884,13 +907,13 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
                 )
             if item.notes or any(note for note in item.image_notes.values()):
                 info_rect = QtCore.QRect(
-                    icon_rect.right() - badge_size - margin,
-                    icon_rect.top() + margin,
+                    image_rect.right() - badge_size - margin,
+                    image_rect.top() + margin,
                     badge_size,
                     badge_size,
                 )
-                painter.setBrush(QtGui.QColor(0, 0, 0, 160))
-                painter.setPen(QtGui.QColor("#f2f2f2"))
+                painter.setBrush(QtGui.QColor(7, 14, 25, 190))
+                painter.setPen(QtGui.QColor("#edf1f7"))
                 painter.drawEllipse(info_rect)
                 painter.drawText(
                     info_rect,
@@ -898,10 +921,12 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
                     "i",
                 )
 
-        painter.fillRect(text_rect, QtGui.QColor(0, 0, 0, 160))
-        painter.setPen(QtGui.QColor("#f2f2f2"))
-        elided = metrics.elidedText(text, QtCore.Qt.TextElideMode.ElideRight, text_rect.width())
-        painter.drawText(text_rect, QtCore.Qt.AlignmentFlag.AlignCenter, elided)
+        painter.setPen(QtCore.Qt.PenStyle.NoPen)
+        painter.setBrush(QtGui.QColor(8, 12, 20, 198))
+        painter.drawRoundedRect(QtCore.QRectF(text_rect), 10, 10)
+        painter.setPen(QtGui.QColor("#edf1f7"))
+        elided = metrics.elidedText(text, QtCore.Qt.TextElideMode.ElideRight, text_rect.width() - 12)
+        painter.drawText(text_rect.adjusted(6, 0, -6, 0), QtCore.Qt.AlignmentFlag.AlignCenter, elided)
 
         painter.restore()
 
@@ -1421,6 +1446,7 @@ class DetailPanel(QtWidgets.QWidget):
         self.title = QtWidgets.QLabel(tr("detail.select_object"))
         self.title.setObjectName("detailTitle")
         self.metadata = QtWidgets.QLabel("")
+        self.metadata.setObjectName("detailMetadata")
         self.metadata.setWordWrap(True)
         self.metadata.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
         self.metadata.setContentsMargins(0, 0, 0, 0)
@@ -1473,9 +1499,8 @@ class DetailPanel(QtWidgets.QWidget):
         self._saved_detail_sizes: Optional[List[int]] = None
 
         layout = QtWidgets.QVBoxLayout(self)
-        layout.addWidget(self.title)
-        fit_row = QtWidgets.QHBoxLayout()
-        fit_row.addWidget(self.fit_button)
+        layout.setContentsMargins(18, 18, 18, 18)
+        layout.setSpacing(10)
         self.text_smaller_button = QtWidgets.QPushButton(tr("detail.text_button_smaller"))
         self.text_larger_button = QtWidgets.QPushButton(tr("detail.text_button_larger"))
         self.text_smaller_button.setToolTip(tr("detail.text_smaller"))
@@ -1491,22 +1516,34 @@ class DetailPanel(QtWidgets.QWidget):
         self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
         self.focus_toggle_button.setAutoRaise(False)
         self.focus_toggle_button.clicked.connect(self._toggle_focus_mode)
-        fit_row.addWidget(self.text_smaller_button)
-        fit_row.addWidget(self.text_larger_button)
-        fit_row.addWidget(self.focus_toggle_button)
-        fit_row.addStretch(1)
-        layout.addLayout(fit_row)
 
         image_container = QtWidgets.QWidget()
+        image_container.setObjectName("detailImageContainer")
         image_layout = QtWidgets.QVBoxLayout(image_container)
-        image_layout.setContentsMargins(0, 0, 0, 0)
+        image_layout.setContentsMargins(12, 12, 12, 12)
+        image_layout.setSpacing(10)
+        image_header = QtWidgets.QWidget()
+        image_header.setObjectName("detailImageHeader")
+        image_header_layout = QtWidgets.QHBoxLayout(image_header)
+        image_header_layout.setContentsMargins(2, 0, 2, 0)
+        image_header_layout.setSpacing(10)
+        image_header_layout.addWidget(self.title)
+        image_header_layout.addSpacing(10)
+        image_header_layout.addWidget(self.fit_button)
+        image_header_layout.addWidget(self.text_smaller_button)
+        image_header_layout.addWidget(self.text_larger_button)
+        image_header_layout.addWidget(self.focus_toggle_button)
+        image_header_layout.addStretch(1)
+        image_layout.addWidget(image_header)
         image_layout.addWidget(self.image_view, stretch=1)
 
         left_widget = QtWidgets.QWidget()
+        left_widget.setObjectName("detailMetaPanel")
         left_layout = QtWidgets.QVBoxLayout(left_widget)
-        left_layout.setContentsMargins(0, 0, 0, 0)
-        left_layout.setSpacing(0)
+        left_layout.setContentsMargins(18, 18, 18, 18)
+        left_layout.setSpacing(12)
         nav_row = QtWidgets.QHBoxLayout()
+        nav_row.setSpacing(8)
         nav_row.addWidget(self.prev_button)
         nav_row.addWidget(self.next_button)
         nav_row.addWidget(self.thumb_button)
@@ -1518,8 +1555,10 @@ class DetailPanel(QtWidgets.QWidget):
         left_layout.addWidget(self.external_link)
 
         right_widget = QtWidgets.QWidget()
+        right_widget.setObjectName("detailTextPanel")
         right_layout = QtWidgets.QVBoxLayout(right_widget)
-        right_layout.setContentsMargins(0, 0, 0, 0)
+        right_layout.setContentsMargins(18, 18, 18, 18)
+        right_layout.setSpacing(12)
         right_layout.addWidget(self.description, stretch=2)
         right_layout.addWidget(self.notes, stretch=1)
         self._change_detail_text_size(0.0)
@@ -2340,25 +2379,25 @@ class MainWindow(QtWidgets.QMainWindow):
         grid_controls_layout.addWidget(self.refresh_button)
         self.status_label = QtWidgets.QLabel("")
         self.status_label.setObjectName("statusLabel")
+        self.status_label.hide()
 
         layout.addWidget(self.toolbar_container)
-        layout.addSpacing(3)
+        layout.addSpacing(2)
         layout.addWidget(self.grid_controls_container)
-        layout.addSpacing(6)
+        layout.addSpacing(2)
         layout.addWidget(self.status_label)
-        layout.addSpacing(6)
+        layout.addSpacing(2)
 
         self.grid = QtWidgets.QListView()
         self.grid.setViewMode(QtWidgets.QListView.ViewMode.IconMode)
         self.grid.setResizeMode(QtWidgets.QListView.ResizeMode.Adjust)
         self.grid.setUniformItemSizes(True)
-        self.grid.setSpacing(0)
+        self.grid.setSpacing(10)
+        self.grid.setMouseTracking(True)
         self.grid.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
         self._update_grid_metrics(self.thumbnail_cache.thumb_size)
         self.grid.setItemDelegate(CatalogItemDelegate(self.grid))
-        self.grid.setStyleSheet(
-            "QListView::item { margin: 0px; padding: 0px; border: 1px solid #3a3a3a; }"
-        )
+        self.grid.setStyleSheet("QListView::item { margin: 2px; padding: 0px; border: none; }")
         self.grid.setModel(self.proxy)
         self.grid.selectionModel().selectionChanged.connect(self._on_selection_changed)
         self.grid.viewport().installEventFilter(self)
@@ -2378,6 +2417,7 @@ class MainWindow(QtWidgets.QMainWindow):
         splitter.setStretchFactor(1, 2)
         splitter.setChildrenCollapsible(False)
         splitter.setHandleWidth(6)
+        splitter.setSizes([420, 980])
         splitter.splitterMoved.connect(self._schedule_auto_fit)
         self.splitter = splitter
         self._saved_main_sizes: Optional[List[int]] = None
@@ -2411,40 +2451,122 @@ class MainWindow(QtWidgets.QMainWindow):
     def _apply_dark_theme(self) -> None:
         self.setStyleSheet(
             """
-            QWidget { background: #141414; color: #e5e5e5; font-family: 'Avenir Next', 'Helvetica Neue', Arial; }
-            QLineEdit, QComboBox, QTextEdit { background: #1d1d1d; border: 1px solid #333; padding: 6px; }
-            QToolButton[compactPill="true"] { background: #212121; border: 1px solid #3b3b3b; border-radius: 16px; padding: 4px 22px 4px 12px; }
-            QToolButton[compactPill="true"]:hover { background: #2a2a2a; }
+            QWidget {
+                background: #0b1220;
+                color: #edf1f7;
+                font-family: 'Segoe UI', 'Aptos', 'Helvetica Neue', Arial;
+                selection-background-color: #d4a85f;
+                selection-color: #08111d;
+            }
+            QLineEdit, QComboBox, QTextEdit {
+                background: #121a2b;
+                border: 1px solid #23314a;
+                border-radius: 10px;
+                padding: 8px 10px;
+            }
+            QLineEdit:focus, QComboBox:focus, QTextEdit:focus {
+                border-color: #d4a85f;
+            }
+            QToolButton[compactPill="true"] {
+                background: #152038;
+                border: 1px solid #2a3854;
+                border-radius: 16px;
+                padding: 5px 22px 5px 12px;
+            }
+            QToolButton[compactPill="true"]:hover { background: #1c2943; border-color: #45618a; }
             QToolButton[compactPill="true"]::menu-indicator { image: none; }
-            QToolButton#focusToggleButton { background: #1b1b1b; border: 1px solid #4a4a4a; border-radius: 15px; padding: 0; }
-            QToolButton#focusToggleButton:hover { background: #252525; border-color: #d9a441; }
-            QToolButton#focusToggleButton:pressed { background: #2b2b2b; }
-            QListView { background: #101010; border: 1px solid #2a2a2a; }
-            QSplitter::handle { background: #1f1f1f; }
+            QToolButton#focusToggleButton { background: #152038; border: 1px solid #3d5376; border-radius: 15px; padding: 0; }
+            QToolButton#focusToggleButton:hover { background: #1f2e4a; border-color: #d4a85f; }
+            QToolButton#focusToggleButton:pressed { background: #253657; }
+            QListView {
+                background: #08111d;
+                border: 1px solid #1e2a42;
+                border-radius: 14px;
+                padding: 8px;
+            }
+            QSplitter::handle { background: #142038; }
             QSplitter::handle:horizontal { width: 6px; }
             QSplitter::handle:vertical { height: 6px; }
-            QLabel#detailTitle { font-size: 20px; font-weight: 600; }
-            QLabel#catalogTitle { font-size: 18px; font-weight: 600; color: #d9a441; }
+            QLabel#detailTitle {
+                font-family: 'Georgia', 'Palatino Linotype', serif;
+                font-size: 24px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                color: #f6f1e8;
+            }
+            QLabel#detailMetadata {
+                color: #d7deea;
+                background: transparent;
+                padding: 4px 0;
+            }
+            QLabel#imageInfo { color: #8e9eb8; padding-top: 2px; }
+            QLabel#catalogTitle { font-size: 18px; font-weight: 600; color: #d4a85f; }
             QLabel#welcomeTitle { font-size: 20px; font-weight: 600; }
             QLabel#aboutTitle { font-size: 22px; font-weight: 600; }
-            QLabel#aboutVersion { color: #bcbcbc; }
+            QLabel#aboutVersion { color: #9aa6ba; }
             QLabel#aboutSectionTitle { font-size: 16px; font-weight: 600; }
-            QLabel#aboutUpdateStatus a { color: #d9a441; text-decoration: none; }
-            QTextBrowser#welcomeBody { background: #101010; border: 1px solid #2a2a2a; }
-            QLabel#statusLabel { color: #d9a441; padding: 4px 0; }
-            QLabel#coordLabel { color: #bcbcbc; padding: 4px 0; }
-            QLabel#supportLink { color: #bcbcbc; }
-            QLabel#supportLink a { color: #d9a441; text-decoration: none; }
-            QLabel#externalLink a { color: #8ab4f8; text-decoration: none; }
-            QTextEdit#descriptionBox { background: #0f0f0f; }
-            QTextEdit#notesBox { background: #101417; }
-            QMenu { background: #1b1b1b; border: 1px solid #333; }
+            QLabel#aboutUpdateStatus a { color: #d4a85f; text-decoration: none; }
+            QTextBrowser#welcomeBody { background: #11182a; border: 1px solid #1f2d46; border-radius: 12px; }
+            QLabel#statusLabel { color: #d4a85f; padding: 6px 0; }
+            QLabel#coordLabel { color: #9aa6ba; padding: 4px 0; }
+            QLabel#supportLink { color: #9aa6ba; }
+            QLabel#supportLink a { color: #d4a85f; text-decoration: none; }
+            QLabel#externalLink { padding-top: 4px; }
+            QLabel#externalLink a { color: #7db4ff; text-decoration: none; }
+            QWidget#detailImageContainer {
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #11192b, stop:1 #0d1524);
+                border: 1px solid #1e2a42;
+                border-radius: 18px;
+            }
+            QWidget#detailImageHeader {
+                background: transparent;
+                border: none;
+            }
+            QWidget#detailMetaPanel, QWidget#detailTextPanel {
+                background: #11182a;
+                border: 1px solid #1f2d46;
+                border-radius: 16px;
+            }
+            QTextEdit#descriptionBox {
+                background: #0e1625;
+                border: 1px solid #22314c;
+                border-radius: 12px;
+                padding: 12px;
+            }
+            QTextEdit#notesBox {
+                background: #111d25;
+                border: 1px solid #27414d;
+                border-radius: 12px;
+                padding: 12px;
+            }
+            QMenu { background: #11192b; border: 1px solid #23314a; }
             QMenu::item { padding: 6px 14px; }
-            QMenu::item:selected { background: #2f2f2f; color: #ffffff; }
-            QPushButton { background: #2c2c2c; border: 1px solid #3b3b3b; padding: 6px 12px; }
-            QPushButton:hover { background: #3a3a3a; }
-            QSlider::groove:horizontal { height: 6px; background: #2a2a2a; }
-            QSlider::handle:horizontal { width: 14px; background: #d9a441; margin: -4px 0; border-radius: 7px; }
+            QMenu::item:selected { background: #1f2b45; color: #ffffff; }
+            QPushButton {
+                background: #16223a;
+                border: 1px solid #2a3854;
+                border-radius: 10px;
+                padding: 7px 14px;
+            }
+            QPushButton:hover { background: #1c2943; border-color: #45618a; }
+            QPushButton:pressed { background: #223150; }
+            QSlider::groove:horizontal { height: 6px; background: #1e2a42; border-radius: 3px; }
+            QSlider::handle:horizontal { width: 14px; background: #d4a85f; margin: -4px 0; border-radius: 7px; }
+            QScrollBar:vertical {
+                background: #09111d;
+                width: 12px;
+                margin: 6px 2px 6px 2px;
+                border-radius: 6px;
+            }
+            QScrollBar::handle:vertical {
+                background: #23314a;
+                min-height: 28px;
+                border-radius: 6px;
+            }
+            QScrollBar::handle:vertical:hover { background: #355179; }
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+                height: 0px;
+            }
             """
         )
 
@@ -2557,7 +2679,22 @@ class MainWindow(QtWidgets.QMainWindow):
             self.resize(1400, 900)
         splitter_sizes = state.get("splitter_sizes")
         if isinstance(splitter_sizes, list) and splitter_sizes:
-            self.splitter.setSizes([int(value) for value in splitter_sizes])
+            self.splitter.setSizes(self._normalized_main_splitter_sizes(splitter_sizes))
+
+    @staticmethod
+    def _normalized_main_splitter_sizes(sizes: List[int]) -> List[int]:
+        if not sizes:
+            return [420, 980]
+        if len(sizes) == 1:
+            left = max(320, int(sizes[0]))
+            return [left, 980]
+        left = max(320, int(sizes[0]))
+        right = max(520, int(sizes[1]))
+        return [left, right]
+
+    def _set_status_message(self, text: str) -> None:
+        self.status_label.setText(text)
+        self.status_label.setVisible(bool(text.strip()))
 
     def _update_filters(self) -> None:
         catalogs = {item.catalog for item in self.items}
@@ -2939,7 +3076,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._loading = True
         self._loading_config = config
         self._set_ui_enabled(False)
-        self.status_label.setText(tr("main.loading_catalog"))
+        self._set_status_message(tr("main.loading_catalog"))
         task = CatalogLoadTask(config, self.user_notes_path)
         task.signals.loaded.connect(self._on_catalog_loaded)
         self._catalog_pool.start(task)
@@ -2954,7 +3091,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self._apply_saved_filters()
             self._saved_state_applied = True
         self._schedule_view_refresh()
-        self.status_label.setText("")
+        self._set_status_message("")
         self._loading = False
         self._set_ui_enabled(True)
         if self._pending_selection_key:
@@ -3005,7 +3142,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _update_grid_metrics(self, size: int) -> None:
         self.grid.setIconSize(QtCore.QSize(size, size))
-        self.grid.setGridSize(QtCore.QSize(size + 2, size + 2))
+        self.grid.setGridSize(QtCore.QSize(size + 18, size + 28))
 
     def _set_ui_enabled(self, enabled: bool) -> None:
         self.search.setEnabled(enabled)
@@ -3311,7 +3448,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 tr("archive.incomplete_message"),
             )
 
-        self.status_label.setText(tr("main.archived", name=path.name))
+        self._set_status_message(tr("main.archived", name=path.name))
         current_item = self.detail.current_item()
         if current_item:
             current_image = self.detail.current_image_name()
