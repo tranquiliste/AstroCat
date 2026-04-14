@@ -7,3 +7,10 @@ dist/
 __pycache__/
 .DS_Store
 *.zip
+
+.thumb_test*/
+.thumb_render_test*/
+.thumb_async_test*/
+delegate_test_*.png
+m52_*.png
+minimal_delegate_stage.png
