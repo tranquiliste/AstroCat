@@ -41,14 +41,24 @@ jobs:
           done < <(git log --oneline "${range}")
           printf "body<<EOF\n%s\nEOF\n" "$notes" >> "$GITHUB_OUTPUT"
 
-      - name: Create release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          name: AstroCat ${{ env.RELEASE_TAG }}
-          body: ${{ steps.notes.outputs.body }}
-          generate_release_notes: false
-          prerelease: true
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > release-notes.txt <<'EOF'
+          ${{ steps.notes.outputs.body }}
+          EOF
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            gh release edit "${RELEASE_TAG}" \
+              --title "AstroCat ${RELEASE_TAG}" \
+              --notes-file release-notes.txt \
+              --prerelease
+          else
+            gh release create "${RELEASE_TAG}" \
+              --title "AstroCat ${RELEASE_TAG}" \
+              --notes-file release-notes.txt \
+              --prerelease
+          fi
 
   build-windows:
     runs-on: windows-latest
@@ -77,10 +87,9 @@ jobs:
           Compress-Archive -Path "dist/AstroCat/*" -DestinationPath "AstroCat-Windows.zip"
 
       - name: Upload release asset
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCat-Windows.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${env:RELEASE_TAG}" "AstroCat-Windows.zip" --clobber
 
   build-linux:
     runs-on: ubuntu-latest
@@ -110,10 +119,9 @@ jobs:
           zip -r ../AstroCat-Linux.zip "AstroCat"
 
       - name: Upload release asset
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCat-Linux.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${RELEASE_TAG}" "AstroCat-Linux.zip" --clobber
 
   build-macos:
     runs-on: macos-latest
@@ -144,10 +152,9 @@ jobs:
             "AstroCat-macOS-AppleSilicon.zip"
 
       - name: Upload release asset
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCat-macOS-AppleSilicon.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${RELEASE_TAG}" "AstroCat-macOS-AppleSilicon.zip" --clobber
 
   build-macos-intel:
     runs-on: macos-15-intel
@@ -178,7 +185,6 @@ jobs:
             "AstroCat-macOS-Intel.zip"
 
       - name: Upload release asset
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          files: AstroCat-macOS-Intel.zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${RELEASE_TAG}" "AstroCat-macOS-Intel.zip" --clobber
