@@ -2,6 +2,18 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.3.0-beta] - 2026-04-14
+### Added
+- Explicit constellation metadata across supported catalogs
+- Localized constellation display in object details, shown as `Latin name (localized name)`
+- Dedicated constellation locale resources for supported UI languages
+
+### Changed
+- Harmonized catalog terminology by translating remaining French catalog labels and metadata into English
+- Refined the main user interface with a cleaner dark theme, improved spacing, and more consistent rounded components
+- Reworked the detail view layout to give more prominence to the main image
+- Improved the overall presentation of the catalog gallery and object detail panels
+
 ## [1.2.0-beta] - 2026-04-13
 ### Added
 - New << / >> toggle in the photo view to hide or restore thumbnails and the description panel

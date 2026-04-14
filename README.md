@@ -44,13 +44,12 @@ python3 app/main.py
 ```
 
 ## Screenshots
-![Main Catalogue](assets/screenshots/screenshot-01.png)
-![Catalogue filtered by Captured](assets/screenshots/screenshot-02.png)
-![Location selection map](assets/screenshots/screenshot-03.png)
-![Links to wiki descriptions](assets/screenshots/screenshot-04.png)
-![Catalogue filtered by Missing](assets/screenshots/screenshot-05.png)
-![Catalogue filtered by Suggested](assets/screenshots/screenshot-06.png)
-![Notes and metadata panel](assets/screenshots/screenshot-07.png)
+![Main Catalogue](assets/screenshots/screenshot-02.png)
+![Catalogue filtered by Captured](assets/screenshots/screenshot-01.png)
+![Location selection map](assets/screenshots/screenshot-06.png)
+![Links to wiki descriptions](assets/screenshots/screenshot-07.png)
+![Catalogue settings](assets/screenshots/screenshot-05.png)
+![Notes and metadata panel](assets/screenshots/screenshot-03.png)
 
 ## Requirements
 - macOS, Windows, and Linux
