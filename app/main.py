@@ -81,6 +81,7 @@ from shiboken6 import isValid
 
 from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note
 from constellations import format_constellation_display
+from object_types import is_hidden_object_type, localized_object_type
 from catalog import PROJECT_ROOT
 from i18n import format_best_months, language_choices, set_ui_locale, tr
 from image_cache import ThumbnailCache
@@ -604,7 +605,13 @@ class CatalogModel(QtCore.QAbstractListModel):
         if role == QtCore.Qt.ItemDataRole.DisplayRole:
             return item.display_name
         if role == QtCore.Qt.ItemDataRole.ToolTipRole:
-            return f"{item.catalog} | {item.object_type}"
+            raw_object_type = (item.object_type or "").strip()
+            object_type_display = localized_object_type(raw_object_type)
+            if object_type_display is None and raw_object_type and not is_hidden_object_type(raw_object_type):
+                object_type_display = raw_object_type
+            if object_type_display:
+                return f"{item.catalog} | {object_type_display}"
+            return item.catalog
         if role == QtCore.Qt.ItemDataRole.DecorationRole:
             if item.thumbnail_path is None:
                 remote = self._remote_pixmaps.get(item.unique_key)
@@ -1629,10 +1636,15 @@ class DetailPanel(QtWidgets.QWidget):
             self._notes_block = False
             return
         self.title.setText(item.display_name)
+        raw_object_type = (item.object_type or "").strip()
+        object_type_display = localized_object_type(raw_object_type)
+        if object_type_display is None and raw_object_type and not is_hidden_object_type(raw_object_type):
+            object_type_display = raw_object_type
         metadata_lines = [
             tr("detail.metadata.catalog", value=item.catalog),
-            tr("detail.metadata.type", value=item.object_type or tr("detail.metadata.unknown")),
         ]
+        if object_type_display:
+            metadata_lines.append(tr("detail.metadata.type", value=object_type_display))
         if item.distance_ly:
             metadata_lines.append(tr("detail.metadata.distance", value=f"{item.distance_ly:,.0f}"))
         if item.discoverer:
@@ -2912,7 +2924,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.type_filter.clear()
         self._add_combo_item(self.type_filter, tr("catalog.all"), "")
         for object_type in types:
-            self._add_combo_item(self.type_filter, object_type, object_type)
+            if is_hidden_object_type(object_type):
+                continue
+            self._add_combo_item(
+                self.type_filter,
+                localized_object_type(object_type) or object_type,
+                object_type,
+            )
         self._set_combo_value(self.type_filter, current_type, fallback="")
         self.type_filter.blockSignals(False)
         self.type_filter.view().setMinimumWidth(220)

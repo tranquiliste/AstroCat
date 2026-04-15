@@ -126,6 +126,37 @@ def audit_constellation_locales(
     return missing_by_locale, extra_by_locale, blank_by_locale, count_by_locale
 
 
+def audit_object_type_locales(
+    object_types_dir: Path,
+) -> tuple[dict[str, list[str]], dict[str, list[str]], dict[str, list[str]], dict[str, int]]:
+    locale_files = sorted(object_types_dir.glob("*.json"))
+    if not locale_files:
+        raise SystemExit(f"No object type locale files found in {object_types_dir}")
+
+    fallback_path = object_types_dir / "en.json"
+    fallback_map = load_string_map(fallback_path, "object type fallback locale file")
+    expected_keys = set(fallback_map)
+    if not expected_keys:
+        raise SystemExit(f"Object type fallback locale file is empty: {fallback_path}")
+
+    missing_by_locale: dict[str, list[str]] = {}
+    extra_by_locale: dict[str, list[str]] = {}
+    blank_by_locale: dict[str, list[str]] = {}
+    count_by_locale: dict[str, int] = {}
+
+    for locale_file in locale_files:
+        locale_map = load_string_map(locale_file, "object type locale file")
+        locale_keys = set(locale_map)
+        missing_by_locale[locale_file.name] = sorted(expected_keys - locale_keys)
+        extra_by_locale[locale_file.name] = sorted(locale_keys - expected_keys)
+        blank_by_locale[locale_file.name] = sorted(
+            key for key in expected_keys & locale_keys if not locale_map.get(key, "").strip()
+        )
+        count_by_locale[locale_file.name] = len(locale_keys)
+
+    return missing_by_locale, extra_by_locale, blank_by_locale, count_by_locale
+
+
 def print_section(title: str, rows: list[str]) -> None:
     print(title)
     if not rows:
@@ -166,6 +197,10 @@ def main() -> int:
     constellation_missing, constellation_extra, constellation_blank, constellation_counts = audit_constellation_locales(
         constellation_dir
     )
+    object_types_dir = locales_dir / "object_types"
+    object_type_missing, object_type_extra, object_type_blank, object_type_counts = audit_object_type_locales(
+        object_types_dir
+    )
 
     hardcoded = find_hardcoded_candidates(main_file)
 
@@ -179,6 +214,9 @@ def main() -> int:
     print(f"- constellation locale files scanned: {len(constellation_counts)}")
     for locale_name, count in constellation_counts.items():
         print(f"- {locale_name} constellation names: {count}")
+    print(f"- object type locale files scanned: {len(object_type_counts)}")
+    for locale_name, count in object_type_counts.items():
+        print(f"- {locale_name} object types: {count}")
 
     for locale_name in locale_keys:
         print_section(f"\nMissing in {locale_name}", missing_by_locale[locale_name])
@@ -199,6 +237,20 @@ def main() -> int:
             constellation_blank[locale_name],
         )
 
+    for locale_name in object_type_counts:
+        print_section(
+            f"\nMissing object types in {locale_name}",
+            object_type_missing[locale_name],
+        )
+        print_section(
+            f"\nUnexpected object types in {locale_name}",
+            object_type_extra[locale_name],
+        )
+        print_section(
+            f"\nBlank object type translations in {locale_name}",
+            object_type_blank[locale_name],
+        )
+
     hardcoded_rows = [f"L{line}: {text}" for line, text in hardcoded]
     print_section("\nLikely hardcoded UI strings in main.py", hardcoded_rows)
 
@@ -207,6 +259,9 @@ def main() -> int:
     issue_count += sum(len(v) for v in constellation_missing.values())
     issue_count += sum(len(v) for v in constellation_extra.values())
     issue_count += sum(len(v) for v in constellation_blank.values())
+    issue_count += sum(len(v) for v in object_type_missing.values())
+    issue_count += sum(len(v) for v in object_type_extra.values())
+    issue_count += sum(len(v) for v in object_type_blank.values())
     issue_count += len(hardcoded)
     if args.strict and issue_count > 0:
         return 1
