@@ -347,6 +347,13 @@ def _resolve_path(path_value: str) -> Path:
     return PROJECT_ROOT / path
 
 
+def _is_bundled_catalog_path(path: Path) -> bool:
+    try:
+        return path.resolve().is_relative_to((PROJECT_ROOT / "data").resolve())
+    except Exception:
+        return False
+
+
 def load_config(config_path: Path) -> Dict:
     if config_path.exists():
         with config_path.open("r", encoding="utf-8") as handle:
@@ -377,6 +384,12 @@ def _unique_paths(paths: Iterable[Path]) -> List[Path]:
 
 
 def resolve_metadata_path(config: Dict, catalog_name: str) -> Optional[Path]:
+    default_map = {c.get("name"): c for c in DEFAULT_CONFIG.get("catalogs", [])}
+    default_catalog = default_map.get(catalog_name)
+    if isinstance(default_catalog, dict):
+        metadata_value = default_catalog.get("metadata_file")
+        if metadata_value:
+            return _resolve_path(metadata_value)
     for catalog_cfg in config.get("catalogs", []):
         if catalog_cfg.get("name") == catalog_name:
             metadata_value = catalog_cfg.get("metadata_file")
@@ -484,16 +497,29 @@ def _load_catalog_translation_overlay(
 ) -> Dict[str, Dict[str, Dict[str, str]]]:
     if not locale_code or locale_code == "en":
         return {}
-    overlay_path = PROJECT_ROOT / "data" / "i18n" / locale_code / _catalog_overlay_filename(
-        catalog_name,
-        metadata_file,
-    )
-    if not overlay_path.exists():
-        return {}
-    try:
-        payload = _load_json(overlay_path)
-    except (OSError, json.JSONDecodeError):
-        return {}
+    overlay_filenames: List[str] = [
+        _catalog_overlay_filename(
+            catalog_name,
+            metadata_file,
+        )
+    ]
+    if metadata_file:
+        source_name = Path(str(metadata_file)).name.strip()
+        if source_name.lower().endswith("_metadata.json"):
+            fallback_name = source_name[: -len("_metadata.json")] + "_catalog.json"
+            if fallback_name and fallback_name not in overlay_filenames:
+                overlay_filenames.append(fallback_name)
+
+    payload: object = {}
+    for overlay_name in overlay_filenames:
+        overlay_path = PROJECT_ROOT / "data" / "i18n" / locale_code / overlay_name
+        if not overlay_path.exists():
+            continue
+        try:
+            payload = _load_json(overlay_path)
+            break
+        except (OSError, json.JSONDecodeError):
+            continue
     if not isinstance(payload, dict):
         return {}
 
@@ -549,6 +575,49 @@ def _load_user_image_notes(notes_path: Optional[Path]) -> Dict[str, str]:
     return notes
 
 
+def _load_user_object_notes(notes_path: Optional[Path]) -> Dict[str, str]:
+    if notes_path is None or not notes_path.exists():
+        return {}
+    try:
+        data = _load_json(notes_path)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    payload = data.get("__object_notes__", {})
+    if not isinstance(payload, dict):
+        return {}
+    notes: Dict[str, str] = {}
+    for key, value in payload.items():
+        if isinstance(key, str) and isinstance(value, str):
+            normalized = value.strip()
+            if normalized:
+                notes[key] = normalized
+    return notes
+
+
+def _load_user_thumbnails(notes_path: Optional[Path]) -> Dict[str, str]:
+    if notes_path is None or not notes_path.exists():
+        return {}
+    try:
+        data = _load_json(notes_path)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    payload = data.get("__thumbnails__", {})
+    if not isinstance(payload, dict):
+        return {}
+    thumbnails: Dict[str, str] = {}
+    for key, value in payload.items():
+        if not isinstance(key, str) or not isinstance(value, str):
+            continue
+        normalized = value.strip()
+        if normalized:
+            thumbnails[key] = normalized
+    return thumbnails
+
+
 def _save_user_image_note(notes_path: Path, image_name: str, notes: str) -> None:
     data = _load_user_image_notes(notes_path) if notes_path.exists() else {}
     if notes.strip():
@@ -560,7 +629,52 @@ def _save_user_image_note(notes_path: Path, image_name: str, notes: str) -> None
         json.dump(data, handle, indent=2, ensure_ascii=False)
 
 
+def _save_user_object_note(notes_path: Path, catalog_name: str, object_id: str, notes: str) -> None:
+    data = _load_json(notes_path) if notes_path.exists() else {}
+    if not isinstance(data, dict):
+        data = {}
+    object_notes = data.get("__object_notes__")
+    if not isinstance(object_notes, dict):
+        object_notes = {}
+    key = f"{catalog_name}:{object_id}"
+    if notes.strip():
+        object_notes[key] = notes.strip()
+    else:
+        object_notes.pop(key, None)
+    if object_notes:
+        data["__object_notes__"] = object_notes
+    else:
+        data.pop("__object_notes__", None)
+    notes_path.parent.mkdir(parents=True, exist_ok=True)
+    with notes_path.open("w", encoding="utf-8") as handle:
+        json.dump(data, handle, indent=2, ensure_ascii=False)
+
+
+def _save_user_thumbnail(notes_path: Path, catalog_name: str, object_id: str, thumbnail_name: str) -> None:
+    data = _load_json(notes_path) if notes_path.exists() else {}
+    if not isinstance(data, dict):
+        data = {}
+    thumbnails = data.get("__thumbnails__")
+    if not isinstance(thumbnails, dict):
+        thumbnails = {}
+    key = f"{catalog_name}:{object_id}"
+    normalized = (thumbnail_name or "").strip()
+    if normalized:
+        thumbnails[key] = normalized
+    else:
+        thumbnails.pop(key, None)
+    if thumbnails:
+        data["__thumbnails__"] = thumbnails
+    else:
+        data.pop("__thumbnails__", None)
+    notes_path.parent.mkdir(parents=True, exist_ok=True)
+    with notes_path.open("w", encoding="utf-8") as handle:
+        json.dump(data, handle, indent=2, ensure_ascii=False)
+
+
 def _cleanup_metadata_image_note(metadata_path: Path, catalog_name: str, object_id: str, image_name: str) -> None:
+    if _is_bundled_catalog_path(metadata_path):
+        return
     if not metadata_path.exists():
         return
     data = _load_catalog_metadata(metadata_path)
@@ -589,6 +703,8 @@ def _cleanup_metadata_image_note(metadata_path: Path, catalog_name: str, object_
 def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> List[CatalogItem]:
     items: List[CatalogItem] = []
     user_image_notes = _load_user_image_notes(user_notes_path)
+    user_object_notes = _load_user_object_notes(user_notes_path)
+    user_thumbnails = _load_user_thumbnails(user_notes_path)
     ui_locale = normalize_locale_code(config.get("ui_locale", "system"), fallback="en")
     extensions = config.get("image_extensions", DEFAULT_CONFIG["image_extensions"])
     observer = config.get("observer", {})
@@ -627,13 +743,17 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
             catalog_entries = _select_catalog_entries(catalog_data, catalog_name)
         for object_id, meta in catalog_entries.items():
             image_paths = image_index.get(object_id.upper(), [])
-            thumbnail_path = _select_thumbnail(image_paths, meta.get("thumbnail"))
+            note_key = f"{catalog_name}:{object_id}"
+            thumbnail_value = user_thumbnails.get(note_key) or _normalize_text(meta.get("thumbnail"))
+            thumbnail_path = _select_thumbnail(image_paths, thumbnail_value)
             ra_hours = _parse_ra(meta.get("ra_hours") or meta.get("ra"))
             dec_deg = _parse_dec(meta.get("dec_deg") or meta.get("dec"))
             best_months = _adjust_best_months(meta.get("best_months"), latitude)
             if not best_months and ra_hours is not None and dec_deg is not None and latitude is not None:
                 best_months = _compute_best_months(ra_hours, dec_deg, latitude, longitude)
             notes = _normalize_text(meta.get("notes"))
+            if note_key in user_object_notes:
+                notes = user_object_notes[note_key]
             image_notes = _normalize_image_notes(meta.get("image_notes"))
             base_name = _normalize_text(meta.get("name", "")) or ""
             base_description = _normalize_text(meta.get("description"))
@@ -678,7 +798,7 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                 continue
             if object_id in catalog_entries:
                 continue
-            thumbnail_path = image_paths[0] if image_paths else None
+            thumbnail_path = _select_thumbnail(image_paths, user_thumbnails.get(f"{catalog_name}:{object_id}"))
             image_notes: Dict[str, str] = {}
             for image_path in image_paths:
                 note_text = user_image_notes.get(image_path.name)
@@ -696,7 +816,7 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     best_months=None,
                     constellation=None,
                     description=None,
-                    notes=None,
+                    notes=user_object_notes.get(f"{catalog_name}:{object_id}"),
                     image_notes=image_notes,
                     external_link=_default_external_link(object_id, None),
                     wiki_thumbnail=None,
@@ -772,6 +892,11 @@ def save_note(
     notes: str,
     user_notes_path: Optional[Path] = None,
 ) -> None:
+    if user_notes_path is not None and user_notes_path != metadata_path:
+        _save_user_object_note(user_notes_path, catalog_name, object_id, notes)
+        return
+    if _is_bundled_catalog_path(metadata_path):
+        return
     if not metadata_path.exists():
         return
     data = _load_catalog_metadata(metadata_path)
@@ -797,6 +922,8 @@ def save_image_note(
         _save_user_image_note(user_notes_path, image_name, notes)
         _cleanup_metadata_image_note(metadata_path, catalog_name, object_id, image_name)
         return
+    if _is_bundled_catalog_path(metadata_path):
+        return
     if not metadata_path.exists():
         return
     data = _load_catalog_metadata(metadata_path)
@@ -814,7 +941,18 @@ def save_image_note(
         json.dump(data, handle, indent=2, ensure_ascii=False)
 
 
-def save_thumbnail(metadata_path: Path, catalog_name: str, object_id: str, thumbnail_name: str) -> None:
+def save_thumbnail(
+    metadata_path: Path,
+    catalog_name: str,
+    object_id: str,
+    thumbnail_name: str,
+    user_notes_path: Optional[Path] = None,
+) -> None:
+    if user_notes_path is not None and user_notes_path != metadata_path:
+        _save_user_thumbnail(user_notes_path, catalog_name, object_id, thumbnail_name)
+        return
+    if _is_bundled_catalog_path(metadata_path):
+        return
     if not metadata_path.exists():
         return
     data = _load_catalog_metadata(metadata_path)
@@ -860,6 +998,9 @@ def _normalize_catalog_paths(config: Dict) -> None:
     for catalog in config.get("catalogs", []):
         name = catalog.get("name")
         default_catalog = default_map.get(name, {})
+        default_metadata_file = default_catalog.get("metadata_file")
+        if default_metadata_file:
+            catalog["metadata_file"] = default_metadata_file
         image_dirs = [path for path in catalog.get("image_dirs", []) if path]
         existing = [path for path in image_dirs if _resolve_path(path).exists()]
         if existing:

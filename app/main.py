@@ -2039,47 +2039,16 @@ class MainWindow(QtWidgets.QMainWindow):
         return DEFAULT_DATA_VERSION
 
     def _ensure_user_metadata_files(self) -> None:
-        location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
-        if not location:
-            return
-        metadata_dir = Path(location) / "metadata"
-        metadata_dir.mkdir(parents=True, exist_ok=True)
         updated = False
-        is_frozen = hasattr(sys, "_MEIPASS")
+        default_map = {c.get("name"): c for c in DEFAULT_CONFIG.get("catalogs", [])}
         for catalog in self.config.get("catalogs", []):
-            meta_value = catalog.get("metadata_file")
-            if not meta_value:
-                continue
-            meta_path = Path(meta_value)
-            if not meta_path.is_absolute():
-                meta_path = (PROJECT_ROOT / meta_path).resolve()
-            source_path = self._bundled_metadata_path(catalog.get("name", ""))
-            if not source_path:
-                source_path = meta_path
-            if is_frozen:
-                target = metadata_dir / meta_path.name
-                if not target.exists() and meta_path.exists():
-                    try:
-                        shutil.copy2(meta_path, target)
-                        updated = True
-                    except OSError:
-                        continue
-                if source_path and target.exists():
-                    if self._merge_metadata_updates(source_path, target, catalog.get("name", "")):
-                        updated = True
-                if metadata_dir not in meta_path.parents:
-                    catalog["metadata_file"] = str(target)
-                    updated = True
-            elif metadata_dir in meta_path.parents:
-                if not meta_path.exists() and source_path and source_path.exists():
-                    try:
-                        shutil.copy2(source_path, meta_path)
-                        updated = True
-                    except OSError:
-                        continue
-                if source_path and meta_path.exists():
-                    if self._merge_metadata_updates(source_path, meta_path, catalog.get("name", "")):
-                        updated = True
+            name = catalog.get("name")
+            default_catalog = default_map.get(name, {}) if isinstance(name, str) else {}
+            default_metadata = default_catalog.get("metadata_file")
+            if default_metadata and catalog.get("metadata_file") != default_metadata:
+                catalog["metadata_file"] = default_metadata
+                updated = True
+
         notes_file = self._user_notes_path()
         if notes_file is not None:
             notes_file.parent.mkdir(parents=True, exist_ok=True)
@@ -2168,62 +2137,9 @@ class MainWindow(QtWidgets.QMainWindow):
         return updated
 
     def _cleanup_invalid_image_only_entries(self) -> None:
-        catalog_rules = {
-            "Messier": re.compile(r"^M\d+$", re.IGNORECASE),
-            "Caldwell": re.compile(r"^C\d+$", re.IGNORECASE),
-            "NGC": re.compile(r"^NGC\d+$", re.IGNORECASE),
-            "IC": re.compile(r"^IC\d+$", re.IGNORECASE),
-            # Nouveaux catalogues
-            "Sh2": re.compile(r"^Sh2-\d+[a-z]?$", re.IGNORECASE),
-            "LDN": re.compile(r"^LDN\s+\d+$", re.IGNORECASE),
-            "Barnard": re.compile(r"^B\s+\d+$", re.IGNORECASE),
-            "VdB": re.compile(r"^VdB\s+\d+$", re.IGNORECASE),
-            "LBN": re.compile(r"^LBN\s+\d+[a-z]?$", re.IGNORECASE),
-            "PNG": re.compile(r"^PNG\s+[\d.+\-]+$", re.IGNORECASE),
-        }
-        updated = False
-        for catalog in self.config.get("catalogs", []):
-            name = catalog.get("name")
-            rule = catalog_rules.get(name)
-            if rule is None:
-                continue
-            metadata_value = catalog.get("metadata_file")
-            if not metadata_value:
-                continue
-            metadata_path = Path(metadata_value)
-            if not metadata_path.is_absolute():
-                metadata_path = (PROJECT_ROOT / metadata_path).resolve()
-            if not metadata_path.exists():
-                continue
-            try:
-                data = json.loads(metadata_path.read_text(encoding="utf-8"))
-            except (OSError, json.JSONDecodeError):
-                continue
-            catalog_data = data.get(name, {})
-            if not isinstance(catalog_data, dict):
-                continue
-            to_remove = []
-            for object_id, entry in catalog_data.items():
-                if not isinstance(entry, dict):
-                    continue
-                if rule.match(str(object_id)):
-                    continue
-                if entry.get("description") or entry.get("type") or entry.get("distance_ly"):
-                    continue
-                if entry.get("notes") or entry.get("image_notes") or entry.get("thumbnail"):
-                    to_remove.append(object_id)
-            if not to_remove:
-                continue
-            for object_id in to_remove:
-                catalog_data.pop(object_id, None)
-            data[name] = catalog_data
-            try:
-                metadata_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-                updated = True
-            except OSError:
-                continue
-        if updated:
-            save_config(self.config_path, self.config)
+        # Legacy cleanup targeted mutable user metadata mirrors. Catalog files are now authoritative.
+        # Keep the method callable from older UI paths but do not mutate bundled catalog sources.
+        return
 
     def clear_thumbnail_cache(self) -> bool:
         try:
@@ -2246,6 +2162,7 @@ class MainWindow(QtWidgets.QMainWindow):
         toolbar.setSpacing(10)
         self.search = QtWidgets.QLineEdit()
         self.search.setPlaceholderText(tr("main.search.placeholder"))
+        self.search.setClearButtonEnabled(True)
         self.search.textChanged.connect(self._on_search_changed)
         self.search.setMinimumWidth(280)
         self.search.setMaximumWidth(700)
@@ -3206,7 +3123,13 @@ class MainWindow(QtWidgets.QMainWindow):
         metadata_path = resolve_metadata_path(self.config, catalog)
         if metadata_path is None:
             return
-        save_thumbnail(metadata_path, catalog, object_id, thumbnail_name)
+        save_thumbnail(
+            metadata_path,
+            catalog,
+            object_id,
+            thumbnail_name,
+            user_notes_path=self.user_notes_path,
+        )
         item = self.detail.current_item()
         if item:
             self.model.update_item_thumbnail(item.unique_key, thumbnail_name)
