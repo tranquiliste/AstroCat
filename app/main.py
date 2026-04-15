@@ -2162,7 +2162,14 @@ class MainWindow(QtWidgets.QMainWindow):
         toolbar.setSpacing(10)
         self.search = QtWidgets.QLineEdit()
         self.search.setPlaceholderText(tr("main.search.placeholder"))
-        self.search.setClearButtonEnabled(True)
+        self.search.setClearButtonEnabled(False)
+        clear_icon = self.style().standardIcon(QtWidgets.QStyle.StandardPixmap.SP_LineEditClearButton)
+        self.search_clear_action = self.search.addAction(
+            clear_icon,
+            QtWidgets.QLineEdit.ActionPosition.TrailingPosition,
+        )
+        self.search_clear_action.triggered.connect(self._clear_search)
+        self.search_clear_action.setVisible(False)
         self.search.textChanged.connect(self._on_search_changed)
         self.search.setMinimumWidth(280)
         self.search.setMaximumWidth(700)
@@ -2703,8 +2710,17 @@ class MainWindow(QtWidgets.QMainWindow):
             self._sync_compact_filters()
 
     def _on_search_changed(self, text: str) -> None:
+        self._update_search_clear_action(text)
         self.proxy.set_search_text(text)
         self._schedule_auto_fit()
+
+    def _clear_search(self) -> None:
+        self.search.clear()
+
+    def _update_search_clear_action(self, text: str) -> None:
+        if not hasattr(self, "search_clear_action"):
+            return
+        self.search_clear_action.setVisible(bool((text or "").strip()))
 
     def _on_compact_catalog_changed(self, value: str) -> None:
         if self._syncing_compact:
