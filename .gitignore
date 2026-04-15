@@ -1,5 +1,6 @@
 build/
 dist/
+tmp/
 *.spec
 *.spec.bak
 *.bak
@@ -14,3 +15,4 @@ __pycache__/
 delegate_test_*.png
 m52_*.png
 minimal_delegate_stage.png
+scripts/merge_catalog_translation_batch.py

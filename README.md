@@ -1,4 +1,4 @@
-# AstroCat
+﻿# AstroCat
 
 AstroCat is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It provides a fast image grid, filters, rich object metadata, and notes to help plan captures and track progress.
 
@@ -116,7 +116,7 @@ Compatibility note:
 - If upstream changes the notes structure, migration may require updates in AstroCat
 
 What is migrated:
-- Object notes from `*_metadata.json`
+- Object notes from `*_catalog.json`
 - Image notes to `photo_notes.json` (AstroCat format)
 
 Behavior:
@@ -146,10 +146,10 @@ The app matches IDs anywhere in the filename.
 
 ## Metadata
 Metadata is stored in JSON files under `data/`. Example files included:
-- `data/object_metadata.json` (Messier)
-- `data/ngc_metadata.json` (sample)
-- `data/ic_metadata.json` (sample)
-- `data/caldwell_metadata.json` (sample)
+- `data/object_catalog.json` (Messier)
+- `data/ngc_catalog.json` (sample)
+- `data/ic_catalog.json` (sample)
+- `data/caldwell_catalog.json` (sample)
 
 Notes you add in the app are saved in the photo_notes.json in the setting folder (new).
 
@@ -183,3 +183,4 @@ Feedback, suggestions, and bug reports are welcome via GitHub issues, but I do n
 ## License
 See `LICENSE`.
 See [COPYRIGHT](COPYRIGHT).
+

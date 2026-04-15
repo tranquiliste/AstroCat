@@ -8,7 +8,6 @@ $ErrorActionPreference = "Stop"
 
 & $Python -m pip install --upgrade pyinstaller
 & $Python -m pip install --upgrade -r requirements.txt
-& $Python scripts/strip_metadata_notes.py
 
 & $Python -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 from __future__ import annotations
 
 import json
@@ -12,7 +12,7 @@ from typing import Dict, List, Optional
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "data" / "object_metadata.json"
+DATA_PATH = ROOT / "data" / "object_catalog.json"
 
 
 def _fetch_json(url: str) -> Dict:
@@ -343,3 +343,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

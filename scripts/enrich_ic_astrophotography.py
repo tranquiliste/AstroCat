@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 from __future__ import annotations
 
 import argparse
@@ -14,7 +14,7 @@ from typing import Dict, Iterable, Optional
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IC_META_PATH = ROOT / "data" / "ic_metadata.json"
+IC_META_PATH = ROOT / "data" / "ic_catalog.json"
 OPENNGC_PATH = ROOT / "data" / "openngc" / "NGC.csv"
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
 WIKIDATA_API = "https://www.wikidata.org/w/api.php"
@@ -237,7 +237,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Only print the selected targets without modifying ic_metadata.json.",
+        help="Only print the selected targets without modifying ic_catalog.json.",
     )
     return parser.parse_args()
 

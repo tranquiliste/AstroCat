@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 from __future__ import annotations
 
 import csv
@@ -113,8 +113,8 @@ def main() -> None:
             else:
                 ic[object_id] = entry
 
-    ngc_path = root / "data" / "ngc_metadata.json"
-    ic_path = root / "data" / "ic_metadata.json"
+    ngc_path = root / "data" / "ngc_catalog.json"
+    ic_path = root / "data" / "ic_catalog.json"
     ngc_path.write_text(json.dumps({"NGC": ngc}, indent=2, ensure_ascii=False))
     ic_path.write_text(json.dumps({"IC": ic}, indent=2, ensure_ascii=False))
     print(f"NGC objects: {len(ngc)}")
@@ -123,3 +123,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

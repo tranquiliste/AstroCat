@@ -9,42 +9,42 @@
 #     {
 #         "name": "Sh2",
 #         "catalog_file": "data/sh2_catalog.json",
-#         "metadata_file": "data/sh2_metadata.json",
+#         "metadata_file": "data/sh2_catalog.json",
 #         "image_dirs": [],
 #         "enabled": True,
 #     },
 #     {
 #         "name": "LDN",
 #         "catalog_file": "data/ldn_catalog.json",
-#         "metadata_file": "data/ldn_metadata.json",
+#         "metadata_file": "data/ldn_catalog.json",
 #         "image_dirs": [],
 #         "enabled": True,
 #     },
 #     {
 #         "name": "Barnard",
 #         "catalog_file": "data/barnard_catalog.json",
-#         "metadata_file": "data/barnard_metadata.json",
+#         "metadata_file": "data/barnard_catalog.json",
 #         "image_dirs": [],
 #         "enabled": True,
 #     },
 #     {
 #         "name": "VdB",
 #         "catalog_file": "data/vdb_catalog.json",
-#         "metadata_file": "data/vdb_metadata.json",
+#         "metadata_file": "data/vdb_catalog.json",
 #         "image_dirs": [],
 #         "enabled": True,
 #     },
 #     {
 #         "name": "LBN",
 #         "catalog_file": "data/lbn_catalog.json",
-#         "metadata_file": "data/lbn_metadata.json",
+#         "metadata_file": "data/lbn_catalog.json",
 #         "image_dirs": [],
 #         "enabled": True,
 #     },
 #     {
 #         "name": "PNG",
 #         "catalog_file": "data/png_catalog.json",
-#         "metadata_file": "data/png_metadata.json",
+#         "metadata_file": "data/png_catalog.json",
 #         "image_dirs": [],
 #         "enabled": True,
 #     },
@@ -53,7 +53,7 @@
 # vdb_catalog.json, lbn_catalog.json, png_catalog.json) doivent être placés
 # dans le dossier  data/  à la racine du projet.
 #
-# Les fichiers *_metadata.json seront créés automatiquement au premier
+# Les fichiers *_catalog.json seront créés automatiquement au premier
 # lancement si la fonction de création de métadonnées est implémentée,
 # sinon les créer manuellement avec un JSON vide : {}
 # ============================================================================

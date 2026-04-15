@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 from __future__ import annotations
 
 import csv
@@ -15,9 +15,9 @@ from typing import Dict, Iterable, List, Optional
 ROOT = Path(__file__).resolve().parents[1]
 OPENNGC_PATH = ROOT / "data" / "openngc" / "NGC.csv"
 ADDENDUM_PATH = ROOT / "data" / "openngc" / "addendum.csv"
-NGC_META_PATH = ROOT / "data" / "ngc_metadata.json"
-IC_META_PATH = ROOT / "data" / "ic_metadata.json"
-CALDWELL_META_PATH = ROOT / "data" / "caldwell_metadata.json"
+NGC_META_PATH = ROOT / "data" / "ngc_catalog.json"
+IC_META_PATH = ROOT / "data" / "ic_catalog.json"
+CALDWELL_META_PATH = ROOT / "data" / "caldwell_catalog.json"
 WIKI_API = "https://en.wikipedia.org/w/api.php"
 
 MONTHS = [
@@ -538,3 +538,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

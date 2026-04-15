@@ -1,0 +1,232 @@
+{
+  "B 33": {
+    "name": {
+      "text": "Pferdekopfnebel",
+      "source_hash": "sha256:e115fe2b0dd185c838e2dd2f15b154c705dffe58400ecbedfdf2a4957dfb0e86"
+    },
+    "description": {
+      "text": "Der ikonischste Dunkelnebel des Himmels, silhouettiert gegen das rote Licht von IC 434 in etwa 1.350 Lichtjahren Entfernung in Orion. Ein unverzichtbares Winterziel: lange Brennweite, H-Alpha-Filter empfohlen und tiefe LRGB-Integration.",
+      "source_hash": "sha256:2519637677b18d64a6ffe3eff23172d38d2ccc34c18017c67f24a29273d61d3f"
+    }
+  },
+  "B 34": {
+    "name": {
+      "text": "Dunkler Orion",
+      "source_hash": "sha256:dafab0555654ef064893efdb432ee2ffb0224b8b996634e83434e390e1dc8e3b"
+    },
+    "description": {
+      "text": "Dunkle Wolke aus dem Orion-Molekülkomplex in etwa 1.300 Lichtjahren Entfernung, gut im Winter positioniert. Tiefe LRGB-Aufnahmen auf dichtem Sternfeld liefern ausgezeichnete Ergebnisse.",
+      "source_hash": "sha256:622d1e745d53cd2e75857883d810531ee7dba2fb29158dec9073b8e6251c8f6c"
+    }
+  },
+  "B 59": {
+    "name": {
+      "text": "Pfeifennebel-Napf",
+      "source_hash": "sha256:2c61b157be792c682a4ea9effd259db87fb4d553ae14545da96cf429da48058a"
+    },
+    "description": {
+      "text": "Dichtes Globule in Ophiuchus, das die Schüssel des Pfeifennebels bildet, etwa 450 Lichtjahre entfernt. Ein weites Feld ermöglicht es, die vollständige Struktur einschließlich des zugehörigen Stiels zu zeigen.",
+      "source_hash": "sha256:f64fb142b89102d098b83539796e8add520bf683a4bf5d663859ae752c3069b2"
+    }
+  },
+  "B 68": {
+    "name": {
+      "text": "Barnard 68",
+      "source_hash": "sha256:b659f3b7bba5779d432ae59c22d2b1d40f5b7af80231064c62256116d7a93fa2"
+    },
+    "description": {
+      "text": "Isoliertes und sehr nahes Bok-Globule in etwa 160 Lichtjahren Entfernung, das fast ein perfektes dunkles Loch im Sternfeld schafft. Kompaktes Objekt: lange Brennweite und tiefe LRGB-Aufnahmen empfohlen.",
+      "source_hash": "sha256:d05f9efd660c1b6cba787f2d37507cbd36279456cab802e3b428b5e5cfb37c8d"
+    }
+  },
+  "B 72": {
+    "name": {
+      "text": "Schlangennebel",
+      "source_hash": "sha256:18fe87fe55a89447c1c7350fe0202811ee098f6a8e2e8008641963b87548e037"
+    },
+    "description": {
+      "text": "Sinuöser Dunkelnebel in Ophiuchus etwa 650 Lichtjahre entfernt, sehr kontrastreich vor dem reichen Galaktisches-Zentrum-Hintergrund. Ein weites Feld ist ideal, um die Kette benachbarter Wolken einzubeziehen.",
+      "source_hash": "sha256:7026cbf37896242951c27121231d31557fff577f143cb4a3a2c5b8d3564f7d63"
+    }
+  },
+  "B 78": {
+    "name": {
+      "text": "Pfeifennebel",
+      "source_hash": "sha256:57276a9652a40871b7ea036d45f98261ba5168585266ea7b4418f73fcf258fe4"
+    },
+    "description": {
+      "text": "Großes dunkles Wolkenfeld des Pfeifennebels (etwa 120 Bogenminuten) etwa 450 Lichtjahre entfernt, spektakulär im sehr großen Bildfeld. Eine kurze Optik oder ein Mosaik zeigt die vollständige Struktur besonders gut.",
+      "source_hash": "sha256:aa2a4b6fc664a39ee8a11dccfa900ed097aba85f5105c0c63bc45b3009ef844d"
+    }
+  },
+  "B 86": {
+    "name": {
+      "text": "Tintenfleck",
+      "source_hash": "sha256:ba9563acea021d5d3c82edc88bd516c528c8fab5e848499621ba6380b3205431"
+    },
+    "description": {
+      "text": "Äußerst kompaktes und dichtes Globule im Schützen etwa 6.000 Lichtjahre entfernt, häufig zusammen mit dem Sternhaufen NGC 6520 fotografiert. Das Duo bietet einen bemerkenswerten Kontrast zwischen dunkler Leere und dichtem Sternfeld.",
+      "source_hash": "sha256:27b7b492875faa8373ed02e3c168ea9ac0228c73a21f768e7901e4d879b92f18"
+    }
+  },
+  "B 92": {
+    "name": {
+      "text": "M24 schwarzer Fleck",
+      "source_hash": "sha256:997fe2a3f1ce6d98047c711de89da7d823e9b2f79cf8884a210a15fc7623a80e"
+    },
+    "description": {
+      "text": "Hochfotogene dunkle Wolke vor der Sternwolke M24 etwa 6.000 Lichtjahre entfernt. Ein breiter Rahmen zusammen mit B 93 verstärkt den spektakulären Kontrast.",
+      "source_hash": "sha256:e4581f96cf58d052db673457f308d2186526b4ce3f6dd26d03bbf559bc63dab5"
+    }
+  },
+  "B 142": {
+    "name": {
+      "text": "Barnards E West",
+      "source_hash": "sha256:513da2a3d16da472810d6d6ee23fc0dbbd7f49c232077e905266df3fd0b51ea0"
+    },
+    "description": {
+      "text": "Der westliche Teil der berühmten E-förmigen Dunkelnebel (mit B 143) im Adler etwa 460 Lichtjahre entfernt. Breites Bildfeld empfohlen, um die charakteristische Form vollständig abzubilden.",
+      "source_hash": "sha256:bbe621c601039ddd5c480d948a82722ab708ab1f4fab96566fa52cb3c7e5a1c8"
+    }
+  },
+  "B 143": {
+    "name": {
+      "text": "Barnards E Ost",
+      "source_hash": "sha256:abd9f242cf73abb12d1d08979bbc01e36f13082f69dce7f4d5e2e7453c3e5b8c"
+    },
+    "description": {
+      "text": "Der östliche Teil des E-Systems von Barnard, verbunden mit B 142, im Adler etwa 460 Lichtjahre entfernt. Das Duo ist ein sehr lesbares und aus nördlichen Breiten zugängliches dunkles Ziel.",
+      "source_hash": "sha256:c873fc59561e7d54fc8a970ac0ff07ceb655124638fc65b1962fc4a490069ca2"
+    }
+  },
+  "B 144": {
+    "name": {
+      "text": "Dunkler Schwan",
+      "source_hash": "sha256:384fb34f14aa40eca5325b3be2e3a2f8322e4032944552c785e227207a944845"
+    },
+    "description": {
+      "text": "Dunkle Wolke des Großen Rifts im Schwan etwa 2.000 Lichtjahre entfernt, inmitten eines äußerst reichen Feldes. LRGB + H-Alpha im breiten Bildfeld funktioniert besonders gut.",
+      "source_hash": "sha256:142f682db3e6f747eb5e1e4e0e9299a10d13e6fe58d19f0bc347b8e374de6a75"
+    }
+  },
+  "B 145": {
+    "name": {
+      "text": "Dunkler Schwan Nord",
+      "source_hash": "sha256:76a7485f19acd2a897dd54333b39d0bd90aed158157e0d01a618c052bd354f6c"
+    },
+    "description": {
+      "text": "Nördliches Gegenstück zu B 144 im Schwan-Rift, fast im Zenit im Sommer von Frankreich aus. Hervorragender Kandidat im breiten Bildfeld mit B 144 und B 163.",
+      "source_hash": "sha256:fc6501402112e7222bb50f0c4eef4d87096a16aae0f7d942c30f6c744c6955bc"
+    }
+  },
+  "B 147": {
+    "name": {
+      "text": "Dunkler Stier",
+      "source_hash": "sha256:99180bc3ee3dbdb8d8b01829b83a16b17a7566b715eb690b06466ace2f262415"
+    },
+    "description": {
+      "text": "Dunkle Wolke der Taurus-Molekülwolke etwa 450 Lichtjahre entfernt, in einer Region aktiver Sternentstehung. Winter ist günstig unter Verwendung tiefer LRGB und mittlerer bis langer Brennweite.",
+      "source_hash": "sha256:fd1a9206e4ced8b696d24afe5988d0b6b816598fded002d071fd8b535c9b16ea"
+    }
+  },
+  "B 150": {
+    "name": {
+      "text": "Seepferdchen-Nebel",
+      "source_hash": "sha256:0db7ba43b59bcaee6001b659cff09ebaae8979054c5841df56e57410352e77ad"
+    },
+    "description": {
+      "text": "Dunkelnebel des Kepheus mit charakteristischer Silhouette etwa 400 Lichtjahre entfernt, im Cepheus-Flare-Komplex. Ein ziemlich breites Feld und tiefe Integration enthüllen die Struktur diffuser Staubmassen.",
+      "source_hash": "sha256:69dac2a3e4dbb6bfcd3889e8c42d91469c9c498637ef97a8167a415223027be1"
+    }
+  },
+  "B 163": {
+    "name": {
+      "text": "Dunkler Schwan Süd",
+      "source_hash": "sha256:3de785d8c620ec04f34af437a10b964c189059bc665a750281ade9f32980ead4"
+    },
+    "description": {
+      "text": "Dunkle Wolke südlich des B 144/B 145-Paares im Schwan etwa 1.800 Lichtjahre entfernt. Leicht zugängliches Sommerziel zur Integration in breite Bildfeld-Kompositionen des Rifts.",
+      "source_hash": "sha256:bd24156986abf38a4de4c7add1afae4c1c0d5ab3795a2bc19fa734dddac26a69"
+    }
+  },
+  "B 168": {
+    "name": {
+      "text": "Dunkler Kokon",
+      "source_hash": "sha256:11cd23499a3c121ab68451ab0a2be4eda385fadacdc73cd3c8bff74e542332bd"
+    },
+    "description": {
+      "text": "Langes dunkles Filament verbunden mit der IC 5146-Region im Schwan etwa 2.700 Lichtjahre entfernt. Der Kontrast zur Umgebungsemission ist in LRGB + H-Alpha sehr ästhetisch.",
+      "source_hash": "sha256:4cbb8d354ea42c01a932f8a15686383aa99009ba2975e609bf3f03cecf05c01a"
+    }
+  },
+  "B 169": {
+    "name": {
+      "text": "Dunkler Kepheus",
+      "source_hash": "sha256:ea6f0986bd77e5a91fa524f96632d9babac6c627b53bba9e7d15c5da3a801bec"
+    },
+    "description": {
+      "text": "Zirkumpolare dunkle Wolke des Cepheus-Komplexes etwa 900 Lichtjahre entfernt, in Komposition mit B 170 und B 171 interessant. Eine tiefe LRGB hebt die diffusen Strukturen besonders hervor.",
+      "source_hash": "sha256:f39dc74c2f7ccf393a7f5203399b3eb010fbbcc94e83c187c1f3c3955a3b568e"
+    }
+  },
+  "B 170": {
+    "name": {
+      "text": "Dunkler Kepheus Nord",
+      "source_hash": "sha256:d478dd12c24e9cc603b06b38198482f943eb994b4caa4abd0ebfb17f9fa0c7e1"
+    },
+    "description": {
+      "text": "Nördliche dunkle Wolke des Kepheus nahe bei B 169 etwa 900 Lichtjahre entfernt. Das beste Ergebnis erhält man durch Abbildung der gesamten Gruppe über 1 bis 2 Grad.",
+      "source_hash": "sha256:806e0d63efd76423a05c341894d8b748918762eb63fa41f9cb1b43979e153e28"
+    }
+  },
+  "B 171": {
+    "name": {
+      "text": "Dunkler Kepheus Nordost",
+      "source_hash": "sha256:267781f4f4194cee72db59f8af056ea587ae850922c89877f4431b4bd35ddebf"
+    },
+    "description": {
+      "text": "Drittes Komponente des B 169–170–171-Trios im nördlichen Kepheus etwa 950 Lichtjahre entfernt. Gut geeignet für lange Herbst-Winter-Integrationen mit breitem Bildfeld.",
+      "source_hash": "sha256:86c98413732b2d5382287d618d384c8e03168f15c42c435288f8ec613539e8b3"
+    }
+  },
+  "B 174": {
+    "name": {
+      "text": "Dunkler Kepheus Nordwest",
+      "source_hash": "sha256:6f4a2ae9974c0a6c8a966b4b8cafd0d4a3e09ea5bfab3e52817b1c3102f7712c"
+    },
+    "description": {
+      "text": "Dunkle Wolke sehr hoher Deklination im Kepheus (~500 Lichtjahre), fast zirkumpolar von Frankreich aus. Günstiges Ziel zur Enthüllung subtiler Staubschleier bei langer Integration.",
+      "source_hash": "sha256:e46c0a8cdc181a5bbe5aedbe913e2bfb02c1cdccbf406ff56a63b3cf75415112"
+    }
+  },
+  "B 175": {
+    "name": {
+      "text": "Dunkler Kepheus Süd",
+      "source_hash": "sha256:f0c2302850747159b71cdce935e960240e2c6c1a23968d3f809ad92438f7ad5a"
+    },
+    "description": {
+      "text": "Dunkle Wolke südlich des Kepheus etwa 500 Lichtjahre entfernt, Teil des großen lokalen staubigen Komplexes. Lange Nächte im Herbst und Winter eignen sich gut für tiefe Aufnahmen.",
+      "source_hash": "sha256:de38e82e9ee0524750106a0fd1171050e1cf953e208f9728d68f7baa54bce9ce"
+    }
+  },
+  "B 227": {
+    "name": {
+      "text": "Dunkler Fuhrmann",
+      "source_hash": "sha256:79047f7a7012c3fbdccdb67c365c2f6de58785c855c5850354698005c4f9a0a4"
+    },
+    "description": {
+      "text": "Dunkle Wolke des Fuhrmanns nahe dem galaktischen Anti-Zentrum etwa 450 Lichtjahre entfernt, in einer Gegend reich an Emissionsnebeln. Hervorragendes Winterziel, interessant in LRGB + H-Alpha.",
+      "source_hash": "sha256:324459cf73aaea9b0cdf5eccbcec2908e2ba2f414da5d077af87ccbb2a36d2cf"
+    }
+  },
+  "B 312": {
+    "name": {
+      "text": "Dunkler Schlangenträger",
+      "source_hash": "sha256:768035219e0ee5f0928e601f483b20cb1420408111d58710865e741bb43b7c75"
+    },
+    "description": {
+      "text": "Große dunkle Wolke des Schlangenträgers (~50 Bogenminuten) etwa 700 Lichtjahre entfernt, vor sehr dichtem Sternfeld in Richtung des galaktischen Zentrums projiziert. Breites Bildfeld und stabiler Himmel sind empfohlen.",
+      "source_hash": "sha256:84617e62e37b14ed7929822b192edc8c382427e5a1fd51b72c17b2a28d3153c9"
+    }
+  }
+}

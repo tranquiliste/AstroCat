@@ -1,0 +1,1092 @@
+{
+  "C1": {
+    "name": {
+      "text": "Polarissima",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert NGC 188 près de l'étoile polaire, distant de 5600 années-lumière. Excellent sujet de longue pose pour photographier les traînées stellaires.",
+      "source_hash": "sha256:703949360fca3af8c8c87e522b398deddd94b588df6d32c97b4724da814f58fd"
+    }
+  },
+  "C2": {
+    "name": {
+      "text": "Nébuleuse Papillon",
+      "source_hash": "sha256:1971b4efef8205fae081a295360860e357cd076a7da9c8d05529cfe8774714db"
+    },
+    "description": {
+      "text": "Nébuleuse planétaire NGC 40 composée de gaz chaud autour d'une étoile mourante. Structure bilobée caractéristique, idéale pour l'observation en haute résolution.",
+      "source_hash": "sha256:8c6e43cfb49a526bd2dca581e6450ddf2ae2d7f2923b87c7c0727bcadd420425"
+    }
+  },
+  "C3": {
+    "name": {
+      "text": "Galaxy NGC 4236",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale NGC 4236 située à 13 millions d'années-lumière dans la constellation du Lynx. Objet difficile mais gratifiant pour les observateurs expérimentés.",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "C4": {
+    "name": {
+      "text": "Nébuleuse de l'Iris",
+      "source_hash": "sha256:ad600c749f98a4f04f76f8b35f5c3d77ad876fd45275073fde21080489403c5e"
+    },
+    "description": {
+      "text": "Nébuleuse de réflexion NGC 7023 entourant une jeune étoile, à 1400 années-lumière. Teinte bleutée caractéristique due à la diffusion du rayonnement stellaire.",
+      "source_hash": "sha256:f81362a0f5c62dad3016e991f5b9a6a0adeb2d99a592d84374edc285c717d95f"
+    }
+  },
+  "C5": {
+    "name": {
+      "text": "La Galaxie Cachée",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale intermédiaire IC 342 bien que massive, reste dissimulée par la poussière galactique. Détectable aux jumelles malgré sa faible luminosité de surface.",
+      "source_hash": "sha256:a546087480063a2c7b7dd914dd07dcc85756d74a0c2f85ddf8beb774d154b8f9"
+    }
+  },
+  "C6": {
+    "name": {
+      "text": "Nébuleuse de l'Oeil de Chat",
+      "source_hash": "sha256:772f7dc41a80cd953f32ba053d668129ab6bbb451f77f6802ead5837b844f056"
+    },
+    "description": {
+      "text": "Nébuleuse planétaire NGC 6543 avec des structures complexes et une enveloppe externe étendue de 5,5 arcmin. Excellente cible pour la spectroscopie amateur.",
+      "source_hash": "sha256:11698775265e6dbee2180fedb8a2a2c1861a52380ad863c01b9fa30ead0f9b74"
+    }
+  },
+  "C7": {
+    "name": {
+      "text": "Galaxy NGC 2403",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale intermédiaire NGC 2403 membre du Groupe M81, à 8 millions d'années-lumière. Bonne cible à faible grossissement pour les petits télescopes.",
+      "source_hash": "sha256:c1518d6f9b55cda48b9bdf2c219eb4d8c37377562d7a7dc668724b520304849a"
+    }
+  },
+  "C8": {
+    "name": {
+      "text": "Amas NGC 559",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert NGC 559 de magnitude 9,5 en Cassiopée, riche en étoiles bleues jeunes. Bien résolu en milieu urbain avec un grossissement modéré.",
+      "source_hash": "sha256:0919bad717759021d2f287820f1ca23779ccc12cd2ea56638599a6f0c26972b8"
+    }
+  },
+  "C9": {
+    "name": {
+      "text": "Nébuleuse de la Caverne",
+      "source_hash": "sha256:afe7addc39a8554a8eb5714b918fa97d5c18ab045bc47a600ea5c1d9d5d9a44c"
+    },
+    "description": {
+      "text": "Nébuleuse d'émission Sh 2-155 dans une complexe région contenant émission, réflexion et absorption. Zone riche pour l'imagerie au filtre H-alpha.",
+      "source_hash": "sha256:1222897a657e5d2b404023f4c0291e4a4933a33aba9562c11b147565ce7fd0a3"
+    }
+  },
+  "C10": {
+    "name": {
+      "text": "Amas NGC 663",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert massif NGC 663 contenant environ 400 étoiles à 8800 années-lumière. Magnifique champ d'étoiles couvrant un quart de degré.",
+      "source_hash": "sha256:c189f81c6768d1e82a988c61396030ec12b94b7b991cdf2a842540a7f0a0ade7"
+    }
+  },
+  "C11": {
+    "name": {
+      "text": "Nébuleuse de la Bulle",
+      "source_hash": "sha256:4bad05a20e4e70fc7d7b83c36fcd3599e5ec17ed295a2b3dfea827d3f6913512"
+    },
+    "description": {
+      "text": "Nébuleuse d'émission NGC 7635 formée par les vents stellaires, près de l'amas Messier 52. Structure en bulle caractéristique, cible privilégiée en imagerie.",
+      "source_hash": "sha256:e2116b3d7a88b5fee756612003135eff9033dfe92e9d40dc2d5be38ed3628860"
+    }
+  },
+  "C12": {
+    "name": {
+      "text": "Galaxie des Feux d'Artifice",
+      "source_hash": "sha256:564a3c00594b75df35e15d520ad9a223795943f78a2451c257fd47ae1143febe"
+    },
+    "description": {
+      "text": "Galaxie spirale NGC 6946 vue de face à 25 millions d'années-lumière, richement dotée de régions de formation d'étoiles. Plusieurs supernovae observées au cours des décennies.",
+      "source_hash": "sha256:13a695e72df913c4766c855397a9ccb71f1aaebe232aec8105c35dadb8f0e741"
+    }
+  },
+  "C13": {
+    "name": {
+      "text": "Amas du Hibou",
+      "source_hash": "sha256:fb8fd0db623716c31244997b69e9b75e5989c29601d45513d2f9d3fbcdead94b"
+    },
+    "description": {
+      "text": "Amas ouvert NGC 457 avec une forme distinctive rappelant un hibou ou une libellule. Beau groupement à bas grossissement dans Cassiopée.",
+      "source_hash": "sha256:63481509ba0ced95757cbd0ef2eeaa6245e92bd4239d779fd77614d314dd7823"
+    }
+  },
+  "C14": {
+    "name": {
+      "text": "Double Amas",
+      "source_hash": "sha256:a40d19983ec3e463050edd747b50ad13a19b245c87a45cb1f66127ab2a2e5b6c"
+    },
+    "description": {
+      "text": "Paire d'amas ouverts NGC 869 et NGC 884 (h et χ Persei) à environ 7500 années-lumière. Spectaculaire aux jumelles et visible à l'oeil nu.",
+      "source_hash": "sha256:959de3c5bb7e20c4ddaf3db7e37b673438d708333ba8a9e9a44f0d706d78ce01"
+    }
+  },
+  "C15": {
+    "name": {
+      "text": "Nébuleuse Clignotante",
+      "source_hash": "sha256:9ce0f1053ea598941f47f7f90b4159898f311eb9959482853d1fa22e4cf45390"
+    },
+    "description": {
+      "text": "Nébuleuse planétaire NGC 6826 en Cygne, nommée pour l'illusion optique de clignotement du compagnon stellaire central. Distinction de contraste remarquable.",
+      "source_hash": "sha256:626976d7438fa242ac9701578a61261154bb2ab9184d86e6db39a7ef5a169b6d"
+    }
+  },
+  "C16": {
+    "name": {
+      "text": "Amas NGC 7243",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert faible NGC 7243 de magnitude 6,4 à 2635 années-lumière. Meilleur observé à bas grossissement sur un ciel sombre.",
+      "source_hash": "sha256:2b3147424f9b782d2e71b9d10afb6c0c84f8236a8f0a04f58f14a5b2e71e84b2"
+    }
+  },
+  "C17": {
+    "name": {
+      "text": "Galaxie Naine",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie naine sphéroïdale NGC 147 satellite d'Andromède à 2,6 millions d'années-lumière. Membre du Groupe Local, détection difficile mais intéressante.",
+      "source_hash": "sha256:7a67872a37d26387c3c0b1ec66c0725144d0bfd1f133a03e580380729e6c56c0"
+    }
+  },
+  "C18": {
+    "name": {
+      "text": "Galaxie Naine NGC 185",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie naine sphéroïdale NGC 185 compagnon d'Andromède à 2,1 millions d'années-lumière. Petit mais détectable avec patience et bon ciel.",
+      "source_hash": "sha256:1d2f1448fd41b420d9b58effa8899e645c06881fe1f3d65bbb8934b1e33d32b4"
+    }
+  },
+  "C19": {
+    "name": {
+      "text": "Nébuleuse du Cocon",
+      "source_hash": "sha256:e898c403f47555e8ee3a31a4c9ecba77ae9ddbeac20308d7117839a1a6279c32"
+    },
+    "description": {
+      "text": "Nébuleuse de réflexion/émission IC 5146 avec amas d'étoiles intégré à 2780 années-lumière. Structure complexe remarquable en imagerie infrarouge et H-alpha.",
+      "source_hash": "sha256:ee9765a5ffe3d5d5184dda3400cfa10b119927232b376907cfc9f961d01c613f"
+    }
+  },
+  "C20": {
+    "name": {
+      "text": "Nébuleuse d'Amérique du Nord",
+      "source_hash": "sha256:db43e460b490c43b0d6d49349bb6888010181a60f257e106a64405c19fcacd51"
+    },
+    "description": {
+      "text": "Nébuleuse d'émission NGC 7000 en Cygne près de Deneb, à 1950 années-lumière. Silhouette reconnaissable au continent nord-américain, excellente pour l'imagerie.",
+      "source_hash": "sha256:c47277d3e220e64ac92be64ec9bfe2fb829628659a10748a5cd80d5bee40d25e"
+    }
+  },
+  "C21": {
+    "name": {
+      "text": "Galaxie NGC 4449",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie irrégulière de type Magellan NGC 4449 à 13 millions d'années-lumière. Morphologie unique avec bras fragmentés, intéressante pour l'astrophysique comparée.",
+      "source_hash": "sha256:553573b6d3145960912ea8c6ae7588b661cb41767577df72dea41f07e56e8f05"
+    }
+  },
+  "C22": {
+    "name": {
+      "text": "Boule de Neige Bleue",
+      "source_hash": "sha256:bb2db5bf68acf26966e0e44282e9c91c596fa9224252bd5ec67e5f2f9d1c76ff"
+    },
+    "description": {
+      "text": "Nébuleuse planétaire NGC 7662 en Andromède avec apparence bleue distinctive. Compacte et brillante, observable avec des instruments modestes.",
+      "source_hash": "sha256:bb7854e8c47341c47a8c6d7062d6ab3494a62adc057b21d1bce937acf6bdcac3"
+    }
+  },
+  "C23": {
+    "name": {
+      "text": "Galaxie Argentée",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale NGC 891 vue de profil à 30 millions d'années-lumière, avec disque et bulbe prominence visible. Archétype des galaxies spirales vues par la tranche.",
+      "source_hash": "sha256:ce54bacb04a06d04b5b5504ee12a636bf22bb941d7a24e1db6595fd64fb5ffab"
+    }
+  },
+  "C24": {
+    "name": {
+      "text": "Perseus A",
+      "source_hash": "sha256:99b3c9f848aabd6754c61913222d844e814af57072171e46af4256d89c4d51a1"
+    },
+    "description": {
+      "text": "Galaxie de Seyfert NGC 1275 à 225 millions d'années-lumière, source radio active. Membre du riche Amas de Persée, importante pour l'étude des noyaux galactiques actifs.",
+      "source_hash": "sha256:f7760c5de0493c50bdea07716342cc69dd1660a08facdd9ca5e113e62e8449c2"
+    }
+  },
+  "C25": {
+    "name": {
+      "text": "Errant Intergalactique",
+      "source_hash": "sha256:eaf58fbc0d7e5c34f746bec54dbd837302e24b4adf057da2f575590154c26987"
+    },
+    "description": {
+      "text": "Amas globulaire NGC 2419 excentrique à 270 000 années-lumière du centre galactique. Objet lointain et singulier, défi pour les observateurs patients.",
+      "source_hash": "sha256:3e23a119eeb2f580685facce1451aa683024caeb34879a2a01a59746f7bd6b3d"
+    }
+  },
+  "C26": {
+    "name": {
+      "text": "NGC 4244",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale lâche vue par la tranche dans les Chiens de Chasse, membre du groupe M94 relativement proche de la Voie lactée. Bien placée pour l'observation grâce à sa position près de l'étoile Bêta Canum Venaticorum.",
+      "source_hash": "sha256:4ae6aa7e3835daedec82cd21ee6f3c23b6298c328554e0ea278dab7a851f8f81"
+    }
+  },
+  "C27": {
+    "name": {
+      "text": "Nébuleuse du Croissant",
+      "source_hash": "sha256:9bcbe553a5ed6e315e7295e2fb884a114ac3de627194823a56eafc28de9c0d6e"
+    },
+    "description": {
+      "text": "Région HII d'émission dans le Cygne à environ 5000 années-lumière, découverte par William Herschel. Vue spectaculaire avec contraste prononcé contre le fond étoilé.",
+      "source_hash": "sha256:c0119a6a2ea244b0f4382c6b0ff4a9d8116e7d7a09325a0b56ebd23842a185b6"
+    }
+  },
+  "C28": {
+    "name": {
+      "text": "NGC 752",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert dans Andromeda, situé à 1490 années-lumière avec environ 60 étoiles visibles. Cible idéale pour les petits instruments avec bon champ de vision.",
+      "source_hash": "sha256:c77afb61b929166966def0ecc120f21afe0d14b0e9d511f55edbd7294ac00bae"
+    }
+  },
+  "C29": {
+    "name": {
+      "text": "NGC 5005",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale inclinée dans les Chiens de Chasse, située à environ 46 millions d'années-lumière. Galaxie brillante montrant bien sa structure spirale.",
+      "source_hash": "sha256:282d719d2ab963ac5ee82aeafe4ae5d0b73f728d271d1901981c5f8c84d8f71f"
+    }
+  },
+  "C30": {
+    "name": {
+      "text": "NGC 7331",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale non barrée dans Pégase à environ 44 millions d'années-lumière, proche du pôle galactique nord. Analogue remarquable à la Voie lactée, excellent objet pour l'imagerie.",
+      "source_hash": "sha256:7857155e6cfe8441a8d0fa1b6f62fd877410b14df94a0a6b8012d1ee96b6c636"
+    }
+  },
+  "C31": {
+    "name": {
+      "text": "Nébuleuse de l'Étoile Flamboyante",
+      "source_hash": "sha256:78290d27c7574e0b09137e31a7d28fbc2980b736883060a50128c0471fd26910"
+    },
+    "description": {
+      "text": "Nébuleuse d'émission et réflexion dans l'Aurige autour de l'étoile variable AE Aurigae, à environ 1500 années-lumière. Contraste spectaculaire entre la nébuleuse rouge d'émission et la réflexion bleue autour de l'étoile.",
+      "source_hash": "sha256:6a1227647456c075feee13278e4969b9b2a82b7ded00759be7b188c82c3aa1df"
+    }
+  },
+  "C32": {
+    "name": {
+      "text": "Galaxie de la Baleine",
+      "source_hash": "sha256:34499cfa2c9a9949dd664a259fbafe31a17c9f352f9a4857d290266dc82e8186"
+    },
+    "description": {
+      "text": "Galaxie spirale barrée dans les Chiens de Chasse à environ 30 millions d'années-lumière, présentant un disque mince magnifique. Excellent exemple de galaxie spirale vue de profil pour l'observation.",
+      "source_hash": "sha256:f8e23a4de78ffeeadb105cc799246c42d212b24cd020dac64cc014cef8ef1900"
+    }
+  },
+  "C33": {
+    "name": {
+      "text": "Voile Est",
+      "source_hash": "sha256:5b67786fe89dee6cdb3b99f7028754c82dfadfe665e47a0a2c5c3e53aeb79457"
+    },
+    "description": {
+      "text": "Rémanent de supernova dans le Cygne, section orientale du Voile du Cygne. Détails filamenteux remarquables visibles avec des instruments modérés en conditions favorables.",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "C34": {
+    "name": {
+      "text": "Nébuleuse du Voile",
+      "source_hash": "sha256:fcad3b49a7af99353e2b71db0aa59b7451c1dfa1fd2b100407204c6517c87548"
+    },
+    "description": {
+      "text": "Rémanent de supernova dans le Cygne formant les parties les plus brillantes de la Boucle du Cygne. Structure complexe et ramifiée offrant detail remarquable pour toutes tailles de télescopes.",
+      "source_hash": "sha256:b29ef598be48a5f4b27012eec6a8689458d8388f21e6da147855a5b527e3a6cb"
+    }
+  },
+  "C35": {
+    "name": {
+      "text": "NGC 4889",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie elliptique géante cD à environ 341 millions d'années-lumière, découverte par William Herschel. Domaine important d'étude pour comprendre l'évolution galactique des amas riches.",
+      "source_hash": "sha256:7fc394c5f9aeea5e6296d898f5461dbd8b117a1c269b33a2cd491970d7bbde2e"
+    }
+  },
+  "C36": {
+    "name": {
+      "text": "NGC 4559",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale intermédiaire dans la Chevelure de Bérénice avec une structure d'anneau interne faible. Excellent objet pour l'imagerie détaillée de bras spiraux.",
+      "source_hash": "sha256:dd5d58fb8c8bcb42de5497efbcec2613904d9d84e58d7e4b6eb9eb45530bf478"
+    }
+  },
+  "C37": {
+    "name": {
+      "text": "NGC 6882",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert peu dense situé à environ 1115 années-lumière. Petit amas offrant une vision charmante dans les petits instruments.",
+      "source_hash": "sha256:dfde6642f692d2b23ba79abbf8db4e629421ee0749b50d2446c591ed8af53dc8"
+    }
+  },
+  "C38": {
+    "name": {
+      "text": "Galaxie de l'Aiguille",
+      "source_hash": "sha256:17a569b075ba4a9d8c20614016bae6446e38196908975b0c3caf886421230f80"
+    },
+    "description": {
+      "text": "Galaxie spirale vue par la tranche dans la Chevelure de Bérénice à 30-50 millions d'années-lumière, proche du pôle galactique nord. Profil mince très allongé facilitant les observations d'imagerie cinématique.",
+      "source_hash": "sha256:1348bbf5850af7fc1539d637dc744b169ae627456ce49e3ef8725de5d0479a18"
+    }
+  },
+  "C39": {
+    "name": {
+      "text": "Nébuleuse Esquimaude",
+      "source_hash": "sha256:9402fb9cc01fad6b785fb36d1e3cd9ed4fbffcb58efbc8380d4dc5c46313b749"
+    },
+    "description": {
+      "text": "Nébuleuse planétaire bipolaire double-enveloppe à environ 4100 années-lumière, découverte par Herschel. Structures concentriques complexes spectaculaires en observation à fort grossissement.",
+      "source_hash": "sha256:57c0a579d6711323845bd7cd45aa539ec6d8d21b12c1c23ff1bd53cc26bbd0a7"
+    }
+  },
+  "C40": {
+    "name": {
+      "text": "NGC 3632",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie lenticulaire non barrée dans le Lion à environ 81 millions d'années-lumière. Objet stellaire pour la spectroscopie galactique.",
+      "source_hash": "sha256:c19ee1c24e40c1f59daa45873a3bb593ac752d72b18d8a61d6d2d0f6345e5600"
+    }
+  },
+  "C41": {
+    "name": {
+      "text": "Hyades",
+      "source_hash": "sha256:68c5bafe0e38c50c396fd4fcd621fea5dc4c45e6ebb1cab6650b2d1cce05fc6f"
+    },
+    "description": {
+      "text": "Amas ouvert le plus proche situé à environ 153 années-lumière, contenant des centaines d'étoiles. Amas brillant et étendu formidable pour observation binoculaire et planification de pose photographique.",
+      "source_hash": "sha256:808e241a34c2f5401d7e24f9cbe029f6c000c65a621ec8d09e5429084276da74"
+    }
+  },
+  "C42": {
+    "name": {
+      "text": "NGC 7006",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas globulaire dans le Dauphin résidant en périphérie de la Voie lactée. Petit amas compact brillant, excellent test de résolution pour forts grossissements.",
+      "source_hash": "sha256:85d1415faf86f7d5888cc90d89a675970463826319f71f0324c83feeeed3b7b5"
+    }
+  },
+  "C43": {
+    "name": {
+      "text": "NGC 7814",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale dans Pégase à environ 40 millions d'années-lumière, vue par la tranche. Structure ramifiée spectaculaire avec bande de poussière proéminente.",
+      "source_hash": "sha256:5644cf2587f9e0edb900b94dde0ce9809e5154429a776c8849d04cd5c3533ebd"
+    }
+  },
+  "C44": {
+    "name": {
+      "text": "Galaxie Superman",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale barrée dans Pégase à environ 105 millions d'années-lumière avec structure inclinée caractéristique. Beau contraste entre le bulbe central et les bras spiraux en bandes de poussière.",
+      "source_hash": "sha256:65d5d34c31e8bb9ed9064d5aaf1a6bb07bc4d5cb03c4f258eca943226a76938e"
+    }
+  },
+  "C45": {
+    "name": {
+      "text": "NGC 5248",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale intermédiaire compacte dans le Bouvier à environ 67 millions d'années-lumière. Galaxie brillante avec bonne définition des bras spiraux.",
+      "source_hash": "sha256:4e79dcb8c427ef6863f94099032c6bca5b48678c9b3c2c611de2afa636df7320"
+    }
+  },
+  "C46": {
+    "name": {
+      "text": "Nébuleuse variable de Hubble",
+      "source_hash": "sha256:bb4f3df5470d7fefb00eb3a9271ffd30dd2ed75df222e90b0aafe17bd192062f"
+    },
+    "description": {
+      "text": "Nébuleuse par réflexion variable dans le Monocéros à environ 2600 années-lumière, illuminée par l'étoile R Monocerotis. Changements remarquables de structure visibles sur des périodes d'observation successives.",
+      "source_hash": "sha256:bb56ac8b146fd698eb7338ed087fe6ef1f84be81d08257d50e3c463f4b3429d2"
+    }
+  },
+  "C47": {
+    "name": {
+      "text": "NGC 6934",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas globulaire dans le Dauphin à environ 52 kiloannées-lumière, découvert par Herschel. Petit amas compact bien défini pour forte résolution.",
+      "source_hash": "sha256:c6cd53237713d7a230712fa7fd44a7e586a441d7a69cb9628c0e4474af87147e"
+    }
+  },
+  "C48": {
+    "name": {
+      "text": "NGC 2775",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale dans le Cancer à environ 67 millions d'années-lumière avec bras spiraux bien développés. Objet excellent pour l'imagerie en couches de poussière.",
+      "source_hash": "sha256:9470c4cf1896fa6b70ef8c03fdf4349251c89c93188cd8308cd5ed6d68195108"
+    }
+  },
+  "C49": {
+    "name": {
+      "text": "Nébuleuse de la Rose",
+      "source_hash": "sha256:518a96a72476eb472c912735be4336a8c2b96b37c4fa41c58ea82c38593bec63"
+    },
+    "description": {
+      "text": "Région HII géante dans le Monocéros associée à l'amas ouvert NGC 2244. Nébuleuse spectaculaire d'émission rouge brillant facilement capturable en imagerie astrographique.",
+      "source_hash": "sha256:87e57cae98a386d1a2648fd0c43bf33af2d814f4fa73e4a0325f8ac1e450a467"
+    }
+  },
+  "C50": {
+    "name": {
+      "text": "NGC 2244 - Nébuleuse de la Rose",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas ouvert et nébuleuse combinés dans le Monocéros, étoiles formées de la matière nébuleuse. Excellent objet pour imaging combinant cluster et structures nébuleuses.",
+      "source_hash": "sha256:fb35e3269a98100b32cdad7e8a2fdbb2e364b8531966a9f979f1e3cd62c61580"
+    }
+  },
+  "C51": {
+    "name": {
+      "text": "Galaxie Naine Irrégulière IC 1613",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "IC 1613 est une galaxie naine irrégulière en bordure du Groupe Local, à environ 2,4 millions d'années-lumière dans la constellation de la Baleine. Avec une masse d'environ 10^8 masses solaires, elle constitue un excellent sujet d'astrophotographie pour observer les populations stellaires.",
+      "source_hash": "sha256:4525b20ec5ca9decc2beeb86949d9477e328558e0cd582798bf7be97274182e3"
+    }
+  },
+  "C52": {
+    "name": {
+      "text": "Galaxie Elliptique NGC 4697",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 4697 est une galaxie elliptique située à environ 37-40 millions d'années-lumière dans la constellation de la Vierge. Membre du Groupe NGC 4697, elle offre une excellente cible pour l'observation des galaxies elliptiques.",
+      "source_hash": "sha256:f9f5da6627be4fe4e80623a67353287a8b63b9b54fb59fa03f7f694d6a8f7af2"
+    }
+  },
+  "C53": {
+    "name": {
+      "text": "Galaxie Fuseau",
+      "source_hash": "sha256:58745e65dea253106def31d478fe162ec7b2b85a101c460e7c66a7364fc09eff"
+    },
+    "description": {
+      "text": "NGC 3115 est une galaxie lenticulaire (S0) en champ libre dans la constellation du Sextant, découverte par William Herschel le 22 février 1787. Située à environ 33,7 millions d'années-lumière, elle est facilement observable au télescope.",
+      "source_hash": "sha256:d2ca1ec73143b08b12a4b4f6d3c6d299c3c0c9208bc99ac694bd276923af4717"
+    }
+  },
+  "C54": {
+    "name": {
+      "text": "Amas Ouvert NGC 2506",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 2506 est un amas ouvert légèrement allongé dans la constellation de la Licorne, situé près de l'anti-centre galactique à environ 12,7 mille années-lumière. Découvert par William Herschel en 1791, il contient environ 400 étoiles.",
+      "source_hash": "sha256:2cc806dd0907a97222b248ddfea61e18cde46bb0320339a22a3eb3143162e7d0"
+    }
+  },
+  "C55": {
+    "name": {
+      "text": "Nébuleuse de Saturne",
+      "source_hash": "sha256:306d02994760ccde97b7c4775de56055760e400ff51cc173f1a0288807807695"
+    },
+    "description": {
+      "text": "La Nébuleuse de Saturne (NGC 7009) est une nébuleuse planétaire dans la constellation du Verseau, à environ 2000 années-lumière de la Terre. Elle présente une teinte verdâtre-jaunâtre caractéristique visible au télescope amateur.",
+      "source_hash": "sha256:55f790996d0a5af8d47e31ff2cda0d5d12b5130fbfdf9ec5edd77ef692d8f9e6"
+    }
+  },
+  "C56": {
+    "name": {
+      "text": "Nébuleuse du Crâne",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 246 est une nébuleuse planétaire dans la constellation de la Baleine, découverte par William Herschel en 1785 à environ 1600 années-lumière. Son apparence distinctive en crâne la rend reconnaissable aux télescopes amateurs.",
+      "source_hash": "sha256:574bfd43904185ee3b81c1cf193041684f64a53fbfcca6e4772b7d8238adcb5a"
+    }
+  },
+  "C57": {
+    "name": {
+      "text": "Galaxie de Barnard",
+      "source_hash": "sha256:a6e5667af0026eb295f97345edd2cd791821b7f74b8289e1c8bf3dfc6c527baf"
+    },
+    "description": {
+      "text": "NGC 6822 est une galaxie barréeirrégulière de type Magellanique dans la constellation du Sagittaire, membre du Groupe Local à environ 1,6 million d'années-lumière. Découverte par E. E. Barnard en 1884 avec un télescope de 6 pouces, elle offre un excellent sujet d'observation.",
+      "source_hash": "sha256:3005895a7bd5596ac296bd5c0bca4556df90fc12763b543782233e84cf714e5d"
+    }
+  },
+  "C58": {
+    "name": {
+      "text": "Amas de Caroline",
+      "source_hash": "sha256:10b53e2c6b8e2bee6f2e64be71132fec13a74f7b07ee31f7fcb496e05688a0f1"
+    },
+    "description": {
+      "text": "NGC 2360 est un amas ouvert dans la constellation du Grand Chien, découvert le 26 février 1783 par Caroline Herschel à environ 6154 années-lumière. Composé d'étoiles comprimées sur environ 0,5 degré, c'est un objet remarquable pour l'astrophotographie.",
+      "source_hash": "sha256:e0ed600b43efdc468096445545dce28916a0cc0e593ddc913a56a96b27ee4989"
+    }
+  },
+  "C59": {
+    "name": {
+      "text": "Nébuleuse du Fantôme de Jupiter",
+      "source_hash": "sha256:e579a7ec1466e5780b5e3e47e5e182f67bf02f6a75f163cc1ee809bef541ad49"
+    },
+    "description": {
+      "text": "NGC 3242 est une nébuleuse planétaire dans la constellation de l'Hydre, découverte par William Herschel le 7 février 1785 à environ 3568 années-lumière. Ses caractéristiques complexes la rendent idéale pour l'observation et l'astrophotographie.",
+      "source_hash": "sha256:aa87f5e66d1e755da19c4d14fdf99609fcd88a7a3c3754b31f36663dab60a631"
+    }
+  },
+  "C60": {
+    "name": {
+      "text": "Galaxies des Antennes",
+      "source_hash": "sha256:7b868ad39ec52d794824d0a6728f814e67941f2b4186e6120fe450f0df6dff0b"
+    },
+    "description": {
+      "text": "Les Galaxies des Antennes (NGC 4038/4039) sont une paire de galaxies en interaction dans la constellation du Corbeau, à environ 71,8 millions d'années-lumière. Actuellement en phase de sursaut de formation stellaire, elles offrent un spectacle remarquable de fusion galactique.",
+      "source_hash": "sha256:9a9b08e37cd138d98a2800df4f744a966b162f41ad617ddcbd003593f0e3943f"
+    }
+  },
+  "C61": {
+    "name": {
+      "text": "Galaxies des Antennes",
+      "source_hash": "sha256:7b868ad39ec52d794824d0a6728f814e67941f2b4186e6120fe450f0df6dff0b"
+    },
+    "description": {
+      "text": "Les Galaxies des Antennes (NGC 4038/4039) sont une paire de galaxies en interaction dans la constellation du Corbeau, à environ 67,2 millions d'années-lumière. Leur collision crée une activité spectaculaire de formation stellaire observable au télescope.",
+      "source_hash": "sha256:9a9b08e37cd138d98a2800df4f744a966b162f41ad617ddcbd003593f0e3943f"
+    }
+  },
+  "C62": {
+    "name": {
+      "text": "Galaxie de la Griffe",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 247 est une galaxie spirale intermédiaire dans la constellation de la Baleine, découverte par William Herschel en 1784 à environ 11,1 millions d'années-lumière. Elle constitue une excellente cible pour l'observation des galaxies spirales.",
+      "source_hash": "sha256:cf996bd2d9c9eb799d04c1863d7fb093bedc86fab30c00e89b5142a44d52f15d"
+    }
+  },
+  "C63": {
+    "name": {
+      "text": "Nébuleuse de l'Hélice",
+      "source_hash": "sha256:1cd44e7e8d1dd7a54ef76db05498a95a12de105a9369db0b82201648f4cd0765"
+    },
+    "description": {
+      "text": "La Nébuleuse de l'Hélice (NGC 7293) est une nébuleuse planétaire dans la constellation du Verseau, la plus proche de toutes les nébuleuses planétaires brillantes à environ 655 années-lumière. Son structure circulaire caractéristique est un sujet d'astrophotographie spectaculaire.",
+      "source_hash": "sha256:2bb6bca554f262e77a4bf74dbb0de973b57e4037ef45c854c3672c5dec3c549b"
+    }
+  },
+  "C64": {
+    "name": {
+      "text": "Amas Ouvert NGC 2362",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 2362 est un amas ouvert dans la constellation du Grand Chien, découvert par l'astronome Giovanni Batista Hodierna en 1654 à environ 3914 années-lumière. Avec ses étoiles brillantes et compactes, il offre un excellent contraste dans les petits télescopes.",
+      "source_hash": "sha256:5912f4d0a06573f41b48301cfec1b17a134de769e8e39fc0ecd3c467795b774c"
+    }
+  },
+  "C65": {
+    "name": {
+      "text": "Filament du Sculpteur",
+      "source_hash": "sha256:e8fa90e105c62dc263729849fd4a8f2606bd02bf2b6ac79715ed494e51b3a4c4"
+    },
+    "description": {
+      "text": "NGC 253 est une galaxie dans la constellation du Sculpteur, découverte par Caroline Herschel en 1783 à environ 12,7 millions d'années-lumière. Elle constitue un excellent sujet d'astrophotographie pour observer les détails des galaxies spirales.",
+      "source_hash": "sha256:43a6ce693e1ea8582ae1c29917d809ff1662c761a0e65042633f31790304841e"
+    }
+  },
+  "C66": {
+    "name": {
+      "text": "Amas Globulaire NGC 5694",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 5694 est un amas globulaire dans la constellation de l'Hydre, découvert par William Herschel en 1784 à environ 114 mille années-lumière. Bien que distant, il offre une belle observation au télescope.",
+      "source_hash": "sha256:590c98004fdcd687b20f521cb29ce681bb7250a88d4ac5e4a3e94de14daffdda"
+    }
+  },
+  "C67": {
+    "name": {
+      "text": "Galaxie Spirale Barrée NGC 1097",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 1097 est une galaxie spirale barrée dans la constellation de la Fournaise, découverte par William Herschel le 9 octobre 1790 à environ 45 millions d'années-lumière. Sa structure caractéristique la rend remarquable pour l'observation des galaxies barrées.",
+      "source_hash": "sha256:cd39032e33c4bc7d1fd9c7baff0ebcb80e380bcc3cfa22ffcde90824bb1cfd11"
+    }
+  },
+  "C68": {
+    "name": {
+      "text": "Nébuleuse du Nuage Moléculaire de la Couronne Australe",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6729 est une nébuleuse de réflexion/émission dans la constellation de la Couronne Australe, découverte en 1861 à environ 600 années-lumière. Ses couleurs remarquables la rendent exceptionnelle pour l'astrophotographie en bande étroite.",
+      "source_hash": "sha256:1b2d0cc74d9c57d3fd38c1ec9492097754eedfe3455408538db844d00e5e6969"
+    }
+  },
+  "C69": {
+    "name": {
+      "text": "Nébuleuse de l'Insecte",
+      "source_hash": "sha256:04d5b2aee81cdce5046dd6ff93bf73624845a411836f1e348c96b4d990a34323"
+    },
+    "description": {
+      "text": "NGC 6302 est une nébuleuse planétaire bipolaire remarquablement complexe dans la constellation du Scorpion, à environ 2417 années-lumière. Sa structure intriquée la place parmi les plus fascinantes nébuleuses planétaires observables.",
+      "source_hash": "sha256:9b1233b51117f5e44c488b05cbe0b50bbadf2d5bf27cb457a6ffb9b09072d579"
+    }
+  },
+  "C70": {
+    "name": {
+      "text": "Galaxie Tournesol du Sculpteur",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 300 est une galaxie spirale dans la constellation du Sculpteur, découverte par James Dunlop le 5 août 1826 à environ 6,5 millions d'années-lumière. Elle offre un excellent sujet pour l'observation des galaxies spirales proches.",
+      "source_hash": "sha256:42a88be4a064bab6235820c79032e3e9f88c5bcc0dae8462c8623f856407e394"
+    }
+  },
+  "C71": {
+    "name": {
+      "text": "Amas du Termite",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 2477 est un amas ouvert dense dans la constellation de la Poupe, découvert par l'Abbé Lacaille en 1751 à environ 3986 années-lumière. Contenant environ 300 étoiles comprimées, c'est un objet remarquable pour l'astrophotographie.",
+      "source_hash": "sha256:35e6e6b60d3d780bc79df7be2c9da11a80042c5a86b67652d400d5c4f414ed56"
+    }
+  },
+  "C72": {
+    "name": {
+      "text": "Galaxie Chaîne de Perles",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 55 est une galaxie spirale barrée de type Magellan dans la constellation du Sculpteur, découverte par James Dunlop le 7 juillet 1826 à environ 6,5 millions d'années-lumière. Sa structure unique la rend exceptionnelle pour l'observation des galaxies de type Magellan.",
+      "source_hash": "sha256:eaf539239c8f3189a8a2e3681023bb68498fd01836a909b9af958d5d5ed47ff6"
+    }
+  },
+  "C73": {
+    "name": {
+      "text": "Amas Globulaire NGC 1851",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 1851 est un amas globulaire relativement massif dans la constellation de la Colombe, à environ 39,4 mille années-lumière. Bien résolu au télescope, il offre une excellente opportunité d'observation stellaire.",
+      "source_hash": "sha256:4729d25fc48c1cb2ccd4c53573dacb264d973c95b767a2ef81c9b82a7ce1f2c1"
+    }
+  },
+  "C74": {
+    "name": {
+      "text": "Nébuleuse de l'Anneau du Sud",
+      "source_hash": "sha256:a3b8a77e7621440fdea6d3e32f9e74a288761f92db3264384e427dc085f40ac7"
+    },
+    "description": {
+      "text": "NGC 3132 est une nébuleuse planétaire brillante et largement étudiée dans la constellation de la Voile, à environ 2000 années-lumière. Sa structure symétrique remarquable la rend spectaculaire à l'observation et en astrophotographie.",
+      "source_hash": "sha256:c940ae5fee0ebdb516e3df9ee4c768c0278c1beed497b6a9941642524df85d73"
+    }
+  },
+  "C75": {
+    "name": {
+      "text": "Amas Ouvert NGC 6124",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6124 est un amas ouvert dans la constellation du Scorpion, découvert par Abbé Lacaille en 1751 à environ 1860 années-lumière. Ses étoiles dispersées offrent un excellent sujet pour l'observation au télescope amateur.",
+      "source_hash": "sha256:1d8ff91f25eb00ec71889cca822d713ada93209a8c7c5d56348d2188147c4961"
+    }
+  },
+  "C76": {
+    "name": {
+      "text": "Amas du Bébé Scorpion",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6231 est un amas ouvert dans le ciel austral, situé juste au nord de Zeta Scorpii. Il fait partie d'une région stellaire jeune et bleue de l'association Scorpius OB1, visible en tant que groupe de jeunes étoiles brillantes.",
+      "source_hash": "sha256:cbc10bef9484e8e0c225da584397d4f092f7ca7b4937ce79d11f675f3339b1e0"
+    }
+  },
+  "C77": {
+    "name": {
+      "text": "Centaurus A",
+      "source_hash": "sha256:f4f425830cb94ed57a498e202d878f8bdb4ef08d18d9112d616876a673bd9ef1"
+    },
+    "description": {
+      "text": "NGC 5128 est une galaxie massive dans la constellation du Centaure, découverte en 1826. Elle est remarquable pour ses jets de plasma puissants et sa bande sombre de poussière à travers son centre, typique des galaxies actives.",
+      "source_hash": "sha256:a47f37154ae04fd93950681aa359b1c825f94a34da18cd4972bf415df0b89f30"
+    }
+  },
+  "C78": {
+    "name": {
+      "text": "Amas Globulaire NGC 6541",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6541 est un amas globulaire brillant dans la constellation de la Couronne Australe. Découvert en 1826, cet ensemble dense d'étoiles anciennes offre une riche région pour l'observation télescopique.",
+      "source_hash": "sha256:7d6cdbbcdbbe085376edc6f28a06e63e70c888f615fc5cc40b791c705af759d4"
+    }
+  },
+  "C79": {
+    "name": {
+      "text": "Amas Globulaire NGC 3201",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 3201 est un amas globulaire de l'hémisphère sud situé à environ 16 000 années-lumière de la Terre. Cet amas densément concentré contient des milliers d'étoiles anciennes regroupées par gravité.",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "C80": {
+    "name": {
+      "text": "Omega Centauri",
+      "source_hash": "sha256:7b04a2063c6e14ddea3766e8eeb589b961784931a581315ace8ad4fcefe49802"
+    },
+    "description": {
+      "text": "Omega Centauri est le plus grand amas globulaire connu de la Voie lactée, visible à l'œil nu. Situé à environ 17 000 années-lumière avec un diamètre de près de 150 années-lumière, son observation révèle des milliers d'étoiles brillantes.",
+      "source_hash": "sha256:fff65bdc67b513813882425056a0d94e910ece68c1e21a1cae9d61c7e6e52f01"
+    }
+  },
+  "C81": {
+    "name": {
+      "text": "Amas Globulaire NGC 6352",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6352 est un amas globulaire dans la constellation de l'Autel, situé à environ 18 300 années-lumière du Soleil. Découvert en 1826, il offre une collection riche d'étoiles anciennes et densément concentrées.",
+      "source_hash": "sha256:396147bea1e203a900f6519546ff8ecb40860580a308e57fb8f70ab625868b05"
+    }
+  },
+  "C82": {
+    "name": {
+      "text": "Amas Ouvert NGC 6193",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6193 est un amas ouvert contenant environ 27 étoiles brillantes dans la constellation de l'Autel. Il marque le centre de l'association stellaire jeune Ara OB1 et s'étend sur plus d'un degré du ciel.",
+      "source_hash": "sha256:58be17a9cfc3a652fe461420fe881a8e7c882e5ce9ff28b0d2f7278aa2f3fef7"
+    }
+  },
+  "C83": {
+    "name": {
+      "text": "Galaxie NGC 4945",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 4945 est une galaxie spirale barrée largement étudiée dans le Centaure, visible près de l'étoile double Xi Centauri. Elle partage des caractéristiques similaires à notre Voie lactée, offrant des détails remarquables au télescope.",
+      "source_hash": "sha256:bf7a077c69653fa4a62e1fdf04c582f7ed6614bb75a3406d16b35c55a7242f72"
+    }
+  },
+  "C84": {
+    "name": {
+      "text": "Amas Globulaire NGC 5286",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 5286 est un amas globulaire situé à environ 35 900 années-lumière dans la constellation du Centaure. Son observation révèle un riche ensemble d'étoiles anciennes avec une structure physique bien définie.",
+      "source_hash": "sha256:f04b019595b3593d952d5a5a22252cfb7712d0fc900bdb13803d0b5e7cc36177"
+    }
+  },
+  "C85": {
+    "name": {
+      "text": "Amas Omicron Velorum",
+      "source_hash": "sha256:982e2b54f239d8b197c94590f429a1ffaaf203796776c2d5830123aaafcec0c2"
+    },
+    "description": {
+      "text": "IC 2391 est un amas ouvert brillant et proche dans la constellation de la Voile, contenant des étoiles jeunes, chaudes et bleues. Cet amas, découvert au Xe siècle, offre un spectacle impressionnant même aux jumelles.",
+      "source_hash": "sha256:fabf985d868d0ac211ea64a8478fb1b47eb866403ad955bc61dc21314be9d1ff"
+    }
+  },
+  "C86": {
+    "name": {
+      "text": "Amas Globulaire NGC 6397",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6397 est l'un des deux amas globulaires les plus près de la Terre, situé à environ 7 800 années-lumière. Découvert en 1752, cet amas riche et merveilleusement résolu offre des détails exceptionnels à l'observation.",
+      "source_hash": "sha256:60f27697308c4637bac9af2a2394b03a1725d4ea5258811e7689bbf085ec42df"
+    }
+  },
+  "C87": {
+    "name": {
+      "text": "Amas Globulaire NGC 1261",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 1261 est un amas globulaire dans la constellation de l'Horloge, situé à environ 53 000 années-lumière du Soleil. Découvert en 1826, il marque un cours historique des observations australes.",
+      "source_hash": "sha256:8d0d687a7142df3a02d2cce804a96c4fe7e14310d1c24df7086d817dfd2206b9"
+    }
+  },
+  "C88": {
+    "name": {
+      "text": "Amas Ouvert NGC 5823",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 5823 est un amas ouvert dans la constellation du Compas, près de la frontière avec le Loup. Découvert en 1826, cet ensemble d'étoiles bleues brillantes offre des détails remarquables au télescope.",
+      "source_hash": "sha256:a3aa88ef923b3b56eded185eb1457ede2a2778c132793968d038907c33f80d85"
+    }
+  },
+  "C89": {
+    "name": {
+      "text": "Amas S Normae",
+      "source_hash": "sha256:455602352871d5ce9e902c63c4c72a1da888d17152491e8ed34d7e71864de369"
+    },
+    "description": {
+      "text": "NGC 6087 est un amas ouvert de 40 étoiles ou plus dans la constellation de la Règle, centré sur la variable Céphéide S Normae. S'étendant sur environ un quart de degré, ses étoiles brillantes offrent un spectacle impressionnant.",
+      "source_hash": "sha256:f44c9e96f6d238118316a1817e2739e44980454c21313544a173d93ee95ae35c"
+    }
+  },
+  "C90": {
+    "name": {
+      "text": "Nébuleuse Planétaire NGC 2867",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 2867 est une nébuleuse planétaire elliptique de type II dans la constellation de la Carène. Découverte en 1834, cette enveloppe de gaz éjecté par une étoile mourante offre des détails complexes à l'observation.",
+      "source_hash": "sha256:ef9527e8753669db6085af4d94779c4998790ae7ac30b1c510583c597106d58d"
+    }
+  },
+  "C91": {
+    "name": {
+      "text": "Amas du Puits des Vœux",
+      "source_hash": "sha256:10473c4d53ce1d1057de8253e60cd73ca2c3643180737bcdf60a6eb776ef5990"
+    },
+    "description": {
+      "text": "NGC 3532 est un amas ouvert riche contenant environ 150 étoiles dans la constellation de la Carène, à environ 1 600 années-lumière. Connu par plusieurs noms évocateurs, il offre un champ d'étoiles colorées et détaillées.",
+      "source_hash": "sha256:9554c16f3cd8e6b3d8b99a3b9d0faa20a750149e8a901d2ec89f2ec0de24e62d"
+    }
+  },
+  "C92": {
+    "name": {
+      "text": "Nébuleuse de la Carène",
+      "source_hash": "sha256:9b0b787173a7fd1e63c178f6c703de62c1c7acfce6842ed3cf0fa5867b00bc11"
+    },
+    "description": {
+      "text": "NGC 3372 est une vaste région de nébuleuse brillante et sombre dans la constellation de la Carène, à environ 8 500 années-lumière. Contenant l'étoile massive Eta Carinae, elle est une région majeure de formation stellaire remarquablement complexe.",
+      "source_hash": "sha256:5a74c77ac88f46b2527cf231285378ea59eb892e10f317d06464d6d29e58863e"
+    }
+  },
+  "C93": {
+    "name": {
+      "text": "Amas Globulaire Les Grands Paon",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6752 est le quatrième amas globulaire le plus brillant du ciel, situé dans la constellation du Paon. Cet ensemble dense d'étoiles anciennes offre un spectacle magnifique aux observateurs du ciel austral.",
+      "source_hash": "sha256:296bdef6cd26d5a9ec5e0aaf44dbc044b303fa32e17bc901861cf35cf8f00828"
+    }
+  },
+  "C94": {
+    "name": {
+      "text": "Boîte à Bijoux d'Herschel",
+      "source_hash": "sha256:18d0d6b3bee3b8966964f3f3f2631773e4bbdff91d34a39d04ac0459565ef0fb"
+    },
+    "description": {
+      "text": "NGC 4755 est un amas ouvert coloré dans la constellation de la Croix du Sud, découvert en 1751. Baptisé Boîte à Bijoux par John Herschel pour l'apparence splendide de ses étoiles de couleurs variées, cet amas reste remarquable.",
+      "source_hash": "sha256:eddc10a9d25a48f67282de3ffc350fdd40766dd02a5e4e8cd05a8597b6a73c1f"
+    }
+  },
+  "C95": {
+    "name": {
+      "text": "Amas Ouvert NGC 6025",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 6025 est un amas ouvert dans la constellation du Triangle Austral, situé à environ 2 500 années-lumière. Découvert en 1751, cet amas riche offre un champ impressionnant d'étoiles brillantes et colorées.",
+      "source_hash": "sha256:1ee1e81ff56563599c0adc35be773bf951382c6a6177f208c7d95e81849150a3"
+    }
+  },
+  "C96": {
+    "name": {
+      "text": "Amas Ruches du Sud",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 2516 est un amas ouvert brillant et proche dans la constellation de la Carène, découvert en 1751. Également connu sous le nom de « Ruches du Sud », cet amas remarquable offre des détails magnifiques même aux binoculaires.",
+      "source_hash": "sha256:e54f1485dc4804c31b641b25cfe2dfb4fda05b9b404e1bc475bc580a7a2ab3b8"
+    }
+  },
+  "C97": {
+    "name": {
+      "text": "Amas des Perles",
+      "source_hash": "sha256:c49dbe076253e246806d13503b557e7ce8bf457a8ae2f9dd4d7f5b07e3fc065f"
+    },
+    "description": {
+      "text": "NGC 3766 est un amas ouvert dans la constellation du Centaure, situé environ 5 700 années-lumière de la Terre. Découvert en 1751, il se trouve dans le vaste exemple du nuage moléculaire de la Carène.",
+      "source_hash": "sha256:529c2082a5e35884382b545a5b5a0407793846ba3b41d4a35a2a4e0970750469"
+    }
+  },
+  "C98": {
+    "name": {
+      "text": "Amas du Sac de Charbon",
+      "source_hash": "sha256:59f92c408fcc9d24c3cc2f701e1c075399f5a7a8ce8b6a4899f57aaa8a2e6317"
+    },
+    "description": {
+      "text": "NGC 4609 est un amas ouvert dans la constellation de la Croix du Sud, découvert en 1826. Cet ensemble d'étoiles brillantes offre des détails remarquables et des contrastes intéressants avec les structures environnantes.",
+      "source_hash": "sha256:e33f836f0bfaf6632902fc73b56eec67dc2e7faf4a327ea24550a51b49a9100c"
+    }
+  },
+  "C99": {
+    "name": {
+      "text": "Nébuleuse du Sac de Charbon",
+      "source_hash": "sha256:2abbdf073d1d0353c288ec0fe4685a3161a715b5f9133ad67bf9fbee740d4abc"
+    },
+    "description": {
+      "text": "La nébuleuse du Sac de Charbon est un nuage sombre visible à l'œil nu, obscurcissant la Voie lactée près d'Acrux dans la Croix du Sud. Cette région opaque offre un contraste fascinant permettant l'étude des propriétés de l'extinction interstellaire.",
+      "source_hash": "sha256:56bc8f7a9ec07035b2ae7cda81f2b48316e0c9d8d9a38fd27335d26b81f6c0e6"
+    }
+  },
+  "C100": {
+    "name": {
+      "text": "Nébuleuse Lambda Centauri",
+      "source_hash": "sha256:9c541339b3986b6f13311849a42285a98e8ed19e84df3fde4030b308046b4060"
+    },
+    "description": {
+      "text": "IC 2944 est un amas ouvert avec nébuleuse associée, connu sous le nom de Nébuleuse du Poulet qui Court. Situé près de l'étoile lambda Centauri, cet objet contient des globules de Bok, sites actifs de formation stellaire.",
+      "source_hash": "sha256:b35c66675996377ff3ab5260f06f76aea13687d60bcfc26442b621918388babf"
+    }
+  },
+  "C101": {
+    "name": {
+      "text": "Galaxie du Paon",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Galaxie spirale intermédiaire dans la constellation du Paon, distante d'environ 38,6 millions d'années-lumière. Ses bras spiraux bien développés en font un excellent objet d'observation pour les astrophotographes.",
+      "source_hash": "sha256:f41fb16e54a2bf1842801d4b5541197eb5f19c354c251fd870b32e65d08bddd9"
+    }
+  },
+  "C102": {
+    "name": {
+      "text": "Pléiades du Sud",
+      "source_hash": "sha256:4b0764a90c0706b3000ead45e2732ef56471923a982f91a089b505c5bee66ee0"
+    },
+    "description": {
+      "text": "Amas ouvert brillant dans la constellation de la Carène visible à l'œil nu, situé à seulement 486 années-lumière de la Terre. Les étoiles bleues chaudes et jeunes soulignent l'origine récente de cet amas.",
+      "source_hash": "sha256:f98573eb369689d04c3ec034b5f5ddb71046124a9f998b838801e91c05ef1520"
+    }
+  },
+  "C103": {
+    "name": {
+      "text": "Amas 30 Doradus",
+      "source_hash": "sha256:8e982b4cfbb6051577104e7e0e01861996318fbd072e909d8e046fa71c90fbbf"
+    },
+    "description": {
+      "text": "Région HII massif et brillant au cœur du Grand Nuage de Magellan, contenant l'un des amas d'étoiles supergéantes les plus spectaculaires. Son émission intense en fait une cible remarquable pour les astronomes.",
+      "source_hash": "sha256:3a47112bbcdade9f6a91c7eface3c3d2a3878f50a40d113f1b4823f7cd605d44"
+    }
+  },
+  "C104": {
+    "name": {
+      "text": "Amas globulaire NGC 362",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas globulaire situé dans la constellation de la Toucan, à environ 29 300 années-lumière de la Terre. Sa compacité et sa richesse stellaire offrent une belle structure sphérique en observation.",
+      "source_hash": "sha256:0d10d93e6c339ab47ce5544c3cecfc8165ac48b8bd03c77bc55f5fa6a7acf844"
+    }
+  },
+  "C105": {
+    "name": {
+      "text": "Amas globulaire NGC 4833",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas globulaire découvert au cœur de l'hémisphère sud, riche de centaines de milliers d'étoiles anciennes. Son éclat modéré et ses brises structurelles le rendent intéressant en observation.",
+      "source_hash": "sha256:1f42e9e91df55f3075510966248103d9b1eafe8c98a52667686fc7e4db5b6c3a"
+    }
+  },
+  "C106": {
+    "name": {
+      "text": "47 Tucanae",
+      "source_hash": "sha256:58a1af5781e7759ce185b426a2a0b1fb780f708e72ccc18b81e9b7231a0b28aa"
+    },
+    "description": {
+      "text": "Deuxième amas globulaire le plus brillant du ciel, situé à environ 14 500 années-lumière dans la constellation de la Toucan. Son diamètre de 120 années-lumière et sa richesse en étoiles en font un trésor observable.",
+      "source_hash": "sha256:5b7dbea0daf1e1f5832617c0f08a2b2bbc66911ec3975b72d0bd3aaaca6c84b3"
+    }
+  },
+  "C107": {
+    "name": {
+      "text": "Amas globulaire NGC 6101",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas globulaire situé à environ 47 600 années-lumière dans la constellation de l'Apus. Bien que moins lumineux, sa structure bien définie révèle des milliers d'étoiles compressées.",
+      "source_hash": "sha256:7890c2ecd6be523872240873173a2379b81f302a3e6a50989cc12293d4b35537"
+    }
+  },
+  "C108": {
+    "name": {
+      "text": "Amas globulaire NGC 4372",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Amas globulaire distant situé dans l'hémisphère sud, riche en étoiles anciennes densément comprimées. Ses couches concentriques offrent une belle cible pour l'observation au télescope.",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "C109": {
+    "name": {
+      "text": "Nébuleuse planétaire NGC 3195",
+      "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "Petite nébuleuse planétaire légèrement ovale dans la constellation du Caméléon, découverte par Herschel en 1835. Elle montre une structure discrète mais riche en détails pour les astrophotographes avec téléscopes amateurs.",
+      "source_hash": "sha256:97c8c2f9bb452436bac2027e2e2b7a7513f3bf6a96207e62b207332d0c454d7d"
+    }
+  }
+}

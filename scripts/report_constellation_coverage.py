@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -10,7 +10,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 IGNORED_FILES = {
     "data_version.json",
     "version.json",
-    "solar_system_metadata.json",
+    "solar_system_catalog.json",
     "supporters.json",
 }
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 from __future__ import annotations
 
 import csv
@@ -13,7 +13,7 @@ from typing import Dict, Iterable, Optional
 
 
 ROOT = Path(__file__).resolve().parents[1]
-NGC_META_PATH = ROOT / "data" / "ngc_metadata.json"
+NGC_META_PATH = ROOT / "data" / "ngc_catalog.json"
 OPENNGC_PATH = ROOT / "data" / "openngc" / "NGC.csv"
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
 
@@ -324,3 +324,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

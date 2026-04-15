@@ -6,7 +6,6 @@ set ZIPNAME=AstroCat-Windows.zip
 
 %PYTHON% -m pip install --upgrade pyinstaller || exit /b 1
 %PYTHON% -m pip install --upgrade -r requirements.txt || exit /b 1
-%PYTHON% scripts\\strip_metadata_notes.py || exit /b 1
 
 %PYTHON% -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
 

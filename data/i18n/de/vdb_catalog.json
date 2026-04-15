@@ -1,0 +1,322 @@
+{
+  "VdB 1": {
+    "name": {
+      "text": "Kassiopeia-Nebel",
+      "source_hash": "sha256:17dbece0a2aaa732992324c9c4a705732ae5410607cb82681929c132e966093a"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 1.600 Lj Entfernung, Magnitude 9,5, 5' groß. Von einem B-Stern beleuchtet, leuchtet blauueiß auf. Große Brennweite und tiefe LRGB empfohlen; kann mit VdB 2 zusammen fotografiert werden.",
+      "source_hash": "sha256:93eb9a0648b20f2bf7c0c8852eb965b5230074e6ef272d8cef43615480ff2504"
+    }
+  },
+  "VdB 2": {
+    "name": {
+      "text": "Kassiopeia-Nebel Nordwest",
+      "source_hash": "sha256:77b0a440a9899612ead0adc62e6fa62407aa765db4b68c72d6dfcbfd09b3a6d8"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 1.600 Lj Entfernung, Magnitude 10,0, 4' groß. Nordwestliches Gegenstück zu VdB 1 im gleichen Molekülkomplex. Große Brennweite und tiefe LRGB zur Offenbarung der schwachen Flächenhelligkeit.",
+      "source_hash": "sha256:0c17411f9b8b6279ecfcba14436bbd5adf99aaa77b8b47102fc228a46e29caa5"
+    }
+  },
+  "VdB 14": {
+    "name": {
+      "text": "Perseus-Nebel Südost",
+      "source_hash": "sha256:a781b42201d23d650d9bdd26bd49d2e8078bbe50b806876f5767941a0a5ceca4"
+    },
+    "description": {
+      "text": "Kompakter Reflexionsnebel in etwa 1.000 Lj Entfernung, Magnitude 10,5, 3' groß. Von einem jungen, teilweise eingebetteten B-Stern beleuchtet. Sehr lange Brennweite und extrem tiefe LRGB unverzichtbar.",
+      "source_hash": "sha256:7c560cfd04366b3fbfa07b441f284c55a15f6247684895666e9319cf15d70aee"
+    }
+  },
+  "VdB 15": {
+    "name": {
+      "text": "Perseus-Nebel Ost",
+      "source_hash": "sha256:747f220d8bbbc503316681c24c1b958156472d5069ddd852f771637f97aee453"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 1.000 Lj Entfernung, Magnitude 10,0, 3' groß. Mit einem B/A-Stern verbunden, kompakt und lichtschwach. Lange Brennweite und tiefe LRGB empfohlen.",
+      "source_hash": "sha256:8b297c13ca01373cd05963601ed8aa7d4cd23462be1d0593e4d2d4bd0e20ebc9"
+    }
+  },
+  "VdB 16": {
+    "name": {
+      "text": "Stier-Perseus-Nebel",
+      "source_hash": "sha256:536c4c7d4d464ef4256f510e4b9ed2990b5690d9cc099bc86fdf8772dea69b1a"
+    },
+    "description": {
+      "text": "Reflexionsnebel an der Grenze Stier-Perseus, 700 Lj entfernt, Magnitude 9,5, 5' groß. Von einem späten B- oder A-Stern beleuchtet. Tiefe LRGB und längere Brennweite geeignet.",
+      "source_hash": "sha256:01cdc3aac16ea5abb4e8fbd8777892779df176882b8f3bea7730cfb31fa83e3b"
+    }
+  },
+  "VdB 17": {
+    "name": {
+      "text": "Alkyonennebel (Plejaden)",
+      "source_hash": "sha256:706c6ccb290b45cd726eb9439b58261b5fa0b2c4190a426bf98b5268f6257b99"
+    },
+    "description": {
+      "text": "Reflexionsnebel um Alkyonen, 444 Lj entfernt, Magnitude 8,0, ~30' groß. Einer der hellsten und am leichtesten zu fotografierenden Reflexionsnebel am Himmel. Weites Gesichtsfeld und tiefe LRGB ideal.",
+      "source_hash": "sha256:59d2c1ac9e2c2995840d0ea4e8d9d69430b9a9e110be47344fadd5098bfde603"
+    }
+  },
+  "VdB 20": {
+    "name": {
+      "text": "BD+22-Nebel",
+      "source_hash": "sha256:d51960c72d4929f500c28c310cde06b9d9b0903288eda8323b2f16c79e4e71ac"
+    },
+    "description": {
+      "text": "Kompakter Reflexionsnebel in etwa 1.200 Lj Entfernung, Magnitude 10,0, 4' groß. Wenig dokumentiert, von einem BD-Stern beleuchtet. Lange Brennweite und tiefe LRGB angebracht.",
+      "source_hash": "sha256:d50c713155b5b37e7881bad36c9efdebc47fa665df3f3e5b4488b96a09c6e680"
+    }
+  },
+  "VdB 21": {
+    "name": {
+      "text": "Orion-Reflexionsnebel",
+      "source_hash": "sha256:47bf4f09e27f6706b5deef45e6b8d8bc5473e79eafed7ffa3a3c3218344cd043"
+    },
+    "description": {
+      "text": "Reflexionsnebel des Orion-Molekülkomplexes, 1.300 Lj entfernt, Magnitude 10,5, 5' groß. Von jungem heißem Stern beleuchtet. Lange Brennweite und tiefe LRGB wirksam.",
+      "source_hash": "sha256:57455328e29e2b6c98a9ea499a2fff1fef3478b46d8bf9f9f8ab3e183bdca056"
+    }
+  },
+  "VdB 28": {
+    "name": {
+      "text": "Lambda-Orionis-Nebel",
+      "source_hash": "sha256:95c4ce8307ee9ccf24b1ca0341c182332765c36bb41838861abfc0c33fee3337"
+    },
+    "description": {
+      "text": "Reflexionsnebel bei Lambda Orionis, 1.300 Lj entfernt, Magnitude 9,5, 10' groß. Mit dem weiten Lambda-Orionis-Ring (Sh2-264) verbunden. Mittlere Brennweite und tiefe LRGB mit optionalem Ha.",
+      "source_hash": "sha256:4cc19711751a620abeb4877d556b6d5a2709f2bd52fdbc87c34ecc8ab8961ca1"
+    }
+  },
+  "VdB 38": {
+    "name": {
+      "text": "Einhornsnebel",
+      "source_hash": "sha256:732aa58c0804c4aa91a5d9e21d7089b9153cb8fd02e7c2f683803f1eca5c1fda"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 2.500 Lj Entfernung, Magnitude 10,0, 4' groß. In der reichen Sternentstehungsregion des Einhorns. Tiefe LRGB und lange Brennweite empfohlen.",
+      "source_hash": "sha256:415f6777ee9bd59f410766b3f576b225ca94b5a7520856b927f191cfea1d413b"
+    }
+  },
+  "VdB 62": {
+    "name": {
+      "text": "Rho-Ophiuchi-Nebel Nord",
+      "source_hash": "sha256:84985ed3d326a83e7664eb179f36598656499be366e9e4970a64e0c7cf4c5e72"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 460 Lj Entfernung, Magnitude 9,5, 15' groß. Teil des berühmten Rho-Ophiuchi-Komplexes, eine der farbenfrohen Regionen am Himmel. Weites Gesichtsfeld und sehr tiefe LRGB notwendig.",
+      "source_hash": "sha256:73826d0d1988274907b45cc6bbde848fd95700c119942b6b2d4bb53e2e201115"
+    }
+  },
+  "VdB 67": {
+    "name": {
+      "text": "Zwillinge-Nebel",
+      "source_hash": "sha256:98229193d2e3385ce0c7bf1210c98c3a3f64c20ab071bc288522476fd69087b6"
+    },
+    "description": {
+      "text": "Kleiner und kompakter Reflexionsnebel in etwa 2.200 Lj Entfernung, Magnitude 10,0, 3' groß. Von einem B-Stern beleuchtet. Sehr lange Brennweite und tiefe LRGB für seine geringe Größe.",
+      "source_hash": "sha256:0135f826611032ae43dba558d2f8b8dd8f9b419274988fdc080762a46b6f0a11"
+    }
+  },
+  "VdB 82": {
+    "name": {
+      "text": "Großer-Wagen-Nebel",
+      "source_hash": "sha256:7c51ba92ec729faf89d85f04e5a806451eba7956dfb514cb49fe8f99b5b79c86"
+    },
+    "description": {
+      "text": "Isolierter Reflexionsnebel bei hoher galaktischer Breite, 1.500 Lj entfernt, Magnitude 10,5, 4' groß. Selten in Helligkeit, in sehr tiefen Aufnahmen sichtbar. Tiefe LRGB und dunkle Himmel wichtig.",
+      "source_hash": "sha256:bc4a3aab69ca9ec1ac3da90d8eeb0c002f981d769dc0868f01fb24147e57bc62"
+    }
+  },
+  "VdB 92": {
+    "name": {
+      "text": "Rho-Ophiuchi-Nebel",
+      "source_hash": "sha256:0cfc78695b6195e7e622ec5bcaf693a95873ee60eb18c74b1e2098ecaa32fa48"
+    },
+    "description": {
+      "text": "Hauptreflexionsnebel, 460 Lj entfernt, Magnitude 9,5, 20' groß. Eines der Meisterwerke der Astrofotografie mit blauem Glanz, dunklen Wolken und rötlicher Ha-Nebulosität. Weites Gesichtsfeld und sehr tiefe LRGB unverzichtbar.",
+      "source_hash": "sha256:d83e522e7731b8ffd790d5c1b9733c7128d7a5eaa1369f3139c27be6110cb7fd"
+    }
+  },
+  "VdB 99": {
+    "name": {
+      "text": "Rho-Ophiuchi-Nebel Süd",
+      "source_hash": "sha256:dba3babbd52658514adcc9be320474b2185e5be79a2c08d1def7d1ad006758b7"
+    },
+    "description": {
+      "text": "Reflexionsnebel im südlichen Teil des Rho-Ophiuchi-Komplexes, 460 Lj entfernt, Magnitude 10,0, 10' groß. Bildet den südlichen Teil des Trios VdB 62-92-99 im Herzen des Komplexes. Normalerweise mit VdB 62 und VdB 92 gerahmt.",
+      "source_hash": "sha256:812c62bd1454e288f3996828f77baea4242df7d1da75160d10b9dca1b6cfab27"
+    }
+  },
+  "VdB 101": {
+    "name": {
+      "text": "Skorpion-Nebel",
+      "source_hash": "sha256:e87a1478bbb276a4419819961301b5ca3585bb2a8766ad3c0dbc572af218c506"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 500 Lj Entfernung, Magnitude 10,5, 5' groß. Teil der Skorpius-Zentauri-Molekülwolke. Lange Brennweite und tiefe LRGB empfohlen.",
+      "source_hash": "sha256:bae4f4b1e93095a9c13c723fdad9fa226dc2f7bc8203c6790284b0aaa3203194"
+    }
+  },
+  "VdB 107": {
+    "name": {
+      "text": "Blauer Skorpion-Nebel",
+      "source_hash": "sha256:b57a657df3cccfdbd0e63bc04ed430a5a5881b4c599ecca2da92084bc6030d75"
+    },
+    "description": {
+      "text": "Kompakter blauer Reflexionsnebel, 550 Lj entfernt, Magnitude 10,0, 4' groß. Von heißem frühem B-Stern beleuchtet. Aufgrund der sehr südlichen Deklination besser für Südobservatorien geeignet.",
+      "source_hash": "sha256:c268ca28e979fe3ada89c7092e27b213659e91d481b076d008e291e04e8dabe8"
+    }
+  },
+  "VdB 126": {
+    "name": {
+      "text": "Schwan-Reflexionsnebel",
+      "source_hash": "sha256:cd614737ce65d36de10517de98a46a6f2480dc5ecd6438fcf1c36700ab11f87d"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 2.000 Lj Entfernung, Magnitude 10,0, 6' groß. In der reichen Sternentstehungsregion des Schwans gelegen. Tiefe LRGB mit optionalem Ha wirksam.",
+      "source_hash": "sha256:e5ed8a07dd959fdd96540c07dc0c12e92b78fbfbde192f908ea81943f0d1b836"
+    }
+  },
+  "VdB 130": {
+    "name": {
+      "text": "Schwan-Reflexionsnebel 2",
+      "source_hash": "sha256:78be076d24918b45d0d4f2a46245fc259563663c398488707d8ed1277a2c95ea"
+    },
+    "description": {
+      "text": "Kompakter blauer Reflexionsnebel, 2.000 Lj entfernt, Magnitude 10,5, 5' groß. Teil einer Gruppe bei VdB 131-132. Lange Brennweite und tiefe LRGB empfohlen.",
+      "source_hash": "sha256:54fd66c406d2a32915550b078b60713ab9fd6cc79fa641a5f4ac04ce8ea55f3d"
+    }
+  },
+  "VdB 131": {
+    "name": {
+      "text": "Schwan-Nebel Nordost",
+      "source_hash": "sha256:e75b7af4552daa9889cf256b0baee3e1855fcea494f42e1c2d9445299a54f666"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 2.000 Lj Entfernung, Magnitude 10,5, 5' groß. Teil der zentralen Schwan-Gruppe mit VdB 130-132-133. Besonders interessant in weiterem Gesichtsfeld die ganze Gruppe erfassend.",
+      "source_hash": "sha256:52c17875d56a34efc8946a92350f2eaf3d9b3ce5132dfb3ce95de9cce26a7df4"
+    }
+  },
+  "VdB 132": {
+    "name": {
+      "text": "Schwan-Nebel Ost",
+      "source_hash": "sha256:d9b3fa4a2f1a0224c284c2c16983ccdd79d3b4469fe9b13b3eaf6aa6c63dde89"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 2.000 Lj Entfernung, Magnitude 10,5, 5' groß. Mitglied der zentralen Schwan-Reflexionsnebel-Gruppe. Am besten mit nahegelegenen VdB-130-133-Objekten fotografiert.",
+      "source_hash": "sha256:e81a7b8da58606bac7d309e3c74f29004772f4815a6fc9eb1d28c696250a2642"
+    }
+  },
+  "VdB 133": {
+    "name": {
+      "text": "Schwan-Nebel Südost",
+      "source_hash": "sha256:209d02d8d0e8cd1119c877054b64fbf7ccd9b12017e471da7a64d627c1f69005"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 2.000 Lj Entfernung, Magnitude 10,5, 5' groß. Südliches Mitglied der zentralen Schwan-Gruppe. Tiefe LRGB mit optionalem Ha wirksam.",
+      "source_hash": "sha256:12987a8f6cae67ce61dc8f744f9c6819db809df7d73e8d0cdf686c2ed4205070"
+    }
+  },
+  "VdB 136": {
+    "name": {
+      "text": "Pegasus-Nebel",
+      "source_hash": "sha256:bc442f631480e6e15ad9383b3ca176e953fb07d8fa7954db24dea019892c4ebb"
+    },
+    "description": {
+      "text": "Schwacher und wenig dokumentierter Reflexionsnebel in etwa 1.800 Lj Entfernung, Magnitude 11,0, 4' groß. Bei hoher galaktischer Breite, ungewöhnlich in der Helligkeit. Sehr tiefe LRGB unter dunklem Himmel notwendig.",
+      "source_hash": "sha256:46672c19df609526f16191e04c624c5849c2cf5edaa9d81b03c606084778bcf5"
+    }
+  },
+  "VdB 139": {
+    "name": {
+      "text": "Irises-Nebel",
+      "source_hash": "sha256:ad600c749f98a4f04f76f8b35f5c3d77ad876fd45275073fde21080489403c5e"
+    },
+    "description": {
+      "text": "Der hellste und spektakulärste Reflexionsnebel im Katalog (NGC 7023), 1.300 Lj entfernt, Magnitude 7,1, 18' groß. Blaue Blütenblätter durch dunkle Staubgassen durchschnitten. Eines der besten Herbst-Reflexionsziele.",
+      "source_hash": "sha256:51ae219aa6361677b7b295d74b93d7c5618dce491fab8f0761672084c388f599"
+    }
+  },
+  "VdB 141": {
+    "name": {
+      "text": "Gespenst des Kepheus",
+      "source_hash": "sha256:73e0189331db229cef7300240796b9a7621a050a7cf74273fab87ee40570de43"
+    },
+    "description": {
+      "text": "Spektraler und fotogener Nebel in etwa 1.200 Lj Entfernung, Magnitude 11,0, 10' groß. Leuchtender Staub bildet eine gespenstige Silhouette. Tiefe LRGB und lange Belichtungen notwendig zur Offenbarung der Struktur.",
+      "source_hash": "sha256:8ef53eb512df590c12c9197dbf8f312e5b1e862ed2e3a2c224de287afa3828a8"
+    }
+  },
+  "VdB 142": {
+    "name": {
+      "text": "Elefantens-Rüssel-Nebel",
+      "source_hash": "sha256:cb2fa4e357eba12d20104087fd3b08592ae01acda8528ee25f620b1fd430b3c4"
+    },
+    "description": {
+      "text": "Reflexionskomponente der Elefantenrüssel-Säule (IC 1396A), 2.400 Lj entfernt, Magnitude 9,0, 15' groß. Sichtbar-Licht-Gegenstück kometaren Globule. LRGB plus Ha besonders wirksam.",
+      "source_hash": "sha256:5eee11c7db9f308bcb573d243f4669fbfc028e885dd73d55612d42b76bf43de2"
+    }
+  },
+  "VdB 143": {
+    "name": {
+      "text": "Kepheus-Nebel",
+      "source_hash": "sha256:c8ec75ddb25f3516ae4b5017a6ac6e99b8da5a853f7fa30c982007f398d4a24c"
+    },
+    "description": {
+      "text": "Kompakter Reflexionsnebel bei hoher Breite, 800 Lj entfernt, Magnitude 10,5, 4' groß. Einer der nördlichsten Einträge im Katalog. Tiefe LRGB empfohlen.",
+      "source_hash": "sha256:fd249e56a888ce3f91d7c3a21e754670242ea55ed03103b35382ff8ae617eb7d"
+    }
+  },
+  "VdB 148": {
+    "name": {
+      "text": "Kepheus-Nebel Ost",
+      "source_hash": "sha256:f06272d7940eac5b993f1e618a1ca521c59342154890ea3a556ac242d93683bb"
+    },
+    "description": {
+      "text": "Sehr schwacher und wenig dokumentierter Reflexionsnebel, 900 Lj entfernt, Magnitude 11,0, 3' groß. In der östlichen Kepheus-Flare-Region. Sehr lange Brennweite und extrem tiefe LRGB notwendig.",
+      "source_hash": "sha256:7ba6e43d53b79a375314d79aded7a39c406c3ad2831b561f6c2b09a5500c0cea"
+    }
+  },
+  "VdB 149": {
+    "name": {
+      "text": "Kepheus-Nebel Südost",
+      "source_hash": "sha256:a5a3669e2ed08aa4c2462c172a052022fc6c3b3f7978a3b16e4225c3ca065df8"
+    },
+    "description": {
+      "text": "Reflexionsnebel in etwa 650 Lj Entfernung, Magnitude 10,5, 3' groß. Oft mit VdB 150 und LDN 1235 (Shark Nebula) fotografiert, bildet eine der beeindruckendsten Herbst-Großfeld-Szenen. Am besten in breiterem Feld mit VdB 150 gerahmt.",
+      "source_hash": "sha256:2905ae31e69db35e01f28785b70e4beddb32be583693f5c2b1558a47ee00c7e7"
+    }
+  },
+  "VdB 150": {
+    "name": {
+      "text": "Kepheus-Nebel Süd",
+      "source_hash": "sha256:5c995c384eb20aaa10108fae923887b37913495edc268b53739f91e99f0ca541"
+    },
+    "description": {
+      "text": "Hellerer Reflexionsnebel in etwa 650 Lj Entfernung, Magnitude 10,5, 5' groß. Südliches Gegenstück zu VdB 149 im berühmten Shark-Nebula-Feld. Beste in demselben Großfeld wie VdB 149 und LDN 1235 abgebildet.",
+      "source_hash": "sha256:aedd4ad9ec291df9e37157ac72bdaa3a5e0024e0066e73ac2a3e21725dd65c50"
+    }
+  },
+  "VdB 152": {
+    "name": {
+      "text": "Wolfs-Höhle-Nebel",
+      "source_hash": "sha256:4acffce28f46c00271d494fc611b72373aa53b9869bc759a77dba3bac97a8046"
+    },
+    "description": {
+      "text": "Einer der fotogensten Herbst-Reflexionsnebel in etwa 1.400 Lj Entfernung, Magnitude 10,5, 10' groß. Intensive blaue Staub von HD 222046 in dunkler Wolke beleuchtet. Tiefe LRGB mit langer Integration besonders wirksam.",
+      "source_hash": "sha256:b418f68721572b218d96af03a548a0350d8fca918c61d7b92c2784255be147e3"
+    }
+  },
+  "VdB 158": {
+    "name": {
+      "text": "Pegasus-Nebel Süd",
+      "source_hash": "sha256:ab9ff3b85a64c4efc3cb05a2d99fd16ea0121803886a9b1aa03decd46d8f4720"
+    },
+    "description": {
+      "text": "Sehr schwacher Reflexionsnebel in etwa 1.500 Lj Entfernung, Magnitude 11,0, 4' groß. Bei hoher galaktischer Breite wo Staub spärlich ist; äußerst anspruchsvoll. Sehr tiefe LRGB unter dunklem Himmel unverzichtbar.",
+      "source_hash": "sha256:c3575c6ea18cf082dc34561f95134f3406994517ab8e4ecfcfc14acc97276cd6"
+    }
+  }
+}

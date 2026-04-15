@@ -1,0 +1,322 @@
+{
+  "VdB 1": {
+    "name": {
+      "text": "Nebulosa de Casiopea",
+      "source_hash": "sha256:17dbece0a2aaa732992324c9c4a705732ae5410607cb82681929c132e966093a"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 1.600 al, magnitud 9,5, 5'. Iluminada por una estrella tipo B, brilla en azul-blanco. Focal larga y LRGB profundo recomendados; puede fotografiarse con VdB 2.",
+      "source_hash": "sha256:93eb9a0648b20f2bf7c0c8852eb965b5230074e6ef272d8cef43615480ff2504"
+    }
+  },
+  "VdB 2": {
+    "name": {
+      "text": "Nebulosa de Casiopea Noroeste",
+      "source_hash": "sha256:77b0a440a9899612ead0adc62e6fa62407aa765db4b68c72d6dfcbfd09b3a6d8"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 1.600 al, magnitud 10,0, 4'. Contraparte noroeste de VdB 1 en el mismo complejo. Focal larga y LRGB profundo para revelar su bajo brillo superficial.",
+      "source_hash": "sha256:0c17411f9b8b6279ecfcba14436bbd5adf99aaa77b8b47102fc228a46e29caa5"
+    }
+  },
+  "VdB 14": {
+    "name": {
+      "text": "Nebulosa del Perseo Sureste",
+      "source_hash": "sha256:a781b42201d23d650d9bdd26bd49d2e8078bbe50b806876f5767941a0a5ceca4"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión compacta a 1.000 al, magnitud 10,5, 3'. Iluminada por una joven estrella B parcialmente inmersa. Focal muy larga y LRGB profundo esenciales para su tamaño pequeño.",
+      "source_hash": "sha256:7c560cfd04366b3fbfa07b441f284c55a15f6247684895666e9319cf15d70aee"
+    }
+  },
+  "VdB 15": {
+    "name": {
+      "text": "Nebulosa del Perseo Este",
+      "source_hash": "sha256:747f220d8bbbc503316681c24c1b958156472d5069ddd852f771637f97aee453"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 1.000 al, magnitud 10,0, 3'. Asociada a una estrella B/A, compacta y poco brillante. Focal larga y LRGB profundo recomendados.",
+      "source_hash": "sha256:8b297c13ca01373cd05963601ed8aa7d4cd23462be1d0593e4d2d4bd0e20ebc9"
+    }
+  },
+  "VdB 16": {
+    "name": {
+      "text": "Nebulosa Tauro-Perseo",
+      "source_hash": "sha256:536c4c7d4d464ef4256f510e4b9ed2990b5690d9cc099bc86fdf8772dea69b1a"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión en el límite Tauro-Perseo, 700 al, magnitud 9,5, 5'. Iluminada por una estrella B o A tardía. LRGB profundo y focal larga aconsejados.",
+      "source_hash": "sha256:01cdc3aac16ea5abb4e8fbd8777892779df176882b8f3bea7730cfb31fa83e3b"
+    }
+  },
+  "VdB 17": {
+    "name": {
+      "text": "Nebulosa de Alcyone (Pléyades)",
+      "source_hash": "sha256:706c6ccb290b45cd726eb9439b58261b5fa0b2c4190a426bf98b5268f6257b99"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión alrededor de Alcyone, 444 al, magnitud 8,0, ~30'. Una de las nebulosas de reflexión más brillantes y fáciles del cielo. Campo amplio y LRGB profundo ideales.",
+      "source_hash": "sha256:59d2c1ac9e2c2995840d0ea4e8d9d69430b9a9e110be47344fadd5098bfde603"
+    }
+  },
+  "VdB 20": {
+    "name": {
+      "text": "Nebulosa BD+22",
+      "source_hash": "sha256:d51960c72d4929f500c28c310cde06b9d9b0903288eda8323b2f16c79e4e71ac"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión compacta a 1.200 al, magnitud 10,0, 4'. Poco documentada, iluminada por una estrella BD del Tauro. Focal larga y LRGB profundo apropiados.",
+      "source_hash": "sha256:d50c713155b5b37e7881bad36c9efdebc47fa665df3f3e5b4488b96a09c6e680"
+    }
+  },
+  "VdB 21": {
+    "name": {
+      "text": "Nebulosa de Reflexión del Orión",
+      "source_hash": "sha256:47bf4f09e27f6706b5deef45e6b8d8bc5473e79eafed7ffa3a3c3218344cd043"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión en el complejo molecular de Orión, 1.300 al, magnitud 10,5, 5'. Iluminada por una joven estrella caliente. Focal larga y LRGB profundo eficaces.",
+      "source_hash": "sha256:57455328e29e2b6c98a9ea499a2fff1fef3478b46d8bf9f9f8ab3e183bdca056"
+    }
+  },
+  "VdB 28": {
+    "name": {
+      "text": "Nebulosa de Lambda Orionis",
+      "source_hash": "sha256:95c4ce8307ee9ccf24b1ca0341c182332765c36bb41838861abfc0c33fee3337"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión cerca de Lambda Orionis, 1.300 al, magnitud 9,5, 10'. Asociada al vasto anillo Lambda Orionis (Sh2-264). Focal media y LRGB profundo con Ha opcional.",
+      "source_hash": "sha256:4cc19711751a620abeb4877d556b6d5a2709f2bd52fdbc87c34ecc8ab8961ca1"
+    }
+  },
+  "VdB 38": {
+    "name": {
+      "text": "Nebulosa del Monocerote",
+      "source_hash": "sha256:732aa58c0804c4aa91a5d9e21d7089b9153cb8fd02e7c2f683803f1eca5c1fda"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 2.500 al, magnitud 10,0, 4'. En el rico ambiente de formación estelar del Monocerote. LRGB profundo y focal larga recomendados.",
+      "source_hash": "sha256:415f6777ee9bd59f410766b3f576b225ca94b5a7520856b927f191cfea1d413b"
+    }
+  },
+  "VdB 62": {
+    "name": {
+      "text": "Nebulosa de Rho Ofiuco Norte",
+      "source_hash": "sha256:84985ed3d326a83e7664eb179f36598656499be366e9e4970a64e0c7cf4c5e72"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 460 al, magnitud 9,5, 15'. Parte del famoso complejo Rho Ofiuco, una de las regiones más coloridas del cielo. Campo amplio y LRGB muy profundo esenciales.",
+      "source_hash": "sha256:73826d0d1988274907b45cc6bbde848fd95700c119942b6b2d4bb53e2e201115"
+    }
+  },
+  "VdB 67": {
+    "name": {
+      "text": "Nebulosa de Géminis",
+      "source_hash": "sha256:98229193d2e3385ce0c7bf1210c98c3a3f64c20ab071bc288522476fd69087b6"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión pequeña y compacta a 2.200 al, magnitud 10,0, 3'. Iluminada por una estrella B. Focal muy larga y LRGB profundo para su tamaño diminuto.",
+      "source_hash": "sha256:0135f826611032ae43dba558d2f8b8dd8f9b419274988fdc080762a46b6f0a11"
+    }
+  },
+  "VdB 82": {
+    "name": {
+      "text": "Nebulosa de la Osa Mayor",
+      "source_hash": "sha256:7c51ba92ec729faf89d85f04e5a806451eba7956dfb514cb49fe8f99b5b79c86"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión aislada a alta latitud galáctica, 1.500 al, magnitud 10,5, 4'. Rara en brillo, visible en imágenes muy profundas. LRGB profundo y cielos oscuros importantes.",
+      "source_hash": "sha256:bc4a3aab69ca9ec1ac3da90d8eeb0c002f981d769dc0868f01fb24147e57bc62"
+    }
+  },
+  "VdB 92": {
+    "name": {
+      "text": "Nebulosa de Rho Ofiuco",
+      "source_hash": "sha256:0cfc78695b6195e7e622ec5bcaf693a95873ee60eb18c74b1e2098ecaa32fa48"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión principal, 460 al, magnitud 9,5, 20'. Una de las joyas de la astrofotografía, combinando reflexión azul, nubes oscuras y nebulosidad Ha rojiza. Campo amplio y LRGB muy profundo esenciales.",
+      "source_hash": "sha256:d83e522e7731b8ffd790d5c1b9733c7128d7a5eaa1369f3139c27be6110cb7fd"
+    }
+  },
+  "VdB 99": {
+    "name": {
+      "text": "Nebulosa de Rho Ofiuco Sur",
+      "source_hash": "sha256:dba3babbd52658514adcc9be320474b2185e5be79a2c08d1def7d1ad006758b7"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión al sur de Rho Ofiuco, 460 al, magnitud 10,0, 10'. Forma el sur del trío VdB 62-92-99 en el corazón del complejo. Usualmente enmarcada con VdB 62 y VdB 92.",
+      "source_hash": "sha256:812c62bd1454e288f3996828f77baea4242df7d1da75160d10b9dca1b6cfab27"
+    }
+  },
+  "VdB 101": {
+    "name": {
+      "text": "Nebulosa del Escorpión",
+      "source_hash": "sha256:e87a1478bbb276a4419819961301b5ca3585bb2a8766ad3c0dbc572af218c506"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 500 al, magnitud 10,5, 5'. En el ambiente molecular Escorpión-Centauro. Focal larga y LRGB profundo recomendados.",
+      "source_hash": "sha256:bae4f4b1e93095a9c13c723fdad9fa226dc2f7bc8203c6790284b0aaa3203194"
+    }
+  },
+  "VdB 107": {
+    "name": {
+      "text": "Nebulosa Azul del Escorpión",
+      "source_hash": "sha256:b57a657df3cccfdbd0e63bc04ed430a5a5881b4c599ecca2da92084bc6030d75"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión compacta azul a 550 al, magnitud 10,0, 4'. Iluminada por una estrella B temprana caliente. Mejor adaptada a observatorios australes por su declinación muy baja.",
+      "source_hash": "sha256:c268ca28e979fe3ada89c7092e27b213659e91d481b076d008e291e04e8dabe8"
+    }
+  },
+  "VdB 126": {
+    "name": {
+      "text": "Nebulosa de Reflexión del Cisne",
+      "source_hash": "sha256:cd614737ce65d36de10517de98a46a6f2480dc5ecd6438fcf1c36700ab11f87d"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 2.000 al, magnitud 10,0, 6'. En la rica región de formación estelar del Cisne. LRGB profundo con Ha opcional eficaz.",
+      "source_hash": "sha256:e5ed8a07dd959fdd96540c07dc0c12e92b78fbfbde192f908ea81943f0d1b836"
+    }
+  },
+  "VdB 130": {
+    "name": {
+      "text": "Nebulosa de Reflexión del Cisne 2",
+      "source_hash": "sha256:78be076d24918b45d0d4f2a46245fc259563663c398488707d8ed1277a2c95ea"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión azul compacta a 2.000 al, magnitud 10,5, 5'. Parte de un grupo cerca de VdB 131-132. Focal larga y LRGB profundo recomendados.",
+      "source_hash": "sha256:54fd66c406d2a32915550b078b60713ab9fd6cc79fa641a5f4ac04ce8ea55f3d"
+    }
+  },
+  "VdB 131": {
+    "name": {
+      "text": "Nebulosa del Cisne Noreste",
+      "source_hash": "sha256:e75b7af4552daa9889cf256b0baee3e1855fcea494f42e1c2d9445299a54f666"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 2.000 al, magnitud 10,5, 5'. Parte del grupo central del Cisne con VdB 130-132-133. Especialmente interesante en campo amplio cubriendo todo el grupo.",
+      "source_hash": "sha256:52c17875d56a34efc8946a92350f2eaf3d9b3ce5132dfb3ce95de9cce26a7df4"
+    }
+  },
+  "VdB 132": {
+    "name": {
+      "text": "Nebulosa del Cisne Este",
+      "source_hash": "sha256:d9b3fa4a2f1a0224c284c2c16983ccdd79d3b4469fe9b13b3eaf6aa6c63dde89"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 2.000 al, magnitud 10,5, 5'. Miembro del grupo central del Cisne. Mejor fotografiada con objetos VdB 130-133 cercanos.",
+      "source_hash": "sha256:e81a7b8da58606bac7d309e3c74f29004772f4815a6fc9eb1d28c696250a2642"
+    }
+  },
+  "VdB 133": {
+    "name": {
+      "text": "Nebulosa del Cisne Sureste",
+      "source_hash": "sha256:209d02d8d0e8cd1119c877054b64fbf7ccd9b12017e471da7a64d627c1f69005"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 2.000 al, magnitud 10,5, 5'. Miembro sur del grupo central del Cisne. LRGB profundo con Ha opcional eficaz.",
+      "source_hash": "sha256:12987a8f6cae67ce61dc8f744f9c6819db809df7d73e8d0cdf686c2ed4205070"
+    }
+  },
+  "VdB 136": {
+    "name": {
+      "text": "Nebulosa de Pegaso",
+      "source_hash": "sha256:bc442f631480e6e15ad9383b3ca176e953fb07d8fa7954db24dea019892c4ebb"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión débil y poco documentada a 1.800 al, magnitud 11,0, 4'. A alta latitud galáctica, poco común en brillo. LRGB muy profundo bajo cielos oscuros necesario.",
+      "source_hash": "sha256:46672c19df609526f16191e04c624c5849c2cf5edaa9d81b03c606084778bcf5"
+    }
+  },
+  "VdB 139": {
+    "name": {
+      "text": "Nebulosa del Iris",
+      "source_hash": "sha256:ad600c749f98a4f04f76f8b35f5c3d77ad876fd45275073fde21080489403c5e"
+    },
+    "description": {
+      "text": "La nebulosa de reflexión más brillante y espectacular del catálogo (NGC 7023), 1.300 al, magnitud 7,1, 18'. Pétalos azules cortados por polvo oscuro. Uno de los mejores objetivos de reflexión del otoño.",
+      "source_hash": "sha256:51ae219aa6361677b7b295d74b93d7c5618dce491fab8f0761672084c388f599"
+    }
+  },
+  "VdB 141": {
+    "name": {
+      "text": "Fantasma de Cefeo",
+      "source_hash": "sha256:73e0189331db229cef7300240796b9a7621a050a7cf74273fab87ee40570de43"
+    },
+    "description": {
+      "text": "Nebulosa espectral y fotogénica a 1.200 al, magnitud 11,0, 10'. Polvo iluminado formando una silueta fantasmal. LRGB profundo e integración larga necesarios para revelar su estructura.",
+      "source_hash": "sha256:8ef53eb512df590c12c9197dbf8f312e5b1e862ed2e3a2c224de287afa3828a8"
+    }
+  },
+  "VdB 142": {
+    "name": {
+      "text": "Nebulosa de la Trompa del Elefante",
+      "source_hash": "sha256:cb2fa4e357eba12d20104087fd3b08592ae01acda8528ee25f620b1fd430b3c4"
+    },
+    "description": {
+      "text": "Componente de reflexión del pilar Trompa del Elefante (IC 1396A), 2.400 al, magnitud 9,0, 15'. Contraparte en luz visible de un glóbulo cometario famoso. LRGB más Ha particularmente eficaz.",
+      "source_hash": "sha256:5eee11c7db9f308bcb573d243f4669fbfc028e885dd73d55612d42b76bf43de2"
+    }
+  },
+  "VdB 143": {
+    "name": {
+      "text": "Nebulosa de Cefeo",
+      "source_hash": "sha256:c8ec75ddb25f3516ae4b5017a6ac6e99b8da5a853f7fa30c982007f398d4a24c"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión compacta a altitud alta a 800 al, magnitud 10,5, 4'. Una de las entradas más septentrionales del catálogo. LRGB profundo recomendado.",
+      "source_hash": "sha256:fd249e56a888ce3f91d7c3a21e754670242ea55ed03103b35382ff8ae617eb7d"
+    }
+  },
+  "VdB 148": {
+    "name": {
+      "text": "Nebulosa de Cefeo Este",
+      "source_hash": "sha256:f06272d7940eac5b993f1e618a1ca521c59342154890ea3a556ac242d93683bb"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión muy débil y poco documentada a 900 al, magnitud 11,0, 3'. En la región este de la Cefeo Flare. Focal muy larga y LRGB extremadamente profundo necesarios.",
+      "source_hash": "sha256:7ba6e43d53b79a375314d79aded7a39c406c3ad2831b561f6c2b09a5500c0cea"
+    }
+  },
+  "VdB 149": {
+    "name": {
+      "text": "Nebulosa de Cefeo Sureste",
+      "source_hash": "sha256:a5a3669e2ed08aa4c2462c172a052022fc6c3b3f7978a3b16e4225c3ca065df8"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión a 650 al, magnitud 10,5, 3'. A menudo fotografiada con VdB 150 y LDN 1235 (Shark Nebula), formando una de las escenas más sorprendentes en campo amplio otoñal. Mejor encuadrada en campo amplio con VdB 150.",
+      "source_hash": "sha256:2905ae31e69db35e01f28785b70e4beddb32be583693f5c2b1558a47ee00c7e7"
+    }
+  },
+  "VdB 150": {
+    "name": {
+      "text": "Nebulosa de Cefeo Sur",
+      "source_hash": "sha256:5c995c384eb20aaa10108fae923887b37913495edc268b53739f91e99f0ca541"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión más brillante a 650 al, magnitud 10,5, 5'. Contraparte meridional de VdB 149 en el celebrado campo Shark Nebula. A imágenes en el mismo campo amplio que VdB 149 y LDN 1235.",
+      "source_hash": "sha256:aedd4ad9ec291df9e37157ac72bdaa3a5e0024e0066e73ac2a3e21725dd65c50"
+    }
+  },
+  "VdB 152": {
+    "name": {
+      "text": "Nebulosa de la Cueva del Lobo",
+      "source_hash": "sha256:4acffce28f46c00271d494fc611b72373aa53b9869bc759a77dba3bac97a8046"
+    },
+    "description": {
+      "text": "Una de las nebulosas de reflexión otoñales más fotogénicas a 1.400 al, magnitud 10,5, 10'. Polvo azul intenso iluminado por HD 222046 en una nube oscura. LRGB profundo con integración larga particularmente eficaz.",
+      "source_hash": "sha256:b418f68721572b218d96af03a548a0350d8fca918c61d7b92c2784255be147e3"
+    }
+  },
+  "VdB 158": {
+    "name": {
+      "text": "Nebulosa de Pegaso Sur",
+      "source_hash": "sha256:ab9ff3b85a64c4efc3cb05a2d99fd16ea0121803886a9b1aa03decd46d8f4720"
+    },
+    "description": {
+      "text": "Nebulosa de reflexión muy débil a 1.500 al, magnitud 11,0, 4'. A alta latitud galáctica donde el polvo es escaso; extremadamente exigente. LRGB muy profundo bajo cielos oscuros esencial.",
+      "source_hash": "sha256:c3575c6ea18cf082dc34561f95134f3406994517ab8e4ecfcfc14acc97276cd6"
+    }
+  }
+}

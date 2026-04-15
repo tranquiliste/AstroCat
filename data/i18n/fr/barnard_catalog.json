@@ -1,0 +1,232 @@
+{
+  "B 33": {
+    "name": {
+      "text": "Nébuleuse de la Tête de Cheval",
+      "source_hash": "sha256:e115fe2b0dd185c838e2dd2f15b154c705dffe58400ecbedfdf2a4957dfb0e86"
+    },
+    "description": {
+      "text": "Nébuleuse obscure emblématique d'Orion, silhouette dense devant l'émission rouge d'IC 434, à environ 1 350 années-lumière. Cible hivernale incontournable : longue focale, filtre Hα conseillé, et intégration profonde en LRGB + Hα.",
+      "source_hash": "sha256:2519637677b18d64a6ffe3eff23172d38d2ccc34c18017c67f24a29273d61d3f"
+    }
+  },
+  "B 34": {
+    "name": {
+      "text": "Orion sombre",
+      "source_hash": "sha256:dafab0555654ef064893efdb432ee2ffb0224b8b996634e83434e390e1dc8e3b"
+    },
+    "description": {
+      "text": "Nuage sombre du complexe moléculaire d'Orion, vers 1 300 années-lumière, bien placé en hiver depuis la France. Un LRGB profond sur fond stellaire dense donne un excellent rendu.",
+      "source_hash": "sha256:622d1e745d53cd2e75857883d810531ee7dba2fb29158dec9073b8e6251c8f6c"
+    }
+  },
+  "B 59": {
+    "name": {
+      "text": "Bol de la Nébuleuse du Tuyau",
+      "source_hash": "sha256:2c61b157be792c682a4ea9effd259db87fb4d553ae14545da96cf429da48058a"
+    },
+    "description": {
+      "text": "Globule dense d'Ophiuchus formant le bol de la Pipe Nebula, à environ 450 années-lumière. Un champ large permet de montrer la tige associée (LDN 204) et la richesse du fond galactique.",
+      "source_hash": "sha256:f64fb142b89102d098b83539796e8add520bf683a4bf5d663859ae752c3069b2"
+    }
+  },
+  "B 68": {
+    "name": {
+      "text": "Barnard 68",
+      "source_hash": "sha256:b659f3b7bba5779d432ae59c22d2b1d40f5b7af80231064c62256116d7a93fa2"
+    },
+    "description": {
+      "text": "Globule de Bok isolé et très proche, autour de 160 années-lumière, créant un trou sombre presque parfait dans le champ d'étoiles. Cible compacte : longue focale et LRGB profond recommandés.",
+      "source_hash": "sha256:d05f9efd660c1b6cba787f2d37507cbd36279456cab802e3b428b5e5cfb37c8d"
+    }
+  },
+  "B 72": {
+    "name": {
+      "text": "Nébuleuse du Serpent",
+      "source_hash": "sha256:18fe87fe55a89447c1c7350fe0202811ee098f6a8e2e8008641963b87548e037"
+    },
+    "description": {
+      "text": "Nébuleuse sombre sinueuse d'Ophiuchus, vers 650 années-lumière, très contrastée sur le fond riche du centre galactique. Le grand champ est idéal pour inclure la chaîne de nuages voisins.",
+      "source_hash": "sha256:7026cbf37896242951c27121231d31557fff577f143cb4a3a2c5b8d3564f7d63"
+    }
+  },
+  "B 78": {
+    "name": {
+      "text": "Nébuleuse du Tuyau",
+      "source_hash": "sha256:57276a9652a40871b7ea036d45f98261ba5168585266ea7b4418f73fcf258fe4"
+    },
+    "description": {
+      "text": "Grand nuage sombre de la Pipe Nebula (environ 120'), à ~450 années-lumière, spectaculaire en très grand champ. Une optique courte ou une mosaïque met bien en valeur la structure complète.",
+      "source_hash": "sha256:aa2a4b6fc664a39ee8a11dccfa900ed097aba85f5105c0c63bc45b3009ef844d"
+    }
+  },
+  "B 86": {
+    "name": {
+      "text": "Tache d'Encre",
+      "source_hash": "sha256:ba9563acea021d5d3c82edc88bd516c528c8fab5e848499621ba6380b3205431"
+    },
+    "description": {
+      "text": "Petit globule extrêmement opaque du Sagittaire, autour de 6 000 années-lumière, souvent photographié avec l'amas NGC 6520. Le duo offre un contraste remarquable entre vide sombre et champ stellaire dense.",
+      "source_hash": "sha256:27b7b492875faa8373ed02e3c168ea9ac0228c73a21f768e7901e4d879b92f18"
+    }
+  },
+  "B 92": {
+    "name": {
+      "text": "Tache sombre de M24",
+      "source_hash": "sha256:997fe2a3f1ce6d98047c711de89da7d823e9b2f79cf8884a210a15fc7623a80e"
+    },
+    "description": {
+      "text": "Nuage obscur très photogénique projeté devant le nuage stellaire de M24, à environ 6 000 années-lumière. Un cadrage large avec B 93 accentue le contraste spectaculaire.",
+      "source_hash": "sha256:e4581f96cf58d052db673457f308d2186526b4ce3f6dd26d03bbf559bc63dab5"
+    }
+  },
+  "B 142": {
+    "name": {
+      "text": "E de Barnard Ouest",
+      "source_hash": "sha256:513da2a3d16da472810d6d6ee23fc0dbbd7f49c232077e905266df3fd0b51ea0"
+    },
+    "description": {
+      "text": "Partie ouest de la célèbre nébuleuse sombre en forme de E (avec B 143), dans l'Aigle, à ~460 années-lumière. Champ large recommandé pour capturer la forme complète.",
+      "source_hash": "sha256:bbe621c601039ddd5c480d948a82722ab708ab1f4fab96566fa52cb3c7e5a1c8"
+    }
+  },
+  "B 143": {
+    "name": {
+      "text": "E de Barnard Est",
+      "source_hash": "sha256:abd9f242cf73abb12d1d08979bbc01e36f13082f69dce7f4d5e2e7453c3e5b8c"
+    },
+    "description": {
+      "text": "Partie est du système en E de Barnard, associée à B 142, dans l'Aigle à environ 460 années-lumière. Le duo donne une cible sombre très lisible et accessible.",
+      "source_hash": "sha256:c873fc59561e7d54fc8a970ac0ff07ceb655124638fc65b1962fc4a490069ca2"
+    }
+  },
+  "B 144": {
+    "name": {
+      "text": "Cygne sombre",
+      "source_hash": "sha256:384fb34f14aa40eca5325b3be2e3a2f8322e4032944552c785e227207a944845"
+    },
+    "description": {
+      "text": "Nuage sombre du Grand Rift du Cygne, vers 2 000 années-lumière, au cœur d'un champ extrêmement riche. LRGB + Hα en grand champ fonctionne particulièrement bien.",
+      "source_hash": "sha256:142f682db3e6f747eb5e1e4e0e9299a10d13e6fe58d19f0bc347b8e374de6a75"
+    }
+  },
+  "B 145": {
+    "name": {
+      "text": "Cygne sombre nord",
+      "source_hash": "sha256:76a7485f19acd2a897dd54333b39d0bd90aed158157e0d01a618c052bd354f6c"
+    },
+    "description": {
+      "text": "Contrepartie nord de B 144 dans le Rift du Cygne, proche du zénith en été depuis la France. Très bon candidat en grand champ avec B 144 et B 163.",
+      "source_hash": "sha256:fc6501402112e7222bb50f0c4eef4d87096a16aae0f7d942c30f6c744c6955bc"
+    }
+  },
+  "B 147": {
+    "name": {
+      "text": "Taureau sombre",
+      "source_hash": "sha256:99180bc3ee3dbdb8d8b01829b83a16b17a7566b715eb690b06466ace2f262415"
+    },
+    "description": {
+      "text": "Nuage sombre du Taurus Molecular Cloud, autour de 450 années-lumière, dans une région active de formation stellaire. L'hiver est favorable, avec LRGB profond et focale moyenne à longue.",
+      "source_hash": "sha256:fd1a9206e4ced8b696d24afe5988d0b6b816598fded002d071fd8b535c9b16ea"
+    }
+  },
+  "B 150": {
+    "name": {
+      "text": "Nébuleuse de l'Hippocampe",
+      "source_hash": "sha256:0db7ba43b59bcaee6001b659cff09ebaae8979054c5841df56e57410352e77ad"
+    },
+    "description": {
+      "text": "Nébuleuse sombre de Céphée à la silhouette évocatrice, vers 400 années-lumière, dans le complexe Cepheus Flare. Un champ assez large et une intégration profonde révèlent bien les poussières diffuses.",
+      "source_hash": "sha256:69dac2a3e4dbb6bfcd3889e8c42d91469c9c498637ef97a8167a415223027be1"
+    }
+  },
+  "B 163": {
+    "name": {
+      "text": "Cygne sombre sud",
+      "source_hash": "sha256:3de785d8c620ec04f34af437a10b964c189059bc665a750281ade9f32980ead4"
+    },
+    "description": {
+      "text": "Nuage sombre situé au sud du couple B 144/B 145, dans le Cygne, vers 1 800 années-lumière. Cible estivale facile à intégrer dans des compositions grand champ du Rift.",
+      "source_hash": "sha256:bd24156986abf38a4de4c7add1afae4c1c0d5ab3795a2bc19fa734dddac26a69"
+    }
+  },
+  "B 168": {
+    "name": {
+      "text": "Cocon sombre",
+      "source_hash": "sha256:11cd23499a3c121ab68451ab0a2be4eda385fadacdc73cd3c8bff74e542332bd"
+    },
+    "description": {
+      "text": "Long filament obscur relié à la région d'IC 5146 dans le Cygne, à environ 2 700 années-lumière. Le contraste avec l'émission environnante est très esthétique en LRGB + Hα.",
+      "source_hash": "sha256:4cbb8d354ea42c01a932f8a15686383aa99009ba2975e609bf3f03cecf05c01a"
+    }
+  },
+  "B 169": {
+    "name": {
+      "text": "Céphée sombre",
+      "source_hash": "sha256:ea6f0986bd77e5a91fa524f96632d9babac6c627b53bba9e7d15c5da3a801bec"
+    },
+    "description": {
+      "text": "Nuage sombre circumpolaire du complexe de Céphée, vers 900 années-lumière, intéressant en composition avec B 170 et B 171. Un LRGB profond met en valeur les structures diffuses.",
+      "source_hash": "sha256:f39dc74c2f7ccf393a7f5203399b3eb010fbbcc94e83c187c1f3c3955a3b568e"
+    }
+  },
+  "B 170": {
+    "name": {
+      "text": "Céphée sombre nord",
+      "source_hash": "sha256:d478dd12c24e9cc603b06b38198482f943eb994b4caa4abd0ebfb17f9fa0c7e1"
+    },
+    "description": {
+      "text": "Nuage sombre septentrional de Céphée, proche de B 169, à ~900 années-lumière. Le meilleur rendu s'obtient en cadrant l'ensemble du groupe sur 1 à 2 degrés.",
+      "source_hash": "sha256:806e0d63efd76423a05c341894d8b748918762eb63fa41f9cb1b43979e153e28"
+    }
+  },
+  "B 171": {
+    "name": {
+      "text": "Céphée sombre nord-est",
+      "source_hash": "sha256:267781f4f4194cee72db59f8af056ea587ae850922c89877f4431b4bd35ddebf"
+    },
+    "description": {
+      "text": "Troisième composant du trio B 169-170-171 dans le nord de Céphée, autour de 950 années-lumière. Très adapté aux longues intégrations automne-hiver en grand champ.",
+      "source_hash": "sha256:86c98413732b2d5382287d618d384c8e03168f15c42c435288f8ec613539e8b3"
+    }
+  },
+  "B 174": {
+    "name": {
+      "text": "Céphée sombre nord-ouest",
+      "source_hash": "sha256:6f4a2ae9974c0a6c8a966b4b8cafd0d4a3e09ea5bfab3e52817b1c3102f7712c"
+    },
+    "description": {
+      "text": "Nuage sombre de très haute déclinaison en Céphée (~500 années-lumière), quasiment circumpolaire depuis la France. Cible favorable pour révéler les faibles voiles de poussière en intégration longue.",
+      "source_hash": "sha256:e46c0a8cdc181a5bbe5aedbe913e2bfb02c1cdccbf406ff56a63b3cf75415112"
+    }
+  },
+  "B 175": {
+    "name": {
+      "text": "Céphée sombre sud",
+      "source_hash": "sha256:f0c2302850747159b71cdce935e960240e2c6c1a23968d3f809ad92438f7ad5a"
+    },
+    "description": {
+      "text": "Nuage sombre du sud de Céphée, vers 500 années-lumière, appartenant au vaste complexe poussiéreux local. Les nuits longues d'automne et d'hiver conviennent bien à une acquisition profonde.",
+      "source_hash": "sha256:de38e82e9ee0524750106a0fd1171050e1cf953e208f9728d68f7baa54bce9ce"
+    }
+  },
+  "B 227": {
+    "name": {
+      "text": "Aurigue sombre",
+      "source_hash": "sha256:79047f7a7012c3fbdccdb67c365c2f6de58785c855c5850354698005c4f9a0a4"
+    },
+    "description": {
+      "text": "Nuage sombre de l'Aurige proche de l'anticentre galactique, vers 450 années-lumière, dans une zone riche en nébuleuses d'émission. Cible hivernale très bien placée, intéressante en LRGB + Hα.",
+      "source_hash": "sha256:324459cf73aaea9b0cdf5eccbcec2908e2ba2f414da5d077af87ccbb2a36d2cf"
+    }
+  },
+  "B 312": {
+    "name": {
+      "text": "Ophiuchus sombre",
+      "source_hash": "sha256:768035219e0ee5f0928e601f483b20cb1420408111d58710865e741bb43b7c75"
+    },
+    "description": {
+      "text": "Grand nuage sombre d'Ophiuchus (~50'), à environ 700 années-lumière, projeté sur un champ stellaire très dense vers le centre galactique. Le grand champ et un ciel stable sont recommandés.",
+      "source_hash": "sha256:84617e62e37b14ed7929822b192edc8c382427e5a1fd51b72c17b2a28d3153c9"
+    }
+  }
+}

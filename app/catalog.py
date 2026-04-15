@@ -1,9 +1,10 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 import json
+import hashlib
 import math
 import os
 import sys
@@ -12,6 +13,7 @@ from urllib.parse import quote
 import re
 
 from constellations import canonical_constellation_name, extract_constellation_from_description
+from i18n import normalize_locale_code
 
 PROJECT_ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 
@@ -21,22 +23,22 @@ DEFAULT_CONFIG = {
     "catalogs": [
         {
             "name": "Messier",
-            "metadata_file": "data/object_metadata.json",
+            "metadata_file": "data/object_catalog.json",
             "image_dirs": [],
         },
         {
             "name": "NGC",
-            "metadata_file": "data/ngc_metadata.json",
+            "metadata_file": "data/ngc_catalog.json",
             "image_dirs": [],
         },
         {
             "name": "IC",
-            "metadata_file": "data/ic_metadata.json",
+            "metadata_file": "data/ic_catalog.json",
             "image_dirs": [],
         },
         {
             "name": "Solar system",
-            "metadata_file": "data/solar_system_metadata.json",
+            "metadata_file": "data/solar_system_catalog.json",
             "image_dirs": [],
         },
         {
@@ -458,6 +460,77 @@ def _load_json(path: Path) -> object:
             return json.load(handle)
 
 
+def _catalog_overlay_filename(catalog_name: str, metadata_file: Optional[str] = None) -> str:
+    # Keep overlay filenames aligned with source metadata filenames whenever possible.
+    if metadata_file:
+        source_name = Path(str(metadata_file)).name.strip()
+        if source_name.lower().endswith(".json"):
+            return source_name
+    normalized = re.sub(r"[^a-z0-9]+", "_", (catalog_name or "").strip().lower())
+    normalized = normalized.strip("_") or "catalog"
+    return f"{normalized}.json"
+
+
+def _text_source_hash(value: Optional[str]) -> str:
+    normalized = (value or "").strip()
+    digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+    return f"sha256:{digest}"
+
+
+def _load_catalog_translation_overlay(
+    catalog_name: str,
+    locale_code: str,
+    metadata_file: Optional[str] = None,
+) -> Dict[str, Dict[str, Dict[str, str]]]:
+    if not locale_code or locale_code == "en":
+        return {}
+    overlay_path = PROJECT_ROOT / "data" / "i18n" / locale_code / _catalog_overlay_filename(
+        catalog_name,
+        metadata_file,
+    )
+    if not overlay_path.exists():
+        return {}
+    try:
+        payload = _load_json(overlay_path)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(payload, dict):
+        return {}
+
+    normalized: Dict[str, Dict[str, Dict[str, str]]] = {}
+    for object_id, fields in payload.items():
+        if not isinstance(object_id, str) or not isinstance(fields, dict):
+            continue
+        entry: Dict[str, Dict[str, str]] = {}
+        for field_name in ("name", "description"):
+            field_payload = fields.get(field_name)
+            if not isinstance(field_payload, dict):
+                continue
+            text = field_payload.get("text")
+            source_hash = field_payload.get("source_hash")
+            if not isinstance(text, str) or not isinstance(source_hash, str):
+                continue
+            entry[field_name] = {
+                "text": text.strip(),
+                "source_hash": source_hash.strip(),
+            }
+        if entry:
+            normalized[object_id] = entry
+    return normalized
+
+
+def _apply_overlay_text(base_text: Optional[str], field_overlay: Optional[Dict[str, str]]) -> Optional[str]:
+    if not field_overlay:
+        return base_text
+    translated = (field_overlay.get("text") or "").strip()
+    source_hash = (field_overlay.get("source_hash") or "").strip()
+    if not translated or not source_hash:
+        return base_text
+    if source_hash != _text_source_hash(base_text):
+        return base_text
+    return translated
+
+
 def _load_user_image_notes(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None or not notes_path.exists():
         return {}
@@ -516,6 +589,7 @@ def _cleanup_metadata_image_note(metadata_path: Path, catalog_name: str, object_
 def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> List[CatalogItem]:
     items: List[CatalogItem] = []
     user_image_notes = _load_user_image_notes(user_notes_path)
+    ui_locale = normalize_locale_code(config.get("ui_locale", "system"), fallback="en")
     extensions = config.get("image_extensions", DEFAULT_CONFIG["image_extensions"])
     observer = config.get("observer", {})
     latitude = observer.get("latitude")
@@ -527,7 +601,8 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
     for catalog_cfg in config.get("catalogs", []):
         catalog_name = catalog_cfg.get("name", "Unknown")
         catalog_prefix = _catalog_prefix(catalog_name)
-        metadata_path = _resolve_path(catalog_cfg.get("metadata_file", ""))
+        metadata_file = catalog_cfg.get("metadata_file", "")
+        metadata_path = _resolve_path(metadata_file)
         image_dirs = list(catalog_dirs.get(catalog_name, []))
         if catalog_name == "Messier":
             image_dirs += catalog_dirs.get("NGC", [])
@@ -537,6 +612,11 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
             image_dirs.append(master_path)
         image_dirs = _unique_paths(image_dirs)
         image_index = _build_image_index(image_dirs, extensions)
+        translation_overlay = _load_catalog_translation_overlay(
+            catalog_name,
+            ui_locale,
+            metadata_file=metadata_file,
+        )
 
         if not metadata_path.exists():
             continue
@@ -555,6 +635,11 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                 best_months = _compute_best_months(ra_hours, dec_deg, latitude, longitude)
             notes = _normalize_text(meta.get("notes"))
             image_notes = _normalize_image_notes(meta.get("image_notes"))
+            base_name = _normalize_text(meta.get("name", "")) or ""
+            base_description = _normalize_text(meta.get("description"))
+            entry_overlay = translation_overlay.get(object_id, {})
+            localized_name = _apply_overlay_text(base_name, entry_overlay.get("name")) or ""
+            localized_description = _apply_overlay_text(base_description, entry_overlay.get("description"))
             for image_path in image_paths:
                 note_text = user_image_notes.get(image_path.name)
                 if note_text:
@@ -563,20 +648,20 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                 CatalogItem(
                     object_id=object_id,
                     catalog=catalog_name,
-                    name=_normalize_text(meta.get("name", "")),
+                    name=localized_name,
                     object_type=_normalize_text(meta.get("type", "")),
                     distance_ly=meta.get("distance_ly"),
                     discoverer=_normalize_text(meta.get("discoverer")),
                     discovery_year=meta.get("discovery_year"),
                     best_months=best_months,
                     constellation=canonical_constellation_name(meta.get("constellation"))
-                    or extract_constellation_from_description(meta.get("description")),
-                    description=_normalize_text(meta.get("description")),
+                    or extract_constellation_from_description(base_description),
+                    description=localized_description,
                     notes=notes,
                     image_notes=image_notes,
                     external_link=_normalize_text(
                         meta.get("external_link")
-                    ) or _default_external_link(object_id, meta.get("name")),
+                    ) or _default_external_link(object_id, base_name),
                     wiki_thumbnail=_normalize_text(meta.get("wiki_thumbnail")),
                     ra_hours=ra_hours,
                     dec_deg=dec_deg,
@@ -1139,3 +1224,4 @@ def _altitude_deg(lat_deg: float, dec_deg: float, ha_deg: float) -> float:
     ha_rad = math.radians(ha_deg)
     sin_alt = math.sin(lat_rad) * math.sin(dec_rad) + math.cos(lat_rad) * math.cos(dec_rad) * math.cos(ha_rad)
     return math.degrees(math.asin(sin_alt))
+

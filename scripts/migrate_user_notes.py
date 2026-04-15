@@ -8,7 +8,7 @@ Can migrate from:
 - Existing user metadata files
 
 Old format: notes and image_notes in *_metadata.json files.
-New format: notes stay in *_metadata.json, image_notes in photo_notes.json.
+New format: notes stay in *_catalog.json, image_notes in photo_notes.json.
 """
 
 from __future__ import annotations
@@ -201,7 +201,11 @@ def migrate_from_user_metadata(metadata_dir: Path) -> Dict[Tuple[str, str], Dict
     print(f"Extracting notes from user metadata: {metadata_dir}")
     
     all_notes: Dict[Tuple[str, str], Dict[str, object]] = {}
+    # Legacy AstroCatalogueViewer source files are *_metadata.json.
     metadata_files = list(metadata_dir.glob("*_metadata.json"))
+    if not metadata_files:
+        # Compatibility fallback for already-migrated AstroCat metadata.
+        metadata_files = list(metadata_dir.glob("*_catalog.json"))
     
     for metadata_path in metadata_files:
         try:
@@ -241,7 +245,7 @@ def apply_migration(notes: Dict[Tuple[str, str], Dict[str, object]], metadata_di
 
     # Process each catalog
     for catalog_name, objects in catalog_notes.items():
-        metadata_path = metadata_dir / f"{catalog_name}_metadata.json"
+        metadata_path = metadata_dir / f"{catalog_name}_catalog.json"
         
         # Load or create metadata file
         if metadata_path.exists():
