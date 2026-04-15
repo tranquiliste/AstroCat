@@ -1,0 +1,922 @@
+{
+  "LBN 6": {
+    "name": {
+      "text": "Nebulosa nord-ovest di Cassiopea",
+      "source_hash": "sha256:77b0a440a9899612ead0adc62e6fa62407aa765db4b68c72d6dfcbfd09b3a6d8"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Cassiopea a circa 7000 anni luce, catalogata da Beverly Turner Lynds nel 1965. In autunno e inverno sono consigliati campo ampio e filtro Ha con 4-6 ore di integrazione.",
+      "source_hash": "sha256:ff9adfd37b9705d1a308df2446b7a852504531cc43baf2485735b7d95ef74568"
+    }
+  },
+  "LBN 11": {
+    "name": {
+      "text": "Nebulosa di Cassiopea",
+      "source_hash": "sha256:17dbece0a2aaa732992324c9c4a705732ae5410607cb82681929c132e966093a"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Cassiopea, parte del trio LBN 6-11-20. LBN 11 e la componente piu luminosa e compatta; utili filtro Ha e campo largo.",
+      "source_hash": "sha256:b6af2d67853857d111fda164e6f3486b3dac06c58e159a5d296d23295a2adff1"
+    }
+  },
+  "LBN 20": {
+    "name": {
+      "text": "Nebulosa orientale di Cassiopea",
+      "source_hash": "sha256:be5129dffbb18b9aa83f1adb46b7a63c9e9e2cdbbcffae4e89af1da453335e57"
+    },
+    "description": {
+      "text": "Estensione orientale del gruppo LBN 6-11-20 nel braccio di Perseo. Regione H II diffusa, migliore in autunno e inverno con Ha.",
+      "source_hash": "sha256:cdf3e2c970d200e14dc8da34286ff8a2d8f0ad0df00f270d8682c27db8ffc623"
+    }
+  },
+  "LBN 92": {
+    "name": {
+      "text": "Nebulosa molecolare di Perseo",
+      "source_hash": "sha256:f72d8d89b9419811f50e868bdd13501ef4c2ff8a68c14c39467f3f343a3ec9ae"
+    },
+    "description": {
+      "text": "Regione a emissione del complesso di formazione stellare di Perseo, a circa 1000 anni luce. Buon target invernale con filtro Ha e 4-6 ore di integrazione.",
+      "source_hash": "sha256:10b57901631efd0083166061863821c33787526fd7957951b88eda2d84c37b80"
+    }
+  },
+  "LBN 105": {
+    "name": {
+      "text": "Nebulosa di Perseo",
+      "source_hash": "sha256:5e1244084eb89692b9591774d7c47cef470b3972c61b93b383680f673282cbed"
+    },
+    "description": {
+      "text": "Ampia regione H II in Perseo, piu estesa di LBN 92 e collegata alle nubi dense di Perseo OB2. Consigliati campo ampio e Ha.",
+      "source_hash": "sha256:fa76c707c691d72d9079284bd2028c5d8c03fad39a2a76ed1afe9ca90ebfdcb0"
+    }
+  },
+  "LBN 123": {
+    "name": {
+      "text": "Nebulosa a riflessione delle Pleiadi",
+      "source_hash": "sha256:ced919fad3e2ad5a3adeeacf4c6862c74996888cb1a4bf634db1be6046729b4c"
+    },
+    "description": {
+      "text": "Parte della nebulosita a riflessione di M45 nel Toro. Per evidenziare la componente blu e preferibile un LRGB profondo.",
+      "source_hash": "sha256:d894d8aea1f8339fe8373c799fc3b3bfec1f5a2d8027dfba13a559d13bbd4ba8"
+    }
+  },
+  "LBN 149": {
+    "name": {
+      "text": "Nebulosa del Toro",
+      "source_hash": "sha256:6b80364238dfe4efc5a67f7d97bbac5f42bdf98815904e5dbb0f3dd8f47afddc"
+    },
+    "description": {
+      "text": "Nebulosa a emissione diffusa nel Toro con bassa luminosita superficiale. Richiede cielo buio, filtro Ha e integrazione lunga (6-8 ore).",
+      "source_hash": "sha256:908aa04b191ff520cc17ec1e00b3d5c564cfd51f6b7d259416e327703006ff89"
+    }
+  },
+  "LBN 187": {
+    "name": {
+      "text": "Nebulosa sud di Orione",
+      "source_hash": "sha256:a75d8be794e90759c074fcb8f39273968f19a55ef9e57efbd4cdb7270f4295aa"
+    },
+    "description": {
+      "text": "Regione a emissione estesa nel settore meridionale di Orione, collegata all'ambiente della Barnard's Loop. Target invernale con campo ampio e Ha.",
+      "source_hash": "sha256:f0a085a54b2304e3b8168eb829f66578f834dd2b1069803ad5c69930c11dbce6"
+    }
+  },
+  "LBN 189": {
+    "name": {
+      "text": "Nebulosa sud-ovest di Orione",
+      "source_hash": "sha256:e80b73cfb4bc759a4178f061f9d16be57b5bf5f3e08493b374aaf99d10edc918"
+    },
+    "description": {
+      "text": "Grande regione H II nel sud-ovest di Orione con archi esterni della Barnard's Loop. Ripresa consigliata in campo largo con filtro Ha.",
+      "source_hash": "sha256:ed14742cfe00b0a2e14d80d7d60665d1f16e259e2aadeeea906d630165313a8e"
+    }
+  },
+  "LBN 194": {
+    "name": {
+      "text": "Nebulosa nord-ovest di Orione",
+      "source_hash": "sha256:185ecc3082aa6cb4e9ccb15c4cc06b53aa96f0721bc4f51e9d5be5abe2405c3f"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel nord-ovest di Orione, associata a strutture diffuse vicine a Lambda Orionis e Orion OB1b.",
+      "source_hash": "sha256:ecb3641e3d52744271de4ec38e1889fef88f085f35c009419936c022db31a579"
+    }
+  },
+  "LBN 210": {
+    "name": {
+      "text": "Nebulosa nord di Orione (Barnard's Loop)",
+      "source_hash": "sha256:89da39a482f901c3cee0d771fa51e7ba4e4ac8a440b6afed2f6b8012fbd6f4d0"
+    },
+    "description": {
+      "text": "Sezione nord della Barnard's Loop, una delle maggiori strutture a emissione del cielo boreale. Ideale grandangolo o mosaico con Ha.",
+      "source_hash": "sha256:0c165823d9ce5db9f12f462fe874ba1bdf2015172507d5ef27e60d8487f69e49"
+    }
+  },
+  "LBN 215": {
+    "name": {
+      "text": "Nebulosa di Lambda Orionis",
+      "source_hash": "sha256:95c4ce8307ee9ccf24b1ca0341c182332765c36bb41838861abfc0c33fee3337"
+    },
+    "description": {
+      "text": "Parte del grande anello H II Sh2-264 intorno a Lambda Orionis. Per inquadrare l'intero anello serve campo molto ampio e filtro Ha.",
+      "source_hash": "sha256:466d21cb9da246a71fa9dfef1ee5a60e0094b6983690cbfc614b1b9f1ab78d73"
+    }
+  },
+  "LBN 218": {
+    "name": {
+      "text": "Nebulosa di Rho Orionis",
+      "source_hash": "sha256:ba1b33ca0ca18ed9f38772585ebf46efd97f9db6f70596d45d22a689090e2fbf"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nella zona equatoriale del complesso di Orione, vicino a Rho Orionis. Target invernale con Ha e integrazione profonda.",
+      "source_hash": "sha256:818cfb6e3284d55f8087b3d335b7ec3bec511b1b7b8c9a1dea93a82b3323e733"
+    }
+  },
+  "LBN 225": {
+    "name": {
+      "text": "Nebulosa IC 434 (regione Testa di Cavallo)",
+      "source_hash": "sha256:ae828a3992cf1cc472517c7d5d0816850e48c295a0b40829df7c19b64cab97f9"
+    },
+    "description": {
+      "text": "Regione H II che include IC 434 e lo sfondo rosso su cui si staglia Barnard 33. Ha essenziale; ottima combinazione Ha + LRGB.",
+      "source_hash": "sha256:f5575ea13e6d68730480ed17966dfaa2a79617bb19af007e6754e844a921a89e"
+    }
+  },
+  "LBN 235": {
+    "name": {
+      "text": "Nebulosa sud-ovest dei Gemelli",
+      "source_hash": "sha256:ee3d0c84263470b9ea38d6a5ffec541831078475b0c160490d3501c9606c2f5e"
+    },
+    "description": {
+      "text": "Nebulosa a emissione diffusa nei Gemelli, probabilmente associata a Gem OB1. Buon target invernale con filtro Ha.",
+      "source_hash": "sha256:23fafba04e67f10273b0bc427f3c195a2f4b70f7162c7fe7a146eebce46ec7f0"
+    }
+  },
+  "LBN 245": {
+    "name": {
+      "text": "Nebulosa nord del Monoceros",
+      "source_hash": "sha256:4bfe9467b148f22c77f01134aea1efd75e261b8d53b8ba18a7d48428666cadc0"
+    },
+    "description": {
+      "text": "Grande regione H II nell'ambiente Mon OB1/OB2 verso l'anticentro galattico. Raccomandati campo ampio e filtro Ha.",
+      "source_hash": "sha256:c74db7280b0264ecbb7a2842015338c506d7a5643aae03843f7579cae0abc488"
+    }
+  },
+  "LBN 263": {
+    "name": {
+      "text": "Nebulosa del Cane Maggiore",
+      "source_hash": "sha256:67df31ee13892e1aa3db80f4dc82c6f7983365d5423e9b0d9e5a55435ea34a1f"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel Cane Maggiore associata al complesso CMa OB1. Dalle latitudini nord e un target invernale piuttosto basso.",
+      "source_hash": "sha256:1e02a9b92312d3472c3ca9e2515fd2a29ad9bf0bf92017a0021b16d639a9f417"
+    }
+  },
+  "LBN 265": {
+    "name": {
+      "text": "Nebulosa di Sirio",
+      "source_hash": "sha256:70a85ddaee5143737950b4e052cfcc3276226546f547b222d7131f4fc98864c9"
+    },
+    "description": {
+      "text": "Debolissima nebulosa a riflessione associata a Sirio. Oggetto difficile per l'estrema luminosita della stella; richiede lunga integrazione e forte controllo degli aloni.",
+      "source_hash": "sha256:2d62bca260dc82625fa480e28eb46b14350fa973da1df102b944ea89625934bf"
+    }
+  },
+  "LBN 292": {
+    "name": {
+      "text": "Nebulosa Monoceros-Puppis",
+      "source_hash": "sha256:1dcde57798c9b8489621e746608ff3422aa4b0d3aef0268a132d0f14ec2ccc1a"
+    },
+    "description": {
+      "text": "Regione a emissione al confine Monoceros-Puppis, spesso bassa sull'orizzonte da siti nordici. Consigliati Ha e tempi di posa lunghi.",
+      "source_hash": "sha256:9db80b39651912ec00b52f101f792074a5d50a0d3e529be2183812063a1483b2"
+    }
+  },
+  "LBN 316": {
+    "name": {
+      "text": "Nebulosa nord di Vela",
+      "source_hash": "sha256:e62c23ac2458bf3c1a110ef19ddec9f3079ba37a7a646c94e58c9d6c29a0c7fc"
+    },
+    "description": {
+      "text": "Grande nebulosa a emissione del complesso di Vela nel cielo australe. Non osservabile da Remalard; target tipico dell'emisfero sud.",
+      "source_hash": "sha256:10383ebf84b9c344a71cbde96d12c12cd5af91963c536af9a00ef3056b12e1e3"
+    }
+  },
+  "LBN 340": {
+    "name": {
+      "text": "Nebulosa orientale del Cigno",
+      "source_hash": "sha256:af1bf67d105d1e8b56fe0cc2a1ddeafd295984a5b8d7cd595381b80ccfc8cacb"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel Cigno, debole e diffusa in un campo ricco della Via Lattea. In estate rende meglio con filtro Ha e integrazione lunga.",
+      "source_hash": "sha256:5d0dce5d609f9879cfbeffc32462b815735bb4a3b8cdf87c736c188acdcc730a"
+    }
+  },
+  "LBN 350": {
+    "name": {
+      "text": "Nebulosa nord del Cigno",
+      "source_hash": "sha256:ff3ccedf6dbc8e7077385d537c3cfeefd9e5f0ab88cdcbd204c2f89edd776776"
+    },
+    "description": {
+      "text": "Regione H II nel Cigno vicino a strutture diffuse della Fenditura del Cigno. Target estivo adatto a campi ampi con Ha.",
+      "source_hash": "sha256:31f1c6968387e76c21667647b4b574fa96ccb7f7d90c3120eed6a96b1094d1b8"
+    }
+  },
+  "LBN 355": {
+    "name": {
+      "text": "Nebulosa della Fenditura del Cigno",
+      "source_hash": "sha256:ae7fa5d0b33442c19c8477e0829c99561ee1da140eb2cc231056ae1203b8d6a2"
+    },
+    "description": {
+      "text": "Nebulosa diffusa nell'area del Cigno con emissione e polveri. Cielo scuro e filtro Ha aumentano il contrasto.",
+      "source_hash": "sha256:96d5373c1ddaeec76b8ff1b696cda462cc7163fd6a989acc6ee9b3947ee359e4"
+    }
+  },
+  "LBN 360": {
+    "name": {
+      "text": "Nebulosa nord-est del Cigno",
+      "source_hash": "sha256:3822d3f9018e9769429fc657a74b34343d5fa0be0b91e1038146f2aea4d70714"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel Cigno con luminosita superficiale moderata. Consigliata in estate con campo ampio e molte ore di integrazione.",
+      "source_hash": "sha256:8848cacd41782b430ebc05435e6f085438a0289e1e582c0a5c8a4badda0e096e"
+    }
+  },
+  "LBN 405": {
+    "name": {
+      "text": "Nebulosa di Cefeo",
+      "source_hash": "sha256:84985ed3d326a83e7664eb179f36598656499be366e9e4970a64e0c7cf4c5e72"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Cefeo, in una regione ricca di nubi molecolari. Fine estate e autunno, preferibilmente con filtro Ha.",
+      "source_hash": "sha256:5e7f78acbfef83cab486cf7d1e0ca5b7a91cfa812a390a4bf6d679d39c50e2af"
+    }
+  },
+  "LBN 408": {
+    "name": {
+      "text": "Nebulosa orientale di Cefeo",
+      "source_hash": "sha256:0cfc78695b6195e7e622ec5bcaf693a95873ee60eb18c74b1e2098ecaa32fa48"
+    },
+    "description": {
+      "text": "Regione H II diffusa nel Cefeo orientale. Campo largo e integrazione profonda aiutano a mostrare le estensioni deboli.",
+      "source_hash": "sha256:9d7cf95414e9d8f5771909bc470e10ffaf7c8d5f30678b149d7b85f430fc3a6f"
+    }
+  },
+  "LBN 412": {
+    "name": {
+      "text": "Nebulosa nord di Cefeo",
+      "source_hash": "sha256:dba3babbd52658514adcc9be320474b2185e5be79a2c08d1def7d1ad006758b7"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Cefeo con filamenti di gas ionizzato. Si presta bene alle riprese in banda stretta Ha.",
+      "source_hash": "sha256:893e9a5d179256e9179dc30052246fd57ea952ac77caac290c28bd285a420a86"
+    }
+  },
+  "LBN 453": {
+    "name": {
+      "text": "Nebulosa nord dell'Acquario",
+      "source_hash": "sha256:c9a30c59a4fdeff007d487f77a9faf2b38afc5176568dee4f944ff38ef3cbb07"
+    },
+    "description": {
+      "text": "Nebulosa a emissione dell'Acquario, debole e estesa. Richiede buona trasparenza e integrazione lunga.",
+      "source_hash": "sha256:4128e97e1873e1a24e3fb0922770bc382f14f50a0afddc8bf00d9a0b126d3069"
+    }
+  },
+  "LBN 462": {
+    "name": {
+      "text": "Nebulosa sud dell'Acquario",
+      "source_hash": "sha256:6a58bda4cbd8aa08b01e718faa8bf31d2feab235138d3b1280eabc81c9e6cbba"
+    },
+    "description": {
+      "text": "Regione H II dell'Acquario con basso contrasto in banda larga. Il filtro Ha migliora chiaramente la struttura.",
+      "source_hash": "sha256:f975017b2c33ffe119728bc61dd2d113928d08675a6e3567e5ac39ea9ccb4828"
+    }
+  },
+  "LBN 468": {
+    "name": {
+      "text": "Nebulosa orientale dell'Acquario",
+      "source_hash": "sha256:9d547e365288f7c5c7bcc52de546f95a5456bd8c6ded927cce520a3752fb33e1"
+    },
+    "description": {
+      "text": "Nebulosa diffusa dell'Acquario a bassa luminosita superficiale. Target autunnale per serie di esposizioni lunghe.",
+      "source_hash": "sha256:08b495f416bf82ef20e603f9387eca19b2cf6e64c0029c9fecb24d283b9a490a"
+    }
+  },
+  "LBN 476": {
+    "name": {
+      "text": "Nebulosa di Pegaso",
+      "source_hash": "sha256:93324f67cfea579938b807acc3e83ba62e95cf4b15978d54afadb21c0a132e08"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Pegaso, sottile e poco luminosa. Utile integrare molte ore sotto cielo scuro.",
+      "source_hash": "sha256:0da030a9e8bd233df8e4c3aa1a7318cad19c18425906564bd29a764835c5f56b"
+    }
+  },
+  "LBN 484": {
+    "name": {
+      "text": "Nebulosa nord di Pegaso",
+      "source_hash": "sha256:2776cbaaaef3971aa26c7b7b3e8b64767739c70fc75f73adf6ac864ae8d7da01"
+    },
+    "description": {
+      "text": "Debole regione H II in Pegaso. Campo ampio e trattamento delicato preservano meglio i segnali tenui.",
+      "source_hash": "sha256:bdac9d8cea4836c8ef8a92f61ec2f6555d871a4813615c22420940cd3c82f8aa"
+    }
+  },
+  "LBN 528": {
+    "name": {
+      "text": "Nebulosa della Balena",
+      "source_hash": "sha256:5c73cefc7a604c50118f42e54e05b6ca0a9307ce8a2a053e63d5dea56cc5d7ba"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nella Balena, debole e diffusa. Buon target autunnale con Ha e integrazione cumulativa.",
+      "source_hash": "sha256:853faf2203b2141b040a091099db97d82d744ef5149c0c88b46866dd46c514c1"
+    }
+  },
+  "LBN 532": {
+    "name": {
+      "text": "Nebulosa orientale della Balena",
+      "source_hash": "sha256:d6effc45d50438d5427e4a67b544bfae00ecc36c196c17cc09baf349cb703bb4"
+    },
+    "description": {
+      "text": "Nebulosa diffusa nella Balena, piu evidente in banda stretta. Le strutture deboli emergono con integrazione profonda.",
+      "source_hash": "sha256:aac157cdba600bb82a93f9f0a285836f706fa9b1c491766be55f31bc98709c5b"
+    }
+  },
+  "LBN 534": {
+    "name": {
+      "text": "Nebulosa nord della Balena",
+      "source_hash": "sha256:ba2f893f675d46e155d067b60534b68a1dc845c1120b8da533075f23c5e96000"
+    },
+    "description": {
+      "text": "Debole regione H II nella Balena. Consigliati campo ampio, filtro Ha e controllo accurato dei gradienti.",
+      "source_hash": "sha256:1260f28c941de9c1aff9a91485b4701883161691c7fff56f3fac3ec4df829e0c"
+    }
+  },
+  "LBN 539": {
+    "name": {
+      "text": "Nebulosa di Eridano",
+      "source_hash": "sha256:e417c967f13a29a1b46d7f645e5fe0df3585b2207d43a424ab311e1916706e7f"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Eridano con contrasto moderato. Da molte latitudini resta bassa: meglio seeing stabile.",
+      "source_hash": "sha256:ff042d2f04233c3eb35ea43718fea696f6bb5dad5d9a8e2c3e83099a5c118360"
+    }
+  },
+  "LBN 549": {
+    "name": {
+      "text": "Nebulosa orientale di Eridano",
+      "source_hash": "sha256:0e30a6669e163dfa440690f6d42deb5ba46dba29a1fa195a1076a66219e230b4"
+    },
+    "description": {
+      "text": "Nebulosa diffusa di Eridano, adatta a lunghe acquisizioni Ha. Le estensioni sottili compaiono con integrazione lunga.",
+      "source_hash": "sha256:310e96603b14c172b7b467fa28d33abf0502b4b150c1203fbee9f93f97860dd8"
+    }
+  },
+  "LBN 552": {
+    "name": {
+      "text": "Nebulosa sud di Eridano",
+      "source_hash": "sha256:a3205b12d87777e145f4ed979984749f0c6219fd1344899e3e4a89c0739010af"
+    },
+    "description": {
+      "text": "Regione H II relativamente estesa in Eridano. Campo ampio e buona gestione del fondo cielo sono raccomandati.",
+      "source_hash": "sha256:41dc1568ec78040021ee8c310c3e29c96224b4a76e21eacafcb0ffcf8a1ce16c"
+    }
+  },
+  "LBN 559": {
+    "name": {
+      "text": "Nebulosa dell'Orologio",
+      "source_hash": "sha256:6288b3aa8588cb6c145fc9afe8d1860966cea391f2f719fb0fe911ade3f29aeb"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Horologium, molto australe e bassa dall'Europa. Servono notti stabili e integrazione lunga.",
+      "source_hash": "sha256:517f6b2f3ed542b6acc264e07f6c4283d4f33e5fd5b7b7b5f71750e284c4a49b"
+    }
+  },
+  "LBN 562": {
+    "name": {
+      "text": "Nebulosa sud dell'Orologio",
+      "source_hash": "sha256:07706ac95c4443509533264994ceab0ba9b51ce9c551dd064a918a4b8ddabac9"
+    },
+    "description": {
+      "text": "Nebulosa diffusa nel sud di Horologium con basso contrasto. Filtro Ha e molte pose sono fondamentali.",
+      "source_hash": "sha256:134edd058ea401409b7fe40b1144f805fe4f97328a610060c33eb717c1c97301"
+    }
+  },
+  "LBN 569": {
+    "name": {
+      "text": "Nebulosa orientale dell'Orologio",
+      "source_hash": "sha256:a2e156c22afe7041e21c5ca39914d4f4d12b7102f44e833c05edbd2a291d4be6"
+    },
+    "description": {
+      "text": "Nebulosa diffusa nel sud di Horologium, a basso contrasto. Risulta migliore con filtro Ha e integrazione profonda.",
+      "source_hash": "sha256:8ccfca317ad13c6957ae28f8bc5e6f9ed77b9040845c4d2d3e9be3716697c950"
+    }
+  },
+  "LBN 576": {
+    "name": {
+      "text": "Nebulosa del Dorado",
+      "source_hash": "sha256:74e3d8b7126de30fe84f98ae04c8d8c0d410ed65abe6544fac8e10bdb295cb1b"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel Dorado, cielo australe. Dall'Europa e spesso bassa, quindi servono condizioni stabili.",
+      "source_hash": "sha256:21fa77597fefa65c86b241883bf1ba1d1325b4bd1dd975124d573aba33edf4eb"
+    }
+  },
+  "LBN 583": {
+    "name": {
+      "text": "Nebulosa sud del Dorado",
+      "source_hash": "sha256:34851ba44988c82a1ce4b9fb144676f28d2f485ebf6fe35a4b6b6d496e2bbb80"
+    },
+    "description": {
+      "text": "Regione H II diffusa nel Dorado con estensioni deboli. Consigliati campo ampio e tempi di posa lunghi.",
+      "source_hash": "sha256:9cea79f66db92829965dd632e5fd0e1f304c950c6fd0ee5c747f80ff2c59e09d"
+    }
+  },
+  "LBN 592": {
+    "name": {
+      "text": "Nebulosa del Pittore",
+      "source_hash": "sha256:d7bbc5a9793ca75c152324f4a68c7cd70441a671a5aeba9af60deaf42df1897d"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Pictor nel cielo australe. Il filtro Ha aiuta a far emergere i filamenti tenui.",
+      "source_hash": "sha256:19f2a546b8b54e1b67d5ae59bc2f892d990e137712bac7b63c50e750371067d4"
+    }
+  },
+  "LBN 601": {
+    "name": {
+      "text": "Nebulosa orientale del Pittore",
+      "source_hash": "sha256:93d09fa1510e573d1d57184c95be5a24463534b932584109dcda238dcae1d77d"
+    },
+    "description": {
+      "text": "Nebulosa diffusa in Pictor con poco contrasto in banda larga. Migliora con integrazione profonda in Ha.",
+      "source_hash": "sha256:3eb9e72659a18f43001b668da944e4b4c45754b87ce116b6c997aa745838fd3d"
+    }
+  },
+  "LBN 606": {
+    "name": {
+      "text": "Nebulosa nord del Pittore",
+      "source_hash": "sha256:e36defd09b0a2a03036de94faccc998a48f222462d919f824d1fcbe8e5f81c27"
+    },
+    "description": {
+      "text": "Debole regione H II in Pictor. Indicata per riprese a grande campo sotto cielo scuro.",
+      "source_hash": "sha256:062a50d83b4ac6bf64c482954ec1a2df30dd88865603a2cafee3a8a7f6afc085"
+    }
+  },
+  "LBN 620": {
+    "name": {
+      "text": "Nebulosa della Carena",
+      "source_hash": "sha256:b324c8ca760cc40aeb838dd47b82f2320352e52aa6f19dbabc74cdcbb3cd5b14"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Carina, in una zona australe molto ricca. Ha evidenzia bene le strutture diffuse.",
+      "source_hash": "sha256:18a3034c371dc5255051ba2a97b1faad70c7285a3000a438d9fc1d2ec948f52d"
+    }
+  },
+  "LBN 630": {
+    "name": {
+      "text": "Nebulosa sud della Carena",
+      "source_hash": "sha256:bf877351ec67216eabd0653788bafe29f34230038fc815662ccde713988abf97"
+    },
+    "description": {
+      "text": "Regione H II australe in Carina, estesa e con contrasto moderato. Utili pose lunghe e buon controllo del fondo cielo.",
+      "source_hash": "sha256:2c90dc883f0b40baf6ef741d117c2bdf201fe8c4b41e80752ac017e25a7b9f92"
+    }
+  },
+  "LBN 636": {
+    "name": {
+      "text": "Nebulosa orientale della Carena",
+      "source_hash": "sha256:e75b7af4552daa9889cf256b0baee3e1855fcea494f42e1c2d9445299a54f666"
+    },
+    "description": {
+      "text": "Nebulosa diffusa in Carina, interessante per mosaici a campo ampio. Il segnale debole richiede integrazione profonda.",
+      "source_hash": "sha256:21e50c4f3f55f1c8551d3c06c399066b5941d740f3d336243eb57c02b6f3808a"
+    }
+  },
+  "LBN 641": {
+    "name": {
+      "text": "Nebulosa nord-est della Carena",
+      "source_hash": "sha256:7d78250c38a40ce7049bc19ee0e5a0c9c395d920bcb77fba01448236117fb30a"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Carina con dettagli sottili. Buona candidata per Ha con campionamento moderato.",
+      "source_hash": "sha256:4299d975404e288f24a7a4f571b1d2e35da6e5991bef1219fa28e08253d1e821"
+    }
+  },
+  "LBN 656": {
+    "name": {
+      "text": "Nebulosa delle Vele",
+      "source_hash": "sha256:68fd5a6363fff29c4343fb9b97b34462870f0d2a98f7c2a44ff2c222219587d0"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Vela, soprattutto visibile dal cielo australe. La banda stretta migliora la leggibilita.",
+      "source_hash": "sha256:0dbb6b73650825e2de061dddc013bd7d0e1b2d8c1907ae5394926cedf0509f84"
+    }
+  },
+  "LBN 667": {
+    "name": {
+      "text": "Nebulosa sud delle Vele",
+      "source_hash": "sha256:2121df15b4d989c21c27e13464134466c08e51f92dac427d2d02660ef624a3a8"
+    },
+    "description": {
+      "text": "Regione H II in Vela, bassa dalle latitudini nord. L'integrazione lunga compensa l'altezza ridotta.",
+      "source_hash": "sha256:6d2121a9fde478df2c34a52f7b9f31d4341234f16f5c17575d75b84b7f3a87f5"
+    }
+  },
+  "LBN 672": {
+    "name": {
+      "text": "Nebulosa orientale delle Vele",
+      "source_hash": "sha256:d9d25766d959352376aae766cd4b6d4d6b7860185e9f76cd107053e98aeefd4e"
+    },
+    "description": {
+      "text": "Nebulosa diffusa in Vela con contrasto medio. Un campo ampio aiuta a mantenere il contesto.",
+      "source_hash": "sha256:05d9ca5a472c5dadd76ff1b9255ccfde43be12b45c9def1b2fb7465104534828"
+    }
+  },
+  "LBN 704": {
+    "name": {
+      "text": "Nebulosa del Centauro",
+      "source_hash": "sha256:9becf05ad6fbab10b37e811c45e6803a408fb14c16c5dac998ac9ea74b3928ba"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Centaurus, meglio osservabile dal cielo australe. Consigliati Ha e buona stabilita atmosferica.",
+      "source_hash": "sha256:453226e695c5338453a9c962b752c831e02a071fde38e931886db30529f5d7dd"
+    }
+  },
+  "LBN 776": {
+    "name": {
+      "text": "Nebulosa della Croce del Sud",
+      "source_hash": "sha256:d7f8b66c81ccc478d819820d42364c9f75055ea53fab442e0a9a8746471b66d3"
+    },
+    "description": {
+      "text": "Nebulosa diffusa nella Croce del Sud. Da molti siti europei resta bassa o non osservabile.",
+      "source_hash": "sha256:57e4e9ab8e2f3a8b1a8e23d0c21ebd745c0261d3a100491bf499320961f473fc"
+    }
+  },
+  "LBN 782": {
+    "name": {
+      "text": "Nebulosa sud della Croce del Sud",
+      "source_hash": "sha256:06f90834015009b09d746f4d784081cc6edab81ae3c61dfce2fb783ff475895f"
+    },
+    "description": {
+      "text": "Debole regione H II nella Croce del Sud. Serve integrazione profonda in banda stretta.",
+      "source_hash": "sha256:453b0d222b05ccbeb06b02d3fe09aa624e41264f1099da3afc154b97ae9afc31"
+    }
+  },
+  "LBN 801": {
+    "name": {
+      "text": "Nebulosa dell'Altare",
+      "source_hash": "sha256:7370deea0f432df8ced09bb9a89f4b1b78209ef059571a67bfbacf1ce7a4bff2"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Ara, in un campo australe denso. Campo ampio e filtro Ha sono consigliati.",
+      "source_hash": "sha256:93288d8fac59a41c8775be04d3751702e5a4e4650483b91a2913dace08a36b1d"
+    }
+  },
+  "LBN 814": {
+    "name": {
+      "text": "Nebulosa sud dell'Altare",
+      "source_hash": "sha256:54232ac59bc38cd7d28c50d632c2c9e95f51b326f58caa9bb23c7c11b470da96"
+    },
+    "description": {
+      "text": "Nebulosa diffusa in Ara, prevalentemente australe. Le estensioni deboli emergono dopo molte ore di integrazione.",
+      "source_hash": "sha256:bc0a99e49413f4ae8f10b007b345fe937f33336b2e8b2b703855e126832716a0"
+    }
+  },
+  "LBN 816": {
+    "name": {
+      "text": "Nebulosa orientale dell'Altare",
+      "source_hash": "sha256:8598edeb2270f8700540ea55fa23a6adf9753e9ae0c1e937045ee47c965a95de"
+    },
+    "description": {
+      "text": "Regione H II in Ara con contrasto basso. Importanti elaborazione delicata e buon controllo del rumore.",
+      "source_hash": "sha256:8a58a35bebdbbf45d038def9fd6288eea416f112f080a151eaf3addd5f2ea5df"
+    }
+  },
+  "LBN 853": {
+    "name": {
+      "text": "Nebulosa del Pavone",
+      "source_hash": "sha256:7a12d8d35b915092c4fc1cf01b67bf32b8ce3392b6003057b781bf405295598a"
+    },
+    "description": {
+      "text": "Nebulosa a emissione in Pavo, target australe. Si raccomandano filtro Ha e cielo con buona trasparenza.",
+      "source_hash": "sha256:5a1fbc4abea28e19f30adccb591c6537f6786296d915627624e4f54121b6880f"
+    }
+  },
+  "LBN 331a": {
+    "name": {
+      "text": "Nebulosa sud di Vela",
+      "source_hash": "sha256:9167b206ed89e7d679549899df7816f904db7155ed5c6768407e4264509ef9fb"
+    },
+    "description": {
+      "text": "LBN 331a e una nebulosa a emissione in Vela a circa 1500 anni luce, controparte piu meridionale di LBN 316. Non osservabile da Remalard.",
+      "source_hash": "sha256:dbc73fdc54659d27e7f8e05591559665980959ef9c815c24403212c0dc33b532"
+    }
+  },
+  "LBN 331b": {
+    "name": {
+      "text": "Nebulosa Vela-Puppis",
+      "source_hash": "sha256:f6f782eb0841d89fb43114efb58e93c248ade176cc57c88783cdbe3c665bcc27"
+    },
+    "description": {
+      "text": "LBN 331b e una nebulosa a emissione al confine Vela-Puppis a circa 1500 anni luce. Probabile condensazione distinta nello stesso complesso H II.",
+      "source_hash": "sha256:21b8fbd9de27a05168556ecca36b2066ad349c9a20b94fc1af32358f3c7cb26f"
+    }
+  },
+  "LBN 437a": {
+    "name": {
+      "text": "Nebulosa Ophiuchus-Scorpius",
+      "source_hash": "sha256:eeeb07ca02e24990f08a6f0525a45772f90eade9fab1924f29b55a83b20c4be0"
+    },
+    "description": {
+      "text": "LBN 437a e una nebulosa a emissione al confine Ophiuchus-Scorpius a circa 500 anni luce, nell'ambiente Sco OB2. Quasi inaccessibile dalla Francia.",
+      "source_hash": "sha256:4a935309fdc244e346ce1d79b8863a68549d17eea6b2617ecd31dfb6a8166892"
+    }
+  },
+  "LBN 437b": {
+    "name": {
+      "text": "Nebulosa di Antares",
+      "source_hash": "sha256:77189c53d272e60b08c6d1e23d343d8d4442ce6dca4c2c058817ea8576604f17"
+    },
+    "description": {
+      "text": "LBN 437b e la grande nebulosa a riflessione arancione intorno ad Antares, a circa 550 anni luce. In grande campo e spettacolare con la regione blu di Rho Ophiuchi.",
+      "source_hash": "sha256:fbb6d8a2f0c6a64fd5b89554737735d9a7fe47dc390269ff63fb3c38c7bd1928"
+    }
+  },
+  "LBN 854": {
+    "name": {
+      "text": "Nebulosa Cassiopea-Andromeda",
+      "source_hash": "sha256:723cf9f17ce74560bac272ebccc05619976f60da80d951efc488f9b472cb78eb"
+    },
+    "description": {
+      "text": "Nebulosa a emissione al confine Cassiopea-Andromeda nel complesso del braccio di Perseo. Target autunno-inverno con Ha e 4-6 h di integrazione.",
+      "source_hash": "sha256:49d074a9adeb9f6dd72f86e7da7802c0e54049aa0e3f5d01e91c89fb921931a9"
+    }
+  },
+  "LBN 856": {
+    "name": {
+      "text": "Nebulosa centrale di Cassiopea",
+      "source_hash": "sha256:1293e0853bbffa0b36a58c48f6118ea5b27262dadc1bf8105f9a9a63f3cb047c"
+    },
+    "description": {
+      "text": "Grande nebulosa a emissione in Cassiopea in un campo molto ricco del braccio di Perseo. Circumpolare dalla Francia; Ha e S II utili.",
+      "source_hash": "sha256:2a22eacd14151edb442e94258be6a0e09e60f74ff81f086c35e960a5b539bc36"
+    }
+  },
+  "LBN 858": {
+    "name": {
+      "text": "Nebulosa nord-est di Cassiopea",
+      "source_hash": "sha256:87358e97c8d28ddaed0354915f6961b191b53111f774540026ee11da4cbc5df0"
+    },
+    "description": {
+      "text": "Estensione nord-est del complesso H II di Cassiopea verso la regione Cuore-Anima. Circumpolare, ottima in autunno e inverno.",
+      "source_hash": "sha256:534987efaa3a6a273c5dd8a3129373318b8c02f4ff0742e33b76d8110f0f50e0"
+    }
+  },
+  "LBN 862": {
+    "name": {
+      "text": "Nebulosa Cassiopea-Perseo",
+      "source_hash": "sha256:0f55e60e3f652b1d9df0bbe42a277aabd7b77167eb02b4e067358e304b634b36"
+    },
+    "description": {
+      "text": "Nebulosa compatta a emissione al confine Cassiopea-Perseo, nella transizione tra i due complessi nebulari del braccio di Perseo.",
+      "source_hash": "sha256:0f361fee3ca83f9e1c026cdbec4476e57b899af36785c76124588b424054fa37"
+    }
+  },
+  "LBN 864": {
+    "name": {
+      "text": "Nebulosa nord-ovest di Perseo",
+      "source_hash": "sha256:0a253fa0005b4d1e21b6baf67cbc99fbc6cdf4cba10145a5d45212a5edde1b76"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel nord-ovest di Perseo, in un campo settentrionale molto ricco. Quasi circumpolare dalla Francia.",
+      "source_hash": "sha256:31fa5cba0deaec3e0e407111c43e678ca956772bbcbd0c62596ff0a2b80d0b85"
+    }
+  },
+  "LBN 868": {
+    "name": {
+      "text": "Nebulosa centrale di Perseo",
+      "source_hash": "sha256:b89cee0b4f1112e1267e8633f33ce0cf1176b77fba8426432425a99c78ea4628"
+    },
+    "description": {
+      "text": "Nebulosa a emissione nel Perseo centrale, nello stesso ambiente generale delle nebulose Cuore e Anima.",
+      "source_hash": "sha256:c76690ce1255d8e2acc2f0d715515ae6cc430cf4116992eb699c386e1500e33d"
+    }
+  },
+  "LBN 877": {
+    "name": {
+      "text": "Nebulosa Perseo-Toro",
+      "source_hash": "sha256:8badaff45756894bb967f81bc46242b91d23fee726c6571f83e1fd1e2e1cf5e1"
+    },
+    "description": {
+      "text": "Nebulosa a emissione al confine Perseo-Toro, vicino alla transizione tra i due ambienti molecolari. Target invernale con filtro Ha.",
+      "source_hash": "sha256:0ff88b15f08447370f5e587ba8f89aace5e0e794c0fd33a1e0ef266b8b4819bd"
+    }
+  },
+  "LBN 883": {
+    "name": {
+      "text": "Nebulosa Toro-Orione",
+      "source_hash": "sha256:e414539ec52bc4752bcd3139b4e69a9afafc1b93bb8b0a7c9a25bf16ae961202"
+    },
+    "description": {
+      "text": "Nebulosa diffusa a emissione al confine Toro-Orione, collegata al materiale locale del braccio di Orione.",
+      "source_hash": "sha256:e76dbfb3c086b2ceba3cbc92537cf32112cf2a8358f40628d795738619b46247"
+    }
+  },
+  "LBN 893": {
+    "name": {
+      "text": "Nebulosa Orione-Monoceros",
+      "source_hash": "sha256:d6aefad83204b5e55f8f8f2190d2ceab76bcdda8241daaeb5d28f7e2ee422667"
+    },
+    "description": {
+      "text": "Grande nebulosa a emissione al confine Orione-Monoceros, parte dell'ampia cintura nebulare del braccio di Orione. Consigliate 6-8 h in Ha.",
+      "source_hash": "sha256:6937cb68dfc3b2e09ed530d8e8a69016a0687cbac5215fd384cdd14a2935766c"
+    }
+  },
+  "LBN 900": {
+    "name": {
+      "text": "Nebulosa Monoceros-Gemelli",
+      "source_hash": "sha256:a42915ee5873009c5786f80681d225d5f14c6c67c2a4a18d1827f2ce9808278f"
+    },
+    "description": {
+      "text": "Nebulosa a emissione al confine Monoceros-Gemelli verso l'anticentro galattico, in un campo con deboli strutture nebulari.",
+      "source_hash": "sha256:1c611457a110f385ec126d562c25d1612b95f02a8ddd1e875738e804660dc358"
+    }
+  },
+  "LBN 914": {
+    "name": {
+      "text": "Nebulosa Gemelli-Cancro",
+      "source_hash": "sha256:4cb5993a03b20c384f4f4b7594855261626846174a08078b6e33435a12c6b7e4"
+    },
+    "description": {
+      "text": "Nebulosa a emissione molto diffusa al confine Gemelli-Cancro, fuori dalla parte piu densa del piano galattico. Cielo buio e Ha sono importanti.",
+      "source_hash": "sha256:32fe79bc8933532aea7e8b1d93686de65cc55f37b442c01b1c2ceec8322bffc2"
+    }
+  },
+  "LBN 920": {
+    "name": {
+      "text": "Nebulosa sud dell'Orsa Maggiore",
+      "source_hash": "sha256:df2301374426a5c19e3b480479d98c564b515044a1d2970c03cb3a5de5460a9f"
+    },
+    "description": {
+      "text": "Rara regione H II ad alta latitudine galattica nell'Orsa Maggiore sud, talvolta con debole IFN. Target primaverile.",
+      "source_hash": "sha256:a6836f87a9b7717277670339b4657e79d0ad49de4c7860225f95eef1d7c10aae"
+    }
+  },
+  "LBN 922": {
+    "name": {
+      "text": "Nebulosa dell'Orsa Maggiore",
+      "source_hash": "sha256:7c51ba92ec729faf89d85f04e5a806451eba7956dfb514cb49fe8f99b5b79c86"
+    },
+    "description": {
+      "text": "Regione a emissione molto debole ad alta latitudine nell'Orsa Maggiore, simile a LBN 920. Utili Ha profondo e LRGB profondo.",
+      "source_hash": "sha256:d71a5e741e78dbf647ddb37fdec5f50f3f40bbf07d5b8f3504876b04781172b5"
+    }
+  },
+  "LBN 931": {
+    "name": {
+      "text": "Nebulosa dei Cani da Caccia",
+      "source_hash": "sha256:f80b1cdf89d614b7c35e5b4417c65846be51805637a817b7c99d39d6f0531fec"
+    },
+    "description": {
+      "text": "Rara regione H II ad alta latitudine nei Cani da Caccia, area piu nota per le galassie che per il gas diffuso.",
+      "source_hash": "sha256:a8d3f6ae64f1789662c4f48e14fa016569cafde0c163174df971bc271ad5b4ba"
+    }
+  },
+  "LBN 934": {
+    "name": {
+      "text": "Nebulosa nord dei Cani da Caccia",
+      "source_hash": "sha256:709b7dc12ba533f4b8722e0a17a1ac60967b2da31e7b945614334a6ba10be16c"
+    },
+    "description": {
+      "text": "Oggetto molto debole ad alta latitudine nei Cani da Caccia, simile a LBN 931. Raccomandate condizioni eccellenti e >10 h di integrazione.",
+      "source_hash": "sha256:301ed102c73edf5472db192a5580aec307db0923d501957be7564d187377c5a7"
+    }
+  },
+  "LBN 938": {
+    "name": {
+      "text": "Nebulosa della Chioma di Berenice",
+      "source_hash": "sha256:db3576854d70a13fd72d5d980da3e3e63597781e27891532051f579107db0735"
+    },
+    "description": {
+      "text": "Regione H II molto insolita ad alta latitudine nella Chioma di Berenice. Necessari cielo molto scuro e lunga integrazione.",
+      "source_hash": "sha256:d49405fdaff798a51124205a1554fe5d526676eb5939b6b955d08267c6e1ae2a"
+    }
+  },
+  "LBN 943": {
+    "name": {
+      "text": "Nebulosa della Vergine",
+      "source_hash": "sha256:fd8846d243e8a6774c4aefb2da4a97d6395536b73917c350c2623cc656dd58f6"
+    },
+    "description": {
+      "text": "LBN 943 e una nebulosa a emissione nella Vergine a circa 4000 anni luce. E un obiettivo molto debole e insolito in una costellazione dominata da galassie. Astrofotografia: Dec +5,8 deg, target primaverile; consigliati filtro Ha, cielo molto buio e oltre 10 h di integrazione.",
+      "source_hash": "sha256:ac4debd5bd592240f017201233ffe021196670a8c20bf5c9b0f1c43fc200149f"
+    }
+  },
+  "LBN 950": {
+    "name": {
+      "text": "Nebulosa della Bilancia",
+      "source_hash": "sha256:842911b416683fe252e41c9f48eed8e6ec4c19fe5f57773b8bbb20ad3580c3a8"
+    },
+    "description": {
+      "text": "LBN 950 e una nebulosa a emissione nella Bilancia a circa 4000 anni luce. Questa debole regione H II si trova al margine dell'ambiente Scorpione-Ophiuchus. Astrofotografia: Dec -15,8 deg, target estivo basso; consigliati Ha e oltre 6 h di integrazione.",
+      "source_hash": "sha256:da978094536dbc6b8293ea1dcf626435202b6d4aa1ff25e367cac6c0deaded11"
+    }
+  },
+  "LBN 953": {
+    "name": {
+      "text": "Nebulosa nord dello Scorpione",
+      "source_hash": "sha256:a71d06f186ccc86bf3e9b34ac5d343e4aa4b106cb6f9efd8a24c753a267d2dc8"
+    },
+    "description": {
+      "text": "LBN 953 e una nebulosa a emissione nello Scorpione settentrionale a circa 500 anni luce. Appartiene all'ambiente di formazione stellare Scorpione-Centauro (Upper Scorpius). Target estivo basso con Ha.",
+      "source_hash": "sha256:6035009d7db33ae57f9cd226c21add040b0ad1b588ab3e62bc633810b7b67603"
+    }
+  },
+  "LBN 956": {
+    "name": {
+      "text": "Nebulosa centrale dello Scorpione",
+      "source_hash": "sha256:ff35db6176712784b7bb30c76eab1f1db9185d8f2bfaf2b5e0b4eeb8485d760a"
+    },
+    "description": {
+      "text": "LBN 956 e una nebulosa a emissione nello Scorpione centrale a circa 500 anni luce. Questa regione H II appartiene a Sco OB2, la piu vicina associazione OB al Sole. Target estivo difficile ma possibile con Ha.",
+      "source_hash": "sha256:fe8ce947b09ce2598ffc1754a2494a813133b881ead745b8bcbf4d1fc877d243"
+    }
+  },
+  "LBN 960": {
+    "name": {
+      "text": "Nebulosa ovest di Ophiuchus",
+      "source_hash": "sha256:0e88456fd015a7ee9e6e64335fcdc367a0c464d017eda90e8f57d815494b4ae7"
+    },
+    "description": {
+      "text": "LBN 960 e una nebulosa a emissione nell'Ophiuchus occidentale a circa 500 anni luce. Si trova sul lato ovest del complesso molecolare di Rho Ophiuchi. Target estivo basso con filtro Ha.",
+      "source_hash": "sha256:8ce5b324273de11477c23fa95fba38ceb9f34c9b06c6fcf32fad0c00c5119bb2"
+    }
+  },
+  "LBN 965": {
+    "name": {
+      "text": "Nebulosa centrale di Ophiuchus",
+      "source_hash": "sha256:3434a1341674300746d9a2a1532aa905796799e0832b08174071190b3e05ef7f"
+    },
+    "description": {
+      "text": "LBN 965 e una nebulosa a emissione nell'Ophiuchus centrale a circa 500 anni luce, vicina al nucleo del sistema molecolare di Ophiuchus e al complesso scuro di Rho Ophiuchi. Target estivo basso con Ha.",
+      "source_hash": "sha256:1f204c4db6395dc52a52e9f49b5c264e824950aac186008e65381bfd71be0a65"
+    }
+  },
+  "LBN 1036": {
+    "name": {
+      "text": "Nebulosa della Lira",
+      "source_hash": "sha256:b7deca136072d7a87ff21ac21e689f70b4e249777184537a4cabeb57ff225ffd"
+    },
+    "description": {
+      "text": "LBN 1036 e una nebulosa a emissione nella Lira a circa 4000 anni luce. Questa regione H II diffusa appartiene alla nebulosita locale nel settore Lira-Cigno. Target estate-autunno con Ha e 4-6 h di integrazione.",
+      "source_hash": "sha256:5e7977f334fe68b9ff45833790b5f416c1b243c5b8a3009807655c93025b8102"
+    }
+  },
+  "LBN 1044": {
+    "name": {
+      "text": "Nebulosa Ercole-Lira",
+      "source_hash": "sha256:c7400d24b921cc0fbc79e94906805f0e565e997f9158f99ffdfc0ef8d5151252"
+    },
+    "description": {
+      "text": "LBN 1044 e una nebulosa a emissione al confine Ercole-Lira a circa 4500 anni luce. Traccia gas diffuso del braccio locale. Target estivo-autunnale con Ha.",
+      "source_hash": "sha256:e57bb097677eb655c2c1cacf817c23292ca44bf29e2b1c59ae9214bc6191a8c3"
+    }
+  },
+  "LBN 1048": {
+    "name": {
+      "text": "Nebulosa di Ercole",
+      "source_hash": "sha256:f95af52dc248df4c6f618ea4b97c8e0e165ca966b354f7737b2690b8871c2862"
+    },
+    "description": {
+      "text": "LBN 1048 e una nebulosa a emissione in Ercole a circa 4500 anni luce. Poiche Ercole e nota soprattutto per gli ammassi globulari, e un target Ha meno comune.",
+      "source_hash": "sha256:f3db7fb5b3d51982d9174c20b60b0aea66ab5858d49a7a3ba70b0b11ab493ca8"
+    }
+  },
+  "LBN 1055": {
+    "name": {
+      "text": "Nebulosa sud di Ercole",
+      "source_hash": "sha256:0a8ad3350997961bfcb0690799fe1264dd3c67a86c4728bce05e9452f4900a59"
+    },
+    "description": {
+      "text": "LBN 1055 e una nebulosa a emissione nell'Ercole meridionale a circa 5000 anni luce, verso la transizione Ercole-Ophiuchus. Target estivo con filtro Ha.",
+      "source_hash": "sha256:a03a99c3d466fb1410d774f2266bad63a7088428e5873e5e66ba1229ca5c8dad"
+    }
+  },
+  "LBN 1060": {
+    "name": {
+      "text": "Nebulosa nord di Ophiuchus",
+      "source_hash": "sha256:0bcac85eb4478e7fe2db2c4c8c26a54a6a592c41b423d5de00ae785732aab239"
+    },
+    "description": {
+      "text": "LBN 1060 e una nebulosa a emissione nell'Ophiuchus settentrionale a circa 3500 anni luce. E piu accessibile dall'Europa rispetto ai campi bassi di Rho Ophiuchi. Target estivo con Ha.",
+      "source_hash": "sha256:4b83d8db07a36a3e606d031c20ab2badd4f8106aef51eb28b387510c65d0819b"
+    }
+  },
+  "LBN 1063": {
+    "name": {
+      "text": "Nebulosa nord-est di Ophiuchus",
+      "source_hash": "sha256:87347d457068ebecc0d576536ecbbe8c6bd977542f8915602ea538eb4c2cc85b"
+    },
+    "description": {
+      "text": "LBN 1063 e una nebulosa a emissione nel nord-est di Ophiuchus a circa 3500 anni luce. E l'estensione nord-est del complesso H II dell'Ophiuchus nord e puo essere ripresa insieme a LBN 1060.",
+      "source_hash": "sha256:8bef42202fc3789966f617df51eca128464d58194934ab1aa6eb3db5932041ce"
+    }
+  }
+}

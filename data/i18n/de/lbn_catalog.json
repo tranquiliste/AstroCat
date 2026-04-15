@@ -1,0 +1,922 @@
+{
+  "LBN 6": {
+    "name": {
+      "text": "Nordwestliche Kassiopeia-Nebel",
+      "source_hash": "sha256:77b0a440a9899612ead0adc62e6fa62407aa765db4b68c72d6dfcbfd09b3a6d8"
+    },
+    "description": {
+      "text": "Emissionsnebel in Kassiopeia in etwa 7000 Lj Entfernung, 1965 von Beverly Turner Lynds katalogisiert. Fuer Herbst und Winter werden Weitfeld und Ha-Filter mit 4 bis 6 Stunden Integration empfohlen.",
+      "source_hash": "sha256:ff9adfd37b9705d1a308df2446b7a852504531cc43baf2485735b7d95ef74568"
+    }
+  },
+  "LBN 11": {
+    "name": {
+      "text": "Kassiopeia-Nebel",
+      "source_hash": "sha256:17dbece0a2aaa732992324c9c4a705732ae5410607cb82681929c132e966093a"
+    },
+    "description": {
+      "text": "Emissionsnebel in Kassiopeia, Teil der Gruppe LBN 6-11-20. LBN 11 ist der hellste und kompakteste Bereich; Ha und grosses Bildfeld sind sinnvoll.",
+      "source_hash": "sha256:b6af2d67853857d111fda164e6f3486b3dac06c58e159a5d296d23295a2adff1"
+    }
+  },
+  "LBN 20": {
+    "name": {
+      "text": "Oestlicher Kassiopeia-Nebel",
+      "source_hash": "sha256:be5129dffbb18b9aa83f1adb46b7a63c9e9e2cdbbcffae4e89af1da453335e57"
+    },
+    "description": {
+      "text": "Oestliche Erweiterung der LBN 6-11-20 Gruppe im Perseus-Arm. Diffuse H-II-Region, am besten im Herbst und Winter mit Ha-Filter.",
+      "source_hash": "sha256:cdf3e2c970d200e14dc8da34286ff8a2d8f0ad0df00f270d8682c27db8ffc623"
+    }
+  },
+  "LBN 92": {
+    "name": {
+      "text": "Perseus-Molekuelnebel",
+      "source_hash": "sha256:f72d8d89b9419811f50e868bdd13501ef4c2ff8a68c14c39467f3f343a3ec9ae"
+    },
+    "description": {
+      "text": "Emissionsregion im Perseus-Sternentstehungskomplex in etwa 1000 Lj Entfernung. Gute Winteraufnahme mit Ha und 4 bis 6 Stunden Integration.",
+      "source_hash": "sha256:10b57901631efd0083166061863821c33787526fd7957951b88eda2d84c37b80"
+    }
+  },
+  "LBN 105": {
+    "name": {
+      "text": "Perseus-Nebel",
+      "source_hash": "sha256:5e1244084eb89692b9591774d7c47cef470b3972c61b93b383680f673282cbed"
+    },
+    "description": {
+      "text": "Grosse H-II-Region in Perseus, ausgedehnter als LBN 92 und mit dichteren Perseus-OB2-Wolken verknuepft. Weitfeld und Ha empfohlen.",
+      "source_hash": "sha256:fa76c707c691d72d9079284bd2028c5d8c03fad39a2a76ed1afe9ca90ebfdcb0"
+    }
+  },
+  "LBN 123": {
+    "name": {
+      "text": "Reflexionsnebel der Plejaden",
+      "source_hash": "sha256:ced919fad3e2ad5a3adeeacf4c6862c74996888cb1a4bf634db1be6046729b4c"
+    },
+    "description": {
+      "text": "Teil der Reflexionsnebulositaet von M45 im Stier. Fuer den blauen Staublicht-Anteil ist tiefes LRGB besonders geeignet.",
+      "source_hash": "sha256:d894d8aea1f8339fe8373c799fc3b3bfec1f5a2d8027dfba13a559d13bbd4ba8"
+    }
+  },
+  "LBN 149": {
+    "name": {
+      "text": "Stier-Nebel",
+      "source_hash": "sha256:6b80364238dfe4efc5a67f7d97bbac5f42bdf98815904e5dbb0f3dd8f47afddc"
+    },
+    "description": {
+      "text": "Sehr flaechenschwacher Emissionsnebel im Stier. Dunkler Himmel, Ha-Filter und lange Integration (6 bis 8 Stunden) sind hilfreich.",
+      "source_hash": "sha256:908aa04b191ff520cc17ec1e00b3d5c564cfd51f6b7d259416e327703006ff89"
+    }
+  },
+  "LBN 187": {
+    "name": {
+      "text": "Suedlicher Orion-Nebel",
+      "source_hash": "sha256:a75d8be794e90759c074fcb8f39273968f19a55ef9e57efbd4cdb7270f4295aa"
+    },
+    "description": {
+      "text": "Ausgedehnte Emissionsregion im Sueden von Orion, verbunden mit der Umgebung von Barnard's Loop. Winterziel mit Weitfeld und Ha.",
+      "source_hash": "sha256:f0a085a54b2304e3b8168eb829f66578f834dd2b1069803ad5c69930c11dbce6"
+    }
+  },
+  "LBN 189": {
+    "name": {
+      "text": "Suedwestlicher Orion-Nebel",
+      "source_hash": "sha256:e80b73cfb4bc759a4178f061f9d16be57b5bf5f3e08493b374aaf99d10edc918"
+    },
+    "description": {
+      "text": "Grosse H-II-Region im Suedwesten von Orion mit aeusseren Boegen von Barnard's Loop. Weitfeld-Ha-Aufnahmen sind empfehlenswert.",
+      "source_hash": "sha256:ed14742cfe00b0a2e14d80d7d60665d1f16e259e2aadeeea906d630165313a8e"
+    }
+  },
+  "LBN 194": {
+    "name": {
+      "text": "Nordwestlicher Orion-Nebel",
+      "source_hash": "sha256:185ecc3082aa6cb4e9ccb15c4cc06b53aa96f0721bc4f51e9d5be5abe2405c3f"
+    },
+    "description": {
+      "text": "Emissionsnebel im Nordwesten von Orion, verknuepft mit diffusen Strukturen bei Lambda Orionis und Orion OB1b.",
+      "source_hash": "sha256:ecb3641e3d52744271de4ec38e1889fef88f085f35c009419936c022db31a579"
+    }
+  },
+  "LBN 210": {
+    "name": {
+      "text": "Noerdlicher Orion-Nebel (Barnard's Loop)",
+      "source_hash": "sha256:89da39a482f901c3cee0d771fa51e7ba4e4ac8a440b6afed2f6b8012fbd6f4d0"
+    },
+    "description": {
+      "text": "Noerdlicher Abschnitt von Barnard's Loop, einer sehr grossen Emissionsstruktur am Nordhimmel. Weitwinkel oder Mosaik mit Ha ist ideal.",
+      "source_hash": "sha256:0c165823d9ce5db9f12f462fe874ba1bdf2015172507d5ef27e60d8487f69e49"
+    }
+  },
+  "LBN 215": {
+    "name": {
+      "text": "Lambda-Orionis-Nebel",
+      "source_hash": "sha256:95c4ce8307ee9ccf24b1ca0341c182332765c36bb41838861abfc0c33fee3337"
+    },
+    "description": {
+      "text": "Teil des grossen H-II-Rings Sh2-264 um Lambda Orionis. Fuer den gesamten Ring ist ein sehr grosses Bildfeld und Ha noetig.",
+      "source_hash": "sha256:466d21cb9da246a71fa9dfef1ee5a60e0094b6983690cbfc614b1b9f1ab78d73"
+    }
+  },
+  "LBN 218": {
+    "name": {
+      "text": "Rho-Orionis-Nebel",
+      "source_hash": "sha256:ba1b33ca0ca18ed9f38772585ebf46efd97f9db6f70596d45d22a689090e2fbf"
+    },
+    "description": {
+      "text": "Emissionsnebel im aequatorialen Orion-Komplex nahe Rho Orionis. Winterziel mit Ha-Filter und tiefer Integration.",
+      "source_hash": "sha256:818cfb6e3284d55f8087b3d335b7ec3bec511b1b7b8c9a1dea93a82b3323e733"
+    }
+  },
+  "LBN 225": {
+    "name": {
+      "text": "IC-434-Nebel (Pferdekopf-Region)",
+      "source_hash": "sha256:ae828a3992cf1cc472517c7d5d0816850e48c295a0b40829df7c19b64cab97f9"
+    },
+    "description": {
+      "text": "H-II-Region mit IC 434 und dem roten Emissionshintergrund des Pferdekopfnebels. Ha ist essenziell; Ha plus LRGB funktioniert sehr gut.",
+      "source_hash": "sha256:f5575ea13e6d68730480ed17966dfaa2a79617bb19af007e6754e844a921a89e"
+    }
+  },
+  "LBN 235": {
+    "name": {
+      "text": "Suedwestlicher Zwillinge-Nebel",
+      "source_hash": "sha256:ee3d0c84263470b9ea38d6a5ffec541831078475b0c160490d3501c9606c2f5e"
+    },
+    "description": {
+      "text": "Diffuser Emissionsnebel in den Zwillingen, wahrscheinlich mit Gem OB1 verbunden. Geeignetes Winterziel mit Ha-Filter.",
+      "source_hash": "sha256:23fafba04e67f10273b0bc427f3c195a2f4b70f7162c7fe7a146eebce46ec7f0"
+    }
+  },
+  "LBN 245": {
+    "name": {
+      "text": "Noerdlicher Monoceros-Nebel",
+      "source_hash": "sha256:4bfe9467b148f22c77f01134aea1efd75e261b8d53b8ba18a7d48428666cadc0"
+    },
+    "description": {
+      "text": "Grosse H-II-Region im Mon-OB1/OB2-Umfeld Richtung galaktisches Antizentrum. Weitfeld und Ha werden empfohlen.",
+      "source_hash": "sha256:c74db7280b0264ecbb7a2842015338c506d7a5643aae03843f7579cae0abc488"
+    }
+  },
+  "LBN 263": {
+    "name": {
+      "text": "Grosser-Hund-Nebel",
+      "source_hash": "sha256:67df31ee13892e1aa3db80f4dc82c6f7983365d5423e9b0d9e5a55435ea34a1f"
+    },
+    "description": {
+      "text": "Emissionsnebel im Grossen Hund, assoziiert mit CMa OB1. Von noerdlichen Breiten eher niedrig stehendes Winterziel.",
+      "source_hash": "sha256:1e02a9b92312d3472c3ca9e2515fd2a29ad9bf0bf92017a0021b16d639a9f417"
+    }
+  },
+  "LBN 265": {
+    "name": {
+      "text": "Sirius-Nebel",
+      "source_hash": "sha256:70a85ddaee5143737950b4e052cfcc3276226546f547b222d7131f4fc98864c9"
+    },
+    "description": {
+      "text": "Sehr schwacher Reflexionsnebel bei Sirius. Schwieriges Objekt wegen extremer Sternhelligkeit; lange Integration und strenge Halokontrolle noetig.",
+      "source_hash": "sha256:2d62bca260dc82625fa480e28eb46b14350fa973da1df102b944ea89625934bf"
+    }
+  },
+  "LBN 292": {
+    "name": {
+      "text": "Monoceros-Puppis-Nebel",
+      "source_hash": "sha256:1dcde57798c9b8489621e746608ff3422aa4b0d3aef0268a132d0f14ec2ccc1a"
+    },
+    "description": {
+      "text": "Emissionsregion an der Grenze Monoceros-Puppis, von noerdlichen Standorten oft niedrig. Ha und lange Belichtungszeit empfohlen.",
+      "source_hash": "sha256:9db80b39651912ec00b52f101f792074a5d50a0d3e529be2183812063a1483b2"
+    }
+  },
+  "LBN 316": {
+    "name": {
+      "text": "Noerdlicher Vela-Nebel",
+      "source_hash": "sha256:e62c23ac2458bf3c1a110ef19ddec9f3079ba37a7a646c94e58c9d6c29a0c7fc"
+    },
+    "description": {
+      "text": "Grosser Emissionsnebel im Vela-Komplex am Suedhimmel. Von Remalard nicht beobachtbar; typisches Ziel der Suedhalbkugel.",
+      "source_hash": "sha256:10383ebf84b9c344a71cbde96d12c12cd5af91963c536af9a00ef3056b12e1e3"
+    }
+  },
+  "LBN 340": {
+    "name": {
+      "text": "Oestlicher Schwan-Nebel",
+      "source_hash": "sha256:af1bf67d105d1e8b56fe0cc2a1ddeafd295984a5b8d7cd595381b80ccfc8cacb"
+    },
+    "description": {
+      "text": "Emissionsnebel im Schwan, schwach und diffus im dichten Milchstrassenfeld. Im Sommer mit Ha-Filter und laengerer Integration am besten.",
+      "source_hash": "sha256:5d0dce5d609f9879cfbeffc32462b815735bb4a3b8cdf87c736c188acdcc730a"
+    }
+  },
+  "LBN 350": {
+    "name": {
+      "text": "Noerdlicher Schwan-Nebel",
+      "source_hash": "sha256:ff3ccedf6dbc8e7077385d537c3cfeefd9e5f0ab88cdcbd204c2f89edd776776"
+    },
+    "description": {
+      "text": "H-II-Region im Schwan nahe diffuser Strukturen der Schwan-Spalte. Sommerziel fuer Weitfeldaufnahmen mit Ha.",
+      "source_hash": "sha256:31f1c6968387e76c21667647b4b574fa96ccb7f7d90c3120eed6a96b1094d1b8"
+    }
+  },
+  "LBN 355": {
+    "name": {
+      "text": "Nebel der Schwan-Spalte",
+      "source_hash": "sha256:ae7fa5d0b33442c19c8477e0829c99561ee1da140eb2cc231056ae1203b8d6a2"
+    },
+    "description": {
+      "text": "Diffuser Nebel im Schwan mit Emission und Staubanteilen. Dunkler Himmel und Ha verbessern den Kontrast deutlich.",
+      "source_hash": "sha256:96d5373c1ddaeec76b8ff1b696cda462cc7163fd6a989acc6ee9b3947ee359e4"
+    }
+  },
+  "LBN 360": {
+    "name": {
+      "text": "Nordoestlicher Schwan-Nebel",
+      "source_hash": "sha256:3822d3f9018e9769429fc657a74b34343d5fa0be0b91e1038146f2aea4d70714"
+    },
+    "description": {
+      "text": "Emissionsnebel im Schwan mit moderater Flaechenhelligkeit. Empfehlenswert im Sommer mit Weitfeld und mehreren Stunden Belichtung.",
+      "source_hash": "sha256:8848cacd41782b430ebc05435e6f085438a0289e1e582c0a5c8a4badda0e096e"
+    }
+  },
+  "LBN 405": {
+    "name": {
+      "text": "Cepheus-Nebel",
+      "source_hash": "sha256:84985ed3d326a83e7664eb179f36598656499be366e9e4970a64e0c7cf4c5e72"
+    },
+    "description": {
+      "text": "Emissionsnebel im Cepheus in einer molekuelwolkenreichen Region. Spaetsommer und Herbst mit Ha sind guenstig.",
+      "source_hash": "sha256:5e7f78acbfef83cab486cf7d1e0ca5b7a91cfa812a390a4bf6d679d39c50e2af"
+    }
+  },
+  "LBN 408": {
+    "name": {
+      "text": "Oestlicher Cepheus-Nebel",
+      "source_hash": "sha256:0cfc78695b6195e7e622ec5bcaf693a95873ee60eb18c74b1e2098ecaa32fa48"
+    },
+    "description": {
+      "text": "Diffuse H-II-Region im oestlichen Cepheus. Weites Bildfeld und tiefe Integration helfen bei schwachen Auslaeufern.",
+      "source_hash": "sha256:9d7cf95414e9d8f5771909bc470e10ffaf7c8d5f30678b149d7b85f430fc3a6f"
+    }
+  },
+  "LBN 412": {
+    "name": {
+      "text": "Noerdlicher Cepheus-Nebel",
+      "source_hash": "sha256:dba3babbd52658514adcc9be320474b2185e5be79a2c08d1def7d1ad006758b7"
+    },
+    "description": {
+      "text": "Emissionsnebel im Cepheus mit ionisierten Filamenten. In Ha-Bandaufnahmen gut darstellbar.",
+      "source_hash": "sha256:893e9a5d179256e9179dc30052246fd57ea952ac77caac290c28bd285a420a86"
+    }
+  },
+  "LBN 453": {
+    "name": {
+      "text": "Noerdlicher Wassermann-Nebel",
+      "source_hash": "sha256:c9a30c59a4fdeff007d487f77a9faf2b38afc5176568dee4f944ff38ef3cbb07"
+    },
+    "description": {
+      "text": "Schwacher und ausgedehnter Emissionsnebel im Wassermann. Erfordert gute Transparenz und lange Integration.",
+      "source_hash": "sha256:4128e97e1873e1a24e3fb0922770bc382f14f50a0afddc8bf00d9a0b126d3069"
+    }
+  },
+  "LBN 462": {
+    "name": {
+      "text": "Suedlicher Wassermann-Nebel",
+      "source_hash": "sha256:6a58bda4cbd8aa08b01e718faa8bf31d2feab235138d3b1280eabc81c9e6cbba"
+    },
+    "description": {
+      "text": "H-II-Region im Wassermann mit geringem Breitbandkontrast. Mit Ha kommt die Struktur deutlich besser heraus.",
+      "source_hash": "sha256:f975017b2c33ffe119728bc61dd2d113928d08675a6e3567e5ac39ea9ccb4828"
+    }
+  },
+  "LBN 468": {
+    "name": {
+      "text": "Oestlicher Wassermann-Nebel",
+      "source_hash": "sha256:9d547e365288f7c5c7bcc52de546f95a5456bd8c6ded927cce520a3752fb33e1"
+    },
+    "description": {
+      "text": "Diffuser Nebel im Wassermann mit niedriger Flaechenhelligkeit. Herbstziel fuer lange Belichtungsserien.",
+      "source_hash": "sha256:08b495f416bf82ef20e603f9387eca19b2cf6e64c0029c9fecb24d283b9a490a"
+    }
+  },
+  "LBN 476": {
+    "name": {
+      "text": "Pegasus-Nebel",
+      "source_hash": "sha256:93324f67cfea579938b807acc3e83ba62e95cf4b15978d54afadb21c0a132e08"
+    },
+    "description": {
+      "text": "Emissionsnebel im Pegasus, subtil und eher lichtschwach. Viele Integrationsstunden unter dunklem Himmel sind hilfreich.",
+      "source_hash": "sha256:0da030a9e8bd233df8e4c3aa1a7318cad19c18425906564bd29a764835c5f56b"
+    }
+  },
+  "LBN 484": {
+    "name": {
+      "text": "Noerdlicher Pegasus-Nebel",
+      "source_hash": "sha256:2776cbaaaef3971aa26c7b7b3e8b64767739c70fc75f73adf6ac864ae8d7da01"
+    },
+    "description": {
+      "text": "Schwache H-II-Region im Pegasus. Weitfeld und sanfte Bearbeitung erhalten die zarten Strukturen besser.",
+      "source_hash": "sha256:bdac9d8cea4836c8ef8a92f61ec2f6555d871a4813615c22420940cd3c82f8aa"
+    }
+  },
+  "LBN 528": {
+    "name": {
+      "text": "Walfisch-Nebel",
+      "source_hash": "sha256:5c73cefc7a604c50118f42e54e05b6ca0a9307ce8a2a053e63d5dea56cc5d7ba"
+    },
+    "description": {
+      "text": "Emissionsnebel im Walfisch, schwach und diffus. Geeignet als Herbstziel mit Ha-Filter und tiefer Integration.",
+      "source_hash": "sha256:853faf2203b2141b040a091099db97d82d744ef5149c0c88b46866dd46c514c1"
+    }
+  },
+  "LBN 532": {
+    "name": {
+      "text": "Oestlicher Walfisch-Nebel",
+      "source_hash": "sha256:d6effc45d50438d5427e4a67b544bfae00ecc36c196c17cc09baf349cb703bb4"
+    },
+    "description": {
+      "text": "Diffuser Nebel im Walfisch, in Schmalband besser sichtbar. Tiefe Belichtung zeigt schwache Ausdehnungen.",
+      "source_hash": "sha256:aac157cdba600bb82a93f9f0a285836f706fa9b1c491766be55f31bc98709c5b"
+    }
+  },
+  "LBN 534": {
+    "name": {
+      "text": "Noerdlicher Walfisch-Nebel",
+      "source_hash": "sha256:ba2f893f675d46e155d067b60534b68a1dc845c1120b8da533075f23c5e96000"
+    },
+    "description": {
+      "text": "Schwache H-II-Region im Walfisch. Weitfeld mit Ha und gute Gradienten-Korrektur sind empfehlenswert.",
+      "source_hash": "sha256:1260f28c941de9c1aff9a91485b4701883161691c7fff56f3fac3ec4df829e0c"
+    }
+  },
+  "LBN 539": {
+    "name": {
+      "text": "Eridanus-Nebel",
+      "source_hash": "sha256:e417c967f13a29a1b46d7f645e5fe0df3585b2207d43a424ab311e1916706e7f"
+    },
+    "description": {
+      "text": "Emissionsnebel im Eridanus mit mittlerem Kontrast. Je nach Standort niedrig stehend, daher stabile Bedingungen bevorzugen.",
+      "source_hash": "sha256:ff042d2f04233c3eb35ea43718fea696f6bb5dad5d9a8e2c3e83099a5c118360"
+    }
+  },
+  "LBN 549": {
+    "name": {
+      "text": "Oestlicher Eridanus-Nebel",
+      "source_hash": "sha256:0e30a6669e163dfa440690f6d42deb5ba46dba29a1fa195a1076a66219e230b4"
+    },
+    "description": {
+      "text": "Diffuser Eridanus-Nebel, gut fuer lange Ha-Aufnahmen. Schwache Filamente werden erst nach tiefer Integration sichtbar.",
+      "source_hash": "sha256:310e96603b14c172b7b467fa28d33abf0502b4b150c1203fbee9f93f97860dd8"
+    }
+  },
+  "LBN 552": {
+    "name": {
+      "text": "Suedlicher Eridanus-Nebel",
+      "source_hash": "sha256:a3205b12d87777e145f4ed979984749f0c6219fd1344899e3e4a89c0739010af"
+    },
+    "description": {
+      "text": "Relativ ausgedehnte H-II-Region im Eridanus. Grosses Bildfeld und saubere Himmelhintergrund-Kontrolle sind sinnvoll.",
+      "source_hash": "sha256:41dc1568ec78040021ee8c310c3e29c96224b4a76e21eacafcb0ffcf8a1ce16c"
+    }
+  },
+  "LBN 559": {
+    "name": {
+      "text": "Uhr-Nebel",
+      "source_hash": "sha256:6288b3aa8588cb6c145fc9afe8d1860966cea391f2f719fb0fe911ade3f29aeb"
+    },
+    "description": {
+      "text": "Emissionsnebel im Sternbild Horologium, von Europa aus sehr suedlich und tief. Lange Integration und ruhige Luft sind wichtig.",
+      "source_hash": "sha256:517f6b2f3ed542b6acc264e07f6c4283d4f33e5fd5b7b7b5f71750e284c4a49b"
+    }
+  },
+  "LBN 562": {
+    "name": {
+      "text": "Suedlicher Uhr-Nebel",
+      "source_hash": "sha256:07706ac95c4443509533264994ceab0ba9b51ce9c551dd064a918a4b8ddabac9"
+    },
+    "description": {
+      "text": "Schwacher diffuser Nebel im suedlichen Horologium. Ha-Filter und viele Einzelaufnahmen sind entscheidend.",
+      "source_hash": "sha256:134edd058ea401409b7fe40b1144f805fe4f97328a610060c33eb717c1c97301"
+    }
+  },
+  "LBN 569": {
+    "name": {
+      "text": "Oestlicher Uhr-Nebel",
+      "source_hash": "sha256:a2e156c22afe7041e21c5ca39914d4f4d12b7102f44e833c05edbd2a291d4be6"
+    },
+    "description": {
+      "text": "Schwacher diffuser Nebel im suedlichen Horologium. Mit Ha-Filter und tiefer Integration besser sichtbar.",
+      "source_hash": "sha256:8ccfca317ad13c6957ae28f8bc5e6f9ed77b9040845c4d2d3e9be3716697c950"
+    }
+  },
+  "LBN 576": {
+    "name": {
+      "text": "Dorado-Nebel",
+      "source_hash": "sha256:74e3d8b7126de30fe84f98ae04c8d8c0d410ed65abe6544fac8e10bdb295cb1b"
+    },
+    "description": {
+      "text": "Suedlicher Emissionsnebel im Dorado. Von Europa aus meist niedrig, daher stabile Bedingungen wichtig.",
+      "source_hash": "sha256:21fa77597fefa65c86b241883bf1ba1d1325b4bd1dd975124d573aba33edf4eb"
+    }
+  },
+  "LBN 583": {
+    "name": {
+      "text": "Suedlicher Dorado-Nebel",
+      "source_hash": "sha256:34851ba44988c82a1ce4b9fb144676f28d2f485ebf6fe35a4b6b6d496e2bbb80"
+    },
+    "description": {
+      "text": "Diffuse H-II-Region im Dorado mit schwachen Auslaeufern. Weitfeld und lange Belichtungszeit empfohlen.",
+      "source_hash": "sha256:9cea79f66db92829965dd632e5fd0e1f304c950c6fd0ee5c747f80ff2c59e09d"
+    }
+  },
+  "LBN 592": {
+    "name": {
+      "text": "Maler-Nebel",
+      "source_hash": "sha256:d7bbc5a9793ca75c152324f4a68c7cd70441a671a5aeba9af60deaf42df1897d"
+    },
+    "description": {
+      "text": "Emissionsnebel im Pictor am Suedhimmel. Ha-Filter hilft, feine Filamente hervorzuheben.",
+      "source_hash": "sha256:19f2a546b8b54e1b67d5ae59bc2f892d990e137712bac7b63c50e750371067d4"
+    }
+  },
+  "LBN 601": {
+    "name": {
+      "text": "Oestlicher Maler-Nebel",
+      "source_hash": "sha256:93d09fa1510e573d1d57184c95be5a24463534b932584109dcda238dcae1d77d"
+    },
+    "description": {
+      "text": "Diffuser Nebel im Pictor mit geringem Breitbandkontrast. In Ha mit tiefer Integration deutlich besser.",
+      "source_hash": "sha256:3eb9e72659a18f43001b668da944e4b4c45754b87ce116b6c997aa745838fd3d"
+    }
+  },
+  "LBN 606": {
+    "name": {
+      "text": "Noerdlicher Maler-Nebel",
+      "source_hash": "sha256:e36defd09b0a2a03036de94faccc998a48f222462d919f824d1fcbe8e5f81c27"
+    },
+    "description": {
+      "text": "Lichtschwache H-II-Region im Pictor. Sinnvoll als Weitfeldziel unter dunklem Himmel.",
+      "source_hash": "sha256:062a50d83b4ac6bf64c482954ec1a2df30dd88865603a2cafee3a8a7f6afc085"
+    }
+  },
+  "LBN 620": {
+    "name": {
+      "text": "Kiel-Nebel",
+      "source_hash": "sha256:b324c8ca760cc40aeb838dd47b82f2320352e52aa6f19dbabc74cdcbb3cd5b14"
+    },
+    "description": {
+      "text": "Emissionsnebel in Carina, in einer sehr sternreichen suedlichen Region. Ha zeigt diffuse Strukturen klarer.",
+      "source_hash": "sha256:18a3034c371dc5255051ba2a97b1faad70c7285a3000a438d9fc1d2ec948f52d"
+    }
+  },
+  "LBN 630": {
+    "name": {
+      "text": "Suedlicher Kiel-Nebel",
+      "source_hash": "sha256:bf877351ec67216eabd0653788bafe29f34230038fc815662ccde713988abf97"
+    },
+    "description": {
+      "text": "Ausgedehnte suedliche H-II-Region in Carina mit moderatem Kontrast. Lange Belichtungen und gute Hintergrundkontrolle noetig.",
+      "source_hash": "sha256:2c90dc883f0b40baf6ef741d117c2bdf201fe8c4b41e80752ac017e25a7b9f92"
+    }
+  },
+  "LBN 636": {
+    "name": {
+      "text": "Oestlicher Kiel-Nebel",
+      "source_hash": "sha256:e75b7af4552daa9889cf256b0baee3e1855fcea494f42e1c2d9445299a54f666"
+    },
+    "description": {
+      "text": "Diffuser Nebel in Carina, geeignet fuer Weitfeld-Mosaike. Schwaches Signal profitiert von tiefer Integration.",
+      "source_hash": "sha256:21e50c4f3f55f1c8551d3c06c399066b5941d740f3d336243eb57c02b6f3808a"
+    }
+  },
+  "LBN 641": {
+    "name": {
+      "text": "Nordoestlicher Kiel-Nebel",
+      "source_hash": "sha256:7d78250c38a40ce7049bc19ee0e5a0c9c395d920bcb77fba01448236117fb30a"
+    },
+    "description": {
+      "text": "Emissionsnebel in Carina mit subtilen Details. Geeignet fuer Ha-Aufnahmen bei moderater Abtastung.",
+      "source_hash": "sha256:4299d975404e288f24a7a4f571b1d2e35da6e5991bef1219fa28e08253d1e821"
+    }
+  },
+  "LBN 656": {
+    "name": {
+      "text": "Segel-Nebel",
+      "source_hash": "sha256:68fd5a6363fff29c4343fb9b97b34462870f0d2a98f7c2a44ff2c222219587d0"
+    },
+    "description": {
+      "text": "Emissionsnebel im Vela, ueberwiegend suedlich sichtbar. Schmalbandaufnahmen verbessern die Lesbarkeit.",
+      "source_hash": "sha256:0dbb6b73650825e2de061dddc013bd7d0e1b2d8c1907ae5394926cedf0509f84"
+    }
+  },
+  "LBN 667": {
+    "name": {
+      "text": "Suedlicher Segel-Nebel",
+      "source_hash": "sha256:2121df15b4d989c21c27e13464134466c08e51f92dac427d2d02660ef624a3a8"
+    },
+    "description": {
+      "text": "H-II-Region im Vela, von noerdlichen Breiten tief stehend. Lange Integration gleicht die niedrige Hoehe aus.",
+      "source_hash": "sha256:6d2121a9fde478df2c34a52f7b9f31d4341234f16f5c17575d75b84b7f3a87f5"
+    }
+  },
+  "LBN 672": {
+    "name": {
+      "text": "Oestlicher Segel-Nebel",
+      "source_hash": "sha256:d9d25766d959352376aae766cd4b6d4d6b7860185e9f76cd107053e98aeefd4e"
+    },
+    "description": {
+      "text": "Diffuser Vela-Nebel mit mittlerem Kontrast. Weitfeld hilft, den umgebenden Kontext zu erhalten.",
+      "source_hash": "sha256:05d9ca5a472c5dadd76ff1b9255ccfde43be12b45c9def1b2fb7465104534828"
+    }
+  },
+  "LBN 704": {
+    "name": {
+      "text": "Zentaur-Nebel",
+      "source_hash": "sha256:9becf05ad6fbab10b37e811c45e6803a408fb14c16c5dac998ac9ea74b3928ba"
+    },
+    "description": {
+      "text": "Emissionsnebel im Centaurus, vor allem vom Suedhimmel gut zugaenglich. Ha und ruhige Luft sind empfehlenswert.",
+      "source_hash": "sha256:453226e695c5338453a9c962b752c831e02a071fde38e931886db30529f5d7dd"
+    }
+  },
+  "LBN 776": {
+    "name": {
+      "text": "Kreuz-des-Suedens-Nebel",
+      "source_hash": "sha256:d7f8b66c81ccc478d819820d42364c9f75055ea53fab442e0a9a8746471b66d3"
+    },
+    "description": {
+      "text": "Diffuser Nebel im Kreuz des Suedens. Von vielen europaeschen Standorten niedrig oder nicht erreichbar.",
+      "source_hash": "sha256:57e4e9ab8e2f3a8b1a8e23d0c21ebd745c0261d3a100491bf499320961f473fc"
+    }
+  },
+  "LBN 782": {
+    "name": {
+      "text": "Suedlicher Kreuz-des-Suedens-Nebel",
+      "source_hash": "sha256:06f90834015009b09d746f4d784081cc6edab81ae3c61dfce2fb783ff475895f"
+    },
+    "description": {
+      "text": "Lichtschwache H-II-Region im Kreuz des Suedens. Tiefe Schmalbandintegration ist entscheidend.",
+      "source_hash": "sha256:453b0d222b05ccbeb06b02d3fe09aa624e41264f1099da3afc154b97ae9afc31"
+    }
+  },
+  "LBN 801": {
+    "name": {
+      "text": "Altar-Nebel",
+      "source_hash": "sha256:7370deea0f432df8ced09bb9a89f4b1b78209ef059571a67bfbacf1ce7a4bff2"
+    },
+    "description": {
+      "text": "Emissionsnebel im Ara in dichtem suedlichem Sternfeld. Weitfeld und Ha-Filter liefern gute Resultate.",
+      "source_hash": "sha256:93288d8fac59a41c8775be04d3751702e5a4e4650483b91a2913dace08a36b1d"
+    }
+  },
+  "LBN 814": {
+    "name": {
+      "text": "Suedlicher Altar-Nebel",
+      "source_hash": "sha256:54232ac59bc38cd7d28c50d632c2c9e95f51b326f58caa9bb23c7c11b470da96"
+    },
+    "description": {
+      "text": "Diffuser Nebel im Ara, ueberwiegend suedlich. Schwache Ausdehnungen erscheinen erst nach langer Integration.",
+      "source_hash": "sha256:bc0a99e49413f4ae8f10b007b345fe937f33336b2e8b2b703855e126832716a0"
+    }
+  },
+  "LBN 816": {
+    "name": {
+      "text": "Oestlicher Altar-Nebel",
+      "source_hash": "sha256:8598edeb2270f8700540ea55fa23a6adf9753e9ae0c1e937045ee47c965a95de"
+    },
+    "description": {
+      "text": "H-II-Region im Ara mit niedrigem Kontrast. Sanfte Bearbeitung und gutes Rauschmanagement sind wichtig.",
+      "source_hash": "sha256:8a58a35bebdbbf45d038def9fd6288eea416f112f080a151eaf3addd5f2ea5df"
+    }
+  },
+  "LBN 853": {
+    "name": {
+      "text": "Pfau-Nebel",
+      "source_hash": "sha256:7a12d8d35b915092c4fc1cf01b67bf32b8ce3392b6003057b781bf405295598a"
+    },
+    "description": {
+      "text": "Emissionsnebel im Pavo, suedliches Zielobjekt. Ha-Filter und hohe Transparenz werden empfohlen.",
+      "source_hash": "sha256:5a1fbc4abea28e19f30adccb591c6537f6786296d915627624e4f54121b6880f"
+    }
+  },
+  "LBN 331a": {
+    "name": {
+      "text": "Suedlicher Vela-Nebel",
+      "source_hash": "sha256:9167b206ed89e7d679549899df7816f904db7155ed5c6768407e4264509ef9fb"
+    },
+    "description": {
+      "text": "LBN 331a ist ein Emissionsnebel im Vela in etwa 1500 Lj Entfernung und die suedlichere Entsprechung von LBN 316. Von Remalard aus nicht erreichbar.",
+      "source_hash": "sha256:dbc73fdc54659d27e7f8e05591559665980959ef9c815c24403212c0dc33b532"
+    }
+  },
+  "LBN 331b": {
+    "name": {
+      "text": "Vela-Puppis-Nebel",
+      "source_hash": "sha256:f6f782eb0841d89fb43114efb58e93c248ade176cc57c88783cdbe3c665bcc27"
+    },
+    "description": {
+      "text": "LBN 331b ist ein Emissionsnebel an der Grenze Vela-Puppis in etwa 1500 Lj Entfernung. Wahrscheinlich eine eigene Kondensation im gleichen H-II-Komplex.",
+      "source_hash": "sha256:21b8fbd9de27a05168556ecca36b2066ad349c9a20b94fc1af32358f3c7cb26f"
+    }
+  },
+  "LBN 437a": {
+    "name": {
+      "text": "Ophiuchus-Scorpius-Nebel",
+      "source_hash": "sha256:eeeb07ca02e24990f08a6f0525a45772f90eade9fab1924f29b55a83b20c4be0"
+    },
+    "description": {
+      "text": "LBN 437a ist ein Emissionsnebel an der Grenze Ophiuchus-Scorpius in etwa 500 Lj Entfernung, im Sco-OB2-Umfeld. Von Frankreich aus fast unzugaenglich.",
+      "source_hash": "sha256:4a935309fdc244e346ce1d79b8863a68549d17eea6b2617ecd31dfb6a8166892"
+    }
+  },
+  "LBN 437b": {
+    "name": {
+      "text": "Antares-Nebel",
+      "source_hash": "sha256:77189c53d272e60b08c6d1e23d343d8d4442ce6dca4c2c058817ea8576604f17"
+    },
+    "description": {
+      "text": "LBN 437b ist der grosse orange Reflexionsnebel um Antares in etwa 550 Lj Entfernung. Spektakulaeres Weitfeld zusammen mit der blauen Rho-Ophiuchi-Region.",
+      "source_hash": "sha256:fbb6d8a2f0c6a64fd5b89554737735d9a7fe47dc390269ff63fb3c38c7bd1928"
+    }
+  },
+  "LBN 854": {
+    "name": {
+      "text": "Kassiopeia-Andromeda-Nebel",
+      "source_hash": "sha256:723cf9f17ce74560bac272ebccc05619976f60da80d951efc488f9b472cb78eb"
+    },
+    "description": {
+      "text": "Emissionsnebel an der Grenze Kassiopeia-Andromeda im Perseus-Arm-Komplex. Hoches Herbst-Winter-Ziel mit Ha und 4-6 h Integration.",
+      "source_hash": "sha256:49d074a9adeb9f6dd72f86e7da7802c0e54049aa0e3f5d01e91c89fb921931a9"
+    }
+  },
+  "LBN 856": {
+    "name": {
+      "text": "Zentraler Kassiopeia-Nebel",
+      "source_hash": "sha256:1293e0853bbffa0b36a58c48f6118ea5b27262dadc1bf8105f9a9a63f3cb047c"
+    },
+    "description": {
+      "text": "Grosser Emissionsnebel in Kassiopeia in einem sehr sternreichen Feld des Perseus-Arms. Von Frankreich aus circumpolar; Ha und S II sind geeignet.",
+      "source_hash": "sha256:2a22eacd14151edb442e94258be6a0e09e60f74ff81f086c35e960a5b539bc36"
+    }
+  },
+  "LBN 858": {
+    "name": {
+      "text": "Nordoestlicher Kassiopeia-Nebel",
+      "source_hash": "sha256:87358e97c8d28ddaed0354915f6961b191b53111f774540026ee11da4cbc5df0"
+    },
+    "description": {
+      "text": "Nordoestliche Erweiterung des Kassiopeia-H-II-Komplexes in Richtung Herz- und Seelennebel. Circumpolar, gut im Herbst und Winter.",
+      "source_hash": "sha256:534987efaa3a6a273c5dd8a3129373318b8c02f4ff0742e33b76d8110f0f50e0"
+    }
+  },
+  "LBN 862": {
+    "name": {
+      "text": "Kassiopeia-Perseus-Nebel",
+      "source_hash": "sha256:0f55e60e3f652b1d9df0bbe42a277aabd7b77167eb02b4e067358e304b634b36"
+    },
+    "description": {
+      "text": "Kompakter Emissionsnebel an der Grenze Kassiopeia-Perseus, im Uebergang beider Nebelkomplexe des Perseus-Arms.",
+      "source_hash": "sha256:0f361fee3ca83f9e1c026cdbec4476e57b899af36785c76124588b424054fa37"
+    }
+  },
+  "LBN 864": {
+    "name": {
+      "text": "Nordwestlicher Perseus-Nebel",
+      "source_hash": "sha256:0a253fa0005b4d1e21b6baf67cbc99fbc6cdf4cba10145a5d45212a5edde1b76"
+    },
+    "description": {
+      "text": "Emissionsnebel im nordwestlichen Perseus, in einem sehr reichen noerdlichen Milchstrassenfeld. Nahezu circumpolar.",
+      "source_hash": "sha256:31fa5cba0deaec3e0e407111c43e678ca956772bbcbd0c62596ff0a2b80d0b85"
+    }
+  },
+  "LBN 868": {
+    "name": {
+      "text": "Zentraler Perseus-Nebel",
+      "source_hash": "sha256:b89cee0b4f1112e1267e8633f33ce0cf1176b77fba8426432425a99c78ea4628"
+    },
+    "description": {
+      "text": "Emissionsnebel im zentralen Perseus, im gleichen grossraeumigen Umfeld wie Herz- und Seelennebel.",
+      "source_hash": "sha256:c76690ce1255d8e2acc2f0d715515ae6cc430cf4116992eb699c386e1500e33d"
+    }
+  },
+  "LBN 877": {
+    "name": {
+      "text": "Perseus-Stier-Nebel",
+      "source_hash": "sha256:8badaff45756894bb967f81bc46242b91d23fee726c6571f83e1fd1e2e1cf5e1"
+    },
+    "description": {
+      "text": "Emissionsnebel an der Grenze Perseus-Stier nahe dem Uebergang beider Molekuelumgebungen. Winterziel mit Ha-Filter.",
+      "source_hash": "sha256:0ff88b15f08447370f5e587ba8f89aace5e0e794c0fd33a1e0ef266b8b4819bd"
+    }
+  },
+  "LBN 883": {
+    "name": {
+      "text": "Stier-Orion-Nebel",
+      "source_hash": "sha256:e414539ec52bc4752bcd3139b4e69a9afafc1b93bb8b0a7c9a25bf16ae961202"
+    },
+    "description": {
+      "text": "Diffuser Emissionsnebel an der Grenze Stier-Orion, verbunden mit lokalem Material des Orion-Arms.",
+      "source_hash": "sha256:e76dbfb3c086b2ceba3cbc92537cf32112cf2a8358f40628d795738619b46247"
+    }
+  },
+  "LBN 893": {
+    "name": {
+      "text": "Orion-Monoceros-Nebel",
+      "source_hash": "sha256:d6aefad83204b5e55f8f8f2190d2ceab76bcdda8241daaeb5d28f7e2ee422667"
+    },
+    "description": {
+      "text": "Grosser Emissionsnebel an der Grenze Orion-Monoceros als Teil des breiten Nebelguertels des Orion-Arms. 6-8 h Ha empfohlen.",
+      "source_hash": "sha256:6937cb68dfc3b2e09ed530d8e8a69016a0687cbac5215fd384cdd14a2935766c"
+    }
+  },
+  "LBN 900": {
+    "name": {
+      "text": "Monoceros-Zwillinge-Nebel",
+      "source_hash": "sha256:a42915ee5873009c5786f80681d225d5f14c6c67c2a4a18d1827f2ce9808278f"
+    },
+    "description": {
+      "text": "Emissionsnebel an der Grenze Monoceros-Zwillinge Richtung galaktisches Antizentrum, in einem Feld mit schwachen Nebelstrukturen.",
+      "source_hash": "sha256:1c611457a110f385ec126d562c25d1612b95f02a8ddd1e875738e804660dc358"
+    }
+  },
+  "LBN 914": {
+    "name": {
+      "text": "Zwillinge-Krebs-Nebel",
+      "source_hash": "sha256:4cb5993a03b20c384f4f4b7594855261626846174a08078b6e33435a12c6b7e4"
+    },
+    "description": {
+      "text": "Sehr diffuser Emissionsnebel an der Grenze Zwillinge-Krebs ausserhalb des dichtesten galaktischen Bandes. Dunkler Himmel und Ha sind wichtig.",
+      "source_hash": "sha256:32fe79bc8933532aea7e8b1d93686de65cc55f37b442c01b1c2ceec8322bffc2"
+    }
+  },
+  "LBN 920": {
+    "name": {
+      "text": "Suedlicher Grosser-Baer-Nebel",
+      "source_hash": "sha256:df2301374426a5c19e3b480479d98c564b515044a1d2970c03cb3a5de5460a9f"
+    },
+    "description": {
+      "text": "Seltene H-II-Region hoher galaktischer Breite im suedlichen Grossen Baeren, teils mit schwacher IFN. Fruehlingsziel.",
+      "source_hash": "sha256:a6836f87a9b7717277670339b4657e79d0ad49de4c7860225f95eef1d7c10aae"
+    }
+  },
+  "LBN 922": {
+    "name": {
+      "text": "Grosser-Baer-Nebel",
+      "source_hash": "sha256:7c51ba92ec729faf89d85f04e5a806451eba7956dfb514cb49fe8f99b5b79c86"
+    },
+    "description": {
+      "text": "Sehr schwache Emissionsregion hoher Breite im Grossen Baeren, aehnlich LBN 920. Tiefes Ha plus tiefes LRGB sind sinnvoll.",
+      "source_hash": "sha256:d71a5e741e78dbf647ddb37fdec5f50f3f40bbf07d5b8f3504876b04781172b5"
+    }
+  },
+  "LBN 931": {
+    "name": {
+      "text": "Jagdhunde-Nebel",
+      "source_hash": "sha256:f80b1cdf89d614b7c35e5b4417c65846be51805637a817b7c99d39d6f0531fec"
+    },
+    "description": {
+      "text": "Seltene H-II-Region hoher galaktischer Breite in den Jagdhunden, einem Gebiet, das eher fuer Galaxien bekannt ist.",
+      "source_hash": "sha256:a8d3f6ae64f1789662c4f48e14fa016569cafde0c163174df971bc271ad5b4ba"
+    }
+  },
+  "LBN 934": {
+    "name": {
+      "text": "Noerdlicher Jagdhunde-Nebel",
+      "source_hash": "sha256:709b7dc12ba533f4b8722e0a17a1ac60967b2da31e7b945614334a6ba10be16c"
+    },
+    "description": {
+      "text": "Sehr schwaches Hochbreitenobjekt in den Jagdhunden, aehnlich LBN 931. Exzellente Bedingungen und >10 h Integration empfohlen.",
+      "source_hash": "sha256:301ed102c73edf5472db192a5580aec307db0923d501957be7564d187377c5a7"
+    }
+  },
+  "LBN 938": {
+    "name": {
+      "text": "Haar-der-Berenike-Nebel",
+      "source_hash": "sha256:db3576854d70a13fd72d5d980da3e3e63597781e27891532051f579107db0735"
+    },
+    "description": {
+      "text": "Sehr ungewoehnliche H-II-Region hoher Breite im Haar der Berenike. Sehr dunkler Himmel und lange Integration sind erforderlich.",
+      "source_hash": "sha256:d49405fdaff798a51124205a1554fe5d526676eb5939b6b955d08267c6e1ae2a"
+    }
+  },
+  "LBN 943": {
+    "name": {
+      "text": "Jungfrau-Nebel",
+      "source_hash": "sha256:fd8846d243e8a6774c4aefb2da4a97d6395536b73917c350c2623cc656dd58f6"
+    },
+    "description": {
+      "text": "LBN 943 ist ein Emissionsnebel in der Jungfrau in etwa 4000 Lj Entfernung. Sehr schwaches, ungewoehnliches Ziel in einem galaxiedominierten Sternbild. Astrofotografie: Dec +5,8 deg, Fruehlingsziel; Ha-Filter, sehr dunkler Himmel und >10 h Integration empfohlen.",
+      "source_hash": "sha256:ac4debd5bd592240f017201233ffe021196670a8c20bf5c9b0f1c43fc200149f"
+    }
+  },
+  "LBN 950": {
+    "name": {
+      "text": "Waage-Nebel",
+      "source_hash": "sha256:842911b416683fe252e41c9f48eed8e6ec4c19fe5f57773b8bbb20ad3580c3a8"
+    },
+    "description": {
+      "text": "LBN 950 ist ein Emissionsnebel in der Waage in etwa 4000 Lj Entfernung. Diese schwache H-II-Region liegt am Rand der reicheren Skorpion-Ophiuchus-Umgebung. Astrofotografie: Dec -15,8 deg, niedriges Sommerziel; Ha und >6 h Integration empfohlen.",
+      "source_hash": "sha256:da978094536dbc6b8293ea1dcf626435202b6d4aa1ff25e367cac6c0deaded11"
+    }
+  },
+  "LBN 953": {
+    "name": {
+      "text": "Noerdlicher Skorpion-Nebel",
+      "source_hash": "sha256:a71d06f186ccc86bf3e9b34ac5d343e4aa4b106cb6f9efd8a24c753a267d2dc8"
+    },
+    "description": {
+      "text": "LBN 953 ist ein Emissionsnebel im noerdlichen Skorpion in etwa 500 Lj Entfernung. Er gehoert zur Sternentstehungsumgebung Scorpius-Centaurus (Upper Scorpius). Niedriges Sommerziel, Ha empfohlen.",
+      "source_hash": "sha256:6035009d7db33ae57f9cd226c21add040b0ad1b588ab3e62bc633810b7b67603"
+    }
+  },
+  "LBN 956": {
+    "name": {
+      "text": "Zentraler Skorpion-Nebel",
+      "source_hash": "sha256:ff35db6176712784b7bb30c76eab1f1db9185d8f2bfaf2b5e0b4eeb8485d760a"
+    },
+    "description": {
+      "text": "LBN 956 ist ein Emissionsnebel im zentralen Skorpion in etwa 500 Lj Entfernung. Diese H-II-Region gehoert zu Sco OB2, der sonnennahen OB-Assoziation. Schwieriges niedriges Sommerziel mit Ha.",
+      "source_hash": "sha256:fe8ce947b09ce2598ffc1754a2494a813133b881ead745b8bcbf4d1fc877d243"
+    }
+  },
+  "LBN 960": {
+    "name": {
+      "text": "Westlicher Ophiuchus-Nebel",
+      "source_hash": "sha256:0e88456fd015a7ee9e6e64335fcdc367a0c464d017eda90e8f57d815494b4ae7"
+    },
+    "description": {
+      "text": "LBN 960 ist ein Emissionsnebel im westlichen Ophiuchus in etwa 500 Lj Entfernung. Er liegt am westlichen Rand des Rho-Ophiuchi-Molekuelkomplexes. Niedriges Sommerziel mit Ha.",
+      "source_hash": "sha256:8ce5b324273de11477c23fa95fba38ceb9f34c9b06c6fcf32fad0c00c5119bb2"
+    }
+  },
+  "LBN 965": {
+    "name": {
+      "text": "Zentraler Ophiuchus-Nebel",
+      "source_hash": "sha256:3434a1341674300746d9a2a1532aa905796799e0832b08174071190b3e05ef7f"
+    },
+    "description": {
+      "text": "LBN 965 ist ein Emissionsnebel im zentralen Ophiuchus in etwa 500 Lj Entfernung, nahe dem Kern des Ophiuchus-Molekuelsystems und den dunklen Rho-Ophiuchi-Wolken. Niedriges Sommerziel mit Ha.",
+      "source_hash": "sha256:1f204c4db6395dc52a52e9f49b5c264e824950aac186008e65381bfd71be0a65"
+    }
+  },
+  "LBN 1036": {
+    "name": {
+      "text": "Leier-Nebel",
+      "source_hash": "sha256:b7deca136072d7a87ff21ac21e689f70b4e249777184537a4cabeb57ff225ffd"
+    },
+    "description": {
+      "text": "LBN 1036 ist ein Emissionsnebel in der Leier in etwa 4000 Lj Entfernung. Diese diffuse H-II-Region gehoert zur lokalen Nebulositaet im Bereich Leier-Schwan. Sommer-Herbst-Ziel mit Ha und 4-6 h Integration.",
+      "source_hash": "sha256:5e7977f334fe68b9ff45833790b5f416c1b243c5b8a3009807655c93025b8102"
+    }
+  },
+  "LBN 1044": {
+    "name": {
+      "text": "Herkules-Leier-Nebel",
+      "source_hash": "sha256:c7400d24b921cc0fbc79e94906805f0e565e997f9158f99ffdfc0ef8d5151252"
+    },
+    "description": {
+      "text": "LBN 1044 ist ein Emissionsnebel an der Grenze Herkules-Leier in etwa 4500 Lj Entfernung. Er zeichnet diffuses Gas des lokalen Arms nach. Sommer-Herbst-Ziel mit Ha.",
+      "source_hash": "sha256:e57bb097677eb655c2c1cacf817c23292ca44bf29e2b1c59ae9214bc6191a8c3"
+    }
+  },
+  "LBN 1048": {
+    "name": {
+      "text": "Herkules-Nebel",
+      "source_hash": "sha256:f95af52dc248df4c6f618ea4b97c8e0e165ca966b354f7737b2690b8871c2862"
+    },
+    "description": {
+      "text": "LBN 1048 ist ein Emissionsnebel im Herkules in etwa 4500 Lj Entfernung. Da Herkules eher fuer Kugelsternhaufen bekannt ist, ist dies ein selteneres Ha-Ziel dort.",
+      "source_hash": "sha256:f3db7fb5b3d51982d9174c20b60b0aea66ab5858d49a7a3ba70b0b11ab493ca8"
+    }
+  },
+  "LBN 1055": {
+    "name": {
+      "text": "Suedlicher Herkules-Nebel",
+      "source_hash": "sha256:0a8ad3350997961bfcb0690799fe1264dd3c67a86c4728bce05e9452f4900a59"
+    },
+    "description": {
+      "text": "LBN 1055 ist ein Emissionsnebel im suedlichen Herkules in etwa 5000 Lj Entfernung, Richtung Uebergang Herkules-Ophiuchus. Sommerziel mit Ha.",
+      "source_hash": "sha256:a03a99c3d466fb1410d774f2266bad63a7088428e5873e5e66ba1229ca5c8dad"
+    }
+  },
+  "LBN 1060": {
+    "name": {
+      "text": "Noerdlicher Ophiuchus-Nebel",
+      "source_hash": "sha256:0bcac85eb4478e7fe2db2c4c8c26a54a6a592c41b423d5de00ae785732aab239"
+    },
+    "description": {
+      "text": "LBN 1060 ist ein Emissionsnebel im noerdlichen Ophiuchus in etwa 3500 Lj Entfernung. Von Europa besser erreichbar als die tieferen Rho-Ophiuchi-Felder. Sommerziel mit Ha.",
+      "source_hash": "sha256:4b83d8db07a36a3e606d031c20ab2badd4f8106aef51eb28b387510c65d0819b"
+    }
+  },
+  "LBN 1063": {
+    "name": {
+      "text": "Nordoestlicher Ophiuchus-Nebel",
+      "source_hash": "sha256:87347d457068ebecc0d576536ecbbe8c6bd977542f8915602ea538eb4c2cc85b"
+    },
+    "description": {
+      "text": "LBN 1063 ist ein Emissionsnebel im nordoestlichen Ophiuchus in etwa 3500 Lj Entfernung. Er bildet die nordoestliche Erweiterung des noerdlichen Ophiuchus-H-II-Komplexes und kann mit LBN 1060 zusammen aufgenommen werden.",
+      "source_hash": "sha256:8bef42202fc3789966f617df51eca128464d58194934ab1aa6eb3db5932041ce"
+    }
+  }
+}
