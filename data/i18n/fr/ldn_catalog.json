@@ -1,0 +1,132 @@
+{
+  "LDN 1": {
+    "name": {
+      "text": "Nébuleuse sombre de Céphée",
+      "source_hash": "sha256:626f8544763b1e5f4334e02a30ec0f8fded80b5cf5b846f843ba1f5c018d95c8"
+    },
+    "description": {
+      "text": "LDN 1 est une nébuleuse sombre de Céphée située à environ 500 années-lumière. Ce nuage très opaque du catalogue de Lynds se détache en silhouette sur la Voie lactée du nord et appartient au complexe moléculaire de Céphée. Astrophotographie : cible circumpolaire (Dec +77°), à imager en LRGB profond ou sur fond Hα pour renforcer le contraste.",
+      "source_hash": "sha256:748f8f869ce4c50992ba1fe344f90aba6ab8974ca0acfa59d9311e2ed098ffa3"
+    }
+  },
+  "LDN 43": {
+    "name": {
+      "text": "RNO 1",
+      "source_hash": "sha256:62480e9de14c070eeeebfd0aba49ea8e98d72990d720d155e1b991ebda603be8"
+    },
+    "description": {
+      "text": "LDN 43 est une nébuleuse sombre de Cassiopée/Céphée à environ 520 années-lumière, de classe d’opacité maximale. Elle est associée à RNO 1, petite nébulosité rouge de réflexion liée à une proto-étoile enfouie. Astrophotographie : très bien placée en automne depuis la France ; un LRGB profond (éventuellement avec Hα) est recommandé.",
+      "source_hash": "sha256:899499d068274aabd5b4c098b5cddd4dff231b5e849f09360eb03853377a712f"
+    }
+  },
+  "LDN 183": {
+    "name": {
+      "text": "Nébuleuse de l'Âme Noire",
+      "source_hash": "sha256:5a493dd38019f4315ed8d2f6cfc4e5593353589015dcb3d68f1c1f95ce5e0b35"
+    },
+    "description": {
+      "text": "LDN 183 est un nuage sombre très proche dans le Serpent, à environ 110 années-lumière. C’est un cœur pré-stellaire dense, souvent cité comme exemple de globule de Bok avant effondrement. Astrophotographie : cible équatoriale estivale ; en LRGB profond, la nébuleuse apparaît comme un trou net dans le champ stellaire.",
+      "source_hash": "sha256:679b6059d9dcc0a7ad62ea83f51083afa2f21a34f7207872cec03f889372a9ec"
+    }
+  },
+  "LDN 204": {
+    "name": {
+      "text": "Tige de la Nébuleuse de la Pipe",
+      "source_hash": "sha256:719e7c82c3d130f3f53a27344874e1bd5abaa7449e03a998d9e4f9609170e441"
+    },
+    "description": {
+      "text": "LDN 204 correspond à la tige de la célèbre Nébuleuse de la Pipe, à environ 450 années-lumière. Ce long nuage sombre est visible sur le fond stellaire riche du centre galactique, entre Ophiuchus et le Sagittaire. Astrophotographie : objet bas depuis la France (Dec -26°), à privilégier en grand champ LRGB pendant les nuits d’été stables.",
+      "source_hash": "sha256:c053e8268b3735f84b2af5f6f7cf91a8c94ba1bf1c1d30078ec203cc5002f099"
+    }
+  },
+  "LDN 694": {
+    "name": {
+      "text": "LDN 694",
+      "source_hash": "sha256:cb0baa57c1a789109dea1b78475ded360e0565309e0c31fdd8f512749faf8b66"
+    },
+    "description": {
+      "text": "LDN 694 est un globule de Bok compact du Taureau, à environ 820 années-lumière. Ce cœur pré-stellaire dense est bien étudié dans le complexe moléculaire du Taureau et offre un contraste marqué avec le fond d’étoiles. Astrophotographie : cible hivernale, plutôt à longue focale vu sa petite taille (environ 15’).",
+      "source_hash": "sha256:ecf1a19a5524fd20f337e4099a0505ccdbac5a0c86b18a2df248307cdb792d3d"
+    }
+  },
+  "LDN 1235": {
+    "name": {
+      "text": "Nébuleuse du Requin Sombre",
+      "source_hash": "sha256:74db57f3dbea4b5a3447ebf663fc280884db8195cbe8b4299214e1bd640f6152"
+    },
+    "description": {
+      "text": "LDN 1235 est une nébuleuse sombre de Céphée à environ 650 années-lumière, célèbre pour sa forme de requin. Elle appartient au complexe Cepheus Flare et se combine souvent avec les nébulosités bleues vdB 149 et vdB 150. Astrophotographie : cible circumpolaire d’automne ; LRGB profond en champ assez large pour inclure les réflexions bleues.",
+      "source_hash": "sha256:531ff8eaa535ab0a3d1fc86ababa5bb7d5db3d35f45e631b91f210ccbda020c1"
+    }
+  },
+  "LDN 1251": {
+    "name": {
+      "text": "LDN 1251",
+      "source_hash": "sha256:7c12e6b09b20cdcfe831939ebf64a01766f916f6d77bcacfbfe308ceeb74c078"
+    },
+    "description": {
+      "text": "LDN 1251 est un grand filament sombre de Céphée, à environ 300 années-lumière, sur environ 80’. Il fait partie du complexe Cepheus Flare, riche en cœurs denses et en objets Herbig-Haro. Astrophotographie : très bon objet circumpolaire, nécessitant un LRGB très profond pour révéler aussi le faible IFN environnant.",
+      "source_hash": "sha256:0d8abfdd519a08351fc75097939ea79f1824ebacfa24e3a9a79aa89c425973cf"
+    }
+  },
+  "LDN 1333": {
+    "name": {
+      "text": "Requin de Cassiopée",
+      "source_hash": "sha256:9909ee54e8e866abdfa26254c5160f8cec6017ce902de697b5f3492025800564"
+    },
+    "description": {
+      "text": "LDN 1333 est une nébuleuse sombre de Cassiopée à environ 700 années-lumière, d’aspect allongé et courbe. Cette structure de la Voie lactée locale peut montrer un faible IFN en imagerie profonde. Astrophotographie : cible circumpolaire, idéalement en LRGB longue intégration, avec possibilité de mosaïque avec LDN 1235.",
+      "source_hash": "sha256:c5cf0b299e1de14a9b603d16114c538afa67940c54f3a57ce0b27d0edf2409f0"
+    }
+  },
+  "LDN 1622": {
+    "name": {
+      "text": "Nébuleuse du Croque-Mitaine",
+      "source_hash": "sha256:e5623f26e7115734e736333bce996eb557a8d10207752a7bf07416e4db7d71bc"
+    },
+    "description": {
+      "text": "LDN 1622 est une nébuleuse sombre d’Orion à environ 400-500 années-lumière, visible par contraste devant la boucle de Barnard. Sa silhouette très caractéristique lui vaut son surnom de Croque-Mitaine. Astrophotographie : cible hivernale ; combinaison Hα + LRGB recommandée pour conserver le fond rouge de Barnard et la silhouette sombre.",
+      "source_hash": "sha256:b92794a70744a7025b6ef9a6ba5a7945e9afc77354d117eec16829fddac3a34d"
+    }
+  },
+  "LDN 1630": {
+    "name": {
+      "text": "Région de la Tête de Cheval",
+      "source_hash": "sha256:9bfe2d6ea05d9fb0da2ce71380eb423e9ba6579edd84d0a8f5a2f26ec3db59db"
+    },
+    "description": {
+      "text": "LDN 1630 est le nuage parent de la région de Barnard 33 (Tête de Cheval) dans Orion, à environ 1 350 années-lumière. Il se projette devant IC 434 et voisine NGC 2023 et NGC 2024 (Flame). Astrophotographie : grande cible hivernale ; Hα pour IC 434 et LRGB pour les teintes naturelles, avec focale suffisante pour détailler la Tête de Cheval.",
+      "source_hash": "sha256:0a612cc6cf4558e4bb448d0f82ea16dcb33422c3b67c5a59822cf8aae7c060ca"
+    }
+  },
+  "LDN 1689": {
+    "name": {
+      "text": "Nuage sombre d'Ophiuchus",
+      "source_hash": "sha256:76b20c9fa1324cc4af05fd2123ca0580adc38f425d520dd872d76bd2cd166887"
+    },
+    "description": {
+      "text": "LDN 1689 est un nuage moléculaire sombre très proche, à environ 140 années-lumière, dans le complexe rho Ophiuchi-Lupus. Il contient plusieurs cœurs denses et des proto-étoiles bien étudiées, dont IRAS 16293-2422. Astrophotographie : très grand champ, objet bas en été depuis la France, LRGB profond recommandé.",
+      "source_hash": "sha256:c5cc816461e8bf54366a4986e217ad330c5ccb18c021cfb38edb6d790265571d"
+    }
+  },
+  "LDN 1780": {
+    "name": {
+      "text": "Nuage sombre de Musca",
+      "source_hash": "sha256:19c2250250520b3a02d8c7dd489ab28b6c27038a273fd4172583f369fe43b53e"
+    },
+    "description": {
+      "text": "LDN 1780 est un nuage sombre relativement isolé, à environ 100-110 années-lumière, dans la zone Vierge/Hydre. Ses bords translucides peuvent montrer une faible réflexion bleutée sous très bon ciel. Astrophotographie : objet très bas depuis la France métropolitaine ; mieux adapté à des latitudes plus au sud.",
+      "source_hash": "sha256:8d3773d41fc7297a986ed388818d48d8f6e6305e1bbc1cd729456b17a855a494"
+    }
+  },
+  "LDN 1795": {
+    "name": {
+      "text": "Nébuleuse du Serpent",
+      "source_hash": "sha256:18fe87fe55a89447c1c7350fe0202811ee098f6a8e2e8008641963b87548e037"
+    },
+    "description": {
+      "text": "LDN 1795 (B72) est une nébuleuse sombre sinueuse d’Ophiuchus, à environ 650 années-lumière. Sa forme en S sur le fond stellaire dense du centre galactique lui donne son surnom de Nébuleuse du Serpent. Astrophotographie : objet estival assez bas ; grand champ LRGB conseillé, avec Hα optionnel.",
+      "source_hash": "sha256:94880e557daed182db10c8f4fecf34fdc2bb1fd46fb6adc65b61f17d8f668642"
+    }
+  }
+}

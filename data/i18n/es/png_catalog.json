@@ -1,0 +1,672 @@
+{
+    "PNG 7.8+3.2": {
+        "name": {
+            "text": "NGC 6309 Nebulosa de la Caja",
+            "source_hash": "sha256:e729099d471bd6d075511ede472922a6737a9190a9c20c06dcb3437b3c059f04"
+        },
+        "description": {
+            "text": "PNG 7.8+3.2 (NGC 6309 Nebulosa de la Caja) es un objeto de tipo nebulosa planetaria en Ophiuchus, a unos 5 kly. Magnitud ~ 11.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:228aa995bf5238b4a2a5e2c387dd749b1549f9db8442e7938b0eabd72f4635dd"
+        }
+    },
+    "PNG 27.6+4.2": {
+        "name": {
+            "text": "NGC 6572 Nebulosa Esmeralda",
+            "source_hash": "sha256:0001cae05101f53e96aa8d593fb11654d4d2d993003aee0a83882aaa69c4495f"
+        },
+        "description": {
+            "text": "PNG 27.6+4.2 (NGC 6572 Nebulosa Esmeralda) es un objeto de tipo nebulosa planetaria en Ophiuchus, a unos 1,8 kly. Magnitud ~ 8.1; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:a00fdb46a3e294316b0b1eac07b9a6364daca7b0e8ee99ab68bdb4954c440040"
+        }
+    },
+    "PNG 36.1-57.1": {
+        "name": {
+            "text": "NGC 246 Nebulosa de la Calavera",
+            "source_hash": "sha256:aea697c6e8626de7e1659638765c543120a2fa894536a1cbc69271e487a58c59"
+        },
+        "description": {
+            "text": "PNG 36.1-57.1 (NGC 246 Nebulosa de la Calavera) es un objeto de tipo nebulosa planetaria en Cetus, a unos 1,6 kly. Magnitud ~ 8.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:407718452606f8fec966b202594066cf68083d5aadd334596596d9087a374fac"
+        }
+    },
+    "PNG 38.5-0.9": {
+        "name": {
+            "text": "NGC 6751 Nebulosa del Ojo Brillante",
+            "source_hash": "sha256:70e90bfe9b11b707452a65694eaf7a3bbde8eb76e50ce5bcc68962895fa01487"
+        },
+        "description": {
+            "text": "PNG 38.5-0.9 (NGC 6751 Nebulosa del Ojo Brillante) es un objeto de tipo nebulosa planetaria en Aquila, a unos 6,5 kly. Magnitud ~ 11.9; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:171b7abd2e7266829a1a11363c4512bee22e0f35de73a8bb0c51739ac3e7a8aa"
+        }
+    },
+    "PNG 42.5-14.5": {
+        "name": {
+            "text": "NGC 6781",
+            "source_hash": "sha256:f665a9e4f4966e23fdc934bf18f9fea258e6c62f75583f0c2353acc7e9fecea5"
+        },
+        "description": {
+            "text": "PNG 42.5-14.5 (NGC 6781) es un objeto de tipo nebulosa planetaria en Aquila, a unos 2,5 kly. Magnitud ~ 11.8; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:873d4b9ed3a2505883d2f691bb2aca903fa5775a3be913f74a350f5e64be55d2"
+        }
+    },
+    "PNG 49.4+2.4": {
+        "name": {
+            "text": "NGC 6765",
+            "source_hash": "sha256:abd56b2413fa8469c75f807b09a8316a62ed0130d355e39a4cc10479e9fc33a8"
+        },
+        "description": {
+            "text": "PNG 49.4+2.4 (NGC 6765) es un objeto de tipo nebulosa planetaria en Lyra, a unos 10 kly. Magnitud ~ 12.9; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:c7903601563c5034aeb90bebfaec449f6c36113fd915bc575b744e9daa0ee0e8"
+        }
+    },
+    "PNG 53.8-3.0": {
+        "name": {
+            "text": "NGC 6803 Little Gem",
+            "source_hash": "sha256:ee836b1765b0349ae6df2959ac2272545bf55044a9d630bd10db70ee197404ce"
+        },
+        "description": {
+            "text": "PNG 53.8-3.0 (NGC 6803 Little Gem) es un objeto de tipo nebulosa planetaria en Aquila, a unos 6,5 kly. Magnitud ~ 11.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:4a537ec5d0c0a1b6e61c43da1e41aedfb1a94940d327d4e0d3d0ff3f3084cd0f"
+        }
+    },
+    "PNG 57.4-3.6": {
+        "name": {
+            "text": "NGC 6820 (EN)",
+            "source_hash": "sha256:4806d238fe6a897361d995b53280df2ec94e66a5be1589b36f50ec61fcc7331d"
+        },
+        "description": {
+            "text": "PNG 57.4-3.6 (NGC 6820 (EN)) es un objeto de tipo nebulosa de emision en Vulpecula, a unos 6 kly. Magnitud ~ 8.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:77978a040f9dd39d510aa61a7b98b79784d1d22df3b14bd4eb8290c03cdbec65"
+        }
+    },
+    "PNG 59.0-13.9": {
+        "name": {
+            "text": "NGC 6853 Dumbbell Nebula (M27)",
+            "source_hash": "sha256:3a2e07978050ba88b1c3340b54f3b9b7f6cf722106ac3003a552f6deb6e17959"
+        },
+        "description": {
+            "text": "PNG 59.0-13.9 (NGC 6853 Dumbbell Nebula (M27)) es un objeto de tipo nebulosa planetaria en Vulpecula, a unos 1,4 kly. Magnitud ~ 7.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:378840de214a8e1c5418b0fd587c08b65a0e194c11748f6fcaed885a0e0f38d4"
+        }
+    },
+    "PNG 60.8-3.6": {
+        "name": {
+            "text": "NGC 6857 (EN)",
+            "source_hash": "sha256:64c13851612254e69ad802d6dcd9d348282bfba1d4ce149028293bd084d8cfae"
+        },
+        "description": {
+            "text": "PNG 60.8-3.6 (NGC 6857 (EN)) es un objeto de tipo nebulosa de emision en Cygnus, a unos 6,5 kly. Magnitud ~ 11.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:fb52a3761714bec1c234c003c9985b5346a5745d7f66fd09fbba0170c0c30752"
+        }
+    },
+    "PNG 63.6+13.9": {
+        "name": {
+            "text": "NGC 6210 Turtle Nebula",
+            "source_hash": "sha256:11b11be6ff1165fd8a3ede887d7b273b71d07d7f04cae9d1837d3ace7750e448"
+        },
+        "description": {
+            "text": "PNG 63.6+13.9 (NGC 6210 Turtle Nebula) es un objeto de tipo nebulosa planetaria en Hercules, a unos 6,5 kly. Magnitud ~ 8.8; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:641803f5287cbf3895ba48f76474d14901eb4a6d7dd2e5d69b1d56d78261d32a"
+        }
+    },
+    "PNG 64.7-73.5": {
+        "name": {
+            "text": "NGC 246 Nebulosa de la Calavera (duplicate)",
+            "source_hash": "sha256:8c25337b30f5dc6482c6a119608b316721e49c7958a4e4645c907d736f494f88"
+        },
+        "description": {
+            "text": "PNG 64.7-73.5 (NGC 246 Nebulosa de la Calavera (duplicate)) es un objeto de tipo nebulosa planetaria en Cetus, a unos 1,6 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:4d6f31f308dd94c7119f47ded3dfd58c42ba7d21f5b7a273f66b9ad24eb9b05b"
+        }
+    },
+    "PNG 64.7+5.0": {
+        "name": {
+            "text": "NGC 6884",
+            "source_hash": "sha256:fec262acae414085beeaabd67983f0a7a5a3a4f2db816237597b9d629f56bbd3"
+        },
+        "description": {
+            "text": "PNG 64.7+5.0 (NGC 6884) es un objeto de tipo nebulosa planetaria en Cygnus, a unos 6 kly. Magnitud ~ 10.9; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:b6974f50ce233f834588887a12fa8fc89e2958011f96dd105acd20909060f7c2"
+        }
+    },
+    "PNG 65.9-27.1": {
+        "name": {
+            "text": "NGC 7293 Helix Nebula",
+            "source_hash": "sha256:19d8a23f1820b325520b6cd436b03b8bacf386dbbd15f1024f957dae8883b8bf"
+        },
+        "description": {
+            "text": "PNG 65.9-27.1 (NGC 7293 Helix Nebula) es un objeto de tipo nebulosa planetaria en Aquarius, a unos 650 ly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:76335789c803bc6136b0e49a7c91f39c2ab4e52ae0ef7539481520a20ee092b0"
+        }
+    },
+    "PNG 66.7+1.0": {
+        "name": {
+            "text": "NGC 6891",
+            "source_hash": "sha256:b8b325fe5ecb0748d9cb0ae0f0e7b668a9fcef249e5cbf40656f3b5aecd8c63a"
+        },
+        "description": {
+            "text": "PNG 66.7+1.0 (NGC 6891) es un objeto de tipo nebulosa planetaria en Delphinus, a unos 4,8 kly. Magnitud ~ 10.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:ecd90c237ef2c3e1adf3b1155b6419188adbef8422a090f9588dfa51ef8ba152"
+        }
+    },
+    "PNG 70.5+2.4": {
+        "name": {
+            "text": "NGC 6905 Blue Flash Nebula",
+            "source_hash": "sha256:3528e8f50f529e7da6260b31a9f4b70d92d390ec60ee3d2bc1016b58d8f7473e"
+        },
+        "description": {
+            "text": "PNG 70.5+2.4 (NGC 6905 Blue Flash Nebula) es un objeto de tipo nebulosa planetaria en Delphinus, a unos 7 kly. Magnitud ~ 11.1; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:c8d70db7c92337e1daa818f2de34e4f4e02f2fcf18c2db9860a8f4603d491e79"
+        }
+    },
+    "PNG 72.7-17.1": {
+        "name": {
+            "text": "NGC 7009 Saturn Nebula",
+            "source_hash": "sha256:2393a4e9336da3d0a6bc416f7cf3c250c2c72c4f2d31886400cee104eb5b31db"
+        },
+        "description": {
+            "text": "PNG 72.7-17.1 (NGC 7009 Saturn Nebula) es un objeto de tipo nebulosa planetaria en Aquarius, a unos 2 kly. Magnitud ~ 8.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:a64db24b1aadc44e6a4a7cb00037349f301d84a5cb76c52e30c514f62a3d21fb"
+        }
+    },
+    "PNG 74.9+1.2": {
+        "name": {
+            "text": "NGC 6992 Eastern Veil (SNR)",
+            "source_hash": "sha256:1711dbc935235d9b38696256266f606eef50d4699e86d295f25d7ca731133741"
+        },
+        "description": {
+            "text": "PNG 74.9+1.2 (NGC 6992 Eastern Veil (SNR)) es un objeto de tipo remanente de supernova en , a unos 2,6 kly. Magnitud ~ 7.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:b04e772b9ace720e45adeb88d43137de83dfffe552cd69d10f8c08a1ba469c2e"
+        }
+    },
+    "PNG 74.5+2.1": {
+        "name": {
+            "text": "NGC 6979 Northern Veil (SNR)",
+            "source_hash": "sha256:c3a8bb5ba452c9dd1042021817bbac33bc9c97516903bbbcdbcc6fe9ef34f140"
+        },
+        "description": {
+            "text": "PNG 74.5+2.1 (NGC 6979 Northern Veil (SNR)) es un objeto de tipo remanente de supernova en Cygnus, a unos 2,6 kly. Magnitud ~ 7.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:e61af34bd997b2d0cf2b9867012ba9c97081e7897f7f5c705bdcafc2610a062a"
+        }
+    },
+    "PNG 75.9+1.3": {
+        "name": {
+            "text": "IC 1340 Southeast Veil (SNR)",
+            "source_hash": "sha256:c4ce87bd846cfb307402f90db1312348fcdba203bbd4416b7db6a51864369f15"
+        },
+        "description": {
+            "text": "PNG 75.9+1.3 (IC 1340 Southeast Veil (SNR)) es un objeto de tipo remanente de supernova en , a unos 2,6 kly. Magnitud ~ 7.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:9018726b753a2e22bea73cf9c3d7b6b6b077f9f766cee22e9fd938f0b0a93f82"
+        }
+    },
+    "PNG 75.5+1.7": {
+        "name": {
+            "text": "NGC 6995 Veil Segment (SNR)",
+            "source_hash": "sha256:f09c99274728bf476648890d0bab923a647dd870761a51f9b0c4a8925ed58d92"
+        },
+        "description": {
+            "text": "PNG 75.5+1.7 (NGC 6995 Veil Segment (SNR)) es un objeto de tipo remanente de supernova en , a unos 2,6 kly. Magnitud ~ 7.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:4b098bf2f369782fef2e6d9c506d3c0cf74f05a6946cc8049dffb3bc1106bcfd"
+        }
+    },
+    "PNG 84.9-3.4": {
+        "name": {
+            "text": "NGC 7027 Jewel Bug Nebula",
+            "source_hash": "sha256:dbe9e87b1b07685030a2316fef7cba9bab1321e91c3ee1d51359ce6fb8dbfc4c"
+        },
+        "description": {
+            "text": "PNG 84.9-3.4 (NGC 7027 Jewel Bug Nebula) es un objeto de tipo nebulosa planetaria en Cygnus, a unos 2,5 kly. Magnitud ~ 8.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:726255c87f9e144577baa9bf846e132e56aa5677b078e503066bcc300b74b03c"
+        }
+    },
+    "PNG 85.4-0.1": {
+        "name": {
+            "text": "Sh2-120 (EN)",
+            "source_hash": "sha256:d4a52a40b9d8230a69bb3763846c34fd80b49c9d7c57ab013f3fe3c1c1752c38"
+        },
+        "description": {
+            "text": "PNG 85.4-0.1 (Sh2-120 (EN)) es un objeto de tipo nebulosa de emision en Cygnus, a unos 4,5 kly. Magnitud ~ 10.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:325090d4a2a6b6702c3b6ae843883b5c63bcb0d392feadbf1707438e54e3dd28"
+        }
+    },
+    "PNG 86.5-6.1": {
+        "name": {
+            "text": "NGC 7026 Butterfly Nebula",
+            "source_hash": "sha256:ba0080a15ca251ccfd09796c372f21bcae52b8b0407d05477c80cf5270800879"
+        },
+        "description": {
+            "text": "PNG 86.5-6.1 (NGC 7026 Butterfly Nebula) es un objeto de tipo nebulosa planetaria en Cygnus, a unos 5 kly. Magnitud ~ 10.9; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:5d0262c5750108e058d084323221682180dfb69fcd3bf0b0809d7dc7490ce932"
+        }
+    },
+    "PNG 86.4-0.5": {
+        "name": {
+            "text": "NGC 7048",
+            "source_hash": "sha256:c19c9dfc2f3411257b3bc8afa28d2d8c8afae700e6554504d239901c9f3d7d80"
+        },
+        "description": {
+            "text": "PNG 86.4-0.5 (NGC 7048) es un objeto de tipo nebulosa planetaria en Cygnus, a unos 6 kly. Magnitud ~ 11.3; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:16961ac6067b65ad581e50436f39a67d89c02e4b39ac9d69d1dd22e1a54966a2"
+        }
+    },
+    "PNG 89.0-0.3": {
+        "name": {
+            "text": "IC 5117",
+            "source_hash": "sha256:29b73cd5222abdec7505eb9a464644cfa919933e1333c7d42128cac324dec148"
+        },
+        "description": {
+            "text": "PNG 89.0-0.3 (IC 5117) es un objeto de tipo nebulosa planetaria en Cygnus, a unos 7 kly. Magnitud ~ 11.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:41abea52f2f96de61b2109f259538ca7c4539f930c9bf8c25c1a0e55a8bfebc0"
+        }
+    },
+    "PNG 96.4+9.6": {
+        "name": {
+            "text": "NGC 7139",
+            "source_hash": "sha256:9031bf2c20a4b662a9d42efd84e991799eead176ecde308043127bd90342fd9e"
+        },
+        "description": {
+            "text": "PNG 96.4+9.6 (NGC 7139) es un objeto de tipo nebulosa planetaria en Cepheus, a unos 3 kly. Magnitud ~ 13.3; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:8b24abeb3e162bd612f6a20e92c56a23c507e0c7174cbafc7ba914a8d8dbcd99"
+        }
+    },
+    "PNG 97.0-2.0": {
+        "name": {
+            "text": "Sh2-124 (EN)",
+            "source_hash": "sha256:df24bfa7fd3e2768d1edc667e20232c75180f134f0b36d69d512c1208871d0c6"
+        },
+        "description": {
+            "text": "PNG 97.0-2.0 (Sh2-124 (EN)) es un objeto de tipo nebulosa de emision en Cygnus, a unos 5 kly. Magnitud ~ 11.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:a61412bb0689f0b8b2c8c8a953fc0aa0f5e88bf897c2366266e28de7d340b458"
+        }
+    },
+    "PNG 104.2-29.6": {
+        "name": {
+            "text": "NGC 7662 Blue Snowball Nebula",
+            "source_hash": "sha256:2c6ff332df4b3e407a57e7710dffc2474aa8d5bf3c32c69114614d82e1255b06"
+        },
+        "description": {
+            "text": "PNG 104.2-29.6 (NGC 7662 Blue Snowball Nebula) es un objeto de tipo nebulosa planetaria en Andromeda, a unos 1,8 kly. Magnitud ~ 8.3; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:dbd61ad12bded5d78907a5181455031b534576c86e0d3f56e6d87cbb128de3ca"
+        }
+    },
+    "PNG 107.6+2.3": {
+        "name": {
+            "text": "Sh2-131 / IC 1396 PN",
+            "source_hash": "sha256:17c34470d183081c4e65609b004e4c33e7b9ae318050e6d7de247132c728d441"
+        },
+        "description": {
+            "text": "PNG 107.6+2.3 (Sh2-131 / IC 1396 PN) es un objeto de tipo nebulosa planetaria en Cepheus, a unos 3 kly. Magnitud ~ 12.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:5a8e188c0648dfe95c641dd6b5b93e28665d1387d4c123d73929183a7dc65579"
+        }
+    },
+    "PNG 111.8-2.8": {
+        "name": {
+            "text": "NGC 7354",
+            "source_hash": "sha256:d4617d034b4a03573d68750cb8d50b480a17fa2af28954840e3cba3c97cee53a"
+        },
+        "description": {
+            "text": "PNG 111.8-2.8 (NGC 7354) es un objeto de tipo nebulosa planetaria en Cepheus, a unos 3 kly. Magnitud ~ 12.9; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:bae65914fb720b3478e87a5a5e24e46400089ea24af2f680c1126eee28c16fec"
+        }
+    },
+    "PNG 114.0-4.6": {
+        "name": {
+            "text": "NGC 7538 (EN)",
+            "source_hash": "sha256:247c6dccc1037f6a937211772ad37787705eb251420b8115e3469d854c3331ec"
+        },
+        "description": {
+            "text": "PNG 114.0-4.6 (NGC 7538 (EN)) es un objeto de tipo nebulosa de emision en Cassiopeia, a unos 9 kly. Magnitud ~ 9.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:f7bcbe233a09f940c47152bec1c33655b69061d1e85efb5a5c93e94a1a7d605c"
+        }
+    },
+    "PNG 118.8-74.7": {
+        "name": {
+            "text": "NGC 246 Nebulosa de la Calavera (duplicate 2)",
+            "source_hash": "sha256:8cc99c99e3257a4356a50c597faa308f30ab015e297dbb2b3e9dea4fefbdb7d6"
+        },
+        "description": {
+            "text": "PNG 118.8-74.7 (NGC 246 Nebulosa de la Calavera (duplicate 2)) es un objeto de tipo nebulosa planetaria en Cetus, a unos 1,6 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:e10be1d6d14b2dd40842ea137aa02b8f30eb1dc9037d7ae3e9207212ffdd645b"
+        }
+    },
+    "PNG 119.6+0.0": {
+        "name": {
+            "text": "IC 1747",
+            "source_hash": "sha256:74b2e07de2568ec5dcb8268b5ed5e88bcdbe534fd8ec93a9fd9f2e38c8c44d6d"
+        },
+        "description": {
+            "text": "PNG 119.6+0.0 (IC 1747) es un objeto de tipo nebulosa planetaria en Cassiopeia, a unos 3 kly. Magnitud ~ 11.9; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:6872f0220ac8d048463dcda75420994e833526f7106019012e03af64b228265a"
+        }
+    },
+    "PNG 120.0+9.8": {
+        "name": {
+            "text": "NGC 40 Bow-Tie Nebula",
+            "source_hash": "sha256:1ba1d79b3e7eb7c6ce58380efadbc31f301ef277f687a7c1672baf6cf58844ce"
+        },
+        "description": {
+            "text": "PNG 120.0+9.8 (NGC 40 Bow-Tie Nebula) es un objeto de tipo nebulosa planetaria en Cepheus, a unos 3,5 kly. Magnitud ~ 10.7; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:d12e83fd409c940d2000e24ba3d8aa7e8705ac7b3d7e1edc769506cca4e848fc"
+        }
+    },
+    "PNG 130.9-10.5": {
+        "name": {
+            "text": "IC 289",
+            "source_hash": "sha256:19ac67e74aae4b1558990f512cbb3e41752a883e80f6688f25147bc06c3d5ee3"
+        },
+        "description": {
+            "text": "PNG 130.9-10.5 (IC 289) es un objeto de tipo nebulosa planetaria en Cassiopeia, a unos 3 kly. Magnitud ~ 13.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:e0f4ef426b75f48ffa4c2e39bc9fb734919ea198b74b4029ad690d800c818763"
+        }
+    },
+    "PNG 136.3+5.5": {
+        "name": {
+            "text": "IC 351",
+            "source_hash": "sha256:ea45d27a99deced4e2fec779a7f84919222830f41c36a7b99ac26c8a35b7503f"
+        },
+        "description": {
+            "text": "PNG 136.3+5.5 (IC 351) es un objeto de tipo nebulosa planetaria en Perseus, a unos 2,2 kly. Magnitud ~ 12.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:f57e361e0af288d4f93a49ebe0d2f18a4abcac12c5dca6a808095095eb3d8739"
+        }
+    },
+    "PNG 138.1+4.1": {
+        "name": {
+            "text": "IC 2003",
+            "source_hash": "sha256:b2507d4e120ebb58fda842435e11f41a0918da85ab89569af7075bd52bd2bb48"
+        },
+        "description": {
+            "text": "PNG 138.1+4.1 (IC 2003) es un objeto de tipo nebulosa planetaria en Perseus, a unos 3,8 kly. Magnitud ~ 11.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:4ed6d0a14a31a2a0b00f8cefaebccbfdfe7d585ec2ed2f38fa06aa1195bdc484"
+        }
+    },
+    "PNG 143.6+6.6": {
+        "name": {
+            "text": "IC 2149",
+            "source_hash": "sha256:616c0b0056ea5677f2e4c8b588fccd626c44db16205dae36acb9842f8f82bd7b"
+        },
+        "description": {
+            "text": "PNG 143.6+6.6 (IC 2149) es un objeto de tipo nebulosa planetaria en Auriga, a unos 2 kly. Magnitud ~ 11.1; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:3b7b82b558e5a6a6e0c22bf584d3549c436bcf024bed18a936a111686c57406e"
+        }
+    },
+    "PNG 148.4+57.0": {
+        "name": {
+            "text": "NGC 3587 Owl Nebula (M97)",
+            "source_hash": "sha256:dc625ee881d3336d70fbddb75634106c6c4006d137954bab350f17aac9162226"
+        },
+        "description": {
+            "text": "PNG 148.4+57.0 (NGC 3587 Owl Nebula (M97)) es un objeto de tipo nebulosa planetaria en Ursa Major, a unos 2 kly. Magnitud ~ 11.2; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:de629c628aee8b164587f2e5ee2cff725d55bfd6e22c577b5960633c730190dd"
+        }
+    },
+    "PNG 158.9+17.8": {
+        "name": {
+            "text": "IC 2120",
+            "source_hash": "sha256:79f9a69897e11c123642ae2dd2f60db0d6bf97779609d90e6c370419cd4c1b41"
+        },
+        "description": {
+            "text": "PNG 158.9+17.8 (IC 2120) es un objeto de tipo nebulosa planetaria en Auriga, a unos 5 kly. Magnitud ~ 13.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:30ae5115a4876313375d110f7a56ef33ae959f00c7c7f546972b1b588f350cfb"
+        }
+    },
+    "PNG 161.2-14.8": {
+        "name": {
+            "text": "IC 418 Spirograph Nebula",
+            "source_hash": "sha256:0760c2c8fd67f2fc3db853ccc704050a1d3e7375daca61f7567e014fad84f67f"
+        },
+        "description": {
+            "text": "PNG 161.2-14.8 (IC 418 Spirograph Nebula) es un objeto de tipo nebulosa planetaria en Lepus, a unos 2 kly. Magnitud ~ 9.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:1b8214fc60831c1ebaa76e33ec5fab0a91c6a1e1b77c7aadf8af20fa631b119f"
+        }
+    },
+    "PNG 164.8+31.1": {
+        "name": {
+            "text": "NGC 2392 Eskimo Nebula",
+            "source_hash": "sha256:5a9b1a42510f21b339a9998cfcc89481fc494cba15719845d85fb250fbe18765"
+        },
+        "description": {
+            "text": "PNG 164.8+31.1 (NGC 2392 Eskimo Nebula) es un objeto de tipo nebulosa planetaria en Gemini, a unos 5 kly. Magnitud ~ 10.1; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:4dada71a4866733c2d7909f98e5e569dc07d0bddcc6b7a70f6b0fd57f009af5a"
+        }
+    },
+    "PNG 167.0-0.9": {
+        "name": {
+            "text": "IC 2165",
+            "source_hash": "sha256:1d8d81a25683f4a164bfad1eaed184621d0aeafc7e3bd09710b8161a7ee1af80"
+        },
+        "description": {
+            "text": "PNG 167.0-0.9 (IC 2165) es un objeto de tipo nebulosa planetaria en Canis Minor, a unos 8 kly. Magnitud ~ 11.6; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:2c309b484cbe24baf5f2ab50fc8a2725c16e3bcb4a3ca3a9bd42cb15ded074a0"
+        }
+    },
+    "PNG 175.4-0.8": {
+        "name": {
+            "text": "Abell 14",
+            "source_hash": "sha256:356a006da2870c13beea3d21fe70c01b7671a97bc22771162ace676a1f4f91a9"
+        },
+        "description": {
+            "text": "PNG 175.4-0.8 (Abell 14) es un objeto de tipo nebulosa planetaria en Gemini, a unos 8 kly. Magnitud ~ 15.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:b757bf252e346212e7a36f7f3b5d51b8931fc5701283425e6d9f176d31f0e2ed"
+        }
+    },
+    "PNG 189.8+7.3": {
+        "name": {
+            "text": "J 900",
+            "source_hash": "sha256:5a30113a085d250dd5365c540558bff84d1131d219ffaeb37e4ad6cf1c413ddd"
+        },
+        "description": {
+            "text": "PNG 189.8+7.3 (J 900) es un objeto de tipo nebulosa planetaria en Gemini, a unos 5 kly. Magnitud ~ 12.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:6669bf8dc6a2c6a2405ef2fe93d328647dd1c7b7efb0f8ebac8fd02c8c5bef0a"
+        }
+    },
+    "PNG 194.2+2.5": {
+        "name": {
+            "text": "NGC 2371 Twin Nebula",
+            "source_hash": "sha256:7f4a4e29eb8c07bb8e2a45dbca00cd7fbdb29a5fa10dcf8761bde26cb5e0efcd"
+        },
+        "description": {
+            "text": "PNG 194.2+2.5 (NGC 2371 Twin Nebula) es un objeto de tipo nebulosa planetaria en Gemini, a unos 4,4 kly. Magnitud ~ 11.2; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:650836f918530b255ef80e614275284008dd0a4877b62e11bb462a5cb43f1402"
+        }
+    },
+    "PNG 197.8+17.3": {
+        "name": {
+            "text": "NGC 2438",
+            "source_hash": "sha256:351b74eb073e3731aaae6bb4fa361bf6af51badfd179d323e15048a673a89d7d"
+        },
+        "description": {
+            "text": "PNG 197.8+17.3 (NGC 2438) es un objeto de tipo nebulosa planetaria en Puppis, a unos 2,9 kly. Magnitud ~ 10.8; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:dc8ef3bac7eecaef9ad1dee3c0990cc8b7126318443c2b003f100650cd4be92d"
+        }
+    },
+    "PNG 206.4-40.5": {
+        "name": {
+            "text": "NGC 1535 Cleopatra\u0027s Eye Nebula",
+            "source_hash": "sha256:3692c2bf8010b9703b3a452e6f82b5f1945c60c20cc02d0225f573c51cc632e1"
+        },
+        "description": {
+            "text": "PNG 206.4-40.5 (NGC 1535 Cleopatra\u0027s Eye Nebula) es un objeto de tipo nebulosa planetaria en Eridanus, a unos 5 kly. Magnitud ~ 9.6; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:71ab9a4ebdfc6a3b176f972fe89a1c9b67a3d1edec10b34ad39a9f9b5f2ba9bf"
+        }
+    },
+    "PNG 215.6+11.1": {
+        "name": {
+            "text": "Abell 21 Medusa Nebula",
+            "source_hash": "sha256:2d569132f93fadd3c743a87ba6b37396a31e3f5c9e1e5323b0632c6a65f2b244"
+        },
+        "description": {
+            "text": "PNG 215.6+11.1 (Abell 21 Medusa Nebula) es un objeto de tipo nebulosa planetaria en Gemini, a unos 1,5 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:a87a869a420cfa87d2aba500f8f8990179fc48b32168d649bf0c795adf1f63e5"
+        }
+    },
+    "PNG 221.3-12.3": {
+        "name": {
+            "text": "NGC 2346 Butterfly Nebula",
+            "source_hash": "sha256:921263040bd26e2c8623e4233111ba824e8583a64558cacc36f41ba6ba50b47d"
+        },
+        "description": {
+            "text": "PNG 221.3-12.3 (NGC 2346 Butterfly Nebula) es un objeto de tipo nebulosa planetaria en Monoceros, a unos 5 kly. Magnitud ~ 11.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:bb87a56456fa69739717fe8d4bc2c41c557061ac9adf51887714f8f8e6152469"
+        }
+    },
+    "PNG 232.8+5.7": {
+        "name": {
+            "text": "NGC 2440 Southern Butterfly",
+            "source_hash": "sha256:ff7eec7fbd7e34d60a6c12bb0ee8e5c1c26e34faf4df395ee586ad3aa1b41aaf"
+        },
+        "description": {
+            "text": "PNG 232.8+5.7 (NGC 2440 Southern Butterfly) es un objeto de tipo nebulosa planetaria en Puppis, a unos 3,6 kly. Magnitud ~ 10.8; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:54cf1c15051e17401ce52bf0093c7ab0af8738aefd5e5c3f29afebeb08e02a16"
+        }
+    },
+    "PNG 234.9+2.4": {
+        "name": {
+            "text": "NGC 2438 (duplicate)",
+            "source_hash": "sha256:eac39d4034f5448a03cc83f84f671d3e5fa6dab2c6fe67a1e7b720e7346cdc19"
+        },
+        "description": {
+            "text": "PNG 234.9+2.4 (NGC 2438 (duplicate)) es un objeto de tipo nebulosa planetaria en Puppis, a unos 2,9 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:25b3aa5e5044c12e23bcbe36dc32d99cef50ac94571e0982933ca2b0ef154074"
+        }
+    },
+    "PNG 261.0+32.0": {
+        "name": {
+            "text": "NGC 3132 Southern Ring Nebula",
+            "source_hash": "sha256:91ab0513f9e8d07ae559a45f7eef0c36b3eff0d08a2ae31bf598049c28df0f9e"
+        },
+        "description": {
+            "text": "PNG 261.0+32.0 (NGC 3132 Southern Ring Nebula) es un objeto de tipo nebulosa planetaria en Vela, a unos 2 kly. Magnitud ~ 8.2; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:3a5b1c26085ec2cebd3b90cf21184984cb65d6a0069bc844e31b4ec1575a3311"
+        }
+    },
+    "PNG 283.6+25.3": {
+        "name": {
+            "text": "NGC 3918 Blue Planetary",
+            "source_hash": "sha256:b0457eead515252dfc2c02bbd7a7c3a02a9712ce6b8ebf9641db97652bd7e4a6"
+        },
+        "description": {
+            "text": "PNG 283.6+25.3 (NGC 3918 Blue Planetary) es un objeto de tipo nebulosa planetaria en Centaurus, a unos 3 kly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:6bfbae9d6d0cb1c5172b907aab78d8e92a4cae3b4f475c4df55d4a7d0d1646ed"
+        }
+    },
+    "PNG 290.5+7.9": {
+        "name": {
+            "text": "NGC 3699",
+            "source_hash": "sha256:f1cdced5f6741f3fb8771399014f95352e0c7e0189a158332af3398bfd8cceb5"
+        },
+        "description": {
+            "text": "PNG 290.5+7.9 (NGC 3699) es un objeto de tipo nebulosa planetaria en Centaurus, a unos 5 kly. Magnitud ~ 11.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:c4d9613471fdf72788fd47622f5586ef40c1caf3b2173437237fa983007b67b6"
+        }
+    },
+    "PNG 292.5+4.4": {
+        "name": {
+            "text": "NGC 3918 Blue Planetary (duplicate)",
+            "source_hash": "sha256:ad50b5788fd8a068e03112fd8a3c2f0e8e3146993722c8173e7fc0c97179c239"
+        },
+        "description": {
+            "text": "PNG 292.5+4.4 (NGC 3918 Blue Planetary (duplicate)) es un objeto de tipo nebulosa planetaria en , a unos 3 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:076052d93b052011021836159645ac4e6ef0e36e76d2aa529ec905867b98bc08"
+        }
+    },
+    "PNG 306.4+15.6": {
+        "name": {
+            "text": "Hen 2-47",
+            "source_hash": "sha256:fc0529f91dc9a11e0dc7e60ba9dd3263c4c33c366c656b73afc0bbd03f01ae7c"
+        },
+        "description": {
+            "text": "PNG 306.4+15.6 (Hen 2-47) es un objeto de tipo nebulosa planetaria en Lupus, a unos 6 kly. Magnitud ~ 13.0; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:355595ff7b6cae56d83f755f4b4282228b9c8f91ded82b76dc24fce4db0ec29d"
+        }
+    },
+    "PNG 315.1-13.0": {
+        "name": {
+            "text": "IC 4406 Retina Nebula",
+            "source_hash": "sha256:2b79c66045eaa34a7ebba146bd2303079a599dd803e12c258dbd3d09d1527712"
+        },
+        "description": {
+            "text": "PNG 315.1-13.0 (IC 4406 Retina Nebula) es un objeto de tipo nebulosa planetaria en Lupus, a unos 2 kly. Magnitud ~ 10.8; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:8aaac54f20581d0619da8b99e54bff76657a89590716c1b74d50cbbfbcf99717"
+        }
+    },
+    "PNG 320.9+2.0": {
+        "name": {
+            "text": "NGC 5882",
+            "source_hash": "sha256:3a71a9a319452e4880fb08bdcdc7cbc9cf3fd245103531bbb5719f70dc30ea6b"
+        },
+        "description": {
+            "text": "PNG 320.9+2.0 (NGC 5882) es un objeto de tipo nebulosa planetaria en Lupus, a unos 5 kly. Magnitud ~ 10.5; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:dcc689853b05df98f622c564d12ae7e450b3507cd496a10204144f22bfe82882"
+        }
+    },
+    "PNG 327.8+10.0": {
+        "name": {
+            "text": "NGC 5979",
+            "source_hash": "sha256:effbd257f7c9f9f39e25d902d4abf53ebd8a545309686d5b62ddaded4e423bbe"
+        },
+        "description": {
+            "text": "PNG 327.8+10.0 (NGC 5979) es un objeto de tipo nebulosa planetaria en Lupus, a unos 5 kly. Magnitud ~ 12.2; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:edb02e99bb82fabd24fcb3ae23ce2a5ba7625abddea33ca82d7a5eebd1ebe9a1"
+        }
+    },
+    "PNG 336.2+14.8": {
+        "name": {
+            "text": "NGC 6026",
+            "source_hash": "sha256:2b462755ef2b70b769c235369f091bfb1ba79d9a8ca69d2a67da02de8f302530"
+        },
+        "description": {
+            "text": "PNG 336.2+14.8 (NGC 6026) es un objeto de tipo nebulosa planetaria en Lupus, a unos 6 kly. Magnitud ~ 12.7; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:48bfe48ec111875ccb3e3a6cc5647fd2a5028d21f626fe3abcc2338376805143"
+        }
+    },
+    "PNG 342.5+27.5": {
+        "name": {
+            "text": "NGC 6026 (duplicate)",
+            "source_hash": "sha256:07b7b3d6771d444e97ed0cc2c10ff047443039516e9e3ee6854f263cc3de7e67"
+        },
+        "description": {
+            "text": "PNG 342.5+27.5 (NGC 6026 (duplicate)) es un objeto de tipo nebulosa planetaria en , a unos 6 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:4ae58475dedfa66b0e115f559a353febd69f131f74460496b7f5c0d1ece31c23"
+        }
+    },
+    "PNG 348.0+31.4": {
+        "name": {
+            "text": "NGC 6210 Turtle Nebula (halo)",
+            "source_hash": "sha256:744c35c472c1268a66683640720de3064af3f1abf0968e57945daf0039200f7b"
+        },
+        "description": {
+            "text": "PNG 348.0+31.4 (NGC 6210 Turtle Nebula (halo)) es un objeto de tipo nebulosa planetaria en Hercules, a unos 6,5 kly. Magnitud ~ ?; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:57f5e0002ccd5b75e06ebd7bb57806b27f87ee25a821240482310ea89a4d8498"
+        }
+    },
+    "PNG 355.4-2.4": {
+        "name": {
+            "text": "NGC 6369 Little Ghost Nebula",
+            "source_hash": "sha256:a26778ba180b8aba0928fa1c2bb4dbc1732c8a8efe19ee7ba7079f58ba062f35"
+        },
+        "description": {
+            "text": "PNG 355.4-2.4 (NGC 6369 Little Ghost Nebula) es un objeto de tipo nebulosa planetaria en Ophiuchus, a unos 3 kly. Magnitud ~ 11.4; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:2ff041acd9ed2746b0989ba01f58abd8466ef482c329d09d0535c7719ea981a3"
+        }
+    },
+    "PNG 356.5-3.6": {
+        "name": {
+            "text": "NGC 6326",
+            "source_hash": "sha256:705aa5d8118dad595ea76f8e09afd22d85344fa30dfb61dc6ca18e29114409dd"
+        },
+        "description": {
+            "text": "PNG 356.5-3.6 (NGC 6326) es un objeto de tipo nebulosa planetaria en Scorpius, a unos 10 kly. Magnitud ~ 12.2; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:66a2e50efabc42fc501987f22967c71a390774e753d9dc022773391f59432eb8"
+        }
+    },
+    "PNG 356.2-4.4": {
+        "name": {
+            "text": "NGC 6337 Checkerboard Nebula",
+            "source_hash": "sha256:36cb3c80bd1da1ffef1e4931a5be9dddb22b521c05fbf9ab1d4de6f68f1bf3a5"
+        },
+        "description": {
+            "text": "PNG 356.2-4.4 (NGC 6337 Checkerboard Nebula) es un objeto de tipo nebulosa planetaria en Scorpius, a unos 5 kly. Magnitud ~ 12.3; tamano aparente variable segun catalogo. Astrofotografia: una focal larga y filtros OIII/Ha suelen ser utiles.",
+            "source_hash": "sha256:fc19236308fdb646961793a96484424f0632640a0d4f14bceb7b6ff1e1bd0b91"
+        }
+    }
+}

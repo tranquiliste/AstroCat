@@ -1,0 +1,1102 @@
+{
+    "M1": {
+        "name": {
+            "text": "Nebulosa del Cangrejo",
+            "source_hash": "sha256:97f537e6357796579d7367fb041ed8cf8ae1bfdece0155b0965f479f4deb8827"
+        },
+        "description": {
+            "text": "M1 (Nebulosa del Cangrejo) es un objeto de tipo remanente de supernova en la constelacion Taurus, a unos 6,5 kly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Descubierto en 1731. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:d1b92a70879ef19564bba3ff5d9cff0961438d9a317e1232d6cd6bb2d75109cd"
+        }
+    },
+    "M2": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M2 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Aquarius, a unos 37 kly. Magnitud ~ 6.5; tamano aparente variable segun catalogo. Descubierto en 1746. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:58c41f25a3d65a7a05a26cc0afb9e91b1dbd5f44f14b0424c96bbe4353636ebf"
+        }
+    },
+    "M3": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M3 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Canes Venatici, a unos 33,9 kly. Magnitud ~ 6.2; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:229930fa43187b96e52db75f04c94ee3f77c9c47f187fcdf4d1256e5627de81c"
+        }
+    },
+    "M4": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M4 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Scorpius, a unos 7,2 kly. Magnitud ~ 5.6; tamano aparente variable segun catalogo. Descubierto en 1745. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:335a3941f6ff782ea64494bcb5af9be1c5588cec8f67ac6f2afc9aad75d73e1b"
+        }
+    },
+    "M5": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M5 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Serpens, a unos 24,5 kly. Magnitud ~ 5.6; tamano aparente variable segun catalogo. Descubierto en 1702. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:402115889e24dfb13334636bebfb19250ce4c163ef332b27d5307d05f73c9267"
+        }
+    },
+    "M6": {
+        "name": {
+            "text": "Butterfly Cluster",
+            "source_hash": "sha256:1911dfce814796fd2dff6b80aad78770ca3e7f4b8845a62a322d40535d321f15"
+        },
+        "description": {
+            "text": "M6 (Butterfly Cluster) es un objeto de tipo cumulo abierto en la constelacion Scorpius, a unos 1,6 kly. Magnitud ~ 4.2; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:9327cfd2066783b443adc1b3c1c774695c02d746a74623b4d59e2ed0f3b9be73"
+        }
+    },
+    "M7": {
+        "name": {
+            "text": "Ptolemy\u0027s Cluster",
+            "source_hash": "sha256:85efbe98ffb32879fa5812ec01fdd023145f87b65851d7ee87e2968053c9a22b"
+        },
+        "description": {
+            "text": "M7 (Ptolemy\u0027s Cluster) es un objeto de tipo cumulo abierto en la constelacion Scorpius, a unos 980 ly. Magnitud ~ 3.3; tamano aparente variable segun catalogo. Descubierto en 130. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:24274997ee01ec2408cfe419cd1d6783a2f4a624eb8bb8e2eeceeb8cc0b73f9e"
+        }
+    },
+    "M8": {
+        "name": {
+            "text": "Lagoon Nebula",
+            "source_hash": "sha256:a2aca26332ab2a402a7e6b1015644e7d34bce4581443f8cba85107b51ed5edce"
+        },
+        "description": {
+            "text": "M8 (Lagoon Nebula) es un objeto de tipo nebulosa de emision en la constelacion Sagittarius, a unos 4,1 kly. Magnitud ~ 4.6; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:e4b3a2b7d439095b1618824384065454c42136fa39e45afa5ef6c0af579020a4"
+        }
+    },
+    "M9": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M9 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 25,8 kly. Magnitud ~ 7.7; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:c07cec90a0a1b68792220bfebdecb52487f4402928b59415efc91276317fc971"
+        }
+    },
+    "M10": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M10 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 14,3 kly. Magnitud ~ 6.6; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:62aad50038e22b94288abcf5d7aa53e956abe9937ded091d2d5e258016b7bd89"
+        }
+    },
+    "M11": {
+        "name": {
+            "text": "Wild Duck Cluster",
+            "source_hash": "sha256:02eb8adb0f7b9eae3149be86f1e81b938d90191e82e302f23dd5bceb731ce46d"
+        },
+        "description": {
+            "text": "M11 (Wild Duck Cluster) es un objeto de tipo cumulo abierto en la constelacion Scutum, a unos 6,2 kly. Magnitud ~ 5.8; tamano aparente variable segun catalogo. Descubierto en 1681. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:80278e1a9c97e0ab31ce412926669b041e7a348dfbfa1e90ba37ac3c780f77a9"
+        }
+    },
+    "M12": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M12 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 16 kly. Magnitud ~ 6.7; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:999612292ab4288ece7cd479469011a32c125eaed15334d16067ec21f954c465"
+        }
+    },
+    "M13": {
+        "name": {
+            "text": "Great Hercules Cluster",
+            "source_hash": "sha256:54c6486c80e5f5acc2184a59170341ef452e6a0c09200f77c4bd6363625ea83d"
+        },
+        "description": {
+            "text": "M13 (Great Hercules Cluster) es un objeto de tipo cumulo globular en la constelacion Hercules, a unos 25,1 kly. Magnitud ~ 5.8; tamano aparente variable segun catalogo. Descubierto en 1714. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:ae73312ec37674b29fccbb09366070ce6c367a644729b23ecf291f3e395d5bbe"
+        }
+    },
+    "M14": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M14 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 30,3 kly. Magnitud ~ 7.6; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:db534466ea0e873dd5a6ad32db9040988222a834fcec1d1f3f64442d49f25f6a"
+        }
+    },
+    "M15": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M15 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Pegasus, a unos 33,6 kly. Magnitud ~ 6.2; tamano aparente variable segun catalogo. Descubierto en 1746. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:6af77d3f4d058f51a6928df02314bb62493d03d171466fc0cc1d80bef88c011a"
+        }
+    },
+    "M16": {
+        "name": {
+            "text": "Eagle Nebula",
+            "source_hash": "sha256:8a00ff28ddb83f55f4be2b8a25db7b329322a9eb5cb2bcf443e839aba699947b"
+        },
+        "description": {
+            "text": "M16 (Eagle Nebula) es un objeto de tipo nebulosa de emision en la constelacion Serpens, a unos 7 kly. Magnitud ~ 6.4; tamano aparente variable segun catalogo. Descubierto en 1745. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:40e9b6f74022a31b139c9672615fe977143cef0130d39b436034ad5926d9fba7"
+        }
+    },
+    "M17": {
+        "name": {
+            "text": "Omega Nebula",
+            "source_hash": "sha256:fbb21a0688c34b85d54046b226927059b5fd1d3c034ce2835e1795d5ecd71fbf"
+        },
+        "description": {
+            "text": "M17 (Omega Nebula) es un objeto de tipo nebulosa de emision en la constelacion Sagittarius, a unos 5,5 kly. Magnitud ~ 6.0; tamano aparente variable segun catalogo. Descubierto en 1745. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:b42425a9e004df15d9be35b71db286e9b2e23a0759ff438accf08653d172df25"
+        }
+    },
+    "M18": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M18 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Sagittarius, a unos 4,9 kly. Magnitud ~ 7.5; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:50b18dbf6b6c137e2090d45678f7343b46cb4605ab02911c58466854928e0afc"
+        }
+    },
+    "M19": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M19 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 28,1 kly. Magnitud ~ 6.8; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:51dbebfc2e292a4d9c77f4178ba6485b04d85ba8a50dfda5c8779725fba86687"
+        }
+    },
+    "M20": {
+        "name": {
+            "text": "Trifid Nebula",
+            "source_hash": "sha256:7094b0c1f758a8e05aaf50cf17932789abb3d0a65b38b2a49bb822620377d319"
+        },
+        "description": {
+            "text": "M20 (Trifid Nebula) es un objeto de tipo nebulosa de emision en la constelacion Sagittarius, a unos 5,2 kly. Magnitud ~ 6.3; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:0331fab9f23cb96a4c86cc83c83727aaf5ec883df5e3dafd85934e59e7fd300f"
+        }
+    },
+    "M21": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M21 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Sagittarius, a unos 4,2 kly. Magnitud ~ 6.5; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:7490630167b7203989dc5a94c9e1bb033df3fa58007d50982836c6b844d4844a"
+        }
+    },
+    "M22": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M22 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 10,4 kly. Magnitud ~ 5.1; tamano aparente variable segun catalogo. Descubierto en 1665. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:32434a6322e9cf77b2fd606180880d5e02d773b740aad6c29a5bb18036954bd1"
+        }
+    },
+    "M23": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M23 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Sagittarius, a unos 2,2 kly. Magnitud ~ 5.5; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:b4b3cd9a1113d2b810d43cea37695c4e0147e701653695ff88c3990838e044c3"
+        }
+    },
+    "M24": {
+        "name": {
+            "text": "Sagittarius Star Cloud",
+            "source_hash": "sha256:143317ca58ae2ce8c271e977a9b165c3697e2d7959c53038cb0656f9217fdf85"
+        },
+        "description": {
+            "text": "M24 (Sagittarius Star Cloud) es un objeto de tipo Milky Way Star Cloud en la constelacion Sagittarius, a unos 10 kly. Magnitud ~ 2.5; tamano aparente variable segun catalogo. Descubierto en . Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:26f2899f35b0b01fd8c19a30ab6e58d1097c19e7b705261574cc71ef7dd1d03d"
+        }
+    },
+    "M25": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M25 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Sagittarius, a unos 2 kly. Magnitud ~ 4.6; tamano aparente variable segun catalogo. Descubierto en 1745. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:1978ab5804994c3a7d85aaf08687e28fee9366208b038a60ad1ecf31657f4728"
+        }
+    },
+    "M26": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M26 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Scutum, a unos 5 kly. Magnitud ~ 8.0; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:c3281e295cbee4123d742099eb2d24d24966b2e35a1c5e32a13904c7196f00b2"
+        }
+    },
+    "M27": {
+        "name": {
+            "text": "Dumbbell Nebula",
+            "source_hash": "sha256:93a8266d87f785f69c61f41f4c3d21b3fbbe32111aae5a57683fbb4cf52689b7"
+        },
+        "description": {
+            "text": "M27 (Dumbbell Nebula) es un objeto de tipo nebulosa planetaria en la constelacion Vulpecula, a unos 1,4 kly. Magnitud ~ 7.4; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:3f837afec6c9993869dc838299a8d62b91f26d8c948b2fc1a9ac006182643225"
+        }
+    },
+    "M28": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M28 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 18,2 kly. Magnitud ~ 6.8; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:8ae81079d7c4f277cb2c814219593b07179afa41365a3e5522ec490d1ebf0057"
+        }
+    },
+    "M29": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M29 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Cygnus, a unos 4 kly. Magnitud ~ 7.1; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:3f826315ced100947d992fed6fe6a242ab422e81dd370df1fb4c1d07dd3c71fe"
+        }
+    },
+    "M30": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M30 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Capricornus, a unos 27,7 kly. Magnitud ~ 7.2; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:57f5c0e312057fe8374cac4d00d3d7344b3c4e4fdf73239a9bc2414df09959cf"
+        }
+    },
+    "M31": {
+        "name": {
+            "text": "Andromeda Galaxy",
+            "source_hash": "sha256:091f21aaa803725c6ab062425c847d5dbe88e4af403a57059399b5fc07a4e044"
+        },
+        "description": {
+            "text": "M31 (Andromeda Galaxy) es un objeto de tipo galaxia en la constelacion Andromeda, a unos 253,7 kly. Magnitud ~ 3.4; tamano aparente variable segun catalogo. Descubierto en 964. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:07a9f4a1e4a98b85a339bd64f3a3f33f89162e96ab628438fd8b0e3e63d4380a"
+        }
+    },
+    "M32": {
+        "name": {
+            "text": "Dwarf Elliptical Galaxy",
+            "source_hash": "sha256:fe9a38b9344aacc826d1aa381adb90e6183c9a40396d9e8c76116e58d8bd6fdf"
+        },
+        "description": {
+            "text": "M32 (Dwarf Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Andromeda, a unos 253,7 kly. Magnitud ~ 8.1; tamano aparente variable segun catalogo. Descubierto en 1749. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:2d70ee5be161763274333b0f7bf9a6b98ac47ce13d99183cc359169c984f580d"
+        }
+    },
+    "M33": {
+        "name": {
+            "text": "Triangulum Galaxy",
+            "source_hash": "sha256:0770779d0100da85b2f3631e7288a3cd604325657880972640e284eee1827b9f"
+        },
+        "description": {
+            "text": "M33 (Triangulum Galaxy) es un objeto de tipo galaxia en la constelacion Triangulum, a unos 2730 kly. Magnitud ~ 5.7; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:09597042ec15aa9581245f6c39ce5fa5e96050fb3ace6719f2c4f95c4e9dc58c"
+        }
+    },
+    "M34": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M34 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Perseus, a unos 1,5 kly. Magnitud ~ 5.5; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:abf95f50087d0eec80f6fe32d4079eb2ea25ff2f69af71365b0fffcf777fa829"
+        }
+    },
+    "M35": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M35 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Gemini, a unos 2,8 kly. Magnitud ~ 5.3; tamano aparente variable segun catalogo. Descubierto en 1745. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:cd8179a0b836bf9f071d4fcffb9bd44feca02a351c7b12b2004c29c8e92a2b30"
+        }
+    },
+    "M36": {
+        "name": {
+            "text": "Pinwheel Cluster",
+            "source_hash": "sha256:062a4749e3126040c777c059556eded4bd88d63118c0a9b1f85f4bd87c0c4cf7"
+        },
+        "description": {
+            "text": "M36 (Pinwheel Cluster) es un objeto de tipo cumulo abierto en la constelacion Auriga, a unos 4,2 kly. Magnitud ~ 6.3; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:4760e29b8a86c15f2b3cf10c8f4a531dbcb3001c0069c3ee34361ca8fd49499a"
+        }
+    },
+    "M37": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M37 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Auriga, a unos 4,5 kly. Magnitud ~ 6.2; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:d731888d3d1b42f4779e35122aae27712c940e2ffb71fb210bcb677c671c92af"
+        }
+    },
+    "M38": {
+        "name": {
+            "text": "Starfish Cluster",
+            "source_hash": "sha256:fedf70c236cc3f91b783730763d6a26dca36d62c0114c0aadde514d7768dc7a5"
+        },
+        "description": {
+            "text": "M38 (Starfish Cluster) es un objeto de tipo cumulo abierto en la constelacion Auriga, a unos 4,2 kly. Magnitud ~ 7.4; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:01fd1f409e4ba9f4f6b3da0c5fe6b8b7429a1ac2a9703e97173d8fc657afdce8"
+        }
+    },
+    "M39": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M39 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Cygnus, a unos 820 ly. Magnitud ~ 4.6; tamano aparente variable segun catalogo. Descubierto en 1749. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:a481810824c5641e43312aedfed21377561a45c9e60e37e04c0026d4bb23f344"
+        }
+    },
+    "M40": {
+        "name": {
+            "text": "Double Star",
+            "source_hash": "sha256:20c3fa55006447d424912863011283c9d97b2af61d291d46c7bcb3b0ead34deb"
+        },
+        "description": {
+            "text": "M40 (Double Star) es un objeto de tipo Double Star en la constelacion Ursa Major, a unos 510 ly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Descubierto en 1764. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:4a8ad179f844f49a2714f18b901a59b8a0e685c687c0e9daea06907a0729620b"
+        }
+    },
+    "M41": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M41 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Canis Major, a unos 2,3 kly. Magnitud ~ 4.5; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:0c96cbde5bba4ed03c9e5ec67d33c65a35a46429ad1d3789097cffb302142981"
+        }
+    },
+    "M42": {
+        "name": {
+            "text": "Orion Nebula",
+            "source_hash": "sha256:38f4c556c61b6c82a7dc64dbf970428a857d3bbd24164fa19b6089eb7ac65558"
+        },
+        "description": {
+            "text": "M42 (Orion Nebula) es un objeto de tipo nebulosa de emision en la constelacion Orion, a unos 1,3 kly. Magnitud ~ 4.0; tamano aparente variable segun catalogo. Descubierto en 1610. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:a09cc692b30553359a1d2865c59b1b46db569d54368f7a67ed80287172714f6f"
+        }
+    },
+    "M43": {
+        "name": {
+            "text": "De Mairan's Nebula",
+            "source_hash": "sha256:a24741bee512cd1be5d4cb5d075d345b3ac97c4fbe803058876e9fc24fb28c83"
+        },
+        "description": {
+            "text": "M43 (De Mairan's Nebula) es un objeto de tipo nebulosa de emision en la constelacion Orion, a unos 1,6 kly. Magnitud ~ 9.0; tamano aparente variable segun catalogo. Descubierto en 1731. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:3374900941f95cd87cce97319f88dad8ae2dd11998252bf6f1dd5255856d2342"
+        }
+    },
+    "M44": {
+        "name": {
+            "text": "Beehive Cluster",
+            "source_hash": "sha256:f943ddd3fc60922c4b76a85792e1948846ff54462bf723fc56fb22896a3cb77a"
+        },
+        "description": {
+            "text": "M44 (Beehive Cluster) es un objeto de tipo cumulo abierto en la constelacion Cancer, a unos 577 ly. Magnitud ~ 3.7; tamano aparente variable segun catalogo. Descubierto en 1609. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:3476eb4b969e7bd31d0ee3dd2f14830d9bcf359ad30bc7b1b521a9a6b0ac0b5f"
+        }
+    },
+    "M45": {
+        "name": {
+            "text": "Pleiades",
+            "source_hash": "sha256:01c848b1a50cf1e3e54fb2f2a6460cbf8fb9be54246e7c02d0b90b70e70c156c"
+        },
+        "description": {
+            "text": "M45 (Pleiades) es un objeto de tipo cumulo abierto en la constelacion Taurus, a unos 444 ly. Magnitud ~ 1.6; tamano aparente variable segun catalogo. Descubierto en 1610. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:8b2d433064fb7e8ba9d0f8bcb69c820598f5d89bf6b09725201c79e45ea6331b"
+        }
+    },
+    "M46": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M46 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Puppis, a unos 5,4 kly. Magnitud ~ 6.0; tamano aparente variable segun catalogo. Descubierto en 1771. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:1acc50a39bcee96b1a88c1428f0a8870408b3d31992827590b7c63a85f436bdf"
+        }
+    },
+    "M47": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M47 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Puppis, a unos 1,6 kly. Magnitud ~ 4.4; tamano aparente variable segun catalogo. Descubierto en 1654. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:d84bdfa484b256e59ad7718f6ba3b22f41bd986c06fc243db765c1402e443d5f"
+        }
+    },
+    "M48": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M48 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Hydra, a unos 1,5 kly. Magnitud ~ 5.5; tamano aparente variable segun catalogo. Descubierto en 1771. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:d15490d0fe3b8c63c579f952526c27bbd2439501c16c4f12a6fcde70bb697f73"
+        }
+    },
+    "M49": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M49 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 56600 kly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Descubierto en 1777. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:2d1f831f86c8a436cb1df88286e731aba07630f96e0f1e100170e7955b5c9122"
+        }
+    },
+    "M50": {
+        "name": {
+            "text": "Heart-Shaped Cluster",
+            "source_hash": "sha256:700819dad8e48647167bcdba4a8c77eb1a67001b0bdecd600f7293f955375389"
+        },
+        "description": {
+            "text": "M50 (Heart-Shaped Cluster) es un objeto de tipo cumulo abierto en la constelacion Monoceros, a unos 3 kly. Magnitud ~ 5.9; tamano aparente variable segun catalogo. Descubierto en 1711. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:248e9446c564d58b27e45e3b141e25f93b60e962650c9f8041821f2db241b915"
+        }
+    },
+    "M51": {
+        "name": {
+            "text": "Whirlpool Galaxy",
+            "source_hash": "sha256:af70ed7d56cd879e8cd60ea77b0107f0d3ec6fed661ac14843346e84d3a325cf"
+        },
+        "description": {
+            "text": "M51 (Whirlpool Galaxy) es un objeto de tipo galaxia en la constelacion Canes Venatici, a unos 23500 kly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Descubierto en 1773. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:78504fd90eb0f141582975c3f54efa6f19068b241c3703ae27590044f06185b7"
+        }
+    },
+    "M52": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M52 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Cassiopeia, a unos 4,6 kly. Magnitud ~ 7.3; tamano aparente variable segun catalogo. Descubierto en 1774. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:b4d557adf5a6001fbf580ca86305f1543de47c69d3f1f0412e7e90b38fe0e7c6"
+        }
+    },
+    "M53": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M53 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Coma Berenices, a unos 58 kly. Magnitud ~ 7.6; tamano aparente variable segun catalogo. Descubierto en 1775. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:a79b60a55478e10b5d4389925276bf77ef974b41bb2481587da2ddb01d774c6c"
+        }
+    },
+    "M54": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M54 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 87 kly. Magnitud ~ 7.6; tamano aparente variable segun catalogo. Descubierto en 1778. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:58d6a26d9a48f579bc823f44d0b30baa577f50591a81ac0c2c0019bfdd9ba0d2"
+        }
+    },
+    "M55": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M55 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 17,4 kly. Magnitud ~ 6.3; tamano aparente variable segun catalogo. Descubierto en 1752. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:371e7ee87742384c01128b31a6bde04970688496058f8ab0064ebdf612599f3c"
+        }
+    },
+    "M56": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M56 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Lyra, a unos 32,6 kly. Magnitud ~ 8.3; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:47862c401d3e57d2af90e94105dc21db63a2dee4b043211608d0df4f1b447d56"
+        }
+    },
+    "M57": {
+        "name": {
+            "text": "Ring Nebula",
+            "source_hash": "sha256:81318e1666f6e11254ab4f4199b2ec169dcabd896275a1c5ff0b881c7c4ed712"
+        },
+        "description": {
+            "text": "M57 (Ring Nebula) es un objeto de tipo nebulosa planetaria en la constelacion Lyra, a unos 2,3 kly. Magnitud ~ 8.8; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:2404499566e60d338f281ad13f54e07386c8f5fce06a5085cb440bd7587c5f01"
+        }
+    },
+    "M58": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M58 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 62000 kly. Magnitud ~ 9.7; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:ca4356a3afb3f4dbaea11ab18368f2828903fbfcb6fd50860695a6917af7ac1e"
+        }
+    },
+    "M59": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M59 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 60000 kly. Magnitud ~ 9.6; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:83f4c749e3f87df67b49b5aeda866431fb790ade19a582abd1330427cab3659d"
+        }
+    },
+    "M60": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M60 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 55000 kly. Magnitud ~ 8.8; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:2f399704967eae5019cde5f9b5a35e247b885c4704c203a2ca8883671acf6649"
+        }
+    },
+    "M61": {
+        "name": {
+            "text": "Barred Spiral Galaxy",
+            "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
+        },
+        "description": {
+            "text": "M61 (Barred Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 52000 kly. Magnitud ~ 9.7; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:c1da6a4ab39ac41f9a0fd338c216e619028c784b2d34b70114cf30c6ae9ed840"
+        }
+    },
+    "M62": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M62 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 22,5 kly. Magnitud ~ 6.5; tamano aparente variable segun catalogo. Descubierto en 1772. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:e4b17211ea1e3cc6f8a5b8200d8ac3110552b8ad3facd1e7e125442e80ab6dd6"
+        }
+    },
+    "M63": {
+        "name": {
+            "text": "Sunflower Galaxy",
+            "source_hash": "sha256:cb8fc70f47220c91c02fb5e7e707c2b323472915f25984fd4f42a224ea8e0bd6"
+        },
+        "description": {
+            "text": "M63 (Sunflower Galaxy) es un objeto de tipo galaxia en la constelacion Canes Venatici, a unos 29300 kly. Magnitud ~ 8.6; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:9f29d1a36338bad0bee3b87cf0deb00954ff3fa5604a434967075f1857855604"
+        }
+    },
+    "M64": {
+        "name": {
+            "text": "Black Eye Galaxy",
+            "source_hash": "sha256:02ad7495a53911202cdfea4aa855bf9ca473e9d76904a1510cf0c9d9b855f8b1"
+        },
+        "description": {
+            "text": "M64 (Black Eye Galaxy) es un objeto de tipo galaxia en la constelacion Coma Berenices, a unos 17300 kly. Magnitud ~ 8.5; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:dfb390f42f0807da64c8fc7b60d6e96dd36448a2fc94d745b1ed1e942f1c0a50"
+        }
+    },
+    "M65": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M65 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Leo, a unos 35000 kly. Magnitud ~ 9.3; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:0a7acd251cdf1ddb6652cc7fae862edf61c7a19d12e9d5f626cc38c5e1057f60"
+        }
+    },
+    "M66": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M66 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Leo, a unos 36000 kly. Magnitud ~ 8.9; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:262579f54e22f39d84a9823560a01aa0e1dc1ed9367fd4d9aaa5a7bda4349466"
+        }
+    },
+    "M67": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M67 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Cancer, a unos 2,7 kly. Magnitud ~ 6.1; tamano aparente variable segun catalogo. Descubierto en 1779. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:9a0fec4c0270899cca1530b6a1844564eaf111026482a12d0ead165ca8c98655"
+        }
+    },
+    "M68": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M68 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Hydra, a unos 33,5 kly. Magnitud ~ 7.8; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:4876b07b5feff6cc9fc3fed42e8a906cd6ad7b4228e4907e34638a541312d6db"
+        }
+    },
+    "M69": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M69 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 29,4 kly. Magnitud ~ 7.6; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:91eecddc05934f446c55917489ab46bbb3efcf489577064630847e8d39e8d732"
+        }
+    },
+    "M70": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M70 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 29,4 kly. Magnitud ~ 7.9; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:79b7f22c7d5928e9234f5a6c2f6428e0e6921b68cefba04824a0976910d1661f"
+        }
+    },
+    "M71": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M71 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagitta, a unos 13,6 kly. Magnitud ~ 8.2; tamano aparente variable segun catalogo. Descubierto en 1745. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:a9e8219f8034302061434bc21bcb7ac0c086c3e6005b79e810f89f644c63ac8e"
+        }
+    },
+    "M72": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M72 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Aquarius, a unos 55,6 kly. Magnitud ~ 9.3; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:c97eaf349c8050b15fb96f78a4a35dd634a8be9f79d5b080497f84ff90774621"
+        }
+    },
+    "M73": {
+        "name": {
+            "text": "Asterism",
+            "source_hash": "sha256:2461a557e180f287c0496b29eed98810d1e013c8f6045936450c8ae894d3936e"
+        },
+        "description": {
+            "text": "M73 (Asterism) es un objeto de tipo Asterism en la constelacion Aquarius, a unos 2,5 kly. Magnitud ~ 9.0; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:39c072159a41662cfc1e208afbfac5c76ea91d3ed7a19eeb88f8d86a3e89e43c"
+        }
+    },
+    "M74": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M74 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Pisces, a unos 32000 kly. Magnitud ~ 9.4; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:3fa0d60e2416d36e97ee2f192e259dcd95dc06b577a9ee5a5e555deb0c50ce8d"
+        }
+    },
+    "M75": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M75 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Sagittarius, a unos 67 kly. Magnitud ~ 8.5; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:52de27a1789186838377b35002cdf511d5a1835f882a9809947c0b50030f11bb"
+        }
+    },
+    "M76": {
+        "name": {
+            "text": "Little Dumbbell",
+            "source_hash": "sha256:a2f3bce4d39f0e7686940ca1563a615d119a399a31aafd497c01ad3fc383d290"
+        },
+        "description": {
+            "text": "M76 (Little Dumbbell) es un objeto de tipo nebulosa planetaria en la constelacion Perseus, a unos 3,4 kly. Magnitud ~ 10.1; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:7ee746f10cc8a4c85369fa2dc0ea7aa83b3e750b8281fb5d89656763a2a71214"
+        }
+    },
+    "M77": {
+        "name": {
+            "text": "Barred Spiral Galaxy",
+            "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
+        },
+        "description": {
+            "text": "M77 (Barred Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Cetus, a unos 47000 kly. Magnitud ~ 8.9; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:e990d48932d197ef87c443a335625195b5ea10ced0f129a88ee39e234368a236"
+        }
+    },
+    "M78": {
+        "name": {
+            "text": "Reflection Nebula",
+            "source_hash": "sha256:6615be051d1fe40a9457590d3421a9719a57438d22eff3fcddc658d348f22d5d"
+        },
+        "description": {
+            "text": "M78 (Reflection Nebula) es un objeto de tipo nebulosa de reflexion en la constelacion Orion, a unos 1,6 kly. Magnitud ~ 8.3; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:693964e2b2d4170bffa5f036fb7f97fe146c9def4079b096098b40c17e9d558b"
+        }
+    },
+    "M79": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M79 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Lepus, a unos 41 kly. Magnitud ~ 7.7; tamano aparente variable segun catalogo. Descubierto en 1780. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:4222dc997c44c1488adf42190fd5e8d35fc4cf3ff42f00eccea7b838c39bac05"
+        }
+    },
+    "M80": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M80 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Scorpius, a unos 32,6 kly. Magnitud ~ 7.3; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:1f8bf4f34eb414742328641f29188df75e50151cff65f01ed8f40b18a4671760"
+        }
+    },
+    "M81": {
+        "name": {
+            "text": "Bode\u0027s Galaxy",
+            "source_hash": "sha256:94e3c1fbd61d23ad05c93702d9edd2f9493f4f658cf57d3e757048c185e77a79"
+        },
+        "description": {
+            "text": "M81 (Bode\u0027s Galaxy) es un objeto de tipo galaxia en la constelacion Ursa Major, a unos 12000 kly. Magnitud ~ 6.9; tamano aparente variable segun catalogo. Descubierto en 1774. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:de7d7c8d6c1eb3f5ed6ed6b2a1d4737be64ca5820dd341d27e02cbbe9c0944e9"
+        }
+    },
+    "M82": {
+        "name": {
+            "text": "Cigar Galaxy",
+            "source_hash": "sha256:3b80b097c8bb61f48d391b146452f52d5dfa76f55dabfd251dc4e997b800a555"
+        },
+        "description": {
+            "text": "M82 (Cigar Galaxy) es un objeto de tipo galaxia en la constelacion Ursa Major, a unos 12000 kly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Descubierto en 1774. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:911c27aa718777f503c8fdd5eda99931240bc437f954e3ea78eeb778a8ff7efb"
+        }
+    },
+    "M83": {
+        "name": {
+            "text": "Southern Pinwheel",
+            "source_hash": "sha256:3d8022b87aca4fba52858330f8a768c91ea091a50c363278c2131c6cc51e265f"
+        },
+        "description": {
+            "text": "M83 (Southern Pinwheel) es un objeto de tipo galaxia en la constelacion Hydra, a unos 15200 kly. Magnitud ~ 7.6; tamano aparente variable segun catalogo. Descubierto en 1752. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:9702c1501cea81257ea8293f649815b5b61f5232c3166f5e06117307627ae5bc"
+        }
+    },
+    "M84": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M84 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 60000 kly. Magnitud ~ 9.1; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:de287127e01e564257be592af431b872b24ed216056c9534f13c40c023ded637"
+        }
+    },
+    "M85": {
+        "name": {
+            "text": "Lenticular Galaxy",
+            "source_hash": "sha256:b5d4df5b1ab40cb058c911a2b681c5b74ad6993054de1cbb7e11d6c411526bb1"
+        },
+        "description": {
+            "text": "M85 (Lenticular Galaxy) es un objeto de tipo galaxia en la constelacion Coma Berenices, a unos 60000 kly. Magnitud ~ 9.1; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:bc395906286970e759bdadf3dfa52df07c9e15117d97e206409890c9b3b43607"
+        }
+    },
+    "M86": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M86 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 52000 kly. Magnitud ~ 8.9; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:0fc3454cdb1957c87c0cfb194fd2f0a5743b69139d513184c5138b2796a0d92b"
+        }
+    },
+    "M87": {
+        "name": {
+            "text": "Virgo A",
+            "source_hash": "sha256:e9dbc6b7a4d30ba4f042b8a9a45f4e94f6c0725d15416efd35234b01976c44a1"
+        },
+        "description": {
+            "text": "M87 (Virgo A) es un objeto de tipo galaxia en la constelacion Virgo, a unos 53000 kly. Magnitud ~ 8.6; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:853b02ed0c003e2b51dc09cf122ca96cbbcb48149b3e790fe16c8137a730d7b8"
+        }
+    },
+    "M88": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M88 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 55000 kly. Magnitud ~ 9.6; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:63caad29ba990cfe6d3b0f00eae55243c84baf6fbc38ed929422120c7208a195"
+        }
+    },
+    "M89": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M89 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 60000 kly. Magnitud ~ 9.8; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:b1a2a7bd3289117f55c1a3ad0fb612aa44f2066f67e6635a40ae962cbf0b01e6"
+        }
+    },
+    "M90": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M90 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 59000 kly. Magnitud ~ 9.5; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:239b0202fcf4a1e100a059c1c99c06faec5f39e4ffaef35c35fa89d8c0da59b7"
+        }
+    },
+    "M91": {
+        "name": {
+            "text": "Barred Spiral Galaxy",
+            "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
+        },
+        "description": {
+            "text": "M91 (Barred Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Coma Berenices, a unos 52000 kly. Magnitud ~ 10.2; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:8cadc99790f8d1073920ca03b08eef6261508d16b2a74e284d23ffb29f5a2879"
+        }
+    },
+    "M92": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M92 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Hercules, a unos 26,7 kly. Magnitud ~ 6.4; tamano aparente variable segun catalogo. Descubierto en 1777. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:a0c1e250f7587cb89a8a0798663a3c4d6a22936294075e0cf788e34c4bb370a2"
+        }
+    },
+    "M93": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M93 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Puppis, a unos 3,4 kly. Magnitud ~ 6.0; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:662c914c81c61c94bf66bc0ad7afc9170ec68637c6f097b1e94f5450ac178bb1"
+        }
+    },
+    "M94": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M94 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Canes Venatici, a unos 16000 kly. Magnitud ~ 8.2; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:4589d0bb143aa03c2acdd86d26a3b7f956aad91ca2b980a13d3ab3b5dc16aa36"
+        }
+    },
+    "M95": {
+        "name": {
+            "text": "Barred Spiral Galaxy",
+            "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
+        },
+        "description": {
+            "text": "M95 (Barred Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Leo, a unos 33000 kly. Magnitud ~ 9.7; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:dafeb75904e94ddba942e44be2d53511f736fdd54f0d2525248d0fcebbaa8a8d"
+        }
+    },
+    "M96": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M96 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Leo, a unos 31000 kly. Magnitud ~ 9.2; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:0315947398e955638de8e9dc2d9ecb89d06036d8b7fdef53d27913289eb1abf8"
+        }
+    },
+    "M97": {
+        "name": {
+            "text": "Owl Nebula",
+            "source_hash": "sha256:23edf4b7bfdc287ded9b42dec300ae5c508f47c3d19e9f25729d57d57dc3f097"
+        },
+        "description": {
+            "text": "M97 (Owl Nebula) es un objeto de tipo nebulosa planetaria en la constelacion Ursa Major, a unos 2 kly. Magnitud ~ 9.9; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:b05a49a140da55ae05daaa151ac166c3f14314bb440de872a811c2e6351e99fe"
+        }
+    },
+    "M98": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M98 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Coma Berenices, a unos 44000 kly. Magnitud ~ 10.1; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:885ad2d3365ee61fe12cb73251b51e9d99abf7df9f0260b6312ae8b39fe980ca"
+        }
+    },
+    "M99": {
+        "name": {
+            "text": "Pinwheel Galaxy",
+            "source_hash": "sha256:c59b3fbc42c7a82fd53cffc2e764bdfb05e8da494cc1328f439aa1814d4f231d"
+        },
+        "description": {
+            "text": "M99 (Pinwheel Galaxy) es un objeto de tipo galaxia en la constelacion Coma Berenices, a unos 50000 kly. Magnitud ~ 9.9; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:b1f8eacc3ebd1d589e598bbd5f62e4c95e83ac19cca9d646869f3511b7cf5d1f"
+        }
+    },
+    "M100": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M100 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 55000 kly. Magnitud ~ 9.3; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:70a713223dc45241737c6df757ab401f0150e13bf5c3cbe59e0c010bfcf4be33"
+        }
+    },
+    "M101": {
+        "name": {
+            "text": "Pinwheel Galaxy",
+            "source_hash": "sha256:c59b3fbc42c7a82fd53cffc2e764bdfb05e8da494cc1328f439aa1814d4f231d"
+        },
+        "description": {
+            "text": "M101 (Pinwheel Galaxy) es un objeto de tipo galaxia en la constelacion Ursa Major, a unos 21200 kly. Magnitud ~ 7.9; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:9f8fe13c0472d2ea1afb157250c81b2571c61d0a010bb92d8e5114c3d981b3a4"
+        }
+    },
+    "M102": {
+        "name": {
+            "text": "Spindle Galaxy",
+            "source_hash": "sha256:58745e65dea253106def31d478fe162ec7b2b85a101c460e7c66a7364fc09eff"
+        },
+        "description": {
+            "text": "M102 (Spindle Galaxy) es un objeto de tipo galaxia en la constelacion Draco, a unos 50000 kly. Magnitud ~ 9.9; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:faa97c60dfbe4ede36d1c69ed98709d25e46f60932e6a7cb3e683dc5225a42a2"
+        }
+    },
+    "M103": {
+        "name": {
+            "text": "Open Cluster",
+            "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
+        },
+        "description": {
+            "text": "M103 (Open Cluster) es un objeto de tipo cumulo abierto en la constelacion Cassiopeia, a unos 9,5 kly. Magnitud ~ 7.4; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:fc10d1b47f67e51fe1a85b737b13017d544c850497492639047b2c1479841061"
+        }
+    },
+    "M104": {
+        "name": {
+            "text": "Sombrero Galaxy",
+            "source_hash": "sha256:7605e72f9eb43ed92e7b6498d4f254e4cf1a7777e8bc06839d59dffb31a3c100"
+        },
+        "description": {
+            "text": "M104 (Sombrero Galaxy) es un objeto de tipo galaxia en la constelacion Virgo, a unos 29000 kly. Magnitud ~ 8.0; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:cd6e6658c41c0e52237e96b5ed218ef6401d6a951dffa88e03fa48dd18f20184"
+        }
+    },
+    "M105": {
+        "name": {
+            "text": "Elliptical Galaxy",
+            "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
+        },
+        "description": {
+            "text": "M105 (Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Leo, a unos 32000 kly. Magnitud ~ 9.3; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:9a53a4fccf264fd1ab26c3d2185327f06615e907750a4e9c163e92c5df20adbb"
+        }
+    },
+    "M106": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M106 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Canes Venatici, a unos 24000 kly. Magnitud ~ 8.4; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:4042aedb91f7a62e7f9b2d54559d9ace7a54ad682eb4ad68c65ae0cd6e690896"
+        }
+    },
+    "M107": {
+        "name": {
+            "text": "Cumulo globular",
+            "source_hash": "sha256:5b8815dc9cbe06741347be7679b70579524946d0673d3cbde92c0b88258be997"
+        },
+        "description": {
+            "text": "M107 (Cumulo globular) es un objeto de tipo cumulo globular en la constelacion Ophiuchus, a unos 20,3 kly. Magnitud ~ 7.9; tamano aparente variable segun catalogo. Descubierto en 1782. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:8bb625645a115a41d1a48557a0c6cc793151affcef2f1831a8e2e56ad6926fc2"
+        }
+    },
+    "M108": {
+        "name": {
+            "text": "Spiral Galaxy",
+            "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
+        },
+        "description": {
+            "text": "M108 (Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Ursa Major, a unos 28000 kly. Magnitud ~ 10.0; tamano aparente variable segun catalogo. Descubierto en 1782. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:c255f94cf54e6a7803eb7d2aed49caa806a61a4d34e2ddb8378727011cf54cb0"
+        }
+    },
+    "M109": {
+        "name": {
+            "text": "Barred Spiral Galaxy",
+            "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
+        },
+        "description": {
+            "text": "M109 (Barred Spiral Galaxy) es un objeto de tipo galaxia en la constelacion Ursa Major, a unos 83000 kly. Magnitud ~ 9.8; tamano aparente variable segun catalogo. Descubierto en 1781. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:0511c1cac71ce137d9e8f38f0bfe4fe108a27756728ab2eb533f451bbf521621"
+        }
+    },
+    "M110": {
+        "name": {
+            "text": "Dwarf Elliptical Galaxy",
+            "source_hash": "sha256:fe9a38b9344aacc826d1aa381adb90e6183c9a40396d9e8c76116e58d8bd6fdf"
+        },
+        "description": {
+            "text": "M110 (Dwarf Elliptical Galaxy) es un objeto de tipo galaxia en la constelacion Andromeda, a unos 2500 kly. Magnitud ~ 8.5; tamano aparente variable segun catalogo. Descubierto en 1773. Notas de astrofotografia: objetivo Messier clasico; ajustar focal e integracion al tamano aparente.",
+            "source_hash": "sha256:adde30ff9ce6a00224e52502d43eec7f9a67715294f8e9ec120544f349145ffd"
+        }
+    }
+}

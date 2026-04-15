@@ -1,0 +1,542 @@
+{
+    "67P Churyumov-Gerasimenko": {
+        "name": {
+            "text": "67P/Churyumov-Gerasimenko",
+            "source_hash": "sha256:dd8bb0d5eead2da8b6e2c28419626553541eeb5e932eb8419db3c71a98fbb2a3"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Ariel": {
+        "name": {
+            "text": "Ariel",
+            "source_hash": "sha256:48fbe7b6bce0cf488fb40f8430053b4ee7e1067488e15c1b6532cc655c02e2e5"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Borrelly": {
+        "name": {
+            "text": "Borrelly",
+            "source_hash": "sha256:ab97edfc87d5493aca4f41aec8c5b42c9bbcbe7723bf6e622d7f7671d54d9a1d"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Callisto": {
+        "name": {
+            "text": "Callisto",
+            "source_hash": "sha256:cc423fd8544c89fddb4a2c8979d5e4d8409bfa835387d50735432bb47ddc2892"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Ceres": {
+        "name": {
+            "text": "Ceres",
+            "source_hash": "sha256:19af4cac544f89fc0bc7558c215ab8124f67fedf88ee384dda052d356c982940"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Chariklo": {
+        "name": {
+            "text": "Chariklo",
+            "source_hash": "sha256:614370aad37b91a2240699387c4d998ad52dbac10b47e7ac4259d2733dbdccd9"
+        },
+        "description": {
+            "text": "A small body between Jupiter and Neptune with shifting visibility. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
+            "source_hash": "sha256:1a5e463cd3c1b099793d7714cb30d9abf22ec4a50c56b8a17235a03603214793"
+        }
+    },
+    "Charon": {
+        "name": {
+            "text": "Charon",
+            "source_hash": "sha256:ea9246ceeac13ba09feb72c503221ab8d05e2714a0a40b445c7b21761c173153"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Chiron": {
+        "name": {
+            "text": "Chiron",
+            "source_hash": "sha256:c85bf88bccc676cb9ff376417cb65759884bbb4661d1f8e97d3542883708cfb8"
+        },
+        "description": {
+            "text": "A small body between Jupiter and Neptune with shifting visibility. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
+            "source_hash": "sha256:1a5e463cd3c1b099793d7714cb30d9abf22ec4a50c56b8a17235a03603214793"
+        }
+    },
+    "Deimos": {
+        "name": {
+            "text": "Deimos",
+            "source_hash": "sha256:8915eff1e30c0746af73890858b8d0b29f8fad7658ee86915b00752b1b57bdb6"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Dione": {
+        "name": {
+            "text": "Dione",
+            "source_hash": "sha256:b204d3f82758501a53cc86705473d2cacda43beaeb283cfbcb6a8e14d787fc5e"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Earth": {
+        "name": {
+            "text": "Earth",
+            "source_hash": "sha256:b7c9b5ccd3e3ec741ecfa5864b577f5dab1d987bfd3caa4815f1b3f8354a5f16"
+        },
+        "description": {
+            "text": "Un pianeta roccioso interno con fasi e dettagli superficiali variabili in base al target. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:f1be6e3e7da052f370a355a3b262ecb03e7a0131616830fed36723e9d15a1e39"
+        }
+    },
+    "Enceladus": {
+        "name": {
+            "text": "Enceladus",
+            "source_hash": "sha256:7bce8b3948f4574b88211f99962d88ab92223267a5a87dd857ea5273f657ffa6"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Encke": {
+        "name": {
+            "text": "Encke\u0027s Comet",
+            "source_hash": "sha256:333f7d94bb98d4707321e63d2bf425c4744cce9f65b548a440d288fa5b563879"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Eris": {
+        "name": {
+            "text": "Eris",
+            "source_hash": "sha256:f3c2d762af3d328c62094d14feda5a9a31e6fa9a826ae6d5f622790e4f09cd8b"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Europa": {
+        "name": {
+            "text": "Europa",
+            "source_hash": "sha256:fc30e2a579cdb971eb042715c73406cd96935bf3de3562d4800576d10fb61c80"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Ganymede": {
+        "name": {
+            "text": "Ganymede",
+            "source_hash": "sha256:d43a7b01f357575fe4747d58a693104a9beca1a2190ad4815c3fc2f7bd13c061"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Gonggong": {
+        "name": {
+            "text": "Gonggong",
+            "source_hash": "sha256:d8e10338bba32f29e082d88606f7bfb455dfb4ecd6df3c57aee389b083aa60ed"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Hale-Bopp": {
+        "name": {
+            "text": "Hale-Bopp",
+            "source_hash": "sha256:e1a0611775befa614a52640b9e7dea532a4959af9875cd0bd8bec31951484f53"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Halley": {
+        "name": {
+            "text": "Halley\u0027s Comet",
+            "source_hash": "sha256:0a437da882b0fbc41ae78396d8ef7dac38019b2276a0251890e7e49b5217f2f9"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Hartley 2": {
+        "name": {
+            "text": "Hartley 2",
+            "source_hash": "sha256:5ed3f58b1f5448bc17bfbee4c14b372cc19726ebb384bdd0b0c475b287279056"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Haumea": {
+        "name": {
+            "text": "Haumea",
+            "source_hash": "sha256:d896bdeb35405fd34fb501a9e057d798df1b56e2b5599eb25f314e11d6076f60"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Hygiea": {
+        "name": {
+            "text": "Hygiea",
+            "source_hash": "sha256:e717c4ae7b3d39d717742880b1f6e0bae4c7592e6f85c4dc01f7ab7815ceaa1a"
+        },
+        "description": {
+            "text": "Un pianeta minore della fascia degli asteroidi con visibilita legata all\u0027opposizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:9313ba34f26f9aa88d3bf230e0b3f58e70950540120ff230cfae03539dce6489"
+        }
+    },
+    "Iapetus": {
+        "name": {
+            "text": "Iapetus",
+            "source_hash": "sha256:2f92e35aa9a55ba0c8a6f5a782e557d8351cc656d18f3628d67c80a69c09dc11"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Io": {
+        "name": {
+            "text": "Io",
+            "source_hash": "sha256:e01e555174c6c94fd231123bc5306f627c784828ac68826da144ea95f7d3d2ac"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Jupiter": {
+        "name": {
+            "text": "Jupiter",
+            "source_hash": "sha256:27ce2df06855179bad66a316f0d9b933febc11d734f81ee89121885a7aa0c1b7"
+        },
+        "description": {
+            "text": "Un gigante gassoso/ghiacciato con caratteristiche atmosferiche e condizioni osservative dinamiche. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:5492d287f25c74d9104c4f3857ac9bd5995370edfe2702d957159f5890e0605a"
+        }
+    },
+    "Makemake": {
+        "name": {
+            "text": "Makemake",
+            "source_hash": "sha256:b38bd33974524610bf6fe534535263c04566903005894783a50edce50d2cfc4a"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Mars": {
+        "name": {
+            "text": "Mars",
+            "source_hash": "sha256:a0a6ca091c70a95296d9c1bd308ae70eb64bc2ac8a35b2713045510db3d8eddb"
+        },
+        "description": {
+            "text": "Un pianeta roccioso interno con fasi e dettagli superficiali variabili in base al target. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:f1be6e3e7da052f370a355a3b262ecb03e7a0131616830fed36723e9d15a1e39"
+        }
+    },
+    "Mercury": {
+        "name": {
+            "text": "Mercury",
+            "source_hash": "sha256:6a7367ef7970d165bf9a60a16ef4365b2b7670f5064a35438e2ea0049dbdb1dd"
+        },
+        "description": {
+            "text": "Un pianeta roccioso interno con fasi e dettagli superficiali variabili in base al target. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:f1be6e3e7da052f370a355a3b262ecb03e7a0131616830fed36723e9d15a1e39"
+        }
+    },
+    "Mimas": {
+        "name": {
+            "text": "Mimas",
+            "source_hash": "sha256:d15cb5179f29867eb12460180b04e3eaeff7c9a477ca00e0a604c5db934ea4ab"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Miranda": {
+        "name": {
+            "text": "Miranda",
+            "source_hash": "sha256:c9b5d704902a6be169617d23a8bb24dedae9389be56e1d0a7b00ea7691e24f7e"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Moon": {
+        "name": {
+            "text": "Moon",
+            "source_hash": "sha256:5fc165254f4f817ba6f8b6f80c08b3174c0fea225398b5b84c17c0af975feacf"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Neptune": {
+        "name": {
+            "text": "Neptune",
+            "source_hash": "sha256:d98d070c3968a75ea9ebac18b085885b9763546401e6438d8e6d69267ec7a852"
+        },
+        "description": {
+            "text": "Un gigante gassoso/ghiacciato con caratteristiche atmosferiche e condizioni osservative dinamiche. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:5492d287f25c74d9104c4f3857ac9bd5995370edfe2702d957159f5890e0605a"
+        }
+    },
+    "Nereid": {
+        "name": {
+            "text": "Nereid",
+            "source_hash": "sha256:10c89b363c4662002c758157065895174b745b5b8bf4463d0df8ed1f5218c474"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Oberon": {
+        "name": {
+            "text": "Oberon",
+            "source_hash": "sha256:08360c25f2e0873c605cb85a62fb4c18f127676e21a6c80be39f476e7bef2274"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Orcus": {
+        "name": {
+            "text": "Orcus",
+            "source_hash": "sha256:043107f8dcbcb7933e7d430e27a775720bc4780331357b01b766565d706e69ec"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Pallas": {
+        "name": {
+            "text": "Pallas",
+            "source_hash": "sha256:95550208e7bac16e997bdfc75d10f00803f310914309cd8a4f38a6ea9e3c72e3"
+        },
+        "description": {
+            "text": "Un pianeta minore della fascia degli asteroidi con visibilita legata all\u0027opposizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:9313ba34f26f9aa88d3bf230e0b3f58e70950540120ff230cfae03539dce6489"
+        }
+    },
+    "Phobos": {
+        "name": {
+            "text": "Phobos",
+            "source_hash": "sha256:5609968b6d92833fe4d85761bf2a03ec290d3a70f9cca80d08dcd1abb181a19f"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Pluto": {
+        "name": {
+            "text": "Pluto",
+            "source_hash": "sha256:8dad5f6a7dd2dcd8c35ec2fd7babb499bcad60d27d73fe73eca2ce025dfd3b47"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Proteus": {
+        "name": {
+            "text": "Proteus",
+            "source_hash": "sha256:76709fdf234f65143b3b57f2bfb1f06e407ddf91e5b8d1bc62b13523a243a2dd"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Quaoar": {
+        "name": {
+            "text": "Quaoar",
+            "source_hash": "sha256:ec55568ff889a7d5c5d600427eb7a97168d18763a0df9617550fdc98ff589e4e"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Rhea": {
+        "name": {
+            "text": "Rhea",
+            "source_hash": "sha256:4cfcc0421af179aa45a34f44bcf33abc933c22f344468572916711eb981eee0c"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Saturn": {
+        "name": {
+            "text": "Saturn",
+            "source_hash": "sha256:e6e970bbe8ff3a4c4ea8585321f000c1c096e2aaf4d58d1d9b6ce8af86b94e68"
+        },
+        "description": {
+            "text": "Un gigante gassoso/ghiacciato con caratteristiche atmosferiche e condizioni osservative dinamiche. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:5492d287f25c74d9104c4f3857ac9bd5995370edfe2702d957159f5890e0605a"
+        }
+    },
+    "Sedna": {
+        "name": {
+            "text": "Sedna",
+            "source_hash": "sha256:581707ed9094282c42d1318e1365ea212fbb0955324471d413f2c07605ab0864"
+        },
+        "description": {
+            "text": "Un pianeta nano del sistema solare con visibilita variabile in base all\u0027apparizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:8d50a40592d7e27464841ba5ebd3c9ce85d6a7a41eb7986700f91c5b8b696075"
+        }
+    },
+    "Sun": {
+        "name": {
+            "text": "Sun",
+            "source_hash": "sha256:db18f17fe532007616d0d0fcc303281c35aafc940b13e6af55e63f8fed304718"
+        },
+        "description": {
+            "text": "A G2V main-sequence star and the center of the solar system. Dynamic info: closest approaches, sky position, and notable events depend on date and observer location. Use current ephemerides for live details.",
+            "source_hash": "sha256:c9ac916b010d98bc02e0ce3fec98cff85e1834be55baed701fbcf7ef656076a6"
+        }
+    },
+    "Swift-Tuttle": {
+        "name": {
+            "text": "Swift-Tuttle",
+            "source_hash": "sha256:80f787913fa852db085fcddf109584584a161cdc93311e8dc639cce72394a920"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Tempel 1": {
+        "name": {
+            "text": "Tempel 1",
+            "source_hash": "sha256:93768861d81f4d2f2432a0fd6652cc43c1472cc80df765f5933f59f7167c1c85"
+        },
+        "description": {
+            "text": "Un corpo ghiacciato che puo sviluppare una chioma/coda vicino al perielio; la visibilita varia a ogni ritorno. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:ff2b3a67ca5824cef678aa410c3b871e8a9b83d3a3f8b3ef3fab72d6db650074"
+        }
+    },
+    "Tethys": {
+        "name": {
+            "text": "Tethys",
+            "source_hash": "sha256:526ba1de545e760724a1abdc5b7bebac35253e1f18e51473821959aac440efcd"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Titan": {
+        "name": {
+            "text": "Titan",
+            "source_hash": "sha256:4046c0daccd13c94709599ad208314a35dc8758ad34dcead29b0e0f2c4dcd607"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Titania": {
+        "name": {
+            "text": "Titania",
+            "source_hash": "sha256:7281bec080e826f1e3079e47107bad7d974b72c55a63b41c4b3d144bf078f2f8"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Triton": {
+        "name": {
+            "text": "Triton",
+            "source_hash": "sha256:4c35576f2c588737354b403e5beb4283a3a2e7a502e714486bbfcc879384c743"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Umbriel": {
+        "name": {
+            "text": "Umbriel",
+            "source_hash": "sha256:7412af27726678ae89a4c6886677fca79bce301081f4ce82ef01e3c1c6469e2d"
+        },
+        "description": {
+            "text": "Un satellite naturale con fase/illuminazione e visibilita variabili in base alla data. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:26ac2e88a1eb1b705101852198cf06241d4eeb669ebac5b11f7a59983cd9d580"
+        }
+    },
+    "Uranus": {
+        "name": {
+            "text": "Uranus",
+            "source_hash": "sha256:e6b02134dcdd5a026e424b4a15890a038eb4c6302b18735ab66df7d32131796e"
+        },
+        "description": {
+            "text": "Un gigante gassoso/ghiacciato con caratteristiche atmosferiche e condizioni osservative dinamiche. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:5492d287f25c74d9104c4f3857ac9bd5995370edfe2702d957159f5890e0605a"
+        }
+    },
+    "Venus": {
+        "name": {
+            "text": "Venus",
+            "source_hash": "sha256:4f1c63f9aba8ccb6b18ce01b92c72406a4724364dc8495c0ab48e2d52dbd1ac1"
+        },
+        "description": {
+            "text": "Un pianeta roccioso interno con fasi e dettagli superficiali variabili in base al target. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:f1be6e3e7da052f370a355a3b262ecb03e7a0131616830fed36723e9d15a1e39"
+        }
+    },
+    "Vesta": {
+        "name": {
+            "text": "Vesta",
+            "source_hash": "sha256:4e1fadbd8485a29106e9843c347f593291496b8416324bedbf7fd7481d65499a"
+        },
+        "description": {
+            "text": "Un pianeta minore della fascia degli asteroidi con visibilita legata all\u0027opposizione. Informazioni dinamiche: massimi avvicinamenti, posizione nel cielo ed eventi notevoli dipendono dalla data e dalla posizione dell\u0027osservatore. Usa effemeridi aggiornate per dettagli in tempo reale.",
+            "source_hash": "sha256:9313ba34f26f9aa88d3bf230e0b3f58e70950540120ff230cfae03539dce6489"
+        }
+    }
+}

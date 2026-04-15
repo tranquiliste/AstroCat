@@ -1,0 +1,282 @@
+{
+    "Sh2-101": {
+        "name": {
+            "text": "Nebulosa Tulipano",
+            "source_hash": "sha256:6de85bb172b31c9e439674ec07b7782d068fd954a3788ccc5ffce6c5dca06d67"
+        },
+        "description": {
+            "text": "Sh2-101 (Nebulosa Tulipano) e un oggetto di tipo nebulosa a emissione in Cygnus, a circa 6 kly. Magnitudine ~ 8.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:97923d08fcc0bd603edcce251a79ba2a952d512dff10a529fd161ae8f38bedc2"
+        }
+    },
+    "Sh2-106": {
+        "name": {
+            "text": "Nebulosa Regina delle Stelle",
+            "source_hash": "sha256:429457a3ab0f756c56548196516be8e837f086ce6c75f7a8485dc65044226c2a"
+        },
+        "description": {
+            "text": "Sh2-106 (Nebulosa Regina delle Stelle) e un oggetto di tipo nebulosa a emissione in Cygnus, a circa 2 kly. Magnitudine ~ 10.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:eeb94c39785c860f4994f7cdbc08372e678b662425a6db63c8ea707c2e9f7c6f"
+        }
+    },
+    "Sh2-112": {
+        "name": {
+            "text": "Nebulosa Cigno Orientale",
+            "source_hash": "sha256:c37558d68c98a3370225eeecd68d98d2155749f6ce4c4b1dff7792d16fcd4a90"
+        },
+        "description": {
+            "text": "Sh2-112 (Nebulosa Cigno Orientale) e un oggetto di tipo nebulosa a emissione in Cygnus, a circa 4,5 kly. Magnitudine ~ 9.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:24428fe972283a5b46f339b4674dde0e58bbbd0d15c46e14133067f52ae9ba77"
+        }
+    },
+    "Sh2-119": {
+        "name": {
+            "text": "Nebulosa del Cigno",
+            "source_hash": "sha256:fbff6b15bf1531e5b3d4d12041708b2d5f1fe25aa31814b8c41e89bb0d2f71d0"
+        },
+        "description": {
+            "text": "Sh2-119 (Nebulosa del Cigno) e un oggetto di tipo nebulosa a emissione in Cygnus, a circa 2,5 kly. Magnitudine ~ 8.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:3e002ee0ddf212db0b3266233086af0bcda32b0a0dcf67c661c145f8f928ab38"
+        }
+    },
+    "Sh2-132": {
+        "name": {
+            "text": "Lion Nebula",
+            "source_hash": "sha256:1ee8ab846dd595beadde959032b88e0577323609faf65dc1c39e36ab487ce60a"
+        },
+        "description": {
+            "text": "Sh2-132 (Lion Nebula) e un oggetto di tipo nebulosa a emissione in Cepheus, a circa 10 kly. Magnitudine ~ 8.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:cb677dd5cbc89bae4866412feec1d39d61b42745e92ce2cc5de1d5cfc6d1d716"
+        }
+    },
+    "Sh2-140": {
+        "name": {
+            "text": "Cepheus Nebula",
+            "source_hash": "sha256:c8ec75ddb25f3516ae4b5017a6ac6e99b8da5a853f7fa30c982007f398d4a24c"
+        },
+        "description": {
+            "text": "Sh2-140 (Cepheus Nebula) e un oggetto di tipo nebulosa a emissione in Cepheus, a circa 3 kly. Magnitudine ~ 9.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:6cccedb2d90ca147ec0de4333206475dcfe164c582dff129d51aa00f77322d26"
+        }
+    },
+    "Sh2-155": {
+        "name": {
+            "text": "Cave Nebula",
+            "source_hash": "sha256:afe7addc39a8554a8eb5714b918fa97d5c18ab045bc47a600ea5c1d9d5d9a44c"
+        },
+        "description": {
+            "text": "Sh2-155 (Cave Nebula) e un oggetto di tipo nebulosa a emissione in Cepheus, a circa 2,4 kly. Magnitudine ~ 7.7; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:c032a5f288c41899b63781eeccf2ad0184778aa309322aa8d9a9e262fa8e4efb"
+        }
+    },
+    "Sh2-157": {
+        "name": {
+            "text": "Lobster Claw Nebula",
+            "source_hash": "sha256:ed3999c0ddcca89f9fbf8c1c5949de49b9957dd2d8d312d92f2c73b61305b70a"
+        },
+        "description": {
+            "text": "Sh2-157 (Lobster Claw Nebula) e un oggetto di tipo nebulosa a emissione in Cassiopeia, a circa 7,5 kly. Magnitudine ~ 8.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:0f6fec0a0b4aeebc36d5683940b4faf0e5c51e035bb36a8c9fe1a7a603617c14"
+        }
+    },
+    "Sh2-158": {
+        "name": {
+            "text": "NGC 7538",
+            "source_hash": "sha256:5b1aa1a616a938fd361c5f8481bb569c8527960a873439b3907cdf3e95199e98"
+        },
+        "description": {
+            "text": "Sh2-158 (NGC 7538) e un oggetto di tipo nebulosa a emissione in Cassiopeia, a circa 9 kly. Magnitudine ~ 8.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:efa50911cd78e9f3c95f2b45fb97da238a23a37412995b7b26401209832b9fec"
+        }
+    },
+    "Sh2-171": {
+        "name": {
+            "text": "NGC 7822",
+            "source_hash": "sha256:f8f63b23f544d212c9d60e015b4fb8ad2ce7e8af6e16a8c7ab9b190b79f12f82"
+        },
+        "description": {
+            "text": "Sh2-171 (NGC 7822) e un oggetto di tipo nebulosa a emissione in Cepheus, a circa 3 kly. Magnitudine ~ 7.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:99b9e05258cc32d6ba207e97be3849678bad015acd1a12a42e3ea2a02df3b97d"
+        }
+    },
+    "Sh2-174": {
+        "name": {
+            "text": "Cepheus Planetary Nebula",
+            "source_hash": "sha256:253dc90ba8bf801b26deefb843b5ce90ce58cc95310fa7a1a12c02ce5f5d0823"
+        },
+        "description": {
+            "text": "Sh2-174 (Cepheus Planetary Nebula) e un oggetto di tipo nebulosa planetaria in Cepheus, a circa 1,6 kly. Magnitudine ~ 14.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:9ddbcf6b0e7a4e05ee7cf28964d0541a5a3668772ef0d9eb0e0de3dfc48fc638"
+        }
+    },
+    "Sh2-185": {
+        "name": {
+            "text": "IC 59 and IC 63",
+            "source_hash": "sha256:c6f29f6df0cd206a2b00a787d4f54a0d2424f51c451726dac39e032eb97f5aa9"
+        },
+        "description": {
+            "text": "Sh2-185 (IC 59 and IC 63) e un oggetto di tipo nebulosa a riflessione in Cassiopeia, a circa 600 ly. Magnitudine ~ 9.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:2e0b95b29eb4dbd21e53a0ffe5ede3815706027e8f81ba5c63d8cd20d1564494"
+        }
+    },
+    "Sh2-190": {
+        "name": {
+            "text": "Heart Nebula",
+            "source_hash": "sha256:f067438c069660470841283bbddc43604d9fff99efdc23934f83932c26a88951"
+        },
+        "description": {
+            "text": "Sh2-190 (Heart Nebula) e un oggetto di tipo nebulosa a emissione in Cassiopeia, a circa 7,5 kly. Magnitudine ~ 6.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:db47b581ba4ffc023251921357e4575ab4b4a53f995cde7c0dc57ec68d1d70ef"
+        }
+    },
+    "Sh2-199": {
+        "name": {
+            "text": "Soul Nebula",
+            "source_hash": "sha256:4845eb03b2dafec910ddd0c12744ae73890bfc3aab685cd9c695811e7f071a07"
+        },
+        "description": {
+            "text": "Sh2-199 (Soul Nebula) e un oggetto di tipo nebulosa a emissione in Cassiopeia, a circa 7,5 kly. Magnitudine ~ 6.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:97f7124ecba261524e4041c4609cef2bad832b70704804fc67e89649ddf8fe61"
+        }
+    },
+    "Sh2-2": {
+        "name": {
+            "text": "Scorpius Nebula",
+            "source_hash": "sha256:e87a1478bbb276a4419819961301b5ca3585bb2a8766ad3c0dbc572af218c506"
+        },
+        "description": {
+            "text": "Sh2-2 (Scorpius Nebula) e un oggetto di tipo nebulosa a emissione in Scorpius, a circa 1,5 kly. Magnitudine ~ 8.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:94418b4652cfba8ec5ce834b1ac48a5918462b65ebe17053ca8244128e91db53"
+        }
+    },
+    "Sh2-212": {
+        "name": {
+            "text": "Northeast Auriga Nebula",
+            "source_hash": "sha256:fe7e712ecd3807ba9ac3a2245e903ecb080cac5833ba33969dee13fe1052b529"
+        },
+        "description": {
+            "text": "Sh2-212 (Northeast Auriga Nebula) e un oggetto di tipo nebulosa a emissione in Auriga, a circa 7,2 kly. Magnitudine ~ 9.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:9f023f73c1d4483723bb27c7208e9bf2adfa7e4aef34d0af30606dea0e662ef5"
+        }
+    },
+    "Sh2-220": {
+        "name": {
+            "text": "Extended IC 405",
+            "source_hash": "sha256:e18cca8b597b5ead0d0812cc8b0c1a678eee91e563c647d5ebf146a4092d59e5"
+        },
+        "description": {
+            "text": "Sh2-220 (Extended IC 405) e un oggetto di tipo nebulosa a emissione in Auriga, a circa 1,5 kly. Magnitudine ~ 6.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:8c69850109b675cdf56a3d1085b4381be5ede4ce06eca05fb4eae6273102faf6"
+        }
+    },
+    "Sh2-235": {
+        "name": {
+            "text": "Auriga Nebula",
+            "source_hash": "sha256:163525c8e2a273d4091a1bd7f9ab42338096cb3a6594b33b7d303f3368e987eb"
+        },
+        "description": {
+            "text": "Sh2-235 (Auriga Nebula) e un oggetto di tipo nebulosa a emissione in Auriga, a circa 6 kly. Magnitudine ~ 9.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:09e68f9aa087428b61c4d6a504d179ed7e7648a2394384a9139c0e461a28ebd8"
+        }
+    },
+    "Sh2-240": {
+        "name": {
+            "text": "Spaghetti Nebula",
+            "source_hash": "sha256:e6956872739febc15325bcb0e1d86ebd89cb28b3acd1cf1cd8a1c244b2b7b390"
+        },
+        "description": {
+            "text": "Sh2-240 (Spaghetti Nebula) e un oggetto di tipo resto di supernova in Taurus, a circa 3 kly. Magnitudine ~ 8.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:ec0a66ab2f7f10d5ea09f710d02d742743b031ca50dc757853cea78d1fdec31c"
+        }
+    },
+    "Sh2-252": {
+        "name": {
+            "text": "Monkey Head Nebula",
+            "source_hash": "sha256:4acf5f76f15e986dcc234b3f4a9a69977ac4a134ed816aee112eb6c92177692a"
+        },
+        "description": {
+            "text": "Sh2-252 (Monkey Head Nebula) e un oggetto di tipo nebulosa a emissione in Orion, a circa 6,4 kly. Magnitudine ~ 6.8; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:4dcaa0f07d444146a59fe3063206fe55b6000bd3861aa5712bc4ab3b8735d840"
+        }
+    },
+    "Sh2-261": {
+        "name": {
+            "text": "Lower\u0027s Nebula",
+            "source_hash": "sha256:df607433af45aa2378bc518ebb25b69909fd738ccd37d2b25b9763f3a7ad896f"
+        },
+        "description": {
+            "text": "Sh2-261 (Lower\u0027s Nebula) e un oggetto di tipo nebulosa a emissione in Monoceros, a circa 2,5 kly. Magnitudine ~ 9.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:9755532301ed7f21f15e5665cce68340f0f70452d128d8459587cc961ed81a1d"
+        }
+    },
+    "Sh2-27": {
+        "name": {
+            "text": "Zeta Ophiuchi Nebula",
+            "source_hash": "sha256:3acf2270c54c12ebc23f37218bd4c3d634544bd027151bad2e971cd2bf7b93b5"
+        },
+        "description": {
+            "text": "Sh2-27 (Zeta Ophiuchi Nebula) e un oggetto di tipo nebulosa a emissione in Ophiuchus, a circa 460 ly. Magnitudine ~ 7.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:3f616bdedb6d778db48f950e9c903ff70f20934c301f781b5f82ce5d880cc66a"
+        }
+    },
+    "Sh2-273": {
+        "name": {
+            "text": "Monoceros Nebula",
+            "source_hash": "sha256:732aa58c0804c4aa91a5d9e21d7089b9153cb8fd02e7c2f683803f1eca5c1fda"
+        },
+        "description": {
+            "text": "Sh2-273 (Monoceros Nebula) e un oggetto di tipo nebulosa a emissione in Monoceros, a circa 2,6 kly. Magnitudine ~ 8.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:439ed05f06d731f24d6ab7bbc9fcae19f727a1c8f53bfaab146baed520097e4a"
+        }
+    },
+    "Sh2-276": {
+        "name": {
+            "text": "Barnard\u0027s Loop",
+            "source_hash": "sha256:8d9a7f87d58651ba444d55bf37041584d036666589b2cb7e677f019efb2b6f5d"
+        },
+        "description": {
+            "text": "Sh2-276 (Barnard\u0027s Loop) e un oggetto di tipo nebulosa a emissione in Orion, a circa 1,6 kly. Magnitudine ~ 5.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:7d290ab0e9b9996928c3806a06d6e08e7e478f73c1da3571bd5da80b04d316e7"
+        }
+    },
+    "Sh2-29": {
+        "name": {
+            "text": "Sagittarius W Nebula",
+            "source_hash": "sha256:59c22ffd41212ac27e61736b681eaeb4494cd4bb1cec69c68d39dcce6a12dd7d"
+        },
+        "description": {
+            "text": "Sh2-29 (Sagittarius W Nebula) e un oggetto di tipo nebulosa a emissione in Sagittarius, a circa 5 kly. Magnitudine ~ 8.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:25187777f53c97d403d9a4d3091d27a406546f5c21e01d64f31b96790cc09a7b"
+        }
+    },
+    "Sh2-302": {
+        "name": {
+            "text": "Puppis Nebula",
+            "source_hash": "sha256:af1bf67d105d1e8b56fe0cc2a1ddeafd295984a5b8d7cd595381b80ccfc8cacb"
+        },
+        "description": {
+            "text": "Sh2-302 (Puppis Nebula) e un oggetto di tipo nebulosa a emissione in Puppis, a circa 6,5 kly. Magnitudine ~ 9.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:41586d9ef6cd678a232a6b3b8f69b462c8221dbc7e62536538d1df2eb25afc3c"
+        }
+    },
+    "Sh2-311": {
+        "name": {
+            "text": "RCW 16",
+            "source_hash": "sha256:71c0809e6f9a9fc0374cb8ac48c7eee82e5a2a753bac848963f497516d10388d"
+        },
+        "description": {
+            "text": "Sh2-311 (RCW 16) e un oggetto di tipo nebulosa a emissione in Vela, a circa 5,5 kly. Magnitudine ~ 8.0; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:d0c81833e2aaa8ebc3f125c6eb8e6b814e38ca266666353f8a36b7028498d3ee"
+        }
+    },
+    "Sh2-49": {
+        "name": {
+            "text": "Extended Eagle Nebula",
+            "source_hash": "sha256:69d43a663c683a15096e6b00a84b428a2168cc342b2b14aa7d7c854734034aa3"
+        },
+        "description": {
+            "text": "Sh2-49 (Extended Eagle Nebula) e un oggetto di tipo nebulosa a emissione in Aquila, a circa 7 kly. Magnitudine ~ 7.5; dimensione apparente variabile secondo catalogo. Catalogo Sharpless (1959). Astrofotografia: usare Ha/OIII/SII secondo la struttura.",
+            "source_hash": "sha256:5a0d69aeb3cc352f0543154c1d5533a39ea447a90820391b9a7897dbd3008e09"
+        }
+    }
+}

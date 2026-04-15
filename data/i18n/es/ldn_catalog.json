@@ -1,0 +1,135 @@
+{
+  "LDN 1": {
+    "name": {
+      "text": "Nebulosa oscura de Cefeo",
+      "source_hash": "sha256:626f8544763b1e5f4334e02a30ec0f8fded80b5cf5b846f843ba1f5c018d95c8"
+    },
+    "description": {
+      "text": "LDN 1 es una nebulosa oscura en Cefeo situada a unos 500 años luz. Es una nube de opacidad máxima del catálogo de Lynds, visible en silueta sobre la Vía Láctea del norte. Astrofotografia: objetivo circumpolar (Dec +77 deg), ideal en LRGB profundo o con fondo Ha para aumentar el contraste.",
+      "source_hash": "sha256:748f8f869ce4c50992ba1fe344f90aba6ab8974ca0acfa59d9311e2ed098ffa3"
+    }
+  },
+  "LDN 43": {
+    "name": {
+      "text": "RNO 1",
+      "source_hash": "sha256:62480e9de14c070eeeebfd0aba49ea8e98d72990d720d155e1b991ebda603be8"
+    },
+    "description": {
+      "text": "LDN 43 es una nebulosa oscura en la región Cassiopeia/Cepheus a unos 520 años luz, con opacidad muy alta. Está asociada a RNO 1, una pequeña nebulosidad roja de reflexión ligada a una protoestrella embebida. Astrofotografia: muy bien situada en otoño desde Francia; se recomienda LRGB profundo (opcionalmente con Ha).",
+      "source_hash": "sha256:899499d068274aabd5b4c098b5cddd4dff231b5e849f09360eb03853377a712f"
+    }
+  },
+  "LDN 183": {
+    "name": {
+      "text": "Nebulosa Alma Negra",
+      "source_hash": "sha256:5a493dd38019f4315ed8d2f6cfc4e5593353589015dcb3d68f1c1f95ce5e0b35"
+    },
+    "description": {
+      "text": "LDN 183 es una nube oscura muy cercana en Serpens, a unos 110 años luz. Es un nucleo preestelar denso, citado a menudo como ejemplo de globulo de Bok antes del colapso. Astrofotografia: objetivo ecuatorial de verano; en LRGB profundo aparece como un hueco oscuro en el campo estelar.",
+      "source_hash": "sha256:679b6059d9dcc0a7ad62ea83f51083afa2f21a34f7207872cec03f889372a9ec"
+    }
+  },
+  "LDN 204": {
+    "name": {
+      "text": "Tallo de la Nebulosa de la Pipa",
+      "source_hash": "sha256:719e7c82c3d130f3f53a27344874e1bd5abaa7449e03a998d9e4f9609170e441"
+    },
+    "description": {
+      "text": "LDN 204 corresponde al tallo de la famosa Pipe Nebula, a unos 450 años luz. Esta nube oscura alargada destaca sobre el rico fondo estelar hacia el centro galáctico. Astrofotografia: objetivo bajo desde Francia (Dec -26 deg), mejor en gran campo LRGB durante noches estivales estables.",
+      "source_hash": "sha256:c053e8268b3735f84b2af5f6f7cf91a8c94ba1bf1c1d30078ec203cc5002f099"
+    }
+  },
+  "LDN 694": {
+    "name": {
+      "text": "LDN 694",
+      "source_hash": "sha256:cb0baa57c1a789109dea1b78475ded360e0565309e0c31fdd8f512749faf8b66"
+    },
+    "description": {
+      "text": "LDN 694 es un globulo de Bok compacto en Tauro, a unos 820 años luz. Este nucleo preestelar es bien estudiado dentro del complejo molecular de Tauro y ofrece alto contraste con el fondo estelar. Astrofotografia: objetivo invernal, preferiblemente con focal larga por su pequeno tamano (aprox. 15').",
+      "source_hash": "sha256:ecf1a19a5524fd20f337e4099a0505ccdbac5a0c86b18a2df248307cdb792d3d"
+    }
+  },
+  "LDN 1235": {
+    "name": {
+      "text": "Nebulosa del Tiburon Oscuro",
+      "source_hash": "sha256:74db57f3dbea4b5a3447ebf663fc280884db8195cbe8b4299214e1bd640f6152"
+    },
+    "description": {
+      "text": "LDN 1235 es una nebulosa oscura en Cefeo a unos 650 años luz, famosa por su forma de tiburon. Pertenece al complejo Cepheus Flare y suele fotografiarse junto a vdB 149 y vdB 150. Astrofotografia: objetivo circumpolar de otoño; LRGB profundo con campo amplio para incluir la reflexión azul.",
+      "source_hash": "sha256:531ff8eaa535ab0a3d1fc86ababa5bb7d5db3d35f45e631b91f210ccbda020c1"
+    }
+  },
+  "LDN 1251": {
+    "name": {
+      "text": "LDN 1251",
+      "source_hash": "sha256:7c12e6b09b20cdcfe831939ebf64a01766f916f6d77bcacfbfe308ceeb74c078"
+    },
+    "description": {
+      "text": "LDN 1251 es un filamento molecular oscuro extenso en Cefeo, a unos 300 años luz y cerca de 80' de extension. Forma parte de Cepheus Flare, rica en núcleos densos y objetos Herbig-Haro. Astrofotografia: excelente objetivo circumpolar, con LRGB muy profundo para revelar también el IFN débil alrededor.",
+      "source_hash": "sha256:0d8abfdd519a08351fc75097939ea79f1824ebacfa24e3a9a79aa89c425973cf"
+    }
+  },
+  "LDN 1333": {
+    "name": {
+      "text": "Tiburon de Casiopea",
+      "source_hash": "sha256:9909ee54e8e866abdfa26254c5160f8cec6017ce902de697b5f3492025800564"
+    },
+    "description": {
+      "text": "LDN 1333 es una nebulosa oscura de Casiopea a unos 700 años luz, de forma alargada y curvada. En imagen profunda puede aparecer IFN tenue en el fondo. Astrofotografia: objetivo circumpolar, ideal con integración larga en LRGB y posible mosaico junto con LDN 1235.",
+      "source_hash": "sha256:c5cf0b299e1de14a9b603d16114c538afa67940c54f3a57ce0b27d0edf2409f0"
+    }
+  },
+  "LDN 1622": {
+    "name": {
+      "text": "Nebulosa del Coco",
+      "source_hash": "sha256:e5623f26e7115734e736333bce996eb557a8d10207752a7bf07416e4db7d71bc"
+    },
+    "description": {
+      "text": "LDN 1622 es una nebulosa oscura en Orión a unos 400-500 años luz, visible por contraste frente al Bucle de Barnard. Su silueta humanoide le dio el apodo de Bogeyman Nebula. Astrofotografia: objetivo invernal; combinacion Ha + LRGB recomendada para mantener el fondo rojo y la nube oscura.",
+      "source_hash": "sha256:b92794a70744a7025b6ef9a6ba5a7945e9afc77354d117eec16829fddac3a34d"
+    }
+  },
+  "LDN 1630": {
+    "name": {
+      "text": "Region de la Cabeza de Caballo",
+      "source_hash": "sha256:9bfe2d6ea05d9fb0da2ce71380eb423e9ba6579edd84d0a8f5a2f26ec3db59db"
+    },
+    "description": {
+      "text": "LDN 1630 es la nube madre de la región de Barnard 33 (Cabeza de Caballo) en Orión, a unos 1350 años luz. Se recorta sobre IC 434 y esta cerca de NGC 2023 y NGC 2024 (Flame). Astrofotografia: gran objetivo de invierno; Ha para IC 434 y LRGB para color natural, con focal suficiente para el detalle.",
+      "source_hash": "sha256:0a612cc6cf4558e4bb448d0f82ea16dcb33422c3b67c5a59822cf8aae7c060ca"
+    }
+  },
+  "LDN 1689": {
+    "name": {
+      "text": "Nube oscura de Ofiuco",
+      "source_hash": "sha256:76b20c9fa1324cc4af05fd2123ca0580adc38f425d520dd872d76bd2cd166887"
+    },
+    "description": {
+      "text": "LDN 1689 es una nube molecular oscura muy cercana, a unos 140 años luz, dentro del complejo rho Ophiuchi-Lupus. Contiene núcleos densos y protoestrellas muy estudiadas, como IRAS 16293-2422. Astrofotografia: requiere gran campo; objeto bajo en verano desde Francia, con LRGB profundo.",
+      "source_hash": "sha256:c5cc816461e8bf54366a4986e217ad330c5ccb18c021cfb38edb6d790265571d"
+    }
+  },
+  "LDN 1780": {
+    "name": {
+      "text": "Nube oscura de Musca",
+      "source_hash": "sha256:19c2250250520b3a02d8c7dd489ab28b6c27038a273fd4172583f369fe43b53e"
+    },
+    "description": {
+      "text": "LDN 1780 es una nube oscura relativamente aislada a unos 100-110 años luz, en la zona Virgo/Hydra. Sus bordes translucidos pueden mostrar reflexión azulada bajo cielos excelentes. Astrofotografia: objeto muy bajo desde Francia; mas favorable en latitudes meridionales.",
+      "source_hash": "sha256:8d3773d41fc7297a986ed388818d48d8f6e6305e1bbc1cd729456b17a855a494"
+    }
+  },
+  "LDN 1795": {
+    "name": {
+      "text": "Nebulosa de la Serpiente",
+      "source_hash": "sha256:18fe87fe55a89447c1c7350fe0202811ee098f6a8e2e8008641963b87548e037"
+    },
+    "description": {
+      "text": "LDN 1795 (B72) es una nebulosa oscura sinuosa en Ofiuco, a unos 650 años luz. Su forma en S sobre el denso campo estelar del centro galáctico origina el nombre Snake Nebula. Astrofotografia: objetivo estival bajo; recomendado gran campo LRGB, con Ha opcional.",
+      "source_hash": "sha256:94880e557daed182db10c8f4fecf34fdc2bb1fd46fb6adc65b61f17d8f668642"
+    }
+  }
+}
+
+
+

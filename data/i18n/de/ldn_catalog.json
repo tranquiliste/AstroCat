@@ -1,0 +1,134 @@
+{
+  "LDN 1": {
+    "name": {
+      "text": "Dunkelnebel in Kepheus",
+      "source_hash": "sha256:626f8544763b1e5f4334e02a30ec0f8fded80b5cf5b846f843ba1f5c018d95c8"
+    },
+    "description": {
+      "text": "LDN 1 ist ein Dunkelnebel im Sternbild Kepheus in etwa 500 Lichtjahren Entfernung. Die stark opake Wolke des Lynds-Katalogs erscheint als Silhouette vor der nördlichen Milchstrasse. Astrofotografie: zirkumpolares Ziel (Dec +77 deg), gut in tiefem LRGB oder mit Ha-Hintergrund für mehr Kontrast.",
+      "source_hash": "sha256:748f8f869ce4c50992ba1fe344f90aba6ab8974ca0acfa59d9311e2ed098ffa3"
+    }
+  },
+  "LDN 43": {
+    "name": {
+      "text": "RNO 1",
+      "source_hash": "sha256:62480e9de14c070eeeebfd0aba49ea8e98d72990d720d155e1b991ebda603be8"
+    },
+    "description": {
+      "text": "LDN 43 ist ein Dunkelnebel in der Region Kassiopeia/Kepheus in etwa 520 Lichtjahren Entfernung, mit maximaler Opazität. Er ist mit RNO 1 verbunden, einer kleinen roten Reflexionsnebelstruktur um einen eingebetteten Protostern. Astrofotografie: im Herbst sehr gut sichtbar; tiefes LRGB (optional mit Ha) ist empfehlenswert.",
+      "source_hash": "sha256:899499d068274aabd5b4c098b5cddd4dff231b5e849f09360eb03853377a712f"
+    }
+  },
+  "LDN 183": {
+    "name": {
+      "text": "Black-Soul-Nebel",
+      "source_hash": "sha256:5a493dd38019f4315ed8d2f6cfc4e5593353589015dcb3d68f1c1f95ce5e0b35"
+    },
+    "description": {
+      "text": "LDN 183 ist eine sehr nahe Dunkelwolke im Sternbild Schlange, etwa 110 Lichtjahre entfernt. Sie gilt als dichter prä-stellarer Kern und als typisches Beispiel eines Bok-Globuls vor dem Kollaps. Astrofotografie: sommerliches Äquatorziel; in tiefem LRGB wirkt die Wolke wie ein schwarzes Loch im Sternfeld.",
+      "source_hash": "sha256:679b6059d9dcc0a7ad62ea83f51083afa2f21a34f7207872cec03f889372a9ec"
+    }
+  },
+  "LDN 204": {
+    "name": {
+      "text": "Stiel des Pfeifennebels",
+      "source_hash": "sha256:719e7c82c3d130f3f53a27344874e1bd5abaa7449e03a998d9e4f9609170e441"
+    },
+    "description": {
+      "text": "LDN 204 entspricht dem Stiel des bekannten Pipe Nebula in etwa 450 Lichtjahren Entfernung. Diese lange Dunkelwolke hebt sich deutlich vor dem sternreichen Hintergrund Richtung galaktisches Zentrum ab. Astrofotografie: von Frankreich aus niedrig (Dec -26 deg), am besten als weites LRGB-Feld in ruhigen Sommernaechten.",
+      "source_hash": "sha256:c053e8268b3735f84b2af5f6f7cf91a8c94ba1bf1c1d30078ec203cc5002f099"
+    }
+  },
+  "LDN 694": {
+    "name": {
+      "text": "LDN 694",
+      "source_hash": "sha256:cb0baa57c1a789109dea1b78475ded360e0565309e0c31fdd8f512749faf8b66"
+    },
+    "description": {
+      "text": "LDN 694 ist ein kompakter Bok-Globul im Stier in etwa 820 Lichtjahren Entfernung. Der dichte prae-stellare Kern ist im Taurus-Molekülwolkenkomplex gut untersucht und kontrastreich gegen das Sternfeld. Astrofotografie: Winterziel, wegen der kleinen Ausdehnung (ca. 15') besser mit längerer Brennweite.",
+      "source_hash": "sha256:ecf1a19a5524fd20f337e4099a0505ccdbac5a0c86b18a2df248307cdb792d3d"
+    }
+  },
+  "LDN 1235": {
+    "name": {
+      "text": "Dunkler-Hai-Nebel",
+      "source_hash": "sha256:74db57f3dbea4b5a3447ebf663fc280884db8195cbe8b4299214e1bd640f6152"
+    },
+    "description": {
+      "text": "LDN 1235 ist ein Dunkelnebel in Kepheus in etwa 650 Lichtjahren Entfernung, bekannt für seine Hai-Form. Er gehört zum Cepheus-Flare-Komplex und wird oft zusammen mit vdB 149 und vdB 150 aufgenommen. Astrofotografie: zirkumpolares Herbstziel; tiefes LRGB mit ausreichend großem Feld für die blauen Reflexionsanteile.",
+      "source_hash": "sha256:531ff8eaa535ab0a3d1fc86ababa5bb7d5db3d35f45e631b91f210ccbda020c1"
+    }
+  },
+  "LDN 1251": {
+    "name": {
+      "text": "LDN 1251",
+      "source_hash": "sha256:7c12e6b09b20cdcfe831939ebf64a01766f916f6d77bcacfbfe308ceeb74c078"
+    },
+    "description": {
+      "text": "LDN 1251 ist ein ausgedehnter dunkler Molekülfilamentnebel in Kepheus in etwa 300 Lichtjahren Entfernung (ca. 80'). Er ist Teil von Cepheus Flare mit dichten Kernen und Herbig-Haro-Objekten. Astrofotografie: sehr gutes zirkumpolares Ziel, tiefes LRGB nötig, um auch schwaches IFN sichtbar zu machen.",
+      "source_hash": "sha256:0d8abfdd519a08351fc75097939ea79f1824ebacfa24e3a9a79aa89c425973cf"
+    }
+  },
+  "LDN 1333": {
+    "name": {
+      "text": "Kassiopeia-Hai",
+      "source_hash": "sha256:9909ee54e8e866abdfa26254c5160f8cec6017ce902de697b5f3492025800564"
+    },
+    "description": {
+      "text": "LDN 1333 ist ein Dunkelnebel in Kassiopeia in etwa 700 Lichtjahren Entfernung mit gebogener, länglicher Form. In tiefen Aufnahmen kann schwaches IFN im Umfeld erscheinen. Astrofotografie: zirkumpolares Ziel, lange LRGB-Integration empfohlen, ggf. als Mosaik mit LDN 1235.",
+      "source_hash": "sha256:c5cf0b299e1de14a9b603d16114c538afa67940c54f3a57ce0b27d0edf2409f0"
+    }
+  },
+  "LDN 1622": {
+    "name": {
+      "text": "Bogeyman-Nebel",
+      "source_hash": "sha256:e5623f26e7115734e736333bce996eb557a8d10207752a7bf07416e4db7d71bc"
+    },
+    "description": {
+      "text": "LDN 1622 ist ein Dunkelnebel im Orion in etwa 400-500 Lichtjahren Entfernung, sichtbar durch den Kontrast vor Barnard's Loop. Die markante humanoide Silhouette führte zum Namen Bogeyman Nebula. Astrofotografie: Winterziel; Ha + LRGB eignet sich gut, um roten Hintergrund und dunkle Form gemeinsam darzustellen.",
+      "source_hash": "sha256:b92794a70744a7025b6ef9a6ba5a7945e9afc77354d117eec16829fddac3a34d"
+    }
+  },
+  "LDN 1630": {
+    "name": {
+      "text": "Pferdekopf-Region",
+      "source_hash": "sha256:9bfe2d6ea05d9fb0da2ce71380eb423e9ba6579edd84d0a8f5a2f26ec3db59db"
+    },
+    "description": {
+      "text": "LDN 1630 ist die Mutterwolke der Barnard-33-Region (Pferdekopf) im Orion, etwa 1 350 Lichtjahre entfernt. Sie liegt vor IC 434 und nahe NGC 2023 sowie NGC 2024 (Flame). Astrofotografie: klassisches Winterziel; Ha für IC 434 und LRGB für natürliche Farben, mit genug Brennweite für Details.",
+      "source_hash": "sha256:0a612cc6cf4558e4bb448d0f82ea16dcb33422c3b67c5a59822cf8aae7c060ca"
+    }
+  },
+  "LDN 1689": {
+    "name": {
+      "text": "Dunkelwolke in Ophiuchus",
+      "source_hash": "sha256:76b20c9fa1324cc4af05fd2123ca0580adc38f425d520dd872d76bd2cd166887"
+    },
+    "description": {
+      "text": "LDN 1689 ist eine sehr nahe dunkle Molekülwolke in etwa 140 Lichtjahren Entfernung im rho-Ophiuchi-Lupus-Komplex. Sie enthält dichte Kerne und gut untersuchte Protosterne, darunter IRAS 16293-2422. Astrofotografie: sehr weites Feld nötig; im Sommer von Frankreich aus niedrig, tiefes LRGB empfohlen.",
+      "source_hash": "sha256:c5cc816461e8bf54366a4986e217ad330c5ccb18c021cfb38edb6d790265571d"
+    }
+  },
+  "LDN 1780": {
+    "name": {
+      "text": "Musca-Dunkelwolke",
+      "source_hash": "sha256:19c2250250520b3a02d8c7dd489ab28b6c27038a273fd4172583f369fe43b53e"
+    },
+    "description": {
+      "text": "LDN 1780 ist eine relativ isolierte Dunkelwolke in der Region Jungfrau/Wasserschlange in etwa 100-110 Lichtjahren Entfernung. Ihre transluzenten Raender können unter sehr dunklem Himmel schwache bläuliche Reflexion zeigen. Astrofotografie: von Frankreich aus sehr niedrig; besser von südlicheren Standorten aus.",
+      "source_hash": "sha256:8d3773d41fc7297a986ed388818d48d8f6e6305e1bbc1cd729456b17a855a494"
+    }
+  },
+  "LDN 1795": {
+    "name": {
+      "text": "Schlangen-Nebel",
+      "source_hash": "sha256:18fe87fe55a89447c1c7350fe0202811ee098f6a8e2e8008641963b87548e037"
+    },
+    "description": {
+      "text": "LDN 1795 (B72) ist ein gewundener Dunkelnebel im Ophiuchus in etwa 650 Lichtjahren Entfernung. Seine S-Form vor dem dichten Sternfeld des galaktischen Zentrums gab ihm den Namen Snake Nebula. Astrofotografie: niedriges Sommerziel; weites LRGB-Feld empfohlen, Ha optional.",
+      "source_hash": "sha256:94880e557daed182db10c8f4fecf34fdc2bb1fd46fb6adc65b61f17d8f668642"
+    }
+  }
+}
+
+
