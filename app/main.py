@@ -1446,6 +1446,7 @@ class DetailPanel(QtWidgets.QWidget):
     archive_requested = QtCore.Signal(str)
     image_changed = QtCore.Signal(str)
     focus_mode_toggled = QtCore.Signal(bool)
+    navigation_requested = QtCore.Signal(int)
 
     def __init__(self) -> None:
         super().__init__()
@@ -1490,8 +1491,8 @@ class DetailPanel(QtWidgets.QWidget):
         self.next_button = QtWidgets.QPushButton("▶")
         self.thumb_button = QtWidgets.QPushButton(tr("detail.set_as_thumbnail"))
         self.archive_button = QtWidgets.QPushButton(tr("detail.archive_image"))
-        self.prev_button.clicked.connect(self._show_prev_image)
-        self.next_button.clicked.connect(self._show_next_image)
+        self.prev_button.clicked.connect(lambda: self.navigation_requested.emit(-1))
+        self.next_button.clicked.connect(lambda: self.navigation_requested.emit(1))
         self.thumb_button.clicked.connect(self._set_thumbnail)
         self.archive_button.clicked.connect(self._request_archive)
         self._current_item: Optional[CatalogItem] = None
@@ -1541,6 +1542,8 @@ class DetailPanel(QtWidgets.QWidget):
         image_header_layout.addWidget(self.text_larger_button)
         image_header_layout.addWidget(self.focus_toggle_button)
         image_header_layout.addStretch(1)
+        image_header_layout.addWidget(self.prev_button)
+        image_header_layout.addWidget(self.next_button)
         image_layout.addWidget(image_header)
         image_layout.addWidget(self.image_view, stretch=1)
 
@@ -1551,8 +1554,6 @@ class DetailPanel(QtWidgets.QWidget):
         left_layout.setSpacing(12)
         nav_row = QtWidgets.QHBoxLayout()
         nav_row.setSpacing(8)
-        nav_row.addWidget(self.prev_button)
-        nav_row.addWidget(self.next_button)
         nav_row.addWidget(self.thumb_button)
         nav_row.addWidget(self.archive_button)
         nav_row.addStretch(1)
@@ -1716,8 +1717,8 @@ class DetailPanel(QtWidgets.QWidget):
             else:
                 self.image_view.set_pixmap(None)
                 self.image_info.setText(tr("detail.image.none"))
-            self.prev_button.setEnabled(False)
-            self.next_button.setEnabled(False)
+            self.prev_button.setEnabled(True)
+            self.next_button.setEnabled(True)
             self.thumb_button.setEnabled(False)
             self.archive_button.setEnabled(False)
             return
@@ -1738,15 +1739,15 @@ class DetailPanel(QtWidgets.QWidget):
                     size_suffix=tr("detail.image.size_suffix", size=size_info) if size_info else "",
                 )
             )
-            self.prev_button.setEnabled(len(paths) > 1)
-            self.next_button.setEnabled(len(paths) > 1)
+            self.prev_button.setEnabled(True)
+            self.next_button.setEnabled(True)
             self.thumb_button.setEnabled(True)
             self.archive_button.setEnabled(True)
             return
         self.image_view.set_pixmap(None)
         self.image_info.setText(tr("detail.image.loading", name=path.name))
-        self.prev_button.setEnabled(len(paths) > 1)
-        self.next_button.setEnabled(len(paths) > 1)
+        self.prev_button.setEnabled(True)
+        self.next_button.setEnabled(True)
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
         self._start_image_load(path)
@@ -1815,23 +1816,26 @@ class DetailPanel(QtWidgets.QWidget):
         super().showEvent(event)
         QtCore.QTimer.singleShot(0, self._apply_initial_sizes)
 
-    def _show_prev_image(self) -> None:
-        if not self._current_item or not self._current_item.image_paths:
-            return
-        self._image_index = (self._image_index - 1) % len(self._current_item.image_paths)
-        self._update_image_view()
-        self._apply_notes_for_current_image()
-        current_name = self.current_image_name() or ""
-        self.image_changed.emit(current_name)
+    def navigate_images(self, direction: int) -> bool:
+        if direction == 0:
+            return False
+        return self._step_image(1 if direction > 0 else -1, wrap=False)
 
-    def _show_next_image(self) -> None:
+    def _step_image(self, delta: int, wrap: bool) -> bool:
         if not self._current_item or not self._current_item.image_paths:
-            return
-        self._image_index = (self._image_index + 1) % len(self._current_item.image_paths)
+            return False
+        paths = self._current_item.image_paths
+        new_index = self._image_index + delta
+        if wrap:
+            new_index %= len(paths)
+        elif new_index < 0 or new_index >= len(paths):
+            return False
+        self._image_index = new_index
         self._update_image_view()
         self._apply_notes_for_current_image()
         current_name = self.current_image_name() or ""
         self.image_changed.emit(current_name)
+        return True
 
     def _set_thumbnail(self) -> None:
         if not self._current_item or not self._current_item.image_paths:
@@ -2344,6 +2348,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.detail.image_changed.connect(self._on_image_changed)
         self.detail.archive_requested.connect(self._on_archive_requested)
         self.detail.focus_mode_toggled.connect(self._on_detail_focus_mode_toggled)
+        self.detail.navigation_requested.connect(self._navigate_images_and_filtered_items)
         self.model.wiki_thumbnail_loaded.connect(self._on_wiki_thumbnail_loaded)
 
         splitter = QtWidgets.QSplitter()
@@ -2971,6 +2976,40 @@ class MainWindow(QtWidgets.QMainWindow):
         if obj is self.grid.viewport() and event.type() == QtCore.QEvent.Type.Resize:
             self._schedule_auto_fit()
         return super().eventFilter(obj, event)
+
+    def _navigate_images_and_filtered_items(self, direction: int) -> bool:
+        if direction == 0 or self.proxy.rowCount() == 0:
+            return False
+        if self.detail.navigate_images(direction):
+            return True
+
+        current_index = self.grid.currentIndex()
+        if not current_index.isValid():
+            selected = self.grid.selectionModel().selectedIndexes()
+            current_index = selected[0] if selected else QtCore.QModelIndex()
+        if not current_index.isValid():
+            return False
+
+        next_row = current_index.row() + direction
+        if next_row < 0 or next_row >= self.proxy.rowCount():
+            return False
+
+        next_index = self.proxy.index(next_row, 0)
+        if not next_index.isValid():
+            return False
+
+        self.grid.setCurrentIndex(next_index)
+        self.grid.selectionModel().select(
+            next_index,
+            QtCore.QItemSelectionModel.SelectionFlag.ClearAndSelect,
+        )
+
+        source_index = self.proxy.mapToSource(next_index)
+        next_item = self.model.data(source_index, QtCore.Qt.ItemDataRole.UserRole)
+        if next_item and next_item.image_paths:
+            edge_name = next_item.image_paths[0].name if direction > 0 else next_item.image_paths[-1].name
+            QtCore.QTimer.singleShot(0, lambda: self.detail.set_current_image_by_name(edge_name))
+        return True
 
     def _schedule_view_refresh(self) -> None:
         if self._loading:
