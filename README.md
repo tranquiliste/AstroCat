@@ -12,7 +12,7 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 Status: beta
 
-Latest release: `1.3.0-beta`
+Latest release: `1.4.0-beta`
 
 Release history: [CHANGELOG.md](CHANGELOG.md)
 
@@ -32,7 +32,9 @@ Release history: [CHANGELOG.md](CHANGELOG.md)
 ## What AstroCat adds
 - New catalogs (including LBN, Sh2, VdB, and others)
 - Notes storage refactor with image notes in `photo_notes.json`
+- Thumnails storage refactor in `photo_notes.json`
 - Built-in migration path from AstroCatalogueViewer notes
+- i18n for catalogs (translations in de,es,fr,it in progress)
 - new UI
 
 
