@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.4.0‑beta] - 2026-04-16
+
+### Added
+- **i18n:** Implemented localization for catalogs; translations available in French, Italian, Spanish, and German (fallback to English).
+- **i18n:** Catalog partially translated; some entries are still missing and some translations lack proper accents.
+- **i18n:** Added localization for object types.
+- **UI:** Added a button to reset the search text field filter.
+
+### Changed
+- New **thumbnails** are now stored in `photo_notes.json` (instead of metadata).
+  The `metadata` folder inside the `config` directory is no longer updated and is only used as a fallback to retrieve old thumbnails.
+
+
+
+
 ## [1.3.0-beta] - 2026-04-14
 ### Added
 - Explicit constellation metadata across supported catalogs
