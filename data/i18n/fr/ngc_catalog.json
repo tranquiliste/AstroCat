@@ -55419,11 +55419,11 @@
   },
   "NGC6888": {
     "name": {
-      "text": "NGC 6888",
+      "text": "Nébuleuse du Croissant",
       "source_hash": "sha256:9bcbe553a5ed6e315e7295e2fb884a114ac3de627194823a56eafc28de9c0d6e"
     },
     "description": {
-      "text": "The Crescent Nebula (also known as NGC 6888, Caldwell 27, Sharpless 105) is an emission nebula in the constellation Cygnus, about 5000 light-years away from Earth. It was discovered by William Herschel in 1792.",
+      "text": "La Nébuleuse du Croissant (également connue sous le nom de NGC 6888, Caldwell 27, Sharpless 105) est une nébuleuse à émission dans la constellation du Cygne, à environ 5000 années-lumière de la Terre. Elle a été découverte par William Herschel en 1792.",
       "source_hash": "sha256:c0119a6a2ea244b0f4382c6b0ff4a9d8116e7d7a09325a0b56ebd23842a185b6"
     }
   },
