@@ -61,11 +61,11 @@
     },
     "M7": {
         "name": {
-            "text": "Ptolemy\u0027s Cluster",
+            "text": "Ptolemy's Cluster",
             "source_hash": "sha256:85efbe98ffb32879fa5812ec01fdd023145f87b65851d7ee87e2968053c9a22b"
         },
         "description": {
-            "text": "M7 (Ptolemy\u0027s Cluster) ist ein Objekt vom Typ offener Sternhaufen im Sternbild Scorpius, etwa 980 ly entfernt. Helligkeit ~ 3.3 mag; scheinbare Groesse je nach Katalogeintrag. Entdeckt im Jahr 130. Astrofotografie-Hinweis: klassisches Messier-Ziel; Brennweite und Integrationszeit an die scheinbare Groesse anpassen.",
+            "text": "M7 (Ptolemy's Cluster) ist ein Objekt vom Typ offener Sternhaufen im Sternbild Scorpius, etwa 980 ly entfernt. Helligkeit ~ 3.3 mag; scheinbare Groesse je nach Katalogeintrag. Entdeckt im Jahr 130. Astrofotografie-Hinweis: klassisches Messier-Ziel; Brennweite und Integrationszeit an die scheinbare Groesse anpassen.",
             "source_hash": "sha256:24274997ee01ec2408cfe419cd1d6783a2f4a624eb8bb8e2eeceeb8cc0b73f9e"
         }
     },
@@ -801,11 +801,11 @@
     },
     "M81": {
         "name": {
-            "text": "Bode\u0027s Galaxy",
+            "text": "Bode's Galaxy",
             "source_hash": "sha256:94e3c1fbd61d23ad05c93702d9edd2f9493f4f658cf57d3e757048c185e77a79"
         },
         "description": {
-            "text": "M81 (Bode\u0027s Galaxy) ist ein Objekt vom Typ Galaxie im Sternbild Ursa Major, etwa 12000 kly entfernt. Helligkeit ~ 6.9 mag; scheinbare Groesse je nach Katalogeintrag. Entdeckt im Jahr 1774. Astrofotografie-Hinweis: klassisches Messier-Ziel; Brennweite und Integrationszeit an die scheinbare Groesse anpassen.",
+            "text": "M81 (Bode's Galaxy) ist ein Objekt vom Typ Galaxie im Sternbild Ursa Major, etwa 12000 kly entfernt. Helligkeit ~ 6.9 mag; scheinbare Groesse je nach Katalogeintrag. Entdeckt im Jahr 1774. Astrofotografie-Hinweis: klassisches Messier-Ziel; Brennweite und Integrationszeit an die scheinbare Groesse anpassen.",
             "source_hash": "sha256:de7d7c8d6c1eb3f5ed6ed6b2a1d4737be64ca5820dd341d27e02cbbe9c0944e9"
         }
     },

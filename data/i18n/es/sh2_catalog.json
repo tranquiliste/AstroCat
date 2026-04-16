@@ -201,11 +201,11 @@
     },
     "Sh2-261": {
         "name": {
-            "text": "Lower\u0027s Nebula",
+            "text": "Lower's Nebula",
             "source_hash": "sha256:df607433af45aa2378bc518ebb25b69909fd738ccd37d2b25b9763f3a7ad896f"
         },
         "description": {
-            "text": "Sh2-261 (Lower\u0027s Nebula) es un objeto de tipo nebulosa de emision en Monoceros, a unos 2,5 kly. Magnitud ~ 9.0; tamano aparente variable segun catalogo. Catalogado por Sharpless en 1959. Astrofotografia: filtros Ha/OIII/SII recomendados segun la estructura.",
+            "text": "Sh2-261 (Lower's Nebula) es un objeto de tipo nebulosa de emision en Monoceros, a unos 2,5 kly. Magnitud ~ 9.0; tamano aparente variable segun catalogo. Catalogado por Sharpless en 1959. Astrofotografia: filtros Ha/OIII/SII recomendados segun la estructura.",
             "source_hash": "sha256:9755532301ed7f21f15e5665cce68340f0f70452d128d8459587cc961ed81a1d"
         }
     },
@@ -231,11 +231,11 @@
     },
     "Sh2-276": {
         "name": {
-            "text": "Barnard\u0027s Loop",
+            "text": "Barnard's Loop",
             "source_hash": "sha256:8d9a7f87d58651ba444d55bf37041584d036666589b2cb7e677f019efb2b6f5d"
         },
         "description": {
-            "text": "Sh2-276 (Barnard\u0027s Loop) es un objeto de tipo nebulosa de emision en Orion, a unos 1,6 kly. Magnitud ~ 5.0; tamano aparente variable segun catalogo. Catalogado por Sharpless en 1959. Astrofotografia: filtros Ha/OIII/SII recomendados segun la estructura.",
+            "text": "Sh2-276 (Barnard's Loop) es un objeto de tipo nebulosa de emision en Orion, a unos 1,6 kly. Magnitud ~ 5.0; tamano aparente variable segun catalogo. Catalogado por Sharpless en 1959. Astrofotografia: filtros Ha/OIII/SII recomendados segun la estructura.",
             "source_hash": "sha256:7d290ab0e9b9996928c3806a06d6e08e7e478f73c1da3571bd5da80b04d316e7"
         }
     },

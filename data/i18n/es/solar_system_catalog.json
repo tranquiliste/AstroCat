@@ -121,7 +121,7 @@
     },
     "Encke": {
         "name": {
-            "text": "Encke\u0027s Comet",
+            "text": "Encke's Comet",
             "source_hash": "sha256:333f7d94bb98d4707321e63d2bf425c4744cce9f65b548a440d288fa5b563879"
         },
         "description": {
@@ -181,7 +181,7 @@
     },
     "Halley": {
         "name": {
-            "text": "Halley\u0027s Comet",
+            "text": "Halley's Comet",
             "source_hash": "sha256:0a437da882b0fbc41ae78396d8ef7dac38019b2276a0251890e7e49b5217f2f9"
         },
         "description": {
