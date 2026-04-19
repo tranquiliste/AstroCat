@@ -6199,11 +6199,11 @@
   },
   "NGC650": {
     "name": {
-      "text": "NGC 650",
-      "source_hash": "sha256:db22fadc5ae1021c96ef32b829c168c448fcd71c5aacf1880c9d2c141da6242a"
+      "text": "Nebulosa Pequeña Mancuerna",
+      "source_hash": "sha256:fa2aa8a6c215ead8119596963a78a2371ee353e0e1b3c778cc59f1f2b6c786b0"
     },
     "description": {
-      "text": "The Little Dumbbell Nebula, also known as Messier 76, NGC 650/651, the Barbell Nebula, or the Cork Nebula, is a planetary nebula in the northern constellation of Perseus. It was discovered by Pierre MÃ©chain in 1780 and included in Charles Messier's catalog of comet-like objects as number 76.",
+      "text": "La Nebulosa Pequeña Mancuerna, también conocida como Messier 76, NGC 650/651, la Nebulosa Mancuerna o la Nebulosa Corcho, es una nebulosa planetaria en la constelación septentrional de Perseo. Fue descubierta por Pierre Méchain en 1780 e incluida en el catálogo de objetos cometarios de Charles Messier como número 76.",
       "source_hash": "sha256:ca2377baf75a1d60fbcc26a39aa8316f953c7b7bdabf91e9447209d9e0041523"
     }
   },
@@ -34837,6 +34837,10 @@
     "name": {
       "text": "NGC 4236",
       "source_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "description": {
+      "text": "NGC 4236 (también conocida como Caldwell 3) es una galaxia espiral magallánica barrada situada en la constelación de Draco. La galaxia es miembro del Grupo M81, un conjunto de galaxias ubicado a una distancia de aproximadamente 11,7 millones de años luz (3,6 Mpc) de la Tierra.",
+      "source_hash": "sha256:fb0d5a354be822a6aefd04254796f201b25ee6c49d9f55cb3c5b3616d365c690"
     }
   },
   "NGC4237": {

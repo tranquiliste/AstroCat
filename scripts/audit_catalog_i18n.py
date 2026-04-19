@@ -113,7 +113,7 @@ def _audit_overlay_file(
             )
             if source_hash.strip() != expected_hash:
                 issues.append(
-                    f"{overlay_path}: stale source_hash for '{object_id}.{field_name}'"
+                    f"{overlay_path}: stale source_hash for '{object_id}.{field_name}' (expected '{expected_hash}', got '{source_hash.strip()}')"
                 )
 
     return issues

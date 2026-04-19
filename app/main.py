@@ -137,22 +137,62 @@ DEFAULT_DATA_VERSION = _load_bundled_data_version()
 SHUTDOWN_EVENT = threading.Event()
 
 
+
 def _build_focus_toggle_icon(direction: str, color: str = "#d9a441") -> QtGui.QIcon:
-    pixmap = QtGui.QPixmap(18, 18)
+    pixmap = QtGui.QPixmap(20, 20)
     pixmap.fill(QtCore.Qt.GlobalColor.transparent)
+
     painter = QtGui.QPainter(pixmap)
     painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing)
-    pen = QtGui.QPen(QtGui.QColor(color), 2.2, QtCore.Qt.PenStyle.SolidLine, QtCore.Qt.PenCapStyle.RoundCap, QtCore.Qt.PenJoinStyle.RoundJoin)
+
+    pen = QtGui.QPen(QtGui.QColor(color), 2.2,
+                     QtCore.Qt.PenStyle.SolidLine,
+                     QtCore.Qt.PenCapStyle.RoundCap,
+                     QtCore.Qt.PenJoinStyle.RoundJoin)
     painter.setPen(pen)
-    if direction == "left":
-        chevrons = [((11, 4), (7, 9), (11, 14)), ((7, 4), (3, 9), (7, 14))]
+    cx, cy = 11, 11
+    gap = 2  # espace vide autour du centre
+    if direction == "expand":
+       # ↗
+        shaft_start = (12, 9)
+        shaft_end   = (19,2)
+        painter.drawLine(*shaft_start, *shaft_end)
+        # pointe vers l'extérieur (haut‑droite)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0], shaft_end[1] + 4)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0] - 4, shaft_end[1])
+
+        # ↙ : part du centre vers le coin bas‑gauche
+        shaft_start = (9,12)
+        shaft_end   = (2, 19)
+        painter.drawLine(*shaft_start, *shaft_end)
+        # pointe vers l'extérieur (bas‑gauche)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0], shaft_end[1] - 4)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0] + 4, shaft_end[1])
     else:
-        chevrons = [((7, 4), (11, 9), (7, 14)), ((11, 4), (15, 9), (11, 14))]
-    for start, middle, end in chevrons:
-        painter.drawLine(*start, *middle)
-        painter.drawLine(*middle, *end)
+      # ↖
+        shaft_start = (19,2)
+        shaft_end   = (12, 9)
+        painter.drawLine(*shaft_start, *shaft_end)
+        # flèche
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0], shaft_end[1] - 4)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0] + 4, shaft_end[1])
+ 
+        shaft_start = (2, 19)
+        shaft_end   = (9,12)
+        painter.drawLine(*shaft_start, *shaft_end)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0], shaft_end[1] + 4)
+        painter.drawLine(shaft_end[0], shaft_end[1],
+                         shaft_end[0] - 4, shaft_end[1])
     painter.end()
     return QtGui.QIcon(pixmap)
+
 
 
 class ThumbnailSignals(QtCore.QObject):
@@ -1519,8 +1559,8 @@ class DetailPanel(QtWidgets.QWidget):
         self.focus_toggle_button.setObjectName("focusToggleButton")
         self.focus_toggle_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
         self.focus_toggle_button.setFixedSize(30, 30)
-        self.focus_toggle_button.setIconSize(QtCore.QSize(18, 18))
-        self.focus_toggle_button.setIcon(_build_focus_toggle_icon("left"))
+        self.focus_toggle_button.setIconSize(QtCore.QSize(20, 20))
+        self.focus_toggle_button.setIcon(_build_focus_toggle_icon("expand"))
         self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
         self.focus_toggle_button.setAutoRaise(False)
         self.focus_toggle_button.clicked.connect(self._toggle_focus_mode)
@@ -1540,10 +1580,10 @@ class DetailPanel(QtWidgets.QWidget):
         image_header_layout.addWidget(self.fit_button)
         image_header_layout.addWidget(self.text_smaller_button)
         image_header_layout.addWidget(self.text_larger_button)
-        image_header_layout.addWidget(self.focus_toggle_button)
         image_header_layout.addStretch(1)
         image_header_layout.addWidget(self.prev_button)
         image_header_layout.addWidget(self.next_button)
+        image_header_layout.addWidget(self.focus_toggle_button)
         image_layout.addWidget(image_header)
         image_layout.addWidget(self.image_view, stretch=1)
 
@@ -1606,13 +1646,13 @@ class DetailPanel(QtWidgets.QWidget):
             self._columns_splitter.hide()
             self._main_splitter.setHandleWidth(0)
             self._main_splitter.setSizes([1, 0])
-            self.focus_toggle_button.setIcon(_build_focus_toggle_icon("right"))
+            self.focus_toggle_button.setIcon(_build_focus_toggle_icon("reduce"))
             self.focus_toggle_button.setToolTip(tr("detail.focus_mode_exit"))
             return
         self._columns_splitter.show()
         self._main_splitter.setHandleWidth(6)
         self._main_splitter.setSizes(self._saved_detail_sizes or [520, 200])
-        self.focus_toggle_button.setIcon(_build_focus_toggle_icon("left"))
+        self.focus_toggle_button.setIcon(_build_focus_toggle_icon("expand"))
         self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
 
     def _toggle_focus_mode(self) -> None:
@@ -2416,7 +2456,7 @@ class MainWindow(QtWidgets.QMainWindow):
             }
             QToolButton[compactPill="true"]:hover { background: #1c2943; border-color: #45618a; }
             QToolButton[compactPill="true"]::menu-indicator { image: none; }
-            QToolButton#focusToggleButton { background: #152038; border: 1px solid #3d5376; border-radius: 15px; padding: 0; }
+            QToolButton#focusToggleButton { background: #152038; border: 1px solid #3d5376; border-radius: 0px; padding: 0; }
             QToolButton#focusToggleButton:hover { background: #1f2e4a; border-color: #d4a85f; }
             QToolButton#focusToggleButton:pressed { background: #253657; }
             QListView {

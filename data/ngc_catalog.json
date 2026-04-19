@@ -8992,7 +8992,7 @@
       "dec_deg": -9.272111111111112
     },
     "NGC650": {
-      "name": "Barbell Nebula",
+      "name": "Little Dumbbell Nebula",
       "type": "Planetary Nebula",
       "distance_ly": 2500.0,
       "discoverer": "Pierre Méchain",
@@ -56802,8 +56802,8 @@
       "discoverer": "William Herschel",
       "discovery_year": 1793,
       "best_months": "FebMarApr",
-      "constellation": null,
-      "description": "",
+      "constellation": "Draco",
+      "description": "NGC 4236 (also known as Caldwell 3) is a barred Magellanic spiral galaxy located in the constellation Draco. The galaxy is a member of the M81 Group, a group of galaxies located at a distance of approximately 11.7 Mly (3.6 Mpc) from Earth.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_4236",
       "ra_hours": 12.278366666666667,
       "dec_deg": 69.46258333333334

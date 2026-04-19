@@ -331,10 +331,14 @@ class CatalogItem:
 
     @property
     def display_name(self) -> str:
-        if self.name and self.name.strip().lower() != self.object_id.strip().lower():
+        id_clean = self.object_id.replace(" ", "").lower()
+        name_clean = self.name.replace(" ", "").lower()
+        # if the name is essentially the same as the ID, don't include it in the display name to reduce clutter.
+        if self.name and name_clean != id_clean:
             return f"{self.object_id} - {self.name}"
-        return self.object_id
 
+        return self.object_id
+    
     @property
     def unique_key(self) -> str:
         return f"{self.catalog}:{self.object_id}"
