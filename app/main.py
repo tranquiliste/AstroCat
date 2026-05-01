@@ -2349,8 +2349,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_label.hide()
 
         layout.addWidget(self.toolbar_container)
+        layout.addSpacing(2)
         layout.addWidget(self.grid_controls_container)
+        layout.addSpacing(2)
         layout.addWidget(self.status_label)
+        layout.addSpacing(2)
 
         self.grid = QtWidgets.QListView()
         self.grid.setViewMode(QtWidgets.QListView.ViewMode.IconMode)
