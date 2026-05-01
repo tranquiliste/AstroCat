@@ -1524,7 +1524,7 @@ class DetailPanel(QtWidgets.QWidget):
         self.external_link.setContentsMargins(0, 0, 0, 0)
         self.fit_button = QtWidgets.QPushButton(tr("detail.fit_to_window"))
         self.fit_button.clicked.connect(self.image_view.fit_to_window)
-        self.image_view.fullscreen_requested.connect(self._open_lightbox)
+        self.image_view.fullscreen_requested.connect(self._toggle_focus_mode)
         self.image_view.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.image_view.customContextMenuRequested.connect(self._show_image_context_menu)
         self.prev_button = QtWidgets.QPushButton("◀")
@@ -1968,19 +1968,6 @@ class DetailPanel(QtWidgets.QWidget):
         self.notes.setPlainText(note_text)
         self._notes_block = False
 
-    def _open_lightbox(self) -> None:
-        pixmap = self.image_view._pixmap
-        if pixmap is None or pixmap.isNull():
-            return
-        if self._lightbox and self._lightbox.isVisible():
-            return
-        dialog = LightboxDialog(pixmap, self)
-        dialog.finished.connect(lambda _result: self._clear_lightbox())
-        self._lightbox = dialog
-        QtCore.QTimer.singleShot(0, dialog.show)
-
-    def _clear_lightbox(self) -> None:
-        self._lightbox = None
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -2362,11 +2349,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_label.hide()
 
         layout.addWidget(self.toolbar_container)
-        layout.addSpacing(2)
         layout.addWidget(self.grid_controls_container)
-        layout.addSpacing(2)
         layout.addWidget(self.status_label)
-        layout.addSpacing(2)
 
         self.grid = QtWidgets.QListView()
         self.grid.setViewMode(QtWidgets.QListView.ViewMode.IconMode)
@@ -2421,12 +2405,17 @@ class MainWindow(QtWidgets.QMainWindow):
             if len(current_sizes) >= 2 and current_sizes[0] > 0 and current_sizes[1] > 0:
                 self._saved_main_sizes = current_sizes
             self.grid.hide()
+            self.grid_controls_container.hide()
+            self.status_label.hide()
             self.splitter.setHandleWidth(0)
             self.splitter.setSizes([0, 1])
             return
         self.grid.show()
+        self.grid_controls_container.show()
+        self.status_label.setVisible(bool(self.status_label.text().strip()))
         self.splitter.setHandleWidth(6)
         self.splitter.setSizes(self._saved_main_sizes or [720, 480])
+        self._sync_grid_controls_width()
         self._schedule_auto_fit()
 
     def _apply_dark_theme(self) -> None:
