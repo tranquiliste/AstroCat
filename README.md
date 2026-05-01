@@ -36,7 +36,8 @@ Release history: [CHANGELOG.md](CHANGELOG.md)
 - Built-in migration path from AstroCatalogueViewer notes
 - i18n for catalogs (translations in de,es,fr,it in progress)
 - new UI
-
+- settings, notes are saved in a database (no more json)
+- adding detailed information to image (exposures, setup, ...)
 
 ## Quick start (dev)
 ```bash

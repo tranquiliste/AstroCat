@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 import json
 import sqlite3
+import sys
 from typing import Dict, Iterable, Iterator, List, Optional
 
 
@@ -15,8 +16,34 @@ def database_path_from_config_path(config_path: Path) -> Path:
 class Database:
     def __init__(self, db_path: Path) -> None:
         self.db_path = Path(db_path)
-        self.schema_path = Path(__file__).with_name("database_schema.sql")
+        self.schema_path = self._resolve_schema_path()
         self._initialized = False
+
+    @staticmethod
+    def _resolve_schema_path() -> Path:
+        module_path = Path(__file__).resolve()
+        candidates: List[Path] = [
+            module_path.with_name("database_schema.sql"),
+            module_path.parent / "app" / "database_schema.sql",
+            Path.cwd() / "app" / "database_schema.sql",
+            Path.cwd() / "database_schema.sql",
+        ]
+
+        meipass = getattr(sys, "_MEIPASS", None)
+        if meipass:
+            base = Path(str(meipass))
+            candidates.extend(
+                [
+                    base / "database_schema.sql",
+                    base / "app" / "database_schema.sql",
+                ]
+            )
+
+        for candidate in candidates:
+            if candidate.exists():
+                return candidate
+
+        return module_path.with_name("database_schema.sql")
 
     @contextmanager
     def connection(self) -> Iterator[sqlite3.Connection]:
@@ -34,6 +61,7 @@ class Database:
         if self._initialized and self.db_path.exists():
             return
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        self.schema_path = self._resolve_schema_path()
         schema = self.schema_path.read_text(encoding="utf-8")
         connection = sqlite3.connect(self.db_path)
         try:

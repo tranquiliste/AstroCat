@@ -15,6 +15,7 @@ a = Analysis(
     datas=[
         (str(project_root / "data"), "data"),
         (str(project_root / "app" / "locales"), "app/locales"),
+        (str(project_root / "app" / "database_schema.sql"), "."),
         (str(project_root / "scripts" / "migrate_user_notes.py"), "scripts"),
     ] + tiff_datas,
     hiddenimports=tiff_hidden,

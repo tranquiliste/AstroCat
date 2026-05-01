@@ -2,6 +2,35 @@
 
 All notable changes to this project are documented in this file.
 
+
+  
+
+## [1.5.0-beta] - 2026-05-01
+
+### Added
+- **Database:** Introduced a SQLite persistence layer (`astrocat.db`) replacing the previous JSON-based storage for settings, notes, and thumbnails.
+- **Database:** New schema file `database_schema.sql` with versioned migrations (v1 → v3).
+- **Database:** Automatic migration of legacy `photo_notes.json` entries into the database at startup.
+- **Database:** New tables for imaging metadata: `image_capture_details`, `image_filter_integrations`, `image_imaging_equipment`, `image_guiding_equipment`.
+- **Database:** New `imaging_setups` table (schema v3) to persist named, reusable equipment setups.
+- **UI:** New *Imaging Info* button and summary label in the detail panel, opening a dedicated editor dialog.
+- **UI:** Imaging info dialog with sections for capture location, filter integrations, imaging equipment, guiding equipment, and setup management.
+- **UI:** Filter integration editor uses native input widgets (`QLineEdit`, `QSpinBox`, `QDateEdit`) with a calendar date picker.
+- **UI:** New row in the filter editor is pre-filled from the values of the last existing row.
+- **UI:** Named equipment setups can be created, applied, and deleted directly from the imaging info dialog.
+- **i18n:** All new imaging UI strings localized in English, French, German, Spanish, and Italian (~30 new keys under `imaging.*`).
+
+### Changed
+- **UI:** Filter integrations are displayed and sorted in canonical order: L, R, G, B, S, H, O (with alias normalization for SII, Ha, Hα, OIII, etc.).
+- **UI:** Filter summary no longer shows subframe counts; shows total integration time and filter names only.
+- **UI:** Filter table height is dynamic: resizes to show between 1 and 5 rows without wasted empty space.
+- **Database:** Named imaging setups are now stored in a dedicated SQL table instead of `app_settings`; existing setups are auto-migrated on first launch.
+- **Settings / Notes / Thumbnails:** All previously JSON-backed data (app settings, image notes, object notes, thumbnails) are now read from and written to SQLite.
+
+### Fixed
+- **Bug:** Image notes were not visible when the same image was linked to multiple catalog objects; the note is now propagated to all objects sharing the image filename.
+- **Build:** `database_schema.sql` was missing from the PyInstaller bundle, causing a `FileNotFoundError` on first launch of the packaged app; the file is now embedded in all three platform specs (Windows, macOS, Linux).
+
 ## [1.4.0‑beta] - 2026-04-16
 
 ### Added
