@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS schema_migrations (
 );
 
 INSERT OR IGNORE INTO schema_migrations (version, description)
-VALUES (1, 'Initial configuration storage and future astrophotography notes schema');
+VALUES (1, 'Initial schema');
 
 CREATE TABLE IF NOT EXISTS app_settings (
     setting_key TEXT PRIMARY KEY,
@@ -35,29 +35,42 @@ CREATE TABLE IF NOT EXISTS catalog_image_dirs (
 CREATE INDEX IF NOT EXISTS idx_catalog_image_dirs_catalog_sort
     ON catalog_image_dirs (catalog_name, sort_order);
 
--- Future astrophotography notes model.
-CREATE TABLE IF NOT EXISTS astro_notes (
+-- Astrophotography notes: one note per image file (image_id is UNIQUE).
+-- For object-level notes (no specific image), image_id uses sentinel '__object__::{catalog_name}::{object_id}'.
+CREATE TABLE IF NOT EXISTS image_notes (
     note_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    catalog_name TEXT NOT NULL,
-    object_id TEXT NOT NULL,
+    image_id TEXT NOT NULL UNIQUE,
     title TEXT,
     description TEXT NOT NULL DEFAULT '',
     status TEXT NOT NULL DEFAULT 'draft',
     legacy_source TEXT,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (catalog_name, object_id, legacy_source)
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
-CREATE INDEX IF NOT EXISTS idx_astro_notes_object
-    ON astro_notes (catalog_name, object_id);
 
 CREATE TABLE IF NOT EXISTS note_metadata (
     note_id INTEGER NOT NULL,
     metadata_key TEXT NOT NULL,
     value_json TEXT NOT NULL,
     PRIMARY KEY (note_id, metadata_key),
-    FOREIGN KEY (note_id) REFERENCES astro_notes (note_id) ON DELETE CASCADE
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS note_tags (
+    note_id INTEGER NOT NULL,
+    tag TEXT NOT NULL COLLATE NOCASE,
+    PRIMARY KEY (note_id, tag),
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_note_tags_tag
+    ON note_tags (tag);
+
+CREATE TABLE IF NOT EXISTS object_thumbnails (
+    catalog_name TEXT NOT NULL,
+    object_id TEXT NOT NULL,
+    thumbnail_filename TEXT NOT NULL,
+    PRIMARY KEY (catalog_name, object_id)
 );
 
 CREATE TABLE IF NOT EXISTS equipment (
@@ -81,7 +94,7 @@ CREATE TABLE IF NOT EXISTS note_equipment (
     role TEXT NOT NULL,
     details_json TEXT NOT NULL DEFAULT '{}',
     PRIMARY KEY (note_id, equipment_id, role),
-    FOREIGN KEY (note_id) REFERENCES astro_notes (note_id) ON DELETE CASCADE,
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE,
     FOREIGN KEY (equipment_id) REFERENCES equipment (equipment_id) ON DELETE RESTRICT
 );
 
@@ -95,7 +108,7 @@ CREATE TABLE IF NOT EXISTS imaging_sessions (
     weather_notes TEXT,
     notes TEXT NOT NULL DEFAULT '',
     metadata_json TEXT NOT NULL DEFAULT '{}',
-    FOREIGN KEY (note_id) REFERENCES astro_notes (note_id) ON DELETE CASCADE
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
 );
 
 CREATE INDEX IF NOT EXISTS idx_imaging_sessions_note_start
@@ -125,7 +138,7 @@ CREATE TABLE IF NOT EXISTS capture_exposures (
     sensor_temperature_c REAL,
     captured_on TEXT,
     metadata_json TEXT NOT NULL DEFAULT '{}',
-    FOREIGN KEY (note_id) REFERENCES astro_notes (note_id) ON DELETE CASCADE,
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE,
     FOREIGN KEY (session_id) REFERENCES imaging_sessions (session_id) ON DELETE SET NULL
 );
 

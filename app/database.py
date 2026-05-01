@@ -45,6 +45,15 @@ class Database:
             connection.close()
         self._initialized = True
 
+    @staticmethod
+    def _table_exists(connection: sqlite3.Connection, table_name: str) -> bool:
+        row = connection.execute(
+            "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?",
+            (table_name,),
+        ).fetchone()
+        return row is not None
+
+
     def has_config_data(self) -> bool:
         with self.connection() as connection:
             row = connection.execute(
@@ -202,20 +211,19 @@ class Database:
 
     def create_note(
         self,
-        catalog_name: str,
-        object_id: str,
+        image_id: str,
         description: str = "",
         title: Optional[str] = None,
         status: str = "draft",
         legacy_source: Optional[str] = None,
         metadata: Optional[Dict] = None,
+        tags: Optional[Iterable[str]] = None,
     ) -> int:
         with self.connection() as connection:
             cursor = connection.execute(
                 """
-                INSERT INTO astro_notes (
-                    catalog_name,
-                    object_id,
+                INSERT INTO image_notes (
+                    image_id,
                     title,
                     description,
                     status,
@@ -223,11 +231,10 @@ class Database:
                     created_at,
                     updated_at
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
-                    catalog_name,
-                    object_id,
+                    image_id,
                     title,
                     description,
                     status,
@@ -239,15 +246,19 @@ class Database:
             note_id = int(cursor.lastrowid)
             if metadata:
                 self._replace_note_metadata(connection, note_id, metadata)
+            if tags is not None:
+                self._replace_note_tags(connection, note_id, tags)
         return note_id
 
     def update_note(
         self,
         note_id: int,
+        image_id: Optional[str] = None,
         description: Optional[str] = None,
         title: Optional[str] = None,
         status: Optional[str] = None,
         metadata: Optional[Dict] = None,
+        tags: Optional[Iterable[str]] = None,
     ) -> None:
         updates: List[str] = []
         values: List[object] = []
@@ -257,6 +268,9 @@ class Database:
         if description is not None:
             updates.append("description = ?")
             values.append(description)
+        if image_id is not None:
+            updates.append("image_id = ?")
+            values.append(image_id)
         if status is not None:
             updates.append("status = ?")
             values.append(status)
@@ -265,16 +279,18 @@ class Database:
         values.append(note_id)
         with self.connection() as connection:
             connection.execute(
-                f"UPDATE astro_notes SET {', '.join(updates)} WHERE note_id = ?",
+                f"UPDATE image_notes SET {', '.join(updates)} WHERE note_id = ?",
                 values,
             )
             if metadata is not None:
                 self._replace_note_metadata(connection, note_id, metadata)
+            if tags is not None:
+                self._replace_note_tags(connection, note_id, tags)
 
     def get_note(self, note_id: int) -> Optional[Dict]:
         with self.connection() as connection:
             row = connection.execute(
-                "SELECT * FROM astro_notes WHERE note_id = ?",
+                "SELECT * FROM image_notes WHERE note_id = ?",
                 (note_id,),
             ).fetchone()
             if row is None:
@@ -283,29 +299,96 @@ class Database:
                 "SELECT metadata_key, value_json FROM note_metadata WHERE note_id = ? ORDER BY metadata_key",
                 (note_id,),
             ).fetchall()
+            tag_rows = connection.execute(
+                "SELECT tag FROM note_tags WHERE note_id = ? ORDER BY tag",
+                (note_id,),
+            ).fetchall()
         note = dict(row)
         note["metadata"] = {
             item["metadata_key"]: self._loads_json(item["value_json"])
             for item in metadata_rows
         }
+        note["tags"] = [item["tag"] for item in tag_rows]
         return note
 
-    def list_notes(self, catalog_name: Optional[str] = None, object_id: Optional[str] = None) -> List[Dict]:
-        clauses: List[str] = []
-        values: List[object] = []
-        if catalog_name:
-            clauses.append("catalog_name = ?")
-            values.append(catalog_name)
-        if object_id:
-            clauses.append("object_id = ?")
-            values.append(object_id)
-        query = "SELECT * FROM astro_notes"
-        if clauses:
-            query += " WHERE " + " AND ".join(clauses)
-        query += " ORDER BY updated_at DESC, note_id DESC"
+    def list_notes(self) -> List[Dict]:
+        query = "SELECT * FROM image_notes ORDER BY updated_at DESC, note_id DESC"
+        with self.connection() as connection:
+            rows = connection.execute(query).fetchall()
+            notes = [dict(row) for row in rows]
+            note_ids = [int(note["note_id"]) for note in notes]
+            tags_by_note: Dict[int, List[str]] = {note_id: [] for note_id in note_ids}
+            if note_ids:
+                placeholders = ",".join("?" for _ in note_ids)
+                tag_rows = connection.execute(
+                    f"SELECT note_id, tag FROM note_tags WHERE note_id IN ({placeholders}) ORDER BY tag",
+                    note_ids,
+                ).fetchall()
+                for item in tag_rows:
+                    tags_by_note[int(item["note_id"])].append(item["tag"])
+            for note in notes:
+                note["tags"] = tags_by_note.get(int(note["note_id"]), [])
+        return notes
+
+    def add_note_tag(self, note_id: int, tag: str) -> None:
+        normalized = self._normalize_tags([tag])
+        if not normalized:
+            return
+        with self.connection() as connection:
+            connection.execute(
+                "INSERT OR IGNORE INTO note_tags (note_id, tag) VALUES (?, ?)",
+                (note_id, normalized[0]),
+            )
+
+    def remove_note_tag(self, note_id: int, tag: str) -> None:
+        normalized = self._normalize_tags([tag])
+        if not normalized:
+            return
+        with self.connection() as connection:
+            connection.execute(
+                "DELETE FROM note_tags WHERE note_id = ? AND tag = ?",
+                (note_id, normalized[0]),
+            )
+
+    def list_note_tags(self, note_id: int) -> List[str]:
+        with self.connection() as connection:
+            rows = connection.execute(
+                "SELECT tag FROM note_tags WHERE note_id = ? ORDER BY tag",
+                (note_id,),
+            ).fetchall()
+        return [row["tag"] for row in rows]
+
+    def find_notes_by_tag(
+        self,
+        tag: str,
+    ) -> List[Dict]:
+        normalized = self._normalize_tags([tag])
+        if not normalized:
+            return []
+        query = """
+            SELECT n.*
+            FROM image_notes AS n
+            INNER JOIN note_tags AS nt ON nt.note_id = n.note_id
+            WHERE nt.tag = ?
+            ORDER BY n.updated_at DESC, n.note_id DESC
+        """
+        values: List[object] = [normalized[0]]
         with self.connection() as connection:
             rows = connection.execute(query, values).fetchall()
-        return [dict(row) for row in rows]
+            notes = [dict(row) for row in rows]
+            note_ids = [int(note["note_id"]) for note in notes]
+            tags_by_note: Dict[int, List[str]] = {note_id: [] for note_id in note_ids}
+            if note_ids:
+                placeholders = ",".join("?" for _ in note_ids)
+                tag_rows = connection.execute(
+                    f"SELECT note_id, tag FROM note_tags WHERE note_id IN ({placeholders}) ORDER BY tag",
+                    note_ids,
+                ).fetchall()
+                for item in tag_rows:
+                    tags_by_note[int(item["note_id"])].append(item["tag"])
+            for note in notes:
+                note["tags"] = tags_by_note.get(int(note["note_id"]), [])
+        return notes
 
     def upsert_equipment(
         self,
@@ -475,6 +558,165 @@ class Database:
             )
         return int(cursor.lastrowid)
 
+    def upsert_image_note(
+        self,
+        image_id: str,
+        description: str,
+        title: Optional[str] = None,
+        status: str = "active",
+        legacy_source: str = "app",
+    ) -> None:
+        normalized = (description or "").strip()
+        image_key = (image_id or "").strip()
+        if not image_key:
+            return
+        with self.connection() as connection:
+            existing_id = self._find_note_id(connection, image_key)
+            if not normalized:
+                if existing_id is not None:
+                    connection.execute("DELETE FROM image_notes WHERE note_id = ?", (existing_id,))
+                return
+            if existing_id is not None:
+                connection.execute(
+                    """
+                    UPDATE image_notes
+                    SET description = ?,
+                        title = ?,
+                        status = ?,
+                        updated_at = ?
+                    WHERE note_id = ?
+                    """,
+                    (normalized, title or image_key, status, self._utc_now(), existing_id),
+                )
+                return
+            connection.execute(
+                """
+                INSERT INTO image_notes (
+                    image_id,
+                    title,
+                    description,
+                    status,
+                    legacy_source,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    image_key,
+                    title or image_key,
+                    normalized,
+                    status,
+                    legacy_source,
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+
+    def upsert_object_note(
+        self,
+        catalog_name: str,
+        object_id: str,
+        description: str,
+        status: str = "active",
+        legacy_source: str = "app",
+    ) -> None:
+        self.upsert_image_note(
+            image_id=f"__object__::{catalog_name}::{object_id}",
+            description=description,
+            title=f"{catalog_name}:{object_id}",
+            status=status,
+            legacy_source=legacy_source,
+        )
+
+    def get_runtime_image_notes_map(self) -> Dict[str, str]:
+        with self.connection() as connection:
+            rows = connection.execute(
+                """
+                SELECT image_id, description
+                FROM image_notes
+                WHERE image_id NOT LIKE '__object__%'
+                ORDER BY updated_at DESC, note_id DESC
+                """
+            ).fetchall()
+        notes: Dict[str, str] = {}
+        for row in rows:
+            image_id = (row["image_id"] or "").strip()
+            if not image_id or image_id in notes:
+                continue
+            text = (row["description"] or "").strip()
+            if text:
+                notes[image_id] = text
+        return notes
+
+    def get_runtime_object_notes_map(self) -> Dict[str, str]:
+        with self.connection() as connection:
+            rows = connection.execute(
+                """
+                SELECT image_id, description
+                FROM image_notes
+                WHERE image_id LIKE '__object__%'
+                ORDER BY updated_at DESC, note_id DESC
+                """
+            ).fetchall()
+        notes: Dict[str, str] = {}
+        for row in rows:
+            raw_id = (row["image_id"] or "").strip()
+            # Sentinel format: '__object__::{catalog_name}::{object_id}'
+            parts = raw_id.split("::", 2)
+            if len(parts) == 3:
+                key = f"{parts[1]}:{parts[2]}"
+            else:
+                # Legacy sentinel without compound info - skip
+                continue
+            if key in notes:
+                continue
+            text = (row["description"] or "").strip()
+            if text:
+                notes[key] = text
+        return notes
+
+    def upsert_object_thumbnail(self, catalog_name: str, object_id: str, thumbnail_filename: str) -> None:
+        normalized = (thumbnail_filename or "").strip()
+        with self.connection() as connection:
+            if not normalized:
+                connection.execute(
+                    "DELETE FROM object_thumbnails WHERE catalog_name = ? AND object_id = ?",
+                    (catalog_name, object_id),
+                )
+                return
+            connection.execute(
+                """
+                INSERT INTO object_thumbnails (catalog_name, object_id, thumbnail_filename)
+                VALUES (?, ?, ?)
+                ON CONFLICT(catalog_name, object_id)
+                DO UPDATE SET thumbnail_filename = excluded.thumbnail_filename
+                """,
+                (catalog_name, object_id, normalized),
+            )
+
+    def get_object_thumbnails_map(self) -> Dict[str, str]:
+        with self.connection() as connection:
+            rows = connection.execute(
+                "SELECT catalog_name, object_id, thumbnail_filename FROM object_thumbnails"
+            ).fetchall()
+        thumbnails: Dict[str, str] = {}
+        for row in rows:
+            key = f"{row['catalog_name']}:{row['object_id']}"
+            value = (row["thumbnail_filename"] or "").strip()
+            if value:
+                thumbnails[key] = value
+        return thumbnails
+
+    def _find_note_id(self, connection: sqlite3.Connection, image_id: str) -> Optional[int]:
+        row = connection.execute(
+            "SELECT note_id FROM image_notes WHERE image_id = ?",
+            (image_id,),
+        ).fetchone()
+        if row is None:
+            return None
+        return int(row["note_id"])
+
     def _replace_note_metadata(self, connection: sqlite3.Connection, note_id: int, metadata: Dict) -> None:
         connection.execute("DELETE FROM note_metadata WHERE note_id = ?", (note_id,))
         for key, value in sorted(metadata.items()):
@@ -482,6 +724,32 @@ class Database:
                 "INSERT INTO note_metadata (note_id, metadata_key, value_json) VALUES (?, ?, ?)",
                 (note_id, key, self._dumps_json(value)),
             )
+
+    def _replace_note_tags(self, connection: sqlite3.Connection, note_id: int, tags: Iterable[str]) -> None:
+        connection.execute("DELETE FROM note_tags WHERE note_id = ?", (note_id,))
+        normalized = self._normalize_tags(tags)
+        for tag in normalized:
+            connection.execute(
+                "INSERT INTO note_tags (note_id, tag) VALUES (?, ?)",
+                (note_id, tag),
+            )
+
+    @staticmethod
+    def _normalize_tags(tags: Iterable[str]) -> List[str]:
+        normalized: List[str] = []
+        seen = set()
+        for raw_tag in tags:
+            if raw_tag is None:
+                continue
+            tag = str(raw_tag).strip()
+            if not tag:
+                continue
+            key = tag.casefold()
+            if key in seen:
+                continue
+            seen.add(key)
+            normalized.append(tag)
+        return normalized
 
     @staticmethod
     def _dumps_json(value) -> str:

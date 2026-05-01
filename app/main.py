@@ -79,12 +79,14 @@ from dataclasses import replace
 from PySide6 import QtCore, QtGui, QtWidgets
 from shiboken6 import isValid
 
+from database import database_path_from_config_path
 from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note
 from constellations import format_constellation_display
 from object_types import is_hidden_object_type, localized_object_type
 from catalog import PROJECT_ROOT
 from i18n import format_best_months, language_choices, set_ui_locale, tr
 from image_cache import ThumbnailCache
+from photo_notes_migration import migrate_photo_notes_to_sqlite
 
 # Keep numpy import type-only to satisfy static analysis without adding startup cost.
 if TYPE_CHECKING:
@@ -4826,6 +4828,15 @@ def main() -> None:
     else:
         config_dir = PROJECT_ROOT
     config_path = config_dir / "config.json"
+    photo_notes_path = config_dir / "photo_notes.json"
+    db_path = database_path_from_config_path(config_path)
+
+    # Auto-import legacy photo notes only when target tables are empty.
+    try:
+        migrate_photo_notes_to_sqlite(photo_notes_path, db_path, force=False)
+    except Exception:
+        # Startup must stay resilient even if migration hits malformed legacy data.
+        pass
 
     window = MainWindow(config_path)
     app.aboutToQuit.connect(window._persist_ui_state)

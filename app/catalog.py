@@ -577,118 +577,54 @@ def _apply_overlay_text(base_text: Optional[str], field_overlay: Optional[Dict[s
 
 
 def _load_user_image_notes(notes_path: Optional[Path]) -> Dict[str, str]:
-    if notes_path is None or not notes_path.exists():
+    if notes_path is None:
         return {}
     try:
-        data = _load_json(notes_path)
-    except (OSError, json.JSONDecodeError):
+        db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+        database = Database(db_path)
+        return database.get_runtime_image_notes_map()
+    except Exception:
         return {}
-    if not isinstance(data, dict):
-        return {}
-    notes: Dict[str, str] = {}
-    for key, value in data.items():
-        if isinstance(key, str) and isinstance(value, str):
-            normalized = value.strip()
-            if normalized:
-                notes[key] = normalized
-    return notes
 
 
 def _load_user_object_notes(notes_path: Optional[Path]) -> Dict[str, str]:
-    if notes_path is None or not notes_path.exists():
+    if notes_path is None:
         return {}
     try:
-        data = _load_json(notes_path)
-    except (OSError, json.JSONDecodeError):
+        db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+        database = Database(db_path)
+        return database.get_runtime_object_notes_map()
+    except Exception:
         return {}
-    if not isinstance(data, dict):
-        return {}
-    payload = data.get("__object_notes__", {})
-    if not isinstance(payload, dict):
-        return {}
-    notes: Dict[str, str] = {}
-    for key, value in payload.items():
-        if isinstance(key, str) and isinstance(value, str):
-            normalized = value.strip()
-            if normalized:
-                notes[key] = normalized
-    return notes
 
 
 def _load_user_thumbnails(notes_path: Optional[Path]) -> Dict[str, str]:
-    if notes_path is None or not notes_path.exists():
+    if notes_path is None:
         return {}
     try:
-        data = _load_json(notes_path)
-    except (OSError, json.JSONDecodeError):
+        db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+        database = Database(db_path)
+        return database.get_object_thumbnails_map()
+    except Exception:
         return {}
-    if not isinstance(data, dict):
-        return {}
-    payload = data.get("__thumbnails__", {})
-    if not isinstance(payload, dict):
-        return {}
-    thumbnails: Dict[str, str] = {}
-    for key, value in payload.items():
-        if not isinstance(key, str) or not isinstance(value, str):
-            continue
-        normalized = value.strip()
-        if normalized:
-            thumbnails[key] = normalized
-    return thumbnails
 
 
 def _save_user_image_note(notes_path: Path, image_name: str, notes: str) -> None:
-    data = _load_user_image_notes(notes_path) if notes_path.exists() else {}
-    if notes.strip():
-        data[image_name] = notes.strip()
-    else:
-        data.pop(image_name, None)
-    notes_path.parent.mkdir(parents=True, exist_ok=True)
-    with notes_path.open("w", encoding="utf-8") as handle:
-        json.dump(data, handle, indent=2, ensure_ascii=False)
+    db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+    database = Database(db_path)
+    database.upsert_image_note(image_name, notes)
 
 
 def _save_user_object_note(notes_path: Path, catalog_name: str, object_id: str, notes: str) -> None:
-    data = _load_json(notes_path) if notes_path.exists() else {}
-    if not isinstance(data, dict):
-        data = {}
-    object_notes = data.get("__object_notes__")
-    if not isinstance(object_notes, dict):
-        object_notes = {}
-    key = f"{catalog_name}:{object_id}"
-    if notes.strip():
-        object_notes[key] = notes.strip()
-    else:
-        object_notes.pop(key, None)
-    if object_notes:
-        data["__object_notes__"] = object_notes
-    else:
-        data.pop("__object_notes__", None)
-    notes_path.parent.mkdir(parents=True, exist_ok=True)
-    with notes_path.open("w", encoding="utf-8") as handle:
-        json.dump(data, handle, indent=2, ensure_ascii=False)
+    db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+    database = Database(db_path)
+    database.upsert_object_note(catalog_name, object_id, notes)
 
 
 def _save_user_thumbnail(notes_path: Path, catalog_name: str, object_id: str, thumbnail_name: str) -> None:
-    data = _load_json(notes_path) if notes_path.exists() else {}
-    if not isinstance(data, dict):
-        data = {}
-    thumbnails = data.get("__thumbnails__")
-    if not isinstance(thumbnails, dict):
-        thumbnails = {}
-    key = f"{catalog_name}:{object_id}"
-    normalized = (thumbnail_name or "").strip()
-    if normalized:
-        thumbnails[key] = normalized
-    else:
-        thumbnails.pop(key, None)
-    if thumbnails:
-        data["__thumbnails__"] = thumbnails
-    else:
-        data.pop("__thumbnails__", None)
-    notes_path.parent.mkdir(parents=True, exist_ok=True)
-    with notes_path.open("w", encoding="utf-8") as handle:
-        json.dump(data, handle, indent=2, ensure_ascii=False)
+    db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+    database = Database(db_path)
+    database.upsert_object_thumbnail(catalog_name, object_id, thumbnail_name)
 
 
 def _cleanup_metadata_image_note(metadata_path: Path, catalog_name: str, object_id: str, image_name: str) -> None:
@@ -939,7 +875,6 @@ def save_image_note(
 ) -> None:
     if user_notes_path is not None and user_notes_path != metadata_path:
         _save_user_image_note(user_notes_path, image_name, notes)
-        _cleanup_metadata_image_note(metadata_path, catalog_name, object_id, image_name)
         return
     if _is_bundled_catalog_path(metadata_path):
         return
