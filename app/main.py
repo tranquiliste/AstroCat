@@ -79,7 +79,7 @@ from dataclasses import replace
 from PySide6 import QtCore, QtGui, QtWidgets
 from shiboken6 import isValid
 
-from database import database_path_from_config_path
+from database import Database, database_path_from_config_path
 from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note
 from constellations import format_constellation_display
 from object_types import is_hidden_object_type, localized_object_type
@@ -850,19 +850,37 @@ class CatalogModel(QtCore.QAbstractListModel):
         self.dataChanged.emit(index, index, [QtCore.Qt.ItemDataRole.DisplayRole])
 
     def update_item_image_note(self, item_key: str, image_name: str, notes: str) -> None:
-        row = self._row_lookup.get(item_key)
-        if row is None:
-            return
-        item = self._items[row]
-        image_notes = dict(item.image_notes)
-        if notes.strip():
-            image_notes[image_name] = notes
-        else:
-            image_notes.pop(image_name, None)
-        updated = replace(item, image_notes=image_notes)
-        self._items[row] = updated
-        index = self.index(row)
-        self.dataChanged.emit(index, index, [QtCore.Qt.ItemDataRole.DisplayRole])
+        # A single image file can be associated with multiple catalog objects.
+        # Keep all corresponding in-memory entries in sync after saving a note.
+        changed_rows: List[int] = []
+        for row, item in enumerate(self._items):
+            if not any(path.name == image_name for path in item.image_paths):
+                continue
+            image_notes = dict(item.image_notes)
+            if notes.strip():
+                image_notes[image_name] = notes
+            else:
+                image_notes.pop(image_name, None)
+            self._items[row] = replace(item, image_notes=image_notes)
+            changed_rows.append(row)
+
+        # Fallback: if no image path match was found, keep legacy behavior.
+        if not changed_rows:
+            row = self._row_lookup.get(item_key)
+            if row is None:
+                return
+            item = self._items[row]
+            image_notes = dict(item.image_notes)
+            if notes.strip():
+                image_notes[image_name] = notes
+            else:
+                image_notes.pop(image_name, None)
+            self._items[row] = replace(item, image_notes=image_notes)
+            changed_rows.append(row)
+
+        for row in changed_rows:
+            index = self.index(row)
+            self.dataChanged.emit(index, index, [QtCore.Qt.ItemDataRole.DisplayRole])
 
     def update_item_thumbnail(self, item_key: str, thumbnail_name: str) -> None:
         row = self._row_lookup.get(item_key)
@@ -1483,12 +1501,480 @@ class LightboxDialog(QtWidgets.QDialog):
         super().showEvent(event)
 
 
+class ImagingInfoDialog(QtWidgets.QDialog):
+    def __init__(self, parent: Optional[QtWidgets.QWidget] = None, setups: Optional[List[Dict[str, str]]] = None) -> None:
+        super().__init__(parent)
+        self.setWindowTitle(tr("imaging.dialog_title"))
+        self.resize(920, 680)
+        self._setups: List[Dict[str, str]] = []
+        if isinstance(setups, list):
+            self._setups = [dict(item) for item in setups if isinstance(item, dict)]
+
+        root_layout = QtWidgets.QVBoxLayout(self)
+        root_layout.setContentsMargins(14, 14, 14, 14)
+        root_layout.setSpacing(10)
+
+        self.scroll_area = QtWidgets.QScrollArea()
+        self.scroll_area.setWidgetResizable(True)
+        self.scroll_area.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.scroll_area.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        self.scroll_area.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        root_layout.addWidget(self.scroll_area, stretch=1)
+
+        content = QtWidgets.QWidget()
+        self.scroll_area.setWidget(content)
+
+        layout = QtWidgets.QVBoxLayout(content)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(10)
+
+        location_group = QtWidgets.QGroupBox(tr("imaging.capture_location"))
+        location_layout = QtWidgets.QFormLayout(location_group)
+        self.capture_location_edit = QtWidgets.QLineEdit()
+        location_layout.addRow(tr("imaging.location_label"), self.capture_location_edit)
+        layout.addWidget(location_group)
+
+        integrations_group = QtWidgets.QGroupBox(tr("imaging.integration_data"))
+        integrations_layout = QtWidgets.QVBoxLayout(integrations_group)
+        self.integrations_table = QtWidgets.QTableWidget(0, 7)
+        self.integrations_table.setHorizontalHeaderLabels(
+            [
+                tr("imaging.col_filter"),
+                tr("imaging.col_bandpass"),
+                tr("imaging.col_brand"),
+                tr("imaging.col_model"),
+                tr("imaging.col_frames"),
+                tr("imaging.col_exposure"),
+                tr("imaging.col_capture_date"),
+            ]
+        )
+        self.integrations_table.verticalHeader().setVisible(False)
+        self.integrations_table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        self.integrations_table.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+        self.integrations_table.horizontalHeader().setStretchLastSection(True)
+        self.integrations_table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.integrations_table.verticalHeader().setDefaultSectionSize(30)
+        self.integrations_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        self._update_integrations_table_height()
+        integrations_layout.addWidget(self.integrations_table)
+
+        integration_buttons = QtWidgets.QHBoxLayout()
+        self.integration_add_button = QtWidgets.QPushButton(tr("imaging.add_filter_row"))
+        self.integration_remove_button = QtWidgets.QPushButton(tr("imaging.remove_filter_row"))
+        self.integration_add_button.clicked.connect(lambda: self._add_integration_row())
+        self.integration_remove_button.clicked.connect(self._remove_selected_integration_row)
+        integration_buttons.addWidget(self.integration_add_button)
+        integration_buttons.addWidget(self.integration_remove_button)
+        integration_buttons.addStretch(1)
+        integrations_layout.addLayout(integration_buttons)
+        layout.addWidget(integrations_group, stretch=1)
+
+        imaging_group = QtWidgets.QGroupBox(tr("imaging.imaging_equipment"))
+        imaging_layout = QtWidgets.QFormLayout(imaging_group)
+        self.setup_selector = QtWidgets.QComboBox()
+        self.setup_selector.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToContents)
+        self.setup_apply_button = QtWidgets.QPushButton(tr("imaging.setup_apply"))
+        self.setup_save_button = QtWidgets.QPushButton(tr("imaging.setup_save"))
+        self.setup_delete_button = QtWidgets.QPushButton(tr("imaging.setup_delete"))
+        self.setup_apply_button.clicked.connect(self._apply_selected_setup)
+        self.setup_save_button.clicked.connect(self._save_setup_from_current_values)
+        self.setup_delete_button.clicked.connect(self._delete_selected_setup)
+
+        setup_row = QtWidgets.QHBoxLayout()
+        setup_row.addWidget(self.setup_selector, stretch=1)
+        setup_row.addWidget(self.setup_apply_button)
+        setup_row.addWidget(self.setup_save_button)
+        setup_row.addWidget(self.setup_delete_button)
+        setup_row_widget = QtWidgets.QWidget()
+        setup_row_widget.setLayout(setup_row)
+        imaging_layout.addRow(tr("imaging.setup_label"), setup_row_widget)
+
+        self.imaging_telescope_edit = QtWidgets.QLineEdit()
+        self.imaging_camera_edit = QtWidgets.QLineEdit()
+        self.imaging_mount_edit = QtWidgets.QLineEdit()
+        self.imaging_accessories_edit = QtWidgets.QLineEdit()
+        self.imaging_software_edit = QtWidgets.QLineEdit()
+        imaging_layout.addRow(tr("imaging.telescope"), self.imaging_telescope_edit)
+        imaging_layout.addRow(tr("imaging.camera"), self.imaging_camera_edit)
+        imaging_layout.addRow(tr("imaging.mount"), self.imaging_mount_edit)
+        imaging_layout.addRow(tr("imaging.accessories"), self.imaging_accessories_edit)
+        imaging_layout.addRow(tr("imaging.software"), self.imaging_software_edit)
+        layout.addWidget(imaging_group)
+
+        guiding_group = QtWidgets.QGroupBox(tr("imaging.guiding_equipment"))
+        guiding_layout = QtWidgets.QFormLayout(guiding_group)
+        self.guiding_telescope_edit = QtWidgets.QLineEdit()
+        self.guiding_camera_edit = QtWidgets.QLineEdit()
+        guiding_layout.addRow(tr("imaging.guide_telescope"), self.guiding_telescope_edit)
+        guiding_layout.addRow(tr("imaging.guide_camera"), self.guiding_camera_edit)
+        layout.addWidget(guiding_group)
+
+        self.button_box = QtWidgets.QDialogButtonBox(
+            QtWidgets.QDialogButtonBox.StandardButton.Save
+            | QtWidgets.QDialogButtonBox.StandardButton.Cancel
+        )
+        self.button_box.accepted.connect(self.accept)
+        self.button_box.rejected.connect(self.reject)
+        root_layout.addWidget(self.button_box)
+
+        self._refresh_setup_selector()
+        self._apply_dynamic_dialog_size()
+
+    def _apply_dynamic_dialog_size(self) -> None:
+        screen = self.screen()
+        if screen is None and self.parentWidget() is not None:
+            screen = self.parentWidget().screen()
+        if screen is None:
+            screen = QtGui.QGuiApplication.primaryScreen()
+
+        if screen is None:
+            return
+
+        available = screen.availableGeometry()
+        max_width = max(700, int(available.width() * 0.95))
+        max_height = max(520, int(available.height() * 0.95))
+
+        preferred = self.sizeHint()
+        preferred_width = max(920, preferred.width())
+        preferred_height = max(680, preferred.height())
+
+        self.setMaximumSize(max_width, max_height)
+        self.resize(min(preferred_width, max_width), min(preferred_height, max_height))
+
+    def showEvent(self, event: QtGui.QShowEvent) -> None:
+        self._apply_dynamic_dialog_size()
+        super().showEvent(event)
+
+    def _make_date_edit(self, date_str: str) -> QtWidgets.QDateEdit:
+        edit = QtWidgets.QDateEdit()
+        edit.setCalendarPopup(True)
+        edit.setDisplayFormat("yyyy-MM-dd")
+        edit.setMinimumDate(QtCore.QDate(1900, 1, 1))
+        edit.setSpecialValueText("—")  # displayed when date == minimumDate (1900-01-01)
+        parsed = QtCore.QDate.fromString(date_str, "yyyy-MM-dd") if date_str else QtCore.QDate()
+        edit.setDate(parsed if parsed.isValid() else QtCore.QDate.currentDate())
+        return edit
+
+    def _add_integration_row(self, row_data: Optional[Dict] = None) -> None:
+        row = self.integrations_table.rowCount()
+        if row_data is None and row > 0:
+            row_data = self._get_row_data(row - 1)
+        self.integrations_table.insertRow(row)
+        defaults = row_data or {}
+
+        def line(text: str) -> QtWidgets.QLineEdit:
+            w = QtWidgets.QLineEdit(text)
+            w.setFrame(True)
+            return w
+
+        bpv = defaults.get("filter_bandpass_nm")
+        frames_spin = QtWidgets.QSpinBox()
+        frames_spin.setMinimum(0)
+        frames_spin.setMaximum(99999)
+        frames_spin.setValue(int(defaults.get("subframe_count") or 1))
+
+        self.integrations_table.setCellWidget(row, 0, line(str(defaults.get("filter_name") or "")))
+        self.integrations_table.setCellWidget(row, 1, line("" if bpv is None else str(bpv)))
+        self.integrations_table.setCellWidget(row, 2, line(str(defaults.get("filter_brand") or "")))
+        self.integrations_table.setCellWidget(row, 3, line(str(defaults.get("filter_model") or "")))
+        self.integrations_table.setCellWidget(row, 4, frames_spin)
+        self.integrations_table.setCellWidget(row, 5, line(str(defaults.get("exposure_seconds") or "0")))
+        self.integrations_table.setCellWidget(row, 6, self._make_date_edit(str(defaults.get("captured_on") or "")))
+        self._update_integrations_table_height()
+
+    def _get_row_data(self, row: int) -> Dict:
+        def wtext(col: int) -> str:
+            w = self.integrations_table.cellWidget(row, col)
+            return w.text().strip() if isinstance(w, QtWidgets.QLineEdit) else ""
+
+        frames_w = self.integrations_table.cellWidget(row, 4)
+        frames = frames_w.value() if isinstance(frames_w, QtWidgets.QSpinBox) else 1
+
+        date_w = self.integrations_table.cellWidget(row, 6)
+        if isinstance(date_w, QtWidgets.QDateEdit):
+            d = date_w.date()
+            date_str = d.toString("yyyy-MM-dd") if d != date_w.minimumDate() else None
+        else:
+            date_str = None
+
+        return {
+            "filter_name": wtext(0) or None,
+            "filter_bandpass_nm": self._parse_float(wtext(1)),
+            "filter_brand": wtext(2) or None,
+            "filter_model": wtext(3) or None,
+            "subframe_count": frames,
+            "exposure_seconds": self._parse_float(wtext(5), default=0.0),
+            "captured_on": date_str,
+        }
+
+    def _remove_selected_integration_row(self) -> None:
+        row = self.integrations_table.currentRow()
+        if row >= 0:
+            self.integrations_table.removeRow(row)
+            self._update_integrations_table_height()
+
+    def set_payload(self, payload: Dict) -> None:
+        self.capture_location_edit.setText(str(payload.get("capture_location") or ""))
+        self.integrations_table.setRowCount(0)
+        for integration in self._sorted_integrations(payload.get("integrations", [])):
+            if isinstance(integration, dict):
+                self._add_integration_row(integration)
+        self._update_integrations_table_height()
+
+        imaging = payload.get("imaging_equipment") or {}
+        self.imaging_telescope_edit.setText(str(imaging.get("telescope_or_refractor") or ""))
+        self.imaging_camera_edit.setText(str(imaging.get("camera") or ""))
+        self.imaging_mount_edit.setText(str(imaging.get("mount") or ""))
+        self.imaging_accessories_edit.setText(str(imaging.get("accessories") or ""))
+        self.imaging_software_edit.setText(str(imaging.get("software") or ""))
+
+        guiding = payload.get("guiding_equipment") or {}
+        self.guiding_telescope_edit.setText(str(guiding.get("guide_telescope") or ""))
+        self.guiding_camera_edit.setText(str(guiding.get("guide_camera") or ""))
+
+    def setups_payload(self) -> List[Dict[str, str]]:
+        payload: List[Dict[str, str]] = []
+        for setup in self._setups:
+            name = str(setup.get("name") or "").strip()
+            if not name:
+                continue
+            payload.append(
+                {
+                    "name": name,
+                    "telescope_or_refractor": str(setup.get("telescope_or_refractor") or "").strip(),
+                    "camera": str(setup.get("camera") or "").strip(),
+                    "mount": str(setup.get("mount") or "").strip(),
+                    "accessories": str(setup.get("accessories") or "").strip(),
+                    "software": str(setup.get("software") or "").strip(),
+                    "guide_telescope": str(setup.get("guide_telescope") or "").strip(),
+                    "guide_camera": str(setup.get("guide_camera") or "").strip(),
+                }
+            )
+        return payload
+
+    def _refresh_setup_selector(self) -> None:
+        previous_name = self.setup_selector.currentData()
+        self.setup_selector.blockSignals(True)
+        self.setup_selector.clear()
+        self.setup_selector.addItem(tr("imaging.setup_none"), None)
+        for setup in sorted(self._setups, key=lambda item: str(item.get("name") or "").lower()):
+            name = str(setup.get("name") or "").strip()
+            if name:
+                self.setup_selector.addItem(name, name)
+        self.setup_selector.blockSignals(False)
+
+        if previous_name:
+            index = self.setup_selector.findData(previous_name)
+            if index >= 0:
+                self.setup_selector.setCurrentIndex(index)
+
+    def _collect_current_setup_values(self) -> Dict[str, str]:
+        return {
+            "telescope_or_refractor": self.imaging_telescope_edit.text().strip(),
+            "camera": self.imaging_camera_edit.text().strip(),
+            "mount": self.imaging_mount_edit.text().strip(),
+            "accessories": self.imaging_accessories_edit.text().strip(),
+            "software": self.imaging_software_edit.text().strip(),
+            "guide_telescope": self.guiding_telescope_edit.text().strip(),
+            "guide_camera": self.guiding_camera_edit.text().strip(),
+        }
+
+    def _apply_setup_values(self, setup: Dict[str, str]) -> None:
+        self.imaging_telescope_edit.setText(str(setup.get("telescope_or_refractor") or ""))
+        self.imaging_camera_edit.setText(str(setup.get("camera") or ""))
+        self.imaging_mount_edit.setText(str(setup.get("mount") or ""))
+        self.imaging_accessories_edit.setText(str(setup.get("accessories") or ""))
+        self.imaging_software_edit.setText(str(setup.get("software") or ""))
+        self.guiding_telescope_edit.setText(str(setup.get("guide_telescope") or ""))
+        self.guiding_camera_edit.setText(str(setup.get("guide_camera") or ""))
+
+    def _apply_selected_setup(self) -> None:
+        selected_name = self.setup_selector.currentData()
+        if not selected_name:
+            return
+        setup = next((item for item in self._setups if str(item.get("name") or "").strip() == selected_name), None)
+        if setup is None:
+            return
+        self._apply_setup_values(setup)
+
+    def _save_setup_from_current_values(self) -> None:
+        name, ok = QtWidgets.QInputDialog.getText(
+            self,
+            tr("imaging.setup_name_title"),
+            tr("imaging.setup_name_prompt"),
+            QtWidgets.QLineEdit.EchoMode.Normal,
+            str(self.setup_selector.currentData() or ""),
+        )
+        if not ok:
+            return
+        setup_name = (name or "").strip()
+        if not setup_name:
+            return
+
+        values = self._collect_current_setup_values()
+        existing_index = -1
+        for index, setup in enumerate(self._setups):
+            if str(setup.get("name") or "").strip().lower() == setup_name.lower():
+                existing_index = index
+                break
+
+        setup_payload = {"name": setup_name, **values}
+        if existing_index >= 0:
+            self._setups[existing_index] = setup_payload
+        else:
+            self._setups.append(setup_payload)
+
+        self._refresh_setup_selector()
+        index = self.setup_selector.findData(setup_name)
+        if index >= 0:
+            self.setup_selector.setCurrentIndex(index)
+
+    def _delete_selected_setup(self) -> None:
+        selected_name = self.setup_selector.currentData()
+        if not selected_name:
+            return
+
+        answer = QtWidgets.QMessageBox.question(
+            self,
+            tr("imaging.setup_delete_title"),
+            tr("imaging.setup_delete_confirm", name=selected_name),
+            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
+            QtWidgets.QMessageBox.StandardButton.No,
+        )
+        if answer != QtWidgets.QMessageBox.StandardButton.Yes:
+            return
+
+        self._setups = [
+            setup
+            for setup in self._setups
+            if str(setup.get("name") or "").strip() != selected_name
+        ]
+        self._refresh_setup_selector()
+
+    @staticmethod
+    def _canonical_filter_name(name: str) -> Optional[str]:
+        raw = (name or "").strip().upper()
+        if not raw:
+            return None
+
+        normalized = "".join(ch for ch in raw if ("A" <= ch <= "Z") or ("0" <= ch <= "9"))
+        if normalized in {"L", "LUM", "LUMINANCE"}:
+            return "L"
+        if normalized in {"R", "RED"}:
+            return "R"
+        if normalized in {"G", "GREEN"}:
+            return "G"
+        if normalized in {"B", "BLUE"}:
+            return "B"
+        if normalized in {"S", "SII", "S2"}:
+            return "S"
+        if normalized in {"H", "HA", "HALPHA","Hα"}:
+            return "H"
+        if normalized in {"O", "OIII", "O3"}:
+            return "O"
+        return None
+
+    @classmethod
+    def _sorted_integrations(cls, integrations: object) -> List[Dict]:
+        if not isinstance(integrations, list):
+            return []
+
+        order = {"L": 0, "R": 1, "G": 2, "B": 3, "S": 4, "H": 5, "O": 6}
+        indexed_rows: List[tuple[int, Dict]] = []
+        for index, row in enumerate(integrations):
+            if isinstance(row, dict):
+                indexed_rows.append((index, row))
+
+        indexed_rows.sort(
+            key=lambda pair: (
+                order.get(cls._canonical_filter_name(str(pair[1].get("filter_name") or "")), 999),
+                pair[0],
+            )
+        )
+        return [row for _, row in indexed_rows]
+
+    def _update_integrations_table_height(self) -> None:
+        row_count = self.integrations_table.rowCount()
+        visible_rows = max(1, min(5, row_count))
+        row_height = max(24, self.integrations_table.verticalHeader().defaultSectionSize())
+        header_height = self.integrations_table.horizontalHeader().sizeHint().height()
+        table_height = header_height + (visible_rows * row_height) + (2 * self.integrations_table.frameWidth()) + 8
+        self.integrations_table.setMinimumHeight(table_height)
+        self.integrations_table.setMaximumHeight(table_height)
+
+    def payload(self) -> Dict:
+        integrations: List[Dict] = []
+        for row in range(self.integrations_table.rowCount()):
+            data = self._get_row_data(row)
+            filter_name = data["filter_name"] or ""
+            bandpass_value = data["filter_bandpass_nm"]
+            filter_brand = data["filter_brand"] or ""
+            filter_model = data["filter_model"] or ""
+            subframe_count = data["subframe_count"] or 0
+            exposure_seconds = data["exposure_seconds"] or 0.0
+            captured_on = data["captured_on"] or ""
+            if not any([filter_name, bandpass_value is not None, filter_brand, filter_model, captured_on, subframe_count > 0, exposure_seconds > 0]):
+                continue
+            integrations.append(
+                {
+                    "filter_name": filter_name or "none",
+                    "filter_bandpass_nm": bandpass_value,
+                    "filter_brand": filter_brand or None,
+                    "filter_model": filter_model or None,
+                    "subframe_count": max(1, subframe_count),
+                    "exposure_seconds": max(0.0, exposure_seconds),
+                    "captured_on": captured_on or None,
+                }
+            )
+
+        return {
+            "capture_location": self.capture_location_edit.text().strip(),
+            "integrations": integrations,
+            "imaging_equipment": {
+                "telescope_or_refractor": self.imaging_telescope_edit.text().strip() or None,
+                "camera": self.imaging_camera_edit.text().strip() or None,
+                "mount": self.imaging_mount_edit.text().strip() or None,
+                "accessories": self.imaging_accessories_edit.text().strip() or None,
+                "software": self.imaging_software_edit.text().strip() or None,
+            },
+            "guiding_equipment": {
+                "guide_telescope": self.guiding_telescope_edit.text().strip() or None,
+                "guide_camera": self.guiding_camera_edit.text().strip() or None,
+            },
+        }
+
+    def _parse_float(self, value: str, default: Optional[float] = None) -> Optional[float]:
+        if not value:
+            return default
+        try:
+            return float(value.replace(",", "."))
+        except ValueError:
+            return default
+
+    def _cell_text(self, row: int, col: int) -> str:
+        item = self.integrations_table.item(row, col)
+        return (item.text() if item else "").strip()
+
+    def _cell_float(self, row: int, col: int, default: Optional[float] = None) -> Optional[float]:
+        return self._parse_float(self._cell_text(row, col), default)
+
+    def _cell_int(self, row: int, col: int, default: int = 0) -> int:
+        value = self._cell_text(row, col)
+        if not value:
+            return default
+        try:
+            return int(float(value.replace(",", ".")))
+        except ValueError:
+            return default
+
+
 class DetailPanel(QtWidgets.QWidget):
     thumbnail_selected = QtCore.Signal(str, str, str)
     archive_requested = QtCore.Signal(str)
     image_changed = QtCore.Signal(str)
     focus_mode_toggled = QtCore.Signal(bool)
     navigation_requested = QtCore.Signal(int)
+    imaging_info_requested = QtCore.Signal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -1533,10 +2019,12 @@ class DetailPanel(QtWidgets.QWidget):
         self.next_button = QtWidgets.QPushButton("▶")
         self.thumb_button = QtWidgets.QPushButton(tr("detail.set_as_thumbnail"))
         self.archive_button = QtWidgets.QPushButton(tr("detail.archive_image"))
+        self.imaging_info_button = QtWidgets.QPushButton(tr("detail.imaging_info"))
         self.prev_button.clicked.connect(lambda: self.navigation_requested.emit(-1))
         self.next_button.clicked.connect(lambda: self.navigation_requested.emit(1))
         self.thumb_button.clicked.connect(self._set_thumbnail)
         self.archive_button.clicked.connect(self._request_archive)
+        self.imaging_info_button.clicked.connect(self._request_imaging_info)
         self._current_item: Optional[CatalogItem] = None
         self._notes_block = False
         self._image_index = 0
@@ -1598,10 +2086,17 @@ class DetailPanel(QtWidgets.QWidget):
         nav_row.setSpacing(8)
         nav_row.addWidget(self.thumb_button)
         nav_row.addWidget(self.archive_button)
+        nav_row.addWidget(self.imaging_info_button)
         nav_row.addStretch(1)
         left_layout.addLayout(nav_row)
         left_layout.addWidget(self.metadata)
         left_layout.addWidget(self.image_info)
+        self.imaging_summary = QtWidgets.QLabel("")
+        self.imaging_summary.setObjectName("imagingSummary")
+        self.imaging_summary.setWordWrap(True)
+        self.imaging_summary.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.imaging_summary.hide()
+        left_layout.addWidget(self.imaging_summary)
         left_layout.addWidget(self.external_link)
 
         right_widget = QtWidgets.QWidget()
@@ -1676,6 +2171,9 @@ class DetailPanel(QtWidgets.QWidget):
             self.next_button.setEnabled(False)
             self.thumb_button.setEnabled(False)
             self.archive_button.setEnabled(False)
+            self.imaging_info_button.setEnabled(False)
+            self.imaging_summary.clear()
+            self.imaging_summary.hide()
             self._notes_block = False
             return
         self.title.setText(item.display_name)
@@ -1726,6 +2224,11 @@ class DetailPanel(QtWidgets.QWidget):
     def connect_notes_changed(self, callback) -> None:
         self.notes.textChanged.connect(callback)
 
+    def set_imaging_summary(self, summary: str) -> None:
+        text = (summary or "").strip()
+        self.imaging_summary.setText(text)
+        self.imaging_summary.setVisible(bool(text))
+
     def current_notes(self) -> str:
         return self.notes.toPlainText()
 
@@ -1763,6 +2266,7 @@ class DetailPanel(QtWidgets.QWidget):
             self.next_button.setEnabled(True)
             self.thumb_button.setEnabled(False)
             self.archive_button.setEnabled(False)
+            self.imaging_info_button.setEnabled(False)
             return
         paths = self._current_item.image_paths
         self._image_index = max(0, min(self._image_index, len(paths) - 1))
@@ -1785,6 +2289,7 @@ class DetailPanel(QtWidgets.QWidget):
             self.next_button.setEnabled(True)
             self.thumb_button.setEnabled(True)
             self.archive_button.setEnabled(True)
+            self.imaging_info_button.setEnabled(True)
             return
         self.image_view.set_pixmap(None)
         self.image_info.setText(tr("detail.image.loading", name=path.name))
@@ -1792,6 +2297,7 @@ class DetailPanel(QtWidgets.QWidget):
         self.next_button.setEnabled(True)
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
+        self.imaging_info_button.setEnabled(True)
         self._start_image_load(path)
 
     def _start_image_load(self, path: Path) -> None:
@@ -1829,6 +2335,7 @@ class DetailPanel(QtWidgets.QWidget):
         )
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
+        self.imaging_info_button.setEnabled(True)
 
     def _on_image_failed(self, request_id: int, path_value: str, message: str) -> None:
         if request_id != self._image_load_id:
@@ -1837,6 +2344,10 @@ class DetailPanel(QtWidgets.QWidget):
         self.image_info.setText(message or tr("detail.image.load_failed"))
         self.thumb_button.setEnabled(False)
         self.archive_button.setEnabled(False)
+        self.imaging_info_button.setEnabled(False)
+
+    def _request_imaging_info(self) -> None:
+        self.imaging_info_requested.emit()
 
     def _apply_initial_sizes(self) -> None:
         if self._initial_detail_sized:
@@ -1900,7 +2411,15 @@ class DetailPanel(QtWidgets.QWidget):
             self._detail_text_min_size,
             min(self._detail_text_max_size, self._detail_text_size + delta),
         )
-        for widget in (self.title, self.metadata, self.image_info, self.external_link, self.description, self.notes):
+        for widget in (
+            self.title,
+            self.metadata,
+            self.image_info,
+            self.imaging_summary,
+            self.external_link,
+            self.description,
+            self.notes,
+        ):
             font = widget.font()
             font.setPointSizeF(self._detail_text_size)
             widget.setFont(font)
@@ -1983,6 +2502,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self._data_version = self._load_local_data_version()
         self._ensure_user_metadata_files()
         self.user_notes_path = self._user_notes_path()
+        self.db_path = database_path_from_config_path(self.config_path)
+        self.database = Database(self.db_path)
         if not self.config.get("cleanup_invalid_image_only_entries_done", False):
             self._cleanup_invalid_image_only_entries()
             self.config["cleanup_invalid_image_only_entries_done"] = True
@@ -2378,6 +2899,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.detail.archive_requested.connect(self._on_archive_requested)
         self.detail.focus_mode_toggled.connect(self._on_detail_focus_mode_toggled)
         self.detail.navigation_requested.connect(self._navigate_images_and_filtered_items)
+        self.detail.imaging_info_requested.connect(self._open_imaging_info_editor)
         self.model.wiki_thumbnail_loaded.connect(self._on_wiki_thumbnail_loaded)
 
         splitter = QtWidgets.QSplitter()
@@ -2711,6 +3233,7 @@ class MainWindow(QtWidgets.QMainWindow):
         indexes = self.grid.selectionModel().selectedIndexes()
         if not indexes:
             self.detail.update_item(None)
+            self.detail.set_imaging_summary("")
             return
         source_index = self.proxy.mapToSource(indexes[0])
         item = self.model.data(source_index, QtCore.Qt.ItemDataRole.UserRole)
@@ -2719,11 +3242,251 @@ class MainWindow(QtWidgets.QMainWindow):
             pixmap = self.model.get_wiki_pixmap(item.unique_key)
             if pixmap:
                 self.detail.set_wiki_pixmap(pixmap)
+        self._refresh_current_image_imaging_summary()
         if item:
             self._notes_timer.start()
 
     def _on_image_changed(self, _image_name: str) -> None:
         self._flush_notes()
+        self._refresh_current_image_imaging_summary()
+
+    def _open_imaging_info_editor(self) -> None:
+        item = self.detail.current_item()
+        image_name = self.detail.current_image_name()
+        if item is None or not image_name:
+            QtWidgets.QMessageBox.information(
+                self,
+                tr("imaging.no_image_title"),
+                tr("imaging.no_image_message"),
+            )
+            return
+        try:
+            note_id = self.database.ensure_image_note(
+                image_name,
+                title=image_name,
+                status="active",
+                legacy_source="app",
+            )
+            payload = self._load_imaging_payload(note_id)
+            dialog = ImagingInfoDialog(self, setups=self._load_imaging_setups())
+            dialog.set_payload(payload)
+            dialog_result = dialog.exec()
+            self._save_imaging_setups(dialog.setups_payload())
+            if dialog_result != int(QtWidgets.QDialog.DialogCode.Accepted):
+                return
+            self._save_imaging_payload(note_id, dialog.payload())
+            self._refresh_current_image_imaging_summary()
+            self._set_status_message(tr("imaging.saved_status", name=image_name))
+        except Exception as exc:
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("imaging.error_title"),
+                tr("imaging.error_message", error=exc),
+            )
+
+    def _load_imaging_setups(self) -> List[Dict[str, str]]:
+        rows = self.database.list_imaging_setups()
+        if rows:
+            result: List[Dict[str, str]] = []
+            for item in rows:
+                name = str(item.get("name") or "").strip()
+                if not name:
+                    continue
+                result.append(
+                    {
+                        "name": name,
+                        "telescope_or_refractor": str(item.get("telescope_or_refractor") or "").strip(),
+                        "camera": str(item.get("camera") or "").strip(),
+                        "mount": str(item.get("mount") or "").strip(),
+                        "accessories": str(item.get("accessories") or "").strip(),
+                        "software": str(item.get("software") or "").strip(),
+                        "guide_telescope": str(item.get("guide_telescope") or "").strip(),
+                        "guide_camera": str(item.get("guide_camera") or "").strip(),
+                    }
+                )
+            return result
+
+        # Backward compatibility: migrate old settings storage if present.
+        legacy_payload = self.database.get_setting("imaging_setups", default=[])
+        if isinstance(legacy_payload, list) and legacy_payload:
+            self._save_imaging_setups(legacy_payload)
+            self.database.delete_setting("imaging_setups")
+            return self._load_imaging_setups()
+
+        return []
+
+    def _save_imaging_setups(self, setups: List[Dict[str, str]]) -> None:
+        normalized: List[Dict[str, str]] = []
+        seen: set[str] = set()
+        for setup in setups:
+            if not isinstance(setup, dict):
+                continue
+            name = str(setup.get("name") or "").strip()
+            if not name:
+                continue
+            key = name.lower()
+            if key in seen:
+                continue
+            seen.add(key)
+            normalized.append(
+                {
+                    "name": name,
+                    "telescope_or_refractor": str(setup.get("telescope_or_refractor") or "").strip(),
+                    "camera": str(setup.get("camera") or "").strip(),
+                    "mount": str(setup.get("mount") or "").strip(),
+                    "accessories": str(setup.get("accessories") or "").strip(),
+                    "software": str(setup.get("software") or "").strip(),
+                    "guide_telescope": str(setup.get("guide_telescope") or "").strip(),
+                    "guide_camera": str(setup.get("guide_camera") or "").strip(),
+                }
+            )
+
+        self.database.replace_imaging_setups(normalized)
+
+    def _load_imaging_payload(self, note_id: int) -> Dict:
+        return {
+            "capture_location": self.database.get_capture_location(note_id),
+            "integrations": self.database.list_filter_integrations(note_id),
+            "imaging_equipment": self.database.get_imaging_equipment(note_id) or {},
+            "guiding_equipment": self.database.get_guiding_equipment(note_id) or {},
+        }
+
+    def _save_imaging_payload(self, note_id: int, payload: Dict) -> None:
+        self.database.upsert_capture_location(note_id, str(payload.get("capture_location") or ""))
+        self.database.replace_filter_integrations(note_id, payload.get("integrations", []))
+
+        imaging = payload.get("imaging_equipment") or {}
+        self.database.upsert_imaging_equipment(
+            note_id,
+            telescope_or_refractor=imaging.get("telescope_or_refractor"),
+            camera=imaging.get("camera"),
+            mount=imaging.get("mount"),
+            accessories=imaging.get("accessories"),
+            software=imaging.get("software"),
+        )
+
+        guiding = payload.get("guiding_equipment") or {}
+        self.database.upsert_guiding_equipment(
+            note_id,
+            guide_telescope=guiding.get("guide_telescope"),
+            guide_camera=guiding.get("guide_camera"),
+        )
+
+    def _refresh_current_image_imaging_summary(self) -> None:
+        image_name = self.detail.current_image_name()
+        if not image_name:
+            self.detail.set_imaging_summary("")
+            return
+        note = self.database.get_note_by_image_id(image_name)
+        if not note:
+            self.detail.set_imaging_summary("")
+            return
+
+        note_id = int(note["note_id"])
+        location = self.database.get_capture_location(note_id)
+        integrations = self.database.list_filter_integrations(note_id)
+        imaging = self.database.get_imaging_equipment(note_id) or {}
+        guiding = self.database.get_guiding_equipment(note_id) or {}
+
+        total_seconds = 0.0
+        raw_filters: List[str] = []
+        for row in integrations:
+            exposure = float(row.get("exposure_seconds") or 0.0)
+            frames = int(row.get("subframe_count") or 0)
+            total_seconds += max(0.0, exposure) * max(0, frames)
+            name = str(row.get("filter_name") or "").strip()
+            if name:
+                raw_filters.append(name)
+
+        filters_display = self._ordered_filter_summary(raw_filters)
+
+        lines: List[str] = []
+        if location:
+            lines.append(tr("imaging.summary_location", value=location))
+        if integrations:
+            lines.append(
+                tr(
+                    "imaging.summary_integrations",
+                    duration=self._format_duration_short(total_seconds),
+                    filters=filters_display or tr("imaging.summary_filters_none"),
+                )
+            )
+        else:
+            lines.append(tr("imaging.summary_integrations_none"))
+
+        imaging_parts = [
+            str(imaging.get("telescope_or_refractor") or "").strip(),
+            str(imaging.get("camera") or "").strip(),
+            str(imaging.get("mount") or "").strip(),
+        ]
+        imaging_text = " | ".join(part for part in imaging_parts if part)
+        if imaging_text:
+            lines.append(tr("imaging.summary_imaging", value=imaging_text))
+
+        guiding_parts = [
+            str(guiding.get("guide_telescope") or "").strip(),
+            str(guiding.get("guide_camera") or "").strip(),
+        ]
+        guiding_text = " | ".join(part for part in guiding_parts if part)
+        if guiding_text:
+            lines.append(tr("imaging.summary_guiding", value=guiding_text))
+
+        self.detail.set_imaging_summary("\n".join(lines))
+
+    @staticmethod
+    def _format_duration_short(total_seconds: float) -> str:
+        seconds = int(max(0.0, total_seconds))
+        hours, rem = divmod(seconds, 3600)
+        minutes, _ = divmod(rem, 60)
+        if hours > 0:
+            return f"{hours}h{minutes:02d}"
+        return f"{minutes}m"
+
+    @staticmethod
+    def _canonical_filter_name(name: str) -> Optional[str]:
+        raw = (name or "").strip().upper()
+        if not raw:
+            return None
+
+        # Keep only ASCII letters/digits for robust matching (e.g. H-alpha, Hα).
+        normalized = "".join(ch for ch in raw if ("A" <= ch <= "Z") or ("0" <= ch <= "9"))
+
+        if normalized in {"L", "LUM", "LUMINANCE"}:
+            return "L"
+        if normalized in {"R", "RED"}:
+            return "R"
+        if normalized in {"G", "GREEN"}:
+            return "G"
+        if normalized in {"B", "BLUE"}:
+            return "B"
+        if normalized in {"S", "SII", "S2"}:
+            return "S"
+        if normalized in {"H", "HA", "HALPHA"}:
+            return "H"
+        if normalized in {"O", "OIII", "O3"}:
+            return "O"
+        return None
+
+    @classmethod
+    def _ordered_filter_summary(cls, names: List[str]) -> str:
+        ordered_groups = ["L", "R", "G", "B", "S", "H", "O"]
+        present: set[str] = set()
+        extras: List[str] = []
+
+        for name in names:
+            cleaned = str(name or "").strip()
+            if not cleaned:
+                continue
+            canonical = cls._canonical_filter_name(cleaned)
+            if canonical:
+                present.add(canonical)
+                continue
+            if cleaned not in extras:
+                extras.append(cleaned)
+
+        result = [group for group in ordered_groups if group in present]
+        result.extend(extras)
+        return ", ".join(result)
 
     def _on_catalog_changed(self, _value: str) -> None:
         value = self._combo_value(self.catalog_filter)

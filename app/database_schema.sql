@@ -9,6 +9,12 @@ CREATE TABLE IF NOT EXISTS schema_migrations (
 INSERT OR IGNORE INTO schema_migrations (version, description)
 VALUES (1, 'Initial schema');
 
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (2, 'Add image capture blocks (location, integrations, imaging and guiding equipment)');
+
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (3, 'Add reusable imaging setups table');
+
 CREATE TABLE IF NOT EXISTS app_settings (
     setting_key TEXT PRIMARY KEY,
     value_json TEXT NOT NULL,
@@ -47,6 +53,78 @@ CREATE TABLE IF NOT EXISTS image_notes (
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+-- One row per image note: free text capture location.
+CREATE TABLE IF NOT EXISTS image_capture_details (
+    note_id INTEGER PRIMARY KEY,
+    capture_location TEXT NOT NULL DEFAULT '',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
+);
+
+-- Multiple integration entries per image (one row per filter/integration block).
+CREATE TABLE IF NOT EXISTS image_filter_integrations (
+    integration_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    note_id INTEGER NOT NULL,
+    filter_name TEXT NOT NULL DEFAULT 'none',
+    filter_bandpass_nm REAL,
+    filter_brand TEXT,
+    filter_model TEXT,
+    subframe_count INTEGER NOT NULL DEFAULT 1 CHECK (subframe_count >= 1),
+    exposure_seconds REAL NOT NULL CHECK (exposure_seconds >= 0),
+    captured_on TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_image_filter_integrations_note
+    ON image_filter_integrations (note_id);
+
+CREATE INDEX IF NOT EXISTS idx_image_filter_integrations_note_date
+    ON image_filter_integrations (note_id, captured_on);
+
+-- Exactly one imaging setup per image note.
+CREATE TABLE IF NOT EXISTS image_imaging_equipment (
+    note_id INTEGER PRIMARY KEY,
+    telescope_or_refractor TEXT,
+    camera TEXT,
+    mount TEXT,
+    accessories TEXT,
+    software TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
+);
+
+-- Exactly one guiding setup per image note.
+CREATE TABLE IF NOT EXISTS image_guiding_equipment (
+    note_id INTEGER PRIMARY KEY,
+    guide_telescope TEXT,
+    guide_camera TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE
+);
+
+-- Reusable user imaging setups (global presets, independent from notes/images).
+CREATE TABLE IF NOT EXISTS imaging_setups (
+    setup_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL COLLATE NOCASE UNIQUE,
+    telescope_or_refractor TEXT,
+    camera TEXT,
+    mount TEXT,
+    accessories TEXT,
+    software TEXT,
+    guide_telescope TEXT,
+    guide_camera TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_imaging_setups_name
+    ON imaging_setups (name);
 
 CREATE TABLE IF NOT EXISTS note_metadata (
     note_id INTEGER NOT NULL,

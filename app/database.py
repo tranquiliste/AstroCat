@@ -39,7 +39,7 @@ class Database:
         try:
             connection.execute("PRAGMA foreign_keys = ON")
             connection.executescript(schema)
-            connection.execute("PRAGMA user_version = 1")
+            connection.execute("PRAGMA user_version = 3")
             connection.commit()
         finally:
             connection.close()
@@ -310,6 +310,460 @@ class Database:
         }
         note["tags"] = [item["tag"] for item in tag_rows]
         return note
+
+    def get_note_by_image_id(self, image_id: str) -> Optional[Dict]:
+        image_key = (image_id or "").strip()
+        if not image_key:
+            return None
+        with self.connection() as connection:
+            row = connection.execute(
+                "SELECT * FROM image_notes WHERE image_id = ?",
+                (image_key,),
+            ).fetchone()
+        return dict(row) if row is not None else None
+
+    def ensure_image_note(
+        self,
+        image_id: str,
+        title: Optional[str] = None,
+        status: str = "active",
+        legacy_source: str = "app",
+    ) -> int:
+        image_key = (image_id or "").strip()
+        if not image_key:
+            raise ValueError("image_id cannot be empty")
+        with self.connection() as connection:
+            row = connection.execute(
+                "SELECT note_id FROM image_notes WHERE image_id = ?",
+                (image_key,),
+            ).fetchone()
+            if row is not None:
+                return int(row["note_id"])
+            cursor = connection.execute(
+                """
+                INSERT INTO image_notes (
+                    image_id,
+                    title,
+                    description,
+                    status,
+                    legacy_source,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, '', ?, ?, ?, ?)
+                """,
+                (
+                    image_key,
+                    title or image_key,
+                    status,
+                    legacy_source,
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+        return int(cursor.lastrowid)
+
+    def upsert_capture_location(self, note_id: int, capture_location: str) -> None:
+        normalized = (capture_location or "").strip()
+        with self.connection() as connection:
+            connection.execute(
+                """
+                INSERT INTO image_capture_details (note_id, capture_location, created_at, updated_at)
+                VALUES (?, ?, ?, ?)
+                ON CONFLICT(note_id) DO UPDATE SET
+                    capture_location = excluded.capture_location,
+                    updated_at = excluded.updated_at
+                """,
+                (note_id, normalized, self._utc_now(), self._utc_now()),
+            )
+
+    def get_capture_location(self, note_id: int) -> str:
+        with self.connection() as connection:
+            row = connection.execute(
+                "SELECT capture_location FROM image_capture_details WHERE note_id = ?",
+                (note_id,),
+            ).fetchone()
+        if row is None:
+            return ""
+        return (row["capture_location"] or "").strip()
+
+    def clear_capture_location(self, note_id: int) -> None:
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_capture_details WHERE note_id = ?", (note_id,))
+
+    def add_filter_integration(
+        self,
+        note_id: int,
+        filter_name: str = "none",
+        exposure_seconds: float = 0.0,
+        subframe_count: int = 1,
+        filter_bandpass_nm: Optional[float] = None,
+        filter_brand: Optional[str] = None,
+        filter_model: Optional[str] = None,
+        captured_on: Optional[str] = None,
+    ) -> int:
+        normalized_filter = (filter_name or "none").strip() or "none"
+        normalized_brand = self._clean_optional_text(filter_brand)
+        normalized_model = self._clean_optional_text(filter_model)
+        normalized_captured_on = self._clean_optional_text(captured_on)
+        subframes = max(1, int(subframe_count))
+        exposure = max(0.0, float(exposure_seconds))
+        with self.connection() as connection:
+            cursor = connection.execute(
+                """
+                INSERT INTO image_filter_integrations (
+                    note_id,
+                    filter_name,
+                    filter_bandpass_nm,
+                    filter_brand,
+                    filter_model,
+                    subframe_count,
+                    exposure_seconds,
+                    captured_on,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    note_id,
+                    normalized_filter,
+                    filter_bandpass_nm,
+                    normalized_brand,
+                    normalized_model,
+                    subframes,
+                    exposure,
+                    normalized_captured_on,
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+        return int(cursor.lastrowid)
+
+    def update_filter_integration(
+        self,
+        integration_id: int,
+        filter_name: Optional[str] = None,
+        exposure_seconds: Optional[float] = None,
+        subframe_count: Optional[int] = None,
+        filter_bandpass_nm: Optional[float] = None,
+        filter_brand: Optional[str] = None,
+        filter_model: Optional[str] = None,
+        captured_on: Optional[str] = None,
+    ) -> None:
+        updates: List[str] = []
+        values: List[object] = []
+
+        if filter_name is not None:
+            normalized_filter = (filter_name or "none").strip() or "none"
+            updates.append("filter_name = ?")
+            values.append(normalized_filter)
+        if exposure_seconds is not None:
+            updates.append("exposure_seconds = ?")
+            values.append(max(0.0, float(exposure_seconds)))
+        if subframe_count is not None:
+            updates.append("subframe_count = ?")
+            values.append(max(1, int(subframe_count)))
+        if filter_bandpass_nm is not None:
+            updates.append("filter_bandpass_nm = ?")
+            values.append(float(filter_bandpass_nm))
+        if filter_brand is not None:
+            updates.append("filter_brand = ?")
+            values.append(self._clean_optional_text(filter_brand))
+        if filter_model is not None:
+            updates.append("filter_model = ?")
+            values.append(self._clean_optional_text(filter_model))
+        if captured_on is not None:
+            updates.append("captured_on = ?")
+            values.append(self._clean_optional_text(captured_on))
+
+        if not updates:
+            return
+
+        updates.append("updated_at = ?")
+        values.append(self._utc_now())
+        values.append(integration_id)
+
+        with self.connection() as connection:
+            connection.execute(
+                f"UPDATE image_filter_integrations SET {', '.join(updates)} WHERE integration_id = ?",
+                values,
+            )
+
+    def remove_filter_integration(self, integration_id: int) -> None:
+        with self.connection() as connection:
+            connection.execute(
+                "DELETE FROM image_filter_integrations WHERE integration_id = ?",
+                (integration_id,),
+            )
+
+    def clear_filter_integrations(self, note_id: int) -> None:
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_filter_integrations WHERE note_id = ?", (note_id,))
+
+    def list_filter_integrations(self, note_id: int) -> List[Dict]:
+        with self.connection() as connection:
+            rows = connection.execute(
+                """
+                SELECT *
+                FROM image_filter_integrations
+                WHERE note_id = ?
+                ORDER BY captured_on, integration_id
+                """,
+                (note_id,),
+            ).fetchall()
+        return [dict(row) for row in rows]
+
+    def replace_filter_integrations(self, note_id: int, integrations: Iterable[Dict]) -> None:
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_filter_integrations WHERE note_id = ?", (note_id,))
+            for item in integrations:
+                if not isinstance(item, dict):
+                    continue
+                filter_name = (str(item.get("filter_name") or "none").strip() or "none")
+                exposure_seconds = max(0.0, float(item.get("exposure_seconds") or 0.0))
+                subframe_count = max(1, int(item.get("subframe_count") or 1))
+                filter_bandpass_nm = item.get("filter_bandpass_nm")
+                if filter_bandpass_nm is not None:
+                    filter_bandpass_nm = float(filter_bandpass_nm)
+                connection.execute(
+                    """
+                    INSERT INTO image_filter_integrations (
+                        note_id,
+                        filter_name,
+                        filter_bandpass_nm,
+                        filter_brand,
+                        filter_model,
+                        subframe_count,
+                        exposure_seconds,
+                        captured_on,
+                        created_at,
+                        updated_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        note_id,
+                        filter_name,
+                        filter_bandpass_nm,
+                        self._clean_optional_text(item.get("filter_brand")),
+                        self._clean_optional_text(item.get("filter_model")),
+                        subframe_count,
+                        exposure_seconds,
+                        self._clean_optional_text(item.get("captured_on")),
+                        self._utc_now(),
+                        self._utc_now(),
+                    ),
+                )
+
+    def upsert_imaging_equipment(
+        self,
+        note_id: int,
+        telescope_or_refractor: Optional[str] = None,
+        camera: Optional[str] = None,
+        mount: Optional[str] = None,
+        accessories: Optional[str] = None,
+        software: Optional[str] = None,
+    ) -> None:
+        with self.connection() as connection:
+            connection.execute(
+                """
+                INSERT INTO image_imaging_equipment (
+                    note_id,
+                    telescope_or_refractor,
+                    camera,
+                    mount,
+                    accessories,
+                    software,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(note_id) DO UPDATE SET
+                    telescope_or_refractor = excluded.telescope_or_refractor,
+                    camera = excluded.camera,
+                    mount = excluded.mount,
+                    accessories = excluded.accessories,
+                    software = excluded.software,
+                    updated_at = excluded.updated_at
+                """,
+                (
+                    note_id,
+                    self._clean_optional_text(telescope_or_refractor),
+                    self._clean_optional_text(camera),
+                    self._clean_optional_text(mount),
+                    self._clean_optional_text(accessories),
+                    self._clean_optional_text(software),
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+
+    def get_imaging_equipment(self, note_id: int) -> Optional[Dict]:
+        with self.connection() as connection:
+            row = connection.execute(
+                "SELECT * FROM image_imaging_equipment WHERE note_id = ?",
+                (note_id,),
+            ).fetchone()
+        return dict(row) if row is not None else None
+
+    def clear_imaging_equipment(self, note_id: int) -> None:
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_imaging_equipment WHERE note_id = ?", (note_id,))
+
+    def upsert_guiding_equipment(
+        self,
+        note_id: int,
+        guide_telescope: Optional[str] = None,
+        guide_camera: Optional[str] = None,
+    ) -> None:
+        with self.connection() as connection:
+            connection.execute(
+                """
+                INSERT INTO image_guiding_equipment (
+                    note_id,
+                    guide_telescope,
+                    guide_camera,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, ?, ?, ?)
+                ON CONFLICT(note_id) DO UPDATE SET
+                    guide_telescope = excluded.guide_telescope,
+                    guide_camera = excluded.guide_camera,
+                    updated_at = excluded.updated_at
+                """,
+                (
+                    note_id,
+                    self._clean_optional_text(guide_telescope),
+                    self._clean_optional_text(guide_camera),
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+
+    def get_guiding_equipment(self, note_id: int) -> Optional[Dict]:
+        with self.connection() as connection:
+            row = connection.execute(
+                "SELECT * FROM image_guiding_equipment WHERE note_id = ?",
+                (note_id,),
+            ).fetchone()
+        return dict(row) if row is not None else None
+
+    def clear_guiding_equipment(self, note_id: int) -> None:
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_guiding_equipment WHERE note_id = ?", (note_id,))
+
+    def list_imaging_setups(self) -> List[Dict]:
+        with self.connection() as connection:
+            rows = connection.execute(
+                """
+                SELECT *
+                FROM imaging_setups
+                ORDER BY LOWER(name), setup_id
+                """
+            ).fetchall()
+        return [dict(row) for row in rows]
+
+    def upsert_imaging_setup(
+        self,
+        name: str,
+        telescope_or_refractor: Optional[str] = None,
+        camera: Optional[str] = None,
+        mount: Optional[str] = None,
+        accessories: Optional[str] = None,
+        software: Optional[str] = None,
+        guide_telescope: Optional[str] = None,
+        guide_camera: Optional[str] = None,
+    ) -> None:
+        setup_name = str(name or "").strip()
+        if not setup_name:
+            return
+        with self.connection() as connection:
+            connection.execute(
+                """
+                INSERT INTO imaging_setups (
+                    name,
+                    telescope_or_refractor,
+                    camera,
+                    mount,
+                    accessories,
+                    software,
+                    guide_telescope,
+                    guide_camera,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(name) DO UPDATE SET
+                    telescope_or_refractor = excluded.telescope_or_refractor,
+                    camera = excluded.camera,
+                    mount = excluded.mount,
+                    accessories = excluded.accessories,
+                    software = excluded.software,
+                    guide_telescope = excluded.guide_telescope,
+                    guide_camera = excluded.guide_camera,
+                    updated_at = excluded.updated_at
+                """,
+                (
+                    setup_name,
+                    self._clean_optional_text(telescope_or_refractor),
+                    self._clean_optional_text(camera),
+                    self._clean_optional_text(mount),
+                    self._clean_optional_text(accessories),
+                    self._clean_optional_text(software),
+                    self._clean_optional_text(guide_telescope),
+                    self._clean_optional_text(guide_camera),
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+
+    def delete_imaging_setup(self, name: str) -> None:
+        setup_name = str(name or "").strip()
+        if not setup_name:
+            return
+        with self.connection() as connection:
+            connection.execute("DELETE FROM imaging_setups WHERE name = ?", (setup_name,))
+
+    def replace_imaging_setups(self, setups: Iterable[Dict]) -> None:
+        with self.connection() as connection:
+            connection.execute("DELETE FROM imaging_setups")
+            for item in setups:
+                if not isinstance(item, dict):
+                    continue
+                setup_name = str(item.get("name") or "").strip()
+                if not setup_name:
+                    continue
+                connection.execute(
+                    """
+                    INSERT INTO imaging_setups (
+                        name,
+                        telescope_or_refractor,
+                        camera,
+                        mount,
+                        accessories,
+                        software,
+                        guide_telescope,
+                        guide_camera,
+                        created_at,
+                        updated_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        setup_name,
+                        self._clean_optional_text(item.get("telescope_or_refractor")),
+                        self._clean_optional_text(item.get("camera")),
+                        self._clean_optional_text(item.get("mount")),
+                        self._clean_optional_text(item.get("accessories")),
+                        self._clean_optional_text(item.get("software")),
+                        self._clean_optional_text(item.get("guide_telescope")),
+                        self._clean_optional_text(item.get("guide_camera")),
+                        self._utc_now(),
+                        self._utc_now(),
+                    ),
+                )
 
     def list_notes(self) -> List[Dict]:
         query = "SELECT * FROM image_notes ORDER BY updated_at DESC, note_id DESC"
@@ -767,3 +1221,10 @@ class Database:
     @staticmethod
     def _utc_now() -> str:
         return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+    @staticmethod
+    def _clean_optional_text(value) -> Optional[str]:
+        if value is None:
+            return None
+        text = str(value).strip()
+        return text or None
