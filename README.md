@@ -12,7 +12,7 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 Status: beta
 
-Latest release: `1.4.0-beta`
+Latest release: `1.5.0-beta`
 
 Release history: [CHANGELOG.md](CHANGELOG.md)
 
