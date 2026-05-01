@@ -13,6 +13,7 @@ from urllib.parse import quote
 import re
 
 from constellations import canonical_constellation_name, extract_constellation_from_description
+from database import Database, database_path_from_config_path
 from i18n import normalize_locale_code
 
 PROJECT_ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
@@ -358,10 +359,25 @@ def _is_bundled_catalog_path(path: Path) -> bool:
         return False
 
 
+def _load_legacy_config_file(config_path: Path) -> Dict:
+    if not config_path.exists():
+        return {}
+    with config_path.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def _config_database(config_path: Path) -> Database:
+    return Database(database_path_from_config_path(config_path))
+
+
 def load_config(config_path: Path) -> Dict:
-    if config_path.exists():
-        with config_path.open("r", encoding="utf-8") as handle:
-            loaded = json.load(handle)
+    database = _config_database(config_path)
+    if not database.has_config_data():
+        legacy = _load_legacy_config_file(config_path)
+        if legacy:
+            database.import_config(_merge_default_config(legacy), overwrite=True)
+    loaded = database.load_config()
+    if loaded:
         return _merge_default_config(loaded)
     return _merge_default_config({})
 
@@ -404,9 +420,8 @@ def resolve_metadata_path(config: Dict, catalog_name: str) -> Optional[Path]:
 
 
 def save_config(config_path: Path, config: Dict) -> None:
-    config_path.parent.mkdir(parents=True, exist_ok=True)
-    with config_path.open("w", encoding="utf-8") as handle:
-        json.dump(config, handle, indent=2)
+    database = _config_database(config_path)
+    database.save_config(_merge_default_config(config))
 
 
 def _build_image_index(image_dirs: Iterable[Path], extensions: Iterable[str]) -> Dict[str, List[Path]]:
