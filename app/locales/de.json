@@ -114,6 +114,8 @@
   "settings.migration_details": "Migrationsdetails",
   "settings.copy_to_clipboard": "In Zwischenablage kopieren",
   "settings.close": "Schließen",
+  "settings.save": "Speichern",
+  "settings.cancel": "Abbrechen",
   "settings.copied_to_clipboard": "Migrationszusammenfassung in Zwischenablage kopiert",
   "settings.location_picker_title": "Standort wählen",
   "settings.location_use_my_location": "Meinen Standort verwenden",
@@ -125,6 +127,7 @@
   "welcome.title": "Willkommen",
   "welcome.heading": "Willkommen bei AstroCat",
   "welcome.body": "<p>Diese App hilft dir, Deep-Sky-Kataloge mit deinen eigenen Bildern zu durchsuchen.</p><p><em>Basierend auf AstroCatalogueViewer</em></p><p><b>Schnellstart</b></p><ul><li>Öffne <b>Einstellungen</b>, um Bildordner für jeden Katalog auszuwählen.</li><li>Lege deinen Beobachtungsstandort fest, damit Sichtbarkeitshinweise zu deinem Himmel passen.</li><li>Migriere deine Notizen aus dem alten AstroCatalogueViewer.</li><li>Nutze Filter und Suche, um Objekte schnell zu finden.</li><li>Klicke auf ein Objekt, um Metadaten anzuzeigen und Notizen hinzuzufügen.</li></ul><p><b>Neuerungen gegenüber AstroCatalogueViewer</b></p><ul><li><b>Neue Kataloge hinzugefügt</b>: LBN, SH2, VdB und mehr (danke an denis2704)</li><li><b>Getrennte Notizenspeicherung</b>: Bildnotizen werden jetzt in einer eigenen Datei gespeichert</li><li><b>Notizmigration</b>: Du kannst deine Notizen aus dem alten AstroCatalogueViewer migrieren</li></ul><p><b>Bildbenennung</b></p><p>Dateinamen sollten die standardisierte Objekt-ID enthalten:</p><ul><li>Messier / NGC / IC / Caldwell : <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, <b>C14</b></li><li>Sharpless : <b>Sh2-155</b>, <b>Sh2-101</b></li><li>Lynds Dark / Bright : <b>LDN1630</b>, <b>LBN667</b></li><li>Barnard : <b>B33</b>, <b>B150</b></li><li>van den Bergh : <b>VdB139</b>, <b>VdB152</b></li><li>Planetarische PNG : <b>PNG59.0-13.9</b>, <b>PNG104.2-29.6</b></li></ul><p><b>Fehlende Bilder</b></p><p>Aktiviere <b>Wiki-Miniaturen</b> in der Werkzeugleiste, um fehlende Ziele vorzuschauen, während du deine Bibliothek aufbaust.</p><p><b>Feedback</b></p><p>Teile Vorschläge und Fehlerberichte über die Issues-Seite im GitHub-Repository.</p>",
+  "welcome.ok": "OK",
   "welcome.skip": "Nicht erneut anzeigen",
   "about.title": "Über",
   "about.app_version": "App-Version: {version}",
@@ -213,8 +216,13 @@
   "imaging.setup_apply": "Anwenden",
   "imaging.setup_save": "Setup speichern",
   "imaging.setup_delete": "Löschen",
+  "imaging.save": "Speichern",
+  "imaging.cancel": "Abbrechen",
   "imaging.setup_name_title": "Setup speichern",
   "imaging.setup_name_prompt": "Setup-Name:",
   "imaging.setup_delete_title": "Setup löschen",
-  "imaging.setup_delete_confirm": "Setup '{name}' löschen?"
+  "imaging.setup_delete_confirm": "Setup '{name}' löschen?",
+  "common.yes": "Ja",
+  "common.no": "Nein",
+  "common.cancel": "Abbrechen"
 }

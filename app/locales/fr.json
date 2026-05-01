@@ -114,6 +114,8 @@
   "settings.migration_details": "Détails de migration",
   "settings.copy_to_clipboard": "Copier dans le presse-papiers",
   "settings.close": "Fermer",
+  "settings.save": "Sauvegarder",
+  "settings.cancel": "Annuler",
   "settings.copied_to_clipboard": "Résumé de migration copié dans le presse-papiers",
   "settings.location_picker_title": "Choisir la position",
   "settings.location_use_my_location": "Utiliser ma position",
@@ -125,6 +127,7 @@
   "welcome.title": "Bienvenue",
   "welcome.heading": "Bienvenue dans AstroCat",
   "welcome.body": "<p>Cette application vous aide à parcourir des catalogues du ciel profond avec vos propres images.</p><p><em>Basée sur AstroCatalogueViewer</em></p><p><b>Démarrage rapide</b></p><ul><li>Ouvrez <b>Réglages</b> pour choisir les dossiers d'images de chaque catalogue.</li><li>Définissez votre lieu d'observation pour adapter les conseils de visibilité à votre ciel.</li><li>Migrez vos notes depuis l'ancien AstroCatalogueViewer.</li><li>Utilisez les filtres et la recherche pour trouver rapidement les objets.</li><li>Cliquez sur un objet pour voir les métadonnées et ajouter des notes.</li></ul><p><b>Nouveautés par rapport à AstroCatalogueViewer</b></p><ul><li><b>Nouveaux catalogues</b> : LBN, SH2, VdB, et plus encore (merci à denis2704)</li><li><b>Stockage séparé des notes</b> : les notes d'image sont désormais stockées dans un fichier dédié</li><li><b>Migration des notes</b> : vous pouvez migrer vos notes depuis l'ancien AstroCatalogueViewer</li></ul><p><b>Nommage des images</b></p><p>Les noms de fichiers doivent inclure l'identifiant standard de l'objet :</p><ul><li>Messier / NGC / IC / Caldwell : <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, <b>C14</b></li><li>Sharpless : <b>Sh2-155</b>, <b>Sh2-101</b></li><li>Lynds Dark / Bright : <b>LDN1630</b>, <b>LBN667</b></li><li>Barnard : <b>B33</b>, <b>B150</b></li><li>van den Bergh : <b>VdB139</b>, <b>VdB152</b></li><li>Planétaires PNG : <b>PNG59.0-13.9</b>, <b>PNG104.2-29.6</b></li></ul><p><b>Images manquantes</b></p><p>Activez les <b>vignettes Wiki</b> dans la barre d'outils pour prévisualiser les cibles manquantes pendant que vous constituez votre bibliothèque.</p><p><b>Retours</b></p><p>Partagez vos suggestions et rapports de bugs via la page Issues du dépôt GitHub.</p>",
+  "welcome.ok": "OK",
   "welcome.skip": "Ne plus afficher",
   "about.title": "À propos",
   "about.app_version": "Version de l'application : {version}",
@@ -213,8 +216,13 @@
   "imaging.setup_apply": "Appliquer",
   "imaging.setup_save": "Enregistrer le setup",
   "imaging.setup_delete": "Supprimer",
+  "imaging.save": "Sauvegarder",
+  "imaging.cancel": "Annuler",
   "imaging.setup_name_title": "Enregistrer le setup",
   "imaging.setup_name_prompt": "Nom du setup :",
   "imaging.setup_delete_title": "Supprimer le setup",
-  "imaging.setup_delete_confirm": "Supprimer le setup '{name}' ?"
+  "imaging.setup_delete_confirm": "Supprimer le setup '{name}' ?",
+  "common.yes": "Oui",
+  "common.no": "Non",
+  "common.cancel": "Annuler"
 }

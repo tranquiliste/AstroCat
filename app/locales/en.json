@@ -114,6 +114,8 @@
   "settings.migration_details": "Migration Details",
   "settings.copy_to_clipboard": "Copy to Clipboard",
   "settings.close": "Close",
+  "settings.save": "Save",
+  "settings.cancel": "Cancel",
   "settings.copied_to_clipboard": "Migration summary copied to clipboard",
   "settings.location_picker_title": "Pick Location",
   "settings.location_use_my_location": "Use My Location",
@@ -125,6 +127,7 @@
   "welcome.title": "Welcome",
   "welcome.heading": "Welcome to AstroCat",
   "welcome.body": "<p>This app helps you browse deep-sky catalogs with your own imagery.</p><p><em>Based on AstroCatalogueViewer</em></p><p><b>Quick start</b></p><ul><li>Open <b>Settings</b> to choose image folders for each catalog.</li><li>Set your observer location so visibility hints match your sky.</li><li>Migrate your notes from the old AstroCatalogueViewer.</li><li>Use the filters and search to find objects fast.</li><li>Click an object to view metadata and add notes.</li></ul><p><b>What's new compared to AstroCatalogueViewer</b></p><ul><li><b>New catalogs added</b>: LBN, SH2, VdB, and more (thanks to denis2704)</li><li><b>Separate notes storage</b>: Image notes are now stored in a dedicated file</li><li><b>Notes migration</b>: You can migrate your notes from the old AstroCatalogueViewer</li></ul><p><b>Image naming</b></p><p>Filenames should include the standard object ID:</p><ul><li>Messier / NGC / IC / Caldwell : <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, <b>C14</b></li><li>Sharpless : <b>Sh2-155</b>, <b>Sh2-101</b></li><li>Lynds Dark / Bright : <b>LDN1630</b>, <b>LBN667</b></li><li>Barnard : <b>B33</b>, <b>B150</b></li><li>van den Bergh : <b>VdB139</b>, <b>VdB152</b></li><li>Planetary PNG : <b>PNG59.0-13.9</b>, <b>PNG104.2-29.6</b></li></ul><p><b>Missing images</b></p><p>Enable <b>Wiki thumbnails</b> in the toolbar to preview missing targets while you build your library.</p><p><b>Feedback</b></p><p>Please share suggestions and bug reports via the GitHub repo issues page.</p>",
+  "welcome.ok": "OK",
   "welcome.skip": "Don't show again",
   "about.title": "About",
   "about.app_version": "App Version: {version}",
@@ -213,8 +216,13 @@
   "imaging.setup_apply": "Apply",
   "imaging.setup_save": "Save setup",
   "imaging.setup_delete": "Delete",
+  "imaging.save": "Save",
+  "imaging.cancel": "Cancel",
   "imaging.setup_name_title": "Save setup",
   "imaging.setup_name_prompt": "Setup name:",
   "imaging.setup_delete_title": "Delete setup",
-  "imaging.setup_delete_confirm": "Delete setup '{name}'?"
+  "imaging.setup_delete_confirm": "Delete setup '{name}'?",
+  "common.yes": "Yes",
+  "common.no": "No",
+  "common.cancel": "Cancel"
 }

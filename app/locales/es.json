@@ -114,6 +114,8 @@
   "settings.migration_details": "Detalles de migración",
   "settings.copy_to_clipboard": "Copiar al portapapeles",
   "settings.close": "Cerrar",
+  "settings.save": "Guardar",
+  "settings.cancel": "Cancelar",
   "settings.copied_to_clipboard": "Resumen de migración copiado al portapapeles",
   "settings.location_picker_title": "Elegir ubicación",
   "settings.location_use_my_location": "Usar mi ubicación",
@@ -125,6 +127,7 @@
   "welcome.title": "Bienvenido",
   "welcome.heading": "Bienvenido a AstroCat",
   "welcome.body": "<p>Esta aplicación te ayuda a explorar catálogos de cielo profundo con tus propias imágenes.</p><p><em>Basada en AstroCatalogueViewer</em></p><p><b>Inicio rápido</b></p><ul><li>Abre <b>Ajustes</b> para elegir carpetas de imágenes para cada catálogo.</li><li>Configura tu ubicación de observación para ajustar las sugerencias de visibilidad a tu cielo.</li><li>Migra tus notas desde el antiguo AstroCatalogueViewer.</li><li>Usa los filtros y la búsqueda para encontrar objetos rápidamente.</li><li>Haz clic en un objeto para ver metadatos y añadir notas.</li></ul><p><b>Novedades respecto a AstroCatalogueViewer</b></p><ul><li><b>Nuevos catálogos añadidos</b>: LBN, SH2, VdB y más (gracias a denis2704)</li><li><b>Almacenamiento separado de notas</b>: Las notas de imagen ahora se guardan en un archivo dedicado</li><li><b>Migración de notas</b>: Puedes migrar tus notas desde el antiguo AstroCatalogueViewer</li></ul><p><b>Nomenclatura de imágenes</b></p><p>Los nombres de archivo deben incluir el ID estándar del objeto:</p><ul><li>Messier / NGC / IC / Caldwell : <b>M31</b>, <b>NGC2088</b>, <b>IC5070</b>, <b>C14</b></li><li>Sharpless : <b>Sh2-155</b>, <b>Sh2-101</b></li><li>Lynds Dark / Bright : <b>LDN1630</b>, <b>LBN667</b></li><li>Barnard : <b>B33</b>, <b>B150</b></li><li>van den Bergh : <b>VdB139</b>, <b>VdB152</b></li><li>PNG planetarias : <b>PNG59.0-13.9</b>, <b>PNG104.2-29.6</b></li></ul><p><b>Imágenes faltantes</b></p><p>Activa <b>Miniaturas de Wiki</b> en la barra de herramientas para previsualizar objetivos faltantes mientras construyes tu biblioteca.</p><p><b>Comentarios</b></p><p>Comparte sugerencias e informes de errores en la página de Issues del repositorio de GitHub.</p>",
+  "welcome.ok": "OK",
   "welcome.skip": "No mostrar de nuevo",
   "about.title": "Acerca de",
   "about.app_version": "Versión de la app: {version}",
@@ -213,8 +216,13 @@
   "imaging.setup_apply": "Aplicar",
   "imaging.setup_save": "Guardar setup",
   "imaging.setup_delete": "Eliminar",
+  "imaging.save": "Guardar",
+  "imaging.cancel": "Cancelar",
   "imaging.setup_name_title": "Guardar setup",
   "imaging.setup_name_prompt": "Nombre del setup:",
   "imaging.setup_delete_title": "Eliminar setup",
-  "imaging.setup_delete_confirm": "¿Eliminar el setup '{name}'?"
+  "imaging.setup_delete_confirm": "¿Eliminar el setup '{name}'?",
+  "common.yes": "Sí",
+  "common.no": "No",
+  "common.cancel": "Cancelar"
 }

@@ -3,8 +3,6 @@
 All notable changes to this project are documented in this file.
 
 
-  
-
 ## [1.5.0-beta] - 2026-05-01
 
 ### Added
@@ -21,15 +19,8 @@ All notable changes to this project are documented in this file.
 - **i18n:** All new imaging UI strings localized in English, French, German, Spanish, and Italian (~30 new keys under `imaging.*`).
 
 ### Changed
-- **UI:** Filter integrations are displayed and sorted in canonical order: L, R, G, B, S, H, O (with alias normalization for SII, Ha, Hα, OIII, etc.).
-- **UI:** Filter summary no longer shows subframe counts; shows total integration time and filter names only.
-- **UI:** Filter table height is dynamic: resizes to show between 1 and 5 rows without wasted empty space.
-- **Database:** Named imaging setups are now stored in a dedicated SQL table instead of `app_settings`; existing setups are auto-migrated on first launch.
 - **Settings / Notes / Thumbnails:** All previously JSON-backed data (app settings, image notes, object notes, thumbnails) are now read from and written to SQLite.
 
-### Fixed
-- **Bug:** Image notes were not visible when the same image was linked to multiple catalog objects; the note is now propagated to all objects sharing the image filename.
-- **Build:** `database_schema.sql` was missing from the PyInstaller bundle, causing a `FileNotFoundError` on first launch of the packaged app; the file is now embedded in all three platform specs (Windows, macOS, Linux).
 
 ## [1.4.0‑beta] - 2026-04-16
 

@@ -1501,6 +1501,27 @@ class LightboxDialog(QtWidgets.QDialog):
         super().showEvent(event)
 
 
+def _question_box(
+    parent: Optional[QtWidgets.QWidget],
+    title: str,
+    text: str,
+    yes_text: str,
+    no_text: str,
+    *,
+    default_no: bool = True,
+) -> bool:
+    """Show a question dialog with fully i18n-controlled button labels."""
+    msg = QtWidgets.QMessageBox(parent)
+    msg.setWindowTitle(title)
+    msg.setText(text)
+    msg.setIcon(QtWidgets.QMessageBox.Icon.Question)
+    yes_btn = msg.addButton(yes_text, QtWidgets.QMessageBox.ButtonRole.YesRole)
+    no_btn = msg.addButton(no_text, QtWidgets.QMessageBox.ButtonRole.NoRole)
+    msg.setDefaultButton(no_btn if default_no else yes_btn)
+    msg.exec()
+    return msg.clickedButton() is yes_btn
+
+
 class ImagingInfoDialog(QtWidgets.QDialog):
     def __init__(self, parent: Optional[QtWidgets.QWidget] = None, setups: Optional[List[Dict[str, str]]] = None) -> None:
         super().__init__(parent)
@@ -1613,6 +1634,12 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             QtWidgets.QDialogButtonBox.StandardButton.Save
             | QtWidgets.QDialogButtonBox.StandardButton.Cancel
         )
+        save_button = self.button_box.button(QtWidgets.QDialogButtonBox.StandardButton.Save)
+        if save_button is not None:
+            save_button.setText(tr("imaging.save"))
+        cancel_button = self.button_box.button(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
+        if cancel_button is not None:
+            cancel_button.setText(tr("imaging.cancel"))
         self.button_box.accepted.connect(self.accept)
         self.button_box.rejected.connect(self.reject)
         root_layout.addWidget(self.button_box)
@@ -1834,14 +1861,13 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         if not selected_name:
             return
 
-        answer = QtWidgets.QMessageBox.question(
+        if not _question_box(
             self,
             tr("imaging.setup_delete_title"),
             tr("imaging.setup_delete_confirm", name=selected_name),
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
-            QtWidgets.QMessageBox.StandardButton.No,
-        )
-        if answer != QtWidgets.QMessageBox.StandardButton.Yes:
+            tr("common.yes"),
+            tr("common.no"),
+        ):
             return
 
         self._setups = [
@@ -4140,13 +4166,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self._flush_notes()
         archive_dir = (self.config.get("archive_image_dir") or "").strip()
         if not archive_dir:
-            choice = QtWidgets.QMessageBox.question(
+            if _question_box(
                 self,
                 tr("archive.folder_not_set"),
                 tr("archive.folder_not_set_message"),
-                QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel,
-            )
-            if choice == QtWidgets.QMessageBox.StandardButton.Yes:
+                tr("common.yes"),
+                tr("common.cancel"),
+            ):
                 self._open_settings()
             return
 
@@ -4194,13 +4220,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 if archive_root == image_path or archive_root.is_relative_to(image_path):
                     archive_inside_scanned.append(str(image_path))
         if archive_inside_scanned:
-            choice = QtWidgets.QMessageBox.question(
+            if not _question_box(
                 self,
                 tr("archive.folder_inside_library"),
                 tr("archive.folder_inside_library_message"),
-                QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel,
-            )
-            if choice != QtWidgets.QMessageBox.StandardButton.Yes:
+                tr("common.yes"),
+                tr("common.cancel"),
+            ):
                 return
         archive_root.mkdir(parents=True, exist_ok=True)
 
@@ -4209,7 +4235,7 @@ class MainWindow(QtWidgets.QMainWindow):
         modified = datetime.datetime.fromtimestamp(stat.st_mtime).strftime("%Y-%m-%d %H:%M")
         target = self._next_available_path(archive_root / path.name)
 
-        confirm = QtWidgets.QMessageBox.question(
+        if not _question_box(
             self,
             tr("archive.confirm_title"),
             tr(
@@ -4220,9 +4246,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 source=path,
                 target=target,
             ),
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel,
-        )
-        if confirm != QtWidgets.QMessageBox.StandardButton.Yes:
+            tr("common.yes"),
+            tr("common.cancel"),
+        ):
             return
 
         try:
@@ -4485,6 +4511,12 @@ class SettingsDialog(QtWidgets.QDialog):
             QtWidgets.QDialogButtonBox.StandardButton.Save
             | QtWidgets.QDialogButtonBox.StandardButton.Cancel
         )
+        save_button = buttons.button(QtWidgets.QDialogButtonBox.StandardButton.Save)
+        if save_button is not None:
+            save_button.setText(tr("settings.save"))
+        cancel_button = buttons.button(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
+        if cancel_button is not None:
+            cancel_button.setText(tr("settings.cancel"))
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
 
@@ -4603,13 +4635,13 @@ class SettingsDialog(QtWidgets.QDialog):
                 tr("settings.duplicate_scan_none"),
             )
             return
-        choice = QtWidgets.QMessageBox.question(
+        if not _question_box(
             self,
             tr("settings.duplicate_scan"),
             tr("settings.duplicate_scan_found", count=len(groups)),
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
-        )
-        if choice != QtWidgets.QMessageBox.StandardButton.Yes:
+            tr("common.yes"),
+            tr("common.no"),
+        ):
             return
         self._move_duplicate_groups(groups)
 
@@ -4679,15 +4711,15 @@ class SettingsDialog(QtWidgets.QDialog):
         QtWidgets.QMessageBox.information(self, tr("settings.cleanup"), tr("settings.cleanup_complete"))
 
     def _migrate_notes_from_old_app(self) -> None:
-        choice = QtWidgets.QMessageBox.question(
+        if not _question_box(
             self,
             tr("settings.migration"),
             tr("settings.migrate_notes_confirm"),
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
-        )
-        if choice != QtWidgets.QMessageBox.StandardButton.Yes:
+            tr("common.yes"),
+            tr("common.no"),
+        ):
             return
-        
+
         # Run the migration script
         try:
             migrate_script = PROJECT_ROOT / "scripts" / "migrate_user_notes.py"
@@ -5143,6 +5175,9 @@ class WelcomeDialog(QtWidgets.QDialog):
         buttons = QtWidgets.QDialogButtonBox(
             QtWidgets.QDialogButtonBox.StandardButton.Ok
         )
+        ok_button = buttons.button(QtWidgets.QDialogButtonBox.StandardButton.Ok)
+        if ok_button is not None:
+            ok_button.setText(tr("welcome.ok"))
         buttons.accepted.connect(self.accept)
 
         layout = QtWidgets.QVBoxLayout(self)
