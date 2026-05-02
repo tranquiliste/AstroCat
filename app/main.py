@@ -2972,6 +2972,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self._schedule_auto_fit()
 
     def _apply_dark_theme(self) -> None:
+        checked_indicator_path = (PROJECT_ROOT / "assets" / "images" / "checked_yellow.png").as_posix()
+
         self.setStyleSheet(
             """
             QWidget {
@@ -3090,7 +3092,33 @@ class MainWindow(QtWidgets.QMainWindow):
             QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                 height: 0px;
             }
-            """
+            QCheckBox {
+                color: #edf1f7;
+                spacing: 8px;
+            }
+            QCheckBox::indicator {
+                width: 18px;
+                height: 18px;
+                border-radius: 3px;
+            }
+            QCheckBox::indicator:unchecked {
+                background: #121a2b;
+                border: 2px solid #45618a;
+            }
+            QCheckBox::indicator:unchecked:hover {
+                background: #1a2435;
+                border-color: #5a7ba3;
+            }
+             QCheckBox::indicator:checked {
+                background: #121a2b;      /* fond sombre */
+                border: 2px solid #d4a85f; /* contour jaune */
+                image: url("__CHECKBOX_CHECKED_ICON__");
+            }
+            QCheckBox::indicator:checked:hover {
+                background: #e0b86f;
+                border-color: #e0b86f;
+            }
+            """.replace("__CHECKBOX_CHECKED_ICON__", checked_indicator_path)
         )
 
     def _sync_compact_combo_items(self, source: QtWidgets.QComboBox, target: QtWidgets.QComboBox) -> None:

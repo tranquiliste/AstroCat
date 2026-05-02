@@ -14,6 +14,7 @@ a = Analysis(
     binaries=tiff_binaries,
     datas=[
         (str(project_root / "data"), "data"),
+        (str(project_root / "assets" / "images"), "assets/images"),
         (str(project_root / "app" / "locales"), "app/locales"),
         (str(project_root / "app" / "database_schema.sql"), "."),
         (str(project_root / "scripts" / "migrate_user_notes.py"), "scripts"),
