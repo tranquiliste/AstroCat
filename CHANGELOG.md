@@ -3,6 +3,11 @@
 All notable changes to this project are documented in this file.
 
 
+## [1.6.0] - 2026-05-0
+
+### Changed
+- **New UI** : Ne colors, new presentation.
+
 ## [1.5.0-beta] - 2026-05-01
 
 ### Added

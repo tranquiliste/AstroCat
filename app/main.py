@@ -2746,6 +2746,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._pending_notes: Dict[str, Tuple[str, str, Optional[str], str]] = {}
         self._pending_selection_key: Optional[str] = None
         self._pending_image_name: Optional[str] = None
+        self._help_dialog: Optional[HelpDialog] = None
         self._about_dialog: Optional[AboutDialog] = None
         self._update_status = tr("about.not_checked")
         self._latest_version: Optional[str] = None
@@ -2769,6 +2770,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self._next_shortcut = QtGui.QShortcut(QtGui.QKeySequence(QtCore.Qt.Key.Key_Right), self)
         self._next_shortcut.setContext(QtCore.Qt.ShortcutContext.WindowShortcut)
         self._next_shortcut.activated.connect(lambda: self._navigate_images_and_filtered_items(1))
+        self._prev_alt_shortcut = QtGui.QShortcut(QtGui.QKeySequence("<"), self)
+        self._prev_alt_shortcut.setContext(QtCore.Qt.ShortcutContext.WindowShortcut)
+        self._prev_alt_shortcut.activated.connect(lambda: self._navigate_images_and_filtered_items(-1))
+        self._next_alt_shortcut = QtGui.QShortcut(QtGui.QKeySequence(">"), self)
+        self._next_alt_shortcut.setContext(QtCore.Qt.ShortcutContext.WindowShortcut)
+        self._next_alt_shortcut.activated.connect(lambda: self._navigate_images_and_filtered_items(1))
         self._start_data_version_fetch()
         self._apply_dark_theme()
         self._apply_saved_window_state()
@@ -2987,9 +2994,15 @@ class MainWindow(QtWidgets.QMainWindow):
         self.settings_button.setToolTip(tr("main.settings"))
         self.settings_button.setFixedSize(32, 32)
         self.settings_button.clicked.connect(self._open_settings)
+        self.help_button = QtWidgets.QToolButton()
+        self.help_button.setObjectName("toolbarHelpButton")
+        self.help_button.setText("?")
+        self.help_button.setToolTip(tr("main.help"))
+        self.help_button.setFixedSize(32, 32)
+        self.help_button.clicked.connect(self._open_help)
         self.about_button = QtWidgets.QToolButton()
         self.about_button.setObjectName("toolbarAboutButton")
-        self.about_button.setText("?")
+        self.about_button.setText("i")
         self.about_button.setToolTip(tr("main.about"))
         self.about_button.setFixedSize(32, 32)
         self.about_button.clicked.connect(self._open_about)
@@ -3070,6 +3083,7 @@ class MainWindow(QtWidgets.QMainWindow):
         controls_layout.addWidget(self.wiki_thumbs)
         controls_layout.addWidget(self.refresh_button)
         controls_layout.addWidget(self.settings_button)
+        controls_layout.addWidget(self.help_button)
         controls_layout.addWidget(self.about_button)
         right_layout.addWidget(self.controls_container)
         right_layout.addWidget(self.compact_filters_container)
@@ -3193,6 +3207,7 @@ class MainWindow(QtWidgets.QMainWindow):
             QToolButton#detailSideToggleButton:pressed { background: #3a3a3a; }
             QToolButton#toolbarRefreshButton,
             QToolButton#toolbarSettingsButton,
+            QToolButton#toolbarHelpButton,
             QToolButton#toolbarAboutButton {
                 background: #2c2c2c;
                 border: 1px solid #434343;
@@ -3203,12 +3218,15 @@ class MainWindow(QtWidgets.QMainWindow):
             }
             QToolButton#toolbarRefreshButton:hover,
             QToolButton#toolbarSettingsButton:hover,
+            QToolButton#toolbarHelpButton:hover,
             QToolButton#toolbarAboutButton:hover { background: #343434; border-color: #5a5a5a; }
             QToolButton#toolbarRefreshButton:pressed,
             QToolButton#toolbarSettingsButton:pressed,
+            QToolButton#toolbarHelpButton:pressed,
             QToolButton#toolbarAboutButton:pressed { background: #3a3a3a; }
             QToolButton#toolbarRefreshButton { font-size: 16px; }
             QToolButton#toolbarSettingsButton { font-size: 16px; }
+            QToolButton#toolbarHelpButton { font-size: 16px; font-weight: 700; }
             QToolButton#toolbarAboutButton { font-size: 15px; font-weight: 700; }
             QToolButton#toolbarWikiToggleButton {
                 background: #2c2c2c;
@@ -4310,6 +4328,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self._schedule_view_refresh()
         if not self._syncing_compact:
             self._sync_compact_state()
+
+    def _open_help(self) -> None:
+        if self._help_dialog and self._help_dialog.isVisible():
+            self._help_dialog.raise_()
+            self._help_dialog.activateWindow()
+            return
+        dialog = HelpDialog(self)
+        self._help_dialog = dialog
+        dialog.finished.connect(lambda _result: self._clear_help_dialog())
+        dialog.show()
+
+    def _clear_help_dialog(self) -> None:
+        self._help_dialog = None
 
     def _open_about(self) -> None:
         if self._about_dialog and self._about_dialog.isVisible():
@@ -5503,7 +5534,7 @@ class AboutDialog(QtWidgets.QDialog):
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("about.title"))
-        self.setMinimumWidth(760)
+        self.setMinimumWidth(720)
         self._config = config
         self._app_version = app_version
         self._data_version = data_version
@@ -5555,13 +5586,6 @@ class AboutDialog(QtWidgets.QDialog):
         left_layout.addWidget(sponsor_box)
         left_layout.addStretch(1)
 
-        quick_title = QtWidgets.QLabel(tr("about.quick_start"))
-        quick_title.setObjectName("aboutSectionTitle")
-        quick_list = QtWidgets.QLabel(tr("about.quick_start_list"))
-        quick_list.setWordWrap(True)
-
-        updates_title = QtWidgets.QLabel(tr("about.updates"))
-        updates_title.setObjectName("aboutSectionTitle")
         self.update_status = QtWidgets.QLabel(tr("about.not_checked"))
         self.update_status.setObjectName("aboutUpdateStatus")
         self.update_status.setWordWrap(True)
@@ -5574,17 +5598,20 @@ class AboutDialog(QtWidgets.QDialog):
         self.check_updates = QtWidgets.QPushButton(tr("about.check_for_updates"))
         self.check_updates.clicked.connect(self.check_updates_requested.emit)
 
+        updates_box = QtWidgets.QGroupBox(tr("about.updates"))
+        updates_layout = QtWidgets.QVBoxLayout(updates_box)
+        updates_layout.setContentsMargins(12, 12, 12, 12)
+        updates_layout.setSpacing(10)
+        updates_layout.addWidget(self.update_status)
+        updates_layout.addWidget(self.data_update_status)
+        updates_layout.addWidget(self.auto_check)
+        updates_layout.addWidget(self.check_updates)
+        updates_layout.addStretch(1)
+
         right = QtWidgets.QWidget()
         right_layout = QtWidgets.QVBoxLayout(right)
         right_layout.setContentsMargins(0, 0, 0, 0)
-        right_layout.addWidget(quick_title)
-        right_layout.addWidget(quick_list)
-        right_layout.addSpacing(16)
-        right_layout.addWidget(updates_title)
-        right_layout.addWidget(self.update_status)
-        right_layout.addWidget(self.data_update_status)
-        right_layout.addWidget(self.auto_check)
-        right_layout.addWidget(self.check_updates)
+        right_layout.addWidget(updates_box)
         right_layout.addStretch(1)
 
         content = QtWidgets.QHBoxLayout()
@@ -5644,6 +5671,58 @@ class AboutDialog(QtWidgets.QDialog):
 
     def _supporters_failed(self, message: str) -> None:
         self.supporters_status.setText(message)
+
+
+class HelpDialog(QtWidgets.QDialog):
+    def __init__(self, parent: Optional[QtWidgets.QWidget] = None) -> None:
+        super().__init__(parent)
+        self.setWindowTitle(tr("help.title"))
+        self.setMinimumWidth(620)
+
+        quick_title = QtWidgets.QLabel(tr("about.quick_start"))
+        quick_title.setObjectName("aboutSectionTitle")
+        quick_list = QtWidgets.QLabel(tr("help.quick_start_list"))
+        quick_list.setWordWrap(True)
+
+        shortcuts_title = QtWidgets.QLabel(tr("help.shortcuts"))
+        shortcuts_title.setObjectName("aboutSectionTitle")
+        shortcuts_list = QtWidgets.QLabel(tr("help.shortcuts_list"))
+        shortcuts_list.setWordWrap(True)
+
+        shortcut_three_prefix = QtWidgets.QLabel(tr("help.shortcut3_prefix"))
+        shortcut_three_prefix.setWordWrap(True)
+        shortcut_three_button = QtWidgets.QToolButton()
+        shortcut_three_button.setObjectName("focusToggleButton")
+        shortcut_three_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        shortcut_three_button.setFixedSize(30, 30)
+        shortcut_three_button.setIconSize(QtCore.QSize(20, 20))
+        shortcut_three_button.setIcon(_build_focus_toggle_icon("expand"))
+        shortcut_three_button.setToolTip(tr("detail.focus_mode_enter"))
+        shortcut_three_button.setAutoRaise(False)
+        shortcut_three_suffix = QtWidgets.QLabel(tr("help.shortcut3_suffix"))
+        shortcut_three_suffix.setWordWrap(True)
+
+        shortcut_three_row = QtWidgets.QHBoxLayout()
+        # Match the visual indent used by the ordered list above.
+        shortcut_three_row.setContentsMargins(24, 0, 0, 0)
+        shortcut_three_row.setSpacing(8)
+        shortcut_three_row.addWidget(shortcut_three_prefix)
+        shortcut_three_row.addWidget(shortcut_three_button)
+        shortcut_three_row.addWidget(shortcut_three_suffix, stretch=1)
+
+        close_button = QtWidgets.QPushButton(tr("settings.close"))
+        close_button.clicked.connect(self.accept)
+
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setSpacing(12)
+        layout.addWidget(quick_title)
+        layout.addWidget(quick_list)
+        layout.addSpacing(10)
+        layout.addWidget(shortcuts_title)
+        layout.addWidget(shortcuts_list)
+        layout.addLayout(shortcut_three_row)
+        layout.addSpacing(8)
+        layout.addWidget(close_button, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
 
 
 class UpdateCheckTask(QtCore.QRunnable):
