@@ -2739,6 +2739,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self._notes_timer.setSingleShot(True)
         self._notes_timer.setInterval(600)
         self._notes_timer.timeout.connect(self._flush_notes)
+        self._ui_state_timer = QtCore.QTimer(self)
+        self._ui_state_timer.setSingleShot(True)
+        self._ui_state_timer.setInterval(250)
+        self._ui_state_timer.timeout.connect(self._persist_ui_state)
         self._pending_notes: Dict[str, Tuple[str, str, Optional[str], str]] = {}
         self._pending_selection_key: Optional[str] = None
         self._pending_image_name: Optional[str] = None
@@ -2941,16 +2945,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.catalog_filter = QtWidgets.QComboBox()
         self.catalog_filter.currentTextChanged.connect(self._on_catalog_changed)
+        self.catalog_filter.currentIndexChanged.connect(self._on_catalog_changed)
         self.catalog_filter.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToContents)
         self.catalog_filter.setMinimumContentsLength(12)
 
         self.type_filter = QtWidgets.QComboBox()
         self.type_filter.currentTextChanged.connect(self._on_type_changed)
+        self.type_filter.currentIndexChanged.connect(self._on_type_changed)
         self.type_filter.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToContents)
         self.type_filter.setMinimumContentsLength(18)
 
         self.status_filter = QtWidgets.QComboBox()
         self.status_filter.currentTextChanged.connect(self._on_status_changed)
+        self.status_filter.currentIndexChanged.connect(self._on_status_changed)
         self.status_filter.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToContents)
         self.status_filter.setMinimumContentsLength(12)
 
@@ -3765,26 +3772,32 @@ class MainWindow(QtWidgets.QMainWindow):
         result.extend(extras)
         return ", ".join(result)
 
-    def _on_catalog_changed(self, _value: str) -> None:
+    def _on_catalog_changed(self, _value) -> None:
         value = self._combo_value(self.catalog_filter)
         self.proxy.set_catalog_filter(value)
         self._update_type_filter(value)
         self._update_catalog_summary()
         self._schedule_auto_fit()
+        self._persist_ui_state_quick()
+        self._schedule_ui_state_persist()
         if not self._syncing_compact:
             self._sync_compact_filters()
 
-    def _on_type_changed(self, _value: str) -> None:
+    def _on_type_changed(self, _value) -> None:
         value = self._combo_value(self.type_filter)
         self.proxy.set_type_filter(value)
         self._schedule_auto_fit()
+        self._persist_ui_state_quick()
+        self._schedule_ui_state_persist()
         if not self._syncing_compact:
             self._sync_compact_filters()
 
-    def _on_status_changed(self, _value: str) -> None:
+    def _on_status_changed(self, _value) -> None:
         value = self._combo_value(self.status_filter)
         self.proxy.set_status_filter(value)
         self._schedule_auto_fit()
+        self._persist_ui_state_quick()
+        self._schedule_ui_state_persist()
         if not self._syncing_compact:
             self._sync_compact_filters()
 
@@ -3792,6 +3805,31 @@ class MainWindow(QtWidgets.QMainWindow):
         self._update_search_clear_action(text)
         self.proxy.set_search_text(text)
         self._schedule_auto_fit()
+        self._persist_ui_state_quick()
+        self._schedule_ui_state_persist()
+
+    def _schedule_ui_state_persist(self) -> None:
+        if hasattr(self, "_ui_state_timer"):
+            self._ui_state_timer.start()
+
+    def _persist_ui_state_quick(self) -> None:
+        if not hasattr(self, "database"):
+            return
+        state = self._capture_ui_state()
+        self.config["ui_state"] = state
+        self.database.set_setting("ui_state", state)
+
+    def _sync_proxy_filters_from_controls(self) -> None:
+        if not hasattr(self, "proxy"):
+            return
+        if hasattr(self, "catalog_filter"):
+            self.proxy.set_catalog_filter(self._combo_value(self.catalog_filter))
+        if hasattr(self, "type_filter"):
+            self.proxy.set_type_filter(self._combo_value(self.type_filter))
+        if hasattr(self, "status_filter"):
+            self.proxy.set_status_filter(self._combo_value(self.status_filter))
+        if hasattr(self, "search"):
+            self.proxy.set_search_text(self.search.text())
 
     def _clear_search(self) -> None:
         self.search.clear()
@@ -3806,7 +3844,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self._syncing_compact = True
         try:
-            self.catalog_filter.setCurrentText(value)
+            self._set_combo_value(self.catalog_filter, value, fallback="")
         finally:
             self._syncing_compact = False
 
@@ -3815,7 +3853,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self._syncing_compact = True
         try:
-            self.catalog_filter.setCurrentText(value)
+            self._set_combo_value(self.catalog_filter, value, fallback="")
         finally:
             self._syncing_compact = False
 
@@ -3824,7 +3862,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self._syncing_compact = True
         try:
-            self.type_filter.setCurrentText(value)
+            self._set_combo_value(self.type_filter, value, fallback="")
         finally:
             self._syncing_compact = False
 
@@ -3833,7 +3871,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self._syncing_compact = True
         try:
-            self.type_filter.setCurrentText(value)
+            self._set_combo_value(self.type_filter, value, fallback="")
         finally:
             self._syncing_compact = False
 
@@ -3842,7 +3880,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self._syncing_compact = True
         try:
-            self.status_filter.setCurrentText(value)
+            self._set_combo_value(self.status_filter, value, fallback="")
         finally:
             self._syncing_compact = False
 
@@ -3851,7 +3889,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self._syncing_compact = True
         try:
-            self.status_filter.setCurrentText(value)
+            self._set_combo_value(self.status_filter, value, fallback="")
         finally:
             self._syncing_compact = False
 
@@ -4552,8 +4590,8 @@ class MainWindow(QtWidgets.QMainWindow):
         filters = state.get("filters", {})
         search = state.get("search", "")
 
-        catalog = filters.get("catalog", "")
-        if not catalog:
+        catalog = filters.get("catalog")
+        if catalog is None:
             catalog = "Messier"
         type_filter = filters.get("type", "")
         status_filter = filters.get("status", "")
@@ -4582,16 +4620,21 @@ class MainWindow(QtWidgets.QMainWindow):
         detail_side_panel_state = (
             self.detail.current_side_panel_state() if hasattr(self, "detail") else {"collapsed": False, "expanded_sizes": [1080, 320]}
         )
+        self._sync_proxy_filters_from_controls()
+        active_catalog = str(getattr(self.proxy, "catalog_filter", "") or "") if hasattr(self, "proxy") else ""
+        active_type = str(getattr(self.proxy, "type_filter", "") or "") if hasattr(self, "proxy") else ""
+        active_status = str(getattr(self.proxy, "status_filter", "") or "") if hasattr(self, "proxy") else ""
+        active_search = str(getattr(self.proxy, "search_text", "") or "") if hasattr(self, "proxy") else ""
         state = {
             "window_size": [self.width(), self.height()],
             "splitter_sizes": self.splitter.sizes() if self.splitter else [],
             "detail_side_panel": detail_side_panel_state,
             "filters": {
-                "catalog": self._combo_value(self.catalog_filter) if self.catalog_filter else "",
-                "type": self._combo_value(self.type_filter) if self.type_filter else "",
-                "status": self._combo_value(self.status_filter) if self.status_filter else "",
+                "catalog": active_catalog,
+                "type": active_type,
+                "status": active_status,
             },
-            "search": self.search.text() if self.search else "",
+            "search": active_search,
         }
         self._saved_state = state
         return state
@@ -4601,7 +4644,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self._zoom_timer.stop()
             self._apply_zoom()
         state = self._capture_ui_state()
-        self.database.set_setting("ui_state", state)
+        self.config["ui_state"] = state
         if hasattr(self, "grid"):
             size = self.grid.iconSize().width()
         else:
@@ -4609,6 +4652,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if size:
             self.config["thumb_size"] = size
         save_config(self.config_path, self.config)
+        self.database.set_setting("ui_state", state)
 
     @staticmethod
     def _format_bytes(value: int) -> str:

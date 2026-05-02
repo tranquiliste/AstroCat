@@ -145,7 +145,7 @@ class Database:
         return config
 
     def save_config(self, config: Dict) -> None:
-        settings_payload = {key: value for key, value in config.items() if key != "catalogs"}
+        settings_payload = {key: value for key, value in config.items() if key not in {"catalogs", "ui_state"}}
         catalogs = list(config.get("catalogs", []))
 
         with self.connection() as connection:
