@@ -46,6 +46,8 @@
   "detail.text_larger": "Larger text",
   "detail.focus_mode_enter": "Hide thumbnails and description",
   "detail.focus_mode_exit": "Show thumbnails and description",
+  "detail.side_panel_hide": "Hide right panel",
+  "detail.side_panel_show": "Show right panel",
   "detail.metadata.catalog": "Catalog: {value}",
   "detail.metadata.type": "Type: {value}",
   "detail.metadata.unknown": "Unknown",

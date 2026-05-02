@@ -60,6 +60,7 @@
 
 import sys
 import hashlib
+import math
 import re
 import subprocess
 import shutil
@@ -137,6 +138,21 @@ def _load_bundled_data_version() -> str:
 APP_VERSION = _load_bundled_app_version()
 DEFAULT_DATA_VERSION = _load_bundled_data_version()
 SHUTDOWN_EVENT = threading.Event()
+_qt_previous_message_handler: Optional[Callable[[QtCore.QtMsgType, QtCore.QMessageLogContext, str], None]] = None
+
+
+def _qt_message_filter(
+    mode: QtCore.QtMsgType,
+    context: QtCore.QMessageLogContext,
+    message: str,
+) -> None:
+    # Some Windows/Qt font stacks can emit this startup warning even when UI works normally.
+    # We suppress only this exact known benign message to keep terminal output clean,
+    # while forwarding all other Qt messages unchanged.
+    if "QFont::setPointSize: Point size <= 0 (-1)" in message:
+        return
+    if _qt_previous_message_handler is not None:
+        _qt_previous_message_handler(mode, context, message)
 
 
 
@@ -244,12 +260,12 @@ class DuplicateScanSignals(QtCore.QObject):
 class DuplicateScanTask(QtCore.QRunnable):
     def __init__(
         self,
-        config_path: Path,
+        config_json: str,
         extensions: List[str],
         report_path: Path,
     ) -> None:
         super().__init__()
-        self.config_path = config_path
+        self.config_json = config_json
         self.extensions = extensions
         self.report_path = report_path
         self.signals = DuplicateScanSignals()
@@ -262,16 +278,16 @@ class DuplicateScanTask(QtCore.QRunnable):
             sort_command = [
                 sys.executable,
                 str(PROJECT_ROOT / "scripts" / "sort_master_images.py"),
-                "--config",
-                str(self.config_path),
+                "--config-json",
+                self.config_json,
                 "--extensions",
                 ",".join(self.extensions),
             ]
             scan_command = [
                 sys.executable,
                 str(PROJECT_ROOT / "scripts" / "find_duplicate_images_by_catalog.py"),
-                "--config",
-                str(self.config_path),
+                "--config-json",
+                self.config_json,
                 "--extensions",
                 ",".join(self.extensions),
                 "--output",
@@ -1086,12 +1102,17 @@ class ImageView(QtWidgets.QGraphicsView):
 
     def __init__(self) -> None:
         super().__init__()
+        self.setObjectName("detailImageView")
         self.setRenderHints(QtGui.QPainter.Antialiasing | QtGui.QPainter.SmoothPixmapTransform)
         self.setDragMode(QtWidgets.QGraphicsView.DragMode.ScrollHandDrag)
         self.setViewportUpdateMode(QtWidgets.QGraphicsView.ViewportUpdateMode.FullViewportUpdate)
         self.setTransformationAnchor(QtWidgets.QGraphicsView.ViewportAnchor.AnchorUnderMouse)
         self.setResizeAnchor(QtWidgets.QGraphicsView.ViewportAnchor.AnchorUnderMouse)
-        self.setScene(QtWidgets.QGraphicsScene(self))
+        self.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        scene = QtWidgets.QGraphicsScene(self)
+        scene.setBackgroundBrush(QtGui.QBrush(QtGui.QColor("#181818")))
+        self.setScene(scene)
+        self.setBackgroundBrush(QtGui.QBrush(QtGui.QColor("#181818")))
         self._pixmap_item: Optional[QtWidgets.QGraphicsPixmapItem] = None
         self._zoom = 0
         self._pixmap: Optional[QtGui.QPixmap] = None
@@ -2060,7 +2081,9 @@ class DetailPanel(QtWidgets.QWidget):
         self._image_thread_pool = QtCore.QThreadPool.globalInstance()
         self._image_cache: Dict[str, QtGui.QPixmap] = {}
         self._focus_mode = False
+        self._side_panel_collapsed = False
         self._saved_detail_sizes: Optional[List[int]] = None
+        self._saved_side_panel_section_sizes: Optional[List[int]] = None
 
         layout = QtWidgets.QVBoxLayout(self)
         layout.setContentsMargins(18, 18, 18, 18)
@@ -2080,6 +2103,13 @@ class DetailPanel(QtWidgets.QWidget):
         self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
         self.focus_toggle_button.setAutoRaise(False)
         self.focus_toggle_button.clicked.connect(self._toggle_focus_mode)
+        self.side_panel_toggle_button = QtWidgets.QToolButton()
+        self.side_panel_toggle_button.setObjectName("detailSideToggleButton")
+        self.side_panel_toggle_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        self.side_panel_toggle_button.setFixedSize(30, 30)
+        self.side_panel_toggle_button.setAutoRaise(False)
+        self.side_panel_toggle_button.clicked.connect(self.toggle_side_panel)
+        self._update_side_panel_toggle_button()
 
         image_container = QtWidgets.QWidget()
         image_container.setObjectName("detailImageContainer")
@@ -2099,6 +2129,7 @@ class DetailPanel(QtWidgets.QWidget):
         image_header_layout.addStretch(1)
         image_header_layout.addWidget(self.prev_button)
         image_header_layout.addWidget(self.next_button)
+        image_header_layout.addWidget(self.side_panel_toggle_button)
         image_header_layout.addWidget(self.focus_toggle_button)
         image_layout.addWidget(image_header)
         image_layout.addWidget(self.image_view, stretch=1)
@@ -2132,25 +2163,32 @@ class DetailPanel(QtWidgets.QWidget):
         right_layout.setSpacing(12)
         right_layout.addWidget(self.description, stretch=2)
         right_layout.addWidget(self.notes, stretch=1)
-        self._change_detail_text_size(0.0)
+        self.text_smaller_button.setEnabled(self._detail_text_size > self._detail_text_min_size)
+        self.text_larger_button.setEnabled(self._detail_text_size < self._detail_text_max_size)
 
-        columns_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
-        columns_splitter.addWidget(left_widget)
-        columns_splitter.addWidget(right_widget)
-        columns_splitter.setStretchFactor(0, 1)
-        columns_splitter.setStretchFactor(1, 3)
-        columns_splitter.setChildrenCollapsible(False)
-        columns_splitter.setHandleWidth(6)
-        columns_splitter.setSizes([320, 960])
-        self._columns_splitter = columns_splitter
-        main_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Vertical)
+        detail_side_panel = QtWidgets.QSplitter(QtCore.Qt.Orientation.Vertical)
+        detail_side_panel.addWidget(left_widget)
+        detail_side_panel.addWidget(right_widget)
+        detail_side_panel.setStretchFactor(0, 0)
+        detail_side_panel.setStretchFactor(1, 1)
+        detail_side_panel.setChildrenCollapsible(False)
+        detail_side_panel.setHandleWidth(6)
+        detail_side_panel.setSizes([240, 420])
+        detail_side_panel.splitterMoved.connect(
+            lambda _pos, _index: self._remember_side_panel_section_sizes()
+        )
+        self._detail_side_panel = detail_side_panel
+        self._saved_side_panel_section_sizes = [240, 420]
+
+        main_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
         main_splitter.addWidget(image_container)
-        main_splitter.addWidget(columns_splitter)
-        main_splitter.setStretchFactor(0, 2)
-        main_splitter.setStretchFactor(1, 0)
+        main_splitter.addWidget(detail_side_panel)
+        main_splitter.setStretchFactor(0, 4)
+        main_splitter.setStretchFactor(1, 1)
         main_splitter.setChildrenCollapsible(False)
         main_splitter.setHandleWidth(6)
-        main_splitter.setSizes([520, 200])
+        main_splitter.setSizes([1080, 320])
+        main_splitter.splitterMoved.connect(lambda _pos, _index: self._remember_detail_sizes())
         self.splitter = main_splitter
         self._left_widget = left_widget
         self._main_splitter = main_splitter
@@ -2162,24 +2200,130 @@ class DetailPanel(QtWidgets.QWidget):
         if self._focus_mode == enabled:
             return
         self._focus_mode = enabled
+        self._remember_detail_sizes()
+        self._remember_side_panel_section_sizes()
         if enabled:
-            current_sizes = self._main_splitter.sizes()
-            if len(current_sizes) >= 2 and current_sizes[0] > 0 and current_sizes[1] > 0:
-                self._saved_detail_sizes = current_sizes
-            self._columns_splitter.hide()
-            self._main_splitter.setHandleWidth(0)
-            self._main_splitter.setSizes([1, 0])
+            if self._side_panel_collapsed:
+                self._detail_side_panel.hide()
+                self._main_splitter.setHandleWidth(0)
+                self._main_splitter.setSizes([1, 0])
+            else:
+                self._detail_side_panel.show()
+                self._main_splitter.setHandleWidth(6)
+                self._saved_detail_sizes = self._normalized_detail_sizes(self._saved_detail_sizes or [1080, 320])
+                self._main_splitter.setSizes(self._saved_detail_sizes)
             self.focus_toggle_button.setIcon(_build_focus_toggle_icon("reduce"))
             self.focus_toggle_button.setToolTip(tr("detail.focus_mode_exit"))
+            self._update_side_panel_toggle_button()
             return
-        self._columns_splitter.show()
-        self._main_splitter.setHandleWidth(6)
-        self._main_splitter.setSizes(self._saved_detail_sizes or [520, 200])
+        if self._side_panel_collapsed:
+            self._detail_side_panel.hide()
+            self._main_splitter.setHandleWidth(0)
+            self._main_splitter.setSizes([1, 0])
+        else:
+            self._detail_side_panel.show()
+            self._main_splitter.setHandleWidth(6)
+            self._main_splitter.setSizes(self._saved_detail_sizes or [1080, 320])
         self.focus_toggle_button.setIcon(_build_focus_toggle_icon("expand"))
         self.focus_toggle_button.setToolTip(tr("detail.focus_mode_enter"))
+        self._update_side_panel_toggle_button()
 
     def _toggle_focus_mode(self) -> None:
         self.focus_mode_toggled.emit(not self._focus_mode)
+
+    def _update_side_panel_toggle_button(self) -> None:
+        if self._side_panel_collapsed:
+            self.side_panel_toggle_button.setText("▸")
+            self.side_panel_toggle_button.setToolTip(tr("detail.side_panel_show"))
+            return
+        self.side_panel_toggle_button.setText("◂")
+        self.side_panel_toggle_button.setToolTip(tr("detail.side_panel_hide"))
+
+    def set_side_panel_collapsed(self, collapsed: bool) -> None:
+        if collapsed:
+            self._remember_detail_sizes()
+            self._remember_side_panel_section_sizes()
+        if self._side_panel_collapsed == collapsed:
+            return
+        self._side_panel_collapsed = collapsed
+        if collapsed:
+            self._detail_side_panel.hide()
+            self._main_splitter.setHandleWidth(0)
+            self._main_splitter.setSizes([1, 0])
+            self._update_side_panel_toggle_button()
+            return
+        self._detail_side_panel.show()
+        self._saved_detail_sizes = self._normalized_detail_sizes(self._saved_detail_sizes or [1080, 320])
+        self._main_splitter.setHandleWidth(6)
+        self._main_splitter.setSizes(self._saved_detail_sizes)
+        self._saved_side_panel_section_sizes = self._normalized_side_panel_section_sizes(
+            self._saved_side_panel_section_sizes or [240, 420]
+        )
+        self._detail_side_panel.setSizes(self._saved_side_panel_section_sizes)
+        self._update_side_panel_toggle_button()
+
+    def toggle_side_panel(self) -> None:
+        self.set_side_panel_collapsed(not self._side_panel_collapsed)
+
+    def _remember_detail_sizes(self) -> None:
+        if self._side_panel_collapsed:
+            return
+        sizes = self._main_splitter.sizes()
+        if len(sizes) >= 2 and sizes[0] > 0 and sizes[1] > 0:
+            self._saved_detail_sizes = self._normalized_detail_sizes([int(sizes[0]), int(sizes[1])])
+
+    def _remember_side_panel_section_sizes(self) -> None:
+        sizes = self._detail_side_panel.sizes()
+        if len(sizes) >= 2 and sizes[0] > 0 and sizes[1] > 0:
+            self._saved_side_panel_section_sizes = self._normalized_side_panel_section_sizes(
+                [int(sizes[0]), int(sizes[1])]
+            )
+
+    @staticmethod
+    def _normalized_detail_sizes(sizes: List[int]) -> List[int]:
+        if not sizes:
+            return [1080, 320]
+        if len(sizes) == 1:
+            image = max(640, int(sizes[0]))
+            return [image, 320]
+        image = max(640, int(sizes[0]))
+        panel = max(220, int(sizes[1]))
+        return [image, panel]
+
+    @staticmethod
+    def _normalized_side_panel_section_sizes(sizes: List[int]) -> List[int]:
+        if not sizes:
+            return [240, 420]
+        if len(sizes) == 1:
+            top = max(120, int(sizes[0]))
+            return [top, 240]
+        top = max(120, int(sizes[0]))
+        bottom = max(160, int(sizes[1]))
+        return [top, bottom]
+
+    def current_side_panel_state(self) -> Dict[str, object]:
+        expanded_sizes = self._saved_detail_sizes or self._main_splitter.sizes()
+        section_sizes = self._saved_side_panel_section_sizes or self._detail_side_panel.sizes()
+        return {
+            "collapsed": bool(self._side_panel_collapsed),
+            "expanded_sizes": self._normalized_detail_sizes([int(v) for v in expanded_sizes]),
+            "section_sizes": self._normalized_side_panel_section_sizes([int(v) for v in section_sizes]),
+        }
+
+    def apply_side_panel_state(self, state: Dict[str, object]) -> None:
+        saved_sizes = state.get("expanded_sizes") if isinstance(state, dict) else None
+        if isinstance(saved_sizes, list) and saved_sizes:
+            self._saved_detail_sizes = self._normalized_detail_sizes(saved_sizes)
+        saved_section_sizes = state.get("section_sizes") if isinstance(state, dict) else None
+        if isinstance(saved_section_sizes, list) and saved_section_sizes:
+            self._saved_side_panel_section_sizes = self._normalized_side_panel_section_sizes(saved_section_sizes)
+        collapsed = bool(state.get("collapsed", False)) if isinstance(state, dict) else False
+        if not collapsed and self._saved_detail_sizes:
+            self._main_splitter.setHandleWidth(6)
+            self._main_splitter.setSizes(self._saved_detail_sizes)
+        if not collapsed and self._saved_side_panel_section_sizes:
+            self._detail_side_panel.setSizes(self._saved_side_panel_section_sizes)
+        self.set_side_panel_collapsed(collapsed)
 
     def update_item(self, item: Optional[CatalogItem]) -> None:
         self._current_item = item
@@ -2210,23 +2354,25 @@ class DetailPanel(QtWidgets.QWidget):
         metadata_lines = [
             tr("detail.metadata.catalog", value=item.catalog),
         ]
+        metadata_extra_lines: List[str] = []
         if object_type_display:
             metadata_lines.append(tr("detail.metadata.type", value=object_type_display))
         if item.distance_ly:
             metadata_lines.append(tr("detail.metadata.distance", value=f"{item.distance_ly:,.0f}"))
         if item.discoverer:
             if item.discovery_year:
-                metadata_lines.append(
+                metadata_extra_lines.append(
                     tr("detail.metadata.discoverer_year", value=item.discoverer, year=item.discovery_year)
                 )
             else:
-                metadata_lines.append(tr("detail.metadata.discoverer", value=item.discoverer))
+                metadata_extra_lines.append(tr("detail.metadata.discoverer", value=item.discoverer))
         if item.best_months:
-            metadata_lines.append(tr("detail.metadata.best_visibility", value=self._format_months(item.best_months)))
+            metadata_extra_lines.append(tr("detail.metadata.best_visibility", value=self._format_months(item.best_months)))
         constellation_display = format_constellation_display(item.constellation)
         if constellation_display:
             metadata_lines.append(tr("detail.metadata.constellation", value=constellation_display))
         self.metadata.setText("\n".join(metadata_lines))
+        self.metadata.setToolTip("\n".join(metadata_extra_lines))
         self.description.setPlainText(item.description or "")
         if item.external_link:
             self.external_link.setText(f'<a href="{item.external_link}">{tr("detail.more_info")}</a>')
@@ -2382,13 +2528,18 @@ class DetailPanel(QtWidgets.QWidget):
             return
         if not hasattr(self, "_left_widget") or not hasattr(self, "_main_splitter"):
             return
-        total_height = max(self._main_splitter.size().height(), self.height())
-        if total_height <= 0:
+        total_width = max(self._main_splitter.size().width(), self.width())
+        if total_width <= 0:
             QtCore.QTimer.singleShot(50, self._apply_initial_sizes)
             return
-        detail_height = 200
-        image_height = max(240, total_height - detail_height)
-        self._main_splitter.setSizes([image_height, detail_height])
+        if self._side_panel_collapsed:
+            self._main_splitter.setHandleWidth(0)
+            self._main_splitter.setSizes([1, 0])
+            self._initial_detail_sized = True
+            return
+        side_panel_width = min(420, max(300, int(total_width * 0.26)))
+        image_width = max(640, total_width - side_panel_width)
+        self._main_splitter.setSizes([image_width, side_panel_width])
         self._initial_detail_sized = True
 
     def showEvent(self, event: QtGui.QShowEvent) -> None:
@@ -2437,6 +2588,8 @@ class DetailPanel(QtWidgets.QWidget):
             self._detail_text_min_size,
             min(self._detail_text_max_size, self._detail_text_size + delta),
         )
+        if not math.isfinite(self._detail_text_size) or self._detail_text_size <= 0:
+            self._detail_text_size = 10.0
         for widget in (
             self.title,
             self.metadata,
@@ -2446,8 +2599,20 @@ class DetailPanel(QtWidgets.QWidget):
             self.description,
             self.notes,
         ):
+            if not isValid(widget):
+                continue
             font = widget.font()
-            font.setPointSizeF(self._detail_text_size)
+            target_size = max(self._detail_text_min_size, self._detail_text_size)
+            if not math.isfinite(target_size) or target_size <= 0:
+                target_size = 10.0
+            # Some platform/theme fonts are pixel-sized and report an invalid point size (-1).
+            # In that case, use pixel sizing to avoid Qt point-size warnings at startup.
+            if font.pointSizeF() <= 0 and font.pixelSize() > 0:
+                dpi = QtWidgets.QApplication.primaryScreen().logicalDotsPerInch() if QtWidgets.QApplication.primaryScreen() else 96.0
+                target_px = max(1, int(round(target_size * dpi / 72.0)))
+                font.setPixelSize(target_px)
+            else:
+                font.setPointSizeF(target_size)
             widget.setFont(font)
         self.text_smaller_button.setEnabled(self._detail_text_size > self._detail_text_min_size)
         self.text_larger_button.setEnabled(self._detail_text_size < self._detail_text_max_size)
@@ -2534,9 +2699,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self._cleanup_invalid_image_only_entries()
             self.config["cleanup_invalid_image_only_entries_done"] = True
             save_config(self.config_path, self.config)
-        if not self.config_path.exists():
-            save_config(self.config_path, self.config)
-        self._saved_state = self.config.get("ui_state", {})
+        self._saved_state = self.database.get_setting("ui_state", default={})
+        if not isinstance(self._saved_state, dict):
+            self._saved_state = {}
         if not self._saved_state:
             self._saved_state = {
                 "filters": {"catalog": "Messier"},
@@ -2591,6 +2756,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self._toolbar_full_width = 0
 
         self._build_ui()
+        self._toggle_side_panel_shortcut = QtGui.QShortcut(QtGui.QKeySequence("Tab"), self)
+        self._toggle_side_panel_shortcut.setContext(QtCore.Qt.ShortcutContext.WindowShortcut)
+        self._toggle_side_panel_shortcut.activated.connect(self._toggle_detail_side_panel)
         self._start_data_version_fetch()
         self._apply_dark_theme()
         self._apply_saved_window_state()
@@ -2628,17 +2796,6 @@ class MainWindow(QtWidgets.QMainWindow):
             if default_metadata and catalog.get("metadata_file") != default_metadata:
                 catalog["metadata_file"] = default_metadata
                 updated = True
-
-        notes_file = self._user_notes_path()
-        if notes_file is not None:
-            notes_file.parent.mkdir(parents=True, exist_ok=True)
-            if not notes_file.exists():
-                try:
-                    with notes_file.open("w", encoding="utf-8") as handle:
-                        json.dump({}, handle, indent=2, ensure_ascii=False)
-                    updated = True
-                except OSError:
-                    pass
         if updated:
             save_config(self.config_path, self.config)
 
@@ -2791,19 +2948,37 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_filter.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToContents)
         self.status_filter.setMinimumContentsLength(12)
 
+        # Keep zoom state machinery for thumbnail sizing logic without exposing UI controls.
         self.zoom_slider = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
-        self.zoom_slider.setRange(80, 360)
+        self.zoom_slider.setRange(120, 360)
         self.zoom_slider.setValue(self.thumbnail_cache.thumb_size)
         self.zoom_slider.valueChanged.connect(self._on_zoom_changed)
 
-        self.wiki_thumbs = QtWidgets.QCheckBox(tr("main.wiki_thumbnails"))
+        self.wiki_thumbs = QtWidgets.QToolButton()
+        self.wiki_thumbs.setObjectName("toolbarWikiToggleButton")
+        self.wiki_thumbs.setCheckable(True)
+        self.wiki_thumbs.setText("W")
+        self.wiki_thumbs.setToolTip(tr("main.wiki_thumbnails"))
+        self.wiki_thumbs.setFixedSize(32, 32)
         self.wiki_thumbs.setChecked(bool(self.config.get("use_wiki_thumbnails", False)))
         self.wiki_thumbs.toggled.connect(self._on_wiki_thumbs_toggled)
-        self.refresh_button = QtWidgets.QPushButton(tr("main.refresh"))
+        self.refresh_button = QtWidgets.QToolButton()
+        self.refresh_button.setObjectName("toolbarRefreshButton")
+        self.refresh_button.setText("↻")
+        self.refresh_button.setToolTip(tr("main.refresh"))
+        self.refresh_button.setFixedSize(32, 32)
         self.refresh_button.clicked.connect(self._refresh_catalog)
-        self.settings_button = QtWidgets.QPushButton(tr("main.settings"))
+        self.settings_button = QtWidgets.QToolButton()
+        self.settings_button.setObjectName("toolbarSettingsButton")
+        self.settings_button.setText("⚙")
+        self.settings_button.setToolTip(tr("main.settings"))
+        self.settings_button.setFixedSize(32, 32)
         self.settings_button.clicked.connect(self._open_settings)
-        self.about_button = QtWidgets.QPushButton(tr("main.about"))
+        self.about_button = QtWidgets.QToolButton()
+        self.about_button.setObjectName("toolbarAboutButton")
+        self.about_button.setText("?")
+        self.about_button.setToolTip(tr("main.about"))
+        self.about_button.setFixedSize(32, 32)
         self.about_button.clicked.connect(self._open_about)
 
         self.compact_filters_container = QtWidgets.QWidget()
@@ -2878,39 +3053,35 @@ class MainWindow(QtWidgets.QMainWindow):
         controls_layout.addSpacing(6)
         controls_layout.addWidget(self.status_filter_label)
         controls_layout.addWidget(self.status_filter)
+        controls_layout.addSpacing(8)
+        controls_layout.addWidget(self.wiki_thumbs)
+        controls_layout.addWidget(self.refresh_button)
         controls_layout.addWidget(self.settings_button)
         controls_layout.addWidget(self.about_button)
         right_layout.addWidget(self.controls_container)
         right_layout.addWidget(self.compact_filters_container)
         toolbar.addWidget(self.toolbar_right_container)
-
-        self.grid_controls_container = QtWidgets.QWidget()
-        grid_controls_layout = QtWidgets.QHBoxLayout(self.grid_controls_container)
-        grid_controls_layout.setContentsMargins(0, 0, 0, 0)
-        grid_controls_layout.setSpacing(10)
-        self.zoom_label = QtWidgets.QLabel(tr("main.zoom"))
-        grid_controls_layout.addWidget(self.zoom_label)
-        grid_controls_layout.addWidget(self.zoom_slider)
-        grid_controls_layout.addWidget(self.wiki_thumbs)
-        grid_controls_layout.addWidget(self.refresh_button)
         self.status_label = QtWidgets.QLabel("")
         self.status_label.setObjectName("statusLabel")
         self.status_label.hide()
 
         layout.addWidget(self.toolbar_container)
         layout.addSpacing(2)
-        layout.addWidget(self.grid_controls_container)
-        layout.addSpacing(2)
         layout.addWidget(self.status_label)
         layout.addSpacing(2)
 
         self.grid = QtWidgets.QListView()
         self.grid.setViewMode(QtWidgets.QListView.ViewMode.IconMode)
+        self.grid.setFlow(QtWidgets.QListView.Flow.LeftToRight)
+        self.grid.setWrapping(False)
         self.grid.setResizeMode(QtWidgets.QListView.ResizeMode.Adjust)
         self.grid.setUniformItemSizes(True)
         self.grid.setSpacing(10)
         self.grid.setMouseTracking(True)
-        self.grid.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.grid.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.grid.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.grid.setMinimumHeight(170)
+        self.grid.setMaximumHeight(260)
         self._update_grid_metrics(self.thumbnail_cache.thumb_size)
         self.grid.setItemDelegate(CatalogItemDelegate(self.grid))
         self.grid.setStyleSheet("QListView::item { margin: 2px; padding: 0px; border: none; }")
@@ -2928,14 +3099,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.detail.imaging_info_requested.connect(self._open_imaging_info_editor)
         self.model.wiki_thumbnail_loaded.connect(self._on_wiki_thumbnail_loaded)
 
-        splitter = QtWidgets.QSplitter()
-        splitter.addWidget(self.grid)
+        splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Vertical)
         splitter.addWidget(self.detail)
-        splitter.setStretchFactor(0, 3)
-        splitter.setStretchFactor(1, 2)
+        splitter.addWidget(self.grid)
+        splitter.setStretchFactor(0, 5)
+        splitter.setStretchFactor(1, 1)
         splitter.setChildrenCollapsible(False)
         splitter.setHandleWidth(6)
-        splitter.setSizes([420, 980])
+        splitter.setSizes([900, 220])
         splitter.splitterMoved.connect(self._schedule_auto_fit)
         self.splitter = splitter
         self._saved_main_sizes: Optional[List[int]] = None
@@ -2947,7 +3118,6 @@ class MainWindow(QtWidgets.QMainWindow):
         layout.addLayout(footer)
         self.setCentralWidget(central)
         self._toolbar_full_width = self.toolbar_container.sizeHint().width()
-        self._sync_grid_controls_width()
 
     def _on_detail_focus_mode_toggled(self, enabled: bool) -> None:
         if self.splitter is None:
@@ -2958,18 +3128,20 @@ class MainWindow(QtWidgets.QMainWindow):
             if len(current_sizes) >= 2 and current_sizes[0] > 0 and current_sizes[1] > 0:
                 self._saved_main_sizes = current_sizes
             self.grid.hide()
-            self.grid_controls_container.hide()
             self.status_label.hide()
             self.splitter.setHandleWidth(0)
-            self.splitter.setSizes([0, 1])
+            self.splitter.setSizes([1, 0])
             return
         self.grid.show()
-        self.grid_controls_container.show()
         self.status_label.setVisible(bool(self.status_label.text().strip()))
         self.splitter.setHandleWidth(6)
-        self.splitter.setSizes(self._saved_main_sizes or [720, 480])
-        self._sync_grid_controls_width()
+        self.splitter.setSizes(self._saved_main_sizes or [900, 220])
         self._schedule_auto_fit()
+
+    def _toggle_detail_side_panel(self) -> None:
+        if not hasattr(self, "detail"):
+            return
+        self.detail.toggle_side_panel()
 
     def _apply_dark_theme(self) -> None:
         checked_indicator_path = (PROJECT_ROOT / "assets" / "images" / "checked_yellow.png").as_posix()
@@ -2977,39 +3149,75 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setStyleSheet(
             """
             QWidget {
-                background: #0b1220;
-                color: #edf1f7;
+                background: #1f1f1f;
+                color: #e6e6e6;
                 font-family: 'Segoe UI', 'Aptos', 'Helvetica Neue', Arial;
-                selection-background-color: #d4a85f;
-                selection-color: #08111d;
+                selection-background-color: #5e5e5e;
+                selection-color: #f7f7f7;
             }
             QLineEdit, QComboBox, QTextEdit {
-                background: #121a2b;
-                border: 1px solid #23314a;
+                background: #2a2a2a;
+                border: 1px solid #3d3d3d;
                 border-radius: 10px;
                 padding: 8px 10px;
             }
             QLineEdit:focus, QComboBox:focus, QTextEdit:focus {
-                border-color: #d4a85f;
+                border-color: #b6935a;
             }
             QToolButton[compactPill="true"] {
-                background: #152038;
-                border: 1px solid #2a3854;
+                background: #2c2c2c;
+                border: 1px solid #434343;
                 border-radius: 16px;
                 padding: 5px 22px 5px 12px;
             }
-            QToolButton[compactPill="true"]:hover { background: #1c2943; border-color: #45618a; }
+            QToolButton[compactPill="true"]:hover { background: #343434; border-color: #5a5a5a; }
             QToolButton[compactPill="true"]::menu-indicator { image: none; }
-            QToolButton#focusToggleButton { background: #152038; border: 1px solid #3d5376; border-radius: 0px; padding: 0; }
-            QToolButton#focusToggleButton:hover { background: #1f2e4a; border-color: #d4a85f; }
-            QToolButton#focusToggleButton:pressed { background: #253657; }
+            QToolButton#focusToggleButton { background: #2a2a2a; border: 1px solid #505050; border-radius: 0px; padding: 0; }
+            QToolButton#focusToggleButton:hover { background: #343434; border-color: #b6935a; }
+            QToolButton#focusToggleButton:pressed { background: #3a3a3a; }
+            QToolButton#detailSideToggleButton { background: #2a2a2a; border: 1px solid #505050; border-radius: 0px; padding: 0; font-size: 14px; font-weight: 600; }
+            QToolButton#detailSideToggleButton:hover { background: #343434; border-color: #b6935a; }
+            QToolButton#detailSideToggleButton:pressed { background: #3a3a3a; }
+            QToolButton#toolbarRefreshButton,
+            QToolButton#toolbarSettingsButton,
+            QToolButton#toolbarAboutButton {
+                background: #2c2c2c;
+                border: 1px solid #434343;
+                border-radius: 16px;
+                padding: 0;
+                font-size: 15px;
+                font-weight: 500;
+            }
+            QToolButton#toolbarRefreshButton:hover,
+            QToolButton#toolbarSettingsButton:hover,
+            QToolButton#toolbarAboutButton:hover { background: #343434; border-color: #5a5a5a; }
+            QToolButton#toolbarRefreshButton:pressed,
+            QToolButton#toolbarSettingsButton:pressed,
+            QToolButton#toolbarAboutButton:pressed { background: #3a3a3a; }
+            QToolButton#toolbarRefreshButton { font-size: 16px; }
+            QToolButton#toolbarSettingsButton { font-size: 16px; }
+            QToolButton#toolbarAboutButton { font-size: 15px; font-weight: 700; }
+            QToolButton#toolbarWikiToggleButton {
+                background: #2c2c2c;
+                border: 1px solid #434343;
+                border-radius: 16px;
+                padding: 0;
+                font-size: 12px;
+                font-weight: 600;
+            }
+            QToolButton#toolbarWikiToggleButton:hover { background: #343434; border-color: #5a5a5a; }
+            QToolButton#toolbarWikiToggleButton:checked {
+                background: #3b3428;
+                border-color: #b6935a;
+                color: #f0d7ab;
+            }
             QListView {
-                background: #08111d;
-                border: 1px solid #1e2a42;
+                background: #181818;
+                border: 1px solid #323232;
                 border-radius: 14px;
                 padding: 8px;
             }
-            QSplitter::handle { background: #142038; }
+            QSplitter::handle { background: #3a3a3a; }
             QSplitter::handle:horizontal { width: 6px; }
             QSplitter::handle:vertical { height: 6px; }
             QLabel#detailTitle {
@@ -3017,83 +3225,87 @@ class MainWindow(QtWidgets.QMainWindow):
                 font-size: 24px;
                 font-weight: 700;
                 letter-spacing: 0.5px;
-                color: #f6f1e8;
+                color: #f0f0f0;
             }
             QLabel#detailMetadata {
-                color: #d7deea;
+                color: #211f1f;
                 background: transparent;
                 padding: 4px 0;
             }
-            QLabel#imageInfo { color: #8e9eb8; padding-top: 2px; }
-            QLabel#catalogTitle { font-size: 18px; font-weight: 600; color: #d4a85f; }
+            QLabel#imageInfo { color: #ababab; padding-top: 2px; }
+            QLabel#catalogTitle { font-size: 18px; font-weight: 600; color: #c9ab7c; }
             QLabel#welcomeTitle { font-size: 20px; font-weight: 600; }
             QLabel#aboutTitle { font-size: 22px; font-weight: 600; }
-            QLabel#aboutVersion { color: #9aa6ba; }
+            QLabel#aboutVersion { color: #a7a7a7; }
             QLabel#aboutSectionTitle { font-size: 16px; font-weight: 600; }
-            QLabel#aboutUpdateStatus a { color: #d4a85f; text-decoration: none; }
-            QTextBrowser#welcomeBody { background: #11182a; border: 1px solid #1f2d46; border-radius: 12px; }
-            QLabel#statusLabel { color: #d4a85f; padding: 6px 0; }
-            QLabel#coordLabel { color: #9aa6ba; padding: 4px 0; }
-            QLabel#supportLink { color: #9aa6ba; }
-            QLabel#supportLink a { color: #d4a85f; text-decoration: none; }
+            QLabel#aboutUpdateStatus a { color: #c9ab7c; text-decoration: none; }
+            QTextBrowser#welcomeBody { background: #242424; border: 1px solid #3b3b3b; border-radius: 12px; }
+            QLabel#statusLabel { color: #c9ab7c; padding: 6px 0; }
+            QLabel#coordLabel { color: #a7a7a7; padding: 4px 0; }
+            QLabel#supportLink { color: #a7a7a7; }
+            QLabel#supportLink a { color: #c9ab7c; text-decoration: none; }
             QLabel#externalLink { padding-top: 4px; }
-            QLabel#externalLink a { color: #7db4ff; text-decoration: none; }
+            QLabel#externalLink a { color: #8fb4cf; text-decoration: none; }
             QWidget#detailImageContainer {
-                background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #11192b, stop:1 #0d1524);
-                border: 1px solid #1e2a42;
+                background: #181818;
+                border: 1px solid #2a2a2a;
                 border-radius: 18px;
             }
             QWidget#detailImageHeader {
                 background: transparent;
                 border: none;
             }
+            QGraphicsView#detailImageView {
+                background: #181818;
+                border: none;
+            }
             QWidget#detailMetaPanel, QWidget#detailTextPanel {
-                background: #11182a;
-                border: 1px solid #1f2d46;
+                background: #222222;
+                border: 1px solid #353535;
                 border-radius: 16px;
             }
             QTextEdit#descriptionBox {
-                background: #0e1625;
-                border: 1px solid #22314c;
+                background: #1b1b1b;
+                border: 1px solid #343434;
                 border-radius: 12px;
                 padding: 12px;
             }
             QTextEdit#notesBox {
-                background: #111d25;
-                border: 1px solid #27414d;
+                background: #1e1f1f;
+                border: 1px solid #3c403b;
                 border-radius: 12px;
                 padding: 12px;
             }
-            QMenu { background: #11192b; border: 1px solid #23314a; }
+            QMenu { background: #2a2a2a; border: 1px solid #3d3d3d; }
             QMenu::item { padding: 6px 14px; }
-            QMenu::item:selected { background: #1f2b45; color: #ffffff; }
+            QMenu::item:selected { background: #3a3a3a; color: #ffffff; }
             QPushButton {
-                background: #16223a;
-                border: 1px solid #2a3854;
+                background: #2c2c2c;
+                border: 1px solid #434343;
                 border-radius: 10px;
                 padding: 7px 14px;
             }
-            QPushButton:hover { background: #1c2943; border-color: #45618a; }
-            QPushButton:pressed { background: #223150; }
-            QSlider::groove:horizontal { height: 6px; background: #1e2a42; border-radius: 3px; }
-            QSlider::handle:horizontal { width: 14px; background: #d4a85f; margin: -4px 0; border-radius: 7px; }
+            QPushButton:hover { background: #343434; border-color: #5a5a5a; }
+            QPushButton:pressed { background: #3a3a3a; }
+            QSlider::groove:horizontal { height: 6px; background: #3a3a3a; border-radius: 3px; }
+            QSlider::handle:horizontal { width: 14px; background: #b6935a; margin: -4px 0; border-radius: 7px; }
             QScrollBar:vertical {
-                background: #09111d;
+                background: #1a1a1a;
                 width: 12px;
                 margin: 6px 2px 6px 2px;
                 border-radius: 6px;
             }
             QScrollBar::handle:vertical {
-                background: #23314a;
+                background: #4a4a4a;
                 min-height: 28px;
                 border-radius: 6px;
             }
-            QScrollBar::handle:vertical:hover { background: #355179; }
+            QScrollBar::handle:vertical:hover { background: #5a5a5a; }
             QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                 height: 0px;
             }
             QCheckBox {
-                color: #edf1f7;
+                color: #e6e6e6;
                 spacing: 8px;
             }
             QCheckBox::indicator {
@@ -3102,21 +3314,21 @@ class MainWindow(QtWidgets.QMainWindow):
                 border-radius: 3px;
             }
             QCheckBox::indicator:unchecked {
-                background: #121a2b;
-                border: 2px solid #45618a;
+                background: #2a2a2a;
+                border: 2px solid #666666;
             }
             QCheckBox::indicator:unchecked:hover {
-                background: #1a2435;
-                border-color: #5a7ba3;
+                background: #343434;
+                border-color: #7a7a7a;
             }
              QCheckBox::indicator:checked {
-                background: #121a2b;      /* fond sombre */
-                border: 2px solid #d4a85f; /* contour jaune */
+                background: #2a2a2a;
+                border: 2px solid #b6935a;
                 image: url("__CHECKBOX_CHECKED_ICON__");
             }
             QCheckBox::indicator:checked:hover {
-                background: #e0b86f;
-                border-color: #e0b86f;
+                background: #3a3327;
+                border-color: #caa972;
             }
             """.replace("__CHECKBOX_CHECKED_ICON__", checked_indicator_path)
         )
@@ -3231,17 +3443,22 @@ class MainWindow(QtWidgets.QMainWindow):
         splitter_sizes = state.get("splitter_sizes")
         if isinstance(splitter_sizes, list) and splitter_sizes:
             self.splitter.setSizes(self._normalized_main_splitter_sizes(splitter_sizes))
+        detail_side_panel = state.get("detail_side_panel")
+        if isinstance(detail_side_panel, dict):
+            self.detail.apply_side_panel_state(detail_side_panel)
 
     @staticmethod
     def _normalized_main_splitter_sizes(sizes: List[int]) -> List[int]:
         if not sizes:
-            return [420, 980]
+            return [900, 220]
         if len(sizes) == 1:
-            left = max(320, int(sizes[0]))
-            return [left, 980]
-        left = max(320, int(sizes[0]))
-        right = max(520, int(sizes[1]))
-        return [left, right]
+            top = max(600, int(sizes[0]))
+            return [top, 220]
+        first = int(sizes[0])
+        second = int(sizes[1])
+        if first < second:
+            return [max(600, second), min(300, max(160, first))]
+        return [max(600, first), min(300, max(160, second))]
 
     def _set_status_message(self, text: str) -> None:
         self.status_label.setText(text)
@@ -3762,7 +3979,7 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         spacing = self.grid.spacing()
         grid_extra = 2
-        min_size = 60
+        min_size = 120
         max_size = max(min(width, height), min_size)
         best = min_size
         best_gap = width
@@ -3990,7 +4207,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.catalog_filter.setEnabled(enabled)
         self.type_filter.setEnabled(enabled)
         self.status_filter.setEnabled(enabled)
-        self.zoom_slider.setEnabled(enabled)
         self.grid.setEnabled(enabled)
         self.wiki_thumbs.setEnabled(enabled)
         self.refresh_button.setEnabled(enabled)
@@ -4356,10 +4572,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_filter.blockSignals(False)
         self._on_status_changed("")
 
-    def _capture_ui_state(self) -> None:
-        self.config["ui_state"] = {
+    def _capture_ui_state(self) -> Dict:
+        detail_side_panel_state = (
+            self.detail.current_side_panel_state() if hasattr(self, "detail") else {"collapsed": False, "expanded_sizes": [1080, 320]}
+        )
+        state = {
             "window_size": [self.width(), self.height()],
             "splitter_sizes": self.splitter.sizes() if self.splitter else [],
+            "detail_side_panel": detail_side_panel_state,
             "filters": {
                 "catalog": self._combo_value(self.catalog_filter) if self.catalog_filter else "",
                 "type": self._combo_value(self.type_filter) if self.type_filter else "",
@@ -4367,12 +4587,15 @@ class MainWindow(QtWidgets.QMainWindow):
             },
             "search": self.search.text() if self.search else "",
         }
+        self._saved_state = state
+        return state
 
     def _persist_ui_state(self) -> None:
         if self._zoom_timer.isActive():
             self._zoom_timer.stop()
             self._apply_zoom()
-        self._capture_ui_state()
+        state = self._capture_ui_state()
+        self.database.set_setting("ui_state", state)
         if hasattr(self, "grid"):
             size = self.grid.iconSize().width()
         else:
@@ -4626,8 +4849,7 @@ class SettingsDialog(QtWidgets.QDialog):
         config_dir = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
         output_dir = Path(config_dir) if config_dir else PROJECT_ROOT
         output_dir.mkdir(parents=True, exist_ok=True)
-        config_path = output_dir / "duplicate_scan_config.json"
-        config_path.write_text(json.dumps(config, indent=2), encoding="utf-8")
+        config_json = json.dumps(config, ensure_ascii=False)
         report_path = output_dir / "duplicate_image_report.txt"
         extensions = config.get(
             "image_extensions",
@@ -4637,7 +4859,7 @@ class SettingsDialog(QtWidgets.QDialog):
         self.scan_button.setText(tr("settings.scanning"))
         self.report_label.hide()
         self.report_label.setText("")
-        task = DuplicateScanTask(config_path, extensions, report_path)
+        task = DuplicateScanTask(config_json, extensions, report_path)
         task.signals.finished.connect(self._on_duplicate_scan_finished)
         self._scan_task = task
         self._scan_thread_pool.start(task)
@@ -5643,7 +5865,17 @@ class DataVersionFetchTask(QtCore.QRunnable):
 
 
 def main() -> None:
+    global _qt_previous_message_handler
+    _qt_previous_message_handler = QtCore.qInstallMessageHandler(_qt_message_filter)
     app = QtWidgets.QApplication(sys.argv)
+    app_font = app.font()
+    if app_font.pointSizeF() <= 0:
+        if app_font.pixelSize() > 0:
+            dpi = app.primaryScreen().logicalDotsPerInch() if app.primaryScreen() else 96.0
+            app_font.setPointSizeF(max(1.0, app_font.pixelSize() * 72.0 / dpi))
+        else:
+            app_font.setPointSize(10)
+        app.setFont(app_font)
     app.setApplicationName(APP_NAME)
     app.setOrganizationName(ORG_NAME)
     QtCore.QLoggingCategory.setFilterRules("qt.gui.imageio=false\n")
@@ -5653,7 +5885,7 @@ def main() -> None:
         config_dir = Path(location)
     else:
         config_dir = PROJECT_ROOT
-    config_path = config_dir / "config.json"
+    config_path = config_dir / "astrocat.db"
     photo_notes_path = config_dir / "photo_notes.json"
     db_path = database_path_from_config_path(config_path)
 

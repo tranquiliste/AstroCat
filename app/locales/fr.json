@@ -46,6 +46,8 @@
   "detail.text_larger": "Agrandir le texte",
   "detail.focus_mode_enter": "Masquer les miniatures et la description",
   "detail.focus_mode_exit": "Réafficher les miniatures et la description",
+  "detail.side_panel_hide": "Masquer le panneau droit",
+  "detail.side_panel_show": "Afficher le panneau droit",
   "detail.metadata.catalog": "Catalogue : {value}",
   "detail.metadata.type": "Type : {value}",
   "detail.metadata.unknown": "Inconnu",

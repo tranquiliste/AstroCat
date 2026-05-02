@@ -359,23 +359,12 @@ def _is_bundled_catalog_path(path: Path) -> bool:
         return False
 
 
-def _load_legacy_config_file(config_path: Path) -> Dict:
-    if not config_path.exists():
-        return {}
-    with config_path.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
-
-
 def _config_database(config_path: Path) -> Database:
     return Database(database_path_from_config_path(config_path))
 
 
 def load_config(config_path: Path) -> Dict:
     database = _config_database(config_path)
-    if not database.has_config_data():
-        legacy = _load_legacy_config_file(config_path)
-        if legacy:
-            database.import_config(_merge_default_config(legacy), overwrite=True)
     loaded = database.load_config()
     if loaded:
         return _merge_default_config(loaded)
@@ -580,7 +569,7 @@ def _load_user_image_notes(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None:
         return {}
     try:
-        db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+        db_path = notes_path.with_name("astrocat.db")
         database = Database(db_path)
         return database.get_runtime_image_notes_map()
     except Exception:
@@ -591,7 +580,7 @@ def _load_user_object_notes(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None:
         return {}
     try:
-        db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+        db_path = notes_path.with_name("astrocat.db")
         database = Database(db_path)
         return database.get_runtime_object_notes_map()
     except Exception:
@@ -602,7 +591,7 @@ def _load_user_thumbnails(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None:
         return {}
     try:
-        db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+        db_path = notes_path.with_name("astrocat.db")
         database = Database(db_path)
         return database.get_object_thumbnails_map()
     except Exception:
@@ -610,19 +599,19 @@ def _load_user_thumbnails(notes_path: Optional[Path]) -> Dict[str, str]:
 
 
 def _save_user_image_note(notes_path: Path, image_name: str, notes: str) -> None:
-    db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+    db_path = notes_path.with_name("astrocat.db")
     database = Database(db_path)
     database.upsert_image_note(image_name, notes)
 
 
 def _save_user_object_note(notes_path: Path, catalog_name: str, object_id: str, notes: str) -> None:
-    db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+    db_path = notes_path.with_name("astrocat.db")
     database = Database(db_path)
     database.upsert_object_note(catalog_name, object_id, notes)
 
 
 def _save_user_thumbnail(notes_path: Path, catalog_name: str, object_id: str, thumbnail_name: str) -> None:
-    db_path = database_path_from_config_path(notes_path.with_name("config.json"))
+    db_path = notes_path.with_name("astrocat.db")
     database = Database(db_path)
     database.upsert_object_thumbnail(catalog_name, object_id, thumbnail_name)
 

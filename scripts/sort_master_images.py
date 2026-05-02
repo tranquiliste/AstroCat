@@ -76,12 +76,18 @@ def _pick_catalog(object_ids: List[str]) -> str | None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Sort master images into catalog folders based on filenames.")
-    parser.add_argument("--config", required=True, help="Path to config.json")
+    parser.add_argument("--config", help="Path to config.json")
+    parser.add_argument("--config-json", help="Config payload as JSON string")
     parser.add_argument("--extensions", default=".jpg,.jpeg,.png,.tif,.tiff,.webp,.bmp", help="Comma-separated extensions")
     args = parser.parse_args()
 
-    config_path = Path(args.config).expanduser()
-    config = json.loads(config_path.read_text(encoding="utf-8"))
+    if args.config_json:
+        config = json.loads(args.config_json)
+    elif args.config:
+        config_path = Path(args.config).expanduser()
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+    else:
+        raise SystemExit("Either --config or --config-json is required")
     extensions = [ext.strip() for ext in args.extensions.split(",") if ext.strip()]
 
     master_root = _resolve_master(config)

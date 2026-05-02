@@ -46,6 +46,8 @@
   "detail.text_larger": "Text vergrößern",
   "detail.focus_mode_enter": "Miniaturen und Beschreibung ausblenden",
   "detail.focus_mode_exit": "Miniaturen und Beschreibung wieder anzeigen",
+  "detail.side_panel_hide": "Rechtes Bedienfeld ausblenden",
+  "detail.side_panel_show": "Rechtes Bedienfeld anzeigen",
   "detail.metadata.catalog": "Katalog: {value}",
   "detail.metadata.type": "Typ: {value}",
   "detail.metadata.unknown": "Unbekannt",

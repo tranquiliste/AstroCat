@@ -96,13 +96,19 @@ def _format_report(groups: List[Dict[str, object]]) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Find duplicate images within each catalog folder by SHA-256.")
-    parser.add_argument("--config", required=True, help="Path to config.json")
+    parser.add_argument("--config", help="Path to config.json")
+    parser.add_argument("--config-json", help="Config payload as JSON string")
     parser.add_argument("--extensions", default=".jpg,.jpeg,.png,.tif,.tiff,.webp,.bmp", help="Comma-separated extensions")
     parser.add_argument("--output", required=True, help="Output report file path")
     args = parser.parse_args()
 
-    config_path = Path(args.config).expanduser()
-    config = json.loads(config_path.read_text(encoding="utf-8"))
+    if args.config_json:
+        config = json.loads(args.config_json)
+    elif args.config:
+        config_path = Path(args.config).expanduser()
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+    else:
+        raise SystemExit("Either --config or --config-json is required")
     extensions = [ext.strip() for ext in args.extensions.split(",") if ext.strip()]
 
     groups: List[Dict[str, object]] = []
@@ -140,12 +146,6 @@ def main() -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     report = _format_report(groups)
     output.write_text(report, encoding="utf-8")
-    payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "extensions": extensions,
-        "groups": groups,
-    }
-    output.with_suffix(".json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

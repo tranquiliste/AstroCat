@@ -46,6 +46,8 @@
   "detail.text_larger": "Aumentar texto",
   "detail.focus_mode_enter": "Ocultar miniaturas y descripción",
   "detail.focus_mode_exit": "Mostrar miniaturas y descripción",
+  "detail.side_panel_hide": "Ocultar panel derecho",
+  "detail.side_panel_show": "Mostrar panel derecho",
   "detail.metadata.catalog": "Catálogo: {value}",
   "detail.metadata.type": "Tipo: {value}",
   "detail.metadata.unknown": "Desconocido",
