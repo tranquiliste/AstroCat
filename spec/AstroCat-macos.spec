@@ -54,6 +54,6 @@ coll = COLLECT(
 app = BUNDLE(
     coll,
     name="AstroCat.app",
-    icon=str(project_root / "build_assets" / "ACV.icns"),
+    icon=str(project_root / "build_assets" / "Astrocat_icon.icns"),
     bundle_identifier=None,
 )
