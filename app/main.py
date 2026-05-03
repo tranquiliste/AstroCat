@@ -5534,33 +5534,34 @@ class AboutDialog(QtWidgets.QDialog):
     ) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("about.title"))
-        self.setMinimumWidth(720)
+        self.setMinimumWidth(680)
         self._config = config
         self._app_version = app_version
         self._data_version = data_version
 
+        # ── titre & versions ──
         title = QtWidgets.QLabel("AstroCat")
         title.setObjectName("aboutTitle")
         self.app_version_label = QtWidgets.QLabel(tr("about.app_version", version=app_version))
         self.app_version_label.setObjectName("aboutVersion")
         self.data_version_label = QtWidgets.QLabel(tr("about.data_version", version=data_version))
-        self.data_version_label.setObjectName("aboutDataVersion")
+        self.data_version_label.setObjectName("aboutVersion")
         self.remote_data_version_label = QtWidgets.QLabel(tr("about.latest_data_version_checking"))
         self.remote_data_version_label.setObjectName("aboutVersion")
 
-        about = QtWidgets.QLabel(
-            tr("about.description")
-        )
+        about = QtWidgets.QLabel(tr("about.description"))
         about.setWordWrap(True)
 
         links = QtWidgets.QLabel(
-            f'Repo: <a href="https://github.com/{UPDATE_REPO}">github.com/{UPDATE_REPO}</a>'
+            f'<a href="https://github.com/{UPDATE_REPO}">github.com/{UPDATE_REPO}</a>'
         )
         links.setOpenExternalLinks(True)
-        links.setObjectName("aboutLinks")
+        links.setObjectName("externalLink")
 
+        # ── sponsors ──
         sponsor_box = QtWidgets.QGroupBox(tr("about.sponsors"))
         sponsor_layout = QtWidgets.QVBoxLayout(sponsor_box)
+        sponsor_layout.setContentsMargins(12, 10, 12, 10)
         self.supporters_status = QtWidgets.QLabel(tr("about.loading_supporters"))
         self.supporters_status.setWordWrap(True)
         self.supporters_status.setTextFormat(QtCore.Qt.TextFormat.RichText)
@@ -5568,24 +5569,28 @@ class AboutDialog(QtWidgets.QDialog):
         sponsor_scroll = QtWidgets.QScrollArea()
         sponsor_scroll.setWidgetResizable(True)
         sponsor_scroll.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        sponsor_scroll.setMinimumHeight(80)
         sponsor_scroll.setWidget(self.supporters_status)
         sponsor_layout.addWidget(sponsor_scroll)
 
+        # ── colonne gauche ──
         left = QtWidgets.QWidget()
         left_layout = QtWidgets.QVBoxLayout(left)
         left_layout.setContentsMargins(0, 0, 0, 0)
+        left_layout.setSpacing(6)
         left_layout.addWidget(title)
+        left_layout.addSpacing(2)
         left_layout.addWidget(self.app_version_label)
         left_layout.addWidget(self.data_version_label)
         left_layout.addWidget(self.remote_data_version_label)
-        left_layout.addSpacing(8)
+        left_layout.addSpacing(10)
         left_layout.addWidget(about)
-        left_layout.addSpacing(10)
+        left_layout.addSpacing(6)
         left_layout.addWidget(links)
-        left_layout.addSpacing(10)
-        left_layout.addWidget(sponsor_box)
-        left_layout.addStretch(1)
+        left_layout.addSpacing(12)
+        left_layout.addWidget(sponsor_box, stretch=1)
 
+        # ── mises à jour ──
         self.update_status = QtWidgets.QLabel(tr("about.not_checked"))
         self.update_status.setObjectName("aboutUpdateStatus")
         self.update_status.setWordWrap(True)
@@ -5604,25 +5609,31 @@ class AboutDialog(QtWidgets.QDialog):
         updates_layout.setSpacing(10)
         updates_layout.addWidget(self.update_status)
         updates_layout.addWidget(self.data_update_status)
+        updates_layout.addSpacing(4)
         updates_layout.addWidget(self.auto_check)
         updates_layout.addWidget(self.check_updates)
         updates_layout.addStretch(1)
 
+        # ── colonne droite ──
         right = QtWidgets.QWidget()
         right_layout = QtWidgets.QVBoxLayout(right)
         right_layout.setContentsMargins(0, 0, 0, 0)
+        right_layout.setSpacing(0)
         right_layout.addWidget(updates_box)
         right_layout.addStretch(1)
 
         content = QtWidgets.QHBoxLayout()
         content.addWidget(left, stretch=3)
+        content.addSpacing(4)
         content.addWidget(right, stretch=2)
-        content.setSpacing(24)
+        content.setSpacing(20)
 
         close_button = QtWidgets.QPushButton(tr("settings.close"))
         close_button.clicked.connect(self.accept)
 
         layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(20, 20, 20, 16)
+        layout.setSpacing(14)
         layout.addLayout(content)
         layout.addWidget(close_button, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
 
@@ -5677,18 +5688,27 @@ class HelpDialog(QtWidgets.QDialog):
     def __init__(self, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("help.title"))
-        self.setMinimumWidth(620)
+        self.setMinimumWidth(560)
 
-        quick_title = QtWidgets.QLabel(tr("about.quick_start"))
-        quick_title.setObjectName("aboutSectionTitle")
+        # ── démarrage rapide ──
+        quick_box = QtWidgets.QGroupBox(tr("about.quick_start"))
+        quick_box_layout = QtWidgets.QVBoxLayout(quick_box)
+        quick_box_layout.setContentsMargins(14, 10, 14, 12)
         quick_list = QtWidgets.QLabel(tr("help.quick_start_list"))
         quick_list.setWordWrap(True)
+        quick_box_layout.addWidget(quick_list)
 
-        shortcuts_title = QtWidgets.QLabel(tr("help.shortcuts"))
-        shortcuts_title.setObjectName("aboutSectionTitle")
+        # ── raccourcis clavier ──
+        shortcuts_box = QtWidgets.QGroupBox(tr("help.shortcuts"))
+        shortcuts_box_layout = QtWidgets.QVBoxLayout(shortcuts_box)
+        shortcuts_box_layout.setContentsMargins(14, 10, 14, 12)
+        shortcuts_box_layout.setSpacing(8)
+
         shortcuts_list = QtWidgets.QLabel(tr("help.shortcuts_list"))
         shortcuts_list.setWordWrap(True)
+        shortcuts_box_layout.addWidget(shortcuts_list)
 
+        # ligne 3 : préfixe + bouton expand + suffixe
         shortcut_three_prefix = QtWidgets.QLabel(tr("help.shortcut3_prefix"))
         shortcut_three_prefix.setWordWrap(True)
         shortcut_three_button = QtWidgets.QToolButton()
@@ -5703,25 +5723,22 @@ class HelpDialog(QtWidgets.QDialog):
         shortcut_three_suffix.setWordWrap(True)
 
         shortcut_three_row = QtWidgets.QHBoxLayout()
-        # Match the visual indent used by the ordered list above.
         shortcut_three_row.setContentsMargins(24, 0, 0, 0)
         shortcut_three_row.setSpacing(8)
         shortcut_three_row.addWidget(shortcut_three_prefix)
         shortcut_three_row.addWidget(shortcut_three_button)
         shortcut_three_row.addWidget(shortcut_three_suffix, stretch=1)
+        shortcuts_box_layout.addLayout(shortcut_three_row)
 
         close_button = QtWidgets.QPushButton(tr("settings.close"))
         close_button.clicked.connect(self.accept)
 
         layout = QtWidgets.QVBoxLayout(self)
-        layout.setSpacing(12)
-        layout.addWidget(quick_title)
-        layout.addWidget(quick_list)
-        layout.addSpacing(10)
-        layout.addWidget(shortcuts_title)
-        layout.addWidget(shortcuts_list)
-        layout.addLayout(shortcut_three_row)
-        layout.addSpacing(8)
+        layout.setContentsMargins(18, 18, 18, 16)
+        layout.setSpacing(14)
+        layout.addWidget(quick_box)
+        layout.addWidget(shortcuts_box)
+        layout.addStretch(1)
         layout.addWidget(close_button, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
 
 

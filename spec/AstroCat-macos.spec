@@ -38,7 +38,7 @@ exe = EXE(
     strip=False,
     upx=True,
     console=False,
-    icon=str(project_root / "build_assets" / "ACV.icns"),
+    icon=str(project_root / "build_assets" / "Astrocat_icon.icns"),
 )
 
 coll = COLLECT(
