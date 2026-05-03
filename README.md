@@ -10,7 +10,7 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 
 
-Status: beta
+Status: stable
 
 Latest release: `1.6.0`
 
@@ -33,7 +33,7 @@ Release history: [CHANGELOG.md](CHANGELOG.md)
 - New catalogs (including LBN, Sh2, VdB, and others)
 - Built-in migration path from AstroCatalogueViewer notes
 - i18n for catalogs (translations in de,es,fr,it in progress)
-- new UI
+- new UI with bottom strip photos
 - settings, notes are saved in a database (no more json)
 - adding detailed information to image (exposures, setup, ...)
 
@@ -46,12 +46,13 @@ python3 app/main.py
 ```
 
 ## Screenshots
-![Main Catalogue](assets/screenshots/screenshot-02.png)
-![Catalogue filtered by Captured](assets/screenshots/screenshot-01.png)
+![Main Catalogue](assets/screenshots/AstroCat_main_catalog.png)
+![Bottom Strip hidden](assets/screenshots/AstroCat_bottom_strip_hidden.png)
+![Pic only](assets/screenshots/AstroCat_pic_only.png)
+![Help](assets/screenshots/AstroCat_help.png)
+![Catalogue settings](assets/screenshots/AstroCat_settings.png)
+![Pic detailed info](assets/screenshots/AstroCat_pic_info.png)
 ![Location selection map](assets/screenshots/screenshot-06.png)
-![Links to wiki descriptions](assets/screenshots/screenshot-07.png)
-![Catalogue settings](assets/screenshots/screenshot-05.png)
-![Notes and metadata panel](assets/screenshots/screenshot-03.png)
 
 ## Requirements
 - macOS, Windows, and Linux

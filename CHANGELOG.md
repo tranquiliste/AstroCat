@@ -3,10 +3,12 @@
 All notable changes to this project are documented in this file.
 
 
-## [1.6.0] - 2026-05-0
+## [1.6.0] - 2026-05-03
+First stable release (leaving beta)
 
 ### Changed
-- **New UI** : Ne colors, new presentation.
+- **New UI** : New colors, new presentation. Bottom photo strip.
+- **Database** : all settings managed in SQLite
 
 ## [1.5.0-beta] - 2026-05-01
 
