@@ -67,7 +67,8 @@ class Database:
         try:
             connection.execute("PRAGMA foreign_keys = ON")
             connection.executescript(schema)
-            connection.execute("PRAGMA user_version = 3")
+            self._apply_runtime_migrations(connection)
+            connection.execute("PRAGMA user_version = 4")
             connection.commit()
         finally:
             connection.close()
@@ -80,6 +81,40 @@ class Database:
             (table_name,),
         ).fetchone()
         return row is not None
+
+    @staticmethod
+    def _column_exists(connection: sqlite3.Connection, table_name: str, column_name: str) -> bool:
+        rows = connection.execute(f"PRAGMA table_info({table_name})").fetchall()
+        for row in rows:
+            if isinstance(row, sqlite3.Row):
+                name = row["name"]
+            elif isinstance(row, (tuple, list)) and len(row) > 1:
+                name = row[1]
+            else:
+                continue
+            if str(name) == column_name:
+                return True
+        return False
+
+    def _apply_runtime_migrations(self, connection: sqlite3.Connection) -> None:
+        if self._table_exists(connection, "image_filter_integrations"):
+            if not self._column_exists(connection, "image_filter_integrations", "moon_age"):
+                connection.execute("ALTER TABLE image_filter_integrations ADD COLUMN moon_age REAL")
+            if not self._column_exists(connection, "image_filter_integrations", "moon_illumination"):
+                connection.execute("ALTER TABLE image_filter_integrations ADD COLUMN moon_illumination REAL")
+            if not self._column_exists(connection, "image_filter_integrations", "moon_phase_name"):
+                connection.execute("ALTER TABLE image_filter_integrations ADD COLUMN moon_phase_name TEXT")
+            if not self._column_exists(connection, "image_filter_integrations", "moon_waxing"):
+                connection.execute(
+                    "ALTER TABLE image_filter_integrations ADD COLUMN moon_waxing INTEGER CHECK (moon_waxing IN (0, 1))"
+                )
+
+        connection.execute(
+            """
+            INSERT OR IGNORE INTO schema_migrations (version, description)
+            VALUES (4, 'Add moon phase fields to filter integrations')
+            """
+        )
 
 
     def has_config_data(self) -> bool:
@@ -429,11 +464,16 @@ class Database:
         filter_brand: Optional[str] = None,
         filter_model: Optional[str] = None,
         captured_on: Optional[str] = None,
+        moon_age: Optional[float] = None,
+        moon_illumination: Optional[float] = None,
+        moon_phase_name: Optional[str] = None,
+        moon_waxing: Optional[bool] = None,
     ) -> int:
         normalized_filter = (filter_name or "none").strip() or "none"
         normalized_brand = self._clean_optional_text(filter_brand)
         normalized_model = self._clean_optional_text(filter_model)
         normalized_captured_on = self._clean_optional_text(captured_on)
+        normalized_phase_name = self._clean_optional_text(moon_phase_name)
         subframes = max(1, int(subframe_count))
         exposure = max(0.0, float(exposure_seconds))
         with self.connection() as connection:
@@ -448,10 +488,14 @@ class Database:
                     subframe_count,
                     exposure_seconds,
                     captured_on,
+                    moon_age,
+                    moon_illumination,
+                    moon_phase_name,
+                    moon_waxing,
                     created_at,
                     updated_at
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     note_id,
@@ -462,6 +506,10 @@ class Database:
                     subframes,
                     exposure,
                     normalized_captured_on,
+                    float(moon_age) if moon_age is not None else None,
+                    float(moon_illumination) if moon_illumination is not None else None,
+                    normalized_phase_name,
+                    1 if moon_waxing else 0 if moon_waxing is not None else None,
                     self._utc_now(),
                     self._utc_now(),
                 ),
@@ -478,6 +526,10 @@ class Database:
         filter_brand: Optional[str] = None,
         filter_model: Optional[str] = None,
         captured_on: Optional[str] = None,
+        moon_age: Optional[float] = None,
+        moon_illumination: Optional[float] = None,
+        moon_phase_name: Optional[str] = None,
+        moon_waxing: Optional[bool] = None,
     ) -> None:
         updates: List[str] = []
         values: List[object] = []
@@ -504,6 +556,18 @@ class Database:
         if captured_on is not None:
             updates.append("captured_on = ?")
             values.append(self._clean_optional_text(captured_on))
+        if moon_age is not None:
+            updates.append("moon_age = ?")
+            values.append(float(moon_age))
+        if moon_illumination is not None:
+            updates.append("moon_illumination = ?")
+            values.append(float(moon_illumination))
+        if moon_phase_name is not None:
+            updates.append("moon_phase_name = ?")
+            values.append(self._clean_optional_text(moon_phase_name))
+        if moon_waxing is not None:
+            updates.append("moon_waxing = ?")
+            values.append(1 if moon_waxing else 0)
 
         if not updates:
             return
@@ -565,10 +629,14 @@ class Database:
                         subframe_count,
                         exposure_seconds,
                         captured_on,
+                        moon_age,
+                        moon_illumination,
+                        moon_phase_name,
+                        moon_waxing,
                         created_at,
                         updated_at
                     )
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         note_id,
@@ -579,6 +647,10 @@ class Database:
                         subframe_count,
                         exposure_seconds,
                         self._clean_optional_text(item.get("captured_on")),
+                        float(item.get("moon_age")) if item.get("moon_age") is not None else None,
+                        float(item.get("moon_illumination")) if item.get("moon_illumination") is not None else None,
+                        self._clean_optional_text(item.get("moon_phase_name")),
+                        1 if bool(item.get("moon_waxing")) else 0 if item.get("moon_waxing") is not None else None,
                         self._utc_now(),
                         self._utc_now(),
                     ),

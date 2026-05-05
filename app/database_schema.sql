@@ -15,6 +15,9 @@ VALUES (2, 'Add image capture blocks (location, integrations, imaging and guidin
 INSERT OR IGNORE INTO schema_migrations (version, description)
 VALUES (3, 'Add reusable imaging setups table');
 
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (4, 'Add moon phase fields to filter integrations');
+
 CREATE TABLE IF NOT EXISTS app_settings (
     setting_key TEXT PRIMARY KEY,
     value_json TEXT NOT NULL,
@@ -74,6 +77,10 @@ CREATE TABLE IF NOT EXISTS image_filter_integrations (
     subframe_count INTEGER NOT NULL DEFAULT 1 CHECK (subframe_count >= 1),
     exposure_seconds REAL NOT NULL CHECK (exposure_seconds >= 0),
     captured_on TEXT,
+    moon_age REAL,
+    moon_illumination REAL,
+    moon_phase_name TEXT,
+    moon_waxing INTEGER CHECK (moon_waxing IN (0, 1)),
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (note_id) REFERENCES image_notes (note_id) ON DELETE CASCADE

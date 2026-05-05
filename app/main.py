@@ -1544,6 +1544,28 @@ def _question_box(
 
 
 class ImagingInfoDialog(QtWidgets.QDialog):
+    _MOON_PHASE_KEYS = [
+        "imaging.moon.phase_new_moon",
+        "imaging.moon.phase_waxing_crescent",
+        "imaging.moon.phase_first_quarter",
+        "imaging.moon.phase_waxing_gibbous",
+        "imaging.moon.phase_full_moon",
+        "imaging.moon.phase_waning_gibbous",
+        "imaging.moon.phase_last_quarter",
+        "imaging.moon.phase_waning_crescent",
+    ]
+
+    _MOON_PHASE_EMOJI = {
+        "imaging.moon.phase_new_moon": "\U0001F311",
+        "imaging.moon.phase_waxing_crescent": "\U0001F312",
+        "imaging.moon.phase_first_quarter": "\U0001F313",
+        "imaging.moon.phase_waxing_gibbous": "\U0001F314",
+        "imaging.moon.phase_full_moon": "\U0001F315",
+        "imaging.moon.phase_waning_gibbous": "\U0001F316",
+        "imaging.moon.phase_last_quarter": "\U0001F317",
+        "imaging.moon.phase_waning_crescent": "\U0001F318",
+    }
+
     def __init__(self, parent: Optional[QtWidgets.QWidget] = None, setups: Optional[List[Dict[str, str]]] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("imaging.dialog_title"))
@@ -1578,7 +1600,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
 
         integrations_group = QtWidgets.QGroupBox(tr("imaging.integration_data"))
         integrations_layout = QtWidgets.QVBoxLayout(integrations_group)
-        self.integrations_table = QtWidgets.QTableWidget(0, 7)
+        self.integrations_table = QtWidgets.QTableWidget(0, 8)
         self.integrations_table.setHorizontalHeaderLabels(
             [
                 tr("imaging.col_filter"),
@@ -1588,15 +1610,18 @@ class ImagingInfoDialog(QtWidgets.QDialog):
                 tr("imaging.col_frames"),
                 tr("imaging.col_exposure"),
                 tr("imaging.col_capture_date"),
+                tr("imaging.col_moon"),
             ]
         )
         self.integrations_table.verticalHeader().setVisible(False)
         self.integrations_table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
         self.integrations_table.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
-        self.integrations_table.horizontalHeader().setStretchLastSection(True)
+        self.integrations_table.horizontalHeader().setStretchLastSection(False)
         self.integrations_table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.integrations_table.verticalHeader().setDefaultSectionSize(30)
         self.integrations_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+        self.integrations_table.setColumnWidth(6, 120)
+        self.integrations_table.setColumnWidth(7, 64)
         self._update_integrations_table_height()
         integrations_layout.addWidget(self.integrations_table)
 
@@ -1699,9 +1724,223 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         edit.setDisplayFormat("yyyy-MM-dd")
         edit.setMinimumDate(QtCore.QDate(1900, 1, 1))
         edit.setSpecialValueText("—")  # displayed when date == minimumDate (1900-01-01)
-        parsed = QtCore.QDate.fromString(date_str, "yyyy-MM-dd") if date_str else QtCore.QDate()
-        edit.setDate(parsed if parsed.isValid() else QtCore.QDate.currentDate())
+
+        parsed = QtCore.QDate()
+        raw_date = (date_str or "").strip()
+        if raw_date:
+            for date_format in ("yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy", "dd-MM-yyyy"):
+                parsed = QtCore.QDate.fromString(raw_date, date_format)
+                if parsed.isValid():
+                    break
+            if not parsed.isValid():
+                parsed = QtCore.QDate.fromString(raw_date, QtCore.Qt.DateFormat.ISODate)
+
+        if parsed.isValid():
+            edit.setDate(parsed)
+        elif raw_date:
+            # Keep invalid persisted dates visibly empty instead of silently using today.
+            edit.setDate(edit.minimumDate())
+        else:
+            edit.setDate(QtCore.QDate.currentDate())
         return edit
+
+    def _compute_moon_phase(self, date_value: QtCore.QDate) -> Optional[Dict[str, object]]:
+        if not date_value.isValid() or date_value == QtCore.QDate(1900, 1, 1):
+            return None
+
+        year = int(date_value.year())
+        month = int(date_value.month())
+        day = float(date_value.day()) + 0.5
+
+        if month < 3:
+            year -= 1
+            month += 12
+
+        a = math.floor(year / 100)
+        b = 2 - a + math.floor(a / 4)
+        jd = math.floor(365.25 * (year + 4716)) + math.floor(30.6001 * (month + 1)) + day + b - 1524.5
+
+        synodic_cycle = 29.53058867
+        t = (jd - 2451550.1) / synodic_cycle
+        t -= math.floor(t)
+        age = t * synodic_cycle
+        illumination = (1 - math.cos(2 * math.pi * t)) / 2
+        # Center bins around canonical phases instead of flooring at bin start.
+        index = int(((age / synodic_cycle) * 8) + 0.5) % 8
+        waxing = age < 14.765
+
+        return {
+            "moon_age": age,
+            "moon_illumination": illumination,
+            "moon_phase_name": self._MOON_PHASE_KEYS[index],
+            "moon_waxing": waxing,
+        }
+
+    def _moon_phase_pixmap(
+        self,
+        phase_key: str,
+        illumination: Optional[float] = None,
+        waxing: Optional[bool] = None,
+        size: int = 18,
+    ) -> str:
+        """Return the Unicode emoji character for the given moon phase key."""
+        return self._MOON_PHASE_EMOJI.get(phase_key, "\U0001F311")
+
+    def _moon_phase_pixmap_UNUSED(
+        self,
+        phase_key: str,
+        illumination: Optional[float] = None,
+        waxing: Optional[bool] = None,
+        size: int = 18,
+    ) -> QtGui.QPixmap:
+        dark_color = QtGui.QColor("#6F6D80")
+        light_color = QtGui.QColor("#FFF0BD")
+
+        pixmap = QtGui.QPixmap(size, size)
+        pixmap.fill(QtCore.Qt.GlobalColor.transparent)
+
+        painter = QtGui.QPainter(pixmap)
+        painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing, True)
+
+        pad = 1.2
+        rect = QtCore.QRectF(pad, pad, size - (2 * pad), size - (2 * pad))
+        moon_path = QtGui.QPainterPath()
+        moon_path.addEllipse(rect)
+
+        # Subtle halo improves readability against mixed UI backgrounds.
+        halo = QtGui.QRadialGradient(rect.center(), rect.width() * 0.64)
+        halo.setColorAt(0.78, QtGui.QColor(light_color.red(), light_color.green(), light_color.blue(), 0))
+        halo.setColorAt(1.0, QtGui.QColor(light_color.red(), light_color.green(), light_color.blue(), 36))
+        painter.setPen(QtCore.Qt.PenStyle.NoPen)
+        painter.setBrush(QtGui.QBrush(halo))
+        painter.drawEllipse(rect.adjusted(-0.8, -0.8, 0.8, 0.8))
+
+        # Dark side base with a gentle radial falloff.
+        base_grad = QtGui.QRadialGradient(rect.center() + QtCore.QPointF(-rect.width() * 0.12, -rect.height() * 0.08), rect.width() * 0.7)
+        base_grad.setColorAt(0.0, dark_color)
+        base_grad.setColorAt(1.0, dark_color)
+        painter.setBrush(QtGui.QBrush(base_grad))
+        painter.drawPath(moon_path)
+
+        side, ratio = self._MOON_ICON_SHAPES.get(phase_key, ("none", 0.0))
+        if illumination is not None:
+            ratio = max(0.0, min(1.0, float(illumination)))
+            if ratio <= 0.01:
+                side = "none"
+            elif ratio >= 0.99:
+                side = "full"
+            else:
+                side = "right" if bool(waxing) else "left"
+        ratio = max(0.0, min(1.0, float(ratio)))
+        lit_grad = QtGui.QRadialGradient(rect.center() + QtCore.QPointF(-rect.width() * 0.18, -rect.height() * 0.2), rect.width() * 0.9)
+        lit_grad.setColorAt(0.0, light_color)
+        lit_grad.setColorAt(0.7, light_color)
+        lit_grad.setColorAt(1.0, light_color)
+
+        if side == "full":
+            painter.save()
+            painter.setClipPath(moon_path)
+            painter.setBrush(QtGui.QBrush(lit_grad))
+            painter.drawEllipse(rect)
+            painter.restore()
+        elif side in {"left", "right"} and ratio > 0.0:
+            painter.save()
+            painter.setClipPath(moon_path)
+            if abs(ratio - 0.5) <= 0.04:
+                # True quarter moon: clean half disk.
+                if side == "right":
+                    lit_clip = QtCore.QRectF(rect.center().x(), rect.top(), rect.width() * 0.5, rect.height())
+                else:
+                    lit_clip = QtCore.QRectF(rect.left(), rect.top(), rect.width() * 0.5, rect.height())
+                painter.setClipRect(lit_clip, QtCore.Qt.ClipOperation.IntersectClip)
+                painter.setBrush(QtGui.QBrush(lit_grad))
+                painter.drawEllipse(rect)
+            elif ratio < 0.5:
+                # Crescent to quarter: draw a compressed lit ellipse near the bright edge.
+                lit_factor = max(0.08, ratio * 0.92)
+                lit_width = rect.width() * lit_factor
+                if side == "right":
+                    lit_rect = QtCore.QRectF(rect.right() - lit_width, rect.top(), lit_width, rect.height())
+                else:
+                    lit_rect = QtCore.QRectF(rect.left(), rect.top(), lit_width, rect.height())
+                painter.setBrush(QtGui.QBrush(lit_grad))
+                painter.drawEllipse(lit_rect)
+            else:
+                # Gibbous: start full lit, then carve the shadow with a soft dark ellipse.
+                painter.setBrush(QtGui.QBrush(lit_grad))
+                painter.drawEllipse(rect)
+
+                shadow_factor = max(0.06, (1.0 - ratio))
+                shadow_width = rect.width() * shadow_factor
+                if side == "right":
+                    shadow_rect = QtCore.QRectF(rect.left(), rect.top(), shadow_width, rect.height())
+                else:
+                    shadow_rect = QtCore.QRectF(rect.right() - shadow_width, rect.top(), shadow_width, rect.height())
+                shadow_grad = QtGui.QRadialGradient(shadow_rect.center(), max(1.0, shadow_rect.width() * 0.9))
+                shadow_grad.setColorAt(0.0, dark_color)
+                shadow_grad.setColorAt(1.0, dark_color)
+                painter.setBrush(QtGui.QBrush(shadow_grad))
+                painter.drawEllipse(shadow_rect)
+            painter.restore()
+
+        painter.setPen(QtGui.QPen(QtGui.QColor("#8f8da0"), 1))
+        painter.setBrush(QtCore.Qt.BrushStyle.NoBrush)
+        painter.drawPath(moon_path)
+        painter.end()
+        return pixmap
+
+    def _update_moon_widget_state(self, date_edit: QtWidgets.QDateEdit, icon_label: QtWidgets.QLabel) -> None:
+        if date_edit is None or icon_label is None:
+            return
+
+        date_value = date_edit.date()
+        moon_data = self._compute_moon_phase(date_value)
+        if moon_data is None:
+            icon_label.clear()
+            icon_label.setToolTip("")
+            date_edit.setProperty("moon_age", None)
+            date_edit.setProperty("moon_illumination", None)
+            date_edit.setProperty("moon_phase_name", None)
+            date_edit.setProperty("moon_waxing", None)
+            return
+
+        phase_key = str(moon_data["moon_phase_name"])
+        emoji = self._MOON_PHASE_EMOJI.get(phase_key, "\U0001F311")
+        icon_label.setText(emoji)
+        phase_label = tr(phase_key)
+        age_value = float(moon_data["moon_age"])
+        illumination_value = float(moon_data["moon_illumination"])
+        waxing_value = bool(moon_data["moon_waxing"])
+        icon_label.setToolTip(
+            tr(
+                "imaging.moon.tooltip",
+                phase=phase_label,
+                age=f"{age_value:.2f}",
+                illumination=f"{illumination_value * 100:.1f}%",
+                trend=tr("imaging.moon.waxing" if waxing_value else "imaging.moon.waning"),
+            )
+        )
+        date_edit.setProperty("moon_age", age_value)
+        date_edit.setProperty("moon_illumination", illumination_value)
+        date_edit.setProperty("moon_phase_name", phase_key)
+        date_edit.setProperty("moon_waxing", waxing_value)
+
+    def _make_moon_icon_widget(self) -> Tuple[QtWidgets.QWidget, QtWidgets.QLabel]:
+        container = QtWidgets.QWidget()
+        layout = QtWidgets.QHBoxLayout(container)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(0)
+
+        icon_label = QtWidgets.QLabel()
+        font = icon_label.font()
+        font.setPointSize(16)
+        icon_label.setFont(font)
+        icon_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+
+        layout.addStretch(1)
+        layout.addWidget(icon_label)
+        layout.addStretch(1)
+        return container, icon_label
 
     def _add_integration_row(self, row_data: Optional[Dict] = None) -> None:
         row = self.integrations_table.rowCount()
@@ -1727,7 +1966,12 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         self.integrations_table.setCellWidget(row, 3, line(str(defaults.get("filter_model") or "")))
         self.integrations_table.setCellWidget(row, 4, frames_spin)
         self.integrations_table.setCellWidget(row, 5, line(str(defaults.get("exposure_seconds") or "0")))
-        self.integrations_table.setCellWidget(row, 6, self._make_date_edit(str(defaults.get("captured_on") or "")))
+        date_edit = self._make_date_edit(str(defaults.get("captured_on") or ""))
+        moon_icon_widget, moon_icon = self._make_moon_icon_widget()
+        date_edit.dateChanged.connect(lambda _qdate, d=date_edit, i=moon_icon: self._update_moon_widget_state(d, i))
+        self._update_moon_widget_state(date_edit, moon_icon)
+        self.integrations_table.setCellWidget(row, 6, date_edit)
+        self.integrations_table.setCellWidget(row, 7, moon_icon_widget)
         self._update_integrations_table_height()
 
     def _get_row_data(self, row: int) -> Dict:
@@ -1738,12 +1982,24 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         frames_w = self.integrations_table.cellWidget(row, 4)
         frames = frames_w.value() if isinstance(frames_w, QtWidgets.QSpinBox) else 1
 
-        date_w = self.integrations_table.cellWidget(row, 6)
-        if isinstance(date_w, QtWidgets.QDateEdit):
-            d = date_w.date()
-            date_str = d.toString("yyyy-MM-dd") if d != date_w.minimumDate() else None
+        date_widget = self.integrations_table.cellWidget(row, 6)
+        date_edit = date_widget if isinstance(date_widget, QtWidgets.QDateEdit) else None
+
+        if isinstance(date_edit, QtWidgets.QDateEdit):
+            d = date_edit.date()
+            date_str = d.toString("yyyy-MM-dd") if d != date_edit.minimumDate() else None
         else:
             date_str = None
+
+        moon_age = None
+        moon_illumination = None
+        moon_phase_name = None
+        moon_waxing = None
+        if isinstance(date_edit, QtWidgets.QDateEdit):
+            moon_age = date_edit.property("moon_age")
+            moon_illumination = date_edit.property("moon_illumination")
+            moon_phase_name = date_edit.property("moon_phase_name")
+            moon_waxing = date_edit.property("moon_waxing")
 
         return {
             "filter_name": wtext(0) or None,
@@ -1753,6 +2009,10 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             "subframe_count": frames,
             "exposure_seconds": self._parse_float(wtext(5), default=0.0),
             "captured_on": date_str,
+            "moon_age": float(moon_age) if moon_age is not None else None,
+            "moon_illumination": float(moon_illumination) if moon_illumination is not None else None,
+            "moon_phase_name": str(moon_phase_name) if moon_phase_name else None,
+            "moon_waxing": bool(moon_waxing) if moon_waxing is not None else None,
         }
 
     def _remove_selected_integration_row(self) -> None:
@@ -1960,6 +2220,10 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             subframe_count = data["subframe_count"] or 0
             exposure_seconds = data["exposure_seconds"] or 0.0
             captured_on = data["captured_on"] or ""
+            moon_age = data["moon_age"]
+            moon_illumination = data["moon_illumination"]
+            moon_phase_name = data["moon_phase_name"]
+            moon_waxing = data["moon_waxing"]
             if not any([filter_name, bandpass_value is not None, filter_brand, filter_model, captured_on, subframe_count > 0, exposure_seconds > 0]):
                 continue
             integrations.append(
@@ -1971,6 +2235,10 @@ class ImagingInfoDialog(QtWidgets.QDialog):
                     "subframe_count": max(1, subframe_count),
                     "exposure_seconds": max(0.0, exposure_seconds),
                     "captured_on": captured_on or None,
+                    "moon_age": moon_age,
+                    "moon_illumination": moon_illumination,
+                    "moon_phase_name": moon_phase_name,
+                    "moon_waxing": moon_waxing,
                 }
             )
 
