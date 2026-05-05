@@ -2,6 +2,9 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.6.1] - 2026-05-05
+### Added
+- **UI:** Moon phase calculation when entering date on filter line
 
 ## [1.6.0] - 2026-05-03
 First stable release (leaving beta)

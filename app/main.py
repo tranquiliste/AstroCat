@@ -1750,7 +1750,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
 
         year = int(date_value.year())
         month = int(date_value.month())
-        day = float(date_value.day()) + 0.5
+        day = float(date_value.day())
 
         if month < 3:
             year -= 1
