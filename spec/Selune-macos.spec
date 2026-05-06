@@ -1,26 +1,22 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 from pathlib import Path
-from PyInstaller.utils.hooks import collect_all
 
 block_cipher = None
 project_root = Path.cwd()
 
-pyside6_datas, pyside6_binaries, pyside6_hidden = collect_all("PySide6")
-tiff_datas, tiff_binaries, tiff_hidden = collect_all("tifffile")
-
 a = Analysis(
     [str(project_root / "app" / "main.py")],
     pathex=[str(project_root)],
-    binaries=pyside6_binaries + tiff_binaries,
+    binaries=[],
     datas=[
         (str(project_root / "data"), "data"),
         (str(project_root / "assets" / "images"), "assets/images"),
         (str(project_root / "app" / "locales"), "app/locales"),
         (str(project_root / "app" / "database_schema.sql"), "."),
         (str(project_root / "scripts" / "migrate_user_notes.py"), "scripts"),
-    ] + pyside6_datas + tiff_datas,
-    hiddenimports=pyside6_hidden + tiff_hidden,
+    ],
+    hiddenimports=[],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -36,13 +32,13 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name="AstroCat",
+    name="Selune",
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
     console=False,
-    icon=str(project_root / "build_assets" / "Astrocat_icon.ico"),
+    icon=str(project_root / "build_assets" / "Astrocat_icon.icns"),
 )
 
 coll = COLLECT(
@@ -52,5 +48,12 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name="AstroCat",
+    name="Selune",
+)
+
+app = BUNDLE(
+    coll,
+    name="Selune.app",
+    icon=str(project_root / "build_assets" / "Astrocat_icon.icns"),
+    bundle_identifier=None,
 )

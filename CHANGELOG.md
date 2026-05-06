@@ -16,7 +16,7 @@ First stable release (leaving beta)
 ## [1.5.0-beta] - 2026-05-01
 
 ### Added
-- **Database:** Introduced a SQLite persistence layer (`astrocat.db`) replacing the previous JSON-based storage for settings, notes, and thumbnails.
+- **Database:** Introduced a SQLite persistence layer (`selune.db`) replacing the previous JSON-based storage for settings, notes, and thumbnails.
 - **Database:** New schema file `database_schema.sql` with versioned migrations (v1 → v3).
 - **Database:** Automatic migration of legacy `photo_notes.json` entries into the database at startup.
 - **Database:** New tables for imaging metadata: `image_capture_details`, `image_filter_integrations`, `image_imaging_equipment`, `image_guiding_equipment`.
@@ -101,10 +101,10 @@ First stable release (leaving beta)
 
 ### Changed
 - Image notes are now stored in `photo_notes.json`
-- Welcome dialog content updated for AstroCat fork context
+- Welcome dialog content updated for Selune fork context
 
 ### Fixed
-- Migration destination path alignment with AstroCat config location
+- Migration destination path alignment with Selune config location
 - Duplicate migration behavior for image notes (existing notes are ignored)
 - Migration ignored-note counters in summary output
 - Migration summary readability on dark themes

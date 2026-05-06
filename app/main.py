@@ -94,9 +94,9 @@ if TYPE_CHECKING:
     import numpy as np
 
 
-APP_NAME = "AstroCat"
-ORG_NAME = "AstroCat"
-UPDATE_REPO = "tranquiliste/AstroCat"
+APP_NAME = "Selune"
+ORG_NAME = "Selune"
+UPDATE_REPO = "tranquiliste/Selune"
 SUPPORTERS_URL = f"https://raw.githubusercontent.com/{UPDATE_REPO}/main/data/supporters.json"
 APP_VERSION_FILE = "data/version.json"
 DATA_VERSION_FILE = "data/data_version.json"
@@ -464,7 +464,7 @@ class WikiThumbnailTask(QtCore.QRunnable):
                 "--retry-delay",
                 "1",
                 "-H",
-                "User-Agent: AstroCat/1.0",
+                "User-Agent: Selune/1.0",
                 url,
             ],
             check=True,
@@ -568,7 +568,7 @@ class MapTileFetchTask(QtCore.QRunnable):
                     try:
                         request = urllib.request.Request(
                             url,
-                            headers={"User-Agent": "AstroCat/1.0"},
+                            headers={"User-Agent": "Selune/1.0"},
                         )
                         with urllib.request.urlopen(request, timeout=6) as response:
                             tile_data = response.read()
@@ -5808,7 +5808,7 @@ class AboutDialog(QtWidgets.QDialog):
         self._data_version = data_version
 
         # ── titre & versions ──
-        title = QtWidgets.QLabel("AstroCat")
+        title = QtWidgets.QLabel("Selune")
         title.setObjectName("aboutTitle")
         self.app_version_label = QtWidgets.QLabel(tr("about.app_version", version=app_version))
         self.app_version_label.setObjectName("aboutVersion")
@@ -6092,7 +6092,7 @@ class UpdateCheckTask(QtCore.QRunnable):
                 "--retry-delay",
                 "1",
                 "-H",
-                "User-Agent: AstroCat/1.0",
+                "User-Agent: Selune/1.0",
                 url,
             ],
             check=True,
@@ -6278,6 +6278,29 @@ class DataVersionFetchTask(QtCore.QRunnable):
         return [self.url]
 
 
+def _migrate_from_astrocat(legacy_dir: Path, selune_dir: Path) -> None:
+    """Copy AstroCat data files to Selune config directory on first launch.
+
+    This allows existing AstroCat users to keep their database, settings,
+    and photo notes when running Selune for the first time.
+    """
+    import shutil
+
+    legacy_db = legacy_dir / "astrocat.db"
+    if not legacy_db.exists():
+        return
+
+    selune_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(legacy_db, selune_dir / "selune.db")
+
+    for filename in ("config.json", "photo_notes.json"):
+        src = legacy_dir / filename
+        if src.exists():
+            dst = selune_dir / filename
+            if not dst.exists():
+                shutil.copy2(src, dst)
+
+
 def main() -> None:
     global _qt_previous_message_handler
     _qt_previous_message_handler = QtCore.qInstallMessageHandler(_qt_message_filter)
@@ -6299,9 +6322,28 @@ def main() -> None:
         config_dir = Path(location)
     else:
         config_dir = PROJECT_ROOT
-    config_path = config_dir / "astrocat.db"
+    config_path = config_dir / "selune.db"
     photo_notes_path = config_dir / "photo_notes.json"
     db_path = database_path_from_config_path(config_path)
+
+    # First-launch fallback: migrate data from a previous AstroCat installation.
+    # We temporarily set the app/org name to "AstroCat" so Qt resolves the exact
+    # legacy config path, then restore Selune's identity.
+    if not (config_dir / "selune.db").exists():
+        try:
+            app.setApplicationName("AstroCat")
+            app.setOrganizationName("AstroCat")
+            legacy_location = QtCore.QStandardPaths.writableLocation(
+                QtCore.QStandardPaths.AppConfigLocation
+            )
+            app.setApplicationName(APP_NAME)
+            app.setOrganizationName(ORG_NAME)
+            if legacy_location:
+                _migrate_from_astrocat(Path(legacy_location), config_dir)
+        except Exception:
+            # Migration failure must never prevent startup.
+            app.setApplicationName(APP_NAME)
+            app.setOrganizationName(ORG_NAME)
 
     # Auto-import legacy photo notes only when target tables are empty.
     try:

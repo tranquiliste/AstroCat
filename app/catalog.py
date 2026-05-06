@@ -1,4 +1,5 @@
-﻿from __future__ import annotations
+# -*- coding: utf-8 -*-
+from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -569,7 +570,7 @@ def _load_user_image_notes(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None:
         return {}
     try:
-        db_path = notes_path.with_name("astrocat.db")
+        db_path = notes_path.with_name("selune.db")
         database = Database(db_path)
         return database.get_runtime_image_notes_map()
     except Exception:
@@ -580,7 +581,7 @@ def _load_user_object_notes(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None:
         return {}
     try:
-        db_path = notes_path.with_name("astrocat.db")
+        db_path = notes_path.with_name("selune.db")
         database = Database(db_path)
         return database.get_runtime_object_notes_map()
     except Exception:
@@ -591,7 +592,7 @@ def _load_user_thumbnails(notes_path: Optional[Path]) -> Dict[str, str]:
     if notes_path is None:
         return {}
     try:
-        db_path = notes_path.with_name("astrocat.db")
+        db_path = notes_path.with_name("selune.db")
         database = Database(db_path)
         return database.get_object_thumbnails_map()
     except Exception:
@@ -599,19 +600,19 @@ def _load_user_thumbnails(notes_path: Optional[Path]) -> Dict[str, str]:
 
 
 def _save_user_image_note(notes_path: Path, image_name: str, notes: str) -> None:
-    db_path = notes_path.with_name("astrocat.db")
+    db_path = notes_path.with_name("selune.db")
     database = Database(db_path)
     database.upsert_image_note(image_name, notes)
 
 
 def _save_user_object_note(notes_path: Path, catalog_name: str, object_id: str, notes: str) -> None:
-    db_path = notes_path.with_name("astrocat.db")
+    db_path = notes_path.with_name("selune.db")
     database = Database(db_path)
     database.upsert_object_note(catalog_name, object_id, notes)
 
 
 def _save_user_thumbnail(notes_path: Path, catalog_name: str, object_id: str, thumbnail_name: str) -> None:
-    db_path = notes_path.with_name("astrocat.db")
+    db_path = notes_path.with_name("selune.db")
     database = Database(db_path)
     database.upsert_object_thumbnail(catalog_name, object_id, thumbnail_name)
 
@@ -807,7 +808,7 @@ def _select_catalog_entries(catalog_data: Dict[str, Dict], catalog_name: str) ->
 
 
 def collect_object_types(items: Iterable[CatalogItem]) -> List[str]:
-    # Ordre d'affichage préférentiel pour les types connus
+    # Ordre d'affichage pr�f�rentiel pour les types connus
     _TYPE_ORDER = [
         "Galaxy",
         "Galaxy Cluster",
@@ -917,7 +918,7 @@ def _merge_default_config(loaded: Dict) -> Dict:
         c.get("name"): c for c in loaded.get("catalogs", []) if isinstance(c, dict)
     }
     catalogs = []
-    # Tous les catalogues définis dans DEFAULT_CONFIG sont toujours inclus
+    # Tous les catalogues d�finis dans DEFAULT_CONFIG sont toujours inclus
     for default_catalog in DEFAULT_CONFIG["catalogs"]:
         name = default_catalog.get("name")
         if name in existing_catalogs:
@@ -926,7 +927,7 @@ def _merge_default_config(loaded: Dict) -> Dict:
             catalogs.append(updated)
         else:
             catalogs.append(default_catalog.copy())
-    # Inclure les catalogues personnalisés absents des defaults
+    # Inclure les catalogues personnalis�s absents des defaults
     default_names = {c.get("name") for c in catalogs}
     for name, catalog in existing_catalogs.items():
         if name not in default_names:
@@ -1058,39 +1059,39 @@ def _extract_object_ids(stem: str) -> List[str]:
     ids: List[str] = []
     lower_stem = stem.lower()
 
-    # ── Système solaire ──────────────────────────────────────────────────────
+    # -- Syst�me solaire ------------------------------------------------------
     for object_id in SOLAR_OBJECTS:
         if any(_alias_matches(lower_stem, alias) for alias in _solar_aliases(object_id)):
             ids.append(object_id.upper())
 
-    # ── Messier / NGC / IC / Caldwell ────────────────────────────────────────
+    # -- Messier / NGC / IC / Caldwell ----------------------------------------
     pattern = re.compile(r"(NGC|IC|M|(?<!I)(?<!NG)C)[\s_-]*0*(\d{1,5})(?!\d)")
     for match in pattern.finditer(stem):
         prefix, number = match.groups()
         ids.append(f"{prefix}{int(number)}")
 
-    # ── Sharpless (Sh2) ──────────────────────────────────────────────────────
-    # Reconnaît : Sh2-155, Sh2155, Sh2_155, SH2-155, sh2155, ...
+    # -- Sharpless (Sh2) ------------------------------------------------------
+    # Reconna�t : Sh2-155, Sh2155, Sh2_155, SH2-155, sh2155, ...
     sh2_pattern = re.compile(r"(?<![A-Z0-9])SH2[\s_-]*0*(\d{1,3}[a-z]?)(?![A-Z0-9])",
                              re.IGNORECASE)
     for m in sh2_pattern.finditer(stem):
         ids.append(f"Sh2-{m.group(1)}")
 
-    # ── LDN (Lynds Dark Nebulae) ─────────────────────────────────────────────
-    # Reconnaît : LDN1630, LDN_1630, LDN 1630, ldn183, ...
+    # -- LDN (Lynds Dark Nebulae) ---------------------------------------------
+    # Reconna�t : LDN1630, LDN_1630, LDN 1630, ldn183, ...
     ldn_pattern = re.compile(r"(?<![A-Z0-9])LDN[\s_-]*0*(\d{1,4})(?!\d)",
                              re.IGNORECASE)
     for m in ldn_pattern.finditer(stem):
         ids.append(f"LDN {int(m.group(1))}")
 
-    # ── Barnard (B) ──────────────────────────────────────────────────────────
-    # Reconnaît : B33, B_33, B-33, B 33, b150, ...
-    # Préfixe seul ("B") trop court → on exige au moins 2 chiffres ou
-    # un séparateur explicite pour éviter les faux positifs.
+    # -- Barnard (B) ----------------------------------------------------------
+    # Reconna�t : B33, B_33, B-33, B 33, b150, ...
+    # Pr�fixe seul ("B") trop court ? on exige au moins 2 chiffres ou
+    # un s�parateur explicite pour �viter les faux positifs.
     barnard_pattern = re.compile(
         r"(?<![A-Z0-9])"
         r"B"
-        r"(?:[\s_-]+0*(\d{1,3})|0*(\d{2,3}))"  # séparateur OU 2-3 chiffres directs
+        r"(?:[\s_-]+0*(\d{1,3})|0*(\d{2,3}))"  # s�parateur OU 2-3 chiffres directs
         r"(?![A-Z0-9])",
         re.IGNORECASE,
     )
@@ -1098,24 +1099,24 @@ def _extract_object_ids(stem: str) -> List[str]:
         num = m.group(1) or m.group(2)
         ids.append(f"B {int(num)}")
 
-    # ── VdB (van den Bergh) ──────────────────────────────────────────────────
-    # Reconnaît : VdB139, VDB139, VDB_139, vdb 139, ...
+    # -- VdB (van den Bergh) --------------------------------------------------
+    # Reconna�t : VdB139, VDB139, VDB_139, vdb 139, ...
     vdb_pattern = re.compile(r"(?<![A-Z0-9])VDB[\s_-]*0*(\d{1,3})(?!\d)",
                              re.IGNORECASE)
     for m in vdb_pattern.finditer(stem):
         ids.append(f"VdB {int(m.group(1))}")
 
-    # ── LBN (Lynds Bright Nebulae) ───────────────────────────────────────────
-    # Reconnaît : LBN667, LBN_667, LBN 667, lbn667a, ...
+    # -- LBN (Lynds Bright Nebulae) -------------------------------------------
+    # Reconna�t : LBN667, LBN_667, LBN 667, lbn667a, ...
     lbn_pattern = re.compile(r"(?<![A-Z0-9])LBN[\s_-]*0*(\d{1,4}[a-z]?)(?![A-Z0-9])",
                              re.IGNORECASE)
     for m in lbn_pattern.finditer(stem):
         ids.append(f"LBN {m.group(1)}")
 
-    # ── PNG (Strasbourg-ESO PN catalogue) ────────────────────────────────────
-    # IDs très complexes (ex. PNG 59.0-13.9) — on tente une correspondance
+    # -- PNG (Strasbourg-ESO PN catalogue) ------------------------------------
+    # IDs tr�s complexes (ex. PNG 59.0-13.9) � on tente une correspondance
     # souple sur le motif PNG suivi de chiffres/points/signes.
-    # Reconnaît : PNG59.0-13.9, PNG_59.0+13.9, PNG590-139, ...
+    # Reconna�t : PNG59.0-13.9, PNG_59.0+13.9, PNG590-139, ...
     png_pattern = re.compile(
         r"(?<![A-Z0-9])PNG[\s_-]*([\d]+\.?\d*[+\-][\d]+\.?\d*)(?![A-Z0-9])",
         re.IGNORECASE,

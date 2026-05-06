@@ -1,6 +1,6 @@
-﻿# AstroCat
+﻿# Selune
 
-AstroCat is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It provides a fast image grid, filters, rich object metadata, and notes to help plan captures and track progress.
+Selune is a desktop app for organizing and browsing deep-sky catalog images (Messier, NGC, Caldwell, Solar system, and more). It provides a fast image grid, filters, rich object metadata, and notes to help plan captures and track progress.
 
 This project is an independent fork of AstroCatalogueViewer.
 
@@ -29,7 +29,7 @@ Release history: [CHANGELOG.md](CHANGELOG.md)
 - Optional catalog-specific image folders
 - Offline-safe location picker (browser-based map)
 
-## What AstroCat adds
+## What Selune adds
 - New catalogs (including LBN, Sh2, VdB, and others)
 - Built-in migration path from AstroCatalogueViewer notes
 - i18n for catalogs (translations in de,es,fr,it in progress)
@@ -46,12 +46,12 @@ python3 app/main.py
 ```
 
 ## Screenshots
-![Main Catalogue](assets/screenshots/AstroCat_main_catalog.png)
-![Bottom Strip hidden](assets/screenshots/AstroCat_bottom_strip_hidden.png)
-![Pic only](assets/screenshots/AstroCat_pic_only.png)
-![Help](assets/screenshots/AstroCat_help.png)
-![Catalogue settings](assets/screenshots/AstroCat_settings.png)
-![Pic detailed info](assets/screenshots/AstroCat_pic_info.png)
+![Main Catalogue](assets/screenshots/Selune_main_catalog.png)
+![Bottom Strip hidden](assets/screenshots/Selune_bottom_strip_hidden.png)
+![Pic only](assets/screenshots/Selune_pic_only.png)
+![Help](assets/screenshots/Selune_help.png)
+![Catalogue settings](assets/screenshots/Selune_settings.png)
+![Pic detailed info](assets/screenshots/Selune_pic_info.png)
 ![Location selection map](assets/screenshots/screenshot-06.png)
 
 ## Requirements
@@ -73,8 +73,8 @@ python3 -m pip install -r requirements.txt
 ```
 
 The packaged app will be in `dist/`. GitHub releases include separate macOS builds:
-- Apple Silicon: `AstroCat-macOS-AppleSilicon.zip`
-- Intel: `AstroCat-macOS-Intel.zip`
+- Apple Silicon: `Selune-macOS-AppleSilicon.zip`
+- Intel: `Selune-macOS-Intel.zip`
 
 ## Windows Build
 Clone this repo on Windows and run one of the build scripts (requires Python 3.10+):
@@ -110,16 +110,16 @@ python3 -m pip install -r requirements.txt
 The packaged app will be in `dist/`.
 
 ## Migration from AstroCatalogueViewer
-AstroCat can migrate notes from a previous AstroCatalogueViewer installation from the Settings screen.
+Selune can migrate notes from a previous AstroCatalogueViewer installation from the Settings screen.
 
 Compatibility note:
 - Migration behavior has been tested against AstroCatalogueViewer `v3.0-beta`
 - Compatibility with earlier, different, or future AstroCatalogueViewer versions is not guaranteed
-- If upstream changes the notes structure, migration may require updates in AstroCat
+- If upstream changes the notes structure, migration may require updates in Selune
 
 What is migrated:
 - Object notes from `*_catalog.json`
-- Image notes to `photo_notes.json` (AstroCat format)
+- Image notes to `photo_notes.json` (Selune format)
 
 Behavior:
 - Existing destination notes are preserved
@@ -158,16 +158,16 @@ Notes you add in the app are saved in the photo_notes.json in the setting folder
 Messier metadata is complete and includes expanded descriptions with astrophotography guidance. The NGC, IC, and Caldwell metadata sets are in progress.
 
 ### Localization
-AstroCat UI localization uses JSON resources stored in `app/locales/<lang>.json`.
+Selune UI localization uses JSON resources stored in `app/locales/<lang>.json`.
 
 Configuration keys:
 - `ui_locale`: interface language (`system`, `en`, `fr`, ...)
 
 ### Resetting saved settings
 If the app has a bad image path or filter state saved, delete the config file:
-- macOS: `~/Library/Application Support/AstroCat/config.json`
-- Windows: `%APPDATA%\AstroCat\config.json`
-- Linux: `~/.config/AstroCat/config.json`
+- macOS: `~/Library/Application Support/Selune/config.json`
+- Windows: `%APPDATA%\Selune\config.json`
+- Linux: `~/.config/Selune/config.json`
 
 ## Known limitations
 - Status is beta: behavior and file formats may still evolve
@@ -176,7 +176,7 @@ If the app has a bad image path or filter state saved, delete the config file:
 
 ## Credits
 - Original project: AstroCatalogueViewer by Paul Spinelli
-- AstroCat fork and maintenance: Nicolas Aguttes
+- Selune fork and maintenance: Nicolas Aguttes
 - Additional catalogs and contributions: denis2704
 
 ## Support

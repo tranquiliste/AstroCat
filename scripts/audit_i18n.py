@@ -88,7 +88,7 @@ def find_hardcoded_candidates(main_file: Path) -> list[tuple[int, str]]:
             continue
         if ".join(" in line:
             continue
-        if '"AstroCat"' in line:
+        if '"Selune"' in line:
             continue
         if HARDCODED_UI_RE.search(line):
             results.append((line_number, line))

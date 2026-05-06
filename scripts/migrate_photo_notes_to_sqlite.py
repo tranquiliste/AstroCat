@@ -33,7 +33,7 @@ def main() -> int:
         "--database",
         type=Path,
         default=None,
-        help="Optional database path. Defaults to astrocat.db next to photo_notes.json",
+        help="Optional database path. Defaults to selune.db next to photo_notes.json",
     )
     parser.add_argument(
         "--force",

@@ -23,10 +23,10 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-linux.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-linux.spec
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: AstroCat-Linux
-          path: dist/AstroCat
+          name: Selune-Linux
+          path: dist/Selune

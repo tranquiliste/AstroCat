@@ -1,7 +1,7 @@
 param(
   [string]$Python = "python",
-  [string]$Name = "AstroCat",
-  [string]$ZipName = "AstroCat-Windows.zip"
+  [string]$Name = "Selune",
+  [string]$ZipName = "Selune-Windows.zip"
 )
 
 $ErrorActionPreference = "Stop"
@@ -9,7 +9,7 @@ $ErrorActionPreference = "Stop"
 & $Python -m pip install --upgrade pyinstaller
 & $Python -m pip install --upgrade -r requirements.txt
 
-& $Python -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
+& $Python -m PyInstaller --clean --noconfirm spec/Selune-windows.spec
 
 if (Test-Path $ZipName) { Remove-Item $ZipName }
 

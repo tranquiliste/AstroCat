@@ -10,7 +10,7 @@ from typing import Dict, Iterable, Iterator, List, Optional
 
 
 def database_path_from_config_path(config_path: Path) -> Path:
-    return config_path.with_name("astrocat.db")
+    return config_path.with_name("selune.db")
 
 
 class Database:

@@ -23,19 +23,19 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/AstroCat.app" \
-            "AstroCat-macOS-AppleSilicon.zip"
+            "dist/Selune.app" \
+            "Selune-macOS-AppleSilicon.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: AstroCat-macOS-AppleSilicon
-          path: AstroCat-macOS-AppleSilicon.zip
+          name: Selune-macOS-AppleSilicon
+          path: Selune-macOS-AppleSilicon.zip
 
   build-macos-intel:
     runs-on: macos-15-intel
@@ -56,16 +56,16 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/AstroCat.app" \
-            "AstroCat-macOS-Intel.zip"
+            "dist/Selune.app" \
+            "Selune-macOS-Intel.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: AstroCat-macOS-Intel
-          path: AstroCat-macOS-Intel.zip
+          name: Selune-macOS-Intel
+          path: Selune-macOS-Intel.zip

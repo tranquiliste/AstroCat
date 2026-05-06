@@ -4,7 +4,7 @@ One-shot migration script to migrate user notes from the old format
 to the new separated format.
 
 Can migrate from:
-- Old app bundle (AstroCat.app or AstroCatlogViewer.app)
+- Old app bundle (Selune.app or SelunelogViewer.app)
 - Existing user metadata files
 
 Old format: notes and image_notes in *_metadata.json files.
@@ -22,14 +22,14 @@ from typing import Dict, List, Optional, Tuple
 
 
 def _new_metadata_dir_from_old(old_metadata_dir: Path) -> Path:
-    """Derive the new AstroCat metadata directory from the old AstroCatalogueViewer location."""
+    """Derive the new Selune metadata directory from the old AstroCatalogueViewer location."""
     parts = old_metadata_dir.parts
     try:
         # Find the "AstroCatalogueViewer" directory in the path
         idx = parts.index("AstroCatalogueViewer")
-        # Replace with "AstroCat" and add "AstroCat/metadata"
+        # Replace with "Selune" and add "Selune/metadata"
         base_parts = parts[:idx]
-        new_parts = base_parts + ("AstroCat", "AstroCat", "metadata")
+        new_parts = base_parts + ("Selune", "Selune", "metadata")
         return Path(*new_parts)
     except ValueError:
         # If "AstroCatalogueViewer" not found, fallback to default
@@ -39,13 +39,13 @@ def _new_metadata_dir_from_old(old_metadata_dir: Path) -> Path:
 def _default_metadata_dir() -> Path:
     home = Path.home()
     if sys.platform == "darwin":
-        return home / "Library" / "Preferences" / "AstroCat" / "AstroCat" / "metadata"
+        return home / "Library" / "Preferences" / "Selune" / "Selune" / "metadata"
     if sys.platform.startswith("win"):
         appdata = os.environ.get("APPDATA")
         if appdata:
-            return Path(appdata) / "AstroCat" / "AstroCat" / "metadata"
-        return home / "AppData" / "Roaming" / "AstroCat" / "AstroCat" / "metadata"
-    return home / ".config" / "AstroCat" / "AstroCat" / "metadata"
+            return Path(appdata) / "Selune" / "Selune" / "metadata"
+        return home / "AppData" / "Roaming" / "Selune" / "Selune" / "metadata"
+    return home / ".config" / "Selune" / "Selune" / "metadata"
 
 
 def _old_app_candidate_paths() -> List[Path]:
@@ -111,7 +111,7 @@ def _old_app_metadata_dir(candidates: Optional[List[Path]] = None) -> Optional[P
 def _user_notes_path(metadata_dir: Path) -> Path:
     """Path to the photo_notes.json file.
 
-    AstroCat stores photo_notes.json at the app config root, not inside the
+    Selune stores photo_notes.json at the app config root, not inside the
     metadata subdirectory. If metadata_dir points to .../metadata, return the
     parent directory.
     """
@@ -204,7 +204,7 @@ def migrate_from_user_metadata(metadata_dir: Path) -> Dict[Tuple[str, str], Dict
     # Legacy AstroCatalogueViewer source files are *_metadata.json.
     metadata_files = list(metadata_dir.glob("*_metadata.json"))
     if not metadata_files:
-        # Compatibility fallback for already-migrated AstroCat metadata.
+        # Compatibility fallback for already-migrated Selune metadata.
         metadata_files = list(metadata_dir.glob("*_catalog.json"))
     
     for metadata_path in metadata_files:
@@ -331,7 +331,7 @@ def apply_migration(notes: Dict[Tuple[str, str], Dict[str, object]], metadata_di
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Migrate user notes from old AstroCatalogueViewer to new AstroCat format.",
+        description="Migrate user notes from old AstroCatalogueViewer to new Selune format.",
     )
     parser.add_argument(
         "--old-app-dir",
@@ -341,7 +341,7 @@ def main() -> None:
     parser.add_argument(
         "--metadata-dir",
         default=None,
-        help="User metadata directory (default: standard AstroCat directory).",
+        help="User metadata directory (default: standard Selune directory).",
     )
     args = parser.parse_args()
 
@@ -388,7 +388,7 @@ def main() -> None:
         if not args.metadata_dir:
             metadata_dir = _new_metadata_dir_from_old(old_dir)
             metadata_dir.mkdir(parents=True, exist_ok=True)
-            log_file.write(f"New AstroCat metadata directory set to: {metadata_dir}\n")
+            log_file.write(f"New Selune metadata directory set to: {metadata_dir}\n")
             # Re-open log file in the correct location
             log_file.close()
             log_path, log_file = _open_log_file(metadata_dir)
@@ -398,7 +398,7 @@ def main() -> None:
                 log_file.write(f"  - {candidate} (exists={candidate.exists()}, metadata_exists={metadata_dir_candidate.exists()})\n")
             log_file.write("\n")
             log_file.write(f"Legacy metadata directory selected: {old_dir}\n")
-            log_file.write(f"New AstroCat metadata directory set to: {metadata_dir}\n")
+            log_file.write(f"New Selune metadata directory set to: {metadata_dir}\n")
         try:
             notes = migrate_from_app_bundle(old_dir)
         except SystemExit as e:

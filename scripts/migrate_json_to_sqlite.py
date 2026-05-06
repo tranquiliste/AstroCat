@@ -23,13 +23,13 @@ def _load_json(path: Path) -> dict:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Migrate AstroCat config.json into SQLite storage.")
+    parser = argparse.ArgumentParser(description="Migrate Selune config.json into SQLite storage.")
     parser.add_argument("config", type=Path, help="Path to the legacy config.json file")
     parser.add_argument(
         "--database",
         type=Path,
         default=None,
-        help="Optional explicit SQLite database path (defaults to astrocat.db next to config.json)",
+        help="Optional explicit SQLite database path (defaults to selune.db next to config.json)",
     )
     parser.add_argument(
         "--force",

@@ -50,12 +50,12 @@ jobs:
           EOF
           if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
             gh release edit "${RELEASE_TAG}" \
-              --title "AstroCat ${RELEASE_TAG}" \
+              --title "Selune ${RELEASE_TAG}" \
               --notes-file release-notes.txt \
               --prerelease
           else
             gh release create "${RELEASE_TAG}" \
-              --title "AstroCat ${RELEASE_TAG}" \
+              --title "Selune ${RELEASE_TAG}" \
               --notes-file release-notes.txt \
               --prerelease
           fi
@@ -80,16 +80,16 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-windows.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-windows.spec
 
       - name: Package
         run: |
-          Compress-Archive -Path "dist/AstroCat/*" -DestinationPath "AstroCat-Windows.zip"
+          Compress-Archive -Path "dist/Selune/*" -DestinationPath "Selune-Windows.zip"
 
       - name: Upload release asset
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${env:RELEASE_TAG}" "AstroCat-Windows.zip" --clobber
+        run: gh release upload "${env:RELEASE_TAG}" "Selune-Windows.zip" --clobber
 
   build-linux:
     runs-on: ubuntu-latest
@@ -111,17 +111,17 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-linux.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-linux.spec
 
       - name: Package
         run: |
           cd dist
-          zip -r ../AstroCat-Linux.zip "AstroCat"
+          zip -r ../Selune-Linux.zip "Selune"
 
       - name: Upload release asset
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${RELEASE_TAG}" "AstroCat-Linux.zip" --clobber
+        run: gh release upload "${RELEASE_TAG}" "Selune-Linux.zip" --clobber
 
   build-macos:
     runs-on: macos-latest
@@ -143,18 +143,18 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/AstroCat.app" \
-            "AstroCat-macOS-AppleSilicon.zip"
+            "dist/Selune.app" \
+            "Selune-macOS-AppleSilicon.zip"
 
       - name: Upload release asset
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${RELEASE_TAG}" "AstroCat-macOS-AppleSilicon.zip" --clobber
+        run: gh release upload "${RELEASE_TAG}" "Selune-macOS-AppleSilicon.zip" --clobber
 
   build-macos-intel:
     runs-on: macos-15-intel
@@ -176,15 +176,15 @@ jobs:
 
       - name: Build
         run: |
-          python -m PyInstaller --clean --noconfirm spec/AstroCat-macos.spec
+          python -m PyInstaller --clean --noconfirm spec/Selune-macos.spec
 
       - name: Package
         run: |
           ditto -c -k --sequesterRsrc --keepParent \
-            "dist/AstroCat.app" \
-            "AstroCat-macOS-Intel.zip"
+            "dist/Selune.app" \
+            "Selune-macOS-Intel.zip"
 
       - name: Upload release asset
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${RELEASE_TAG}" "AstroCat-macOS-Intel.zip" --clobber
+        run: gh release upload "${RELEASE_TAG}" "Selune-macOS-Intel.zip" --clobber

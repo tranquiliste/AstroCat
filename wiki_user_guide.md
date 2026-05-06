@@ -1,9 +1,9 @@
 # User Guide
 
-AstroCat is a desktop app for organizing and browsing astrophotography catalogs with your own images. It combines a fast thumbnail grid, filters, metadata, and notes so you can track capture progress and plan future targets.
+Selune is a desktop app for organizing and browsing astrophotography catalogs with your own images. It combines a fast thumbnail grid, filters, metadata, and notes so you can track capture progress and plan future targets.
 
 ## Install
-- Download the latest build from https://github.com/tranquiliste/AstroCat/releases.
+- Download the latest build from https://github.com/tranquiliste/Selune/releases.
 - Launch the app and allow file access when prompted by your OS.
 
 ## First Launch Setup
@@ -65,9 +65,9 @@ Notes are stored in the catalog metadata and stay with the object or image.
 
 ## Where Settings Are Saved
 Settings live in your OS config folder:
-- macOS: ~/Library/Application Support/AstroCat/config.json
-- Windows: %APPDATA%\\AstroCat\\config.json
-- Linux: ~/.config/AstroCat/config.json
+- macOS: ~/Library/Application Support/Selune/config.json
+- Windows: %APPDATA%\\Selune\\config.json
+- Linux: ~/.config/Selune/config.json
 
 ## Troubleshooting
 - Images not showing: confirm filenames include the correct object ID and the folder paths are set in Settings.
