@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.7.0] - 2026-05-06
+### Added
+- **New Name** Astrocat becomes Selune. 
+- Config is automatically get from previous AstroCat installation at first launch of Selune
+
+
+
 ## [1.6.1] - 2026-05-05
 ### Added
 - **UI:** Moon phase calculation when entering date on filter line

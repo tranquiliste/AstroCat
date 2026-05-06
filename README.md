@@ -12,7 +12,7 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 Status: stable
 
-Latest release: `1.6.1`
+Latest release: `1.7.0`
 
 Release history: [CHANGELOG.md](CHANGELOG.md)
 
@@ -35,7 +35,7 @@ Release history: [CHANGELOG.md](CHANGELOG.md)
 - i18n for catalogs (translations in de,es,fr,it in progress)
 - new UI with bottom strip photos
 - settings, notes are saved in a database (no more json)
-- adding detailed information to image (exposures, setup, ...)
+- adding detailed information to image (exposures, setup, moon phase ...)
 
 ## Quick start (dev)
 ```bash
