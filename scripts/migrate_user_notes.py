@@ -21,6 +21,14 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+APP_DIR = PROJECT_ROOT / "app"
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
+
+from database import Database, database_path_from_config_path  # noqa: E402
+
+
 def _new_metadata_dir_from_old(old_metadata_dir: Path) -> Path:
     """Derive the new Selune metadata directory from the old AstroCatalogueViewer location."""
     parts = old_metadata_dir.parts
@@ -120,6 +128,22 @@ def _user_notes_path(metadata_dir: Path) -> Path:
     return metadata_dir / "photo_notes.json"
 
 
+def _sqlite_db_path(metadata_dir: Path, explicit_db_path: Optional[Path]) -> Path:
+    if explicit_db_path is not None:
+        return explicit_db_path
+    if metadata_dir.name == "metadata":
+        config_dir = metadata_dir.parent
+    else:
+        config_dir = metadata_dir
+    return database_path_from_config_path(config_dir / "config.json")
+
+
+def _old_config_path(old_dir: Path) -> Path:
+    if old_dir.name == "metadata":
+        return old_dir.parent / "config.json"
+    return old_dir / "config.json"
+
+
 def _load_json(path: Path) -> Dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -128,6 +152,29 @@ def _save_json(path: Path, data: Dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as handle:
         json.dump(data, handle, indent=2, ensure_ascii=False)
+
+
+def _load_old_config_for_migration(old_dir: Path) -> Dict:
+    config_path = _old_config_path(old_dir)
+    if not config_path.exists():
+        return {}
+    try:
+        payload = _load_json(config_path)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _migrate_config_to_sqlite(db_path: Path, old_config: Dict) -> bool:
+    if not old_config:
+        return False
+    database = Database(db_path)
+    database.initialize()
+    database.import_config(old_config, overwrite=True)
+    # ui_state lives in app_settings but is managed outside save_config.
+    if "ui_state" in old_config:
+        database.set_setting("ui_state", old_config.get("ui_state"))
+    return True
 
 
 def _open_log_file(metadata_dir: Path) -> tuple[Path, object]:
@@ -220,17 +267,15 @@ def migrate_from_user_metadata(metadata_dir: Path) -> Dict[Tuple[str, str], Dict
     return all_notes
 
 
-def apply_migration(notes: Dict[Tuple[str, str], Dict[str, object]], metadata_dir: Path, log_file: object) -> tuple[int, int, int]:
-    """Apply the extracted notes to the new format. Returns (migrated_notes, ignored_notes, migrated_images)."""
-    notes_path = _user_notes_path(metadata_dir)
-    existing_notes: Dict[str, str] = {}
-    if notes_path.exists():
-        try:
-            existing_notes = _load_json(notes_path)
-        except (OSError, json.JSONDecodeError):
-            existing_notes = {}
-
-    photo_notes: Dict[str, str] = {}
+def apply_migration(
+    notes: Dict[Tuple[str, str], Dict[str, object]],
+    metadata_dir: Path,
+    log_file: object,
+    db_path: Path,
+) -> tuple[int, int, int, int]:
+    """Apply extracted notes into SQLite runtime tables."""
+    database = Database(db_path)
+    database.initialize()
     migrated_object_notes = 0
     ignored_object_notes = 0
     migrated_image_notes = 0
@@ -245,28 +290,22 @@ def apply_migration(notes: Dict[Tuple[str, str], Dict[str, object]], metadata_di
 
     # Process each catalog
     for catalog_name, objects in catalog_notes.items():
-        metadata_path = metadata_dir / f"{catalog_name}_catalog.json"
-        
-        # Load or create metadata file
-        if metadata_path.exists():
-            try:
-                data = _load_json(metadata_path)
-            except (OSError, json.JSONDecodeError):
-                data = {}
-        else:
-            data = {}
-        
-        catalog = data.setdefault(catalog_name, {})
-        modified = False
-        
         for object_id, entry_notes in objects.items():
-            entry = catalog.setdefault(object_id, {})
-            
-            # Handle object notes
+            # Handle object notes in SQLite sentinel rows.
             if "notes" in entry_notes:
-                if "notes" not in entry:  # Don't overwrite existing notes
-                    entry["notes"] = entry_notes["notes"]
-                    modified = True
+                object_image_id = f"__object__::{catalog_name}::{object_id}"
+                existing = database.get_note_by_image_id(object_image_id)
+                existing_text = ""
+                if existing is not None:
+                    existing_text = str(existing.get("description") or "").strip()
+                notes_value = str(entry_notes["notes"] or "").strip()
+                if notes_value and not existing_text:
+                    database.upsert_object_note(
+                        catalog_name,
+                        object_id,
+                        notes_value,
+                        legacy_source="AstroCatalogueViewer",
+                    )
                     migrated_object_notes += 1
                     log_entry = f"[MIGRATED] Object note: {catalog_name} {object_id}"
                     print(log_entry)
@@ -277,20 +316,28 @@ def apply_migration(notes: Dict[Tuple[str, str], Dict[str, object]], metadata_di
                     print(log_entry)
                     log_file.write(log_entry + "\n")
             
-            # Handle image notes - move to photo_notes.json
+            # Handle image notes directly in SQLite image_notes.
             if "image_notes" in entry_notes:
                 image_notes = entry_notes["image_notes"]
                 if isinstance(image_notes, dict):
                     for image_name, note in image_notes.items():
                         if isinstance(note, str) and note.strip():
-                            image_key = image_name
-                            if image_key in existing_notes or image_key in photo_notes:
+                            image_key = str(image_name).strip()
+                            existing = database.get_note_by_image_id(image_key)
+                            existing_text = ""
+                            if existing is not None:
+                                existing_text = str(existing.get("description") or "").strip()
+                            if existing_text:
                                 ignored_image_notes += 1
                                 log_entry = f"[IGNORED] Image note already exists: {image_key}"
                                 print(log_entry)
                                 log_file.write(log_entry + "\n")
                             else:
-                                photo_notes[image_key] = note.strip()
+                                database.upsert_image_note(
+                                    image_id=image_key,
+                                    description=note.strip(),
+                                    legacy_source="AstroCatalogueViewer",
+                                )
                                 migrated_image_notes += 1
                                 log_entry = f"[MIGRATED] Image note: {image_key}"
                                 print(log_entry)
@@ -298,33 +345,25 @@ def apply_migration(notes: Dict[Tuple[str, str], Dict[str, object]], metadata_di
                 elif isinstance(image_notes, str) and image_notes.strip():
                     # Use object_id as key if it's a string
                     image_key = str(object_id)
-                    if image_key in existing_notes or image_key in photo_notes:
+                    existing = database.get_note_by_image_id(image_key)
+                    existing_text = ""
+                    if existing is not None:
+                        existing_text = str(existing.get("description") or "").strip()
+                    if existing_text:
                         ignored_image_notes += 1
                         log_entry = f"[IGNORED] Image note already exists: {image_key}"
                         print(log_entry)
                         log_file.write(log_entry + "\n")
                     else:
-                        photo_notes[image_key] = image_notes.strip()
+                        database.upsert_image_note(
+                            image_id=image_key,
+                            description=image_notes.strip(),
+                            legacy_source="AstroCatalogueViewer",
+                        )
                         migrated_image_notes += 1
                         log_entry = f"[MIGRATED] Image note: {image_key}"
                         print(log_entry)
                         log_file.write(log_entry + "\n")
-
-                # Remove image_notes from metadata
-                if "image_notes" in entry:
-                    del entry["image_notes"]
-                    modified = True
-        
-        if modified:
-            _save_json(metadata_path, data)
-            print(f"  Updated {metadata_path.name}")
-
-    # Save photo_notes
-    if photo_notes:
-        notes_path = _user_notes_path(metadata_dir)
-        existing_notes.update(photo_notes)
-        _save_json(notes_path, existing_notes)
-        print(f"Migrated {migrated_image_notes} image notes to {notes_path}")
     
     return migrated_object_notes, ignored_object_notes, migrated_image_notes, ignored_image_notes
 
@@ -342,6 +381,11 @@ def main() -> None:
         "--metadata-dir",
         default=None,
         help="User metadata directory (default: standard Selune directory).",
+    )
+    parser.add_argument(
+        "--database",
+        default=None,
+        help="Path to target Selune SQLite database (default: selune.db next to metadata root).",
     )
     args = parser.parse_args()
 
@@ -399,6 +443,18 @@ def main() -> None:
             log_file.write("\n")
             log_file.write(f"Legacy metadata directory selected: {old_dir}\n")
             log_file.write(f"New Selune metadata directory set to: {metadata_dir}\n")
+
+        explicit_db_path = Path(args.database).expanduser() if args.database else None
+        db_path = _sqlite_db_path(metadata_dir, explicit_db_path)
+        old_config = _load_old_config_for_migration(old_dir)
+        config_imported = _migrate_config_to_sqlite(db_path, old_config)
+        if config_imported:
+            print(f"Config migrated to SQLite: {db_path}")
+            log_file.write(f"[MIGRATED] Config to SQLite: {db_path}\n")
+        else:
+            print("No legacy config.json found to migrate.")
+            log_file.write("[INFO] No legacy config.json found to migrate.\n")
+
         try:
             notes = migrate_from_app_bundle(old_dir)
         except SystemExit as e:
@@ -412,7 +468,12 @@ def main() -> None:
         print("STARTING MIGRATION")
         print("=" * 60)
         
-        migrated_obj, ignored_obj, migrated_img, ignored_img = apply_migration(notes, metadata_dir, log_file)
+        migrated_obj, ignored_obj, migrated_img, ignored_img = apply_migration(
+            notes,
+            metadata_dir,
+            log_file,
+            db_path,
+        )
         
         print("=" * 60)
         print("MIGRATION SUMMARY")
@@ -421,6 +482,8 @@ def main() -> None:
         print(f"Object notes ignored (already exist): {ignored_obj}")
         print(f"Image notes migrated: {migrated_img}")
         print(f"Image notes ignored (already exist): {ignored_img}")
+        print(f"SQLite database: {db_path}")
+        print(f"Legacy config migrated: {'yes' if config_imported else 'no'}")
         print(f"Total notes migrated: {migrated_obj + migrated_img}")
         print(f"Migration log saved to: {log_path}")
         print("=" * 60)
@@ -432,6 +495,8 @@ def main() -> None:
         log_file.write(f"Object notes ignored (already exist): {ignored_obj}\n")
         log_file.write(f"Image notes migrated: {migrated_img}\n")
         log_file.write(f"Image notes ignored (already exist): {ignored_img}\n")
+        log_file.write(f"SQLite database: {db_path}\n")
+        log_file.write(f"Legacy config migrated: {'yes' if config_imported else 'no'}\n")
         log_file.write(f"Total notes migrated: {migrated_obj + migrated_img}\n")
         log_file.write("=" * 60 + "\n")
         

@@ -3456,6 +3456,33 @@ class MainWindow(QtWidgets.QMainWindow):
                 border-radius: 10px;
                 padding: 8px 10px;
             }
+            QTabWidget::pane {
+                background: #222222;
+                border: 1px solid #3d3d3d;
+                border-radius: 10px;
+                top: -1px;
+            }
+            QTabBar::tab {
+                background: #2a2a2a;
+                color: #d8d8d8;
+                border: 1px solid #4a4a4a;
+                border-bottom-color: #3a3a3a;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                padding: 7px 14px;
+                margin-right: 4px;
+            }
+            QTabBar::tab:hover:!selected {
+                background: #343434;
+                color: #f0f0f0;
+                border-color: #666666;
+            }
+            QTabBar::tab:selected {
+                background: #3b3428;
+                color: #f0d7ab;
+                border-color: #b6935a;
+                border-bottom-color: #3b3428;
+            }
             QLineEdit:focus, QComboBox:focus, QTextEdit:focus {
                 border-color: #b6935a;
             }
@@ -4983,7 +5010,8 @@ class SettingsDialog(QtWidgets.QDialog):
     def __init__(self, config: Dict, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("settings.title"))
-        self.setMinimumWidth(520)
+        self.setMinimumWidth(680)
+        self.resize(760, 620)
         self._config = config
         self.updated_config: Dict = {}
         self._map_server: Optional[_MapHttpServer] = None
@@ -5018,15 +5046,8 @@ class SettingsDialog(QtWidgets.QDialog):
         self.elevation.setSuffix(" m")
         self.elevation.setValue(observer.get("elevation_m", 0.0))
 
-        form = QtWidgets.QFormLayout()
-        form.addRow(tr("settings.language.ui"), self.ui_language)
-        form.addRow(tr("settings.latitude"), self.latitude)
-        form.addRow(tr("settings.longitude"), self.longitude)
-        form.addRow(tr("settings.elevation"), self.elevation)
-
         map_button = QtWidgets.QPushButton(tr("settings.pick_on_map"))
         map_button.clicked.connect(self._open_map_picker)
-        form.addRow("", map_button)
 
         self.master_folder = QtWidgets.QLineEdit()
         self.master_folder.setText(config.get("master_image_dir", ""))
@@ -5035,13 +5056,11 @@ class SettingsDialog(QtWidgets.QDialog):
         master_row = QtWidgets.QHBoxLayout()
         master_row.addWidget(self.master_folder)
         master_row.addWidget(browse_master)
-        form.addRow(tr("settings.master_folder"), master_row)
         master_note = QtWidgets.QLabel(
             tr("settings.master_note")
         )
         master_note.setWordWrap(True)
         master_note.setStyleSheet("color: #bcbcbc;")
-        form.addRow("", master_note)
 
         self.archive_folder = QtWidgets.QLineEdit()
         self.archive_folder.setText(config.get("archive_image_dir", ""))
@@ -5050,18 +5069,15 @@ class SettingsDialog(QtWidgets.QDialog):
         archive_row = QtWidgets.QHBoxLayout()
         archive_row.addWidget(self.archive_folder)
         archive_row.addWidget(browse_archive)
-        form.addRow(tr("settings.archive_folder"), archive_row)
 
         # Notes are stored in the settings directory
         open_settings_folder = QtWidgets.QPushButton()
         open_settings_folder.setIcon(self.style().standardIcon(QtWidgets.QStyle.StandardPixmap.SP_DirOpenIcon))
         open_settings_folder.setToolTip(tr("settings.open_settings_folder"))
         open_settings_folder.clicked.connect(self._open_settings_folder)
-        form.addRow(tr("settings.settings_folder"), open_settings_folder)
 
         clear_cache = QtWidgets.QPushButton(tr("settings.clear_thumbnail_cache"))
         clear_cache.clicked.connect(self._clear_thumbnail_cache)
-        form.addRow(tr("settings.thumbnail_cache"), clear_cache)
 
         scan_row = QtWidgets.QHBoxLayout()
         self.scan_button = QtWidgets.QPushButton(tr("settings.scan"))
@@ -5072,11 +5088,9 @@ class SettingsDialog(QtWidgets.QDialog):
         self.report_label.linkActivated.connect(self._open_duplicate_report)
         self.report_label.hide()
         scan_row.addWidget(self.report_label, stretch=1)
-        form.addRow(tr("settings.duplicate_scan"), scan_row)
 
         self.cleanup_button = QtWidgets.QPushButton(tr("settings.clean_invalid_entries"))
         self.cleanup_button.clicked.connect(self._run_cleanup_now)
-        form.addRow(tr("settings.cleanup"), self.cleanup_button)
 
         # Migration section
         migrate_row = QtWidgets.QHBoxLayout()
@@ -5088,7 +5102,6 @@ class SettingsDialog(QtWidgets.QDialog):
         help_button.setMaximumWidth(30)
         help_button.setToolTip(tr("settings.migrate_help"))
         migrate_row.addWidget(help_button)
-        form.addRow(tr("settings.migration"), migrate_row)
 
         self.catalog_fields: Dict[str, QtWidgets.QLineEdit] = {}
         catalogs = config.get("catalogs", [])
@@ -5107,6 +5120,42 @@ class SettingsDialog(QtWidgets.QDialog):
             catalog_layout.addRow(name, row)
             self.catalog_fields[name] = field
 
+        general_tab = QtWidgets.QWidget()
+        general_form = QtWidgets.QFormLayout(general_tab)
+        general_form.addRow(tr("settings.language.ui"), self.ui_language)
+        general_form.addRow(tr("settings.latitude"), self.latitude)
+        general_form.addRow(tr("settings.longitude"), self.longitude)
+        general_form.addRow(tr("settings.elevation"), self.elevation)
+        general_form.addRow("", map_button)
+
+        catalog_tab = QtWidgets.QWidget()
+        catalog_tab_layout = QtWidgets.QVBoxLayout(catalog_tab)
+        catalog_tab_layout.setContentsMargins(0, 0, 0, 0)
+        catalog_tab_layout.setSpacing(10)
+        catalog_form = QtWidgets.QFormLayout()
+        catalog_form.addRow(tr("settings.master_folder"), master_row)
+        catalog_form.addRow("", master_note)
+        catalog_tab_layout.addLayout(catalog_form)
+        catalog_scroll = QtWidgets.QScrollArea()
+        catalog_scroll.setWidgetResizable(True)
+        catalog_scroll.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        catalog_scroll.setWidget(catalog_group)
+        catalog_tab_layout.addWidget(catalog_scroll, stretch=1)
+
+        advanced_tab = QtWidgets.QWidget()
+        advanced_form = QtWidgets.QFormLayout(advanced_tab)
+        advanced_form.addRow(tr("settings.archive_folder"), archive_row)
+        advanced_form.addRow(tr("settings.settings_folder"), open_settings_folder)
+        advanced_form.addRow(tr("settings.thumbnail_cache"), clear_cache)
+        advanced_form.addRow(tr("settings.duplicate_scan"), scan_row)
+        advanced_form.addRow(tr("settings.cleanup"), self.cleanup_button)
+        advanced_form.addRow(tr("settings.migration"), migrate_row)
+
+        tabs = QtWidgets.QTabWidget()
+        tabs.addTab(general_tab, tr("settings.tab_general"))
+        tabs.addTab(catalog_tab, tr("settings.tab_catalogs"))
+        tabs.addTab(advanced_tab, tr("settings.tab_advanced"))
+
         buttons = QtWidgets.QDialogButtonBox(
             QtWidgets.QDialogButtonBox.StandardButton.Save
             | QtWidgets.QDialogButtonBox.StandardButton.Cancel
@@ -5121,8 +5170,7 @@ class SettingsDialog(QtWidgets.QDialog):
         buttons.rejected.connect(self.reject)
 
         layout = QtWidgets.QVBoxLayout(self)
-        layout.addLayout(form)
-        layout.addWidget(catalog_group)
+        layout.addWidget(tabs, stretch=1)
         layout.addWidget(buttons)
 
     def accept(self) -> None:
@@ -5337,7 +5385,11 @@ class SettingsDialog(QtWidgets.QDialog):
             return_code = 0
             original_argv = list(sys.argv)
             try:
-                sys.argv = [str(migrate_script)]
+                sys.argv = [
+                    str(migrate_script),
+                    "--database",
+                    str(self.db_path),
+                ]
                 with redirect_stdout(out_buffer), redirect_stderr(err_buffer):
                     try:
                         runpy.run_path(str(migrate_script), run_name="__main__")
