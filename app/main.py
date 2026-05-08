@@ -1099,6 +1099,7 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
 
 class ImageView(QtWidgets.QGraphicsView):
     fullscreen_requested = QtCore.Signal()
+    zoom_percent_changed = QtCore.Signal(int)
 
     def __init__(self) -> None:
         super().__init__()
@@ -1127,6 +1128,7 @@ class ImageView(QtWidgets.QGraphicsView):
             self.fit_to_window()
         else:
             self._pixmap_item = None
+            self.zoom_percent_changed.emit(100)
 
     def resizeEvent(self, event: QtGui.QResizeEvent) -> None:
         super().resizeEvent(event)
@@ -1150,18 +1152,32 @@ class ImageView(QtWidgets.QGraphicsView):
             self._zoom = 120
             return
         self.scale(factor, factor)
+        self._emit_zoom_percent()
 
     def fit_to_window(self) -> None:
         if self._pixmap_item is None:
             return
+        self._zoom = 0
         self.resetTransform()
         self.fitInView(self.sceneRect(), QtCore.Qt.AspectRatioMode.KeepAspectRatio)
+        self._emit_zoom_percent()
 
     def zoom_actual(self) -> None:
         if self._pixmap_item is None:
             return
+        self._zoom = 1
         self.resetTransform()
         self.centerOn(self._pixmap_item)
+        self._emit_zoom_percent()
+
+    def _emit_zoom_percent(self) -> None:
+        transform = self.transform()
+        scale = transform.m11()
+        if scale <= 0:
+            percent = 100
+        else:
+            percent = max(1, int(round(scale * 100)))
+        self.zoom_percent_changed.emit(percent)
 
     def mouseDoubleClickEvent(self, event: QtGui.QMouseEvent) -> None:
         if self._pixmap_item is None:
@@ -2327,6 +2343,15 @@ class DetailPanel(QtWidgets.QWidget):
         self.external_link.setContentsMargins(0, 0, 0, 0)
         self.fit_button = QtWidgets.QPushButton(tr("detail.fit_to_window"))
         self.fit_button.clicked.connect(self.image_view.fit_to_window)
+        self.zoom_percent_label = QtWidgets.QLabel("100%")
+        self.zoom_percent_label.setObjectName("imageZoomPercent")
+        self.zoom_percent_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignRight | QtCore.Qt.AlignmentFlag.AlignVCenter
+        )
+        self.zoom_100_button = QtWidgets.QPushButton("100%")
+        self.zoom_100_button.setObjectName("imageZoomActualButton")
+        self.zoom_100_button.clicked.connect(self.image_view.zoom_actual)
+        self.image_view.zoom_percent_changed.connect(self._update_image_zoom_percent)
         self.image_view.fullscreen_requested.connect(self._toggle_focus_mode)
         self.image_view.setContextMenuPolicy(QtCore.Qt.ContextMenuPolicy.CustomContextMenu)
         self.image_view.customContextMenuRequested.connect(self._show_image_context_menu)
@@ -2392,6 +2417,8 @@ class DetailPanel(QtWidgets.QWidget):
         image_header_layout.addWidget(self.title)
         image_header_layout.addSpacing(10)
         image_header_layout.addWidget(self.fit_button)
+        image_header_layout.addWidget(self.zoom_100_button)
+        image_header_layout.addWidget(self.zoom_percent_label)
         image_header_layout.addWidget(self.text_smaller_button)
         image_header_layout.addWidget(self.text_larger_button)
         image_header_layout.addStretch(1)
@@ -2463,6 +2490,9 @@ class DetailPanel(QtWidgets.QWidget):
         self._initial_detail_sized = False
 
         layout.addWidget(main_splitter, stretch=1)
+
+    def _update_image_zoom_percent(self, percent: int) -> None:
+        self.zoom_percent_label.setText(f"{max(1, percent)}%")
 
     def set_focus_mode(self, enabled: bool) -> None:
         if self._focus_mode == enabled:
