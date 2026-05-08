@@ -3,6 +3,11 @@
 All notable changes to this project are documented in this file.
 
 ## [1.7.1] - 2026-05-06
+### Added
+- **UI** Dispaly percentage view of the picture
+- **UI** Added button to set the view to 100% of the size
+
+## [1.7.1] - 2026-05-06
 ### Changed
 - **UI** Setting Screen modified with tabs
 

@@ -65,9 +65,9 @@ Notes are stored in the catalog metadata and stay with the object or image.
 
 ## Where Settings Are Saved
 Settings live in your OS config folder:
-- macOS: ~/Library/Application Support/Selune/config.json
-- Windows: %APPDATA%\\Selune\\config.json
-- Linux: ~/.config/Selune/config.json
+- macOS: ~/Library/Application Support/Selune/selune.db
+- Windows: %APPDATA%\\Selune\\selune.db
+- Linux: ~/.config/Selune/selune.db
 
 ## Troubleshooting
 - Images not showing: confirm filenames include the correct object ID and the folder paths are set in Settings.

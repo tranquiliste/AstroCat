@@ -47,7 +47,7 @@ The app scans filenames and matches objects automatically.
 - Object notes: add observing notes, processing notes, or acquisition plans.
 - Image notes: attach equipment and conditions to a specific image (for example: camera, scope, filters, exposure, Bortle class, seeing, transparency).
 
-Notes are stored in the catalog metadata and stay with the object or image.
+Notes are stored in the database and stay with the image.
 
 ## Duplicate Scan (Exact Matches)
 - Open Settings -> Duplicate Scan -> Scan.
@@ -72,9 +72,9 @@ If you are upgrading from the old AstroCatalogueViewer application, you can easi
 
 ## Where Settings Are Saved
 Settings live in your OS config folder:
-- macOS: ~/Library/Application Support/Selune/config.json
-- Windows: %APPDATA%\\Selune\\config.json
-- Linux: ~/.config/Selune/config.json
+- macOS: ~/Library/Application Support/Selune/Selune.db
+- Windows: %APPDATA%\\Selune\\Selune.db
+- Linux: ~/.config/Selune/Selune.db
 
 ## Troubleshooting
 - Images not showing: confirm filenames include the correct object ID and the folder paths are set in Settings.
