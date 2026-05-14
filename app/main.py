@@ -81,12 +81,13 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from shiboken6 import isValid
 
 from database import Database, database_path_from_config_path
-from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note
+from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note, deduplicate_for_all_catalogs_view
 from constellations import format_constellation_display
 from object_types import is_hidden_object_type, localized_object_type
 from catalog import PROJECT_ROOT
 from i18n import format_best_months, language_choices, set_ui_locale, tr
 from image_cache import ThumbnailCache
+from image_object_links import build_image_object_map
 from photo_notes_migration import migrate_photo_notes_to_sqlite
 
 # Keep numpy import type-only to satisfy static analysis without adding startup cost.
@@ -667,9 +668,14 @@ class CatalogModel(QtCore.QAbstractListModel):
             object_type_display = localized_object_type(raw_object_type)
             if object_type_display is None and raw_object_type and not is_hidden_object_type(raw_object_type):
                 object_type_display = raw_object_type
+            related_object_ids = self._collect_related_object_ids(item)
             if object_type_display:
-                return f"{item.catalog} | {object_type_display}"
-            return item.catalog
+                text = f"{item.catalog} | {object_type_display}"
+            else:
+                text = item.catalog
+            if related_object_ids:
+                text += "\n" + tr("detail.image.related_objects", objects=", ".join(related_object_ids))
+            return text
         if role == QtCore.Qt.ItemDataRole.DecorationRole:
             if item.thumbnail_path is None:
                 remote = self._remote_pixmaps.get(item.unique_key)
@@ -923,6 +929,19 @@ class CatalogModel(QtCore.QAbstractListModel):
         painter.end()
         return pixmap
 
+    @staticmethod
+    def _collect_related_object_ids(item: CatalogItem) -> List[str]:
+        related: List[str] = []
+        seen = set()
+        for object_ids in item.related_image_objects.values():
+            for object_id in object_ids:
+                normalized = object_id.replace(" ", "").upper()
+                if not normalized or normalized in seen:
+                    continue
+                seen.add(normalized)
+                related.append(object_id)
+        return related
+
 
 class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
     def paint(self, painter: QtGui.QPainter, option: QtWidgets.QStyleOptionViewItem, index: QtCore.QModelIndex) -> None:
@@ -988,7 +1007,7 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
                     QtCore.Qt.AlignmentFlag.AlignCenter,
                     str(len(item.image_paths)),
                 )
-            if item.notes or any(note for note in item.image_notes.values()):
+            if item.notes or any(note for note in item.image_notes.values()) or bool(item.related_image_objects):
                 info_rect = QtCore.QRect(
                     image_rect.right() - badge_size - margin,
                     image_rect.top() + margin,
@@ -1027,6 +1046,7 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.type_filter = ""
         self.catalog_filter = ""
         self.status_filter = ""
+        self._global_dedup_items_set = set()  # Set of object IDs to hide in "Tous" mode
         self.setFilterCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
 
     def set_search_text(self, text: str) -> None:
@@ -1038,12 +1058,63 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.invalidate()
 
     def set_catalog_filter(self, value: str) -> None:
-        self.catalog_filter = value
+        if self.catalog_filter != value:
+            self.catalog_filter = value
+            # Recalculate global dedup set when filter changes
+            if not value:  # "Tous" mode
+                self._update_global_dedup_set()
         self.invalidate()
 
     def set_status_filter(self, value: str) -> None:
         self.status_filter = value
         self.invalidate()
+    
+    def _update_global_dedup_set(self) -> None:
+        """Calculate which items should be hidden in 'Tous' mode for global dedup."""
+        self._global_dedup_items_set.clear()
+        
+        # Get the main window to check if model is already deduplicated
+        main_window = self.parent()
+        if not main_window or not hasattr(main_window, '_model_uses_global_dedup'):
+            return
+        
+        # If the model is already using items_global_dedup, no filter-level dedup needed
+        if main_window._model_uses_global_dedup:
+            return
+        
+        if not main_window or not hasattr(main_window, 'items_global_dedup'):
+            return
+        
+        model = self.sourceModel()
+        if not model or not hasattr(model, 'rowCount'):
+            return
+        
+        # Build a lookup from globally deduplicated items.
+        # Items are keyed by (object_id, catalog) like CatalogItem.unique_key components.
+        dedup_by_id = {
+            (item.object_id, item.catalog): item
+            for item in main_window.items_global_dedup
+        }
+        
+        # Hide only entries that lose all their images in "Tous" deduplicated view.
+        # This avoids showing the same shared image once under Messier and once under NGC.
+        for row in range(model.rowCount()):
+            index = model.index(row, 0)
+            item = model.data(index, QtCore.Qt.ItemDataRole.UserRole)
+            if not item:
+                continue
+
+            key = (item.object_id, item.catalog)
+            dedup_item = dedup_by_id.get(key)
+
+            # If missing in dedup output, hide it.
+            if dedup_item is None:
+                self._global_dedup_items_set.add(key)
+                continue
+
+            # If raw item has images but dedup version has none, hide it in "Tous".
+            if item.image_paths and not dedup_item.image_paths:
+                self._global_dedup_items_set.add(key)
 
     @staticmethod
     def _normalize_object_search(value: str) -> str:
@@ -1059,6 +1130,25 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         item: CatalogItem = model.data(index, QtCore.Qt.ItemDataRole.UserRole)
         if item is None:
             return False
+        
+        # Get the main window to check if model is already deduplicated
+        main_window = self.parent()
+        if not main_window or not hasattr(main_window, '_model_uses_global_dedup'):
+            model_is_dedup = False
+        else:
+            model_is_dedup = main_window._model_uses_global_dedup
+        
+        # In "Tous" mode with dedup enabled:
+        # - If model is already dedup'd, hide items with no images (they've lost all their images to shared copies)
+        # - If model is NOT dedup'd, apply filter-level dedup
+        if not self.catalog_filter:
+            if model_is_dedup and not item.image_paths:
+                # Hide items with no images in dedup mode
+                return False
+            elif not model_is_dedup and (item.object_id, item.catalog) in self._global_dedup_items_set:
+                # Apply filter-level dedup if model not already dedup'd
+                return False
+        
         if self.catalog_filter and not self.search_text:
             if item.catalog != self.catalog_filter:
                 return False
@@ -2723,15 +2813,28 @@ class DetailPanel(QtWidgets.QWidget):
     def notes_blocked(self) -> bool:
         return self._notes_block
 
+    def _related_objects_for_image(self, image_name: str) -> List[str]:
+        if not self._current_item:
+            return []
+        return list(self._current_item.related_image_objects.get(image_name, []))
+
+    def _set_image_info_label(self, text: str, image_name: Optional[str] = None) -> None:
+        final_text = text
+        if image_name:
+            related_objects = self._related_objects_for_image(image_name)
+            if related_objects:
+                final_text += "\n" + tr("detail.image.related_objects", objects=", ".join(related_objects))
+        self.image_info.setText(final_text)
+
     def _update_image_view(self) -> None:
         if not self._current_item or not self._current_item.image_paths:
             if self._wiki_pixmap and not self._wiki_pixmap.isNull():
                 self.image_view.set_pixmap(self._wiki_pixmap)
                 size_info = f"{self._wiki_pixmap.width()}x{self._wiki_pixmap.height()}"
-                self.image_info.setText(tr("detail.image.wikipedia_preview", size=size_info))
+                self._set_image_info_label(tr("detail.image.wikipedia_preview", size=size_info))
             else:
                 self.image_view.set_pixmap(None)
-                self.image_info.setText(tr("detail.image.none"))
+                self._set_image_info_label(tr("detail.image.none"))
             self.prev_button.setEnabled(True)
             self.next_button.setEnabled(True)
             self.thumb_button.setEnabled(False)
@@ -2746,14 +2849,15 @@ class DetailPanel(QtWidgets.QWidget):
         if cached and not cached.isNull():
             self.image_view.set_pixmap(cached)
             size_info = f"{cached.width()}x{cached.height()}"
-            self.image_info.setText(
+            self._set_image_info_label(
                 tr(
                     "detail.image.info",
                     index=self._image_index + 1,
                     total=len(paths),
                     name=path.name,
                     size_suffix=tr("detail.image.size_suffix", size=size_info) if size_info else "",
-                )
+                ),
+                path.name,
             )
             self.prev_button.setEnabled(True)
             self.next_button.setEnabled(True)
@@ -2762,7 +2866,7 @@ class DetailPanel(QtWidgets.QWidget):
             self.imaging_info_button.setEnabled(True)
             return
         self.image_view.set_pixmap(None)
-        self.image_info.setText(tr("detail.image.loading", name=path.name))
+        self._set_image_info_label(tr("detail.image.loading", name=path.name), path.name)
         self.prev_button.setEnabled(True)
         self.next_button.setEnabled(True)
         self.thumb_button.setEnabled(True)
@@ -2794,14 +2898,15 @@ class DetailPanel(QtWidgets.QWidget):
         self._image_cache[cache_key] = pixmap
         self.image_view.set_pixmap(pixmap)
         size_info = f"{pixmap.width()}x{pixmap.height()}"
-        self.image_info.setText(
+        self._set_image_info_label(
             tr(
                 "detail.image.info",
                 index=self._image_index + 1,
                 total=len(self._current_item.image_paths),
                 name=current_path.name,
                 size_suffix=tr("detail.image.size_suffix", size=size_info) if size_info else "",
-            )
+            ),
+            current_path.name,
         )
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
@@ -3012,6 +3117,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.thumbnail_cache = ThumbnailCache(cache_dir, thumb_size)
 
         self.items: List[CatalogItem] = []
+        self.items_global_dedup: List[CatalogItem] = []  # Version with global deduplication for "Tous" view
+        self._model_uses_global_dedup = False
         self.model = CatalogModel(self.items, self.thumbnail_cache, self)
         self.proxy = CatalogFilterProxy(self)
         self.proxy.setSourceModel(self.model)
@@ -4117,6 +4224,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _on_catalog_changed(self, _value) -> None:
         value = self._combo_value(self.catalog_filter)
+        self._sync_model_items_for_catalog(value)
         self.proxy.set_catalog_filter(value)
         self._update_type_filter(value)
         self._update_catalog_summary()
@@ -4256,16 +4364,34 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _update_catalog_summary(self) -> None:
         current = self._combo_value(self.catalog_filter)
+        source_items = self._items_for_catalog_scope(current)
         if not current:
-            filtered = self.items
+            filtered = source_items
             title = tr("catalog.all_catalogues")
         else:
-            filtered = [item for item in self.items if item.catalog == current]
+            filtered = [item for item in source_items if item.catalog == current]
             title = self._catalog_title_text(current)
         total = len(filtered)
         captured = sum(1 for item in filtered if item.image_paths)
         self.catalog_title.setText(title)
         self.catalog_count.setText(tr("main.captured_count", captured=captured, total=total))
+
+    def _items_for_catalog_scope(self, catalog_value: str) -> List[CatalogItem]:
+        dedup_enabled = bool(self.config.get("deduplicate_shared_images", False))
+        if not catalog_value and dedup_enabled:
+            return self.items_global_dedup
+        return self.items
+
+    def _sync_model_items_for_catalog(self, catalog_value: str) -> None:
+        use_global_dedup = (
+            not catalog_value
+            and bool(self.config.get("deduplicate_shared_images", False))
+            and bool(self.items_global_dedup)
+        )
+        if use_global_dedup == self._model_uses_global_dedup:
+            return
+        self._model_uses_global_dedup = use_global_dedup
+        self.model.set_items(self.items_global_dedup if use_global_dedup else self.items)
 
     @staticmethod
     def _combo_value(combo: QtWidgets.QComboBox) -> str:
@@ -4308,11 +4434,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _update_type_filter(self, catalog_value: str) -> None:
         current_type = self._combo_value(self.type_filter) if self.type_filter.count() else ""
+        source_items = self._items_for_catalog_scope(catalog_value)
         if catalog_value:
-            filtered = [item for item in self.items if item.catalog == catalog_value]
+            filtered = [item for item in source_items if item.catalog == catalog_value]
             types = collect_object_types(filtered)
         else:
-            types = collect_object_types(self.items)
+            types = collect_object_types(source_items)
         self.type_filter.blockSignals(True)
         self.type_filter.clear()
         self._add_combo_item(self.type_filter, tr("catalog.all"), "")
@@ -4528,7 +4655,19 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _on_catalog_loaded(self, items: List[CatalogItem]) -> None:
         self.items = items
-        self.model.set_items(self.items)
+        try:
+            self.database.upsert_image_object_links(build_image_object_map(items))
+        except Exception:
+            pass
+        # Also prepare globally deduplicated version for "Tous" view
+        deduplicate_enabled = self._loading_config.get("deduplicate_shared_images", False)
+        if deduplicate_enabled:
+            self.items_global_dedup = deduplicate_for_all_catalogs_view(items)
+        else:
+            self.items_global_dedup = items
+        current_catalog = self._combo_value(self.catalog_filter) if hasattr(self, "catalog_filter") else ""
+        self._model_uses_global_dedup = False
+        self._sync_model_items_for_catalog(current_catalog)
         wiki_enabled = bool(self._loading_config.get("use_wiki_thumbnails", False))
         self.model.set_wiki_thumbnails_enabled(wiki_enabled)
         self._update_filters()
@@ -5050,6 +5189,23 @@ class SettingsDialog(QtWidgets.QDialog):
         self._scan_thread_pool = QtCore.QThreadPool.globalInstance()
         self._scan_task: Optional[DuplicateScanTask] = None
         self._report_path: Optional[Path] = None
+        parent_config_path = getattr(parent, "config_path", None)
+        parent_db_path = getattr(parent, "db_path", None)
+        parent_notes_path = getattr(parent, "user_notes_path", None)
+        if isinstance(parent_config_path, Path):
+            self.config_path = parent_config_path
+        else:
+            location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
+            config_dir = Path(location) if location else PROJECT_ROOT
+            self.config_path = config_dir / "selune.db"
+        if isinstance(parent_db_path, Path):
+            self.db_path = parent_db_path
+        else:
+            self.db_path = database_path_from_config_path(self.config_path)
+        if isinstance(parent_notes_path, Path):
+            self.user_notes_path = parent_notes_path
+        else:
+            self.user_notes_path = self.config_path.with_name("photo_notes.json")
 
         self.ui_language = QtWidgets.QComboBox()
         for value, label in language_choices():
@@ -5121,6 +5277,11 @@ class SettingsDialog(QtWidgets.QDialog):
 
         self.cleanup_button = QtWidgets.QPushButton(tr("settings.clean_invalid_entries"))
         self.cleanup_button.clicked.connect(self._run_cleanup_now)
+        self.rebuild_links_button = QtWidgets.QPushButton(tr("settings.rebuild_image_links"))
+        self.rebuild_links_button.clicked.connect(self._rebuild_image_object_links_now)
+        self.deduplicate_shared_images = QtWidgets.QCheckBox(tr("settings.deduplicate_shared_images"))
+        self.deduplicate_shared_images.setChecked(bool(config.get("deduplicate_shared_images", False)))
+        self.deduplicate_shared_images.toggled.connect(self._emit_preview)
 
         # Migration section
         migrate_row = QtWidgets.QHBoxLayout()
@@ -5179,6 +5340,8 @@ class SettingsDialog(QtWidgets.QDialog):
         advanced_form.addRow(tr("settings.thumbnail_cache"), clear_cache)
         advanced_form.addRow(tr("settings.duplicate_scan"), scan_row)
         advanced_form.addRow(tr("settings.cleanup"), self.cleanup_button)
+        advanced_form.addRow(tr("settings.image_links"), self.rebuild_links_button)
+        advanced_form.addRow(tr("settings.shared_images"), self.deduplicate_shared_images)
         advanced_form.addRow(tr("settings.migration"), migrate_row)
 
         tabs = QtWidgets.QTabWidget()
@@ -5213,6 +5376,7 @@ class SettingsDialog(QtWidgets.QDialog):
         }
         updated["master_image_dir"] = self.master_folder.text().strip()
         updated["archive_image_dir"] = self.archive_folder.text().strip()
+        updated["deduplicate_shared_images"] = self.deduplicate_shared_images.isChecked()
         # Notes folder is hardcoded to settings directory, remove any old config
         updated.pop("notes_folder", None)
 
@@ -5386,6 +5550,75 @@ class SettingsDialog(QtWidgets.QDialog):
         parent.config["cleanup_invalid_image_only_entries_done"] = True
         save_config(parent.config_path, parent.config)
         QtWidgets.QMessageBox.information(self, tr("settings.cleanup"), tr("settings.cleanup_complete"))
+
+    def _rebuild_image_object_links_now(self) -> None:
+        if not _question_box(
+            self,
+            tr("settings.image_links"),
+            tr("settings.rebuild_image_links_confirm"),
+            tr("common.yes"),
+            tr("common.no"),
+        ):
+            return
+
+        try:
+            rebuild_script = PROJECT_ROOT / "scripts" / "rebuild_image_object_links.py"
+            if not rebuild_script.exists():
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    tr("settings.image_links"),
+                    tr("settings.rebuild_image_links_missing", path=rebuild_script),
+                )
+                return
+
+            out_buffer = io.StringIO()
+            err_buffer = io.StringIO()
+            return_code = 0
+            original_argv = list(sys.argv)
+            try:
+                sys.argv = [
+                    str(rebuild_script),
+                    "--config",
+                    str(self.config_path),
+                    "--database",
+                    str(self.db_path),
+                    "--notes",
+                    str(self.user_notes_path),
+                ]
+                with redirect_stdout(out_buffer), redirect_stderr(err_buffer):
+                    try:
+                        runpy.run_path(str(rebuild_script), run_name="__main__")
+                    except SystemExit as exc:
+                        code = exc.code
+                        if code is None:
+                            return_code = 0
+                        elif isinstance(code, int):
+                            return_code = code
+                        else:
+                            return_code = 1
+            finally:
+                sys.argv = original_argv
+
+            stdout_text = out_buffer.getvalue().strip()
+            stderr_text = err_buffer.getvalue().strip()
+            if return_code != 0:
+                error_msg = stderr_text if stderr_text else "Unknown error"
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    tr("settings.image_links"),
+                    tr("settings.rebuild_image_links_failed", error=error_msg),
+                )
+                return
+
+            self._emit_preview()
+            message = stdout_text if stdout_text else tr("settings.rebuild_image_links_done")
+            QtWidgets.QMessageBox.information(self, tr("settings.image_links"), message)
+        except Exception as exc:
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("settings.image_links"),
+                tr("settings.rebuild_image_links_failed", error=str(exc)),
+            )
 
     def _migrate_notes_from_old_app(self) -> None:
         if not _question_box(
@@ -5753,6 +5986,7 @@ class SettingsDialog(QtWidgets.QDialog):
         }
         updated["master_image_dir"] = self.master_folder.text().strip()
         updated["archive_image_dir"] = self.archive_folder.text().strip()
+        updated["deduplicate_shared_images"] = self.deduplicate_shared_images.isChecked()
         catalogs = []
         for catalog in updated.get("catalogs", []):
             name = catalog.get("name", "Unknown")
@@ -6383,6 +6617,29 @@ def _migrate_from_astrocat(legacy_dir: Path, selune_dir: Path) -> None:
                 shutil.copy2(src, dst)
 
 
+def _run_script_in_process(script_path: Path, args: List[str]) -> Tuple[int, str, str]:
+    out_buffer = io.StringIO()
+    err_buffer = io.StringIO()
+    return_code = 0
+    original_argv = list(sys.argv)
+    try:
+        sys.argv = [str(script_path), *args]
+        with redirect_stdout(out_buffer), redirect_stderr(err_buffer):
+            try:
+                runpy.run_path(str(script_path), run_name="__main__")
+            except SystemExit as exc:
+                code = exc.code
+                if code is None:
+                    return_code = 0
+                elif isinstance(code, int):
+                    return_code = code
+                else:
+                    return_code = 1
+    finally:
+        sys.argv = original_argv
+    return return_code, out_buffer.getvalue().strip(), err_buffer.getvalue().strip()
+
+
 def main() -> None:
     global _qt_previous_message_handler
     _qt_previous_message_handler = QtCore.qInstallMessageHandler(_qt_message_filter)
@@ -6432,6 +6689,27 @@ def main() -> None:
         migrate_photo_notes_to_sqlite(photo_notes_path, db_path, force=False)
     except Exception:
         # Startup must stay resilient even if migration hits malformed legacy data.
+        pass
+
+    # First launch with image-object links: build associations once when table is empty.
+    try:
+        database = Database(db_path)
+        if database.image_object_links_count() == 0:
+            rebuild_script = PROJECT_ROOT / "scripts" / "rebuild_image_object_links.py"
+            if rebuild_script.exists():
+                _run_script_in_process(
+                    rebuild_script,
+                    [
+                        "--config",
+                        str(config_path),
+                        "--database",
+                        str(db_path),
+                        "--notes",
+                        str(photo_notes_path),
+                    ],
+                )
+    except Exception:
+        # Startup must remain resilient even if association rebuild fails.
         pass
 
     window = MainWindow(config_path)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from pathlib import Path
 import json
@@ -9,7 +9,7 @@ import hashlib
 import math
 import os
 import sys
-from typing import Dict, Iterable, List, Optional, Set
+from typing import Dict, Iterable, List, Optional, Set, Tuple
 from urllib.parse import quote
 import re
 
@@ -81,6 +81,7 @@ DEFAULT_CONFIG = {
     "master_image_dir": "",
     "archive_image_dir": "",
     "use_wiki_thumbnails": False,
+    "deduplicate_shared_images": False,
     "auto_check_updates": True,
     "ui_locale": "system",
 }
@@ -330,6 +331,7 @@ class CatalogItem:
     dec_deg: Optional[float]
     image_paths: List[Path]
     thumbnail_path: Optional[Path]
+    related_image_objects: Dict[str, List[str]] = field(default_factory=dict)
 
     @property
     def display_name(self) -> str:
@@ -724,6 +726,7 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     description=localized_description,
                     notes=notes,
                     image_notes=image_notes,
+                    related_image_objects={},
                     external_link=_normalize_text(
                         meta.get("external_link")
                     ) or _default_external_link(object_id, base_name),
@@ -763,6 +766,7 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     description=None,
                     notes=user_object_notes.get(f"{catalog_name}:{object_id}"),
                     image_notes=image_notes,
+                    related_image_objects={},
                     external_link=_default_external_link(object_id, None),
                     wiki_thumbnail=None,
                     ra_hours=None,
@@ -772,7 +776,388 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                 )
             )
 
-    return items
+    # Create proxy items for aliases that don't exist in metadata
+    items = _create_alias_items(items, config)
+    
+    deduplicate_shared_images = bool(config.get("deduplicate_shared_images", False))
+    return _annotate_shared_image_matches(items, deduplicate_shared_images)
+
+
+def _path_key(path: Path) -> str:
+    try:
+        return str(path.resolve()).lower()
+    except OSError:
+        return os.path.normcase(os.path.abspath(str(path)))
+
+
+def _normalized_object_id(value: str) -> str:
+    return (value or "").replace(" ", "").upper()
+
+
+def _append_unique(target: List[str], values: Iterable[str], excluded: Set[str]) -> None:
+    seen = {entry.upper() for entry in target}
+    for value in values:
+        normalized = _normalized_object_id(value)
+        if not normalized or normalized in excluded or normalized in seen:
+            continue
+        seen.add(normalized)
+        target.append(value)
+
+
+def _related_ids_from_filename(path: Path, object_id: str) -> List[str]:
+    ids = _expand_catalog_aliases(_extract_object_ids(path.stem.upper()))
+    excluded = {_normalized_object_id(object_id)}
+    related: List[str] = []
+    _append_unique(related, ids, excluded)
+    return related
+
+
+def _get_catalog_priority(catalog_name: str) -> int:
+    """Returns priority for catalog ownership (lower number = higher priority)."""
+    priority_order = [
+        "Messier", "NGC", "IC", "Solar system", "Sh2",
+        "LDN", "Barnard", "VdB", "LBN", "PNG"
+    ]
+    try:
+        return priority_order.index(catalog_name)
+    except ValueError:
+        return len(priority_order)  # Unknown catalogs get lowest priority
+
+
+def _sync_images_for_aliased_objects(items: List[CatalogItem]) -> List[CatalogItem]:
+    """Share images across explicit filename matches and catalog aliases.
+
+    A filename like ``M81-m82-V3.jpg`` should remain visible on both the
+    Messier and NGC representations of M81/M82, while a file like
+    ``m76_20251001_final.jpg`` must be visible on both M76 and NGC650.
+    """
+    items_by_id: Dict[str, CatalogItem] = {item.object_id: item for item in items}
+    images_by_object_id: Dict[str, List[Path]] = {
+        item.object_id: list(item.image_paths) for item in items
+    }
+
+    for item in items:
+        for image_path in item.image_paths:
+            object_ids = _expand_catalog_aliases(_extract_object_ids(image_path.stem.upper()))
+            if not object_ids:
+                continue
+            for object_id in object_ids:
+                for alias_id in _expand_catalog_aliases([object_id]):
+                    if alias_id not in items_by_id:
+                        continue
+                    bucket = images_by_object_id.setdefault(alias_id, [])
+                    if image_path not in bucket:
+                        bucket.append(image_path)
+
+    updated_items: List[CatalogItem] = []
+    for item in items:
+        synced_images = images_by_object_id.get(item.object_id, item.image_paths)
+        thumbnail_path = item.thumbnail_path
+        if synced_images and (not thumbnail_path or thumbnail_path not in synced_images):
+            thumbnail_path = _select_thumbnail(synced_images, item.thumbnail_path.name if item.thumbnail_path else None)
+
+        updated_items.append(
+            replace(
+                item,
+                image_paths=synced_images,
+                thumbnail_path=thumbnail_path,
+            )
+        )
+
+    return updated_items
+
+
+def _create_alias_items(items: List[CatalogItem], config: Dict) -> List[CatalogItem]:
+    """Create proxy items for catalog aliases that don't exist in metadata.
+    
+    For example, if M76 exists but NGC650 doesn't, create NGC650 as a proxy
+    that inherits all of M76's properties and images.
+    """
+    items_by_id: Dict[str, CatalogItem] = {item.object_id: item for item in items}
+    catalog_by_name: Dict[str, Dict] = {cat["name"]: cat for cat in config.get("catalogs", [])}
+    
+    new_items: List[CatalogItem] = []
+    
+    for item in items:
+        # Find all aliases for this item
+        aliases = _expand_catalog_aliases([item.object_id])
+        
+        for alias_id in aliases:
+            if alias_id == item.object_id or alias_id in items_by_id:
+                continue  # Skip if it's the same object or already exists
+            
+            # Determine which catalog this alias belongs to
+            alias_catalog = None
+            if alias_id.startswith("NGC"):
+                alias_catalog = "NGC"
+            elif alias_id.startswith("IC"):
+                alias_catalog = "IC"
+            elif alias_id.startswith("M"):
+                alias_catalog = "Messier"
+            elif alias_id.startswith("Sh2") or alias_id.startswith("SH2"):
+                alias_catalog = "Sh2"
+            elif alias_id.startswith("LDN"):
+                alias_catalog = "LDN"
+            elif alias_id.startswith("Barnard") or alias_id.startswith("B"):
+                alias_catalog = "Barnard"
+            elif alias_id.startswith("VdB"):
+                alias_catalog = "VdB"
+            elif alias_id.startswith("LBN"):
+                alias_catalog = "LBN"
+            elif alias_id.startswith("PNG"):
+                alias_catalog = "PNG"
+            
+            if not alias_catalog or alias_catalog not in catalog_by_name:
+                continue
+            
+            # Create a proxy item for this alias
+            alias_item = replace(
+                item,
+                object_id=alias_id,
+                catalog=alias_catalog,
+                related_image_objects={},  # Will be populated by annotation phase
+            )
+            new_items.append(alias_item)
+    
+    return items + new_items
+
+
+def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_images: bool) -> List[CatalogItem]:
+    if not items:
+        return items
+
+    # First, sync images for aliased objects (e.g., M76 and NGC650)
+    items = _sync_images_for_aliased_objects(items)
+
+    # Build a map of images that are shared via filename patterns (e.g., M81_M82_final.jpg)
+    # These are genuine multi-object images and should be deduplicated
+    filename_shared_images: Dict[str, List[str]] = {}  # image path → list of object IDs extracted from filename
+    owner_by_image_and_catalog: Dict[tuple, str] = {}  # (image_key, catalog_name) → owner object ID
+    global_owner_by_image: Dict[str, str] = {}  # image_key → global owner object ID (for "Tous" filter)
+    
+    # Also track all images for building related_image_objects metadata
+    path_to_all_objects: Dict[str, List[str]] = {}
+
+    # Pre-pass: scan ALL items to build a map of filename_objects per image
+    for item in items:
+        for image_path in item.image_paths:
+            key = _path_key(image_path)
+            
+            # Track all objects that reference this image (for related_image_objects)
+            object_ids = path_to_all_objects.setdefault(key, [])
+            if item.object_id not in object_ids:
+                object_ids.append(item.object_id)
+            
+            # Extract all objects from filename
+            filename_objects = _extract_object_ids(image_path.stem.upper())
+            if not filename_objects:
+                continue
+                
+            # Expand each extracted object to include aliases
+            all_filename_related = set()
+            for obj_id in filename_objects:
+                all_filename_related.update(_expand_catalog_aliases([obj_id]))
+            
+            if key not in filename_shared_images:
+                filename_shared_images[key] = list(all_filename_related)
+    
+    # Elect owner for each multi-object image, per catalog AND globally
+    items_by_id = {item.object_id: item for item in items}
+    for key, filename_objects in filename_shared_images.items():
+        if len(filename_objects) < 2:
+            continue
+        
+        # Group filename objects by catalog, sorted by priority to ensure deterministic order
+        by_catalog: Dict[str, List] = {}
+        catalog_order: Dict[str, int] = {}
+        
+        for obj_id in filename_objects:
+            if obj_id in items_by_id:
+                item = items_by_id[obj_id]
+                priority = _get_catalog_priority(item.catalog)
+                if item.catalog not in catalog_order:
+                    catalog_order[item.catalog] = priority
+                by_catalog.setdefault(item.catalog, []).append(item)
+        
+        # Elect owner within each catalog (first one by priority order, then by load order)
+        for catalog_name in sorted(catalog_order.keys(), key=lambda c: catalog_order[c]):
+            catalog_items = by_catalog.get(catalog_name, [])
+            if catalog_items:
+                # Among items in same catalog, take first one loaded (which appears first in items list)
+                first_by_load_order = min(catalog_items, key=lambda it: items.index(it))
+                owner_by_image_and_catalog[(key, catalog_name)] = first_by_load_order.object_id
+        
+        # Elect global owner: object from catalog with highest priority (lowest number)
+        best_priority = float('inf')
+        global_owner = None
+        best_catalog = None
+        for catalog_name in sorted(catalog_order.keys(), key=lambda c: catalog_order[c]):
+            priority = catalog_order[catalog_name]
+            if priority < best_priority:
+                best_priority = priority
+                best_catalog = catalog_name
+                catalog_items = by_catalog.get(catalog_name, [])
+                if catalog_items:
+                    global_owner = min(catalog_items, key=lambda it: items.index(it)).object_id
+        
+        if global_owner:
+            global_owner_by_image[key] = global_owner
+
+    updated_items: List[CatalogItem] = []
+    for item in items:
+        filtered_paths: List[Path] = []
+        related_image_objects: Dict[str, List[str]] = {}
+        own_object = _normalized_object_id(item.object_id)
+
+        for image_path in item.image_paths:
+            key = _path_key(image_path)
+            filename_object_ids = _extract_object_ids(image_path.stem.upper())
+
+            # Deduplicate multi-object images (e.g., M81-m82-V3.jpg explicitly lists multiple objects)
+            # but NOT single-object images with aliases (e.g., m76_final.jpg on M76 and NGC650)
+            if deduplicate_shared_images and len(filename_object_ids) > 1:
+                # Multi-object image: only keep on the per-catalog owner
+                # Note: The "Tous" view dedup will be handled separately at the UI layer
+                owner = owner_by_image_and_catalog.get((key, item.catalog))
+                if owner and _normalized_object_id(owner) != own_object:
+                    continue
+
+            # Build related_image_objects list
+            related_ids: List[str] = []
+            excluded = {own_object}
+            _append_unique(related_ids, _related_ids_from_filename(image_path, item.object_id), excluded)
+            _append_unique(related_ids, path_to_all_objects.get(key, []), excluded)
+            if related_ids:
+                related_image_objects[image_path.name] = related_ids
+            filtered_paths.append(image_path)
+
+        if item.thumbnail_path and item.thumbnail_path not in filtered_paths:
+            thumbnail_path = _select_thumbnail(filtered_paths, item.thumbnail_path.name)
+        else:
+            thumbnail_path = item.thumbnail_path
+
+        updated_items.append(
+            replace(
+                item,
+                image_paths=filtered_paths,
+                thumbnail_path=thumbnail_path,
+                related_image_objects=related_image_objects,
+            )
+        )
+
+    return updated_items
+
+
+def deduplicate_for_all_catalogs_view(items: List[CatalogItem]) -> List[CatalogItem]:
+    """Apply global deduplication for 'Tous' view.
+    
+    Multi-object images appear on multiple items in different catalogs.
+    This function removes them from all but the global owner (highest priority catalog).
+    """
+    return apply_global_image_deduplication(items)
+
+
+def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogItem]:
+    """Remove duplicate images from "Tous" view.
+
+    Handles two cases:
+    1. Multi-object images (e.g., M81-M82.jpg) shared across catalog entries.
+    2. Single-object images (e.g., m76_final.jpg) that appear on multiple items
+       because of catalog aliases (M76 = NGC650 = NGC651).
+
+    In both cases, keep the image only on the highest-priority catalog item.
+    """
+    # Track multi-object images and their owners
+    global_owner_by_image: Dict[str, str] = {}
+    items_by_id: Dict[str, CatalogItem] = {item.object_id: item for item in items}
+
+    # First pass (A): identify multi-object filename images and elect global owners
+    for item in items:
+        for image_path in item.image_paths:
+            filename_object_ids = _extract_object_ids(image_path.stem.upper())
+            if len(filename_object_ids) < 2:
+                continue  # Handled in pass B below
+
+            key = _path_key(image_path)
+            if key in global_owner_by_image:
+                continue  # Already determined
+
+            # Expand all objects from filename to include aliases
+            all_filename_objects = set()
+            for obj_id in filename_object_ids:
+                all_filename_objects.update(_expand_catalog_aliases([obj_id]))
+
+            # Find object with highest priority (lowest catalog number)
+            best_priority = float('inf')
+            global_owner = None
+            for obj_id in all_filename_objects:
+                if obj_id in items_by_id:
+                    item_for_obj = items_by_id[obj_id]
+                    priority = _get_catalog_priority(item_for_obj.catalog)
+                    if priority < best_priority:
+                        best_priority = priority
+                        global_owner = obj_id
+
+            if global_owner:
+                global_owner_by_image[key] = global_owner
+
+    # First pass (B): detect any image shared across multiple items (alias duplicates)
+    # Build a map: image_key -> best (priority, object_id) seen so far
+    image_best_owner: Dict[str, Tuple[float, str]] = {}
+    for item in items:
+        priority = _get_catalog_priority(item.catalog)
+        for image_path in item.image_paths:
+            key = _path_key(image_path)
+            if key in global_owner_by_image:
+                continue  # Already handled by pass A
+            existing = image_best_owner.get(key)
+            if existing is None or priority < existing[0]:
+                image_best_owner[key] = (priority, item.object_id)
+
+    # Any image_key present in image_best_owner that appeared on >1 item needs dedup
+    image_seen_count: Dict[str, int] = {}
+    for item in items:
+        for image_path in item.image_paths:
+            key = _path_key(image_path)
+            if key not in global_owner_by_image:
+                image_seen_count[key] = image_seen_count.get(key, 0) + 1
+
+    for key, count in image_seen_count.items():
+        if count > 1 and key in image_best_owner:
+            global_owner_by_image[key] = image_best_owner[key][1]
+
+    # Second pass: filter images to keep only on global owners
+    updated_items: List[CatalogItem] = []
+    for item in items:
+        filtered_paths: List[Path] = []
+        own_object = _normalized_object_id(item.object_id)
+
+        for image_path in item.image_paths:
+            key = _path_key(image_path)
+
+            # If a global owner was elected for this image, keep only on that owner
+            global_owner = global_owner_by_image.get(key)
+            if global_owner and _normalized_object_id(global_owner) != own_object:
+                continue  # Remove image from non-owner
+
+            filtered_paths.append(image_path)
+        
+        # Update thumbnail if needed
+        thumbnail_path = item.thumbnail_path
+        if filtered_paths and (not thumbnail_path or thumbnail_path not in filtered_paths):
+            thumbnail_path = _select_thumbnail(filtered_paths, item.thumbnail_path.name if item.thumbnail_path else None)
+        elif not filtered_paths:
+            thumbnail_path = None
+        
+        updated_items.append(
+            replace(
+                item,
+                image_paths=filtered_paths,
+                thumbnail_path=thumbnail_path,
+            )
+        )
+    
+    return updated_items
 
 
 def _select_thumbnail(image_paths: List[Path], thumbnail_value: Optional[str]) -> Optional[Path]:

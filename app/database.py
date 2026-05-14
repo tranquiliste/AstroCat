@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 import sqlite3
 import sys
-from typing import Dict, Iterable, Iterator, List, Optional
+from typing import Dict, Iterable, Iterator, List, Optional, Tuple
 
 
 def database_path_from_config_path(config_path: Path) -> Path:
@@ -68,7 +68,7 @@ class Database:
             connection.execute("PRAGMA foreign_keys = ON")
             connection.executescript(schema)
             self._apply_runtime_migrations(connection)
-            connection.execute("PRAGMA user_version = 4")
+            connection.execute("PRAGMA user_version = 5")
             connection.commit()
         finally:
             connection.close()
@@ -113,6 +113,37 @@ class Database:
             """
             INSERT OR IGNORE INTO schema_migrations (version, description)
             VALUES (4, 'Add moon phase fields to filter integrations')
+            """
+        )
+
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS image_objects (
+                image_id TEXT NOT NULL,
+                catalog_name TEXT NOT NULL,
+                object_id TEXT NOT NULL,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (image_id, catalog_name, object_id)
+            )
+            """
+        )
+        connection.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_image_objects_image
+                ON image_objects (image_id)
+            """
+        )
+        connection.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_image_objects_object
+                ON image_objects (catalog_name, object_id)
+            """
+        )
+        connection.execute(
+            """
+            INSERT OR IGNORE INTO schema_migrations (version, description)
+            VALUES (5, 'Add image to object association links')
             """
         )
 
@@ -1229,6 +1260,75 @@ class Database:
             if text:
                 notes[key] = text
         return notes
+
+    def image_object_links_count(self) -> int:
+        with self.connection() as connection:
+            row = connection.execute("SELECT COUNT(*) AS cnt FROM image_objects").fetchone()
+        if row is None:
+            return 0
+        return int(row["cnt"])
+
+    def replace_all_image_object_links(self, image_map: Dict[str, List[Tuple[str, str]]]) -> int:
+        inserted = 0
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_objects")
+            for image_id in sorted(image_map.keys()):
+                normalized_image_id = (image_id or "").strip()
+                if not normalized_image_id:
+                    continue
+                pairs = {
+                    ((catalog_name or "").strip(), (object_id or "").strip())
+                    for catalog_name, object_id in image_map.get(image_id, [])
+                }
+                for catalog_name, object_id in sorted(pairs):
+                    if not catalog_name or not object_id:
+                        continue
+                    connection.execute(
+                        """
+                        INSERT INTO image_objects (
+                            image_id,
+                            catalog_name,
+                            object_id,
+                            created_at,
+                            updated_at
+                        )
+                        VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+                        """,
+                        (normalized_image_id, catalog_name, object_id),
+                    )
+                    inserted += 1
+        return inserted
+
+    def upsert_image_object_links(self, image_map: Dict[str, List[Tuple[str, str]]]) -> int:
+        inserted = 0
+        with self.connection() as connection:
+            for image_id in sorted(image_map.keys()):
+                normalized_image_id = (image_id or "").strip()
+                if not normalized_image_id:
+                    continue
+                connection.execute("DELETE FROM image_objects WHERE image_id = ?", (normalized_image_id,))
+                pairs = {
+                    ((catalog_name or "").strip(), (object_id or "").strip())
+                    for catalog_name, object_id in image_map.get(image_id, [])
+                }
+                for catalog_name, object_id in sorted(pairs):
+                    if not catalog_name or not object_id:
+                        continue
+                    connection.execute(
+                        """
+                        INSERT INTO image_objects (
+                            image_id,
+                            catalog_name,
+                            object_id,
+                            created_at,
+                            updated_at
+                        )
+                        VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+                        """,
+                        (normalized_image_id, catalog_name, object_id),
+                    )
+                    inserted += 1
+        return inserted
 
     def upsert_object_thumbnail(self, catalog_name: str, object_id: str, thumbnail_filename: str) -> None:
         normalized = (thumbnail_filename or "").strip()

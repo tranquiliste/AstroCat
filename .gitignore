@@ -15,4 +15,5 @@ __pycache__/
 delegate_test_*.png
 m52_*.png
 minimal_delegate_stage.png
+debug_dedup.py
 scripts/merge_catalog_translation_batch.py

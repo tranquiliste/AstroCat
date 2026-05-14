@@ -18,6 +18,9 @@ VALUES (3, 'Add reusable imaging setups table');
 INSERT OR IGNORE INTO schema_migrations (version, description)
 VALUES (4, 'Add moon phase fields to filter integrations');
 
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (5, 'Add image to object association links');
+
 CREATE TABLE IF NOT EXISTS app_settings (
     setting_key TEXT PRIMARY KEY,
     value_json TEXT NOT NULL,
@@ -157,6 +160,21 @@ CREATE TABLE IF NOT EXISTS object_thumbnails (
     thumbnail_filename TEXT NOT NULL,
     PRIMARY KEY (catalog_name, object_id)
 );
+
+CREATE TABLE IF NOT EXISTS image_objects (
+    image_id TEXT NOT NULL,
+    catalog_name TEXT NOT NULL,
+    object_id TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (image_id, catalog_name, object_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_image_objects_image
+    ON image_objects (image_id);
+
+CREATE INDEX IF NOT EXISTS idx_image_objects_object
+    ON image_objects (catalog_name, object_id);
 
 CREATE TABLE IF NOT EXISTS equipment (
     equipment_id INTEGER PRIMARY KEY AUTOINCREMENT,
