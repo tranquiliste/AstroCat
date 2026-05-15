@@ -64,7 +64,7 @@ Notes are stored in the catalog metadata and stay with the object or image.
 - Click to set coordinates or use the location button to auto-detect.
 
 ## Where Settings Are Saved
-Settings live in your OS config folder:
+Settings live in your OS config folder inan SQLite database:
 - macOS: ~/Library/Application Support/Selune/selune.db
 - Windows: %APPDATA%\\Selune\\selune.db
 - Linux: ~/.config/Selune/selune.db
