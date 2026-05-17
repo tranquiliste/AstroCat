@@ -1098,6 +1098,10 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.capture_filter_text = ""
         self.capture_year_text = ""
         self.capture_month_text = ""
+        self.capture_missing_location = False
+        self.capture_missing_telescope = False
+        self.capture_missing_camera = False
+        self.capture_missing_filter = False
         self._global_dedup_items_set = set()  # Set of object IDs to hide in "Tous" mode
         self.setFilterCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
 
@@ -1129,6 +1133,10 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         filter_name: str,
         capture_year: str,
         capture_month: str,
+        missing_location: bool = False,
+        missing_telescope: bool = False,
+        missing_camera: bool = False,
+        missing_filter: bool = False,
     ) -> None:
         self.capture_location_text = location.strip()
         self.capture_telescope_text = telescope.strip()
@@ -1136,6 +1144,10 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.capture_filter_text = filter_name.strip()
         self.capture_year_text = capture_year.strip()
         self.capture_month_text = capture_month.strip()
+        self.capture_missing_location = bool(missing_location)
+        self.capture_missing_telescope = bool(missing_telescope)
+        self.capture_missing_camera = bool(missing_camera)
+        self.capture_missing_filter = bool(missing_filter)
         self.invalidate()
     
     def _update_global_dedup_set(self) -> None:
@@ -1335,6 +1347,10 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
                 self.capture_filter_text,
                 self.capture_year_text,
                 self.capture_month_text,
+                self.capture_missing_location,
+                self.capture_missing_telescope,
+                self.capture_missing_camera,
+                self.capture_missing_filter,
             )
         ):
             main_window = self.parent()
@@ -1352,6 +1368,14 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
             if not self._matches_capture_field_any(self.capture_year_text, capture_fields.get("year", "")):
                 return False
             if not self._matches_capture_month_any(self.capture_month_text, capture_fields.get("month", "")):
+                return False
+            if self.capture_missing_location and capture_fields.get("missing_location", "") != "1":
+                return False
+            if self.capture_missing_telescope and capture_fields.get("missing_telescope", "") != "1":
+                return False
+            if self.capture_missing_camera and capture_fields.get("missing_camera", "") != "1":
+                return False
+            if self.capture_missing_filter and capture_fields.get("missing_filter", "") != "1":
                 return False
         return True
 
@@ -3636,18 +3660,30 @@ class MainWindow(QtWidgets.QMainWindow):
         self.capture_location_filter = QtWidgets.QLineEdit()
         self.capture_location_filter.setPlaceholderText(tr("main.advanced.location_placeholder"))
         self.capture_location_filter.textChanged.connect(self._on_capture_filters_changed)
+        self.capture_location_missing_check = QtWidgets.QCheckBox(tr("main.advanced.missing"))
+        self.capture_location_missing_check.setToolTip(tr("main.advanced.missing_tooltip"))
+        self.capture_location_missing_check.stateChanged.connect(self._on_capture_missing_toggled)
 
         self.capture_telescope_filter = QtWidgets.QLineEdit()
         self.capture_telescope_filter.setPlaceholderText(tr("main.advanced.telescope_placeholder"))
         self.capture_telescope_filter.textChanged.connect(self._on_capture_filters_changed)
+        self.capture_telescope_missing_check = QtWidgets.QCheckBox(tr("main.advanced.missing"))
+        self.capture_telescope_missing_check.setToolTip(tr("main.advanced.missing_tooltip"))
+        self.capture_telescope_missing_check.stateChanged.connect(self._on_capture_missing_toggled)
 
         self.capture_camera_filter = QtWidgets.QLineEdit()
         self.capture_camera_filter.setPlaceholderText(tr("main.advanced.camera_placeholder"))
         self.capture_camera_filter.textChanged.connect(self._on_capture_filters_changed)
+        self.capture_camera_missing_check = QtWidgets.QCheckBox(tr("main.advanced.missing"))
+        self.capture_camera_missing_check.setToolTip(tr("main.advanced.missing_tooltip"))
+        self.capture_camera_missing_check.stateChanged.connect(self._on_capture_missing_toggled)
 
         self.capture_filter_filter = QtWidgets.QLineEdit()
         self.capture_filter_filter.setPlaceholderText(tr("main.advanced.filter_placeholder"))
         self.capture_filter_filter.textChanged.connect(self._on_capture_filters_changed)
+        self.capture_filter_missing_check = QtWidgets.QCheckBox(tr("main.advanced.missing"))
+        self.capture_filter_missing_check.setToolTip(tr("main.advanced.missing_tooltip"))
+        self.capture_filter_missing_check.stateChanged.connect(self._on_capture_missing_toggled)
 
         self.capture_year_filter = QtWidgets.QLineEdit()
         self.capture_year_filter.setPlaceholderText(tr("main.advanced.year_placeholder"))
@@ -3667,10 +3703,38 @@ class MainWindow(QtWidgets.QMainWindow):
         year_month_layout.addWidget(QtWidgets.QLabel(tr("main.advanced.month")))
         year_month_layout.addWidget(self.capture_month_filter, stretch=1)
 
-        advanced_filters_box_layout.addRow(tr("main.advanced.location"), self.capture_location_filter)
-        advanced_filters_box_layout.addRow(tr("main.advanced.telescope"), self.capture_telescope_filter)
-        advanced_filters_box_layout.addRow(tr("main.advanced.camera"), self.capture_camera_filter)
-        advanced_filters_box_layout.addRow(tr("main.advanced.filter"), self.capture_filter_filter)
+        location_row = QtWidgets.QWidget()
+        location_layout = QtWidgets.QHBoxLayout(location_row)
+        location_layout.setContentsMargins(0, 0, 0, 0)
+        location_layout.setSpacing(8)
+        location_layout.addWidget(self.capture_location_filter, stretch=1)
+        location_layout.addWidget(self.capture_location_missing_check)
+
+        telescope_row = QtWidgets.QWidget()
+        telescope_layout = QtWidgets.QHBoxLayout(telescope_row)
+        telescope_layout.setContentsMargins(0, 0, 0, 0)
+        telescope_layout.setSpacing(8)
+        telescope_layout.addWidget(self.capture_telescope_filter, stretch=1)
+        telescope_layout.addWidget(self.capture_telescope_missing_check)
+
+        camera_row = QtWidgets.QWidget()
+        camera_layout = QtWidgets.QHBoxLayout(camera_row)
+        camera_layout.setContentsMargins(0, 0, 0, 0)
+        camera_layout.setSpacing(8)
+        camera_layout.addWidget(self.capture_camera_filter, stretch=1)
+        camera_layout.addWidget(self.capture_camera_missing_check)
+
+        filter_row = QtWidgets.QWidget()
+        filter_layout = QtWidgets.QHBoxLayout(filter_row)
+        filter_layout.setContentsMargins(0, 0, 0, 0)
+        filter_layout.setSpacing(8)
+        filter_layout.addWidget(self.capture_filter_filter, stretch=1)
+        filter_layout.addWidget(self.capture_filter_missing_check)
+
+        advanced_filters_box_layout.addRow(tr("main.advanced.location"), location_row)
+        advanced_filters_box_layout.addRow(tr("main.advanced.telescope"), telescope_row)
+        advanced_filters_box_layout.addRow(tr("main.advanced.camera"), camera_row)
+        advanced_filters_box_layout.addRow(tr("main.advanced.filter"), filter_row)
         advanced_filters_box_layout.addRow(tr("main.advanced.year"), year_month_row)
 
         advanced_filters_layout.addWidget(advanced_filters_box)
@@ -4566,6 +4630,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.capture_filter_filter.text(),
                 self.capture_year_filter.text(),
                 self.capture_month_filter.text(),
+                self.capture_location_missing_check.isChecked(),
+                self.capture_telescope_missing_check.isChecked(),
+                self.capture_camera_missing_check.isChecked(),
+                self.capture_filter_missing_check.isChecked(),
             )
         if hasattr(self, "search"):
             self.proxy.set_search_text(self.search.text())
@@ -4588,10 +4656,35 @@ class MainWindow(QtWidgets.QMainWindow):
             self.capture_filter_filter.text(),
             self.capture_year_filter.text(),
             self.capture_month_filter.text(),
+            self.capture_location_missing_check.isChecked(),
+            self.capture_telescope_missing_check.isChecked(),
+            self.capture_camera_missing_check.isChecked(),
+            self.capture_filter_missing_check.isChecked(),
         )
         self._schedule_auto_fit()
         self._persist_ui_state_quick()
         self._schedule_ui_state_persist()
+
+    def _on_capture_missing_toggled(self, _state: int) -> None:
+        self._update_capture_missing_field_states()
+        self._on_capture_filters_changed("")
+
+    def _update_capture_missing_field_states(self, base_enabled: Optional[bool] = None) -> None:
+        if base_enabled is None:
+            base_enabled = True
+        pairs = (
+            (self.capture_location_filter, self.capture_location_missing_check),
+            (self.capture_telescope_filter, self.capture_telescope_missing_check),
+            (self.capture_camera_filter, self.capture_camera_missing_check),
+            (self.capture_filter_filter, self.capture_filter_missing_check),
+        )
+        for field, checkbox in pairs:
+            checked = checkbox.isChecked()
+            if checked and field.text():
+                field.blockSignals(True)
+                field.clear()
+                field.blockSignals(False)
+            field.setEnabled(bool(base_enabled) and not checked)
 
     def _setup_capture_filter_autocomplete(self) -> None:
         self._capture_filter_completers = {}
@@ -4699,10 +4792,21 @@ class MainWindow(QtWidgets.QMainWindow):
             self.capture_year_filter,
             self.capture_month_filter,
         )
+        checks = (
+            self.capture_location_missing_check,
+            self.capture_telescope_missing_check,
+            self.capture_camera_missing_check,
+            self.capture_filter_missing_check,
+        )
         for field in fields:
             field.blockSignals(True)
             field.clear()
             field.blockSignals(False)
+        for check in checks:
+            check.blockSignals(True)
+            check.setChecked(False)
+            check.blockSignals(False)
+        self._update_capture_missing_field_states()
         self._on_capture_filters_changed("")
 
     def _on_compact_catalog_changed(self, value: str) -> None:
@@ -5160,12 +5264,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.about_button.setEnabled(enabled)
         self.advanced_filters_toggle.setEnabled(enabled)
         self.advanced_filters_reset_button.setEnabled(enabled)
-        self.capture_location_filter.setEnabled(enabled)
-        self.capture_telescope_filter.setEnabled(enabled)
-        self.capture_camera_filter.setEnabled(enabled)
-        self.capture_filter_filter.setEnabled(enabled)
         self.capture_year_filter.setEnabled(enabled)
         self.capture_month_filter.setEnabled(enabled)
+        self.capture_location_missing_check.setEnabled(enabled)
+        self.capture_telescope_missing_check.setEnabled(enabled)
+        self.capture_camera_missing_check.setEnabled(enabled)
+        self.capture_filter_missing_check.setEnabled(enabled)
+        self._update_capture_missing_field_states(base_enabled=enabled)
         if hasattr(self, "compact_catalog_filter"):
             self.compact_catalog_filter.setEnabled(enabled)
             self.compact_type_filter.setEnabled(enabled)
@@ -5376,17 +5481,36 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _item_capture_search_fields(self, item: CatalogItem) -> Dict[str, str]:
         if item is None:
-            return {"location": "", "telescope": "", "camera": "", "filter": "", "year": "", "month": ""}
+            return {
+                "location": "",
+                "telescope": "",
+                "camera": "",
+                "filter": "",
+                "year": "",
+                "month": "",
+                "missing_location": "",
+                "missing_telescope": "",
+                "missing_camera": "",
+                "missing_filter": "",
+            }
 
         cached = self._capture_search_cache.get(item.unique_key)
         if cached is not None:
             return cached
 
         fields = {"location": [], "telescope": [], "camera": [], "filter": [], "year": [], "month": []}
+        missing_location = False
+        missing_telescope = False
+        missing_camera = False
+        missing_filter = False
 
         for image_path in item.image_paths:
             note = self.database.get_note_by_image_id(image_path.name)
             if not note:
+                missing_location = True
+                missing_telescope = True
+                missing_camera = True
+                missing_filter = True
                 continue
             note_id = int(note["note_id"])
             payload = self._load_imaging_payload(note_id)
@@ -5394,16 +5518,24 @@ class MainWindow(QtWidgets.QMainWindow):
             location = str(payload.get("capture_location") or "").strip()
             if location and location not in fields["location"]:
                 fields["location"].append(location)
+            if not location:
+                missing_location = True
 
             imaging = payload.get("imaging_equipment") or {}
             telescope = str(imaging.get("telescope_or_refractor") or "").strip()
             if telescope and telescope not in fields["telescope"]:
                 fields["telescope"].append(telescope)
+            if not telescope:
+                missing_telescope = True
             camera = str(imaging.get("camera") or "").strip()
             if camera and camera not in fields["camera"]:
                 fields["camera"].append(camera)
+            if not camera:
+                missing_camera = True
 
             integrations = payload.get("integrations") or []
+            if not integrations:
+                missing_filter = True
             for integration in integrations:
                 if not isinstance(integration, dict):
                     continue
@@ -5418,6 +5550,10 @@ class MainWindow(QtWidgets.QMainWindow):
                     fields["month"].append(month)
 
         result = {name: " | ".join(values) for name, values in fields.items()}
+        result["missing_location"] = "1" if missing_location else ""
+        result["missing_telescope"] = "1" if missing_telescope else ""
+        result["missing_camera"] = "1" if missing_camera else ""
+        result["missing_filter"] = "1" if missing_filter else ""
         self._capture_search_cache[item.unique_key] = result
         return result
 
@@ -5617,6 +5753,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.capture_filter_filter.blockSignals(True)
         self.capture_filter_filter.setText(str(imaging_filters.get("filter", "") or ""))
         self.capture_filter_filter.blockSignals(False)
+        self.capture_location_missing_check.blockSignals(True)
+        self.capture_location_missing_check.setChecked(bool(imaging_filters.get("missing_location", False)))
+        self.capture_location_missing_check.blockSignals(False)
+        self.capture_telescope_missing_check.blockSignals(True)
+        self.capture_telescope_missing_check.setChecked(bool(imaging_filters.get("missing_telescope", False)))
+        self.capture_telescope_missing_check.blockSignals(False)
+        self.capture_camera_missing_check.blockSignals(True)
+        self.capture_camera_missing_check.setChecked(bool(imaging_filters.get("missing_camera", False)))
+        self.capture_camera_missing_check.blockSignals(False)
+        self.capture_filter_missing_check.blockSignals(True)
+        self.capture_filter_missing_check.setChecked(bool(imaging_filters.get("missing_filter", False)))
+        self.capture_filter_missing_check.blockSignals(False)
+        self._update_capture_missing_field_states()
         legacy_date_text = str(imaging_filters.get("date", "") or "")
         legacy_year, legacy_month = self._extract_capture_year_month(legacy_date_text)
         self.capture_year_filter.blockSignals(True)
@@ -5662,6 +5811,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 "filter": self.capture_filter_filter.text() if hasattr(self, "capture_filter_filter") else "",
                 "year": self.capture_year_filter.text() if hasattr(self, "capture_year_filter") else "",
                 "month": self.capture_month_filter.text() if hasattr(self, "capture_month_filter") else "",
+                "missing_location": self.capture_location_missing_check.isChecked() if hasattr(self, "capture_location_missing_check") else False,
+                "missing_telescope": self.capture_telescope_missing_check.isChecked() if hasattr(self, "capture_telescope_missing_check") else False,
+                "missing_camera": self.capture_camera_missing_check.isChecked() if hasattr(self, "capture_camera_missing_check") else False,
+                "missing_filter": self.capture_filter_missing_check.isChecked() if hasattr(self, "capture_filter_missing_check") else False,
             },
         }
         self._saved_state = state

@@ -38,6 +38,8 @@
   "main.advanced.year_placeholder": "Cerca per anno (es. 2025, 2026)",
   "main.advanced.month": "Mese",
   "main.advanced.month_placeholder": "Cerca per nome del mese (es. novembre)",
+  "main.advanced.missing": "Mancante",
+  "main.advanced.missing_tooltip": "Mostra solo le foto in cui questo campo non è compilato",
   "main.advanced.date": "Data",
   "main.advanced.date_placeholder": "Cerca per data",
   "main.advanced_filters_reset": "Reimposta",
