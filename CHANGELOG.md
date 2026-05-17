@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.7.4] - 2026-05-17
+### Added
+- **UI** : advanced search on picture information (scope, filters, date, ...)
+
 ## [1.7.3] - 2026-05-15
 ### Added
 - **UI** Image deduplication in the photo strip: you can now choose not to see the same picture multiple times when it contains several objects (for example M81‑M82‑V3.jpg) or when it appears under different names (M81).
