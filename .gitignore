@@ -6,6 +6,9 @@ tmp/
 *.bak
 !spec/*.spec
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
 .DS_Store
 *.zip
 

@@ -26,6 +26,7 @@ The app scans filenames and matches objects automatically.
 ## Browsing the Catalogs
 - Use the Catalog dropdown to switch catalogs.
 - Use Search to find by object ID or name.
+- Use Advanced filters to search capture metadata such as location, telescope, camera, filter, and date.
 - Use Object Type to filter (Galaxy, Nebula, Open Cluster, etc.).
 - Use Status:
   - Captured: objects with local images

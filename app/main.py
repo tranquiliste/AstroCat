@@ -1039,6 +1039,25 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
         return super().sizeHint(option, index)
 
 
+class CommaSeparatedCompleter(QtWidgets.QCompleter):
+    def splitPath(self, path: str) -> List[str]:
+        current_token = (path or "").rsplit(",", 1)[-1].strip()
+        return [current_token]
+
+    def pathFromIndex(self, index: QtCore.QModelIndex) -> str:
+        completion = super().pathFromIndex(index)
+        widget = self.widget()
+        if not isinstance(widget, QtWidgets.QLineEdit):
+            return completion
+        text = widget.text() or ""
+        if "," not in text:
+            return completion
+        head = text.rsplit(",", 1)[0].strip()
+        if not head:
+            return completion
+        return f"{head}, {completion}"
+
+
 class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
     def __init__(self, parent: Optional[QtCore.QObject] = None) -> None:
         super().__init__(parent)
@@ -1046,6 +1065,11 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.type_filter = ""
         self.catalog_filter = ""
         self.status_filter = ""
+        self.capture_location_text = ""
+        self.capture_telescope_text = ""
+        self.capture_camera_text = ""
+        self.capture_filter_text = ""
+        self.capture_date_text = ""
         self._global_dedup_items_set = set()  # Set of object IDs to hide in "Tous" mode
         self.setFilterCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
 
@@ -1067,6 +1091,21 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
 
     def set_status_filter(self, value: str) -> None:
         self.status_filter = value
+        self.invalidate()
+
+    def set_capture_filters(
+        self,
+        location: str,
+        telescope: str,
+        camera: str,
+        filter_name: str,
+        captured_on: str,
+    ) -> None:
+        self.capture_location_text = location.strip()
+        self.capture_telescope_text = telescope.strip()
+        self.capture_camera_text = camera.strip()
+        self.capture_filter_text = filter_name.strip()
+        self.capture_date_text = captured_on.strip()
         self.invalidate()
     
     def _update_global_dedup_set(self) -> None:
@@ -1124,6 +1163,34 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
     def _normalize_name_search(value: str) -> str:
         return value.casefold()
 
+    @staticmethod
+    def _normalize_capture_search(value: str) -> str:
+        return "".join(ch for ch in value.casefold() if ch.isalnum())
+
+    @classmethod
+    def _matches_capture_field(cls, needle: str, haystack: str) -> bool:
+        value = (needle or "").strip()
+        if not value:
+            return True
+        blob = haystack or ""
+        if value.casefold() in blob.casefold():
+            return True
+        compact_value = cls._normalize_capture_search(value)
+        if not compact_value:
+            return True
+        return compact_value in cls._normalize_capture_search(blob)
+
+    @staticmethod
+    def _split_capture_terms(value: str) -> List[str]:
+        return [term.strip() for term in (value or "").split(",") if term.strip()]
+
+    @classmethod
+    def _matches_capture_field_any(cls, needle_values: str, haystack: str) -> bool:
+        terms = cls._split_capture_terms(needle_values)
+        if not terms:
+            return True
+        return any(cls._matches_capture_field(term, haystack) for term in terms)
+
     def filterAcceptsRow(self, source_row: int, source_parent: QtCore.QModelIndex) -> bool:
         model = self.sourceModel()
         index = model.index(source_row, 0, source_parent)
@@ -1172,6 +1239,29 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
                 and search not in name
                 and normalized_search not in compact_name
             ):
+                return False
+        if any(
+            (
+                self.capture_location_text,
+                self.capture_telescope_text,
+                self.capture_camera_text,
+                self.capture_filter_text,
+                self.capture_date_text,
+            )
+        ):
+            main_window = self.parent()
+            if not main_window or not hasattr(main_window, "_item_capture_search_fields"):
+                return False
+            capture_fields = main_window._item_capture_search_fields(item)
+            if not self._matches_capture_field_any(self.capture_location_text, capture_fields.get("location", "")):
+                return False
+            if not self._matches_capture_field_any(self.capture_telescope_text, capture_fields.get("telescope", "")):
+                return False
+            if not self._matches_capture_field_any(self.capture_camera_text, capture_fields.get("camera", "")):
+                return False
+            if not self._matches_capture_field_any(self.capture_filter_text, capture_fields.get("filter", "")):
+                return False
+            if not self._matches_capture_field(self.capture_date_text, capture_fields.get("date", "")):
                 return False
         return True
 
@@ -3111,6 +3201,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 "search": "",
             }
         self._saved_state_applied = False
+        self._capture_search_cache: Dict[str, Dict[str, str]] = {}
+        self._capture_filter_completers: Dict[str, QtWidgets.QCompleter] = {}
 
         cache_dir = self._cache_dir()
         thumb_size = self.config.get("thumb_size", 240)
@@ -3412,6 +3504,75 @@ class MainWindow(QtWidgets.QMainWindow):
         self.about_button.setFixedSize(32, 32)
         self.about_button.clicked.connect(self._open_about)
 
+        self.advanced_filters_toggle = QtWidgets.QToolButton()
+        self.advanced_filters_toggle.setCheckable(True)
+        self.advanced_filters_toggle.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.advanced_filters_toggle.setObjectName("toolbarAdvancedFiltersButton")
+        self.advanced_filters_toggle.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        self.advanced_filters_toggle.toggled.connect(self._on_advanced_filters_toggled)
+
+        self.advanced_filters_reset_button = QtWidgets.QToolButton()
+        self.advanced_filters_reset_button.setObjectName("toolbarAdvancedResetButton")
+        self.advanced_filters_reset_button.setToolButtonStyle(QtCore.Qt.ToolButtonStyle.ToolButtonTextOnly)
+        self.advanced_filters_reset_button.setText(tr("main.advanced_filters_reset"))
+        self.advanced_filters_reset_button.setToolTip(tr("main.advanced_filters_reset"))
+        self.advanced_filters_reset_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        self.advanced_filters_reset_button.setFixedHeight(32)
+        self.advanced_filters_reset_button.clicked.connect(self._clear_advanced_filters)
+
+        self.advanced_filters_container = QtWidgets.QWidget()
+        self.advanced_filters_container.setObjectName("advancedFiltersContainer")
+        advanced_filters_layout = QtWidgets.QVBoxLayout(self.advanced_filters_container)
+        advanced_filters_layout.setContentsMargins(0, 8, 0, 0)
+        advanced_filters_layout.setSpacing(8)
+
+        advanced_filters_header = QtWidgets.QHBoxLayout()
+        advanced_filters_header.setContentsMargins(0, 0, 0, 0)
+        advanced_filters_header.setSpacing(8)
+        self.advanced_filters_hint = QtWidgets.QLabel(tr("main.advanced_filters_hint"))
+        self.advanced_filters_hint.setObjectName("advancedFiltersHint")
+        self.advanced_filters_hint.setWordWrap(True)
+        advanced_filters_header.addWidget(self.advanced_filters_hint, stretch=1)
+        advanced_filters_layout.addLayout(advanced_filters_header)
+
+        advanced_filters_box = QtWidgets.QFrame()
+        advanced_filters_box.setObjectName("advancedFiltersBox")
+        advanced_filters_box_layout = QtWidgets.QFormLayout(advanced_filters_box)
+        advanced_filters_box_layout.setContentsMargins(14, 12, 14, 12)
+        advanced_filters_box_layout.setSpacing(8)
+
+        self.capture_location_filter = QtWidgets.QLineEdit()
+        self.capture_location_filter.setPlaceholderText(tr("main.advanced.location_placeholder"))
+        self.capture_location_filter.textChanged.connect(self._on_capture_filters_changed)
+
+        self.capture_telescope_filter = QtWidgets.QLineEdit()
+        self.capture_telescope_filter.setPlaceholderText(tr("main.advanced.telescope_placeholder"))
+        self.capture_telescope_filter.textChanged.connect(self._on_capture_filters_changed)
+
+        self.capture_camera_filter = QtWidgets.QLineEdit()
+        self.capture_camera_filter.setPlaceholderText(tr("main.advanced.camera_placeholder"))
+        self.capture_camera_filter.textChanged.connect(self._on_capture_filters_changed)
+
+        self.capture_filter_filter = QtWidgets.QLineEdit()
+        self.capture_filter_filter.setPlaceholderText(tr("main.advanced.filter_placeholder"))
+        self.capture_filter_filter.textChanged.connect(self._on_capture_filters_changed)
+
+        self.capture_date_filter = QtWidgets.QLineEdit()
+        self.capture_date_filter.setPlaceholderText(tr("main.advanced.date_placeholder"))
+        self.capture_date_filter.textChanged.connect(self._on_capture_filters_changed)
+
+        self._setup_capture_filter_autocomplete()
+
+        advanced_filters_box_layout.addRow(tr("main.advanced.location"), self.capture_location_filter)
+        advanced_filters_box_layout.addRow(tr("main.advanced.telescope"), self.capture_telescope_filter)
+        advanced_filters_box_layout.addRow(tr("main.advanced.camera"), self.capture_camera_filter)
+        advanced_filters_box_layout.addRow(tr("main.advanced.filter"), self.capture_filter_filter)
+        advanced_filters_box_layout.addRow(tr("main.advanced.date"), self.capture_date_filter)
+
+        advanced_filters_layout.addWidget(advanced_filters_box)
+        self.advanced_filters_container.setVisible(False)
+        self._update_advanced_filters_toggle(False)
+
         self.compact_filters_container = QtWidgets.QWidget()
         compact_filters_layout = QtWidgets.QHBoxLayout(self.compact_filters_container)
         compact_filters_layout.setContentsMargins(0, 0, 0, 0)
@@ -3470,6 +3631,8 @@ class MainWindow(QtWidgets.QMainWindow):
         right_layout.setSpacing(10)
 
         toolbar.addWidget(self.search)
+        toolbar.addWidget(self.advanced_filters_toggle)
+        toolbar.addWidget(self.advanced_filters_reset_button)
         toolbar.addStretch(1)
         toolbar.addWidget(self.catalog_summary_container)
         toolbar.addStretch(1)
@@ -3498,6 +3661,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_label.hide()
 
         layout.addWidget(self.toolbar_container)
+        layout.addSpacing(2)
+        layout.addWidget(self.advanced_filters_container)
         layout.addSpacing(2)
         layout.addWidget(self.status_label)
         layout.addSpacing(2)
@@ -3638,6 +3803,8 @@ class MainWindow(QtWidgets.QMainWindow):
             QToolButton#detailSideToggleButton:hover { background: #343434; border-color: #b6935a; }
             QToolButton#detailSideToggleButton:pressed { background: #3a3a3a; }
             QToolButton#toolbarRefreshButton,
+            QToolButton#toolbarAdvancedFiltersButton,
+            QToolButton#toolbarAdvancedResetButton,
             QToolButton#toolbarSettingsButton,
             QToolButton#toolbarHelpButton,
             QToolButton#toolbarAboutButton {
@@ -3649,14 +3816,20 @@ class MainWindow(QtWidgets.QMainWindow):
                 font-weight: 500;
             }
             QToolButton#toolbarRefreshButton:hover,
+            QToolButton#toolbarAdvancedFiltersButton:hover,
+            QToolButton#toolbarAdvancedResetButton:hover,
             QToolButton#toolbarSettingsButton:hover,
             QToolButton#toolbarHelpButton:hover,
             QToolButton#toolbarAboutButton:hover { background: #343434; border-color: #5a5a5a; }
             QToolButton#toolbarRefreshButton:pressed,
+            QToolButton#toolbarAdvancedFiltersButton:pressed,
+            QToolButton#toolbarAdvancedResetButton:pressed,
             QToolButton#toolbarSettingsButton:pressed,
             QToolButton#toolbarHelpButton:pressed,
             QToolButton#toolbarAboutButton:pressed { background: #3a3a3a; }
             QToolButton#toolbarRefreshButton { font-size: 16px; }
+            QToolButton#toolbarAdvancedFiltersButton { font-size: 13px; font-weight: 600; padding: 0 12px; }
+            QToolButton#toolbarAdvancedResetButton { font-size: 13px; font-weight: 600; padding: 0 12px; }
             QToolButton#toolbarSettingsButton { font-size: 16px; }
             QToolButton#toolbarHelpButton { font-size: 16px; font-weight: 700; }
             QToolButton#toolbarAboutButton { font-size: 15px; font-weight: 700; }
@@ -4009,6 +4182,9 @@ class MainWindow(QtWidgets.QMainWindow):
             if dialog_result != int(QtWidgets.QDialog.DialogCode.Accepted):
                 return
             self._save_imaging_payload(note_id, dialog.payload())
+            self._capture_search_cache.clear()
+            self.proxy.invalidate()
+            self._refresh_capture_filter_autocomplete()
             self._refresh_current_image_imaging_summary()
             self._set_status_message(tr("imaging.saved_status", name=image_name))
         except Exception as exc:
@@ -4279,6 +4455,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.proxy.set_type_filter(self._combo_value(self.type_filter))
         if hasattr(self, "status_filter"):
             self.proxy.set_status_filter(self._combo_value(self.status_filter))
+        if hasattr(self, "capture_location_filter"):
+            self.proxy.set_capture_filters(
+                self.capture_location_filter.text(),
+                self.capture_telescope_filter.text(),
+                self.capture_camera_filter.text(),
+                self.capture_filter_filter.text(),
+                self.capture_date_filter.text(),
+            )
         if hasattr(self, "search"):
             self.proxy.set_search_text(self.search.text())
 
@@ -4289,6 +4473,76 @@ class MainWindow(QtWidgets.QMainWindow):
         if not hasattr(self, "search_clear_action"):
             return
         self.search_clear_action.setVisible(bool((text or "").strip()))
+
+    def _on_capture_filters_changed(self, _text: str) -> None:
+        if not hasattr(self, "proxy"):
+            return
+        self.proxy.set_capture_filters(
+            self.capture_location_filter.text(),
+            self.capture_telescope_filter.text(),
+            self.capture_camera_filter.text(),
+            self.capture_filter_filter.text(),
+            self.capture_date_filter.text(),
+        )
+        self._schedule_auto_fit()
+        self._persist_ui_state_quick()
+        self._schedule_ui_state_persist()
+
+    def _setup_capture_filter_autocomplete(self) -> None:
+        self._capture_filter_completers = {}
+        field_map = {
+            "location": self.capture_location_filter,
+            "telescope": self.capture_telescope_filter,
+            "camera": self.capture_camera_filter,
+            "filter": self.capture_filter_filter,
+            "date": self.capture_date_filter,
+        }
+        for key, widget in field_map.items():
+            if key == "date":
+                completer = QtWidgets.QCompleter([], widget)
+            else:
+                completer = CommaSeparatedCompleter([], widget)
+            completer.setCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
+            completer.setFilterMode(QtCore.Qt.MatchFlag.MatchContains)
+            completer.setCompletionMode(QtWidgets.QCompleter.CompletionMode.PopupCompletion)
+            completer.setMaxVisibleItems(12)
+            widget.setCompleter(completer)
+            self._capture_filter_completers[key] = completer
+        self._refresh_capture_filter_autocomplete()
+
+    def _refresh_capture_filter_autocomplete(self) -> None:
+        if not hasattr(self, "database"):
+            return
+        suggestions = self.database.list_capture_filter_suggestions()
+        for key, completer in self._capture_filter_completers.items():
+            values = list(suggestions.get(key) or [])
+            model = QtCore.QStringListModel(values, completer)
+            completer.setModel(model)
+
+    def _update_advanced_filters_toggle(self, expanded: bool) -> None:
+        label = tr("main.advanced_filters")
+        self.advanced_filters_toggle.setText(f"{label} {'▴' if expanded else '▾'}")
+
+    def _on_advanced_filters_toggled(self, expanded: bool) -> None:
+        if hasattr(self, "advanced_filters_container"):
+            self.advanced_filters_container.setVisible(expanded)
+        self._update_advanced_filters_toggle(expanded)
+        self._persist_ui_state_quick()
+        self._schedule_ui_state_persist()
+
+    def _clear_advanced_filters(self) -> None:
+        fields = (
+            self.capture_location_filter,
+            self.capture_telescope_filter,
+            self.capture_camera_filter,
+            self.capture_filter_filter,
+            self.capture_date_filter,
+        )
+        for field in fields:
+            field.blockSignals(True)
+            field.clear()
+            field.blockSignals(False)
+        self._on_capture_filters_changed("")
 
     def _on_compact_catalog_changed(self, value: str) -> None:
         if self._syncing_compact:
@@ -4655,6 +4909,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _on_catalog_loaded(self, items: List[CatalogItem]) -> None:
         self.items = items
+        self._capture_search_cache.clear()
+        self._refresh_capture_filter_autocomplete()
         try:
             self.database.upsert_image_object_links(build_image_object_map(items))
         except Exception:
@@ -4738,6 +4994,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.refresh_button.setEnabled(enabled)
         self.settings_button.setEnabled(enabled)
         self.about_button.setEnabled(enabled)
+        self.advanced_filters_toggle.setEnabled(enabled)
+        self.advanced_filters_reset_button.setEnabled(enabled)
+        self.capture_location_filter.setEnabled(enabled)
+        self.capture_telescope_filter.setEnabled(enabled)
+        self.capture_camera_filter.setEnabled(enabled)
+        self.capture_filter_filter.setEnabled(enabled)
+        self.capture_date_filter.setEnabled(enabled)
         if hasattr(self, "compact_catalog_filter"):
             self.compact_catalog_filter.setEnabled(enabled)
             self.compact_type_filter.setEnabled(enabled)
@@ -4929,6 +5192,61 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self.detail.set_wiki_pixmap(pixmap)
 
+    def _item_capture_search_fields(self, item: CatalogItem) -> Dict[str, str]:
+        if item is None:
+            return {"location": "", "telescope": "", "camera": "", "filter": "", "date": ""}
+
+        cached = self._capture_search_cache.get(item.unique_key)
+        if cached is not None:
+            return cached
+
+        fields = {"location": [], "telescope": [], "camera": [], "filter": [], "date": []}
+
+        for image_path in item.image_paths:
+            note = self.database.get_note_by_image_id(image_path.name)
+            if not note:
+                continue
+            note_id = int(note["note_id"])
+            payload = self._load_imaging_payload(note_id)
+
+            location = str(payload.get("capture_location") or "").strip()
+            if location and location not in fields["location"]:
+                fields["location"].append(location)
+
+            imaging = payload.get("imaging_equipment") or {}
+            telescope = str(imaging.get("telescope_or_refractor") or "").strip()
+            if telescope and telescope not in fields["telescope"]:
+                fields["telescope"].append(telescope)
+            camera = str(imaging.get("camera") or "").strip()
+            if camera and camera not in fields["camera"]:
+                fields["camera"].append(camera)
+
+            integrations = payload.get("integrations") or []
+            for integration in integrations:
+                if not isinstance(integration, dict):
+                    continue
+                filter_name = str(integration.get("filter_name") or "").strip()
+                if filter_name and filter_name not in fields["filter"]:
+                    fields["filter"].append(filter_name)
+                bandpass = integration.get("filter_bandpass_nm")
+                if bandpass not in (None, ""):
+                    bandpass_text = f"{bandpass}nm"
+                    if bandpass_text not in fields["filter"]:
+                        fields["filter"].append(bandpass_text)
+                brand = str(integration.get("filter_brand") or "").strip()
+                if brand and brand not in fields["filter"]:
+                    fields["filter"].append(brand)
+                model = str(integration.get("filter_model") or "").strip()
+                if model and model not in fields["filter"]:
+                    fields["filter"].append(model)
+                captured_on = str(integration.get("captured_on") or "").strip()
+                if captured_on and captured_on not in fields["date"]:
+                    fields["date"].append(captured_on)
+
+        result = {name: " | ".join(values) for name, values in fields.items()}
+        self._capture_search_cache[item.unique_key] = result
+        return result
+
     @staticmethod
     def _next_image_name(item: CatalogItem, current_name: Optional[str]) -> Optional[str]:
         if not current_name or not item.image_paths:
@@ -5084,12 +5402,14 @@ class MainWindow(QtWidgets.QMainWindow):
         state = self._saved_state or {}
         filters = state.get("filters", {})
         search = state.get("search", "")
+        imaging_filters = state.get("imaging_filters", {})
 
         catalog = filters.get("catalog")
         if catalog is None:
             catalog = "Messier"
         type_filter = filters.get("type", "")
         status_filter = filters.get("status", "")
+        advanced_open = bool(state.get("advanced_filters_open", False))
 
         self.search.blockSignals(True)
         self.search.setText(search or "")
@@ -5111,6 +5431,28 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_filter.blockSignals(False)
         self._on_status_changed("")
 
+        self.capture_location_filter.blockSignals(True)
+        self.capture_location_filter.setText(str(imaging_filters.get("location", "") or ""))
+        self.capture_location_filter.blockSignals(False)
+        self.capture_telescope_filter.blockSignals(True)
+        self.capture_telescope_filter.setText(str(imaging_filters.get("telescope", "") or ""))
+        self.capture_telescope_filter.blockSignals(False)
+        self.capture_camera_filter.blockSignals(True)
+        self.capture_camera_filter.setText(str(imaging_filters.get("camera", "") or ""))
+        self.capture_camera_filter.blockSignals(False)
+        self.capture_filter_filter.blockSignals(True)
+        self.capture_filter_filter.setText(str(imaging_filters.get("filter", "") or ""))
+        self.capture_filter_filter.blockSignals(False)
+        self.capture_date_filter.blockSignals(True)
+        self.capture_date_filter.setText(str(imaging_filters.get("date", "") or ""))
+        self.capture_date_filter.blockSignals(False)
+        self._on_capture_filters_changed("")
+
+        self.advanced_filters_toggle.blockSignals(True)
+        self.advanced_filters_toggle.setChecked(advanced_open)
+        self.advanced_filters_toggle.blockSignals(False)
+        self._on_advanced_filters_toggled(advanced_open)
+
     def _capture_ui_state(self) -> Dict:
         detail_side_panel_state = (
             self.detail.current_side_panel_state() if hasattr(self, "detail") else {"collapsed": False, "expanded_sizes": [1080, 320]}
@@ -5130,6 +5472,14 @@ class MainWindow(QtWidgets.QMainWindow):
                 "status": active_status,
             },
             "search": active_search,
+            "advanced_filters_open": bool(self.advanced_filters_toggle.isChecked()) if hasattr(self, "advanced_filters_toggle") else False,
+            "imaging_filters": {
+                "location": self.capture_location_filter.text() if hasattr(self, "capture_location_filter") else "",
+                "telescope": self.capture_telescope_filter.text() if hasattr(self, "capture_telescope_filter") else "",
+                "camera": self.capture_camera_filter.text() if hasattr(self, "capture_camera_filter") else "",
+                "filter": self.capture_filter_filter.text() if hasattr(self, "capture_filter_filter") else "",
+                "date": self.capture_date_filter.text() if hasattr(self, "capture_date_filter") else "",
+            },
         }
         self._saved_state = state
         return state

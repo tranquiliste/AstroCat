@@ -485,6 +485,103 @@ class Database:
         with self.connection() as connection:
             connection.execute("DELETE FROM image_capture_details WHERE note_id = ?", (note_id,))
 
+    def list_capture_filter_suggestions(self) -> Dict[str, List[str]]:
+        with self.connection() as connection:
+            locations = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT capture_location AS value
+                FROM image_capture_details
+                WHERE trim(ifnull(capture_location, '')) <> ''
+                ORDER BY capture_location COLLATE NOCASE
+                """,
+            )
+            telescopes = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT telescope_or_refractor AS value
+                FROM image_imaging_equipment
+                WHERE trim(ifnull(telescope_or_refractor, '')) <> ''
+                ORDER BY telescope_or_refractor COLLATE NOCASE
+                """,
+            )
+            cameras = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT camera AS value
+                FROM image_imaging_equipment
+                WHERE trim(ifnull(camera, '')) <> ''
+                ORDER BY camera COLLATE NOCASE
+                """,
+            )
+            filter_names = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT filter_name AS value
+                FROM image_filter_integrations
+                WHERE trim(ifnull(filter_name, '')) <> ''
+                ORDER BY filter_name COLLATE NOCASE
+                """,
+            )
+            filter_brands = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT filter_brand AS value
+                FROM image_filter_integrations
+                WHERE trim(ifnull(filter_brand, '')) <> ''
+                ORDER BY filter_brand COLLATE NOCASE
+                """,
+            )
+            filter_models = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT filter_model AS value
+                FROM image_filter_integrations
+                WHERE trim(ifnull(filter_model, '')) <> ''
+                ORDER BY filter_model COLLATE NOCASE
+                """,
+            )
+            captured_dates = self._fetch_distinct_text_values(
+                connection,
+                """
+                SELECT DISTINCT captured_on AS value
+                FROM image_filter_integrations
+                WHERE trim(ifnull(captured_on, '')) <> ''
+                ORDER BY captured_on COLLATE NOCASE
+                """,
+            )
+            bandpass_rows = connection.execute(
+                """
+                SELECT DISTINCT filter_bandpass_nm
+                FROM image_filter_integrations
+                WHERE filter_bandpass_nm IS NOT NULL
+                ORDER BY filter_bandpass_nm
+                """
+            ).fetchall()
+
+        bandpass_values: List[str] = []
+        for row in bandpass_rows:
+            raw_value = row[0]
+            if raw_value is None:
+                continue
+            value = float(raw_value)
+            text = f"{int(value)}nm" if value.is_integer() else f"{value:g}nm"
+            if text not in bandpass_values:
+                bandpass_values.append(text)
+
+        filters: List[str] = []
+        for value in filter_names + filter_brands + filter_models + bandpass_values:
+            if value not in filters:
+                filters.append(value)
+
+        return {
+            "location": locations,
+            "telescope": telescopes,
+            "camera": cameras,
+            "filter": filters,
+            "date": captured_dates,
+        }
+
     def add_filter_integration(
         self,
         note_id: int,
@@ -1370,6 +1467,19 @@ class Database:
         if row is None:
             return None
         return int(row["note_id"])
+
+    @staticmethod
+    def _fetch_distinct_text_values(connection: sqlite3.Connection, query: str) -> List[str]:
+        rows = connection.execute(query).fetchall()
+        values: List[str] = []
+        for row in rows:
+            raw_value = row[0]
+            if raw_value is None:
+                continue
+            text = str(raw_value).strip()
+            if text and text not in values:
+                values.append(text)
+        return values
 
     def _replace_note_metadata(self, connection: sqlite3.Connection, note_id: int, metadata: Dict) -> None:
         connection.execute("DELETE FROM note_metadata WHERE note_id = ?", (note_id,))
