@@ -4,6 +4,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 import json
+import re
 import sqlite3
 import sys
 from typing import Dict, Iterable, Iterator, List, Optional, Tuple
@@ -533,12 +534,23 @@ class Database:
                 """,
             )
 
+        years: List[str] = []
+        months: List[str] = []
+        for captured_on in captured_dates:
+            year, month = self._extract_captured_on_year_month(captured_on)
+            if year and year not in years:
+                years.append(year)
+            if month and month not in months:
+                months.append(month)
+        months.sort(key=lambda value: int(value))
+
         return {
             "location": locations,
             "telescope": telescopes,
             "camera": cameras,
             "filter": filter_names,
-            "date": captured_dates,
+            "year": years,
+            "month": months,
         }
 
     def add_filter_integration(
@@ -1439,6 +1451,23 @@ class Database:
             if text and text not in values:
                 values.append(text)
         return values
+
+    @staticmethod
+    def _extract_captured_on_year_month(captured_on: str) -> Tuple[str, str]:
+        text = str(captured_on or "").strip()
+        if not text:
+            return "", ""
+        match = re.search(r"(?<!\d)(\d{4})(?:[-/](\d{1,2}))?", text)
+        if not match:
+            return "", ""
+        year = match.group(1) or ""
+        month = ""
+        raw_month = match.group(2)
+        if raw_month and raw_month.isdigit():
+            month_value = int(raw_month)
+            if 1 <= month_value <= 12:
+                month = str(month_value)
+        return year, month
 
     def _replace_note_metadata(self, connection: sqlite3.Connection, note_id: int, metadata: Dict) -> None:
         connection.execute("DELETE FROM note_metadata WHERE note_id = ?", (note_id,))

@@ -66,6 +66,7 @@ import subprocess
 import shutil
 import io
 import runpy
+import unicodedata
 from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
 from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Tuple
@@ -1095,7 +1096,8 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         self.capture_telescope_text = ""
         self.capture_camera_text = ""
         self.capture_filter_text = ""
-        self.capture_date_text = ""
+        self.capture_year_text = ""
+        self.capture_month_text = ""
         self._global_dedup_items_set = set()  # Set of object IDs to hide in "Tous" mode
         self.setFilterCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
 
@@ -1125,13 +1127,15 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         telescope: str,
         camera: str,
         filter_name: str,
-        captured_on: str,
+        capture_year: str,
+        capture_month: str,
     ) -> None:
         self.capture_location_text = location.strip()
         self.capture_telescope_text = telescope.strip()
         self.capture_camera_text = camera.strip()
         self.capture_filter_text = filter_name.strip()
-        self.capture_date_text = captured_on.strip()
+        self.capture_year_text = capture_year.strip()
+        self.capture_month_text = capture_month.strip()
         self.invalidate()
     
     def _update_global_dedup_set(self) -> None:
@@ -1217,6 +1221,63 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
             return True
         return any(cls._matches_capture_field(term, haystack) for term in terms)
 
+    @staticmethod
+    def _normalize_month_token(value: str) -> str:
+        lowered = unicodedata.normalize("NFKD", value.casefold())
+        stripped = "".join(ch for ch in lowered if not unicodedata.combining(ch))
+        return re.sub(r"[^a-z0-9]", "", stripped)
+
+    @classmethod
+    def _month_candidates_from_term(cls, term: str) -> set[int]:
+        raw = (term or "").strip()
+        if not raw:
+            return set()
+        if raw.isdigit():
+            value = int(raw)
+            if 1 <= value <= 12:
+                return {value}
+        token = cls._normalize_month_token(raw)
+        if not token:
+            return set()
+        aliases = {
+            1: ["jan", "january", "janvier", "januar", "enero", "gennaio"],
+            2: ["feb", "february", "fevrier", "februar", "febrero", "febbraio"],
+            3: ["mar", "march", "mars", "maerz", "marz", "marzo"],
+            4: ["apr", "april", "avril", "abril", "aprile"],
+            5: ["may", "mai", "mayo", "maggio"],
+            6: ["jun", "june", "juin", "junio", "giugno"],
+            7: ["jul", "july", "juillet", "julio", "luglio"],
+            8: ["aug", "august", "aout", "agosto"],
+            9: ["sep", "sept", "september", "septembre", "septiembre", "settembre"],
+            10: ["oct", "october", "octobre", "octubre", "ottobre"],
+            11: ["nov", "november", "novembre", "noviembre"],
+            12: ["dec", "december", "decembre", "diciembre", "dicembre"],
+        }
+        candidates: set[int] = set()
+        for month, values in aliases.items():
+            normalized_values = [cls._normalize_month_token(item) for item in values]
+            if any(item.startswith(token) or token.startswith(item) for item in normalized_values):
+                candidates.add(month)
+        return candidates
+
+    @classmethod
+    def _matches_capture_month_any(cls, needle_values: str, month_blob: str) -> bool:
+        terms = cls._split_capture_terms(needle_values)
+        if not terms:
+            return True
+        present = {
+            int(part.strip())
+            for part in (month_blob or "").split("|")
+            if part.strip().isdigit() and 1 <= int(part.strip()) <= 12
+        }
+        if not present:
+            return False
+        for term in terms:
+            candidates = cls._month_candidates_from_term(term)
+            if candidates and candidates.intersection(present):
+                return True
+        return False
+
     def filterAcceptsRow(self, source_row: int, source_parent: QtCore.QModelIndex) -> bool:
         model = self.sourceModel()
         index = model.index(source_row, 0, source_parent)
@@ -1272,7 +1333,8 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
                 self.capture_telescope_text,
                 self.capture_camera_text,
                 self.capture_filter_text,
-                self.capture_date_text,
+                self.capture_year_text,
+                self.capture_month_text,
             )
         ):
             main_window = self.parent()
@@ -1287,7 +1349,9 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
                 return False
             if not self._matches_capture_field_any(self.capture_filter_text, capture_fields.get("filter", "")):
                 return False
-            if not self._matches_capture_field(self.capture_date_text, capture_fields.get("date", "")):
+            if not self._matches_capture_field_any(self.capture_year_text, capture_fields.get("year", "")):
+                return False
+            if not self._matches_capture_month_any(self.capture_month_text, capture_fields.get("month", "")):
                 return False
         return True
 
@@ -3585,17 +3649,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.capture_filter_filter.setPlaceholderText(tr("main.advanced.filter_placeholder"))
         self.capture_filter_filter.textChanged.connect(self._on_capture_filters_changed)
 
-        self.capture_date_filter = QtWidgets.QLineEdit()
-        self.capture_date_filter.setPlaceholderText(tr("main.advanced.date_placeholder"))
-        self.capture_date_filter.textChanged.connect(self._on_capture_filters_changed)
+        self.capture_year_filter = QtWidgets.QLineEdit()
+        self.capture_year_filter.setPlaceholderText(tr("main.advanced.year_placeholder"))
+        self.capture_year_filter.textChanged.connect(self._on_capture_filters_changed)
+
+        self.capture_month_filter = QtWidgets.QLineEdit()
+        self.capture_month_filter.setPlaceholderText(tr("main.advanced.month_placeholder"))
+        self.capture_month_filter.textChanged.connect(self._on_capture_filters_changed)
 
         self._setup_capture_filter_autocomplete()
+
+        year_month_row = QtWidgets.QWidget()
+        year_month_layout = QtWidgets.QHBoxLayout(year_month_row)
+        year_month_layout.setContentsMargins(0, 0, 0, 0)
+        year_month_layout.setSpacing(8)
+        year_month_layout.addWidget(self.capture_year_filter, stretch=1)
+        year_month_layout.addWidget(QtWidgets.QLabel(tr("main.advanced.month")))
+        year_month_layout.addWidget(self.capture_month_filter, stretch=1)
 
         advanced_filters_box_layout.addRow(tr("main.advanced.location"), self.capture_location_filter)
         advanced_filters_box_layout.addRow(tr("main.advanced.telescope"), self.capture_telescope_filter)
         advanced_filters_box_layout.addRow(tr("main.advanced.camera"), self.capture_camera_filter)
         advanced_filters_box_layout.addRow(tr("main.advanced.filter"), self.capture_filter_filter)
-        advanced_filters_box_layout.addRow(tr("main.advanced.date"), self.capture_date_filter)
+        advanced_filters_box_layout.addRow(tr("main.advanced.year"), year_month_row)
 
         advanced_filters_layout.addWidget(advanced_filters_box)
         self.advanced_filters_container.setVisible(False)
@@ -4488,7 +4564,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.capture_telescope_filter.text(),
                 self.capture_camera_filter.text(),
                 self.capture_filter_filter.text(),
-                self.capture_date_filter.text(),
+                self.capture_year_filter.text(),
+                self.capture_month_filter.text(),
             )
         if hasattr(self, "search"):
             self.proxy.set_search_text(self.search.text())
@@ -4509,7 +4586,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.capture_telescope_filter.text(),
             self.capture_camera_filter.text(),
             self.capture_filter_filter.text(),
-            self.capture_date_filter.text(),
+            self.capture_year_filter.text(),
+            self.capture_month_filter.text(),
         )
         self._schedule_auto_fit()
         self._persist_ui_state_quick()
@@ -4522,13 +4600,14 @@ class MainWindow(QtWidgets.QMainWindow):
             "telescope": self.capture_telescope_filter,
             "camera": self.capture_camera_filter,
             "filter": self.capture_filter_filter,
-            "date": self.capture_date_filter,
+            "year": self.capture_year_filter,
+            "month": self.capture_month_filter,
         }
         for key, widget in field_map.items():
-            if key == "date":
-                completer = QtWidgets.QCompleter([], widget)
-            else:
+            if key in ("location", "telescope", "camera", "filter", "year", "month"):
                 completer = CommaSeparatedCompleter(widget)
+            else:
+                completer = QtWidgets.QCompleter([], widget)
             completer.setCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
             completer.setFilterMode(QtCore.Qt.MatchFlag.MatchContains)
             completer.setCompletionMode(QtWidgets.QCompleter.CompletionMode.PopupCompletion)
@@ -4543,11 +4622,31 @@ class MainWindow(QtWidgets.QMainWindow):
         suggestions = self.database.list_capture_filter_suggestions()
         for key, completer in self._capture_filter_completers.items():
             values = list(suggestions.get(key) or [])
+            if key == "month":
+                values = [self._month_display_name(int(value)) for value in values if str(value).isdigit()]
             if isinstance(completer, CommaSeparatedCompleter):
                 completer.set_values(values)
             else:
                 model = QtCore.QStringListModel(values, completer)
                 completer.setModel(model)
+
+    @staticmethod
+    def _month_display_name(month: int) -> str:
+        month_keys = {
+            1: "month.jan",
+            2: "month.feb",
+            3: "month.mar",
+            4: "month.apr",
+            5: "month.may",
+            6: "month.jun",
+            7: "month.jul",
+            8: "month.aug",
+            9: "month.sep",
+            10: "month.oct",
+            11: "month.nov",
+            12: "month.dec",
+        }
+        return tr(month_keys.get(month, "month.jan")) if month in month_keys else ""
 
     def _update_advanced_filters_toggle(self, expanded: bool) -> None:
         label = tr("main.advanced_filters")
@@ -4597,7 +4696,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.capture_telescope_filter,
             self.capture_camera_filter,
             self.capture_filter_filter,
-            self.capture_date_filter,
+            self.capture_year_filter,
+            self.capture_month_filter,
         )
         for field in fields:
             field.blockSignals(True)
@@ -5064,7 +5164,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.capture_telescope_filter.setEnabled(enabled)
         self.capture_camera_filter.setEnabled(enabled)
         self.capture_filter_filter.setEnabled(enabled)
-        self.capture_date_filter.setEnabled(enabled)
+        self.capture_year_filter.setEnabled(enabled)
+        self.capture_month_filter.setEnabled(enabled)
         if hasattr(self, "compact_catalog_filter"):
             self.compact_catalog_filter.setEnabled(enabled)
             self.compact_type_filter.setEnabled(enabled)
@@ -5256,15 +5357,32 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         self.detail.set_wiki_pixmap(pixmap)
 
+    @staticmethod
+    def _extract_capture_year_month(captured_on: str) -> Tuple[str, str]:
+        text = str(captured_on or "").strip()
+        if not text:
+            return "", ""
+        match = re.search(r"(?<!\d)(\d{4})(?:[-/](\d{1,2}))?", text)
+        if not match:
+            return "", ""
+        year = match.group(1) or ""
+        month = ""
+        raw_month = match.group(2)
+        if raw_month and raw_month.isdigit():
+            month_value = int(raw_month)
+            if 1 <= month_value <= 12:
+                month = str(month_value)
+        return year, month
+
     def _item_capture_search_fields(self, item: CatalogItem) -> Dict[str, str]:
         if item is None:
-            return {"location": "", "telescope": "", "camera": "", "filter": "", "date": ""}
+            return {"location": "", "telescope": "", "camera": "", "filter": "", "year": "", "month": ""}
 
         cached = self._capture_search_cache.get(item.unique_key)
         if cached is not None:
             return cached
 
-        fields = {"location": [], "telescope": [], "camera": [], "filter": [], "date": []}
+        fields = {"location": [], "telescope": [], "camera": [], "filter": [], "year": [], "month": []}
 
         for image_path in item.image_paths:
             note = self.database.get_note_by_image_id(image_path.name)
@@ -5293,8 +5411,11 @@ class MainWindow(QtWidgets.QMainWindow):
                 if filter_name and filter_name not in fields["filter"]:
                     fields["filter"].append(filter_name)
                 captured_on = str(integration.get("captured_on") or "").strip()
-                if captured_on and captured_on not in fields["date"]:
-                    fields["date"].append(captured_on)
+                year, month = self._extract_capture_year_month(captured_on)
+                if year and year not in fields["year"]:
+                    fields["year"].append(year)
+                if month and month not in fields["month"]:
+                    fields["month"].append(month)
 
         result = {name: " | ".join(values) for name, values in fields.items()}
         self._capture_search_cache[item.unique_key] = result
@@ -5496,9 +5617,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.capture_filter_filter.blockSignals(True)
         self.capture_filter_filter.setText(str(imaging_filters.get("filter", "") or ""))
         self.capture_filter_filter.blockSignals(False)
-        self.capture_date_filter.blockSignals(True)
-        self.capture_date_filter.setText(str(imaging_filters.get("date", "") or ""))
-        self.capture_date_filter.blockSignals(False)
+        legacy_date_text = str(imaging_filters.get("date", "") or "")
+        legacy_year, legacy_month = self._extract_capture_year_month(legacy_date_text)
+        self.capture_year_filter.blockSignals(True)
+        self.capture_year_filter.setText(str(imaging_filters.get("year", legacy_year) or ""))
+        self.capture_year_filter.blockSignals(False)
+        self.capture_month_filter.blockSignals(True)
+        month_value = str(imaging_filters.get("month", legacy_month) or "")
+        if month_value.isdigit() and 1 <= int(month_value) <= 12:
+            month_value = self._month_display_name(int(month_value))
+        self.capture_month_filter.setText(month_value)
+        self.capture_month_filter.blockSignals(False)
         self._on_capture_filters_changed("")
 
         self.advanced_filters_toggle.blockSignals(True)
@@ -5531,7 +5660,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 "telescope": self.capture_telescope_filter.text() if hasattr(self, "capture_telescope_filter") else "",
                 "camera": self.capture_camera_filter.text() if hasattr(self, "capture_camera_filter") else "",
                 "filter": self.capture_filter_filter.text() if hasattr(self, "capture_filter_filter") else "",
-                "date": self.capture_date_filter.text() if hasattr(self, "capture_date_filter") else "",
+                "year": self.capture_year_filter.text() if hasattr(self, "capture_year_filter") else "",
+                "month": self.capture_month_filter.text() if hasattr(self, "capture_month_filter") else "",
             },
         }
         self._saved_state = state
