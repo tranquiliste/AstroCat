@@ -1040,8 +1040,34 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
 
 
 class CommaSeparatedCompleter(QtWidgets.QCompleter):
+    def __init__(self, parent: Optional[QtCore.QObject] = None) -> None:
+        super().__init__(parent)
+        self._all_values: List[str] = []
+        self._base_model = QtCore.QStringListModel([], self)
+        super().setModel(self._base_model)
+
+    def set_values(self, values: List[str]) -> None:
+        deduped: List[str] = []
+        seen = set()
+        for value in values:
+            text = str(value or "").strip()
+            if not text:
+                continue
+            key = text.casefold()
+            if key in seen:
+                continue
+            seen.add(key)
+            deduped.append(text)
+        self._all_values = deduped
+        self._base_model.setStringList(deduped)
+
     def splitPath(self, path: str) -> List[str]:
-        current_token = (path or "").rsplit(",", 1)[-1].strip()
+        raw_text = path or ""
+        parts = [part.strip() for part in raw_text.split(",")]
+        current_token = parts[-1] if parts else ""
+        excluded = {part.casefold() for part in parts[:-1] if part}
+        filtered_values = [value for value in self._all_values if value.casefold() not in excluded]
+        self._base_model.setStringList(filtered_values)
         return [current_token]
 
     def pathFromIndex(self, index: QtCore.QModelIndex) -> str:
@@ -3403,6 +3429,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _build_ui(self) -> None:
         central = QtWidgets.QWidget()
+        self._central_widget = central
         layout = QtWidgets.QVBoxLayout(central)
         layout.setContentsMargins(12, 12, 12, 12)
         layout.setSpacing(0)
@@ -3522,6 +3549,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.advanced_filters_container = QtWidgets.QWidget()
         self.advanced_filters_container.setObjectName("advancedFiltersContainer")
+        self.advanced_filters_container.setParent(central)
         advanced_filters_layout = QtWidgets.QVBoxLayout(self.advanced_filters_container)
         advanced_filters_layout.setContentsMargins(0, 8, 0, 0)
         advanced_filters_layout.setSpacing(8)
@@ -3572,6 +3600,7 @@ class MainWindow(QtWidgets.QMainWindow):
         advanced_filters_layout.addWidget(advanced_filters_box)
         self.advanced_filters_container.setVisible(False)
         self._update_advanced_filters_toggle(False)
+        self._position_advanced_filters_overlay()
 
         self.compact_filters_container = QtWidgets.QWidget()
         compact_filters_layout = QtWidgets.QHBoxLayout(self.compact_filters_container)
@@ -3661,8 +3690,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.status_label.hide()
 
         layout.addWidget(self.toolbar_container)
-        layout.addSpacing(2)
-        layout.addWidget(self.advanced_filters_container)
         layout.addSpacing(2)
         layout.addWidget(self.status_label)
         layout.addSpacing(2)
@@ -4501,7 +4528,7 @@ class MainWindow(QtWidgets.QMainWindow):
             if key == "date":
                 completer = QtWidgets.QCompleter([], widget)
             else:
-                completer = CommaSeparatedCompleter([], widget)
+                completer = CommaSeparatedCompleter(widget)
             completer.setCaseSensitivity(QtCore.Qt.CaseSensitivity.CaseInsensitive)
             completer.setFilterMode(QtCore.Qt.MatchFlag.MatchContains)
             completer.setCompletionMode(QtWidgets.QCompleter.CompletionMode.PopupCompletion)
@@ -4516,8 +4543,11 @@ class MainWindow(QtWidgets.QMainWindow):
         suggestions = self.database.list_capture_filter_suggestions()
         for key, completer in self._capture_filter_completers.items():
             values = list(suggestions.get(key) or [])
-            model = QtCore.QStringListModel(values, completer)
-            completer.setModel(model)
+            if isinstance(completer, CommaSeparatedCompleter):
+                completer.set_values(values)
+            else:
+                model = QtCore.QStringListModel(values, completer)
+                completer.setModel(model)
 
     def _update_advanced_filters_toggle(self, expanded: bool) -> None:
         label = tr("main.advanced_filters")
@@ -4525,10 +4555,41 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _on_advanced_filters_toggled(self, expanded: bool) -> None:
         if hasattr(self, "advanced_filters_container"):
+            self._position_advanced_filters_overlay()
             self.advanced_filters_container.setVisible(expanded)
+            self.advanced_filters_container.raise_()
         self._update_advanced_filters_toggle(expanded)
         self._persist_ui_state_quick()
         self._schedule_ui_state_persist()
+
+    def _position_advanced_filters_overlay(self) -> None:
+        if not hasattr(self, "advanced_filters_container"):
+            return
+        if not hasattr(self, "toolbar_container"):
+            return
+        parent = getattr(self, "_central_widget", None)
+        if parent is None:
+            return
+
+        parent_width = parent.width()
+        parent_height = parent.height()
+        if parent_width <= 0 or parent_height <= 0:
+            return
+
+        margin = 12
+        x = margin
+        y = self.toolbar_container.geometry().bottom() + 8
+        available_width = max(260, parent_width - (2 * margin))
+        target_width = min(680, available_width)
+
+        self.advanced_filters_container.setFixedWidth(target_width)
+        self.advanced_filters_container.adjustSize()
+        panel_height = self.advanced_filters_container.sizeHint().height()
+        if panel_height <= 0:
+            panel_height = self.advanced_filters_container.height()
+        max_height = max(120, parent_height - y - margin)
+        panel_height = min(panel_height, max_height)
+        self.advanced_filters_container.setGeometry(x, y, target_width, panel_height)
 
     def _clear_advanced_filters(self) -> None:
         fields = (
@@ -4784,13 +4845,16 @@ class MainWindow(QtWidgets.QMainWindow):
         super().resizeEvent(event)
         self._update_toolbar_compact_mode()
         self._sync_grid_controls_width()
+        self._position_advanced_filters_overlay()
         self._schedule_auto_fit()
 
     def showEvent(self, event: QtGui.QShowEvent) -> None:
         super().showEvent(event)
         self._update_toolbar_compact_mode()
         self._sync_grid_controls_width()
+        self._position_advanced_filters_overlay()
         QtCore.QTimer.singleShot(0, self._sync_grid_controls_width)
+        QtCore.QTimer.singleShot(0, self._position_advanced_filters_overlay)
         if self._suppress_auto_fit:
             QtCore.QTimer.singleShot(250, self._disable_startup_auto_fit)
 
@@ -5228,17 +5292,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 filter_name = str(integration.get("filter_name") or "").strip()
                 if filter_name and filter_name not in fields["filter"]:
                     fields["filter"].append(filter_name)
-                bandpass = integration.get("filter_bandpass_nm")
-                if bandpass not in (None, ""):
-                    bandpass_text = f"{bandpass}nm"
-                    if bandpass_text not in fields["filter"]:
-                        fields["filter"].append(bandpass_text)
-                brand = str(integration.get("filter_brand") or "").strip()
-                if brand and brand not in fields["filter"]:
-                    fields["filter"].append(brand)
-                model = str(integration.get("filter_model") or "").strip()
-                if model and model not in fields["filter"]:
-                    fields["filter"].append(model)
                 captured_on = str(integration.get("captured_on") or "").strip()
                 if captured_on and captured_on not in fields["date"]:
                     fields["date"].append(captured_on)

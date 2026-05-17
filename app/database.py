@@ -523,24 +523,6 @@ class Database:
                 ORDER BY filter_name COLLATE NOCASE
                 """,
             )
-            filter_brands = self._fetch_distinct_text_values(
-                connection,
-                """
-                SELECT DISTINCT filter_brand AS value
-                FROM image_filter_integrations
-                WHERE trim(ifnull(filter_brand, '')) <> ''
-                ORDER BY filter_brand COLLATE NOCASE
-                """,
-            )
-            filter_models = self._fetch_distinct_text_values(
-                connection,
-                """
-                SELECT DISTINCT filter_model AS value
-                FROM image_filter_integrations
-                WHERE trim(ifnull(filter_model, '')) <> ''
-                ORDER BY filter_model COLLATE NOCASE
-                """,
-            )
             captured_dates = self._fetch_distinct_text_values(
                 connection,
                 """
@@ -550,35 +532,12 @@ class Database:
                 ORDER BY captured_on COLLATE NOCASE
                 """,
             )
-            bandpass_rows = connection.execute(
-                """
-                SELECT DISTINCT filter_bandpass_nm
-                FROM image_filter_integrations
-                WHERE filter_bandpass_nm IS NOT NULL
-                ORDER BY filter_bandpass_nm
-                """
-            ).fetchall()
-
-        bandpass_values: List[str] = []
-        for row in bandpass_rows:
-            raw_value = row[0]
-            if raw_value is None:
-                continue
-            value = float(raw_value)
-            text = f"{int(value)}nm" if value.is_integer() else f"{value:g}nm"
-            if text not in bandpass_values:
-                bandpass_values.append(text)
-
-        filters: List[str] = []
-        for value in filter_names + filter_brands + filter_models + bandpass_values:
-            if value not in filters:
-                filters.append(value)
 
         return {
             "location": locations,
             "telescope": telescopes,
             "camera": cameras,
-            "filter": filters,
+            "filter": filter_names,
             "date": captured_dates,
         }
 
