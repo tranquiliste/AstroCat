@@ -2609,11 +2609,12 @@ class DetailPanel(QtWidgets.QWidget):
         self.metadata = QtWidgets.QLabel("")
         self.metadata.setObjectName("detailMetadata")
         self.metadata.setWordWrap(True)
-        self.metadata.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.metadata.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         self.metadata.setContentsMargins(0, 0, 0, 0)
         self.image_info = QtWidgets.QLabel("")
         self.image_info.setObjectName("imageInfo")
-        self.image_info.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.image_info.setWordWrap(True)
+        self.image_info.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         self.image_info.setContentsMargins(0, 0, 0, 0)
         self.description = QtWidgets.QTextEdit()
         self.description.setReadOnly(True)
@@ -2727,7 +2728,7 @@ class DetailPanel(QtWidgets.QWidget):
         left_widget.setObjectName("detailMetaPanel")
         left_layout = QtWidgets.QVBoxLayout(left_widget)
         left_layout.setContentsMargins(18, 18, 18, 18)
-        left_layout.setSpacing(12)
+        left_layout.setSpacing(8)
         nav_row = QtWidgets.QHBoxLayout()
         nav_row.setSpacing(8)
         nav_row.addWidget(self.thumb_button)
@@ -2735,15 +2736,32 @@ class DetailPanel(QtWidgets.QWidget):
         nav_row.addWidget(self.imaging_info_button)
         nav_row.addStretch(1)
         left_layout.addLayout(nav_row)
-        left_layout.addWidget(self.metadata)
-        left_layout.addWidget(self.image_info)
+
+        self.meta_scroll = QtWidgets.QScrollArea()
+        self.meta_scroll.setObjectName("detailMetaScroll")
+        self.meta_scroll.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.meta_scroll.setWidgetResizable(True)
+        self.meta_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.meta_scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
+
+        meta_content = QtWidgets.QWidget()
+        meta_content_layout = QtWidgets.QVBoxLayout(meta_content)
+        meta_content_layout.setContentsMargins(0, 0, 0, 0)
+        meta_content_layout.setSpacing(8)
+        meta_content_layout.addWidget(self.metadata)
+        meta_content_layout.addWidget(self.image_info)
         self.imaging_summary = QtWidgets.QLabel("")
         self.imaging_summary.setObjectName("imagingSummary")
         self.imaging_summary.setWordWrap(True)
-        self.imaging_summary.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Fixed)
+        self.imaging_summary.setTextFormat(QtCore.Qt.TextFormat.PlainText)
+        self.imaging_summary.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         self.imaging_summary.hide()
-        left_layout.addWidget(self.imaging_summary)
-        left_layout.addWidget(self.external_link)
+        meta_content_layout.addWidget(self.imaging_summary)
+        meta_content_layout.addWidget(self.external_link)
+        meta_content_layout.addStretch(1)
+
+        self.meta_scroll.setWidget(meta_content)
+        left_layout.addWidget(self.meta_scroll, stretch=1)
 
         right_widget = QtWidgets.QWidget()
         right_widget.setObjectName("detailTextPanel")
@@ -2992,6 +3010,11 @@ class DetailPanel(QtWidgets.QWidget):
         text = (summary or "").strip()
         self.imaging_summary.setText(text)
         self.imaging_summary.setVisible(bool(text))
+        self.imaging_summary.updateGeometry()
+        self.metadata.updateGeometry()
+        self.image_info.updateGeometry()
+        if hasattr(self, "meta_scroll") and self.meta_scroll.widget() is not None:
+            self.meta_scroll.widget().updateGeometry()
 
     def current_notes(self) -> str:
         return self.notes.toPlainText()
@@ -4031,11 +4054,18 @@ class MainWindow(QtWidgets.QMainWindow):
                 color: #f0f0f0;
             }
             QLabel#detailMetadata {
-                color: #211f1f;
+                color: #d3d3d3;
                 background: transparent;
                 padding: 4px 0;
             }
             QLabel#imageInfo { color: #ababab; padding-top: 2px; }
+            QScrollArea#detailMetaScroll {
+                background: transparent;
+                border: none;
+            }
+            QScrollArea#detailMetaScroll > QWidget > QWidget {
+                background: transparent;
+            }
             QLabel#catalogTitle { font-size: 18px; font-weight: 600; color: #c9ab7c; }
             QLabel#welcomeTitle { font-size: 20px; font-weight: 600; }
             QLabel#aboutTitle { font-size: 22px; font-weight: 600; }
@@ -4517,7 +4547,7 @@ class MainWindow(QtWidgets.QMainWindow):
         minutes, _ = divmod(rem, 60)
         if hours > 0:
             return f"{hours}h{minutes:02d}"
-        return f"{minutes}m"
+        return f"{minutes}min"
 
     @staticmethod
     def _canonical_filter_name(name: str) -> Optional[str]:
