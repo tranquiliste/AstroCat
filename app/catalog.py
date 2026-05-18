@@ -332,6 +332,10 @@ class CatalogItem:
     image_paths: List[Path]
     thumbnail_path: Optional[Path]
     related_image_objects: Dict[str, List[str]] = field(default_factory=dict)
+    # Number of images removed by deduplication (item was photographed but image
+    # was assigned to another owner). Used to distinguish truly missing objects
+    # from objects whose shared photo was deduplicated away.
+    deduped_image_count: int = 0
 
     @property
     def display_name(self) -> str:
@@ -1008,6 +1012,7 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
         filtered_paths: List[Path] = []
         related_image_objects: Dict[str, List[str]] = {}
         own_object = _normalized_object_id(item.object_id)
+        deduped_count = 0
 
         for image_path in item.image_paths:
             key = _path_key(image_path)
@@ -1020,6 +1025,7 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
                 # Note: The "Tous" view dedup will be handled separately at the UI layer
                 owner = owner_by_image_and_catalog.get((key, item.catalog))
                 if owner and _normalized_object_id(owner) != own_object:
+                    deduped_count += 1
                     continue
 
             # Build related_image_objects list
@@ -1042,6 +1048,7 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
                 image_paths=filtered_paths,
                 thumbnail_path=thumbnail_path,
                 related_image_objects=related_image_objects,
+                deduped_image_count=item.deduped_image_count + deduped_count,
             )
         )
 
@@ -1131,6 +1138,7 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
     for item in items:
         filtered_paths: List[Path] = []
         own_object = _normalized_object_id(item.object_id)
+        deduped_count = 0
 
         for image_path in item.image_paths:
             key = _path_key(image_path)
@@ -1138,6 +1146,7 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
             # If a global owner was elected for this image, keep only on that owner
             global_owner = global_owner_by_image.get(key)
             if global_owner and _normalized_object_id(global_owner) != own_object:
+                deduped_count += 1
                 continue  # Remove image from non-owner
 
             filtered_paths.append(image_path)
@@ -1154,6 +1163,7 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
                 item,
                 image_paths=filtered_paths,
                 thumbnail_path=thumbnail_path,
+                deduped_image_count=item.deduped_image_count + deduped_count,
             )
         )
     

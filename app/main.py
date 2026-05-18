@@ -82,7 +82,7 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from shiboken6 import isValid
 
 from database import Database, database_path_from_config_path
-from catalog import DEFAULT_CONFIG, CatalogItem, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note, deduplicate_for_all_catalogs_view
+from catalog import DEFAULT_CONFIG, CatalogItem, MESSIER_TO_NGC, NGC_TO_MESSIER, collect_object_types, load_config, load_catalog_items, resolve_metadata_path, save_config, save_note, save_thumbnail, save_image_note, deduplicate_for_all_catalogs_view
 from constellations import format_constellation_display
 from object_types import is_hidden_object_type, localized_object_type
 from catalog import PROJECT_ROOT
@@ -1290,6 +1290,50 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
                 return True
         return False
 
+    @classmethod
+    def _matches_item_search(cls, item: CatalogItem, search_text: str) -> bool:
+        raw_search = (search_text or "").strip()
+        if not raw_search:
+            return True
+
+        search = cls._normalize_name_search(raw_search)
+        normalized_search = cls._normalize_object_search(raw_search)
+
+        object_candidates: List[str] = [item.object_id, item.display_name]
+
+        # Include known Messier/NGC aliases so object search remains stable when
+        # global dedup keeps only one canonical entry (e.g. M81 kept as NGC3031).
+        item_id = (item.object_id or "").replace(" ", "").upper()
+        object_candidates.extend(MESSIER_TO_NGC.get(item_id, []))
+        object_candidates.extend(NGC_TO_MESSIER.get(item_id, []))
+        for related_ids in item.related_image_objects.values():
+            object_candidates.extend(related_ids)
+
+        text_candidates: List[str] = [item.name, item.display_name]
+        image_candidates: List[str] = list(item.related_image_objects.keys())
+        image_candidates.extend(path.name for path in item.image_paths)
+
+        for candidate in object_candidates:
+            value = (candidate or "").strip()
+            if value and normalized_search in cls._normalize_object_search(value):
+                return True
+
+        for candidate in text_candidates:
+            value = (candidate or "").strip()
+            if value and search in cls._normalize_name_search(value):
+                return True
+
+        for candidate in image_candidates:
+            value = (candidate or "").strip()
+            if not value:
+                continue
+            if search in cls._normalize_name_search(value):
+                return True
+            if normalized_search in cls._normalize_object_search(value):
+                return True
+
+        return False
+
     def filterAcceptsRow(self, source_row: int, source_parent: QtCore.QModelIndex) -> bool:
         model = self.sourceModel()
         index = model.index(source_row, 0, source_parent)
@@ -1309,8 +1353,14 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         # - If model is NOT dedup'd, apply filter-level dedup
         if not self.catalog_filter:
             if model_is_dedup and not item.image_paths:
-                # Hide items with no images in dedup mode
-                return False
+                # Items whose shared photo was deduplicated away count as "Captured"
+                # (deduped_image_count > 0) → always hide them in dedup mode;
+                # only truly missing items (deduped_image_count == 0) are shown
+                # when the status filter asks for Missing/Suggested.
+                if item.deduped_image_count > 0:
+                    return False
+                if self.status_filter not in {"Missing", "Suggested"}:
+                    return False
             elif not model_is_dedup and (item.object_id, item.catalog) in self._global_dedup_items_set:
                 # Apply filter-level dedup if model not already dedup'd
                 return False
@@ -1321,24 +1371,17 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         if self.type_filter and item.object_type != self.type_filter:
             return False
         if self.status_filter:
-            if self.status_filter == "Captured" and not item.image_paths:
+            # An item counts as "captured" if it has images OR if its images were
+            # removed by deduplication (shared photo assigned to another owner).
+            is_captured = bool(item.image_paths) or item.deduped_image_count > 0
+            if self.status_filter == "Captured" and not is_captured:
                 return False
-            if self.status_filter == "Missing" and item.image_paths:
+            if self.status_filter == "Missing" and is_captured:
                 return False
             if self.status_filter == "Suggested" and not self._is_suggested(item):
                 return False
-        if self.search_text:
-            search = self._normalize_name_search(self.search_text)
-            normalized_search = self._normalize_object_search(self.search_text)
-            object_id = self._normalize_object_search(item.object_id)
-            name = self._normalize_name_search(item.name)
-            compact_name = self._normalize_object_search(item.name)
-            if (
-                normalized_search not in object_id
-                and search not in name
-                and normalized_search not in compact_name
-            ):
-                return False
+        if self.search_text and not self._matches_item_search(item, self.search_text):
+            return False
         if any(
             (
                 self.capture_location_text,
