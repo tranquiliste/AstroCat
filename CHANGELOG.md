@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 ## [1.7.4] - 2026-05-17
 ### Added
+- **UI** : adding description of all objects
+### Fixed
+- inconsistent search results
+
+## [1.7.4] - 2026-05-17
+### Added
 - **UI** : advanced search on picture information (scope, filters, date, ...)
 
 ## [1.7.3] - 2026-05-15

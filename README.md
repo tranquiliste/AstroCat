@@ -12,7 +12,7 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 Status: stable
 
-Latest release: `1.7.4`
+Latest release: `1.7.5`
 
 Release history: [CHANGELOG.md](CHANGELOG.md)
 
