@@ -4,6 +4,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 import json
+import math
 import re
 import sqlite3
 import sys
@@ -69,7 +70,7 @@ class Database:
             connection.execute("PRAGMA foreign_keys = ON")
             connection.executescript(schema)
             self._apply_runtime_migrations(connection)
-            connection.execute("PRAGMA user_version = 5")
+            connection.execute("PRAGMA user_version = 7")
             connection.commit()
         finally:
             connection.close()
@@ -145,6 +146,66 @@ class Database:
             """
             INSERT OR IGNORE INTO schema_migrations (version, description)
             VALUES (5, 'Add image to object association links')
+            """
+        )
+
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS image_wcs_solutions (
+                image_id TEXT PRIMARY KEY,
+                solver TEXT NOT NULL DEFAULT 'astap',
+                status TEXT NOT NULL DEFAULT 'pending',
+                solved_at TEXT,
+                wcs_json TEXT NOT NULL DEFAULT '{}',
+                center_ra_deg REAL,
+                center_dec_deg REAL,
+                pixel_scale_arcsec REAL,
+                orientation_deg REAL,
+                fov_width_deg REAL,
+                fov_height_deg REAL,
+                error_message TEXT,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )
+            """
+        )
+        connection.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_image_wcs_status
+                ON image_wcs_solutions (status)
+            """
+        )
+        connection.execute(
+            """
+            INSERT OR IGNORE INTO schema_migrations (version, description)
+            VALUES (6, 'Add ASTAP WCS solve storage')
+            """
+        )
+
+        connection.execute(
+            """
+            CREATE TABLE IF NOT EXISTS image_annotations (
+                annotation_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                image_id TEXT NOT NULL,
+                label TEXT NOT NULL DEFAULT '',
+                ra_deg REAL NOT NULL,
+                dec_deg REAL NOT NULL,
+                style_json TEXT NOT NULL DEFAULT '{}',
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )
+            """
+        )
+        connection.execute(
+            """
+            CREATE INDEX IF NOT EXISTS idx_image_annotations_image
+                ON image_annotations (image_id)
+            """
+        )
+        connection.execute(
+            """
+            INSERT OR IGNORE INTO schema_migrations (version, description)
+            VALUES (7, 'Add WCS-based image annotations')
             """
         )
 
@@ -1398,6 +1459,192 @@ class Database:
                     inserted += 1
         return inserted
 
+    def upsert_image_wcs_solution(
+        self,
+        image_id: str,
+        status: str,
+        wcs: Optional[Dict[str, object]] = None,
+        solver: str = "astap",
+        error_message: Optional[str] = None,
+    ) -> None:
+        normalized_image_id = (image_id or "").strip()
+        if not normalized_image_id:
+            return
+        wcs_payload = dict(wcs) if isinstance(wcs, dict) else {}
+        center_ra = self._to_float_or_none(wcs_payload.get("CRVAL1"))
+        center_dec = self._to_float_or_none(wcs_payload.get("CRVAL2"))
+        cd11 = self._to_float_or_none(wcs_payload.get("CD1_1"))
+        cd12 = self._to_float_or_none(wcs_payload.get("CD1_2"))
+        cd21 = self._to_float_or_none(wcs_payload.get("CD2_1"))
+        cd22 = self._to_float_or_none(wcs_payload.get("CD2_2"))
+        width = self._to_float_or_none(wcs_payload.get("NAXIS1"))
+        height = self._to_float_or_none(wcs_payload.get("NAXIS2"))
+
+        pixel_scale_arcsec = None
+        if all(value is not None for value in (cd11, cd12, cd21, cd22)):
+            sx = math.sqrt((cd11 or 0.0) ** 2 + (cd21 or 0.0) ** 2)
+            sy = math.sqrt((cd12 or 0.0) ** 2 + (cd22 or 0.0) ** 2)
+            pixel_scale_arcsec = ((sx + sy) / 2.0) * 3600.0
+
+        orientation_deg = None
+        if cd11 is not None and cd21 is not None:
+            orientation_deg = math.degrees(math.atan2(cd21, cd11))
+
+        fov_width_deg = None
+        fov_height_deg = None
+        if width is not None and pixel_scale_arcsec is not None:
+            fov_width_deg = (width * pixel_scale_arcsec) / 3600.0
+        if height is not None and pixel_scale_arcsec is not None:
+            fov_height_deg = (height * pixel_scale_arcsec) / 3600.0
+
+        solved_at = self._utc_now() if status == "solved" else None
+        with self.connection() as connection:
+            connection.execute(
+                """
+                INSERT INTO image_wcs_solutions (
+                    image_id,
+                    solver,
+                    status,
+                    solved_at,
+                    wcs_json,
+                    center_ra_deg,
+                    center_dec_deg,
+                    pixel_scale_arcsec,
+                    orientation_deg,
+                    fov_width_deg,
+                    fov_height_deg,
+                    error_message,
+                    created_at,
+                    updated_at
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(image_id) DO UPDATE SET
+                    solver = excluded.solver,
+                    status = excluded.status,
+                    solved_at = excluded.solved_at,
+                    wcs_json = excluded.wcs_json,
+                    center_ra_deg = excluded.center_ra_deg,
+                    center_dec_deg = excluded.center_dec_deg,
+                    pixel_scale_arcsec = excluded.pixel_scale_arcsec,
+                    orientation_deg = excluded.orientation_deg,
+                    fov_width_deg = excluded.fov_width_deg,
+                    fov_height_deg = excluded.fov_height_deg,
+                    error_message = excluded.error_message,
+                    updated_at = excluded.updated_at
+                """,
+                (
+                    normalized_image_id,
+                    (solver or "astap").strip() or "astap",
+                    (status or "pending").strip() or "pending",
+                    solved_at,
+                    self._dumps_json(wcs_payload),
+                    center_ra,
+                    center_dec,
+                    pixel_scale_arcsec,
+                    orientation_deg,
+                    fov_width_deg,
+                    fov_height_deg,
+                    self._clean_optional_text(error_message),
+                    self._utc_now(),
+                    self._utc_now(),
+                ),
+            )
+
+    def get_image_wcs_solution(self, image_id: str) -> Optional[Dict[str, object]]:
+        normalized_image_id = (image_id or "").strip()
+        if not normalized_image_id:
+            return None
+        with self.connection() as connection:
+            row = connection.execute(
+                """
+                SELECT *
+                FROM image_wcs_solutions
+                WHERE image_id = ?
+                """,
+                (normalized_image_id,),
+            ).fetchone()
+        if row is None:
+            return None
+        return {
+            "image_id": row["image_id"],
+            "solver": row["solver"],
+            "status": row["status"],
+            "solved_at": row["solved_at"],
+            "wcs": self._loads_json(row["wcs_json"], default={}) or {},
+            "center_ra_deg": row["center_ra_deg"],
+            "center_dec_deg": row["center_dec_deg"],
+            "pixel_scale_arcsec": row["pixel_scale_arcsec"],
+            "orientation_deg": row["orientation_deg"],
+            "fov_width_deg": row["fov_width_deg"],
+            "fov_height_deg": row["fov_height_deg"],
+            "error_message": row["error_message"],
+        }
+
+    def replace_image_annotations(self, image_id: str, annotations: List[Dict[str, object]]) -> None:
+        normalized_image_id = (image_id or "").strip()
+        if not normalized_image_id:
+            return
+        with self.connection() as connection:
+            connection.execute("DELETE FROM image_annotations WHERE image_id = ?", (normalized_image_id,))
+            for annotation in annotations:
+                if not isinstance(annotation, dict):
+                    continue
+                ra_deg = self._to_float_or_none(annotation.get("ra_deg"))
+                dec_deg = self._to_float_or_none(annotation.get("dec_deg"))
+                if ra_deg is None or dec_deg is None:
+                    continue
+                label = str(annotation.get("label") or "").strip()
+                style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
+                connection.execute(
+                    """
+                    INSERT INTO image_annotations (
+                        image_id,
+                        label,
+                        ra_deg,
+                        dec_deg,
+                        style_json,
+                        created_at,
+                        updated_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+                    """,
+                    (
+                        normalized_image_id,
+                        label,
+                        ra_deg,
+                        dec_deg,
+                        self._dumps_json(style),
+                    ),
+                )
+
+    def get_image_annotations(self, image_id: str) -> List[Dict[str, object]]:
+        normalized_image_id = (image_id or "").strip()
+        if not normalized_image_id:
+            return []
+        with self.connection() as connection:
+            rows = connection.execute(
+                """
+                SELECT annotation_id, image_id, label, ra_deg, dec_deg, style_json
+                FROM image_annotations
+                WHERE image_id = ?
+                ORDER BY annotation_id
+                """,
+                (normalized_image_id,),
+            ).fetchall()
+        payload: List[Dict[str, object]] = []
+        for row in rows:
+            payload.append(
+                {
+                    "annotation_id": row["annotation_id"],
+                    "image_id": row["image_id"],
+                    "label": (row["label"] or "").strip(),
+                    "ra_deg": row["ra_deg"],
+                    "dec_deg": row["dec_deg"],
+                    "style": self._loads_json(row["style_json"], default={}) or {},
+                }
+            )
+        return payload
+
     def upsert_object_thumbnail(self, catalog_name: str, object_id: str, thumbnail_filename: str) -> None:
         normalized = (thumbnail_filename or "").strip()
         with self.connection() as connection:
@@ -1515,6 +1762,15 @@ class Database:
             return json.loads(payload)
         except json.JSONDecodeError:
             return default
+
+    @staticmethod
+    def _to_float_or_none(value: object) -> Optional[float]:
+        if value is None:
+            return None
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return None
 
     @staticmethod
     def _utc_now() -> str:

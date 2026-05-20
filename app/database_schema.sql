@@ -21,6 +21,12 @@ VALUES (4, 'Add moon phase fields to filter integrations');
 INSERT OR IGNORE INTO schema_migrations (version, description)
 VALUES (5, 'Add image to object association links');
 
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (6, 'Add ASTAP WCS solve storage');
+
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (7, 'Add WCS-based image annotations');
+
 CREATE TABLE IF NOT EXISTS app_settings (
     setting_key TEXT PRIMARY KEY,
     value_json TEXT NOT NULL,
@@ -175,6 +181,40 @@ CREATE INDEX IF NOT EXISTS idx_image_objects_image
 
 CREATE INDEX IF NOT EXISTS idx_image_objects_object
     ON image_objects (catalog_name, object_id);
+
+CREATE TABLE IF NOT EXISTS image_wcs_solutions (
+    image_id TEXT PRIMARY KEY,
+    solver TEXT NOT NULL DEFAULT 'astap',
+    status TEXT NOT NULL DEFAULT 'pending',
+    solved_at TEXT,
+    wcs_json TEXT NOT NULL DEFAULT '{}',
+    center_ra_deg REAL,
+    center_dec_deg REAL,
+    pixel_scale_arcsec REAL,
+    orientation_deg REAL,
+    fov_width_deg REAL,
+    fov_height_deg REAL,
+    error_message TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_image_wcs_status
+    ON image_wcs_solutions (status);
+
+CREATE TABLE IF NOT EXISTS image_annotations (
+    annotation_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_id TEXT NOT NULL,
+    label TEXT NOT NULL DEFAULT '',
+    ra_deg REAL NOT NULL,
+    dec_deg REAL NOT NULL,
+    style_json TEXT NOT NULL DEFAULT '{}',
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_image_annotations_image
+    ON image_annotations (image_id);
 
 CREATE TABLE IF NOT EXISTS equipment (
     equipment_id INTEGER PRIMARY KEY AUTOINCREMENT,

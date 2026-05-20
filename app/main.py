@@ -259,6 +259,10 @@ class DuplicateScanSignals(QtCore.QObject):
     finished = QtCore.Signal(str, str)
 
 
+class AstapSolveSignals(QtCore.QObject):
+    finished = QtCore.Signal(str, str, dict, str)
+
+
 class DuplicateScanTask(QtCore.QRunnable):
     def __init__(
         self,
@@ -501,6 +505,246 @@ class ImageLoadTask(QtCore.QRunnable):
             self.signals.loaded.emit(self.request_id, str(self.image_path), image)
         except RuntimeError:
             return
+
+
+class AstapSolveTask(QtCore.QRunnable):
+    def __init__(
+        self,
+        image_path: Path,
+        image_id: str,
+        executable_path: Path,
+        data_dir: Optional[Path],
+        timeout_sec: int,
+        fov_hint_deg: Optional[float] = None,
+        search_radius_deg: Optional[float] = None,
+        downsample: int = 0,
+        center_ra_deg: Optional[float] = None,
+        center_dec_deg: Optional[float] = None,
+    ) -> None:
+        super().__init__()
+        self.image_path = image_path
+        self.image_id = image_id
+        self.executable_path = executable_path
+        self.data_dir = data_dir
+        self.timeout_sec = max(10, int(timeout_sec))
+        self.fov_hint_deg = fov_hint_deg if isinstance(fov_hint_deg, (int, float)) and float(fov_hint_deg) > 0 else None
+        if isinstance(search_radius_deg, (int, float)):
+            self.search_radius_deg = max(1.0, min(180.0, float(search_radius_deg)))
+        else:
+            self.search_radius_deg = 30.0
+        self.downsample = max(0, min(4, int(downsample)))
+        if isinstance(center_ra_deg, (int, float)):
+            self.center_ra_deg = float(center_ra_deg) % 360.0
+        else:
+            self.center_ra_deg = None
+        if isinstance(center_dec_deg, (int, float)):
+            self.center_dec_deg = max(-90.0, min(90.0, float(center_dec_deg)))
+        else:
+            self.center_dec_deg = None
+        self.signals = AstapSolveSignals()
+
+    def run(self) -> None:
+        error = ""
+        wcs: Dict[str, object] = {}
+        try:
+            if not self.executable_path.exists():
+                raise RuntimeError(f"ASTAP executable not found: {self.executable_path}")
+            if not self.image_path.exists():
+                raise RuntimeError(f"Image not found: {self.image_path}")
+
+            command = [
+                str(self.executable_path),
+                "-f",
+                str(self.image_path),
+                "-fov",
+                f"{self.fov_hint_deg:.3f}" if self.fov_hint_deg is not None else "0",
+                "-r",
+                f"{self.search_radius_deg:.2f}",
+                "-z",
+                str(self.downsample),
+                "-wcs",
+                "-update",
+                "-log",
+            ]
+            if self.center_ra_deg is not None and self.center_dec_deg is not None:
+                ra_hours = self.center_ra_deg / 15.0
+                spd_deg = self.center_dec_deg + 90.0
+                command.extend(["-ra", f"{ra_hours:.8f}", "-spd", f"{spd_deg:.8f}"])
+            if self.data_dir is not None:
+                command.extend(["-d", str(self.data_dir)])
+
+            creationflags = 0
+            if sys.platform.startswith("win"):
+                creationflags = subprocess.CREATE_NO_WINDOW
+
+            completed = subprocess.run(
+                command,
+                check=False,
+                capture_output=True,
+                text=True,
+                timeout=self.timeout_sec,
+                creationflags=creationflags,
+            )
+
+            ini_payload = self._read_astap_ini(self.image_path.with_suffix(".ini"))
+            wcs_header_payload = self._read_astap_wcs_header(self.image_path.with_suffix(".wcs"))
+            solved_flag = str(ini_payload.get("PLTSOLVD") or "").strip().upper() == "T"
+            if not solved_flag and wcs_header_payload.get("CRVAL1") is not None and wcs_header_payload.get("CRVAL2") is not None:
+                solved_flag = True
+            if solved_flag:
+                wcs = self._extract_wcs_payload(ini_payload, wcs_header_payload, self.image_path)
+            if not solved_flag:
+                ini_error = str(ini_payload.get("ERROR") or "").strip()
+                stderr = (completed.stderr or "").strip()
+                stdout = (completed.stdout or "").strip()
+                error = ini_error or stderr or stdout or f"ASTAP failed with code {completed.returncode}."
+        except subprocess.TimeoutExpired:
+            error = f"ASTAP timed out after {self.timeout_sec} seconds."
+        except Exception as exc:
+            error = str(exc)
+
+        if SHUTDOWN_EVENT.is_set() or not isValid(self.signals):
+            return
+        try:
+            self.signals.finished.emit(str(self.image_path), self.image_id, wcs, error)
+        except RuntimeError:
+            return
+
+    @staticmethod
+    def _read_astap_ini(path: Path) -> Dict[str, str]:
+        if not path.exists():
+            return {}
+        payload: Dict[str, str] = {}
+        try:
+            raw = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            return {}
+        for line in raw.splitlines():
+            text = line.strip()
+            if not text or "=" not in text:
+                continue
+            key, value = text.split("=", 1)
+            payload[key.strip().upper()] = value.strip()
+        return payload
+
+    @staticmethod
+    def _read_astap_wcs_header(path: Path) -> Dict[str, object]:
+        if not path.exists():
+            return {}
+        try:
+            raw = path.read_bytes()
+        except OSError:
+            return {}
+        text = raw.decode("latin-1", errors="ignore")
+        cards: List[str] = []
+        if "\n" in text or "\r" in text:
+            cards = [line.rstrip("\r\n") for line in text.splitlines() if line.strip()]
+        else:
+            padded_len = (len(text) // 80) * 80
+            for idx in range(0, padded_len, 80):
+                cards.append(text[idx: idx + 80])
+
+        payload: Dict[str, object] = {}
+        for card in cards:
+            chunk = card.strip()
+            if not chunk or chunk.startswith("COMMENT") or chunk.startswith("HISTORY"):
+                continue
+            if chunk.startswith("END"):
+                break
+
+            key = ""
+            value_part = ""
+            if "=" in card[:20]:
+                key, value_part = card.split("=", 1)
+            elif "=" in chunk:
+                key, value_part = chunk.split("=", 1)
+            else:
+                continue
+
+            normalized_key = key.strip().upper()
+            if not normalized_key:
+                continue
+            value_text = value_part.split("/", 1)[0].strip()
+            if value_text.startswith("'") and value_text.endswith("'") and len(value_text) >= 2:
+                parsed: object = value_text[1:-1]
+            else:
+                parsed_float = AstapSolveTask._to_float(value_text)
+                parsed = parsed_float if parsed_float is not None else value_text
+            payload[normalized_key] = parsed
+        return payload
+
+    @staticmethod
+    def _extract_wcs_payload(
+        ini_payload: Dict[str, str],
+        wcs_payload: Dict[str, object],
+        image_path: Path,
+    ) -> Dict[str, object]:
+        values: Dict[str, object] = {
+            "NAXIS1": AstapSolveTask._to_float(ini_payload.get("NAXIS1")) or AstapSolveTask._to_float(str(wcs_payload.get("NAXIS1"))) if wcs_payload.get("NAXIS1") is not None else None,
+            "NAXIS2": AstapSolveTask._to_float(ini_payload.get("NAXIS2")) or AstapSolveTask._to_float(str(wcs_payload.get("NAXIS2"))) if wcs_payload.get("NAXIS2") is not None else None,
+            "CRPIX1": AstapSolveTask._to_float(ini_payload.get("CRPIX1")) or AstapSolveTask._to_float(str(wcs_payload.get("CRPIX1"))) if wcs_payload.get("CRPIX1") is not None else None,
+            "CRPIX2": AstapSolveTask._to_float(ini_payload.get("CRPIX2")) or AstapSolveTask._to_float(str(wcs_payload.get("CRPIX2"))) if wcs_payload.get("CRPIX2") is not None else None,
+            "CRVAL1": AstapSolveTask._to_float(ini_payload.get("CRVAL1")) or AstapSolveTask._to_float(str(wcs_payload.get("CRVAL1"))) if wcs_payload.get("CRVAL1") is not None else None,
+            "CRVAL2": AstapSolveTask._to_float(ini_payload.get("CRVAL2")) or AstapSolveTask._to_float(str(wcs_payload.get("CRVAL2"))) if wcs_payload.get("CRVAL2") is not None else None,
+            "CD1_1": AstapSolveTask._to_float(ini_payload.get("CD1_1")) or AstapSolveTask._to_float(str(wcs_payload.get("CD1_1"))) if wcs_payload.get("CD1_1") is not None else None,
+            "CD1_2": AstapSolveTask._to_float(ini_payload.get("CD1_2")) or AstapSolveTask._to_float(str(wcs_payload.get("CD1_2"))) if wcs_payload.get("CD1_2") is not None else None,
+            "CD2_1": AstapSolveTask._to_float(ini_payload.get("CD2_1")) or AstapSolveTask._to_float(str(wcs_payload.get("CD2_1"))) if wcs_payload.get("CD2_1") is not None else None,
+            "CD2_2": AstapSolveTask._to_float(ini_payload.get("CD2_2")) or AstapSolveTask._to_float(str(wcs_payload.get("CD2_2"))) if wcs_payload.get("CD2_2") is not None else None,
+            "CDELT1": AstapSolveTask._to_float(ini_payload.get("CDELT1")) or AstapSolveTask._to_float(str(wcs_payload.get("CDELT1"))) if wcs_payload.get("CDELT1") is not None else None,
+            "CDELT2": AstapSolveTask._to_float(ini_payload.get("CDELT2")) or AstapSolveTask._to_float(str(wcs_payload.get("CDELT2"))) if wcs_payload.get("CDELT2") is not None else None,
+            "CROTA2": AstapSolveTask._to_float(ini_payload.get("CROTA2")) or AstapSolveTask._to_float(str(wcs_payload.get("CROTA2"))) if wcs_payload.get("CROTA2") is not None else None,
+            "source_path": str(image_path),
+        }
+
+        if values.get("CD1_1") is None or values.get("CD1_2") is None or values.get("CD2_1") is None or values.get("CD2_2") is None:
+            cdelt1 = values.get("CDELT1")
+            cdelt2 = values.get("CDELT2")
+            crota2 = values.get("CROTA2")
+            if isinstance(cdelt1, (float, int)) and isinstance(cdelt2, (float, int)):
+                angle_deg = float(crota2) if isinstance(crota2, (float, int)) else 0.0
+                angle_rad = math.radians(angle_deg)
+                cos_a = math.cos(angle_rad)
+                sin_a = math.sin(angle_rad)
+                values["CD1_1"] = float(cdelt1) * cos_a
+                values["CD1_2"] = -float(cdelt2) * sin_a
+                values["CD2_1"] = float(cdelt1) * sin_a
+                values["CD2_2"] = float(cdelt2) * cos_a
+
+        try:
+            image = QtGui.QImage(str(image_path))
+            if not image.isNull():
+                values["NAXIS1"] = float(image.width())
+                values["NAXIS2"] = float(image.height())
+                if values.get("CRPIX1") is None:
+                    values["CRPIX1"] = (float(image.width()) / 2.0) + 0.5
+                if values.get("CRPIX2") is None:
+                    values["CRPIX2"] = (float(image.height()) / 2.0) + 0.5
+        except Exception:
+            pass
+
+        for key, raw_value in ini_payload.items():
+            if key in values and values[key] is not None:
+                continue
+            parsed = AstapSolveTask._to_float(raw_value)
+            values[key] = parsed if parsed is not None else raw_value
+        for key, raw_value in wcs_payload.items():
+            if key in values and values[key] is not None:
+                continue
+            if isinstance(raw_value, (int, float)):
+                values[key] = float(raw_value)
+            else:
+                parsed = AstapSolveTask._to_float(str(raw_value))
+                values[key] = parsed if parsed is not None else raw_value
+        return values
+
+    @staticmethod
+    def _to_float(value: Optional[str]) -> Optional[float]:
+        if value is None:
+            return None
+        try:
+            return float(str(value).strip())
+        except (TypeError, ValueError):
+            return None
 
 
 class CatalogLoadTask(QtCore.QRunnable):
@@ -1462,9 +1706,11 @@ class ImageView(QtWidgets.QGraphicsView):
         self._pixmap_item: Optional[QtWidgets.QGraphicsPixmapItem] = None
         self._zoom = 0
         self._pixmap: Optional[QtGui.QPixmap] = None
+        self._annotation_items: List[QtWidgets.QGraphicsItem] = []
 
     def set_pixmap(self, pixmap: Optional[QtGui.QPixmap]) -> None:
         self.scene().clear()
+        self._annotation_items = []
         self._zoom = 0
         self._pixmap = pixmap if pixmap and not pixmap.isNull() else None
         if self._pixmap:
@@ -1523,6 +1769,54 @@ class ImageView(QtWidgets.QGraphicsView):
         else:
             percent = max(1, int(round(scale * 100)))
         self.zoom_percent_changed.emit(percent)
+
+    def set_wcs_annotations(self, annotations: List[Dict[str, object]]) -> None:
+        scene = self.scene()
+        for item in self._annotation_items:
+            scene.removeItem(item)
+        self._annotation_items = []
+        if not self._pixmap:
+            return
+        for annotation in annotations:
+            x_value = annotation.get("x")
+            y_value = annotation.get("y")
+            if x_value is None or y_value is None:
+                continue
+            try:
+                x_pos = float(x_value)
+                y_pos = float(y_value)
+            except (TypeError, ValueError):
+                continue
+            if x_pos < 0 or y_pos < 0 or x_pos > self._pixmap.width() or y_pos > self._pixmap.height():
+                continue
+            style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
+            color = QtGui.QColor(str(style.get("color") or "#f2c14e"))
+            radius = max(4.0, float(style.get("radius") or 8.0))
+            pen = QtGui.QPen(color, max(1.0, float(style.get("width") or 1.5)))
+
+            ellipse = scene.addEllipse(x_pos - radius, y_pos - radius, radius * 2.0, radius * 2.0, pen)
+            ellipse.setZValue(5)
+            self._annotation_items.append(ellipse)
+
+            line_h = scene.addLine(x_pos - radius - 4.0, y_pos, x_pos + radius + 4.0, y_pos, pen)
+            line_h.setZValue(5)
+            self._annotation_items.append(line_h)
+            line_v = scene.addLine(x_pos, y_pos - radius - 4.0, x_pos, y_pos + radius + 4.0, pen)
+            line_v.setZValue(5)
+            self._annotation_items.append(line_v)
+
+            label = str(annotation.get("label") or "").strip()
+            if label:
+                text_item = scene.addSimpleText(label)
+                text_item.setBrush(QtGui.QBrush(color))
+                text_item.setPos(x_pos + radius + 6.0, y_pos - radius - 4.0)
+                text_item.setZValue(6)
+                self._annotation_items.append(text_item)
+
+    def current_pixmap_size(self) -> Optional[QtCore.QSize]:
+        if not self._pixmap or self._pixmap.isNull():
+            return None
+        return self._pixmap.size()
 
     def mouseDoubleClickEvent(self, event: QtGui.QMouseEvent) -> None:
         if self._pixmap_item is None:
@@ -2644,6 +2938,124 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             return default
 
 
+class WcsAnnotationDialog(QtWidgets.QDialog):
+    def __init__(
+        self,
+        parent: Optional[QtWidgets.QWidget] = None,
+        *,
+        object_hint: Optional[CatalogItem] = None,
+        annotations: Optional[List[Dict[str, object]]] = None,
+    ) -> None:
+        super().__init__(parent)
+        self._object_hint = object_hint
+        self.setWindowTitle(tr("annotations.dialog_title"))
+        self.resize(640, 420)
+
+        root = QtWidgets.QVBoxLayout(self)
+        root.setContentsMargins(12, 12, 12, 12)
+        root.setSpacing(8)
+
+        self.table = QtWidgets.QTableWidget(0, 3)
+        self.table.setHorizontalHeaderLabels(
+            [
+                tr("annotations.label"),
+                tr("annotations.ra_deg"),
+                tr("annotations.dec_deg"),
+            ]
+        )
+        self.table.verticalHeader().setVisible(False)
+        self.table.horizontalHeader().setStretchLastSection(False)
+        self.table.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeMode.Stretch)
+        self.table.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+        self.table.horizontalHeader().setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
+        root.addWidget(self.table, stretch=1)
+
+        buttons_row = QtWidgets.QHBoxLayout()
+        add_button = QtWidgets.QPushButton(tr("annotations.add"))
+        add_button.clicked.connect(self._add_empty_row)
+        remove_button = QtWidgets.QPushButton(tr("annotations.remove"))
+        remove_button.clicked.connect(self._remove_selected_row)
+        add_object_button = QtWidgets.QPushButton(tr("annotations.add_current_object"))
+        add_object_button.clicked.connect(self._add_current_object)
+        buttons_row.addWidget(add_button)
+        buttons_row.addWidget(remove_button)
+        buttons_row.addWidget(add_object_button)
+        buttons_row.addStretch(1)
+        root.addLayout(buttons_row)
+
+        box = QtWidgets.QDialogButtonBox(
+            QtWidgets.QDialogButtonBox.StandardButton.Save
+            | QtWidgets.QDialogButtonBox.StandardButton.Cancel
+        )
+        save_button = box.button(QtWidgets.QDialogButtonBox.StandardButton.Save)
+        if save_button is not None:
+            save_button.setText(tr("settings.save"))
+        cancel_button = box.button(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
+        if cancel_button is not None:
+            cancel_button.setText(tr("settings.cancel"))
+        box.accepted.connect(self.accept)
+        box.rejected.connect(self.reject)
+        root.addWidget(box)
+
+        for annotation in annotations or []:
+            self._add_row(
+                str(annotation.get("label") or ""),
+                annotation.get("ra_deg"),
+                annotation.get("dec_deg"),
+            )
+
+    def _add_row(self, label: str, ra_deg: object, dec_deg: object) -> None:
+        row = self.table.rowCount()
+        self.table.insertRow(row)
+        self.table.setItem(row, 0, QtWidgets.QTableWidgetItem(str(label or "").strip()))
+        self.table.setItem(row, 1, QtWidgets.QTableWidgetItem("" if ra_deg is None else str(ra_deg)))
+        self.table.setItem(row, 2, QtWidgets.QTableWidgetItem("" if dec_deg is None else str(dec_deg)))
+
+    def _add_empty_row(self) -> None:
+        self._add_row("", "", "")
+
+    def _remove_selected_row(self) -> None:
+        row = self.table.currentRow()
+        if row >= 0:
+            self.table.removeRow(row)
+
+    def _add_current_object(self) -> None:
+        item = self._object_hint
+        if item is None:
+            return
+        ra_hours = item.ra_hours
+        dec_deg = item.dec_deg
+        if ra_hours is None or dec_deg is None:
+            return
+        ra_deg = float(ra_hours) * 15.0
+        label = item.object_id or item.display_name
+        self._add_row(label, f"{ra_deg:.8f}", f"{float(dec_deg):.8f}")
+
+    def annotations_payload(self) -> List[Dict[str, object]]:
+        payload: List[Dict[str, object]] = []
+        for row in range(self.table.rowCount()):
+            label_item = self.table.item(row, 0)
+            ra_item = self.table.item(row, 1)
+            dec_item = self.table.item(row, 2)
+            label = (label_item.text() if label_item else "").strip()
+            ra_text = (ra_item.text() if ra_item else "").strip().replace(",", ".")
+            dec_text = (dec_item.text() if dec_item else "").strip().replace(",", ".")
+            try:
+                ra_deg = float(ra_text)
+                dec_deg = float(dec_text)
+            except ValueError:
+                continue
+            payload.append(
+                {
+                    "label": label,
+                    "ra_deg": ra_deg,
+                    "dec_deg": dec_deg,
+                    "style": {"color": "#f2c14e", "radius": 8, "width": 1.5},
+                }
+            )
+        return payload
+
+
 class DetailPanel(QtWidgets.QWidget):
     thumbnail_selected = QtCore.Signal(str, str, str)
     archive_requested = QtCore.Signal(str)
@@ -2651,6 +3063,8 @@ class DetailPanel(QtWidgets.QWidget):
     focus_mode_toggled = QtCore.Signal(bool)
     navigation_requested = QtCore.Signal(int)
     imaging_info_requested = QtCore.Signal()
+    astrometry_requested = QtCore.Signal()
+    annotate_requested = QtCore.Signal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -2667,6 +3081,12 @@ class DetailPanel(QtWidgets.QWidget):
         self.image_info.setWordWrap(True)
         self.image_info.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         self.image_info.setContentsMargins(0, 0, 0, 0)
+        self.wcs_info = QtWidgets.QLabel("")
+        self.wcs_info.setObjectName("wcsInfo")
+        self.wcs_info.setWordWrap(True)
+        self.wcs_info.setTextFormat(QtCore.Qt.TextFormat.PlainText)
+        self.wcs_info.setSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        self.wcs_info.hide()
         self.description = QtWidgets.QTextEdit()
         self.description.setReadOnly(True)
         self.description.setObjectName("descriptionBox")
@@ -2706,11 +3126,15 @@ class DetailPanel(QtWidgets.QWidget):
         self.thumb_button = QtWidgets.QPushButton(tr("detail.set_as_thumbnail"))
         self.archive_button = QtWidgets.QPushButton(tr("detail.archive_image"))
         self.imaging_info_button = QtWidgets.QPushButton(tr("detail.imaging_info"))
+        self.astrometry_button = QtWidgets.QPushButton(tr("detail.astrometry"))
+        self.annotate_button = QtWidgets.QPushButton(tr("detail.annotate"))
         self.prev_button.clicked.connect(lambda: self.navigation_requested.emit(-1))
         self.next_button.clicked.connect(lambda: self.navigation_requested.emit(1))
         self.thumb_button.clicked.connect(self._set_thumbnail)
         self.archive_button.clicked.connect(self._request_archive)
         self.imaging_info_button.clicked.connect(self._request_imaging_info)
+        self.astrometry_button.clicked.connect(self._request_astrometry)
+        self.annotate_button.clicked.connect(self._request_annotate)
         self._current_item: Optional[CatalogItem] = None
         self._notes_block = False
         self._image_index = 0
@@ -2786,6 +3210,8 @@ class DetailPanel(QtWidgets.QWidget):
         nav_row.addWidget(self.thumb_button)
         nav_row.addWidget(self.archive_button)
         nav_row.addWidget(self.imaging_info_button)
+        nav_row.addWidget(self.astrometry_button)
+        nav_row.addWidget(self.annotate_button)
         nav_row.addStretch(1)
         left_layout.addLayout(nav_row)
 
@@ -2802,6 +3228,7 @@ class DetailPanel(QtWidgets.QWidget):
         meta_content_layout.setSpacing(8)
         meta_content_layout.addWidget(self.metadata)
         meta_content_layout.addWidget(self.image_info)
+        meta_content_layout.addWidget(self.wcs_info)
         self.imaging_summary = QtWidgets.QLabel("")
         self.imaging_summary.setObjectName("imagingSummary")
         self.imaging_summary.setWordWrap(True)
@@ -3045,12 +3472,16 @@ class DetailPanel(QtWidgets.QWidget):
             self.description.setPlainText("")
             self.notes.setPlainText("")
             self.image_info.setText("")
+            self.wcs_info.clear()
+            self.wcs_info.hide()
             self.image_view.set_pixmap(None)
             self.prev_button.setEnabled(False)
             self.next_button.setEnabled(False)
             self.thumb_button.setEnabled(False)
             self.archive_button.setEnabled(False)
             self.imaging_info_button.setEnabled(False)
+            self.astrometry_button.setEnabled(False)
+            self.annotate_button.setEnabled(False)
             self.imaging_summary.clear()
             self.imaging_summary.hide()
             self._notes_block = False
@@ -3115,6 +3546,14 @@ class DetailPanel(QtWidgets.QWidget):
         if hasattr(self, "meta_scroll") and self.meta_scroll.widget() is not None:
             self.meta_scroll.widget().updateGeometry()
 
+    def set_wcs_status(self, text: str) -> None:
+        value = (text or "").strip()
+        self.wcs_info.setText(value)
+        self.wcs_info.setVisible(bool(value))
+        self.wcs_info.updateGeometry()
+        if hasattr(self, "meta_scroll") and self.meta_scroll.widget() is not None:
+            self.meta_scroll.widget().updateGeometry()
+
     def current_notes(self) -> str:
         return self.notes.toPlainText()
 
@@ -3138,6 +3577,14 @@ class DetailPanel(QtWidgets.QWidget):
 
     def notes_blocked(self) -> bool:
         return self._notes_block
+
+    def set_astrometry_enabled(self, enabled: bool) -> None:
+        if hasattr(self, "astrometry_button"):
+            self.astrometry_button.setEnabled(bool(enabled))
+
+    def set_annotation_enabled(self, enabled: bool) -> None:
+        if hasattr(self, "annotate_button"):
+            self.annotate_button.setEnabled(bool(enabled))
 
     def _related_objects_for_image(self, image_name: str) -> List[str]:
         if not self._current_item:
@@ -3166,6 +3613,8 @@ class DetailPanel(QtWidgets.QWidget):
             self.thumb_button.setEnabled(False)
             self.archive_button.setEnabled(False)
             self.imaging_info_button.setEnabled(False)
+            self.astrometry_button.setEnabled(False)
+            self.annotate_button.setEnabled(False)
             return
         paths = self._current_item.image_paths
         self._image_index = max(0, min(self._image_index, len(paths) - 1))
@@ -3190,6 +3639,8 @@ class DetailPanel(QtWidgets.QWidget):
             self.thumb_button.setEnabled(True)
             self.archive_button.setEnabled(True)
             self.imaging_info_button.setEnabled(True)
+            self.astrometry_button.setEnabled(True)
+            self.annotate_button.setEnabled(True)
             return
         self.image_view.set_pixmap(None)
         self._set_image_info_label(tr("detail.image.loading", name=path.name), path.name)
@@ -3198,6 +3649,8 @@ class DetailPanel(QtWidgets.QWidget):
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
         self.imaging_info_button.setEnabled(True)
+        self.astrometry_button.setEnabled(True)
+        self.annotate_button.setEnabled(True)
         self._start_image_load(path)
 
     def _start_image_load(self, path: Path) -> None:
@@ -3237,6 +3690,9 @@ class DetailPanel(QtWidgets.QWidget):
         self.thumb_button.setEnabled(True)
         self.archive_button.setEnabled(True)
         self.imaging_info_button.setEnabled(True)
+        self.astrometry_button.setEnabled(True)
+        self.annotate_button.setEnabled(True)
+        self.image_changed.emit(current_path.name)
 
     def _on_image_failed(self, request_id: int, path_value: str, message: str) -> None:
         if request_id != self._image_load_id:
@@ -3246,9 +3702,17 @@ class DetailPanel(QtWidgets.QWidget):
         self.thumb_button.setEnabled(False)
         self.archive_button.setEnabled(False)
         self.imaging_info_button.setEnabled(False)
+        self.astrometry_button.setEnabled(False)
+        self.annotate_button.setEnabled(False)
 
     def _request_imaging_info(self) -> None:
         self.imaging_info_requested.emit()
+
+    def _request_astrometry(self) -> None:
+        self.astrometry_requested.emit()
+
+    def _request_annotate(self) -> None:
+        self.annotate_requested.emit()
 
     def _apply_initial_sizes(self) -> None:
         if self._initial_detail_sized:
@@ -3479,6 +3943,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self._ui_state_timer.setInterval(250)
         self._ui_state_timer.timeout.connect(self._persist_ui_state)
         self._pending_notes: Dict[str, Tuple[str, str, Optional[str], str]] = {}
+        self._astap_running = False
+        self._astap_running_image_id: Optional[str] = None
+        self._astap_retry_context: Dict[str, object] = {}
         self._pending_selection_key: Optional[str] = None
         self._pending_image_name: Optional[str] = None
         self._help_dialog: Optional[HelpDialog] = None
@@ -3986,6 +4453,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.detail.focus_mode_toggled.connect(self._on_detail_focus_mode_toggled)
         self.detail.navigation_requested.connect(self._navigate_images_and_filtered_items)
         self.detail.imaging_info_requested.connect(self._open_imaging_info_editor)
+        self.detail.astrometry_requested.connect(self._run_astrometry_for_current_image)
+        self.detail.annotate_requested.connect(self._edit_wcs_annotations)
         self.model.wiki_thumbnail_loaded.connect(self._on_wiki_thumbnail_loaded)
 
         splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Vertical)
@@ -4440,6 +4909,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if not indexes:
             self.detail.update_item(None)
             self.detail.set_imaging_summary("")
+            self.detail.set_wcs_status("")
+            self.detail.image_view.set_wcs_annotations([])
+            self.detail.set_annotation_enabled(False)
             return
         source_index = self.proxy.mapToSource(indexes[0])
         item = self.model.data(source_index, QtCore.Qt.ItemDataRole.UserRole)
@@ -4449,12 +4921,14 @@ class MainWindow(QtWidgets.QMainWindow):
             if pixmap:
                 self.detail.set_wiki_pixmap(pixmap)
         self._refresh_current_image_imaging_summary()
+        self._refresh_wcs_annotations_overlay()
         if item:
             self._notes_timer.start()
 
     def _on_image_changed(self, _image_name: str) -> None:
         self._flush_notes()
         self._refresh_current_image_imaging_summary()
+        self._refresh_wcs_annotations_overlay()
 
     def _related_object_descriptions_for_image(self, item: CatalogItem, image_name: str) -> List[Tuple[str, str]]:
         related_ids = item.related_image_objects.get(image_name, [])
@@ -4536,6 +5010,429 @@ class MainWindow(QtWidgets.QMainWindow):
                 tr("imaging.error_title"),
                 tr("imaging.error_message", error=exc),
             )
+
+    def _run_astrometry_for_current_image(
+        self,
+        solve_hints: Optional[Dict[str, object]] = None,
+        allow_guided_retry: bool = True,
+    ) -> None:
+        image_path = self.detail.current_image_path()
+        image_name = self.detail.current_image_name()
+        if image_path is None or not image_name:
+            QtWidgets.QMessageBox.information(self, tr("astrometry.title"), tr("astrometry.no_image"))
+            return
+        if self._astap_running:
+            QtWidgets.QMessageBox.information(self, tr("astrometry.title"), tr("astrometry.already_running"))
+            return
+
+        astap_enabled = bool(self.config.get("astap_enabled", False))
+        executable_path = Path(str(self.config.get("astap_executable_path") or "").strip())
+        if not astap_enabled or not str(executable_path):
+            QtWidgets.QMessageBox.information(
+                self,
+                tr("astrometry.title"),
+                tr("astrometry.configure_first"),
+            )
+            return
+        if not executable_path.exists():
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("astrometry.title"),
+                tr("astrometry.exe_missing", path=str(executable_path)),
+            )
+            return
+
+        data_dir_raw = str(self.config.get("astap_data_dir") or "").strip()
+        data_dir = Path(data_dir_raw) if data_dir_raw else None
+        timeout_sec = max(10, int(self.config.get("astap_timeout_sec", 120) or 120))
+        hints = solve_hints if isinstance(solve_hints, dict) else {}
+        fov_hint = self._as_float(hints.get("fov_deg"))
+        search_radius = self._as_float(hints.get("search_radius_deg"))
+        downsample = int(self._as_float(hints.get("downsample")) or 0)
+        center_ra = self._as_float(hints.get("center_ra_deg"))
+        center_dec = self._as_float(hints.get("center_dec_deg"))
+
+        self._astap_running = True
+        self._astap_running_image_id = image_name
+        self.detail.set_astrometry_enabled(False)
+        self._astap_retry_context = {
+            "allow_guided_retry": bool(allow_guided_retry),
+            "hints": hints,
+        }
+        self._set_status_message(tr("astrometry.running", name=image_name))
+
+        task = AstapSolveTask(
+            image_path=image_path,
+            image_id=image_name,
+            executable_path=executable_path,
+            data_dir=data_dir,
+            timeout_sec=timeout_sec,
+            fov_hint_deg=fov_hint,
+            search_radius_deg=search_radius,
+            downsample=downsample,
+            center_ra_deg=center_ra,
+            center_dec_deg=center_dec,
+        )
+        task.signals.finished.connect(self._on_astap_solve_finished)
+        self._thread_pool.start(task)
+
+    def _on_astap_solve_finished(
+        self,
+        image_path: str,
+        image_id: str,
+        wcs: Dict[str, object],
+        error: str,
+    ) -> None:
+        self._astap_running = False
+        self._astap_running_image_id = None
+        self.detail.set_astrometry_enabled(True)
+        retry_context = self._astap_retry_context if isinstance(getattr(self, "_astap_retry_context", None), dict) else {}
+        self._astap_retry_context = {}
+        image_key = (image_id or "").strip()
+        if error:
+            self.database.upsert_image_wcs_solution(
+                image_key,
+                status="failed",
+                wcs=wcs,
+                solver="astap",
+                error_message=error,
+            )
+            self._set_status_message(tr("astrometry.failed_status", error=error))
+            allow_guided_retry = bool(retry_context.get("allow_guided_retry", True))
+            if allow_guided_retry and self._prompt_astrometry_guided_retry(error):
+                self._refresh_wcs_annotations_overlay()
+                return
+            QtWidgets.QMessageBox.warning(self, tr("astrometry.title"), tr("astrometry.failed", error=error))
+            self._refresh_wcs_annotations_overlay()
+            return
+
+        self.database.upsert_image_wcs_solution(
+            image_key,
+            status="solved",
+            wcs=wcs,
+            solver="astap",
+            error_message=None,
+        )
+        self._set_status_message(tr("astrometry.solved_status", name=Path(image_path).name))
+        self._refresh_wcs_annotations_overlay()
+
+    def _prompt_astrometry_guided_retry(self, error: str) -> bool:
+        answer = QtWidgets.QMessageBox.question(
+            self,
+            tr("astrometry.retry.title"),
+            tr("astrometry.retry.ask", error=error),
+            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
+            QtWidgets.QMessageBox.StandardButton.Yes,
+        )
+        if answer != QtWidgets.QMessageBox.StandardButton.Yes:
+            return False
+
+        ra_text, ok = QtWidgets.QInputDialog.getText(
+            self,
+            tr("astrometry.retry.title"),
+            tr("astrometry.retry.ra_j2000_prompt"),
+            text="05 35 17.3",
+        )
+        if not ok:
+            return False
+
+        dec_text, ok = QtWidgets.QInputDialog.getText(
+            self,
+            tr("astrometry.retry.title"),
+            tr("astrometry.retry.dec_j2000_prompt"),
+            text="-05 23 28",
+        )
+        if not ok:
+            return False
+
+        center_ra_deg = self._parse_ra_j2000_input(ra_text)
+        center_dec_deg = self._parse_dec_j2000_input(dec_text)
+        if center_ra_deg is None or center_dec_deg is None:
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("astrometry.retry.title"),
+                tr("astrometry.retry.invalid_coords"),
+            )
+            return False
+
+        radius_deg, ok = QtWidgets.QInputDialog.getDouble(
+            self,
+            tr("astrometry.retry.title"),
+            tr("astrometry.retry.radius_prompt"),
+            15.0,
+            1.0,
+            180.0,
+            2,
+        )
+        if not ok:
+            return False
+
+        downsample, ok = QtWidgets.QInputDialog.getInt(
+            self,
+            tr("astrometry.retry.title"),
+            tr("astrometry.retry.downsample_prompt"),
+            0,
+            0,
+            4,
+            1,
+        )
+        if not ok:
+            return False
+
+        self._run_astrometry_for_current_image(
+            solve_hints={
+                "fov_deg": 0.0,
+                "search_radius_deg": radius_deg,
+                "downsample": downsample,
+                "center_ra_deg": center_ra_deg,
+                "center_dec_deg": center_dec_deg,
+            },
+            allow_guided_retry=False,
+        )
+        self._set_status_message(
+            tr(
+                "astrometry.retry.running_status_center",
+                radius=f"{radius_deg:.2f}",
+                downsample=str(int(downsample)),
+                ra=self._format_ra_hms(center_ra_deg),
+                dec=self._format_dec_dms(center_dec_deg),
+            )
+        )
+        return True
+
+    @staticmethod
+    def _parse_ra_j2000_input(value: str) -> Optional[float]:
+        text = (value or "").strip().replace(",", ".")
+        if not text:
+            return None
+        numbers = re.findall(r"[+-]?\d+(?:\.\d+)?", text)
+        if not numbers:
+            return None
+
+        lower = text.lower()
+        has_degree_marker = ("°" in text) or ("d" in lower)
+        has_hour_marker = "h" in lower
+
+        try:
+            if len(numbers) == 1:
+                raw = float(numbers[0])
+                if has_degree_marker:
+                    return raw % 360.0
+                if raw < 0:
+                    return None
+                if raw <= 24.0:
+                    return (raw * 15.0) % 360.0
+                if raw <= 360.0:
+                    return raw
+                return raw % 360.0
+
+            first = float(numbers[0])
+            minutes = abs(float(numbers[1]))
+            seconds = abs(float(numbers[2])) if len(numbers) >= 3 else 0.0
+            if minutes >= 60.0 or seconds >= 60.0:
+                return None
+            sign = -1.0 if first < 0 else 1.0
+            primary = abs(first) + (minutes / 60.0) + (seconds / 3600.0)
+
+            if has_degree_marker:
+                return (sign * primary) % 360.0
+
+            if has_hour_marker or abs(first) <= 24.0:
+                return ((sign * primary) * 15.0) % 360.0
+
+            return (sign * primary) % 360.0
+        except (TypeError, ValueError):
+            return None
+
+    @staticmethod
+    def _parse_dec_j2000_input(value: str) -> Optional[float]:
+        text = (value or "").strip().replace(",", ".")
+        if not text:
+            return None
+        numbers = re.findall(r"[+-]?\d+(?:\.\d+)?", text)
+        if not numbers:
+            return None
+        try:
+            if len(numbers) == 1:
+                dec = float(numbers[0])
+                if -90.0 <= dec <= 90.0:
+                    return dec
+                return None
+
+            first = float(numbers[0])
+            minutes = abs(float(numbers[1]))
+            seconds = abs(float(numbers[2])) if len(numbers) >= 3 else 0.0
+            if minutes >= 60.0 or seconds >= 60.0:
+                return None
+            sign = -1.0 if (first < 0.0 or text.lstrip().startswith("-")) else 1.0
+            dec = sign * (abs(first) + (minutes / 60.0) + (seconds / 3600.0))
+            if -90.0 <= dec <= 90.0:
+                return dec
+            return None
+        except (TypeError, ValueError):
+            return None
+
+    @staticmethod
+    def _format_ra_hms(ra_deg: float) -> str:
+        normalized = float(ra_deg) % 360.0
+        total_seconds = normalized / 15.0 * 3600.0
+        hours = int(total_seconds // 3600)
+        minutes = int((total_seconds % 3600) // 60)
+        seconds = total_seconds - (hours * 3600) - (minutes * 60)
+        if seconds >= 59.995:
+            seconds = 0.0
+            minutes += 1
+        if minutes >= 60:
+            minutes = 0
+            hours += 1
+        hours %= 24
+        return f"{hours:02d}h {minutes:02d}m {seconds:05.2f}s"
+
+    @staticmethod
+    def _format_dec_dms(dec_deg: float) -> str:
+        value = max(-90.0, min(90.0, float(dec_deg)))
+        sign = "+" if value >= 0 else "-"
+        abs_value = abs(value)
+        total_seconds = abs_value * 3600.0
+        degrees = int(total_seconds // 3600)
+        minutes = int((total_seconds % 3600) // 60)
+        seconds = total_seconds - (degrees * 3600) - (minutes * 60)
+        if seconds >= 59.95:
+            seconds = 0.0
+            minutes += 1
+        if minutes >= 60:
+            minutes = 0
+            degrees += 1
+        if degrees > 90:
+            degrees = 90
+            minutes = 0
+            seconds = 0.0
+        return f"{sign}{degrees:02d}d {minutes:02d}m {seconds:04.1f}s"
+
+    def _edit_wcs_annotations(self) -> None:
+        image_name = self.detail.current_image_name()
+        item = self.detail.current_item()
+        if not image_name or item is None:
+            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.no_image"))
+            return
+        solution = self.database.get_image_wcs_solution(image_name)
+        if not solution or solution.get("status") != "solved":
+            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.need_wcs"))
+            return
+        existing = self.database.get_image_annotations(image_name)
+        dialog = WcsAnnotationDialog(self, object_hint=item, annotations=existing)
+        if dialog.exec() != int(QtWidgets.QDialog.DialogCode.Accepted):
+            return
+        payload = dialog.annotations_payload()
+        self.database.replace_image_annotations(image_name, payload)
+        self._refresh_wcs_annotations_overlay()
+        self._set_status_message(tr("annotations.saved_status", count=len(payload)))
+
+    def _refresh_wcs_annotations_overlay(self) -> None:
+        image_name = self.detail.current_image_name()
+        if not image_name:
+            self.detail.set_wcs_status("")
+            self.detail.image_view.set_wcs_annotations([])
+            self.detail.set_annotation_enabled(False)
+            return
+        solution = self.database.get_image_wcs_solution(image_name)
+        if not solution:
+            self.detail.set_wcs_status(tr("wcs.status.none"))
+            self.detail.image_view.set_wcs_annotations([])
+            self.detail.set_annotation_enabled(False)
+            return
+        if solution.get("status") != "solved":
+            if solution.get("status") == "failed":
+                self.detail.set_wcs_status(
+                    tr("wcs.status.failed", error=str(solution.get("error_message") or tr("detail.metadata.unknown")))
+                )
+            else:
+                self.detail.set_wcs_status(tr("wcs.status.pending"))
+            self.detail.image_view.set_wcs_annotations([])
+            self.detail.set_annotation_enabled(False)
+            return
+        annotations = self.database.get_image_annotations(image_name)
+        projected = self._project_annotations_to_image(solution, annotations)
+        self.detail.image_view.set_wcs_annotations(projected)
+        self.detail.set_annotation_enabled(True)
+        center_ra = self._as_float(solution.get("center_ra_deg"))
+        center_dec = self._as_float(solution.get("center_dec_deg"))
+        pixel_scale = self._as_float(solution.get("pixel_scale_arcsec"))
+        fov_w = self._as_float(solution.get("fov_width_deg"))
+        fov_h = self._as_float(solution.get("fov_height_deg"))
+
+        parts = [tr("wcs.status.solved")]
+        if center_ra is not None and center_dec is not None:
+            parts.append(
+                tr(
+                    "wcs.status.center",
+                    ra=self._format_ra_hms(center_ra),
+                    dec=self._format_dec_dms(center_dec),
+                )
+            )
+        if pixel_scale is not None:
+            parts.append(tr("wcs.status.scale", value=f"{pixel_scale:.3f}"))
+        if fov_w is not None and fov_h is not None:
+            parts.append(tr("wcs.status.fov", width=f"{fov_w:.3f}", height=f"{fov_h:.3f}"))
+        parts.append(tr("wcs.status.annotations", count=len(annotations)))
+        self.detail.set_wcs_status("\n".join(parts))
+
+    def _project_annotations_to_image(
+        self,
+        solution: Dict[str, object],
+        annotations: List[Dict[str, object]],
+    ) -> List[Dict[str, object]]:
+        wcs = solution.get("wcs") if isinstance(solution.get("wcs"), dict) else {}
+        crval1 = self._as_float(wcs.get("CRVAL1"))
+        crval2 = self._as_float(wcs.get("CRVAL2"))
+        crpix1 = self._as_float(wcs.get("CRPIX1"))
+        crpix2 = self._as_float(wcs.get("CRPIX2"))
+        cd11 = self._as_float(wcs.get("CD1_1"))
+        cd12 = self._as_float(wcs.get("CD1_2"))
+        cd21 = self._as_float(wcs.get("CD2_1"))
+        cd22 = self._as_float(wcs.get("CD2_2"))
+        if None in (crval1, crval2, crpix1, crpix2, cd11, cd12, cd21, cd22):
+            return []
+
+        det = (cd11 * cd22) - (cd12 * cd21)
+        if abs(det) < 1e-12:
+            return []
+
+        inv11 = cd22 / det
+        inv12 = -cd12 / det
+        inv21 = -cd21 / det
+        inv22 = cd11 / det
+
+        projected: List[Dict[str, object]] = []
+        for annotation in annotations:
+            ra_deg = self._as_float(annotation.get("ra_deg"))
+            dec_deg = self._as_float(annotation.get("dec_deg"))
+            if ra_deg is None or dec_deg is None:
+                continue
+            delta_ra = ((ra_deg - crval1 + 540.0) % 360.0) - 180.0
+            delta_dec = dec_deg - crval2
+            dx = (inv11 * delta_ra) + (inv12 * delta_dec)
+            dy = (inv21 * delta_ra) + (inv22 * delta_dec)
+            x = (crpix1 - 1.0) + dx
+            y = (crpix2 - 1.0) + dy
+            projected.append(
+                {
+                    "x": x,
+                    "y": y,
+                    "label": annotation.get("label") or "",
+                    "style": annotation.get("style") if isinstance(annotation.get("style"), dict) else {},
+                }
+            )
+        return projected
+
+    @staticmethod
+    def _as_float(value: object) -> Optional[float]:
+        if value is None:
+            return None
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return None
 
     def _load_imaging_setups(self) -> List[Dict[str, str]]:
         rows = self.database.list_imaging_setups()
@@ -6145,6 +7042,33 @@ class SettingsDialog(QtWidgets.QDialog):
         self.deduplicate_shared_images.setChecked(bool(config.get("deduplicate_shared_images", False)))
         self.deduplicate_shared_images.toggled.connect(self._emit_preview)
 
+        self.astap_enabled = QtWidgets.QCheckBox(tr("settings.astrometry.enabled"))
+        self.astap_enabled.setChecked(bool(config.get("astap_enabled", False)))
+        self.astap_enabled.toggled.connect(self._emit_preview)
+        self.astap_executable = QtWidgets.QLineEdit(str(config.get("astap_executable_path", "") or ""))
+        self.astap_executable.textChanged.connect(self._emit_preview)
+        browse_astap_exe = QtWidgets.QPushButton(tr("settings.browse"))
+        browse_astap_exe.clicked.connect(self._browse_astap_executable)
+        test_astap = QtWidgets.QPushButton(tr("settings.astrometry.test"))
+        test_astap.clicked.connect(self._test_astap)
+        astap_exe_row = QtWidgets.QHBoxLayout()
+        astap_exe_row.addWidget(self.astap_executable)
+        astap_exe_row.addWidget(browse_astap_exe)
+        astap_exe_row.addWidget(test_astap)
+
+        self.astap_data_dir = QtWidgets.QLineEdit(str(config.get("astap_data_dir", "") or ""))
+        self.astap_data_dir.textChanged.connect(self._emit_preview)
+        browse_astap_data = QtWidgets.QPushButton(tr("settings.browse"))
+        browse_astap_data.clicked.connect(self._browse_astap_data_dir)
+        astap_data_row = QtWidgets.QHBoxLayout()
+        astap_data_row.addWidget(self.astap_data_dir)
+        astap_data_row.addWidget(browse_astap_data)
+
+        self.astap_timeout = QtWidgets.QSpinBox()
+        self.astap_timeout.setRange(10, 1200)
+        self.astap_timeout.setValue(int(config.get("astap_timeout_sec", 120) or 120))
+        self.astap_timeout.valueChanged.connect(lambda _value: self._emit_preview())
+
         # Migration section
         migrate_row = QtWidgets.QHBoxLayout()
         migrate_button = QtWidgets.QPushButton(tr("settings.migrate_notes"))
@@ -6206,10 +7130,18 @@ class SettingsDialog(QtWidgets.QDialog):
         advanced_form.addRow(tr("settings.shared_images"), self.deduplicate_shared_images)
         advanced_form.addRow(tr("settings.migration"), migrate_row)
 
+        astrometry_tab = QtWidgets.QWidget()
+        astrometry_form = QtWidgets.QFormLayout(astrometry_tab)
+        astrometry_form.addRow("", self.astap_enabled)
+        astrometry_form.addRow(tr("settings.astrometry.executable"), astap_exe_row)
+        astrometry_form.addRow(tr("settings.astrometry.data_dir"), astap_data_row)
+        astrometry_form.addRow(tr("settings.astrometry.timeout"), self.astap_timeout)
+
         tabs = QtWidgets.QTabWidget()
         tabs.addTab(general_tab, tr("settings.tab_general"))
         tabs.addTab(catalog_tab, tr("settings.tab_catalogs"))
         tabs.addTab(advanced_tab, tr("settings.tab_advanced"))
+        tabs.addTab(astrometry_tab, tr("settings.tab_astrometry"))
 
         buttons = QtWidgets.QDialogButtonBox(
             QtWidgets.QDialogButtonBox.StandardButton.Save
@@ -6239,6 +7171,10 @@ class SettingsDialog(QtWidgets.QDialog):
         updated["master_image_dir"] = self.master_folder.text().strip()
         updated["archive_image_dir"] = self.archive_folder.text().strip()
         updated["deduplicate_shared_images"] = self.deduplicate_shared_images.isChecked()
+        updated["astap_enabled"] = self.astap_enabled.isChecked()
+        updated["astap_executable_path"] = self.astap_executable.text().strip()
+        updated["astap_data_dir"] = self.astap_data_dir.text().strip()
+        updated["astap_timeout_sec"] = int(self.astap_timeout.value())
         # Notes folder is hardcoded to settings directory, remove any old config
         updated.pop("notes_folder", None)
 
@@ -6281,6 +7217,66 @@ class SettingsDialog(QtWidgets.QDialog):
             return
         self.archive_folder.setText(directory)
         self._emit_preview()
+
+    def _browse_astap_executable(self) -> None:
+        file_path, _filter = QtWidgets.QFileDialog.getOpenFileName(
+            self,
+            tr("settings.astrometry.select_executable"),
+            self.astap_executable.text().strip(),
+            "Executables (*.exe);;All files (*.*)" if sys.platform.startswith("win") else "All files (*)",
+        )
+        if not file_path:
+            return
+        self.astap_executable.setText(file_path)
+        self._emit_preview()
+
+    def _browse_astap_data_dir(self) -> None:
+        directory = QtWidgets.QFileDialog.getExistingDirectory(self, tr("settings.astrometry.select_data_dir"))
+        if not directory:
+            return
+        self.astap_data_dir.setText(directory)
+        self._emit_preview()
+
+    def _test_astap(self) -> None:
+        executable = Path(self.astap_executable.text().strip())
+        if not executable.exists():
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("settings.astrometry.test_title"),
+                tr("settings.astrometry.test_missing"),
+            )
+            return
+        try:
+            creationflags = 0
+            if sys.platform.startswith("win"):
+                creationflags = subprocess.CREATE_NO_WINDOW
+            result = subprocess.run(
+                [str(executable), "-h"],
+                check=False,
+                capture_output=True,
+                text=True,
+                timeout=12,
+                creationflags=creationflags,
+            )
+            if result.returncode == 0:
+                QtWidgets.QMessageBox.information(
+                    self,
+                    tr("settings.astrometry.test_title"),
+                    tr("settings.astrometry.test_ok"),
+                )
+                return
+            message = (result.stderr or "").strip() or (result.stdout or "").strip() or f"Exit code {result.returncode}"
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("settings.astrometry.test_title"),
+                tr("settings.astrometry.test_failed", error=message),
+            )
+        except Exception as exc:
+            QtWidgets.QMessageBox.warning(
+                self,
+                tr("settings.astrometry.test_title"),
+                tr("settings.astrometry.test_failed", error=exc),
+            )
 
     def _open_settings_folder(self) -> None:
         location = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.AppConfigLocation)
@@ -6849,6 +7845,10 @@ class SettingsDialog(QtWidgets.QDialog):
         updated["master_image_dir"] = self.master_folder.text().strip()
         updated["archive_image_dir"] = self.archive_folder.text().strip()
         updated["deduplicate_shared_images"] = self.deduplicate_shared_images.isChecked()
+        updated["astap_enabled"] = self.astap_enabled.isChecked()
+        updated["astap_executable_path"] = self.astap_executable.text().strip()
+        updated["astap_data_dir"] = self.astap_data_dir.text().strip()
+        updated["astap_timeout_sec"] = int(self.astap_timeout.value())
         catalogs = []
         for catalog in updated.get("catalogs", []):
             name = catalog.get("name", "Unknown")

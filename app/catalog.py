@@ -84,6 +84,10 @@ DEFAULT_CONFIG = {
     "deduplicate_shared_images": False,
     "auto_check_updates": True,
     "ui_locale": "system",
+    "astap_enabled": False,
+    "astap_executable_path": "",
+    "astap_data_dir": "",
+    "astap_timeout_sec": 120,
 }
 
 
