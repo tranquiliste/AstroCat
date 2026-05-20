@@ -69,7 +69,7 @@ import runpy
 import unicodedata
 from contextlib import redirect_stdout, redirect_stderr
 from pathlib import Path
-from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Set, Tuple
 import http.server
 import json
 import threading
@@ -2718,6 +2718,7 @@ class DetailPanel(QtWidgets.QWidget):
         self._lightbox: Optional[LightboxDialog] = None
         self._image_load_id = 0
         self._image_thread_pool = QtCore.QThreadPool.globalInstance()
+        self._related_descriptions_provider: Optional[Callable[[CatalogItem, str], List[Tuple[str, str]]]] = None
         self._image_cache: Dict[str, QtGui.QPixmap] = {}
         self._focus_mode = False
         self._side_panel_collapsed = False
@@ -2986,6 +2987,53 @@ class DetailPanel(QtWidgets.QWidget):
             self._detail_side_panel.setSizes(self._saved_side_panel_section_sizes)
         self.set_side_panel_collapsed(collapsed)
 
+    def set_related_descriptions_provider(
+        self,
+        provider: Optional[Callable[[CatalogItem, str], List[Tuple[str, str]]]],
+    ) -> None:
+        self._related_descriptions_provider = provider
+
+    def _refresh_description_for_current_image(self) -> None:
+        item = self._current_item
+        if item is None:
+            self.description.setPlainText("")
+            return
+
+        base_description = (item.description or "").strip()
+        image_name = self.current_image_name()
+        if not image_name or self._related_descriptions_provider is None:
+            self.description.setPlainText(base_description)
+            return
+
+        related_entries = self._related_descriptions_provider(item, image_name)
+        if not related_entries:
+            self.description.setPlainText(base_description)
+            return
+
+        sections: List[str] = []
+        seen_ids: Set[str] = set()
+
+        if base_description:
+            own_id = (item.object_id or "").strip()
+            if own_id:
+                seen_ids.add(own_id.upper())
+                sections.append(f"{own_id}\n{base_description}")
+            else:
+                sections.append(base_description)
+
+        for related_id, related_description in related_entries:
+            rid = (related_id or "").strip()
+            rdesc = (related_description or "").strip()
+            if not rid or not rdesc:
+                continue
+            normalized_id = rid.upper()
+            if normalized_id in seen_ids:
+                continue
+            seen_ids.add(normalized_id)
+            sections.append(f"{rid}\n{rdesc}")
+
+        self.description.setPlainText("\n\n".join(section for section in sections if section))
+
     def update_item(self, item: Optional[CatalogItem]) -> None:
         self._current_item = item
         self._notes_block = True
@@ -3034,7 +3082,7 @@ class DetailPanel(QtWidgets.QWidget):
             metadata_lines.append(tr("detail.metadata.constellation", value=constellation_display))
         self.metadata.setText("\n".join(metadata_lines))
         self.metadata.setToolTip("\n".join(metadata_extra_lines))
-        self.description.setPlainText(item.description or "")
+        self._refresh_description_for_current_image()
         if item.external_link:
             self.external_link.setText(f'<a href="{item.external_link}">{tr("detail.more_info")}</a>')
             self.external_link.show()
@@ -3243,6 +3291,7 @@ class DetailPanel(QtWidgets.QWidget):
             return False
         self._image_index = new_index
         self._update_image_view()
+        self._refresh_description_for_current_image()
         self._apply_notes_for_current_image()
         current_name = self.current_image_name() or ""
         self.image_changed.emit(current_name)
@@ -3327,6 +3376,7 @@ class DetailPanel(QtWidgets.QWidget):
                 if index != self._image_index:
                     self._image_index = index
                     self._update_image_view()
+                    self._refresh_description_for_current_image()
                     self._apply_notes_for_current_image()
                 return
 
@@ -3928,6 +3978,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.grid.viewport().installEventFilter(self)
 
         self.detail = DetailPanel()
+        self.detail.set_related_descriptions_provider(self._related_object_descriptions_for_image)
         self.detail.connect_notes_changed(self._on_notes_changed)
         self.detail.thumbnail_selected.connect(self._on_thumbnail_selected)
         self.detail.image_changed.connect(self._on_image_changed)
@@ -4404,6 +4455,50 @@ class MainWindow(QtWidgets.QMainWindow):
     def _on_image_changed(self, _image_name: str) -> None:
         self._flush_notes()
         self._refresh_current_image_imaging_summary()
+
+    def _related_object_descriptions_for_image(self, item: CatalogItem, image_name: str) -> List[Tuple[str, str]]:
+        related_ids = item.related_image_objects.get(image_name, [])
+        if not related_ids:
+            return []
+
+        all_items = self.items if self.items else self.items_global_dedup
+        if not all_items:
+            return []
+
+        current_object_id = (item.object_id or "").strip().upper()
+        seen_descriptions: Set[str] = set()
+        result: List[Tuple[str, str]] = []
+
+        for related_id in related_ids:
+            normalized_related_id = (related_id or "").strip().upper()
+            if not normalized_related_id or normalized_related_id == current_object_id:
+                continue
+
+            candidates = [
+                candidate
+                for candidate in all_items
+                if (candidate.object_id or "").strip().upper() == normalized_related_id
+            ]
+            if not candidates:
+                continue
+
+            same_catalog = [candidate for candidate in candidates if candidate.catalog == item.catalog]
+            ordered_candidates = same_catalog + [candidate for candidate in candidates if candidate.catalog != item.catalog]
+
+            chosen = next(
+                (candidate for candidate in ordered_candidates if (candidate.description or "").strip()),
+                ordered_candidates[0],
+            )
+            description = (chosen.description or "").strip()
+            if not description:
+                continue
+            normalized_description = " ".join(description.split()).lower()
+            if normalized_description in seen_descriptions:
+                continue
+            seen_descriptions.add(normalized_description)
+            result.append((chosen.object_id, description))
+
+        return result
 
     def _open_imaging_info_editor(self) -> None:
         item = self.detail.current_item()
