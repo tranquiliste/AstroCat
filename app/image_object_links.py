@@ -33,6 +33,10 @@ def rebuild_image_object_links_from_catalog(
     user_notes_path: Optional[Path] = None,
 ) -> Tuple[int, int]:
     config = load_config(config_path)
+    # Disable deduplication when building image-object links so that ALL objects
+    # appearing in shared photos (e.g. both M81 and M82 in m81_m82.jpg) are
+    # registered, regardless of the user's display dedup preference.
+    config = {**config, "deduplicate_shared_images": False}
     items = load_catalog_items(config, user_notes_path=user_notes_path)
     image_map = build_image_object_map(items)
     database = Database(db_path)

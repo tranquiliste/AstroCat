@@ -220,7 +220,7 @@ class ThumbnailSignals(QtCore.QObject):
 
 
 class CatalogLoadSignals(QtCore.QObject):
-    loaded = QtCore.Signal(list)
+    loaded = QtCore.Signal(list, list)
 
 
 class MapFetchSignals(QtCore.QObject):
@@ -512,7 +512,12 @@ class CatalogLoadTask(QtCore.QRunnable):
 
     def run(self) -> None:
         items = load_catalog_items(self.config, self.user_notes_path)
-        self.signals.loaded.emit(items)
+        if self.config.get("deduplicate_shared_images", False):
+            raw_config = {**self.config, "deduplicate_shared_images": False}
+            raw_items = load_catalog_items(raw_config, self.user_notes_path)
+        else:
+            raw_items = items
+        self.signals.loaded.emit(items, raw_items)
 
 
 class MapTileFetchTask(QtCore.QRunnable):
@@ -1116,9 +1121,9 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
     def set_catalog_filter(self, value: str) -> None:
         if self.catalog_filter != value:
             self.catalog_filter = value
-            # Recalculate global dedup set when filter changes
-            if not value:  # "Tous" mode
-                self._update_global_dedup_set()
+            # Recalculate global dedup set when filter changes so deduped items
+            # stay hidden even outside the "Tous" view.
+            self._update_global_dedup_set()
         self.invalidate()
 
     def set_status_filter(self, value: str) -> None:
@@ -1177,7 +1182,7 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
             for item in main_window.items_global_dedup
         }
         
-        # Hide only entries that lose all their images in "Tous" deduplicated view.
+        # Hide entries that lose all their images in the deduplicated view.
         # This avoids showing the same shared image once under Messier and once under NGC.
         for row in range(model.rowCount()):
             index = model.index(row, 0)
@@ -1351,21 +1356,24 @@ class CatalogFilterProxy(QtCore.QSortFilterProxyModel):
         # In "Tous" mode with dedup enabled:
         # - If model is already dedup'd, hide items with no images (they've lost all their images to shared copies)
         # - If model is NOT dedup'd, apply filter-level dedup
-        if not self.catalog_filter:
-            if model_is_dedup and not item.image_paths:
-                # Items whose shared photo was deduplicated away count as "Captured"
-                # (deduped_image_count > 0) → always hide them in dedup mode;
-                # only truly missing items (deduped_image_count == 0) are shown
-                # when the status filter asks for Missing/Suggested.
-                if item.deduped_image_count > 0:
-                    return False
-                if self.status_filter not in {"Missing", "Suggested"}:
-                    return False
-            elif not model_is_dedup and (item.object_id, item.catalog) in self._global_dedup_items_set:
-                # Apply filter-level dedup if model not already dedup'd
+        if model_is_dedup and not item.image_paths:
+            # Items whose shared photo was deduplicated away count as "Captured"
+            # (deduped_image_count > 0) → always hide them in dedup mode;
+            # only truly missing items (deduped_image_count == 0) are shown
+            # when the status filter asks for Missing/Suggested.
+            if item.deduped_image_count > 0:
                 return False
+            if self.status_filter not in {"Missing", "Suggested"}:
+                return False
+        elif not model_is_dedup and (item.object_id, item.catalog) in self._global_dedup_items_set:
+            # Apply filter-level dedup if model not already dedup'd.
+            return False
+        elif not model_is_dedup and item.deduped_image_count > 0 and not item.image_paths:
+            # Keep deduplicated items out of catalog views even if the global
+            # dedup set has not been rebuilt yet.
+            return False
         
-        if self.catalog_filter and not self.search_text:
+        if self.catalog_filter:
             if item.catalog != self.catalog_filter:
                 return False
         if self.type_filter and item.object_type != self.type_filter:
@@ -5248,12 +5256,12 @@ class MainWindow(QtWidgets.QMainWindow):
         task.signals.loaded.connect(self._on_catalog_loaded)
         self._catalog_pool.start(task)
 
-    def _on_catalog_loaded(self, items: List[CatalogItem]) -> None:
+    def _on_catalog_loaded(self, items: List[CatalogItem], raw_items: List[CatalogItem]) -> None:
         self.items = items
         self._capture_search_cache.clear()
         self._refresh_capture_filter_autocomplete()
         try:
-            self.database.upsert_image_object_links(build_image_object_map(items))
+            self.database.upsert_image_object_links(build_image_object_map(raw_items))
         except Exception:
             pass
         # Also prepare globally deduplicated version for "Tous" view

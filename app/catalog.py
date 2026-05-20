@@ -957,10 +957,16 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
             if not filename_objects:
                 continue
                 
-            # Expand each extracted object to include aliases
-            all_filename_related = set()
+            # Expand each extracted object to include aliases while preserving
+            # the order from the filename.
+            all_filename_related: List[str] = []
+            seen_related: Set[str] = set()
             for obj_id in filename_objects:
-                all_filename_related.update(_expand_catalog_aliases([obj_id]))
+                for alias_id in _expand_catalog_aliases([obj_id]):
+                    if alias_id in seen_related:
+                        continue
+                    seen_related.add(alias_id)
+                    all_filename_related.append(alias_id)
             
             if key not in filename_shared_images:
                 filename_shared_images[key] = list(all_filename_related)
@@ -1089,10 +1095,16 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
             if key in global_owner_by_image:
                 continue  # Already determined
 
-            # Expand all objects from filename to include aliases
-            all_filename_objects = set()
+            # Expand all objects from filename to include aliases while
+            # preserving the order from the filename.
+            all_filename_objects: List[str] = []
+            seen_filename_objects: Set[str] = set()
             for obj_id in filename_object_ids:
-                all_filename_objects.update(_expand_catalog_aliases([obj_id]))
+                for alias_id in _expand_catalog_aliases([obj_id]):
+                    if alias_id in seen_filename_objects:
+                        continue
+                    seen_filename_objects.add(alias_id)
+                    all_filename_objects.append(alias_id)
 
             # Find object with highest priority (lowest catalog number)
             best_priority = float('inf')
@@ -1155,8 +1167,6 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
         thumbnail_path = item.thumbnail_path
         if filtered_paths and (not thumbnail_path or thumbnail_path not in filtered_paths):
             thumbnail_path = _select_thumbnail(filtered_paths, item.thumbnail_path.name if item.thumbnail_path else None)
-        elif not filtered_paths:
-            thumbnail_path = None
         
         updated_items.append(
             replace(
