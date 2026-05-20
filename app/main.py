@@ -5036,67 +5036,58 @@ class MainWindow(QtWidgets.QMainWindow):
         self._refresh_wcs_annotations_overlay()
 
     def _prompt_astrometry_guided_retry(self, error: str) -> bool:
-        answer = QtWidgets.QMessageBox.question(
-            self,
-            tr("astrometry.retry.title"),
-            tr("astrometry.retry.ask", error=error),
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No,
-            QtWidgets.QMessageBox.StandardButton.Yes,
-        )
-        if answer != QtWidgets.QMessageBox.StandardButton.Yes:
-            return False
+        dialog = QtWidgets.QDialog(self)
+        dialog.setWindowTitle(tr("astrometry.retry.title"))
+        dialog.setModal(True)
+        dialog.resize(560, 0)
 
-        ra_text, ok = QtWidgets.QInputDialog.getText(
-            self,
-            tr("astrometry.retry.title"),
-            tr("astrometry.retry.ra_j2000_prompt"),
-            text="05 35 17.3",
-        )
-        if not ok:
-            return False
+        layout = QtWidgets.QVBoxLayout(dialog)
+        message_label = QtWidgets.QLabel(tr("astrometry.retry.ask", error=error))
+        message_label.setWordWrap(True)
+        layout.addWidget(message_label)
 
-        dec_text, ok = QtWidgets.QInputDialog.getText(
-            self,
-            tr("astrometry.retry.title"),
-            tr("astrometry.retry.dec_j2000_prompt"),
-            text="-05 23 28",
-        )
-        if not ok:
-            return False
+        form = QtWidgets.QFormLayout()
+        ra_input = QtWidgets.QLineEdit("05 35 17.3")
+        dec_input = QtWidgets.QLineEdit("-05 23 28")
+        radius_input = QtWidgets.QDoubleSpinBox()
+        radius_input.setRange(1.0, 180.0)
+        radius_input.setDecimals(2)
+        radius_input.setValue(15.0)
+        downsample_input = QtWidgets.QSpinBox()
+        downsample_input.setRange(0, 4)
+        downsample_input.setValue(0)
 
-        center_ra_deg = self._parse_ra_j2000_input(ra_text)
-        center_dec_deg = self._parse_dec_j2000_input(dec_text)
-        if center_ra_deg is None or center_dec_deg is None:
-            QtWidgets.QMessageBox.warning(
-                self,
-                tr("astrometry.retry.title"),
-                tr("astrometry.retry.invalid_coords"),
-            )
-            return False
+        form.addRow(tr("astrometry.retry.ra_j2000_prompt"), ra_input)
+        form.addRow(tr("astrometry.retry.dec_j2000_prompt"), dec_input)
+        form.addRow(tr("astrometry.retry.radius_prompt"), radius_input)
+        form.addRow(tr("astrometry.retry.downsample_prompt"), downsample_input)
+        layout.addLayout(form)
 
-        radius_deg, ok = QtWidgets.QInputDialog.getDouble(
-            self,
-            tr("astrometry.retry.title"),
-            tr("astrometry.retry.radius_prompt"),
-            15.0,
-            1.0,
-            180.0,
-            2,
+        buttons = QtWidgets.QDialogButtonBox(
+            QtWidgets.QDialogButtonBox.StandardButton.Ok
+            | QtWidgets.QDialogButtonBox.StandardButton.Cancel
         )
-        if not ok:
-            return False
+        buttons.accepted.connect(dialog.accept)
+        buttons.rejected.connect(dialog.reject)
+        layout.addWidget(buttons)
 
-        downsample, ok = QtWidgets.QInputDialog.getInt(
-            self,
-            tr("astrometry.retry.title"),
-            tr("astrometry.retry.downsample_prompt"),
-            0,
-            0,
-            4,
-            1,
-        )
-        if not ok:
-            return False
+        while True:
+            if dialog.exec() != int(QtWidgets.QDialog.DialogCode.Accepted):
+                return False
+
+            center_ra_deg = self._parse_ra_j2000_input(ra_input.text())
+            center_dec_deg = self._parse_dec_j2000_input(dec_input.text())
+            if center_ra_deg is None or center_dec_deg is None:
+                QtWidgets.QMessageBox.warning(
+                    self,
+                    tr("astrometry.retry.title"),
+                    tr("astrometry.retry.invalid_coords"),
+                )
+                continue
+
+            radius_deg = float(radius_input.value())
+            downsample = int(downsample_input.value())
+            break
 
         self._run_astrometry_for_current_image(
             solve_hints={
@@ -5406,7 +5397,8 @@ class MainWindow(QtWidgets.QMainWindow):
         cd12 = self._as_float(wcs.get("CD1_2"))
         cd21 = self._as_float(wcs.get("CD2_1"))
         cd22 = self._as_float(wcs.get("CD2_2"))
-        if None in (crval1, crval2, crpix1, crpix2, cd11, cd12, cd21, cd22):
+        naxis2 = self._as_float(wcs.get("NAXIS2"))
+        if None in (crval1, crval2, crpix1, crpix2, cd11, cd12, cd21, cd22, naxis2):
             return None
 
         det = (cd11 * cd22) - (cd12 * cd21)
@@ -5417,12 +5409,23 @@ class MainWindow(QtWidgets.QMainWindow):
         inv12 = -cd12 / det
         inv21 = -cd21 / det
         inv22 = cd11 / det
-        delta_ra = ((ra_deg - crval1 + 540.0) % 360.0) - 180.0
-        delta_dec = dec_deg - crval2
-        dx = (inv11 * delta_ra) + (inv12 * delta_dec)
-        dy = (inv21 * delta_ra) + (inv22 * delta_dec)
+
+        # Gnomonic (TAN) projection — standard FITS WCS (Calabretta & Greisen 2002)
+        alpha = math.radians(ra_deg)
+        delta = math.radians(dec_deg)
+        alpha0 = math.radians(crval1)
+        delta0 = math.radians(crval2)
+        denom = math.sin(delta0) * math.sin(delta) + math.cos(delta0) * math.cos(delta) * math.cos(alpha - alpha0)
+        if abs(denom) < 1e-10:
+            return None
+        xi  = math.degrees(math.cos(delta) * math.sin(alpha - alpha0) / denom)
+        eta = math.degrees((math.cos(delta0) * math.sin(delta) - math.sin(delta0) * math.cos(delta) * math.cos(alpha - alpha0)) / denom)
+
+        dx = (inv11 * xi) + (inv12 * eta)
+        dy = (inv21 * xi) + (inv22 * eta)
+        # FITS CRPIX2 is 1-based from the bottom; screen Y is 0-based from the top → flip Y axis
         x = (crpix1 - 1.0) + dx
-        y = (crpix2 - 1.0) + dy
+        y = (naxis2 - crpix2) - dy
         return (x, y)
 
     @staticmethod
