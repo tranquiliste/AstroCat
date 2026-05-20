@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file.
 
-## [1.7.4] - 2026-05-17
+## [1.7.5] - 2026-05-20
 ### Added
 - **UI** : adding description of all objects
 ### Fixed
