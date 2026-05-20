@@ -570,6 +570,8 @@ class AstapSolveTask(QtCore.QRunnable):
                 ra_hours = self.center_ra_deg / 15.0
                 spd_deg = self.center_dec_deg + 90.0
                 command.extend(["-ra", f"{ra_hours:.8f}", "-spd", f"{spd_deg:.8f}"])
+            else:
+                command.append("-blind")
             if self.data_dir is not None:
                 command.extend(["-d", str(self.data_dir)])
 
@@ -5266,7 +5268,7 @@ class MainWindow(QtWidgets.QMainWindow):
         edge_margin = 18.0
         center_x = (width - 1.0) / 2.0
         center_y = (height - 1.0) / 2.0
-        ranked: List[Tuple[float, Dict[str, object]]] = []
+        ranked: List[Tuple[float, Dict[str, object], Dict[str, object]]] = []
 
         for candidate in source_items:
             if candidate.ra_hours is None or candidate.dec_deg is None:
@@ -5295,6 +5297,12 @@ class MainWindow(QtWidgets.QMainWindow):
                         "dec_deg": dec_deg,
                         "style": {"color": "#f2c14e", "radius": 8, "width": 1.5},
                     },
+                    {
+                        "catalog": candidate.catalog,
+                        "object_id": candidate.object_id,
+                        "x_pos": x_pos,
+                        "y_pos": y_pos,
+                    },
                 )
             )
 
@@ -5303,8 +5311,76 @@ class MainWindow(QtWidgets.QMainWindow):
             return False
 
         ranked.sort(key=lambda pair: pair[0])
+
+        # Deduplicate aliases: keep Messier objects, remove NGC/IC/etc duplicates
+        # using MESSIER_TO_NGC and NGC_TO_MESSIER mappings
+        deduped: List[Tuple[float, Dict[str, object], Dict[str, object]]] = []
+        seen_object_ids: Dict[str, int] = {}  # object_id -> index in deduped
+
+        def _get_messier_alias(obj_id: str) -> Optional[str]:
+            """Get Messier number if this object has one, None otherwise."""
+            # Check if it's already Messier
+            if obj_id.startswith("M"):
+                return obj_id
+            # Check if NGC_TO_MESSIER maps it to Messier
+            messier_list = NGC_TO_MESSIER.get(obj_id, [])
+            if messier_list and messier_list[0].startswith("M"):
+                return messier_list[0]
+            return None
+
+        for dist_sq, entry, metadata in ranked:
+            obj_id = str(metadata["object_id"])
+            catalog = str(metadata["catalog"])
+
+            # Check if we already have an alias for this object
+            messier_alias = _get_messier_alias(obj_id)
+
+            is_duplicate = False
+            duplicate_index = -1
+
+            # Check all previously added objects to see if any are aliases
+            for existing_obj_id, existing_idx in seen_object_ids.items():
+                existing_messier_alias = _get_messier_alias(existing_obj_id)
+
+                # If both map to same Messier, they're the same object
+                if messier_alias and existing_messier_alias and messier_alias == existing_messier_alias:
+                    existing_dist, existing_entry, existing_metadata = deduped[existing_idx]
+                    existing_catalog = str(existing_metadata["catalog"])
+
+                    # Messier has priority
+                    if existing_catalog == "Messier":
+                        # Existing is Messier, skip this one
+                        is_duplicate = True
+                    else:
+                        # Existing is NGC/IC/etc, replace with Messier if this is Messier
+                        if catalog == "Messier":
+                            duplicate_index = existing_idx
+
+                    break
+
+            if is_duplicate:
+                # Skip this duplicate (existing Messier already stored)
+                continue
+
+            if duplicate_index >= 0:
+                # Replace lower-priority entry with Messier
+                deduped[duplicate_index] = (dist_sq, entry, metadata)
+                # Update the mapping
+                old_obj_id = None
+                for oid, idx in seen_object_ids.items():
+                    if idx == duplicate_index:
+                        old_obj_id = oid
+                        break
+                if old_obj_id:
+                    del seen_object_ids[old_obj_id]
+                seen_object_ids[obj_id] = duplicate_index
+            else:
+                # New object, add it
+                deduped.append((dist_sq, entry, metadata))
+                seen_object_ids[obj_id] = len(deduped) - 1
+
         max_annotations = 120
-        selected_payload = [entry for _dist, entry in ranked[:max_annotations]]
+        selected_payload = [entry for _dist, entry, _metadata in deduped[:max_annotations]]
         self.database.replace_image_annotations(image_name, selected_payload)
         self._refresh_wcs_annotations_overlay()
         return True
