@@ -1791,25 +1791,46 @@ class ImageView(QtWidgets.QGraphicsView):
                 continue
             style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
             color = QtGui.QColor(str(style.get("color") or "#f2c14e"))
-            radius = max(4.0, float(style.get("radius") or 8.0))
-            pen = QtGui.QPen(color, max(1.0, float(style.get("width") or 1.5)))
+            radius = max(8.0, float(style.get("radius") or 10.0))
+            arm_length = radius + 6.0
+            pen = QtGui.QPen(color, max(2.0, float(style.get("width") or 2.0)))
+            pen.setCosmetic(True)
 
-            ellipse = scene.addEllipse(x_pos - radius, y_pos - radius, radius * 2.0, radius * 2.0, pen)
+            ellipse = QtWidgets.QGraphicsEllipseItem(-radius, -radius, radius * 2.0, radius * 2.0)
+            ellipse.setPen(pen)
+            ellipse.setPos(x_pos, y_pos)
+            ellipse.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
+            scene.addItem(ellipse)
             ellipse.setZValue(5)
             self._annotation_items.append(ellipse)
 
-            line_h = scene.addLine(x_pos - radius - 4.0, y_pos, x_pos + radius + 4.0, y_pos, pen)
+            line_h = QtWidgets.QGraphicsLineItem(-arm_length, 0.0, arm_length, 0.0)
+            line_h.setPen(pen)
+            line_h.setPos(x_pos, y_pos)
+            line_h.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
+            scene.addItem(line_h)
             line_h.setZValue(5)
             self._annotation_items.append(line_h)
-            line_v = scene.addLine(x_pos, y_pos - radius - 4.0, x_pos, y_pos + radius + 4.0, pen)
+            line_v = QtWidgets.QGraphicsLineItem(0.0, -arm_length, 0.0, arm_length)
+            line_v.setPen(pen)
+            line_v.setPos(x_pos, y_pos)
+            line_v.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
+            scene.addItem(line_v)
             line_v.setZValue(5)
             self._annotation_items.append(line_v)
 
             label = str(annotation.get("label") or "").strip()
             if label:
-                text_item = scene.addSimpleText(label)
+                text_item = QtWidgets.QGraphicsSimpleTextItem(label)
+                label_font = text_item.font()
+                label_size = max(16.0, float(style.get("label_size") or 18.0))
+                label_font.setPointSizeF(label_size)
+                label_font.setBold(True)
+                text_item.setFont(label_font)
                 text_item.setBrush(QtGui.QBrush(color))
-                text_item.setPos(x_pos + radius + 6.0, y_pos - radius - 4.0)
+                text_item.setPos(x_pos + arm_length + 6.0, y_pos - radius - 4.0)
+                text_item.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
+                scene.addItem(text_item)
                 text_item.setZValue(6)
                 self._annotation_items.append(text_item)
 
@@ -2938,124 +2959,6 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             return default
 
 
-class WcsAnnotationDialog(QtWidgets.QDialog):
-    def __init__(
-        self,
-        parent: Optional[QtWidgets.QWidget] = None,
-        *,
-        object_hint: Optional[CatalogItem] = None,
-        annotations: Optional[List[Dict[str, object]]] = None,
-    ) -> None:
-        super().__init__(parent)
-        self._object_hint = object_hint
-        self.setWindowTitle(tr("annotations.dialog_title"))
-        self.resize(640, 420)
-
-        root = QtWidgets.QVBoxLayout(self)
-        root.setContentsMargins(12, 12, 12, 12)
-        root.setSpacing(8)
-
-        self.table = QtWidgets.QTableWidget(0, 3)
-        self.table.setHorizontalHeaderLabels(
-            [
-                tr("annotations.label"),
-                tr("annotations.ra_deg"),
-                tr("annotations.dec_deg"),
-            ]
-        )
-        self.table.verticalHeader().setVisible(False)
-        self.table.horizontalHeader().setStretchLastSection(False)
-        self.table.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeMode.Stretch)
-        self.table.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
-        self.table.horizontalHeader().setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeMode.ResizeToContents)
-        root.addWidget(self.table, stretch=1)
-
-        buttons_row = QtWidgets.QHBoxLayout()
-        add_button = QtWidgets.QPushButton(tr("annotations.add"))
-        add_button.clicked.connect(self._add_empty_row)
-        remove_button = QtWidgets.QPushButton(tr("annotations.remove"))
-        remove_button.clicked.connect(self._remove_selected_row)
-        add_object_button = QtWidgets.QPushButton(tr("annotations.add_current_object"))
-        add_object_button.clicked.connect(self._add_current_object)
-        buttons_row.addWidget(add_button)
-        buttons_row.addWidget(remove_button)
-        buttons_row.addWidget(add_object_button)
-        buttons_row.addStretch(1)
-        root.addLayout(buttons_row)
-
-        box = QtWidgets.QDialogButtonBox(
-            QtWidgets.QDialogButtonBox.StandardButton.Save
-            | QtWidgets.QDialogButtonBox.StandardButton.Cancel
-        )
-        save_button = box.button(QtWidgets.QDialogButtonBox.StandardButton.Save)
-        if save_button is not None:
-            save_button.setText(tr("settings.save"))
-        cancel_button = box.button(QtWidgets.QDialogButtonBox.StandardButton.Cancel)
-        if cancel_button is not None:
-            cancel_button.setText(tr("settings.cancel"))
-        box.accepted.connect(self.accept)
-        box.rejected.connect(self.reject)
-        root.addWidget(box)
-
-        for annotation in annotations or []:
-            self._add_row(
-                str(annotation.get("label") or ""),
-                annotation.get("ra_deg"),
-                annotation.get("dec_deg"),
-            )
-
-    def _add_row(self, label: str, ra_deg: object, dec_deg: object) -> None:
-        row = self.table.rowCount()
-        self.table.insertRow(row)
-        self.table.setItem(row, 0, QtWidgets.QTableWidgetItem(str(label or "").strip()))
-        self.table.setItem(row, 1, QtWidgets.QTableWidgetItem("" if ra_deg is None else str(ra_deg)))
-        self.table.setItem(row, 2, QtWidgets.QTableWidgetItem("" if dec_deg is None else str(dec_deg)))
-
-    def _add_empty_row(self) -> None:
-        self._add_row("", "", "")
-
-    def _remove_selected_row(self) -> None:
-        row = self.table.currentRow()
-        if row >= 0:
-            self.table.removeRow(row)
-
-    def _add_current_object(self) -> None:
-        item = self._object_hint
-        if item is None:
-            return
-        ra_hours = item.ra_hours
-        dec_deg = item.dec_deg
-        if ra_hours is None or dec_deg is None:
-            return
-        ra_deg = float(ra_hours) * 15.0
-        label = item.object_id or item.display_name
-        self._add_row(label, f"{ra_deg:.8f}", f"{float(dec_deg):.8f}")
-
-    def annotations_payload(self) -> List[Dict[str, object]]:
-        payload: List[Dict[str, object]] = []
-        for row in range(self.table.rowCount()):
-            label_item = self.table.item(row, 0)
-            ra_item = self.table.item(row, 1)
-            dec_item = self.table.item(row, 2)
-            label = (label_item.text() if label_item else "").strip()
-            ra_text = (ra_item.text() if ra_item else "").strip().replace(",", ".")
-            dec_text = (dec_item.text() if dec_item else "").strip().replace(",", ".")
-            try:
-                ra_deg = float(ra_text)
-                dec_deg = float(dec_text)
-            except ValueError:
-                continue
-            payload.append(
-                {
-                    "label": label,
-                    "ra_deg": ra_deg,
-                    "dec_deg": dec_deg,
-                    "style": {"color": "#f2c14e", "radius": 8, "width": 1.5},
-                }
-            )
-        return payload
-
-
 class DetailPanel(QtWidgets.QWidget):
     thumbnail_selected = QtCore.Signal(str, str, str)
     archive_requested = QtCore.Signal(str)
@@ -3064,7 +2967,7 @@ class DetailPanel(QtWidgets.QWidget):
     navigation_requested = QtCore.Signal(int)
     imaging_info_requested = QtCore.Signal()
     astrometry_requested = QtCore.Signal()
-    annotate_requested = QtCore.Signal()
+    auto_annotate_toggled = QtCore.Signal(bool)
 
     def __init__(self) -> None:
         super().__init__()
@@ -3127,14 +3030,15 @@ class DetailPanel(QtWidgets.QWidget):
         self.archive_button = QtWidgets.QPushButton(tr("detail.archive_image"))
         self.imaging_info_button = QtWidgets.QPushButton(tr("detail.imaging_info"))
         self.astrometry_button = QtWidgets.QPushButton(tr("detail.astrometry"))
-        self.annotate_button = QtWidgets.QPushButton(tr("detail.annotate"))
+        self.auto_annotate_button = QtWidgets.QCheckBox(tr("detail.auto_annotate"))
+        self.auto_annotate_button.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
         self.prev_button.clicked.connect(lambda: self.navigation_requested.emit(-1))
         self.next_button.clicked.connect(lambda: self.navigation_requested.emit(1))
         self.thumb_button.clicked.connect(self._set_thumbnail)
         self.archive_button.clicked.connect(self._request_archive)
         self.imaging_info_button.clicked.connect(self._request_imaging_info)
         self.astrometry_button.clicked.connect(self._request_astrometry)
-        self.annotate_button.clicked.connect(self._request_annotate)
+        self.auto_annotate_button.toggled.connect(self._request_auto_annotate_toggle)
         self._current_item: Optional[CatalogItem] = None
         self._notes_block = False
         self._image_index = 0
@@ -3211,7 +3115,7 @@ class DetailPanel(QtWidgets.QWidget):
         nav_row.addWidget(self.archive_button)
         nav_row.addWidget(self.imaging_info_button)
         nav_row.addWidget(self.astrometry_button)
-        nav_row.addWidget(self.annotate_button)
+        nav_row.addWidget(self.auto_annotate_button)
         nav_row.addStretch(1)
         left_layout.addLayout(nav_row)
 
@@ -3481,7 +3385,8 @@ class DetailPanel(QtWidgets.QWidget):
             self.archive_button.setEnabled(False)
             self.imaging_info_button.setEnabled(False)
             self.astrometry_button.setEnabled(False)
-            self.annotate_button.setEnabled(False)
+            self.auto_annotate_button.setEnabled(False)
+            self.set_auto_annotate_checked(False)
             self.imaging_summary.clear()
             self.imaging_summary.hide()
             self._notes_block = False
@@ -3583,8 +3488,17 @@ class DetailPanel(QtWidgets.QWidget):
             self.astrometry_button.setEnabled(bool(enabled))
 
     def set_annotation_enabled(self, enabled: bool) -> None:
-        if hasattr(self, "annotate_button"):
-            self.annotate_button.setEnabled(bool(enabled))
+        if hasattr(self, "auto_annotate_button"):
+            self.auto_annotate_button.setEnabled(bool(enabled))
+            if not enabled:
+                self.set_auto_annotate_checked(False)
+
+    def set_auto_annotate_checked(self, checked: bool) -> None:
+        if not hasattr(self, "auto_annotate_button"):
+            return
+        self.auto_annotate_button.blockSignals(True)
+        self.auto_annotate_button.setChecked(bool(checked))
+        self.auto_annotate_button.blockSignals(False)
 
     def _related_objects_for_image(self, image_name: str) -> List[str]:
         if not self._current_item:
@@ -3614,7 +3528,8 @@ class DetailPanel(QtWidgets.QWidget):
             self.archive_button.setEnabled(False)
             self.imaging_info_button.setEnabled(False)
             self.astrometry_button.setEnabled(False)
-            self.annotate_button.setEnabled(False)
+            self.auto_annotate_button.setEnabled(False)
+            self.set_auto_annotate_checked(False)
             return
         paths = self._current_item.image_paths
         self._image_index = max(0, min(self._image_index, len(paths) - 1))
@@ -3640,7 +3555,8 @@ class DetailPanel(QtWidgets.QWidget):
             self.archive_button.setEnabled(True)
             self.imaging_info_button.setEnabled(True)
             self.astrometry_button.setEnabled(True)
-            self.annotate_button.setEnabled(True)
+            self.auto_annotate_button.setEnabled(False)
+            self.set_auto_annotate_checked(False)
             return
         self.image_view.set_pixmap(None)
         self._set_image_info_label(tr("detail.image.loading", name=path.name), path.name)
@@ -3650,7 +3566,8 @@ class DetailPanel(QtWidgets.QWidget):
         self.archive_button.setEnabled(True)
         self.imaging_info_button.setEnabled(True)
         self.astrometry_button.setEnabled(True)
-        self.annotate_button.setEnabled(True)
+        self.auto_annotate_button.setEnabled(False)
+        self.set_auto_annotate_checked(False)
         self._start_image_load(path)
 
     def _start_image_load(self, path: Path) -> None:
@@ -3691,7 +3608,8 @@ class DetailPanel(QtWidgets.QWidget):
         self.archive_button.setEnabled(True)
         self.imaging_info_button.setEnabled(True)
         self.astrometry_button.setEnabled(True)
-        self.annotate_button.setEnabled(True)
+        self.auto_annotate_button.setEnabled(False)
+        self.set_auto_annotate_checked(False)
         self.image_changed.emit(current_path.name)
 
     def _on_image_failed(self, request_id: int, path_value: str, message: str) -> None:
@@ -3703,7 +3621,8 @@ class DetailPanel(QtWidgets.QWidget):
         self.archive_button.setEnabled(False)
         self.imaging_info_button.setEnabled(False)
         self.astrometry_button.setEnabled(False)
-        self.annotate_button.setEnabled(False)
+        self.auto_annotate_button.setEnabled(False)
+        self.set_auto_annotate_checked(False)
 
     def _request_imaging_info(self) -> None:
         self.imaging_info_requested.emit()
@@ -3711,8 +3630,8 @@ class DetailPanel(QtWidgets.QWidget):
     def _request_astrometry(self) -> None:
         self.astrometry_requested.emit()
 
-    def _request_annotate(self) -> None:
-        self.annotate_requested.emit()
+    def _request_auto_annotate_toggle(self, enabled: bool) -> None:
+        self.auto_annotate_toggled.emit(bool(enabled))
 
     def _apply_initial_sizes(self) -> None:
         if self._initial_detail_sized:
@@ -4454,7 +4373,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.detail.navigation_requested.connect(self._navigate_images_and_filtered_items)
         self.detail.imaging_info_requested.connect(self._open_imaging_info_editor)
         self.detail.astrometry_requested.connect(self._run_astrometry_for_current_image)
-        self.detail.annotate_requested.connect(self._edit_wcs_annotations)
+        self.detail.auto_annotate_toggled.connect(self._on_auto_annotate_toggled)
         self.model.wiki_thumbnail_loaded.connect(self._on_wiki_thumbnail_loaded)
 
         splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Vertical)
@@ -5309,24 +5228,95 @@ class MainWindow(QtWidgets.QMainWindow):
             seconds = 0.0
         return f"{sign}{degrees:02d}d {minutes:02d}m {seconds:04.1f}s"
 
-    def _edit_wcs_annotations(self) -> None:
+    def _on_auto_annotate_toggled(self, enabled: bool) -> None:
         image_name = self.detail.current_image_name()
-        item = self.detail.current_item()
-        if not image_name or item is None:
-            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.no_image"))
+        if not image_name:
+            self.detail.set_auto_annotate_checked(False)
             return
+
+        if enabled:
+            if not self._auto_annotate_wcs_objects():
+                self.detail.set_auto_annotate_checked(False)
+            return
+
+        self.database.replace_image_annotations(image_name, [])
+        self._refresh_wcs_annotations_overlay()
+
+    def _auto_annotate_wcs_objects(self) -> bool:
+        image_name = self.detail.current_image_name()
+        if not image_name:
+            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.no_image"))
+            return False
+
         solution = self.database.get_image_wcs_solution(image_name)
         if not solution or solution.get("status") != "solved":
             QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.need_wcs"))
-            return
-        existing = self.database.get_image_annotations(image_name)
-        dialog = WcsAnnotationDialog(self, object_hint=item, annotations=existing)
-        if dialog.exec() != int(QtWidgets.QDialog.DialogCode.Accepted):
-            return
-        payload = dialog.annotations_payload()
-        self.database.replace_image_annotations(image_name, payload)
+            return False
+
+        wcs = solution.get("wcs") if isinstance(solution.get("wcs"), dict) else {}
+        width = self._as_float(wcs.get("NAXIS1"))
+        height = self._as_float(wcs.get("NAXIS2"))
+        if width is None or height is None:
+            image_path = self.detail.current_image_path()
+            if image_path is not None:
+                image = QtGui.QImage(str(image_path))
+                if not image.isNull():
+                    width = float(image.width())
+                    height = float(image.height())
+        if width is None or height is None:
+            QtWidgets.QMessageBox.warning(self, tr("annotations.title"), tr("annotations.auto_missing_frame"))
+            return False
+
+        source_items = self.items if self.items else self.items_global_dedup
+        if not source_items:
+            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.auto_none_in_field"))
+            return False
+
+        edge_margin = 18.0
+        center_x = (width - 1.0) / 2.0
+        center_y = (height - 1.0) / 2.0
+        ranked: List[Tuple[float, Dict[str, object]]] = []
+
+        for candidate in source_items:
+            if candidate.ra_hours is None or candidate.dec_deg is None:
+                continue
+            ra_deg = float(candidate.ra_hours) * 15.0
+            dec_deg = float(candidate.dec_deg)
+            projected = self._project_sky_to_pixel(wcs, ra_deg, dec_deg)
+            if projected is None:
+                continue
+            x_pos, y_pos = projected
+            if x_pos < -edge_margin or x_pos > (width + edge_margin):
+                continue
+            if y_pos < -edge_margin or y_pos > (height + edge_margin):
+                continue
+
+            label = (candidate.object_id or candidate.display_name or "").strip()
+            if not label:
+                continue
+            distance_sq = ((x_pos - center_x) ** 2) + ((y_pos - center_y) ** 2)
+            ranked.append(
+                (
+                    distance_sq,
+                    {
+                        "label": label,
+                        "ra_deg": ra_deg,
+                        "dec_deg": dec_deg,
+                        "style": {"color": "#f2c14e", "radius": 8, "width": 1.5},
+                    },
+                )
+            )
+
+        if not ranked:
+            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.auto_none_in_field"))
+            return False
+
+        ranked.sort(key=lambda pair: pair[0])
+        max_annotations = 120
+        selected_payload = [entry for _dist, entry in ranked[:max_annotations]]
+        self.database.replace_image_annotations(image_name, selected_payload)
         self._refresh_wcs_annotations_overlay()
-        self._set_status_message(tr("annotations.saved_status", count=len(payload)))
+        return True
 
     def _refresh_wcs_annotations_overlay(self) -> None:
         image_name = self.detail.current_image_name()
@@ -5334,12 +5324,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.detail.set_wcs_status("")
             self.detail.image_view.set_wcs_annotations([])
             self.detail.set_annotation_enabled(False)
+            self.detail.set_auto_annotate_checked(False)
             return
         solution = self.database.get_image_wcs_solution(image_name)
         if not solution:
             self.detail.set_wcs_status(tr("wcs.status.none"))
             self.detail.image_view.set_wcs_annotations([])
             self.detail.set_annotation_enabled(False)
+            self.detail.set_auto_annotate_checked(False)
             return
         if solution.get("status") != "solved":
             if solution.get("status") == "failed":
@@ -5350,11 +5342,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.detail.set_wcs_status(tr("wcs.status.pending"))
             self.detail.image_view.set_wcs_annotations([])
             self.detail.set_annotation_enabled(False)
+            self.detail.set_auto_annotate_checked(False)
             return
         annotations = self.database.get_image_annotations(image_name)
         projected = self._project_annotations_to_image(solution, annotations)
         self.detail.image_view.set_wcs_annotations(projected)
         self.detail.set_annotation_enabled(True)
+        self.detail.set_auto_annotate_checked(bool(annotations))
         center_ra = self._as_float(solution.get("center_ra_deg"))
         center_dec = self._as_float(solution.get("center_dec_deg"))
         pixel_scale = self._as_float(solution.get("pixel_scale_arcsec"))
@@ -5383,38 +5377,16 @@ class MainWindow(QtWidgets.QMainWindow):
         annotations: List[Dict[str, object]],
     ) -> List[Dict[str, object]]:
         wcs = solution.get("wcs") if isinstance(solution.get("wcs"), dict) else {}
-        crval1 = self._as_float(wcs.get("CRVAL1"))
-        crval2 = self._as_float(wcs.get("CRVAL2"))
-        crpix1 = self._as_float(wcs.get("CRPIX1"))
-        crpix2 = self._as_float(wcs.get("CRPIX2"))
-        cd11 = self._as_float(wcs.get("CD1_1"))
-        cd12 = self._as_float(wcs.get("CD1_2"))
-        cd21 = self._as_float(wcs.get("CD2_1"))
-        cd22 = self._as_float(wcs.get("CD2_2"))
-        if None in (crval1, crval2, crpix1, crpix2, cd11, cd12, cd21, cd22):
-            return []
-
-        det = (cd11 * cd22) - (cd12 * cd21)
-        if abs(det) < 1e-12:
-            return []
-
-        inv11 = cd22 / det
-        inv12 = -cd12 / det
-        inv21 = -cd21 / det
-        inv22 = cd11 / det
-
         projected: List[Dict[str, object]] = []
         for annotation in annotations:
             ra_deg = self._as_float(annotation.get("ra_deg"))
             dec_deg = self._as_float(annotation.get("dec_deg"))
             if ra_deg is None or dec_deg is None:
                 continue
-            delta_ra = ((ra_deg - crval1 + 540.0) % 360.0) - 180.0
-            delta_dec = dec_deg - crval2
-            dx = (inv11 * delta_ra) + (inv12 * delta_dec)
-            dy = (inv21 * delta_ra) + (inv22 * delta_dec)
-            x = (crpix1 - 1.0) + dx
-            y = (crpix2 - 1.0) + dy
+            projected_xy = self._project_sky_to_pixel(wcs, ra_deg, dec_deg)
+            if projected_xy is None:
+                continue
+            x, y = projected_xy
             projected.append(
                 {
                     "x": x,
@@ -5424,6 +5396,34 @@ class MainWindow(QtWidgets.QMainWindow):
                 }
             )
         return projected
+
+    def _project_sky_to_pixel(self, wcs: Dict[str, object], ra_deg: float, dec_deg: float) -> Optional[Tuple[float, float]]:
+        crval1 = self._as_float(wcs.get("CRVAL1"))
+        crval2 = self._as_float(wcs.get("CRVAL2"))
+        crpix1 = self._as_float(wcs.get("CRPIX1"))
+        crpix2 = self._as_float(wcs.get("CRPIX2"))
+        cd11 = self._as_float(wcs.get("CD1_1"))
+        cd12 = self._as_float(wcs.get("CD1_2"))
+        cd21 = self._as_float(wcs.get("CD2_1"))
+        cd22 = self._as_float(wcs.get("CD2_2"))
+        if None in (crval1, crval2, crpix1, crpix2, cd11, cd12, cd21, cd22):
+            return None
+
+        det = (cd11 * cd22) - (cd12 * cd21)
+        if abs(det) < 1e-12:
+            return None
+
+        inv11 = cd22 / det
+        inv12 = -cd12 / det
+        inv21 = -cd21 / det
+        inv22 = cd11 / det
+        delta_ra = ((ra_deg - crval1 + 540.0) % 360.0) - 180.0
+        delta_dec = dec_deg - crval2
+        dx = (inv11 * delta_ra) + (inv12 * delta_dec)
+        dy = (inv21 * delta_ra) + (inv22 * delta_dec)
+        x = (crpix1 - 1.0) + dx
+        y = (crpix2 - 1.0) + dy
+        return (x, y)
 
     @staticmethod
     def _as_float(value: object) -> Optional[float]:
