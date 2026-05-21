@@ -5563,8 +5563,8 @@ class MainWindow(QtWidgets.QMainWindow):
             hours += 1
         hours %= 24
         if seconds == 0:
-            return f"{hours:02d}h{minutes:02d}m"
-        return f"{hours:02d}h{minutes:02d}m{seconds:02d}s"
+            return f"{hours:02d}h{minutes:02d}'"
+        return f"{hours:02d}h{minutes:02d}'{seconds:02d}\""
 
     @staticmethod
     def _format_dec_grid_label(dec_deg: float) -> str:
@@ -5576,9 +5576,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if minutes >= 60:
             minutes = 0
             degrees += 1
-        if minutes == 0:
-            return f"{sign}{degrees:02d}d"
-        return f"{sign}{degrees:02d}d{minutes:02d}m"
+        return f"{sign}{degrees:02d}°{minutes:02d}'"
 
     @staticmethod
     def _split_polyline_segments(
