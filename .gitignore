@@ -1,6 +1,7 @@
 build/
 dist/
 tmp/
+technical_documentation/
 *.spec
 *.spec.bak
 *.bak
