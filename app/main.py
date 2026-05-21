@@ -1780,6 +1780,84 @@ class ImageView(QtWidgets.QGraphicsView):
         if not self._pixmap:
             return
         for annotation in annotations:
+            kind = str(annotation.get("kind") or "").strip().lower()
+            if kind == "grid_line":
+                points_payload = annotation.get("points") if isinstance(annotation.get("points"), list) else []
+                points: List[QtCore.QPointF] = []
+                for point in points_payload:
+                    if not isinstance(point, dict):
+                        continue
+                    px = point.get("x")
+                    py = point.get("y")
+                    try:
+                        point_x = float(px)
+                        point_y = float(py)
+                    except (TypeError, ValueError):
+                        continue
+                    points.append(QtCore.QPointF(point_x, point_y))
+                if len(points) >= 2:
+                    style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
+                    color = QtGui.QColor(str(style.get("color") or "#f2f2f2"))
+                    alpha_value = style.get("alpha")
+                    try:
+                        alpha = int(alpha_value) if alpha_value is not None else 160
+                    except (TypeError, ValueError):
+                        alpha = 160
+                    color.setAlpha(max(0, min(255, alpha)))
+                    width_value = style.get("width")
+                    try:
+                        line_width = max(0.6, float(width_value)) if width_value is not None else 1.0
+                    except (TypeError, ValueError):
+                        line_width = 1.0
+                    pen = QtGui.QPen(color, line_width)
+                    pen.setCosmetic(True)
+                    pen.setStyle(QtCore.Qt.PenStyle.DotLine)
+                    path = QtGui.QPainterPath(points[0])
+                    for point in points[1:]:
+                        path.lineTo(point)
+                    path_item = QtWidgets.QGraphicsPathItem(path)
+                    path_item.setPen(pen)
+                    path_item.setZValue(2)
+                    scene.addItem(path_item)
+                    self._annotation_items.append(path_item)
+                continue
+
+            if kind == "grid_label":
+                x_value = annotation.get("x")
+                y_value = annotation.get("y")
+                try:
+                    x_pos = float(x_value)
+                    y_pos = float(y_value)
+                except (TypeError, ValueError):
+                    continue
+                label = str(annotation.get("label") or "").strip()
+                if not label:
+                    continue
+                style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
+                color = QtGui.QColor(str(style.get("color") or "#f2f2f2"))
+                alpha_value = style.get("alpha")
+                try:
+                    alpha = int(alpha_value) if alpha_value is not None else 200
+                except (TypeError, ValueError):
+                    alpha = 200
+                color.setAlpha(max(0, min(255, alpha)))
+                text_item = QtWidgets.QGraphicsSimpleTextItem(label)
+                label_font = text_item.font()
+                label_size_raw = style.get("label_size")
+                try:
+                    label_size = max(8.0, float(label_size_raw)) if label_size_raw is not None else 10.0
+                except (TypeError, ValueError):
+                    label_size = 10.0
+                label_font.setPointSizeF(label_size)
+                text_item.setFont(label_font)
+                text_item.setBrush(QtGui.QBrush(color))
+                text_item.setPos(x_pos, y_pos)
+                text_item.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
+                text_item.setZValue(3)
+                scene.addItem(text_item)
+                self._annotation_items.append(text_item)
+                continue
+
             x_value = annotation.get("x")
             y_value = annotation.get("y")
             if x_value is None or y_value is None:
@@ -5413,6 +5491,9 @@ class MainWindow(QtWidgets.QMainWindow):
             return
         annotations = self.database.get_image_annotations(image_name)
         projected = self._project_annotations_to_image(solution, annotations)
+        if annotations:
+            grid_overlay = self._build_equatorial_grid_overlay(solution)
+            projected = grid_overlay + projected
         self.detail.image_view.set_wcs_annotations(projected)
         self.detail.set_annotation_enabled(True)
         self.detail.set_auto_annotate_checked(bool(annotations))
@@ -5463,6 +5544,272 @@ class MainWindow(QtWidgets.QMainWindow):
                 }
             )
         return projected
+
+    @staticmethod
+    def _wrap_ra_deg(ra_deg: float) -> float:
+        return float(ra_deg) % 360.0
+
+    @staticmethod
+    def _format_ra_grid_label(ra_deg: float) -> str:
+        total_seconds = (float(ra_deg) % 360.0) / 15.0 * 3600.0
+        hours = int(total_seconds // 3600)
+        minutes = int((total_seconds % 3600) // 60)
+        seconds = int(round(total_seconds - (hours * 3600) - (minutes * 60)))
+        if seconds >= 60:
+            seconds = 0
+            minutes += 1
+        if minutes >= 60:
+            minutes = 0
+            hours += 1
+        hours %= 24
+        if seconds == 0:
+            return f"{hours:02d}h{minutes:02d}m"
+        return f"{hours:02d}h{minutes:02d}m{seconds:02d}s"
+
+    @staticmethod
+    def _format_dec_grid_label(dec_deg: float) -> str:
+        value = max(-90.0, min(90.0, float(dec_deg)))
+        sign = "+" if value >= 0 else "-"
+        abs_value = abs(value)
+        degrees = int(abs_value)
+        minutes = int(round((abs_value - degrees) * 60.0))
+        if minutes >= 60:
+            minutes = 0
+            degrees += 1
+        if minutes == 0:
+            return f"{sign}{degrees:02d}d"
+        return f"{sign}{degrees:02d}d{minutes:02d}m"
+
+    @staticmethod
+    def _split_polyline_segments(
+        points: List[Optional[Tuple[float, float]]],
+        max_jump_px: float = 140.0,
+    ) -> List[List[Tuple[float, float]]]:
+        segments: List[List[Tuple[float, float]]] = []
+        current: List[Tuple[float, float]] = []
+        max_jump_sq = max_jump_px * max_jump_px
+        for point in points:
+            if point is None:
+                if len(current) >= 2:
+                    segments.append(current)
+                current = []
+                continue
+            if current:
+                dx = point[0] - current[-1][0]
+                dy = point[1] - current[-1][1]
+                if (dx * dx) + (dy * dy) > max_jump_sq:
+                    if len(current) >= 2:
+                        segments.append(current)
+                    current = [point]
+                    continue
+            current.append(point)
+        if len(current) >= 2:
+            segments.append(current)
+        return segments
+
+    @staticmethod
+    def _pick_label_anchor(
+        segment: List[Tuple[float, float]],
+        width: float,
+        height: float,
+        prefer_top: bool,
+    ) -> Optional[Tuple[float, float]]:
+        if not segment:
+            return None
+        visible = [
+            point
+            for point in segment
+            if 0.0 <= point[0] <= width and 0.0 <= point[1] <= height
+        ]
+        if not visible:
+            return None
+        if prefer_top:
+            return min(visible, key=lambda point: point[1])
+        return min(visible, key=lambda point: point[0])
+
+    def _build_equatorial_grid_overlay(self, solution: Dict[str, object]) -> List[Dict[str, object]]:
+        wcs = solution.get("wcs") if isinstance(solution.get("wcs"), dict) else {}
+        naxis1 = self._as_float(wcs.get("NAXIS1"))
+        naxis2 = self._as_float(wcs.get("NAXIS2"))
+        crval1 = self._as_float(wcs.get("CRVAL1"))
+        crval2 = self._as_float(wcs.get("CRVAL2"))
+        cd11 = self._as_float(wcs.get("CD1_1"))
+        cd12 = self._as_float(wcs.get("CD1_2"))
+        cd21 = self._as_float(wcs.get("CD2_1"))
+        cd22 = self._as_float(wcs.get("CD2_2"))
+        if None in (naxis1, naxis2, crval1, crval2, cd11, cd12, cd21, cd22):
+            return []
+
+        fov_w = self._as_float(solution.get("fov_width_deg"))
+        fov_h = self._as_float(solution.get("fov_height_deg"))
+        if fov_w is None or fov_h is None:
+            # Estimate FoV from local linear WCS scale when explicit FoV is unavailable.
+            fov_w = abs(math.hypot(cd11, cd21) * naxis1)
+            fov_h = abs(math.hypot(cd12, cd22) * naxis2)
+
+        max_fov = max(fov_w, fov_h)
+        if max_fov <= 2.0:
+            ra_step_deg = 0.375
+            dec_step_deg = 0.25
+        elif max_fov <= 4.0:
+            ra_step_deg = 0.75
+            dec_step_deg = 0.5
+        elif max_fov <= 8.0:
+            ra_step_deg = 1.5
+            dec_step_deg = 1.0
+        elif max_fov <= 16.0:
+            ra_step_deg = 3.0
+            dec_step_deg = 2.0
+        else:
+            ra_step_deg = 7.5
+            dec_step_deg = 5.0
+
+        width = float(naxis1)
+        height = float(naxis2)
+        diagonal = math.hypot(width, height)
+        margin = max(60.0, 0.08 * diagonal)
+        far_margin = max(width, height) * 1.25
+        ra_span = min(360.0, max(ra_step_deg * 8.0, float(fov_w) * 2.8))
+        dec_span = min(179.0, max(dec_step_deg * 8.0, float(fov_h) * 2.8))
+        center_ra = self._wrap_ra_deg(float(crval1))
+        center_dec = max(-90.0, min(90.0, float(crval2)))
+        jump_limit = max(220.0, 0.2 * diagonal)
+
+        grid_style = {"color": "#f2f2f2", "width": 1.0, "alpha": 140}
+        label_style = {"color": "#f2f2f2", "alpha": 200, "label_size": 9.0}
+        overlay: List[Dict[str, object]] = []
+        dec_label_candidates: List[Tuple[float, float, str]] = []
+        ra_label_candidates: List[Tuple[float, float, str]] = []
+        dec_labels_added = 0
+        ra_labels_added = 0
+
+        dec_start = max(-89.8, math.floor((center_dec - (dec_span / 2.0)) / dec_step_deg) * dec_step_deg)
+        dec_end = min(89.8, math.ceil((center_dec + (dec_span / 2.0)) / dec_step_deg) * dec_step_deg)
+        ra_start = center_ra - (ra_span / 2.0)
+        ra_end = center_ra + (ra_span / 2.0)
+
+        ra_samples = max(180, int(width / 8.0))
+        dec_samples = max(180, int(height / 8.0))
+        dec_label_stride = 2 if dec_step_deg <= 1.0 else 1
+        ra_label_stride = 2 if ra_step_deg <= 1.5 else 1
+        dec_line_index = 0
+
+        dec_value = dec_start
+        while dec_value <= dec_end + 1e-9:
+            projected_points: List[Optional[Tuple[float, float]]] = []
+            for idx in range(ra_samples + 1):
+                ra_value = ra_start + ((ra_end - ra_start) * idx / ra_samples)
+                projected = self._project_sky_to_pixel(wcs, self._wrap_ra_deg(ra_value), dec_value)
+                if projected is None:
+                    projected_points.append(None)
+                    continue
+                x_pos, y_pos = projected
+                if x_pos < -far_margin or x_pos > (width + far_margin) or y_pos < -far_margin or y_pos > (height + far_margin):
+                    projected_points.append(None)
+                    continue
+                projected_points.append((x_pos, y_pos))
+
+            segments = self._split_polyline_segments(projected_points, max_jump_px=jump_limit)
+            for segment in segments:
+                overlay.append(
+                    {
+                        "kind": "grid_line",
+                        "points": [{"x": x, "y": y} for x, y in segment],
+                        "style": grid_style,
+                    }
+                )
+                anchor = self._pick_label_anchor(segment, width, height, prefer_top=False)
+                if anchor is None:
+                    continue
+                label_x, label_y = anchor
+                label_text = self._format_dec_grid_label(dec_value)
+                dec_label_candidates.append((label_x, label_y, label_text))
+                if dec_line_index % dec_label_stride == 0:
+                    overlay.append(
+                        {
+                            "kind": "grid_label",
+                            "x": max(2.0, min(width - margin, label_x + 4.0)),
+                            "y": max(2.0, min(height - margin, label_y + 2.0)),
+                            "label": label_text,
+                            "style": label_style,
+                        }
+                    )
+                    dec_labels_added += 1
+            dec_value += dec_step_deg
+            dec_line_index += 1
+
+        ra_tick_start = math.floor(ra_start / ra_step_deg) * ra_step_deg
+        ra_tick_end = math.ceil(ra_end / ra_step_deg) * ra_step_deg
+        ra_value = ra_tick_start
+        ra_line_index = 0
+        while ra_value <= ra_tick_end + 1e-9:
+            projected_points = []
+            for idx in range(dec_samples + 1):
+                dec_value = (center_dec - (dec_span / 2.0)) + (dec_span * idx / dec_samples)
+                dec_clamped = max(-89.95, min(89.95, dec_value))
+                projected = self._project_sky_to_pixel(wcs, self._wrap_ra_deg(ra_value), dec_clamped)
+                if projected is None:
+                    projected_points.append(None)
+                    continue
+                x_pos, y_pos = projected
+                if x_pos < -far_margin or x_pos > (width + far_margin) or y_pos < -far_margin or y_pos > (height + far_margin):
+                    projected_points.append(None)
+                    continue
+                projected_points.append((x_pos, y_pos))
+
+            segments = self._split_polyline_segments(projected_points, max_jump_px=jump_limit)
+            for segment in segments:
+                overlay.append(
+                    {
+                        "kind": "grid_line",
+                        "points": [{"x": x, "y": y} for x, y in segment],
+                        "style": grid_style,
+                    }
+                )
+                anchor = self._pick_label_anchor(segment, width, height, prefer_top=True)
+                if anchor is None:
+                    continue
+                label_x, label_y = anchor
+                label_text = self._format_ra_grid_label(ra_value)
+                ra_label_candidates.append((label_x, label_y, label_text))
+                if ra_line_index % ra_label_stride == 0:
+                    overlay.append(
+                        {
+                            "kind": "grid_label",
+                            "x": max(2.0, min(width - margin, label_x + 3.0)),
+                            "y": max(2.0, min(height - margin, label_y + 2.0)),
+                            "label": label_text,
+                            "style": label_style,
+                        }
+                    )
+                    ra_labels_added += 1
+            ra_value += ra_step_deg
+            ra_line_index += 1
+
+        if dec_labels_added == 0 and dec_label_candidates:
+            label_x, label_y, label_text = dec_label_candidates[0]
+            overlay.append(
+                {
+                    "kind": "grid_label",
+                    "x": max(2.0, min(width - margin, label_x + 4.0)),
+                    "y": max(2.0, min(height - margin, label_y + 2.0)),
+                    "label": label_text,
+                    "style": label_style,
+                }
+            )
+        if ra_labels_added == 0 and ra_label_candidates:
+            label_x, label_y, label_text = ra_label_candidates[0]
+            overlay.append(
+                {
+                    "kind": "grid_label",
+                    "x": max(2.0, min(width - margin, label_x + 3.0)),
+                    "y": max(2.0, min(height - margin, label_y + 2.0)),
+                    "label": label_text,
+                    "style": label_style,
+                }
+            )
+
+        return overlay
 
     def _project_sky_to_pixel(self, wcs: Dict[str, object], ra_deg: float, dec_deg: float) -> Optional[Tuple[float, float]]:
         crval1 = self._as_float(wcs.get("CRVAL1"))
