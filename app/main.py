@@ -1772,6 +1772,26 @@ class ImageView(QtWidgets.QGraphicsView):
             percent = max(1, int(round(scale * 100)))
         self.zoom_percent_changed.emit(percent)
 
+    @staticmethod
+    def _to_positive_float(value: object) -> Optional[float]:
+        try:
+            parsed = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not math.isfinite(parsed) or parsed <= 0.0:
+            return None
+        return parsed
+
+    @staticmethod
+    def _to_finite_float(value: object) -> Optional[float]:
+        try:
+            parsed = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not math.isfinite(parsed):
+            return None
+        return parsed
+
     def set_wcs_annotations(self, annotations: List[Dict[str, object]]) -> None:
         scene = self.scene()
         for item in self._annotation_items:
@@ -1871,33 +1891,40 @@ class ImageView(QtWidgets.QGraphicsView):
                 continue
             style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
             color = QtGui.QColor(str(style.get("color") or "#f2c14e"))
-            radius = max(8.0, float(style.get("radius") or 10.0))
-            arm_length = radius + 6.0
             pen = QtGui.QPen(color, max(2.0, float(style.get("width") or 2.0)))
             pen.setCosmetic(True)
+            major_radius_raw = style.get("semi_major_px")
+            minor_radius_raw = style.get("semi_minor_px")
+            angle_raw = style.get("rotation_deg")
+            major_radius = self._to_positive_float(major_radius_raw)
+            minor_radius = self._to_positive_float(minor_radius_raw)
+            rotation_deg = self._to_finite_float(angle_raw)
 
-            ellipse = QtWidgets.QGraphicsEllipseItem(-radius, -radius, radius * 2.0, radius * 2.0)
+            if major_radius is not None:
+                major_radius = max(2.0, major_radius)
+                if minor_radius is None:
+                    minor_radius = major_radius
+                minor_radius = max(2.0, minor_radius)
+            else:
+                fallback_radius = max(8.0, float(style.get("radius") or 10.0))
+                major_radius = fallback_radius
+                minor_radius = fallback_radius
+
+            ellipse = QtWidgets.QGraphicsEllipseItem(
+                -major_radius,
+                -minor_radius,
+                major_radius * 2.0,
+                minor_radius * 2.0,
+            )
             ellipse.setPen(pen)
             ellipse.setPos(x_pos, y_pos)
-            ellipse.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
+            if rotation_deg is not None:
+                ellipse.setRotation(rotation_deg)
+            scale_with_image = bool(style.get("scale_with_image"))
+            ellipse.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, not scale_with_image)
             scene.addItem(ellipse)
             ellipse.setZValue(5)
             self._annotation_items.append(ellipse)
-
-            line_h = QtWidgets.QGraphicsLineItem(-arm_length, 0.0, arm_length, 0.0)
-            line_h.setPen(pen)
-            line_h.setPos(x_pos, y_pos)
-            line_h.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
-            scene.addItem(line_h)
-            line_h.setZValue(5)
-            self._annotation_items.append(line_h)
-            line_v = QtWidgets.QGraphicsLineItem(0.0, -arm_length, 0.0, arm_length)
-            line_v.setPen(pen)
-            line_v.setPos(x_pos, y_pos)
-            line_v.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
-            scene.addItem(line_v)
-            line_v.setZValue(5)
-            self._annotation_items.append(line_v)
 
             label = str(annotation.get("label") or "").strip()
             if label:
@@ -1908,11 +1935,51 @@ class ImageView(QtWidgets.QGraphicsView):
                 label_font.setBold(True)
                 text_item.setFont(label_font)
                 text_item.setBrush(QtGui.QBrush(color))
-                text_item.setPos(x_pos + arm_length + 6.0, y_pos - radius - 4.0)
+                label_x, label_y = self._label_anchor_near_ellipse(
+                    x_pos=x_pos,
+                    y_pos=y_pos,
+                    major_radius=major_radius,
+                    minor_radius=minor_radius,
+                    rotation_deg=rotation_deg,
+                    gap_px=7.0,
+                )
+                text_item.setPos(label_x, label_y - 2.0)
                 text_item.setFlag(QtWidgets.QGraphicsItem.GraphicsItemFlag.ItemIgnoresTransformations, True)
                 scene.addItem(text_item)
                 text_item.setZValue(6)
                 self._annotation_items.append(text_item)
+
+    @staticmethod
+    def _label_anchor_near_ellipse(
+        x_pos: float,
+        y_pos: float,
+        major_radius: float,
+        minor_radius: float,
+        rotation_deg: Optional[float],
+        gap_px: float,
+    ) -> Tuple[float, float]:
+        # Place label just outside the contour along a stable "east-north-east" direction.
+        dir_x = 1.0
+        dir_y = -0.25
+        dir_norm = math.hypot(dir_x, dir_y)
+        if dir_norm <= 1e-9:
+            return (x_pos + major_radius + gap_px, y_pos)
+        nx = dir_x / dir_norm
+        ny = dir_y / dir_norm
+
+        theta = math.radians(rotation_deg or 0.0)
+        cos_t = math.cos(theta)
+        sin_t = math.sin(theta)
+
+        # Express direction in ellipse local frame.
+        local_x = (nx * cos_t) + (ny * sin_t)
+        local_y = (-nx * sin_t) + (ny * cos_t)
+        denom = ((local_x * local_x) / (major_radius * major_radius)) + ((local_y * local_y) / (minor_radius * minor_radius))
+        if denom <= 1e-12:
+            edge = max(major_radius, minor_radius)
+        else:
+            edge = 1.0 / math.sqrt(denom)
+        return (x_pos + nx * (edge + gap_px), y_pos + ny * (edge + gap_px))
 
     def current_pixmap_size(self) -> Optional[QtCore.QSize]:
         if not self._pixmap or self._pixmap.isNull():
@@ -5373,7 +5440,14 @@ class MainWindow(QtWidgets.QMainWindow):
                         "label": label,
                         "ra_deg": ra_deg,
                         "dec_deg": dec_deg,
-                        "style": {"color": "#f2c14e", "radius": 8, "width": 1.5},
+                        "style": {
+                            "color": "#f2c14e",
+                            "radius": 8,
+                            "width": 1.5,
+                            "r1_arcmin": candidate.r1_arcmin,
+                            "r2_arcmin": candidate.r2_arcmin,
+                            "angle_deg": candidate.angle_deg,
+                        },
                     },
                     {
                         "catalog": candidate.catalog,
@@ -5535,15 +5609,161 @@ class MainWindow(QtWidgets.QMainWindow):
             if projected_xy is None:
                 continue
             x, y = projected_xy
+            base_style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
+            style = dict(base_style)
+            r1_arcmin = self._to_positive_float(base_style.get("r1_arcmin"))
+            r2_arcmin = self._to_positive_float(base_style.get("r2_arcmin"))
+            angle_deg = self._to_finite_float(base_style.get("angle_deg"))
+            if r1_arcmin is None:
+                fallback_item = self._find_catalog_item_for_annotation(annotation)
+                if fallback_item is not None:
+                    r1_arcmin = self._to_positive_float(fallback_item.r1_arcmin)
+                    r2_arcmin = self._to_positive_float(fallback_item.r2_arcmin)
+                    angle_deg = self._to_finite_float(fallback_item.angle_deg)
+                    if r1_arcmin is not None:
+                        style["r1_arcmin"] = r1_arcmin
+                    if r2_arcmin is not None:
+                        style["r2_arcmin"] = r2_arcmin
+                    if angle_deg is not None:
+                        style["angle_deg"] = angle_deg
+            if r1_arcmin is not None:
+                # Catalog sizes are stored as full apparent axes; convert to semi-axes for drawing.
+                major_radius_arcmin = r1_arcmin * 0.5
+                major_screen = self._project_offset_radius_px(wcs, ra_deg, dec_deg, 0.0, major_radius_arcmin)
+                if major_screen is not None:
+                    style["semi_major_px"] = major_screen
+                    if r2_arcmin is not None:
+                        minor_radius_arcmin = r2_arcmin * 0.5
+                        minor_screen = self._project_offset_radius_px(wcs, ra_deg, dec_deg, 90.0, minor_radius_arcmin)
+                    else:
+                        minor_screen = major_screen
+                    style["semi_minor_px"] = minor_screen
+                    style["scale_with_image"] = True
+                    if angle_deg is not None and r2_arcmin is not None:
+                        rotation = self._project_position_angle_to_screen(
+                            wcs,
+                            ra_deg,
+                            dec_deg,
+                            angle_deg,
+                            major_radius_arcmin,
+                        )
+                        if rotation is not None:
+                            style["rotation_deg"] = rotation
             projected.append(
                 {
                     "x": x,
                     "y": y,
                     "label": annotation.get("label") or "",
-                    "style": annotation.get("style") if isinstance(annotation.get("style"), dict) else {},
+                    "style": style,
                 }
             )
         return projected
+
+    def _find_catalog_item_for_annotation(self, annotation: Dict[str, object]) -> Optional[CatalogItem]:
+        label = str(annotation.get("label") or "").strip()
+        if not label:
+            return None
+        label_normalized = label.replace(" ", "").upper()
+        if not label_normalized:
+            return None
+
+        source_items = self.items if self.items else self.items_global_dedup
+        for candidate in source_items:
+            candidate_id = (candidate.object_id or "").replace(" ", "").upper()
+            if candidate_id == label_normalized:
+                return candidate
+        return None
+
+    def _project_offset_radius_px(
+        self,
+        wcs: Dict[str, object],
+        ra_deg: float,
+        dec_deg: float,
+        position_angle_deg: float,
+        distance_arcmin: float,
+    ) -> Optional[float]:
+        center = self._project_sky_to_pixel(wcs, ra_deg, dec_deg)
+        if center is None:
+            return None
+        target = self._project_offset_point(ra_deg, dec_deg, position_angle_deg, distance_arcmin)
+        if target is None:
+            return None
+        target_xy = self._project_sky_to_pixel(wcs, target[0], target[1])
+        if target_xy is None:
+            return None
+        dx = target_xy[0] - center[0]
+        dy = target_xy[1] - center[1]
+        radius_px = math.hypot(dx, dy)
+        if not math.isfinite(radius_px):
+            return None
+        return radius_px
+
+    def _project_position_angle_to_screen(
+        self,
+        wcs: Dict[str, object],
+        ra_deg: float,
+        dec_deg: float,
+        position_angle_deg: float,
+        distance_arcmin: float,
+    ) -> Optional[float]:
+        center = self._project_sky_to_pixel(wcs, ra_deg, dec_deg)
+        if center is None:
+            return None
+        target = self._project_offset_point(ra_deg, dec_deg, position_angle_deg, distance_arcmin)
+        if target is None:
+            return None
+        target_xy = self._project_sky_to_pixel(wcs, target[0], target[1])
+        if target_xy is None:
+            return None
+        dx = target_xy[0] - center[0]
+        dy = target_xy[1] - center[1]
+        if abs(dx) < 1e-9 and abs(dy) < 1e-9:
+            return None
+        angle = math.degrees(math.atan2(dy, dx))
+        if not math.isfinite(angle):
+            return None
+        return angle
+
+    def _project_offset_point(
+        self,
+        ra_deg: float,
+        dec_deg: float,
+        position_angle_deg: float,
+        distance_arcmin: float,
+    ) -> Optional[Tuple[float, float]]:
+        if distance_arcmin <= 0.0:
+            return None
+        dec_rad = math.radians(dec_deg)
+        cos_dec = math.cos(dec_rad)
+        if abs(cos_dec) < 1e-8:
+            return None
+        distance_deg = distance_arcmin / 60.0
+        pa_rad = math.radians(position_angle_deg)
+        delta_dec = distance_deg * math.cos(pa_rad)
+        delta_ra = distance_deg * math.sin(pa_rad) / cos_dec
+        next_ra = self._wrap_ra_deg(ra_deg + delta_ra)
+        next_dec = max(-89.9999, min(89.9999, dec_deg + delta_dec))
+        return (next_ra, next_dec)
+
+    @staticmethod
+    def _to_positive_float(value: object) -> Optional[float]:
+        try:
+            parsed = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not math.isfinite(parsed) or parsed <= 0.0:
+            return None
+        return parsed
+
+    @staticmethod
+    def _to_finite_float(value: object) -> Optional[float]:
+        try:
+            parsed = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not math.isfinite(parsed):
+            return None
+        return parsed
 
     @staticmethod
     def _wrap_ra_deg(ra_deg: float) -> float:

@@ -334,6 +334,9 @@ class CatalogItem:
     wiki_thumbnail: Optional[str]
     ra_hours: Optional[float]
     dec_deg: Optional[float]
+    r1_arcmin: Optional[float]
+    r2_arcmin: Optional[float]
+    angle_deg: Optional[float]
     image_paths: List[Path]
     thumbnail_path: Optional[Path]
     related_image_objects: Dict[str, List[str]] = field(default_factory=dict)
@@ -704,6 +707,9 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
             thumbnail_path = _select_thumbnail(image_paths, thumbnail_value)
             ra_hours = _parse_ra(meta.get("ra_hours") or meta.get("ra"))
             dec_deg = _parse_dec(meta.get("dec_deg") or meta.get("dec"))
+            r1_arcmin = _parse_float(meta.get("r1"))
+            r2_arcmin = _parse_float(meta.get("r2"))
+            angle_deg = _parse_float(meta.get("angle"))
             best_months = _adjust_best_months(meta.get("best_months"), latitude)
             if not best_months and ra_hours is not None and dec_deg is not None and latitude is not None:
                 best_months = _compute_best_months(ra_hours, dec_deg, latitude, longitude)
@@ -742,6 +748,9 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     wiki_thumbnail=_normalize_text(meta.get("wiki_thumbnail")),
                     ra_hours=ra_hours,
                     dec_deg=dec_deg,
+                    r1_arcmin=r1_arcmin,
+                    r2_arcmin=r2_arcmin,
+                    angle_deg=angle_deg,
                     image_paths=image_paths,
                     thumbnail_path=thumbnail_path,
                 )
@@ -780,6 +789,9 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                     wiki_thumbnail=None,
                     ra_hours=None,
                     dec_deg=None,
+                    r1_arcmin=None,
+                    r2_arcmin=None,
+                    angle_deg=None,
                     image_paths=image_paths,
                     thumbnail_path=thumbnail_path,
                 )
@@ -1672,6 +1684,20 @@ def _parse_dec(value: Optional[str]) -> Optional[float]:
         minutes = float(parts[1]) if len(parts) > 1 else 0.0
         seconds = float(parts[2]) if len(parts) > 2 else 0.0
         return sign * (deg + minutes / 60.0 + seconds / 3600.0)
+    except ValueError:
+        return None
+
+
+def _parse_float(value: Optional[object]) -> Optional[float]:
+    if value is None or value == "":
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = str(value).strip()
+    if not text:
+        return None
+    try:
+        return float(text)
     except ValueError:
         return None
 
