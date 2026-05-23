@@ -1930,7 +1930,7 @@ class ImageView(QtWidgets.QGraphicsView):
             if label:
                 text_item = QtWidgets.QGraphicsSimpleTextItem(label)
                 label_font = text_item.font()
-                label_size = max(16.0, float(style.get("label_size") or 18.0))
+                label_size = max(12.0, float(style.get("label_size") or 14.0))
                 label_font.setPointSizeF(label_size)
                 label_font.setBold(True)
                 text_item.setFont(label_font)
@@ -5373,23 +5373,28 @@ class MainWindow(QtWidgets.QMainWindow):
             return
 
         if enabled:
-            if not self._auto_annotate_wcs_objects():
+            annotations = self._auto_annotate_wcs_objects(show_feedback=True)
+            if annotations is None:
                 self.detail.set_auto_annotate_checked(False)
+            self._refresh_wcs_annotations_overlay()
             return
 
-        self.database.replace_image_annotations(image_name, [])
         self._refresh_wcs_annotations_overlay()
 
-    def _auto_annotate_wcs_objects(self) -> bool:
+    def _auto_annotate_wcs_objects(self, show_feedback: bool = True) -> Optional[List[Dict[str, object]]]:
         image_name = self.detail.current_image_name()
         if not image_name:
-            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.no_image"))
-            return False
+            if show_feedback:
+                QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.no_image"))
+                return None
+            return []
 
         solution = self.database.get_image_wcs_solution(image_name)
         if not solution or solution.get("status") != "solved":
-            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.need_wcs"))
-            return False
+            if show_feedback:
+                QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.need_wcs"))
+                return None
+            return []
 
         wcs = solution.get("wcs") if isinstance(solution.get("wcs"), dict) else {}
         width = self._as_float(wcs.get("NAXIS1"))
@@ -5402,13 +5407,17 @@ class MainWindow(QtWidgets.QMainWindow):
                     width = float(image.width())
                     height = float(image.height())
         if width is None or height is None:
-            QtWidgets.QMessageBox.warning(self, tr("annotations.title"), tr("annotations.auto_missing_frame"))
-            return False
+            if show_feedback:
+                QtWidgets.QMessageBox.warning(self, tr("annotations.title"), tr("annotations.auto_missing_frame"))
+                return None
+            return []
 
         source_items = self.items if self.items else self.items_global_dedup
         if not source_items:
-            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.auto_none_in_field"))
-            return False
+            if show_feedback:
+                QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.auto_none_in_field"))
+                return None
+            return []
 
         edge_margin = 18.0
         center_x = (width - 1.0) / 2.0
@@ -5459,15 +5468,17 @@ class MainWindow(QtWidgets.QMainWindow):
             )
 
         if not ranked:
-            QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.auto_none_in_field"))
-            return False
+            if show_feedback:
+                QtWidgets.QMessageBox.information(self, tr("annotations.title"), tr("annotations.auto_none_in_field"))
+                return None
+            return []
 
         ranked.sort(key=lambda pair: pair[0])
 
-        # Deduplicate aliases: keep Messier objects, remove NGC/IC/etc duplicates
-        # using MESSIER_TO_NGC and NGC_TO_MESSIER mappings
+        # Deduplicate aliases by family: keep one label per alias group.
+        # Messier labels win when present; otherwise keep the nearest candidate.
         deduped: List[Tuple[float, Dict[str, object], Dict[str, object]]] = []
-        seen_object_ids: Dict[str, int] = {}  # object_id -> index in deduped
+        family_to_index: Dict[str, int] = {}
 
         def _get_messier_alias(obj_id: str) -> Optional[str]:
             """Get Messier number if this object has one, None otherwise."""
@@ -5480,62 +5491,56 @@ class MainWindow(QtWidgets.QMainWindow):
                 return messier_list[0]
             return None
 
+        def _alias_family_key(obj_id: str) -> str:
+            pending = [str(obj_id or "").replace(" ", "").upper()]
+            family: Set[str] = set()
+            while pending:
+                current = pending.pop()
+                if not current or current in family:
+                    continue
+                family.add(current)
+                for alias in MESSIER_TO_NGC.get(current, []):
+                    normalized = str(alias or "").replace(" ", "").upper()
+                    if normalized and normalized not in family:
+                        pending.append(normalized)
+                for alias in NGC_TO_MESSIER.get(current, []):
+                    normalized = str(alias or "").replace(" ", "").upper()
+                    if normalized and normalized not in family:
+                        pending.append(normalized)
+            return "|".join(sorted(family)) if family else str(obj_id or "").replace(" ", "").upper()
+
         for dist_sq, entry, metadata in ranked:
             obj_id = str(metadata["object_id"])
             catalog = str(metadata["catalog"])
-
-            # Check if we already have an alias for this object
+            family_key = _alias_family_key(obj_id)
             messier_alias = _get_messier_alias(obj_id)
 
-            is_duplicate = False
-            duplicate_index = -1
-
-            # Check all previously added objects to see if any are aliases
-            for existing_obj_id, existing_idx in seen_object_ids.items():
-                existing_messier_alias = _get_messier_alias(existing_obj_id)
-
-                # If both map to same Messier, they're the same object
-                if messier_alias and existing_messier_alias and messier_alias == existing_messier_alias:
-                    existing_dist, existing_entry, existing_metadata = deduped[existing_idx]
-                    existing_catalog = str(existing_metadata["catalog"])
-
-                    # Messier has priority
-                    if existing_catalog == "Messier":
-                        # Existing is Messier, skip this one
-                        is_duplicate = True
-                    else:
-                        # Existing is NGC/IC/etc, replace with Messier if this is Messier
-                        if catalog == "Messier":
-                            duplicate_index = existing_idx
-
-                    break
-
-            if is_duplicate:
-                # Skip this duplicate (existing Messier already stored)
+            existing_idx = family_to_index.get(family_key)
+            if existing_idx is None:
+                deduped.append((dist_sq, entry, metadata))
+                family_to_index[family_key] = len(deduped) - 1
                 continue
 
-            if duplicate_index >= 0:
-                # Replace lower-priority entry with Messier
-                deduped[duplicate_index] = (dist_sq, entry, metadata)
-                # Update the mapping
-                old_obj_id = None
-                for oid, idx in seen_object_ids.items():
-                    if idx == duplicate_index:
-                        old_obj_id = oid
-                        break
-                if old_obj_id:
-                    del seen_object_ids[old_obj_id]
-                seen_object_ids[obj_id] = duplicate_index
-            else:
-                # New object, add it
-                deduped.append((dist_sq, entry, metadata))
-                seen_object_ids[obj_id] = len(deduped) - 1
+            existing_dist, existing_entry, existing_metadata = deduped[existing_idx]
+            existing_catalog = str(existing_metadata["catalog"])
+            existing_obj_id = str(existing_metadata["object_id"])
+            existing_messier_alias = _get_messier_alias(existing_obj_id)
+
+            # Prefer Messier over non-Messier within the same alias family.
+            if existing_catalog != "Messier" and catalog == "Messier":
+                deduped[existing_idx] = (dist_sq, entry, metadata)
+                continue
+            if existing_catalog == "Messier" and catalog != "Messier":
+                continue
+
+            # If same priority class (both Messier or both non-Messier), keep nearest.
+            # Ties: keep current ordering (do not replace).
+            if dist_sq < existing_dist:
+                deduped[existing_idx] = (dist_sq, entry, metadata)
 
         max_annotations = 120
         selected_payload = [entry for _dist, entry, _metadata in deduped[:max_annotations]]
-        self.database.replace_image_annotations(image_name, selected_payload)
-        self._refresh_wcs_annotations_overlay()
-        return True
+        return selected_payload
 
     def _refresh_wcs_annotations_overlay(self) -> None:
         image_name = self.detail.current_image_name()
@@ -5563,14 +5568,18 @@ class MainWindow(QtWidgets.QMainWindow):
             self.detail.set_annotation_enabled(False)
             self.detail.set_auto_annotate_checked(False)
             return
-        annotations = self.database.get_image_annotations(image_name)
+        annotations: List[Dict[str, object]] = []
+        if self.detail.auto_annotate_button.isChecked():
+            computed = self._auto_annotate_wcs_objects(show_feedback=False)
+            annotations = computed or []
+
         projected = self._project_annotations_to_image(solution, annotations)
         if annotations:
             grid_overlay = self._build_equatorial_grid_overlay(solution)
             projected = grid_overlay + projected
         self.detail.image_view.set_wcs_annotations(projected)
         self.detail.set_annotation_enabled(True)
-        self.detail.set_auto_annotate_checked(bool(annotations))
+        self.detail.set_auto_annotate_checked(self.detail.auto_annotate_button.isChecked())
         center_ra = self._as_float(solution.get("center_ra_deg"))
         center_dec = self._as_float(solution.get("center_dec_deg"))
         pixel_scale = self._as_float(solution.get("pixel_scale_arcsec"))

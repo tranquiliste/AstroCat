@@ -1213,9 +1213,9 @@
       "external_link": "https://en.wikipedia.org/wiki/Messier_76",
       "ra_hours": 1.70667,
       "dec_deg": 51.56667,
-      "r1": 2.7,
-      "r2": 1.8,
-      "angle": null
+      "r1": 5,
+      "r2": 2.5, 
+      "angle": 120
     },
     "M77": {
       "name": "Barred Spiral Galaxy",

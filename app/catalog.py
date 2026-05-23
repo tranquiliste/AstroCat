@@ -478,6 +478,28 @@ def _expand_catalog_aliases(object_ids: Iterable[str]) -> List[str]:
     return expanded
 
 
+def _alias_family(object_id: str) -> Set[str]:
+    family: Set[str] = set()
+    pending: List[str] = []
+    normalized = _normalized_object_id(object_id)
+    if normalized:
+        pending.append(normalized)
+
+    while pending:
+        current = pending.pop()
+        if current in family:
+            continue
+        family.add(current)
+        neighbors = list(MESSIER_TO_NGC.get(current, []))
+        neighbors.extend(NGC_TO_MESSIER.get(current, []))
+        for alias in neighbors:
+            alias_normalized = _normalized_object_id(alias)
+            if alias_normalized and alias_normalized not in family:
+                pending.append(alias_normalized)
+
+    return family
+
+
 def _load_catalog_metadata(metadata_path: Path) -> Dict[str, Dict]:
     try:
         with metadata_path.open("r", encoding="utf-8") as handle:
@@ -827,7 +849,7 @@ def _append_unique(target: List[str], values: Iterable[str], excluded: Set[str])
 
 def _related_ids_from_filename(path: Path, object_id: str) -> List[str]:
     ids = _expand_catalog_aliases(_extract_object_ids(path.stem.upper()))
-    excluded = {_normalized_object_id(object_id)}
+    excluded = _alias_family(object_id)
     related: List[str] = []
     _append_unique(related, ids, excluded)
     return related
@@ -1053,7 +1075,7 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
 
             # Build related_image_objects list
             related_ids: List[str] = []
-            excluded = {own_object}
+            excluded = _alias_family(item.object_id)
             _append_unique(related_ids, _related_ids_from_filename(image_path, item.object_id), excluded)
             _append_unique(related_ids, path_to_all_objects.get(key, []), excluded)
             if related_ids:

@@ -70,7 +70,7 @@ class Database:
             connection.execute("PRAGMA foreign_keys = ON")
             connection.executescript(schema)
             self._apply_runtime_migrations(connection)
-            connection.execute("PRAGMA user_version = 7")
+            connection.execute("PRAGMA user_version = 8")
             connection.commit()
         finally:
             connection.close()
@@ -182,30 +182,12 @@ class Database:
             """
         )
 
-        connection.execute(
-            """
-            CREATE TABLE IF NOT EXISTS image_annotations (
-                annotation_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                image_id TEXT NOT NULL,
-                label TEXT NOT NULL DEFAULT '',
-                ra_deg REAL NOT NULL,
-                dec_deg REAL NOT NULL,
-                style_json TEXT NOT NULL DEFAULT '{}',
-                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-            )
-            """
-        )
-        connection.execute(
-            """
-            CREATE INDEX IF NOT EXISTS idx_image_annotations_image
-                ON image_annotations (image_id)
-            """
-        )
+        connection.execute("DROP INDEX IF EXISTS idx_image_annotations_image")
+        connection.execute("DROP TABLE IF EXISTS image_annotations")
         connection.execute(
             """
             INSERT OR IGNORE INTO schema_migrations (version, description)
-            VALUES (7, 'Add WCS-based image annotations')
+            VALUES (8, 'Remove persisted image annotations in favor of on-the-fly rendering')
             """
         )
 
@@ -1579,71 +1561,6 @@ class Database:
             "fov_height_deg": row["fov_height_deg"],
             "error_message": row["error_message"],
         }
-
-    def replace_image_annotations(self, image_id: str, annotations: List[Dict[str, object]]) -> None:
-        normalized_image_id = (image_id or "").strip()
-        if not normalized_image_id:
-            return
-        with self.connection() as connection:
-            connection.execute("DELETE FROM image_annotations WHERE image_id = ?", (normalized_image_id,))
-            for annotation in annotations:
-                if not isinstance(annotation, dict):
-                    continue
-                ra_deg = self._to_float_or_none(annotation.get("ra_deg"))
-                dec_deg = self._to_float_or_none(annotation.get("dec_deg"))
-                if ra_deg is None or dec_deg is None:
-                    continue
-                label = str(annotation.get("label") or "").strip()
-                style = annotation.get("style") if isinstance(annotation.get("style"), dict) else {}
-                connection.execute(
-                    """
-                    INSERT INTO image_annotations (
-                        image_id,
-                        label,
-                        ra_deg,
-                        dec_deg,
-                        style_json,
-                        created_at,
-                        updated_at
-                    )
-                    VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-                    """,
-                    (
-                        normalized_image_id,
-                        label,
-                        ra_deg,
-                        dec_deg,
-                        self._dumps_json(style),
-                    ),
-                )
-
-    def get_image_annotations(self, image_id: str) -> List[Dict[str, object]]:
-        normalized_image_id = (image_id or "").strip()
-        if not normalized_image_id:
-            return []
-        with self.connection() as connection:
-            rows = connection.execute(
-                """
-                SELECT annotation_id, image_id, label, ra_deg, dec_deg, style_json
-                FROM image_annotations
-                WHERE image_id = ?
-                ORDER BY annotation_id
-                """,
-                (normalized_image_id,),
-            ).fetchall()
-        payload: List[Dict[str, object]] = []
-        for row in rows:
-            payload.append(
-                {
-                    "annotation_id": row["annotation_id"],
-                    "image_id": row["image_id"],
-                    "label": (row["label"] or "").strip(),
-                    "ra_deg": row["ra_deg"],
-                    "dec_deg": row["dec_deg"],
-                    "style": self._loads_json(row["style_json"], default={}) or {},
-                }
-            )
-        return payload
 
     def upsert_object_thumbnail(self, catalog_name: str, object_id: str, thumbnail_filename: str) -> None:
         normalized = (thumbnail_filename or "").strip()

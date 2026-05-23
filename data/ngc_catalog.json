@@ -10946,10 +10946,7 @@
       "external_link": "https://en.wikipedia.org/wiki/Little_Dumbbell_Nebula",
       "wiki_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Little_Dumbbell_Nebula_M76_by_Goran_Nilsson%2C_Wim_van_Berlo_%26_Liverpool_Telescope.jpg/960px-Little_Dumbbell_Nebula_M76_by_Goran_Nilsson%2C_Wim_van_Berlo_%26_Liverpool_Telescope.jpg",
       "ra_hours": 1.7054694444444445,
-      "dec_deg": 51.575472222222224,
-      "r1": 2.71667,
-      "r2": 1.78333,
-      "angle": null
+      "dec_deg": 51.575472222222224
     },
     "NGC652": {
       "name": "",

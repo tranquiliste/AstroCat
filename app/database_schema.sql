@@ -27,6 +27,9 @@ VALUES (6, 'Add ASTAP WCS solve storage');
 INSERT OR IGNORE INTO schema_migrations (version, description)
 VALUES (7, 'Add WCS-based image annotations');
 
+INSERT OR IGNORE INTO schema_migrations (version, description)
+VALUES (8, 'Remove persisted image annotations in favor of on-the-fly rendering');
+
 CREATE TABLE IF NOT EXISTS app_settings (
     setting_key TEXT PRIMARY KEY,
     value_json TEXT NOT NULL,
@@ -201,20 +204,6 @@ CREATE TABLE IF NOT EXISTS image_wcs_solutions (
 
 CREATE INDEX IF NOT EXISTS idx_image_wcs_status
     ON image_wcs_solutions (status);
-
-CREATE TABLE IF NOT EXISTS image_annotations (
-    annotation_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    image_id TEXT NOT NULL,
-    label TEXT NOT NULL DEFAULT '',
-    ra_deg REAL NOT NULL,
-    dec_deg REAL NOT NULL,
-    style_json TEXT NOT NULL DEFAULT '{}',
-    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE INDEX IF NOT EXISTS idx_image_annotations_image
-    ON image_annotations (image_id);
 
 CREATE TABLE IF NOT EXISTS equipment (
     equipment_id INTEGER PRIMARY KEY AUTOINCREMENT,
