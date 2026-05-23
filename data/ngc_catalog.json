@@ -106880,8 +106880,8 @@
       "external_link": "https://en.wikipedia.org/wiki/NGC_6543",
       "ra_hours": 17.975941666666664,
       "dec_deg": 66.63319444444444,
-      "r1": 0.383333,
-      "r2": 0.283333,
+      "r1": 6,
+      "r2":null,
       "angle": null
     },
     "NGC6544": {
