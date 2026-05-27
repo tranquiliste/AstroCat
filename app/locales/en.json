@@ -222,6 +222,7 @@
   "detail.auto_annotate": "Annotation",
   "settings.tab_astrometry": "Astrometry",
   "settings.astrometry.enabled": "Enable ASTAP astrometric solving",
+  "settings.astrometry.setup_help": "To use astrometry, first install ASTAP (<a href='https://www.hnsky.org/astap.htm'>https://www.hnsky.org/astap.htm</a>) along with a star database. Then set the path to astap.exe and, if needed, the database folder when it is not installed in the same location.",
   "settings.astrometry.executable": "ASTAP executable",
   "settings.astrometry.data_dir": "Star database folder (optional)",
   "settings.astrometry.timeout": "Solve timeout (seconds)",

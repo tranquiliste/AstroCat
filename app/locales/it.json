@@ -15,6 +15,7 @@
   "settings.tab_general": "Generale",
   "settings.tab_catalogs": "Cataloghi",
   "settings.tab_advanced": "Avanzate",
+  "settings.astrometry.setup_help": "Per usare l'astrometria, installa prima ASTAP (<a href='https://www.hnsky.org/astap.htm'>https://www.hnsky.org/astap.htm</a>) insieme a un database stellare. Poi indica il percorso di astap.exe e, se necessario, la cartella del database quando non è installato nella stessa posizione.",
   "catalog.solar_system": "Sistema solare",
   "catalog.all": "Tutti",
   "catalog.all_catalogues": "Tutti i cataloghi",

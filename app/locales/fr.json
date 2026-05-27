@@ -222,6 +222,7 @@
   "detail.auto_annotate": "Annotation",
   "settings.tab_astrometry": "Astrométrie",
   "settings.astrometry.enabled": "Activer la résolution astrométrique ASTAP",
+  "settings.astrometry.setup_help": "Pour utiliser l'astrométrie, installez d'abord ASTAP (<a href='https://www.hnsky.org/astap.htm'>https://www.hnsky.org/astap.htm</a>) ainsi qu'une base de données d'étoiles. Indiquez ensuite le chemin vers astap.exe et, si nécessaire, le dossier de base de données s'il n'est pas installé au même endroit.",
   "settings.astrometry.executable": "Exécutable ASTAP",
   "settings.astrometry.data_dir": "Dossier de base d'étoiles (optionnel)",
   "settings.astrometry.timeout": "Délai max de résolution (secondes)",
