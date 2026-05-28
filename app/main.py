@@ -4659,6 +4659,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 border-radius: 10px;
                 padding: 8px 10px;
             }
+            QHeaderView::section {
+                background: #2b2b2b;
+                color: #e6e6e6;
+                border: 1px solid #434343;
+                padding: 4px 6px;
+            }
+            QTableCornerButton::section {
+                background: #2b2b2b;
+                border: 1px solid #434343;
+            }
             QTabWidget::pane {
                 background: #222222;
                 border: 1px solid #3d3d3d;
