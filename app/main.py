@@ -5166,6 +5166,7 @@ class MainWindow(QtWidgets.QMainWindow):
         solve_hints: Optional[Dict[str, object]] = None,
         allow_guided_retry: bool = True,
     ) -> None:
+        item = self.detail.current_item()
         image_path = self.detail.current_image_path()
         image_name = self.detail.current_image_name()
         if image_path is None or not image_name:
@@ -5201,6 +5202,10 @@ class MainWindow(QtWidgets.QMainWindow):
         downsample = int(self._as_float(hints.get("downsample")) or 0)
         center_ra = self._as_float(hints.get("center_ra_deg"))
         center_dec = self._as_float(hints.get("center_dec_deg"))
+        if center_ra is None and center_dec is None and item is not None:
+            if item.ra_hours is not None and item.dec_deg is not None:
+                center_ra = float(item.ra_hours) * 15.0
+                center_dec = float(item.dec_deg)
 
         self._astap_running = True
         self._astap_running_image_id = image_name
