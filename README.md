@@ -50,6 +50,7 @@ python3 app/main.py
 ![Main Catalogue](assets/screenshots/Selune_main_catalog.png)
 ![Bottom Strip hidden](assets/screenshots/Selune_bottom_strip_hidden.png)
 ![Pic only](assets/screenshots/Selune_pic_only.png)
+![Annotation](assets/screenshots/Selune_annotation.png)
 ![Help](assets/screenshots/Selune_help.png)
 ![Catalogue settings](assets/screenshots/Selune_settings.png)
 ![Pic detailed info](assets/screenshots/Selune_pic_info.png)
