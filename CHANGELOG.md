@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.8.0] - 2026-05-29
+### Added
+- ASTAP-based astrometric plate solving.
+- Annotation overlays displayed directly on photos.
+### Changed 
+- imaging session information: exposure durations are now shown also in h:m:s
+- Help screen redesign
+### Fixed
+- Fixed header styling to prevent system default styles from making text unreadable. 
+
 ## [1.7.5] - 2026-05-20
 ### Added
 - **UI** : adding description of all objects

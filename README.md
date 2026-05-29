@@ -12,7 +12,7 @@ Copyright and attribution details: [COPYRIGHT](COPYRIGHT).
 
 Status: stable
 
-Latest release: `1.7.5`
+Latest release: `1.8.0`
 
 Release history: [CHANGELOG.md](CHANGELOG.md)
 
@@ -36,6 +36,7 @@ Release history: [CHANGELOG.md](CHANGELOG.md)
 - new UI with bottom strip photos
 - settings, notes are saved in a database (no more json)
 - adding detailed information to image (exposures, setup, moon phase ...)
+- adding ASTAP-based plate solving and Picture annotation
 
 ## Quick start (dev)
 ```bash
