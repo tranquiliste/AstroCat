@@ -151,13 +151,14 @@ The app matches IDs anywhere in the filename.
 ## Metadata
 Metadata is stored in JSON files under `data/`. Example files included:
 - `data/object_catalog.json` (Messier)
-- `data/ngc_catalog.json` (sample)
-- `data/ic_catalog.json` (sample)
-- `data/caldwell_catalog.json` (sample)
+- `data/ngc_catalog.json` (NGC)
+- `data/ic_catalog.json` (IC)
+- `data/caldwell_catalog.json` (caldwell)
+- ...
 
-Notes you add in the app are saved in the photo_notes.json in the setting folder (new).
 
-Messier metadata is complete and includes expanded descriptions with astrophotography guidance. The NGC, IC, and Caldwell metadata sets are in progress.
+
+Catalogs are still in progress
 
 ### Localization
 Selune UI localization uses JSON resources stored in `app/locales/<lang>.json`.
