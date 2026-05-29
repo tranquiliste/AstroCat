@@ -1196,6 +1196,8 @@ class CatalogModel(QtCore.QAbstractListModel):
 
 
 class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
+    _fallback_card_size = QtCore.QSize(118, 128)
+
     def paint(self, painter: QtGui.QPainter, option: QtWidgets.QStyleOptionViewItem, index: QtCore.QModelIndex) -> None:
         painter.save()
         painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing, True)
@@ -1286,9 +1288,20 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
 
     def sizeHint(self, option: QtWidgets.QStyleOptionViewItem, index: QtCore.QModelIndex) -> QtCore.QSize:
         size = index.data(QtCore.Qt.ItemDataRole.SizeHintRole)
-        if isinstance(size, QtCore.QSize):
+        if isinstance(size, QtCore.QSize) and size.isValid():
             return size
-        return super().sizeHint(option, index)
+        widget = option.widget
+        if isinstance(widget, QtWidgets.QListView):
+            grid_size = widget.gridSize()
+            if grid_size.isValid() and grid_size.width() > 0 and grid_size.height() > 0:
+                return grid_size
+            icon_size = widget.iconSize()
+            if icon_size.isValid() and icon_size.width() > 0 and icon_size.height() > 0:
+                return QtCore.QSize(icon_size.width() + 18, icon_size.height() + 28)
+        fallback = super().sizeHint(option, index)
+        if fallback.isValid() and fallback.width() > 0 and fallback.height() > 0:
+            return fallback
+        return self._fallback_card_size
 
 
 class CommaSeparatedCompleter(QtWidgets.QCompleter):

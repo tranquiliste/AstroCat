@@ -34,7 +34,6 @@ The app scans filenames and matches objects automatically.
   - Suggested: best-visibility suggestions based on your location and season
 
 ## Thumbnails and Zoom
-- Use the Zoom slider to change thumbnail size.
 - Enable Wiki thumbnails to preview missing objects (cached locally).
 - If a wiki image is wrong, use Settings -> Clear thumbnail cache and reopen the catalog.
 
@@ -59,6 +58,11 @@ Notes are stored in the database and stay with the image.
 
 ## Cleanup
 - Use Settings -> Clean invalid entries to remove stale references to missing files.
+
+## Astap based Plate solving and annotaiton
+- Intall Astap on your computer and go to setting to indicate the path to the executable Astap program
+- Click on astrometry button to launch astap plate solving
+- chaeck annotation to see the objects in your images
 
 ## Migrating from AstroCatalogueViewer
 If you are upgrading from the old AstroCatalogueViewer application, you can easily migrate your notes to Selune:
