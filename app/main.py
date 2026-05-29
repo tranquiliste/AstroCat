@@ -8880,18 +8880,25 @@ class HelpDialog(QtWidgets.QDialog):
     def __init__(self, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("help.title"))
-        self.setMinimumWidth(560)
+        self.setMinimumSize(560, 420)
 
-        # ── démarrage rapide ──
-        quick_box = QtWidgets.QGroupBox(tr("about.quick_start"))
-        quick_box_layout = QtWidgets.QVBoxLayout(quick_box)
-        quick_box_layout.setContentsMargins(14, 10, 14, 12)
+        tabs = QtWidgets.QTabWidget()
+
+        quick_tab = QtWidgets.QWidget()
+        quick_layout = QtWidgets.QVBoxLayout(quick_tab)
+        quick_layout.setContentsMargins(14, 10, 14, 12)
+        quick_layout.setSpacing(8)
         quick_list = QtWidgets.QLabel(tr("help.quick_start_list"))
         quick_list.setWordWrap(True)
-        quick_box_layout.addWidget(quick_list)
+        quick_layout.addWidget(quick_list)
+        quick_layout.addStretch(1)
 
-        # ── raccourcis clavier ──
-        shortcuts_box = QtWidgets.QGroupBox(tr("help.shortcuts"))
+        shortcuts_tab = QtWidgets.QWidget()
+        shortcuts_layout = QtWidgets.QVBoxLayout(shortcuts_tab)
+        shortcuts_layout.setContentsMargins(14, 10, 14, 12)
+        shortcuts_layout.setSpacing(8)
+
+        shortcuts_box = QtWidgets.QGroupBox(tr("help.shortcuts_group"))
         shortcuts_box_layout = QtWidgets.QVBoxLayout(shortcuts_box)
         shortcuts_box_layout.setContentsMargins(14, 10, 14, 12)
         shortcuts_box_layout.setSpacing(8)
@@ -8922,15 +8929,40 @@ class HelpDialog(QtWidgets.QDialog):
         shortcut_three_row.addWidget(shortcut_three_suffix, stretch=1)
         shortcuts_box_layout.addLayout(shortcut_three_row)
 
+        icons_box = QtWidgets.QGroupBox(tr("help.icons_group"))
+        icons_box_layout = QtWidgets.QVBoxLayout(icons_box)
+        icons_box_layout.setContentsMargins(14, 10, 14, 12)
+        icons_box_layout.setSpacing(8)
+
+        icons_list = QtWidgets.QLabel(tr("help.icons_list"))
+        icons_list.setWordWrap(True)
+        icons_box_layout.addWidget(icons_list)
+
+        shortcuts_layout.addWidget(shortcuts_box)
+        shortcuts_layout.addWidget(icons_box)
+        shortcuts_layout.addStretch(1)
+
+        astrometry_tab = QtWidgets.QWidget()
+        astrometry_layout = QtWidgets.QVBoxLayout(astrometry_tab)
+        astrometry_layout.setContentsMargins(14, 10, 14, 12)
+        astrometry_layout.setSpacing(8)
+        astrometry_list = QtWidgets.QLabel(tr("help.astrometry_annotation_list"))
+        astrometry_list.setWordWrap(True)
+        astrometry_list.setOpenExternalLinks(True)
+        astrometry_layout.addWidget(astrometry_list)
+        astrometry_layout.addStretch(1)
+
+        tabs.addTab(quick_tab, tr("help.tab_quick_start"))
+        tabs.addTab(shortcuts_tab, tr("help.tab_shortcuts"))
+        tabs.addTab(astrometry_tab, tr("help.tab_astrometry_annotation"))
+
         close_button = QtWidgets.QPushButton(tr("settings.close"))
         close_button.clicked.connect(self.accept)
 
         layout = QtWidgets.QVBoxLayout(self)
         layout.setContentsMargins(18, 18, 18, 16)
         layout.setSpacing(14)
-        layout.addWidget(quick_box)
-        layout.addWidget(shortcuts_box)
-        layout.addStretch(1)
+        layout.addWidget(tabs)
         layout.addWidget(close_button, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
 
 
