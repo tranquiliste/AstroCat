@@ -73,6 +73,7 @@ source .venv/bin/activate
 python3 -m pip install -r requirements.txt
 ./scripts/build_macos.sh
 ```
+Please note that the macOS version hasn’t been tested, as I don’t have access to a Mac. 
 
 The packaged app will be in `dist/`. GitHub releases include separate macOS builds:
 - Apple Silicon: `Selune-macOS-AppleSilicon.zip`
