@@ -2455,7 +2455,9 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         self.integrations_table.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
         self.integrations_table.horizontalHeader().setStretchLastSection(False)
         self.integrations_table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        self.integrations_table.verticalHeader().setDefaultSectionSize(30)
+        row_height = self._integration_row_height()
+        self.integrations_table.verticalHeader().setDefaultSectionSize(row_height)
+        self.integrations_table.verticalHeader().setMinimumSectionSize(row_height)
         self.integrations_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.integrations_table.setColumnWidth(4, 58)
         self.integrations_table.setColumnWidth(5, 92)
@@ -2808,11 +2810,14 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         if row_data is None and row > 0:
             row_data = self._get_row_data(row - 1)
         self.integrations_table.insertRow(row)
+        self.integrations_table.setRowHeight(row, self._integration_row_height())
         defaults = row_data or {}
+        editor_height = self._integration_editor_height()
 
         def line(text: str) -> QtWidgets.QLineEdit:
             w = QtWidgets.QLineEdit(text)
             w.setFrame(True)
+            w.setMinimumHeight(editor_height)
             return w
 
         bpv = defaults.get("filter_bandpass_nm")
@@ -2823,6 +2828,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         frames_spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
         frames_spin.setMaximumWidth(52)
         frames_spin.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        frames_spin.setMinimumHeight(editor_height)
         exposure_edit = line(str(defaults.get("exposure_seconds") or "0"))
         exposure_edit.setMaximumWidth(86)
         exposure_edit.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
@@ -2830,6 +2836,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         exposure_duration_label.setAlignment(
             QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter
         )
+        exposure_duration_label.setMinimumHeight(editor_height)
 
         def refresh_row_summary() -> None:
             frames = frames_spin.value()
@@ -2848,7 +2855,9 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         self.integrations_table.setCellWidget(row, 5, exposure_edit)
         self.integrations_table.setCellWidget(row, 6, exposure_duration_label)
         date_edit = self._make_date_edit(str(defaults.get("captured_on") or ""))
+        date_edit.setMinimumHeight(editor_height)
         moon_icon_widget, moon_icon = self._make_moon_icon_widget()
+        moon_icon_widget.setMinimumHeight(editor_height)
         date_edit.dateChanged.connect(lambda _qdate, d=date_edit, i=moon_icon: self._update_moon_widget_state(d, i))
         self._update_moon_widget_state(date_edit, moon_icon)
         self.integrations_table.setCellWidget(row, 7, date_edit)
@@ -3087,11 +3096,24 @@ class ImagingInfoDialog(QtWidgets.QDialog):
     def _update_integrations_table_height(self) -> None:
         row_count = self.integrations_table.rowCount()
         visible_rows = max(1, min(5, row_count))
-        row_height = max(24, self.integrations_table.verticalHeader().defaultSectionSize())
+        row_height = self._integration_row_height()
+        if self.integrations_table.verticalHeader().defaultSectionSize() != row_height:
+            self.integrations_table.verticalHeader().setDefaultSectionSize(row_height)
+            self.integrations_table.verticalHeader().setMinimumSectionSize(row_height)
         header_height = self.integrations_table.horizontalHeader().sizeHint().height()
         table_height = header_height + (visible_rows * row_height) + (2 * self.integrations_table.frameWidth()) + 8
         self.integrations_table.setMinimumHeight(table_height)
         self.integrations_table.setMaximumHeight(table_height)
+
+    def _integration_row_height(self) -> int:
+        # Keep table row height tied to effective font metrics so text remains
+        # readable across OS themes and DPI scaling.
+        editor_height = self._integration_editor_height()
+        return max(38, min(64, editor_height + 10))
+
+    def _integration_editor_height(self) -> int:
+        base = self.fontMetrics().height()
+        return max(28, min(52, base + 14))
 
     def _update_integrations_total_label(self) -> None:
         total_seconds = 0.0
@@ -4656,6 +4678,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _apply_dark_theme(self) -> None:
         checked_indicator_path = (PROJECT_ROOT / "assets" / "images" / "checked_yellow.png").as_posix()
+        date_dropdown_arrow_path = (PROJECT_ROOT / "assets" / "images" / "date_dropdown_arrow.svg").as_posix()
 
         self.setStyleSheet(
             """
@@ -4666,11 +4689,42 @@ class MainWindow(QtWidgets.QMainWindow):
                 selection-background-color: #5e5e5e;
                 selection-color: #f7f7f7;
             }
-            QLineEdit, QComboBox, QTextEdit {
+            QLineEdit, QComboBox, QTextEdit, QAbstractSpinBox {
                 background: #2a2a2a;
                 border: 1px solid #3d3d3d;
                 border-radius: 10px;
                 padding: 8px 10px;
+            }
+            QDateEdit {
+                background: #2a2a2a;
+                border: 1px solid #3d3d3d;
+                border-radius: 10px;
+                padding: 6px 10px;
+            }
+            QDateEdit::drop-down {
+                subcontrol-origin: border;
+                subcontrol-position: top right;
+                width: 24px;
+                border-left: 1px solid #3d3d3d;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background: #343434;
+            }
+            QDateEdit::down-arrow {
+                image: url("__DATE_DROPDOWN_ARROW__");
+                width: 10px;
+                height: 6px;
+            }
+            QSpinBox::up-button,
+            QSpinBox::down-button,
+            QDoubleSpinBox::up-button,
+            QDoubleSpinBox::down-button {
+                width: 0px;
+                border: none;
+                background: transparent;
+            }
+            QLineEdit:focus, QComboBox:focus, QTextEdit:focus, QAbstractSpinBox:focus {
+                border-color: #b6935a;
             }
             QHeaderView::section {
                 background: transparent;
@@ -4681,6 +4735,77 @@ class MainWindow(QtWidgets.QMainWindow):
             QTableCornerButton::section {
                 background: transparent;
                 border: none;
+            }
+            QGroupBox {
+                margin-top: 12px;
+                padding: 12px;
+                background: #222222;
+                border: 1px solid #353535;
+                border-radius: 12px;
+            }
+            QGroupBox::title {
+                subcontrol-origin: margin;
+                subcontrol-position: top left;
+                left: 10px;
+                padding: 0 6px;
+                color: #d8c29a;
+                background: #222222;
+            }
+            QTableWidget, QTableView {
+                background: #1e1e1e;
+                alternate-background-color: #242424;
+                border: 1px solid #353535;
+                border-radius: 12px;
+                gridline-color: #343434;
+                selection-background-color: #3b3428;
+                selection-color: #f0d7ab;
+            }
+            QTableWidget::item, QTableView::item {
+                padding: 4px;
+            }
+            QTableWidget::item:selected, QTableView::item:selected {
+                background: #3b3428;
+                color: #f0d7ab;
+            }
+            QCalendarWidget QWidget {
+                background: #222222;
+                color: #e6e6e6;
+            }
+            QCalendarWidget QToolButton {
+                background: #2c2c2c;
+                border: 1px solid #434343;
+                border-radius: 8px;
+                color: #e6e6e6;
+                padding: 4px 8px;
+            }
+            QCalendarWidget QToolButton:hover {
+                background: #343434;
+                border-color: #5a5a5a;
+            }
+            QCalendarWidget QMenu {
+                background: #2a2a2a;
+                border: 1px solid #3d3d3d;
+            }
+            QCalendarWidget QSpinBox {
+                background: #2a2a2a;
+                border: 1px solid #3d3d3d;
+                border-radius: 8px;
+                color: #e6e6e6;
+                padding: 2px 6px;
+            }
+            QCalendarWidget QAbstractItemView {
+                background: #1f1f1f;
+                alternate-background-color: #252525;
+                border: 1px solid #353535;
+                selection-background-color: #3b3428;
+                selection-color: #f0d7ab;
+                outline: 0;
+            }
+            QCalendarWidget QAbstractItemView:enabled {
+                color: #e6e6e6;
+            }
+            QCalendarWidget QAbstractItemView:disabled {
+                color: #747474;
             }
             QTabWidget::pane {
                 background: #222222;
@@ -4708,9 +4833,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 color: #f0d7ab;
                 border-color: #b6935a;
                 border-bottom-color: #3b3428;
-            }
-            QLineEdit:focus, QComboBox:focus, QTextEdit:focus {
-                border-color: #b6935a;
             }
             QToolButton[compactPill="true"] {
                 background: #2c2c2c;
@@ -4897,7 +5019,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 background: #3a3327;
                 border-color: #caa972;
             }
-            """.replace("__CHECKBOX_CHECKED_ICON__", checked_indicator_path)
+            """
+            .replace("__CHECKBOX_CHECKED_ICON__", checked_indicator_path)
+            .replace("__DATE_DROPDOWN_ARROW__", date_dropdown_arrow_path)
         )
 
     def _sync_compact_combo_items(self, source: QtWidgets.QComboBox, target: QtWidgets.QComboBox) -> None:
