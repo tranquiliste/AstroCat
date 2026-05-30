@@ -51,31 +51,31 @@
     },
     "M6": {
         "name": {
-            "text": "Butterfly Cluster",
+            "text": "Amas du papillon",
             "source_hash": "sha256:1911dfce814796fd2dff6b80aad78770ca3e7f4b8845a62a322d40535d321f15"
         },
         "description": {
-            "text": "M6 (Butterfly Cluster) est un objet de type amas ouvert dans la constellation Scorpius, à environ 1.6 kly. Magnitude ~ 4.2 ; taille apparente ~ 25â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M6 (Amas du papillon) est un objet de type amas ouvert dans la constellation Scorpius, à environ 1.6 kly. Magnitude ~ 4.2 ; taille apparente ~ 25â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:9327cfd2066783b443adc1b3c1c774695c02d746a74623b4d59e2ed0f3b9be73"
         }
     },
     "M7": {
         "name": {
-            "text": "Ptolemy's Cluster",
+            "text": "Amas de Ptolémée",
             "source_hash": "sha256:85efbe98ffb32879fa5812ec01fdd023145f87b65851d7ee87e2968053c9a22b"
         },
         "description": {
-            "text": "M7 (Ptolemy's Cluster) est un objet de type amas ouvert dans la constellation Scorpius, à environ 980 ly. Magnitude ~ 3.3 ; taille apparente ~ 80â€². Découvert par Claudius Ptolemy en 130. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M7 (Amas de Ptolémée) est un objet de type amas ouvert dans la constellation Scorpius, à environ 980 ly. Magnitude ~ 3.3 ; taille apparente ~ 80â€². Découvert par Claudius Ptolemy en 130. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:24274997ee01ec2408cfe419cd1d6783a2f4a624eb8bb8e2eeceeb8cc0b73f9e"
         }
     },
     "M8": {
         "name": {
-            "text": "Lagoon Nebula",
+            "text": "Nébuleuse de la Lagune",
             "source_hash": "sha256:a2aca26332ab2a402a7e6b1015644e7d34bce4581443f8cba85107b51ed5edce"
         },
         "description": {
-            "text": "M8 (Lagoon Nebula) est un objet de type nébuleuse en émission dans la constellation Sagittarius, à environ 4.1 kly. Magnitude ~ 4.6 ; taille apparente ~ 90â€² Ã— 40â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M8 (Nébuleuse de la Lagune) est un objet de type nébuleuse en émission dans la constellation Sagittarius, à environ 4.1 kly. Magnitude ~ 4.6 ; taille apparente ~ 90â€² Ã— 40â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:e4b3a2b7d439095b1618824384065454c42136fa39e45afa5ef6c0af579020a4"
         }
     },
@@ -171,11 +171,11 @@
     },
     "M18": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M18 (Open Cluster) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 4.9 kly. Magnitude ~ 7.5 ; taille apparente ~ 9. Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M18 (Amas ouvert) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 4.9 kly. Magnitude ~ 7.5 ; taille apparente ~ 9. Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:50b18dbf6b6c137e2090d45678f7343b46cb4605ab02911c58466854928e0afc"
         }
     },
@@ -201,11 +201,11 @@
     },
     "M21": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M21 (Open Cluster) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 4.2 kly. Magnitude ~ 6.5 ; taille apparente ~ 14â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M21 (Amas ouvert) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 4.2 kly. Magnitude ~ 6.5 ; taille apparente ~ 14â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:7490630167b7203989dc5a94c9e1bb033df3fa58007d50982836c6b844d4844a"
         }
     },
@@ -221,11 +221,11 @@
     },
     "M23": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M23 (Open Cluster) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 2.2 kly. Magnitude ~ 5.5 ; taille apparente ~ 35â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M23 (Amas ouvert) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 2.2 kly. Magnitude ~ 5.5 ; taille apparente ~ 35â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:b4b3cd9a1113d2b810d43cea37695c4e0147e701653695ff88c3990838e044c3"
         }
     },
@@ -241,31 +241,31 @@
     },
     "M25": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M25 (Open Cluster) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 2 kly. Magnitude ~ 4.6 ; taille apparente ~ 36â€². Découvert par Philippe de Chéseaux en 1745. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M25 (Amas ouvert) est un objet de type amas ouvert dans la constellation Sagittarius, à environ 2 kly. Magnitude ~ 4.6 ; taille apparente ~ 36â€². Découvert par Philippe de Chéseaux en 1745. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:1978ab5804994c3a7d85aaf08687e28fee9366208b038a60ad1ecf31657f4728"
         }
     },
     "M26": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M26 (Open Cluster) est un objet de type amas ouvert dans la constellation Scutum, à environ 5 kly. Magnitude ~ 8.0 ; taille apparente ~ 14â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M26 (Amas ouvert) est un objet de type amas ouvert dans la constellation Scutum, à environ 5 kly. Magnitude ~ 8.0 ; taille apparente ~ 14â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:c3281e295cbee4123d742099eb2d24d24966b2e35a1c5e32a13904c7196f00b2"
         }
     },
     "M27": {
         "name": {
-            "text": "Dumbbell Nebula",
+            "text": "Nébuleuse de l'Haltère",
             "source_hash": "sha256:93a8266d87f785f69c61f41f4c3d21b3fbbe32111aae5a57683fbb4cf52689b7"
         },
         "description": {
-            "text": "M27 (Dumbbell Nebula) est un objet de type nébuleuse planétaire dans la constellation Vulpecula, à environ 1.4 kly. Magnitude ~ 7.4 ; taille apparente ~ 8. Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M27 (Nébuleuse de l'Haltère) est un objet de type nébuleuse planétaire dans la constellation Vulpecula, à environ 1.4 kly. Magnitude ~ 7.4 ; taille apparente ~ 8. Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:3f837afec6c9993869dc838299a8d62b91f26d8c948b2fc1a9ac006182643225"
         }
     },
@@ -281,11 +281,11 @@
     },
     "M29": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M29 (Open Cluster) est un objet de type amas ouvert dans la constellation Cygnus, à environ 4 kly. Magnitude ~ 7.1 ; taille apparente ~ 7â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M29 (Amas ouvert) est un objet de type amas ouvert dans la constellation Cygnus, à environ 4 kly. Magnitude ~ 7.1 ; taille apparente ~ 7â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:3f826315ced100947d992fed6fe6a242ab422e81dd370df1fb4c1d07dd3c71fe"
         }
     },
@@ -301,51 +301,51 @@
     },
     "M31": {
         "name": {
-            "text": "Andromeda Galaxy",
+            "text": "Galaxie d'Andromède",
             "source_hash": "sha256:091f21aaa803725c6ab062425c847d5dbe88e4af403a57059399b5fc07a4e044"
         },
         "description": {
-            "text": "M31 (Andromeda Galaxy) est un objet de type galaxie dans la constellation Andromeda, à environ 253.7 kly. Magnitude ~ 3.4 ; taille apparente ~ 3. Découvert par Al-Sufi en 964. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M31 (Galaxie d'Andromède) est un objet de type galaxie dans la constellation Andromède, à environ 253.7 kly. Magnitude ~ 3.4 ; taille apparente ~ 3. Découvert par Al-Sufi en 964. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:07a9f4a1e4a98b85a339bd64f3a3f33f89162e96ab628438fd8b0e3e63d4380a"
         }
     },
     "M32": {
         "name": {
-            "text": "Dwarf Elliptical Galaxy",
+            "text": "Galaxie elliptique naine",
             "source_hash": "sha256:fe9a38b9344aacc826d1aa381adb90e6183c9a40396d9e8c76116e58d8bd6fdf"
         },
         "description": {
-            "text": "M32 (Dwarf Elliptical Galaxy) est un objet de type galaxie dans la constellation Andromeda, à environ 253.7 kly. Magnitude ~ 8.1 ; taille apparente ~ 8. Découvert par Guillaume Le Gentil en 1749. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M32 (Galaxie elliptique naine) est un objet de type galaxie dans la constellation Andromède, à environ 253.7 kly. Magnitude ~ 8.1 ; taille apparente ~ 8. Découvert par Guillaume Le Gentil en 1749. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:2d70ee5be161763274333b0f7bf9a6b98ac47ce13d99183cc359169c984f580d"
         }
     },
     "M33": {
         "name": {
-            "text": "Triangulum Galaxy",
+            "text": "Galaxie du Triangle",
             "source_hash": "sha256:0770779d0100da85b2f3631e7288a3cd604325657880972640e284eee1827b9f"
         },
         "description": {
-            "text": "M33 (Triangulum Galaxy) est un objet de type galaxie dans la constellation Triangulum, à environ 2730 kly. Magnitude ~ 5.7 ; taille apparente ~ 70. Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M33 (Galaxie du Triangle) est un objet de type galaxie dans la constellation du Triangle, à environ 2730 kly. Magnitude ~ 5.7 ; taille apparente ~ 70. Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:09597042ec15aa9581245f6c39ce5fa5e96050fb3ace6719f2c4f95c4e9dc58c"
         }
     },
     "M34": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M34 (Open Cluster) est un objet de type amas ouvert dans la constellation Perseus, à environ 1.5 kly. Magnitude ~ 5.5 ; taille apparente ~ 35â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M34 (Amas ouvert) est un objet de type amas ouvert dans la constellation Persée, à environ 1.5 kly. Magnitude ~ 5.5 ; taille apparente ~ 35â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:abf95f50087d0eec80f6fe32d4079eb2ea25ff2f69af71365b0fffcf777fa829"
         }
     },
     "M35": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M35 (Open Cluster) est un objet de type amas ouvert dans la constellation Gemini, à environ 2.8 kly. Magnitude ~ 5.3 ; taille apparente ~ 28â€². Découvert par Philippe Loys de ChÂŽseaux en 1745. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M35 (Amas ouvert) est un objet de type amas ouvert dans la constellation Gemini, à environ 2.8 kly. Magnitude ~ 5.3 ; taille apparente ~ 28â€². Découvert par Philippe Loys de ChÂŽseaux en 1745. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:cd8179a0b836bf9f071d4fcffb9bd44feca02a351c7b12b2004c29c8e92a2b30"
         }
     },
@@ -361,11 +361,11 @@
     },
     "M37": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M37 (Open Cluster) est un objet de type amas ouvert dans la constellation Auriga, à environ 4.5 kly. Magnitude ~ 6.2 ; taille apparente ~ 24â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M37 (Amas ouvert) est un objet de type amas ouvert dans la constellation Auriga, à environ 4.5 kly. Magnitude ~ 6.2 ; taille apparente ~ 24â€². Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:d731888d3d1b42f4779e35122aae27712c940e2ffb71fb210bcb677c671c92af"
         }
     },
@@ -381,111 +381,111 @@
     },
     "M39": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M39 (Open Cluster) est un objet de type amas ouvert dans la constellation Cygnus, à environ 820 ly. Magnitude ~ 4.6 ; taille apparente ~ 29â€². Découvert par Guillaume Le Gentil en 1749. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M39 (Amas ouvert) est un objet de type amas ouvert dans la constellation Cygnus, à environ 820 ly. Magnitude ~ 4.6 ; taille apparente ~ 29â€². Découvert par Guillaume Le Gentil en 1749. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:a481810824c5641e43312aedfed21377561a45c9e60e37e04c0026d4bb23f344"
         }
     },
     "M40": {
         "name": {
-            "text": "Double Star",
+            "text": "Étoile double",
             "source_hash": "sha256:20c3fa55006447d424912863011283c9d97b2af61d291d46c7bcb3b0ead34deb"
         },
         "description": {
-            "text": "M40 (Double Star) est un objet de type Double Star dans la constellation Ursa Major, à environ 510 ly. Magnitude ~ 8.4 ; taille apparente ~ 51. Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M40 (Étoile double) est un objet de type Étoile double dans la constellation Grande Ourse, à environ 510 ly. Magnitude ~ 8.4 ; taille apparente ~ 51. Découvert par Charles Messier en 1764. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:4a8ad179f844f49a2714f18b901a59b8a0e685c687c0e9daea06907a0729620b"
         }
     },
     "M41": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M41 (Open Cluster) est un objet de type amas ouvert dans la constellation Canis Major, à environ 2.3 kly. Magnitude ~ 4.5 ; taille apparente ~ 38â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M41 (Amas ouvert) est un objet de type amas ouvert dans la constellation Grand Chien, à environ 2.3 kly. Magnitude ~ 4.5 ; taille apparente ~ 38â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:0c96cbde5bba4ed03c9e5ec67d33c65a35a46429ad1d3789097cffb302142981"
         }
     },
     "M42": {
         "name": {
-            "text": "Orion Nebula",
+            "text": "Nébuleuse d'Orion",
             "source_hash": "sha256:38f4c556c61b6c82a7dc64dbf970428a857d3bbd24164fa19b6089eb7ac65558"
         },
         "description": {
-            "text": "M42 (Orion Nebula) est un objet de type nébuleuse en émission dans la constellation Orion, à environ 1.3 kly. Magnitude ~ 4.0 ; taille apparente ~ 65â€² Ã— 60â€². Découvert par Nicolas-Claude de Peiresc en 1610. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M42 (Nébuleuse d'Orion) est un objet de type nébuleuse en émission dans la constellation Orion, à environ 1.3 kly. Magnitude ~ 4.0 ; taille apparente ~ 65â€² Ã— 60â€². Découvert par Nicolas-Claude de Peiresc en 1610. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:a09cc692b30553359a1d2865c59b1b46db569d54368f7a67ed80287172714f6f"
         }
     },
     "M43": {
         "name": {
-            "text": "De MairanÃƒÆ’Ã¢â‚¬Â¢s Nebula",
+            "text": "Nébuleuse de Mairan",
             "source_hash": "sha256:a24741bee512cd1be5d4cb5d075d345b3ac97c4fbe803058876e9fc24fb28c83"
         },
         "description": {
-            "text": "M43 (De MairanÃƒÆ’Ã¢â‚¬Â¢s Nebula) est un objet de type nébuleuse en émission dans la constellation Orion, à environ 1.6 kly. Magnitude ~ 9.0 ; taille apparente ~ 20â€² Ã— 15â€². Découvert par Jean-Jacques d'Ortous de Mairan en 1731. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M43 (Nébuleuse de Mairan) est un objet de type nébuleuse en émission dans la constellation Orion, à environ 1.6 kly. Magnitude ~ 9.0 ; taille apparente ~ 20â€² Ã— 15â€². Découvert par Jean-Jacques d'Ortous de Mairan en 1731. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:3374900941f95cd87cce97319f88dad8ae2dd11998252bf6f1dd5255856d2342"
         }
     },
     "M44": {
         "name": {
-            "text": "Beehive Cluster",
+            "text": "Amas de la Ruche",
             "source_hash": "sha256:f943ddd3fc60922c4b76a85792e1948846ff54462bf723fc56fb22896a3cb77a"
         },
         "description": {
-            "text": "M44 (Beehive Cluster) est un objet de type amas ouvert dans la constellation Cancer, à environ 577 ly. Magnitude ~ 3.7 ; taille apparente ~ 95â€². Découvert par Galileo Galilei en 1609. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M44 (Amas de la Ruche) est un objet de type amas ouvert dans la constellation Cancer, à environ 577 ly. Magnitude ~ 3.7 ; taille apparente ~ 95â€². Découvert par Galileo Galilei en 1609. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:3476eb4b969e7bd31d0ee3dd2f14830d9bcf359ad30bc7b1b521a9a6b0ac0b5f"
         }
     },
     "M45": {
         "name": {
-            "text": "Pleiades",
+            "text": "Pléiades",
             "source_hash": "sha256:01c848b1a50cf1e3e54fb2f2a6460cbf8fb9be54246e7c02d0b90b70e70c156c"
         },
         "description": {
-            "text": "M45 (Pleiades) est un objet de type amas ouvert dans la constellation Taurus, à environ 444 ly. Magnitude ~ 1.6 ; taille apparente ~ 2Â°. Découvert par Galileo Galilei en 1610. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M45 (Pléiades) est un objet de type amas ouvert dans la constellation Taureau, à environ 444 ly. Magnitude ~ 1.6 ; taille apparente ~ 2Â°. Découvert par Galileo Galilei en 1610. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:8b2d433064fb7e8ba9d0f8bcb69c820598f5d89bf6b09725201c79e45ea6331b"
         }
     },
     "M46": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M46 (Open Cluster) est un objet de type amas ouvert dans la constellation Puppis, à environ 5.4 kly. Magnitude ~ 6.0 ; taille apparente ~ 22. Découvert par Charles Messier en 1771. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M46 (Amas ouvert) est un objet de type amas ouvert dans la constellation Puppis, à environ 5.4 kly. Magnitude ~ 6.0 ; taille apparente ~ 22. Découvert par Charles Messier en 1771. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:1acc50a39bcee96b1a88c1428f0a8870408b3d31992827590b7c63a85f436bdf"
         }
     },
     "M47": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M47 (Open Cluster) est un objet de type amas ouvert dans la constellation Puppis, à environ 1.6 kly. Magnitude ~ 4.4 ; taille apparente ~ 30â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M47 (Amas ouvert) est un objet de type amas ouvert dans la constellation Puppis, à environ 1.6 kly. Magnitude ~ 4.4 ; taille apparente ~ 30â€². Découvert par Giovanni Battista Hodierna en 1654. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:d84bdfa484b256e59ad7718f6ba3b22f41bd986c06fc243db765c1402e443d5f"
         }
     },
     "M48": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M48 (Open Cluster) est un objet de type amas ouvert dans la constellation Hydra, à environ 1.5 kly. Magnitude ~ 5.5 ; taille apparente ~ 30â€². Découvert par Charles Messier en 1771. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M48 (Amas ouvert) est un objet de type amas ouvert dans la constellation Hydra, à environ 1.5 kly. Magnitude ~ 5.5 ; taille apparente ~ 30â€². Découvert par Charles Messier en 1771. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:d15490d0fe3b8c63c579f952526c27bbd2439501c16c4f12a6fcde70bb697f73"
         }
     },
     "M49": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M49 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 56600 kly. Magnitude ~ 8.4 ; taille apparente ~ 10. Découvert par Charles Messier en 1777. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M49 (Galaxie elliptique) est un objet de type galaxie dans la constellation Virgo, à environ 56600 kly. Magnitude ~ 8.4 ; taille apparente ~ 10. Découvert par Charles Messier en 1777. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:2d1f831f86c8a436cb1df88286e731aba07630f96e0f1e100170e7955b5c9122"
         }
     },
@@ -511,11 +511,11 @@
     },
     "M52": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M52 (Open Cluster) est un objet de type amas ouvert dans la constellation Cassiopeia, à environ 4.6 kly. Magnitude ~ 7.3 ; taille apparente ~ 13â€². Découvert par Charles Messier en 1774. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M52 (Amas ouvert) est un objet de type amas ouvert dans la constellation Cassiopeia, à environ 4.6 kly. Magnitude ~ 7.3 ; taille apparente ~ 13â€². Découvert par Charles Messier en 1774. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:b4d557adf5a6001fbf580ca86305f1543de47c69d3f1f0412e7e90b38fe0e7c6"
         }
     },
@@ -581,21 +581,21 @@
     },
     "M59": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M59 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 60000 kly. Magnitude ~ 9.6 ; taille apparente ~ 5. Découvert par Johann Gottfried Koehler en 1779. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M59 (Galaxie elliptique) est un objet de type galaxie dans la constellation Virgo, à environ 60000 kly. Magnitude ~ 9.6 ; taille apparente ~ 5. Découvert par Johann Gottfried Koehler en 1779. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:83f4c749e3f87df67b49b5aeda866431fb790ade19a582abd1330427cab3659d"
         }
     },
     "M60": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M60 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 55000 kly. Magnitude ~ 8.8 ; taille apparente ~ 7. Découvert par Johann Gottfried Koehler en 1779. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M60 (Galaxie elliptique) est un objet de type galaxie dans la constellation Virgo, à environ 55000 kly. Magnitude ~ 8.8 ; taille apparente ~ 7. Découvert par Johann Gottfried Koehler en 1779. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:2f399704967eae5019cde5f9b5a35e247b885c4704c203a2ca8883671acf6649"
         }
     },
@@ -661,11 +661,11 @@
     },
     "M67": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M67 (Open Cluster) est un objet de type amas ouvert dans la constellation Cancer, à environ 2.7 kly. Magnitude ~ 6.1 ; taille apparente ~ 30â€². Découvert par Johann Gottfried Koehler en 1779. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M67 (Amas ouvert) est un objet de type amas ouvert dans la constellation Cancer, à environ 2.7 kly. Magnitude ~ 6.1 ; taille apparente ~ 30â€². Découvert par Johann Gottfried Koehler en 1779. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:9a0fec4c0270899cca1530b6a1844564eaf111026482a12d0ead165ca8c98655"
         }
     },
