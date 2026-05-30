@@ -801,61 +801,61 @@
     },
     "M81": {
         "name": {
-            "text": "Bode's Galaxy",
+            "text": "Galaxie de Bode",
             "source_hash": "sha256:94e3c1fbd61d23ad05c93702d9edd2f9493f4f658cf57d3e757048c185e77a79"
         },
         "description": {
-            "text": "M81 (Bode's Galaxy) est un objet de type galaxie dans la constellation Ursa Major, à environ 12000 kly. Magnitude ~ 6.9 ; taille apparente ~ 26. Découvert par Johann Elert Bode en 1774. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M81 (La Galaxie de Bode) est un objet de type galaxie dans la constellation Ursa Major, à environ 12000 kly. Magnitude ~ 6.9 ; taille apparente ~ 26. Découvert par Johann Elert Bode en 1774. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:de7d7c8d6c1eb3f5ed6ed6b2a1d4737be64ca5820dd341d27e02cbbe9c0944e9"
         }
     },
     "M82": {
         "name": {
-            "text": "Cigar Galaxy",
+            "text": "Galaxie du Cigare",
             "source_hash": "sha256:3b80b097c8bb61f48d391b146452f52d5dfa76f55dabfd251dc4e997b800a555"
         },
         "description": {
-            "text": "M82 (Cigar Galaxy) est un objet de type galaxie dans la constellation Ursa Major, à environ 12000 kly. Magnitude ~ 8.4 ; taille apparente ~ 11. Découvert par Johann Elert Bode en 1774. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M82 (La Galaxie du Cigare) est un objet de type galaxie dans la constellation Ursa Major, à environ 12000 kly. Magnitude ~ 8.4 ; taille apparente ~ 11. Découvert par Johann Elert Bode en 1774. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:911c27aa718777f503c8fdd5eda99931240bc437f954e3ea78eeb778a8ff7efb"
         }
     },
     "M83": {
         "name": {
-            "text": "Southern Pinwheel",
+            "text": "La Galaxie de la Roue du Sud",
             "source_hash": "sha256:3d8022b87aca4fba52858330f8a768c91ea091a50c363278c2131c6cc51e265f"
         },
         "description": {
-            "text": "M83 (Southern Pinwheel) est un objet de type galaxie dans la constellation Hydra, à environ 15200 kly. Magnitude ~ 7.6 ; taille apparente ~ 12. Découvert par Nicolas Louis de Lacaille en 1752. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M83 (La Galaxie de la Roue du Sud) est un objet de type galaxie dans la constellation Hydra, à environ 15200 kly. Magnitude ~ 7.6 ; taille apparente ~ 12. Découvert par Nicolas Louis de Lacaille en 1752. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:9702c1501cea81257ea8293f649815b5b61f5232c3166f5e06117307627ae5bc"
         }
     },
     "M84": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M84 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 60000 kly. Magnitude ~ 9.1 ; taille apparente ~ 6. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M84 (Galaxie elliptique) est un objet de type galaxie dans la constellation Virgo, à environ 60000 kly. Magnitude ~ 9.1 ; taille apparente ~ 6. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:de287127e01e564257be592af431b872b24ed216056c9534f13c40c023ded637"
         }
     },
     "M85": {
         "name": {
-            "text": "Lenticular Galaxy",
+            "text": "Galaxie lenticulaire",
             "source_hash": "sha256:b5d4df5b1ab40cb058c911a2b681c5b74ad6993054de1cbb7e11d6c411526bb1"
         },
         "description": {
-            "text": "M85 (Lenticular Galaxy) est un objet de type galaxie dans la constellation Coma Berenices, à environ 60000 kly. Magnitude ~ 9.1 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M85 (Galaxie lenticulaire) est un objet de type galaxie dans la constellation Coma Berenices, à environ 60000 kly. Magnitude ~ 9.1 ; taille apparente ~ 7. Découvert par Pierre Méchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:bc395906286970e759bdadf3dfa52df07c9e15117d97e206409890c9b3b43607"
         }
     },
     "M86": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M86 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 52000 kly. Magnitude ~ 8.9 ; taille apparente ~ 8. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M86 (Galaxie elliptique) est un objet de type galaxie dans la constellation Virgo, à environ 52000 kly. Magnitude ~ 8.9 ; taille apparente ~ 8. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:0fc3454cdb1957c87c0cfb194fd2f0a5743b69139d513184c5138b2796a0d92b"
         }
     },
@@ -871,41 +871,41 @@
     },
     "M88": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M88 (Spiral Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 55000 kly. Magnitude ~ 9.6 ; taille apparente ~ 6. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M88 (Galaxie spirale) est un objet de type galaxie dans la constellation Virgo, à environ 55000 kly. Magnitude ~ 9.6 ; taille apparente ~ 6. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:63caad29ba990cfe6d3b0f00eae55243c84baf6fbc38ed929422120c7208a195"
         }
     },
     "M89": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M89 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 60000 kly. Magnitude ~ 9.8 ; taille apparente ~ 5. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M89 (Galaxie elliptique) est un objet de type galaxie dans la constellation Virgo, à environ 60000 kly. Magnitude ~ 9.8 ; taille apparente ~ 5. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:b1a2a7bd3289117f55c1a3ad0fb612aa44f2066f67e6635a40ae962cbf0b01e6"
         }
     },
     "M90": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M90 (Spiral Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 59000 kly. Magnitude ~ 9.5 ; taille apparente ~ 9. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M90 (Galaxie spirale) est un objet de type galaxie dans la constellation Virgo, à environ 59000 kly. Magnitude ~ 9.5 ; taille apparente ~ 9. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:239b0202fcf4a1e100a059c1c99c06faec5f39e4ffaef35c35fa89d8c0da59b7"
         }
     },
     "M91": {
         "name": {
-            "text": "Barred Spiral Galaxy",
+            "text": "Galaxie spirale barrée",
             "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
         },
         "description": {
-            "text": "M91 (Barred Spiral Galaxy) est un objet de type galaxie dans la constellation Coma Berenices, à environ 52000 kly. Magnitude ~ 10.2 ; taille apparente ~ 5. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M91 (Galaxie spirale barrée) est un objet de type galaxie dans la constellation Coma Berenices, à environ 52000 kly. Magnitude ~ 10.2 ; taille apparente ~ 5. Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:8cadc99790f8d1073920ca03b08eef6261508d16b2a74e284d23ffb29f5a2879"
         }
     },
@@ -921,141 +921,141 @@
     },
     "M93": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M93 (Open Cluster) est un objet de type amas ouvert dans la constellation Puppis, à environ 3.4 kly. Magnitude ~ 6.0 ; taille apparente ~ 10â€². Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M93 (Amas ouvert) est un objet de type amas ouvert dans la constellation Puppis, à environ 3.4 kly. Magnitude ~ 6.0 ; taille apparente ~ 10â€². Découvert par Charles Messier en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:662c914c81c61c94bf66bc0ad7afc9170ec68637c6f097b1e94f5450ac178bb1"
         }
     },
     "M94": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M94 (Spiral Galaxy) est un objet de type galaxie dans la constellation Canes Venatici, à environ 16000 kly. Magnitude ~ 8.2 ; taille apparente ~ 11. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M94 (Galaxie spirale) est un objet de type galaxie dans la constellation Canes Venatici, à environ 16000 kly. Magnitude ~ 8.2 ; taille apparente ~ 11. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:4589d0bb143aa03c2acdd86d26a3b7f956aad91ca2b980a13d3ab3b5dc16aa36"
         }
     },
     "M95": {
         "name": {
-            "text": "Barred Spiral Galaxy",
+            "text": "Galaxie spirale barrée",
             "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
         },
         "description": {
-            "text": "M95 (Barred Spiral Galaxy) est un objet de type galaxie dans la constellation Leo, à environ 33000 kly. Magnitude ~ 9.7 ; taille apparente ~ 3. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M95 (Galaxie spirale barrée) est un objet de type galaxie dans la constellation Leo, à environ 33000 kly. Magnitude ~ 9.7 ; taille apparente ~ 3. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:dafeb75904e94ddba942e44be2d53511f736fdd54f0d2525248d0fcebbaa8a8d"
         }
     },
     "M96": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M96 (Spiral Galaxy) est un objet de type galaxie dans la constellation Leo, à environ 31000 kly. Magnitude ~ 9.2 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M96 (Galaxie spirale) est un objet de type galaxie dans la constellation Leo, à environ 31000 kly. Magnitude ~ 9.2 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:0315947398e955638de8e9dc2d9ecb89d06036d8b7fdef53d27913289eb1abf8"
         }
     },
     "M97": {
         "name": {
-            "text": "Owl Nebula",
+            "text": "Nébuleuse de la Chouette",
             "source_hash": "sha256:23edf4b7bfdc287ded9b42dec300ae5c508f47c3d19e9f25729d57d57dc3f097"
         },
         "description": {
-            "text": "M97 (Owl Nebula) est un objet de type nébuleuse planétaire dans la constellation Ursa Major, à environ 2 kly. Magnitude ~ 9.9 ; taille apparente ~ 3. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M97 (Nébuleuse de la Chouette) est un objet de type nébuleuse planétaire dans la constellation Ursa Major, à environ 2 kly. Magnitude ~ 9.9 ; taille apparente ~ 3. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:b05a49a140da55ae05daaa151ac166c3f14314bb440de872a811c2e6351e99fe"
         }
     },
     "M98": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M98 (Spiral Galaxy) est un objet de type galaxie dans la constellation Coma Berenices, à environ 44000 kly. Magnitude ~ 10.1 ; taille apparente ~ 9. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M98 (Galaxie spirale) est un objet de type galaxie dans la constellation Coma Berenices, à environ 44000 kly. Magnitude ~ 10.1 ; taille apparente ~ 9. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:885ad2d3365ee61fe12cb73251b51e9d99abf7df9f0260b6312ae8b39fe980ca"
         }
     },
     "M99": {
         "name": {
-            "text": "Pinwheel Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:c59b3fbc42c7a82fd53cffc2e764bdfb05e8da494cc1328f439aa1814d4f231d"
         },
         "description": {
-            "text": "M99 (Pinwheel Galaxy) est un objet de type galaxie dans la constellation Coma Berenices, à environ 50000 kly. Magnitude ~ 9.9 ; taille apparente ~ 5. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M99 (Galaxie spirale) est un objet de type galaxie dans la constellation Coma Berenices, à environ 50000 kly. Magnitude ~ 9.9 ; taille apparente ~ 5. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:b1f8eacc3ebd1d589e598bbd5f62e4c95e83ac19cca9d646869f3511b7cf5d1f"
         }
     },
     "M100": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M100 (Spiral Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 55000 kly. Magnitude ~ 9.3 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M100 (Galaxie spirale) est un objet de type galaxie dans la constellation Virgo, à environ 55000 kly. Magnitude ~ 9.3 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:70a713223dc45241737c6df757ab401f0150e13bf5c3cbe59e0c010bfcf4be33"
         }
     },
     "M101": {
         "name": {
-            "text": "Pinwheel Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:c59b3fbc42c7a82fd53cffc2e764bdfb05e8da494cc1328f439aa1814d4f231d"
         },
         "description": {
-            "text": "M101 (Pinwheel Galaxy) est un objet de type galaxie dans la constellation Ursa Major, à environ 21200 kly. Magnitude ~ 7.9 ; taille apparente ~ 28. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M101 (Galaxie spirale) est un objet de type galaxie dans la constellation Ursa Major, à environ 21200 kly. Magnitude ~ 7.9 ; taille apparente ~ 28. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:9f8fe13c0472d2ea1afb157250c81b2571c61d0a010bb92d8e5114c3d981b3a4"
         }
     },
     "M102": {
         "name": {
-            "text": "Spindle Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:58745e65dea253106def31d478fe162ec7b2b85a101c460e7c66a7364fc09eff"
         },
         "description": {
-            "text": "M102 (Spindle Galaxy) est un objet de type galaxie dans la constellation Draco, à environ 50000 kly. Magnitude ~ 9.9 ; taille apparente ~ 4. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M102 (Galaxie spirale) est un objet de type galaxie dans la constellation Draco, à environ 50000 kly. Magnitude ~ 9.9 ; taille apparente ~ 4. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:faa97c60dfbe4ede36d1c69ed98709d25e46f60932e6a7cb3e683dc5225a42a2"
         }
     },
     "M103": {
         "name": {
-            "text": "Open Cluster",
+            "text": "Amas ouvert",
             "source_hash": "sha256:099ea4cbea14f37a15f69bfa259a299c0f4fd6d761f8da56804dac65e2503435"
         },
         "description": {
-            "text": "M103 (Open Cluster) est un objet de type amas ouvert dans la constellation Cassiopeia, à environ 9.5 kly. Magnitude ~ 7.4 ; taille apparente ~ 6â€². Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M103 (Amas ouvert) est un objet de type amas ouvert dans la constellation Cassiopeia, à environ 9.5 kly. Magnitude ~ 7.4 ; taille apparente ~ 6â€². Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:fc10d1b47f67e51fe1a85b737b13017d544c850497492639047b2c1479841061"
         }
     },
     "M104": {
         "name": {
-            "text": "Sombrero Galaxy",
+            "text": "Galaxie du Sombrero",
             "source_hash": "sha256:7605e72f9eb43ed92e7b6498d4f254e4cf1a7777e8bc06839d59dffb31a3c100"
         },
         "description": {
-            "text": "M104 (Sombrero Galaxy) est un objet de type galaxie dans la constellation Virgo, à environ 29000 kly. Magnitude ~ 8.0 ; taille apparente ~ 9â€² Ã— 4â€². Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M104 (Galaxie du Sombrero) est un objet de type galaxie dans la constellation Virgo, à environ 29000 kly. Magnitude ~ 8.0 ; taille apparente ~ 9â€² Ã— 4â€². Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:cd6e6658c41c0e52237e96b5ed218ef6401d6a951dffa88e03fa48dd18f20184"
         }
     },
     "M105": {
         "name": {
-            "text": "Elliptical Galaxy",
+            "text": "Galaxie elliptique",
             "source_hash": "sha256:398e8f8b99c3f277623241ce559bd706cacb6de49ef8e204122bb35b1c38a2fa"
         },
         "description": {
-            "text": "M105 (Elliptical Galaxy) est un objet de type galaxie dans la constellation Leo, à environ 32000 kly. Magnitude ~ 9.3 ; taille apparente ~ 5. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M105 (Galaxie elliptique) est un objet de type galaxie dans la constellation Leo, à environ 32000 kly. Magnitude ~ 9.3 ; taille apparente ~ 5. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:9a53a4fccf264fd1ab26c3d2185327f06615e907750a4e9c163e92c5df20adbb"
         }
     },
     "M106": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M106 (Spiral Galaxy) est un objet de type galaxie dans la constellation Canes Venatici, à environ 24000 kly. Magnitude ~ 8.4 ; taille apparente ~ 18. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M106 (Galaxie spirale) est un objet de type galaxie dans la constellation Canes Venatici, à environ 24000 kly. Magnitude ~ 8.4 ; taille apparente ~ 18. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:4042aedb91f7a62e7f9b2d54559d9ace7a54ad682eb4ad68c65ae0cd6e690896"
         }
     },
@@ -1071,31 +1071,31 @@
     },
     "M108": {
         "name": {
-            "text": "Spiral Galaxy",
+            "text": "Galaxie spirale",
             "source_hash": "sha256:0074ae2322a178b0ee7b1902f4fda62a94407766d12e2b66fc53f7a014647d57"
         },
         "description": {
-            "text": "M108 (Spiral Galaxy) est un objet de type galaxie dans la constellation Ursa Major, à environ 28000 kly. Magnitude ~ 10.0 ; taille apparente ~ 8. Découvert par Pierre MÂŽchain en 1782. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M108 (Galaxie spirale) est un objet de type galaxie dans la constellation Ursa Major, à environ 28000 kly. Magnitude ~ 10.0 ; taille apparente ~ 8. Découvert par Pierre MÂŽchain en 1782. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:c255f94cf54e6a7803eb7d2aed49caa806a61a4d34e2ddb8378727011cf54cb0"
         }
     },
     "M109": {
         "name": {
-            "text": "Barred Spiral Galaxy",
+            "text": "Galaxie spirale barrée",
             "source_hash": "sha256:3e06c1766dca68437fa5ac7751bd0ea31139f9a1b99740ecf0275ed0d146ce1f"
         },
         "description": {
-            "text": "M109 (Barred Spiral Galaxy) est un objet de type galaxie dans la constellation Ursa Major, à environ 83000 kly. Magnitude ~ 9.8 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M109 (Galaxie spirale barrée) est un objet de type galaxie dans la constellation Ursa Major, à environ 83000 kly. Magnitude ~ 9.8 ; taille apparente ~ 7. Découvert par Pierre MÂŽchain en 1781. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:0511c1cac71ce137d9e8f38f0bfe4fe108a27756728ab2eb533f451bbf521621"
         }
     },
     "M110": {
         "name": {
-            "text": "Dwarf Elliptical Galaxy",
+            "text": "Galaxie elliptique naine",
             "source_hash": "sha256:fe9a38b9344aacc826d1aa381adb90e6183c9a40396d9e8c76116e58d8bd6fdf"
         },
         "description": {
-            "text": "M110 (Dwarf Elliptical Galaxy) est un objet de type galaxie dans la constellation Andromeda, à environ 2500 kly. Magnitude ~ 8.5 ; taille apparente ~ 21. Découvert par Charles Messier en 1773. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
+            "text": "M110 (Galaxie elliptique naine) est un objet de type galaxie dans la constellation Andromeda, à environ 2500 kly. Magnitude ~ 8.5 ; taille apparente ~ 21. Découvert par Charles Messier en 1773. Notes d'astrophotographie : cible Messier classique ; adapter focale et intégration à la taille apparente.",
             "source_hash": "sha256:adde30ff9ce6a00224e52502d43eec7f9a67715294f8e9ec120544f349145ffd"
         }
     }
