@@ -674,14 +674,14 @@
       "angle": null
     },
     "M43": {
-      "name": "De MairanÕs Nebula",
+      "name": "De Mairan's Nebula",
       "type": "Emission Nebula",
       "distance_ly": 1600.0,
       "discoverer": "Jean-Jacques d'Ortous de Mairan",
       "discovery_year": 1731,
       "best_months": "DecJanFeb",
       "constellation": "Orion",
-      "description": "M43 (De MairanÕs Nebula) is a emission nebula in the constellation Orion about 1.6 kly away. It appears around magnitude 9.0, spanning roughly 20′ × 15′. It was discovered by Jean-Jacques d'Ortous de Mairan in 1731. Messier 43 or M43, also known as De Mairan's Nebula and NGC 1982, is a star-forming nebula with a prominent H II region in the equatorial constellation of Orion. It was discovered by the French scientist Jean-Jacques d'Ortous de Mairan some time before 1731, then catalogued by Charles Messier in 1769. It is physically part of the Orion Nebula (Messier 42), separate from that main nebula by a dense lane of dust known as the northeast dark lane. Astrophotography notes: Sky position: equatorial sky in Orion. Target characteristics: brightness around mag 9.0, apparent size 20′ × 15′. Ha, OIII, and SII reveal structure and make moonlit sessions viable. Dark skies (Bortle 4 or better) or narrowband help tease out faint detail.",
+      "description": "M43 (De Mairan's Nebula) is a emission nebula in the constellation Orion about 1.6 kly away. It appears around magnitude 9.0, spanning roughly 20′ × 15′. It was discovered by Jean-Jacques d'Ortous de Mairan in 1731. Messier 43 or M43, also known as De Mairan's Nebula and NGC 1982, is a star-forming nebula with a prominent H II region in the equatorial constellation of Orion. It was discovered by the French scientist Jean-Jacques d'Ortous de Mairan some time before 1731, then catalogued by Charles Messier in 1769. It is physically part of the Orion Nebula (Messier 42), separate from that main nebula by a dense lane of dust known as the northeast dark lane. Astrophotography notes: Sky position: equatorial sky in Orion. Target characteristics: brightness around mag 9.0, apparent size 20′ × 15′. Ha, OIII, and SII reveal structure and make moonlit sessions viable. Dark skies (Bortle 4 or better) or narrowband help tease out faint detail.",
       "external_link": "https://en.wikipedia.org/wiki/Messier_43",
       "ra_hours": 5.59333,
       "dec_deg": -5.26667,
