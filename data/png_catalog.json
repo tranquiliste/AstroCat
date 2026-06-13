@@ -242,17 +242,7 @@
       "description": "PNG 84.9-3.4 (NGC 7027, Jewel Bug Nebula) is one of the brightest and best studied planetary nebulae in the sky, in Cygnus about 2,500 ly away. It appears around magnitude 8.5 and spans about 1'. Discovered by Eduard Schonfeld in 1878, it is extremely bright at radio wavelengths and also one of the strongest optical planetaries. It is a very young nebula, only about 600 years old, with a compact rectangular structure, rich internal Ha filaments, and an exceptionally hot central star. Astrophotography: Dec +42.2 deg, very high from Remalard in autumn. Long focal length with OIII and Ha is ideal.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7027"
     },
-    "PNG 85.4-0.1": {
-      "name": "Sh2-120 (EN)",
-      "type": "Emission Nebula",
-      "distance_ly": 4500.0,
-      "discoverer": "Stewart Sharpless",
-      "discovery_year": 1959,
-      "best_months": "SepOctNov",
-      "constellation": "Cygnus",
-      "description": "PNG 85.4-0.1 (Sh2-120) is a compact emission nebula in Cygnus, about 4,500 ly away. It appears around magnitude 10.5 and spans about 10'. Although present in the PNG catalogue, it is really a compact Sharpless H II region ionized by an O-type star associated with an embedded young cluster. It lies within the wider Cygnus X star-forming complex. Astrophotography: Dec +46.9 deg, very high from Remalard in autumn. Ha is the key filter, with about 4-6 hours of integration.",
-      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
-    },
+
     "PNG 86.4-0.5": {
       "name": "NGC 7048",
       "type": "Planetary Nebula",
@@ -297,17 +287,7 @@
       "description": "PNG 96.4+9.6 (NGC 7139) is a faint planetary nebula in Cepheus, about 3,000 ly away. It appears around magnitude 13.3 and spans about 1'. Discovered by Ralph Copeland in 1884, it is an evolved planetary nebula with low surface brightness, a regular circular form and a weakly visible central star. Astrophotography: Dec +63.8 deg, circumpolar from France. A good autumn-to-winter target for long focal length and OIII under dark skies.",
       "external_link": "https://en.wikipedia.org/wiki/NGC_7139"
     },
-    "PNG 97.0-2.0": {
-      "name": "Sh2-124 (EN)",
-      "type": "Emission Nebula",
-      "distance_ly": 5000.0,
-      "discoverer": "Stewart Sharpless",
-      "discovery_year": 1959,
-      "best_months": "SepOctNov",
-      "constellation": "Cygnus",
-      "description": "PNG 97.0-2.0 (Sh2-124) is a compact emission nebula in Cygnus, about 5,000 ly away. It appears around magnitude 11.0 and spans about 12'. It is a Sharpless H II region included in the PNG list, likely because of historical classification overlap. Ha dominates its emission, with weaker OIII. Astrophotography: Dec +47.4 deg, very high from Remalard in autumn. Medium to long focal length with Ha works well.",
-      "external_link": "https://en.wikipedia.org/wiki/Sharpless_catalogue"
-    },
+
     "PNG 104.2-29.6": {
       "name": "NGC 7662 Blue Snowball Nebula",
       "type": "Planetary Nebula",

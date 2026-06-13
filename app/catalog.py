@@ -784,7 +784,8 @@ def load_catalog_items(config: Dict, user_notes_path: Optional[Path] = None) -> 
                 continue
             if not _matches_catalog_object_id(catalog_name, object_id):
                 continue
-            if object_id in catalog_entries:
+            # Check if this object_id already exists in catalog_entries (case-insensitive)
+            if any(_normalized_object_id(object_id) == _normalized_object_id(key) for key in catalog_entries.keys()):
                 continue
             thumbnail_path = _select_thumbnail(image_paths, user_thumbnails.get(f"{catalog_name}:{object_id}"))
             image_notes: Dict[str, str] = {}
@@ -875,6 +876,7 @@ def _sync_images_for_aliased_objects(items: List[CatalogItem]) -> List[CatalogIt
     ``m76_20251001_final.jpg`` must be visible on both M76 and NGC650.
     """
     items_by_id: Dict[str, CatalogItem] = {item.object_id: item for item in items}
+    items_by_normalized_id: Dict[str, CatalogItem] = {_normalized_object_id(item.object_id): item for item in items}
     images_by_object_id: Dict[str, List[Path]] = {
         item.object_id: list(item.image_paths) for item in items
     }
@@ -886,9 +888,15 @@ def _sync_images_for_aliased_objects(items: List[CatalogItem]) -> List[CatalogIt
                 continue
             for object_id in object_ids:
                 for alias_id in _expand_catalog_aliases([object_id]):
-                    if alias_id not in items_by_id:
+                    # Find the item using case-insensitive lookup
+                    matching_item = items_by_id.get(alias_id)
+                    if not matching_item:
+                        # Try normalized lookup for case variations like VdB vs VDB
+                        matching_item = items_by_normalized_id.get(_normalized_object_id(alias_id))
+                    if not matching_item:
                         continue
-                    bucket = images_by_object_id.setdefault(alias_id, [])
+                    # Use the matching item's original object_id as the key
+                    bucket = images_by_object_id.setdefault(matching_item.object_id, [])
                     if image_path not in bucket:
                         bucket.append(image_path)
 
@@ -917,6 +925,7 @@ def _create_alias_items(items: List[CatalogItem], config: Dict) -> List[CatalogI
     that inherits all of M76's properties and images.
     """
     items_by_id: Dict[str, CatalogItem] = {item.object_id: item for item in items}
+    items_by_normalized_id: Dict[str, CatalogItem] = {_normalized_object_id(item.object_id): item for item in items}
     catalog_by_name: Dict[str, Dict] = {cat["name"]: cat for cat in config.get("catalogs", [])}
     
     new_items: List[CatalogItem] = []
@@ -926,7 +935,8 @@ def _create_alias_items(items: List[CatalogItem], config: Dict) -> List[CatalogI
         aliases = _expand_catalog_aliases([item.object_id])
         
         for alias_id in aliases:
-            if alias_id == item.object_id or alias_id in items_by_id:
+            # Check for duplicate using normalized IDs (case-insensitive)
+            if _normalized_object_id(alias_id) == _normalized_object_id(item.object_id) or alias_id in items_by_id or _normalized_object_id(alias_id) in items_by_normalized_id:
                 continue  # Skip if it's the same object or already exists
             
             # Determine which catalog this alias belongs to
@@ -1012,6 +1022,7 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
     
     # Elect owner for each multi-object image, per catalog AND globally
     items_by_id = {item.object_id: item for item in items}
+    items_by_normalized_id = {_normalized_object_id(item.object_id): item for item in items}
     for key, filename_objects in filename_shared_images.items():
         if len(filename_objects) < 2:
             continue
@@ -1021,8 +1032,11 @@ def _annotate_shared_image_matches(items: List[CatalogItem], deduplicate_shared_
         catalog_order: Dict[str, int] = {}
         
         for obj_id in filename_objects:
-            if obj_id in items_by_id:
-                item = items_by_id[obj_id]
+            # Try exact match first, then normalized (case-insensitive) for catalogs like VdB
+            item = items_by_id.get(obj_id)
+            if not item:
+                item = items_by_normalized_id.get(_normalized_object_id(obj_id))
+            if item:
                 priority = _get_catalog_priority(item.catalog)
                 if item.catalog not in catalog_order:
                     catalog_order[item.catalog] = priority
@@ -1122,6 +1136,7 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
     # Track multi-object images and their owners
     global_owner_by_image: Dict[str, str] = {}
     items_by_id: Dict[str, CatalogItem] = {item.object_id: item for item in items}
+    items_by_normalized_id: Dict[str, CatalogItem] = {_normalized_object_id(item.object_id): item for item in items}
 
     # First pass (A): identify multi-object filename images and elect global owners
     for item in items:
@@ -1149,8 +1164,11 @@ def apply_global_image_deduplication(items: List[CatalogItem]) -> List[CatalogIt
             best_priority = float('inf')
             global_owner = None
             for obj_id in all_filename_objects:
-                if obj_id in items_by_id:
-                    item_for_obj = items_by_id[obj_id]
+                # Try exact match first, then normalized (case-insensitive)
+                item_for_obj = items_by_id.get(obj_id)
+                if not item_for_obj:
+                    item_for_obj = items_by_normalized_id.get(_normalized_object_id(obj_id))
+                if item_for_obj:
                     priority = _get_catalog_priority(item_for_obj.catalog)
                     if priority < best_priority:
                         best_priority = priority
