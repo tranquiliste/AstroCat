@@ -97,7 +97,12 @@
       "best_months": "SepOctNov",
       "constellation": "Cepheus",
       "description": "Sh2-132 (Lion Nebula) is an H II region in Cepheus, about 10,000 light-years away. It appears around magnitude 8.5 and spans roughly 50′. It was cataloged by Stewart Sharpless in 1959. This emission nebula is ionized by two Wolf-Rayet stars, WR 152 and WR 153, which give it strong O III emission and a characteristic wind-blown bubble structure. Its lion-head appearance is best seen in a two-color Ha/O III presentation. Astrophotography: Dec +56°, circumpolar from France. An excellent Ha + O III target. The Wolf-Rayet stars produce unusually strong O III signal. Plan on 6–10 h of integration for fine detail.",
-      "external_link": "https://en.wikipedia.org/wiki/Sh2-132"
+      "external_link": "https://en.wikipedia.org/wiki/Sh2-132",
+      "ra_hours": 22.3191667,
+      "dec_deg": 56.07917,
+      "r1": 0.35,
+      "r2": 0.25,
+      "angle": null
     },
     "Sh2-140": {
       "name": "Cepheus Nebula",

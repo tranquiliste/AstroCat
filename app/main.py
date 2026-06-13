@@ -1196,8 +1196,6 @@ class CatalogModel(QtCore.QAbstractListModel):
 
 
 class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
-    _fallback_card_size = QtCore.QSize(118, 128)
-
     def paint(self, painter: QtGui.QPainter, option: QtWidgets.QStyleOptionViewItem, index: QtCore.QModelIndex) -> None:
         painter.save()
         painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing, True)
@@ -1288,20 +1286,9 @@ class CatalogItemDelegate(QtWidgets.QStyledItemDelegate):
 
     def sizeHint(self, option: QtWidgets.QStyleOptionViewItem, index: QtCore.QModelIndex) -> QtCore.QSize:
         size = index.data(QtCore.Qt.ItemDataRole.SizeHintRole)
-        if isinstance(size, QtCore.QSize) and size.isValid():
+        if isinstance(size, QtCore.QSize):
             return size
-        widget = option.widget
-        if isinstance(widget, QtWidgets.QListView):
-            grid_size = widget.gridSize()
-            if grid_size.isValid() and grid_size.width() > 0 and grid_size.height() > 0:
-                return grid_size
-            icon_size = widget.iconSize()
-            if icon_size.isValid() and icon_size.width() > 0 and icon_size.height() > 0:
-                return QtCore.QSize(icon_size.width() + 18, icon_size.height() + 28)
-        fallback = super().sizeHint(option, index)
-        if fallback.isValid() and fallback.width() > 0 and fallback.height() > 0:
-            return fallback
-        return self._fallback_card_size
+        return super().sizeHint(option, index)
 
 
 class CommaSeparatedCompleter(QtWidgets.QCompleter):
@@ -2436,7 +2423,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
 
         integrations_group = QtWidgets.QGroupBox(tr("imaging.integration_data"))
         integrations_layout = QtWidgets.QVBoxLayout(integrations_group)
-        self.integrations_table = QtWidgets.QTableWidget(0, 9)
+        self.integrations_table = QtWidgets.QTableWidget(0, 8)
         self.integrations_table.setHorizontalHeaderLabels(
             [
                 tr("imaging.col_filter"),
@@ -2445,7 +2432,6 @@ class ImagingInfoDialog(QtWidgets.QDialog):
                 tr("imaging.col_model"),
                 tr("imaging.col_frames"),
                 tr("imaging.col_exposure"),
-                tr("imaging.col_exposure_hms"),
                 tr("imaging.col_capture_date"),
                 tr("imaging.col_moon"),
             ]
@@ -2455,48 +2441,22 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         self.integrations_table.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
         self.integrations_table.horizontalHeader().setStretchLastSection(False)
         self.integrations_table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-        row_height = self._integration_row_height()
-        self.integrations_table.verticalHeader().setDefaultSectionSize(row_height)
-        self.integrations_table.verticalHeader().setMinimumSectionSize(row_height)
+        self.integrations_table.verticalHeader().setDefaultSectionSize(30)
         self.integrations_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
-        self.integrations_table.setColumnWidth(4, 58)
-        self.integrations_table.setColumnWidth(5, 92)
-        self.integrations_table.setColumnWidth(6, 96)
-        self.integrations_table.setColumnWidth(7, 120)
-        self.integrations_table.setColumnWidth(8, 64)
-        self.integrations_table.horizontalHeader().sectionResized.connect(
-            lambda _index, _old_size, _new_size: self._sync_integrations_footer_alignment()
-        )
+        self.integrations_table.setColumnWidth(6, 120)
+        self.integrations_table.setColumnWidth(7, 64)
         self._update_integrations_table_height()
         integrations_layout.addWidget(self.integrations_table)
 
         integration_buttons = QtWidgets.QHBoxLayout()
         self.integration_add_button = QtWidgets.QPushButton(tr("imaging.add_filter_row"))
         self.integration_remove_button = QtWidgets.QPushButton(tr("imaging.remove_filter_row"))
-        self.integration_total_label = QtWidgets.QLabel(tr("imaging.integrations_total"))
-        self.integration_total_label.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignRight | QtCore.Qt.AlignmentFlag.AlignVCenter
-        )
-        self.integration_total_value_label = QtWidgets.QLabel(self._format_duration_hms(0.0))
-        self.integration_total_value_label.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter
-        )
-        self.integration_total_footer = QtWidgets.QWidget()
-        integration_total_footer_layout = QtWidgets.QHBoxLayout(self.integration_total_footer)
-        integration_total_footer_layout.setContentsMargins(0, 0, 0, 0)
-        integration_total_footer_layout.setSpacing(0)
-        integration_total_footer_layout.addWidget(self.integration_total_label)
-        integration_total_footer_layout.addWidget(self.integration_total_value_label)
-        self.integration_total_trailing_spacer = QtWidgets.QWidget()
-        integration_total_footer_layout.addWidget(self.integration_total_trailing_spacer)
         self.integration_add_button.clicked.connect(lambda: self._add_integration_row())
         self.integration_remove_button.clicked.connect(self._remove_selected_integration_row)
         integration_buttons.addWidget(self.integration_add_button)
         integration_buttons.addWidget(self.integration_remove_button)
         integration_buttons.addStretch(1)
-        integration_buttons.addWidget(self.integration_total_footer)
         integrations_layout.addLayout(integration_buttons)
-        self._sync_integrations_footer_alignment()
         layout.addWidget(integrations_group, stretch=1)
 
         imaging_group = QtWidgets.QGroupBox(tr("imaging.imaging_equipment"))
@@ -2810,14 +2770,11 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         if row_data is None and row > 0:
             row_data = self._get_row_data(row - 1)
         self.integrations_table.insertRow(row)
-        self.integrations_table.setRowHeight(row, self._integration_row_height())
         defaults = row_data or {}
-        editor_height = self._integration_editor_height()
 
         def line(text: str) -> QtWidgets.QLineEdit:
             w = QtWidgets.QLineEdit(text)
             w.setFrame(True)
-            w.setMinimumHeight(editor_height)
             return w
 
         bpv = defaults.get("filter_bandpass_nm")
@@ -2825,44 +2782,19 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         frames_spin.setMinimum(0)
         frames_spin.setMaximum(99999)
         frames_spin.setValue(int(defaults.get("subframe_count") or 1))
-        frames_spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
-        frames_spin.setMaximumWidth(52)
-        frames_spin.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        frames_spin.setMinimumHeight(editor_height)
-        exposure_edit = line(str(defaults.get("exposure_seconds") or "0"))
-        exposure_edit.setMaximumWidth(86)
-        exposure_edit.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
-        exposure_duration_label = QtWidgets.QLabel("")
-        exposure_duration_label.setAlignment(
-            QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter
-        )
-        exposure_duration_label.setMinimumHeight(editor_height)
-
-        def refresh_row_summary() -> None:
-            frames = frames_spin.value()
-            exposure = self._parse_float(exposure_edit.text().strip(), default=0.0) or 0.0
-            exposure_duration_label.setText(self._format_duration_hms(max(0.0, exposure * max(0, frames))))
-            self._update_integrations_total_label()
-
-        frames_spin.valueChanged.connect(lambda _value: refresh_row_summary())
-        exposure_edit.textChanged.connect(lambda _text: refresh_row_summary())
 
         self.integrations_table.setCellWidget(row, 0, line(str(defaults.get("filter_name") or "")))
         self.integrations_table.setCellWidget(row, 1, line("" if bpv is None else str(bpv)))
         self.integrations_table.setCellWidget(row, 2, line(str(defaults.get("filter_brand") or "")))
         self.integrations_table.setCellWidget(row, 3, line(str(defaults.get("filter_model") or "")))
         self.integrations_table.setCellWidget(row, 4, frames_spin)
-        self.integrations_table.setCellWidget(row, 5, exposure_edit)
-        self.integrations_table.setCellWidget(row, 6, exposure_duration_label)
+        self.integrations_table.setCellWidget(row, 5, line(str(defaults.get("exposure_seconds") or "0")))
         date_edit = self._make_date_edit(str(defaults.get("captured_on") or ""))
-        date_edit.setMinimumHeight(editor_height)
         moon_icon_widget, moon_icon = self._make_moon_icon_widget()
-        moon_icon_widget.setMinimumHeight(editor_height)
         date_edit.dateChanged.connect(lambda _qdate, d=date_edit, i=moon_icon: self._update_moon_widget_state(d, i))
         self._update_moon_widget_state(date_edit, moon_icon)
-        self.integrations_table.setCellWidget(row, 7, date_edit)
-        self.integrations_table.setCellWidget(row, 8, moon_icon_widget)
-        refresh_row_summary()
+        self.integrations_table.setCellWidget(row, 6, date_edit)
+        self.integrations_table.setCellWidget(row, 7, moon_icon_widget)
         self._update_integrations_table_height()
 
     def _get_row_data(self, row: int) -> Dict:
@@ -2873,7 +2805,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         frames_w = self.integrations_table.cellWidget(row, 4)
         frames = frames_w.value() if isinstance(frames_w, QtWidgets.QSpinBox) else 1
 
-        date_widget = self.integrations_table.cellWidget(row, 7)
+        date_widget = self.integrations_table.cellWidget(row, 6)
         date_edit = date_widget if isinstance(date_widget, QtWidgets.QDateEdit) else None
 
         if isinstance(date_edit, QtWidgets.QDateEdit):
@@ -2911,7 +2843,6 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         if row >= 0:
             self.integrations_table.removeRow(row)
             self._update_integrations_table_height()
-            self._update_integrations_total_label()
 
     def set_payload(self, payload: Dict) -> None:
         self.capture_location_edit.setText(str(payload.get("capture_location") or ""))
@@ -2920,7 +2851,6 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             if isinstance(integration, dict):
                 self._add_integration_row(integration)
         self._update_integrations_table_height()
-        self._update_integrations_total_label()
 
         imaging = payload.get("imaging_equipment") or {}
         self.imaging_telescope_edit.setText(str(imaging.get("telescope_or_refractor") or ""))
@@ -3096,50 +3026,11 @@ class ImagingInfoDialog(QtWidgets.QDialog):
     def _update_integrations_table_height(self) -> None:
         row_count = self.integrations_table.rowCount()
         visible_rows = max(1, min(5, row_count))
-        row_height = self._integration_row_height()
-        if self.integrations_table.verticalHeader().defaultSectionSize() != row_height:
-            self.integrations_table.verticalHeader().setDefaultSectionSize(row_height)
-            self.integrations_table.verticalHeader().setMinimumSectionSize(row_height)
+        row_height = max(24, self.integrations_table.verticalHeader().defaultSectionSize())
         header_height = self.integrations_table.horizontalHeader().sizeHint().height()
         table_height = header_height + (visible_rows * row_height) + (2 * self.integrations_table.frameWidth()) + 8
         self.integrations_table.setMinimumHeight(table_height)
         self.integrations_table.setMaximumHeight(table_height)
-
-    def _integration_row_height(self) -> int:
-        # Keep table row height tied to effective font metrics so text remains
-        # readable across OS themes and DPI scaling.
-        editor_height = self._integration_editor_height()
-        return max(38, min(64, editor_height + 10))
-
-    def _integration_editor_height(self) -> int:
-        base = self.fontMetrics().height()
-        return max(28, min(52, base + 14))
-
-    def _update_integrations_total_label(self) -> None:
-        total_seconds = 0.0
-        for row in range(self.integrations_table.rowCount()):
-            data = self._get_row_data(row)
-            frames = max(0, int(data.get("subframe_count") or 0))
-            exposure = max(0.0, float(data.get("exposure_seconds") or 0.0))
-            total_seconds += frames * exposure
-        self.integration_total_label.setText(tr("imaging.integrations_total"))
-        self.integration_total_value_label.setText(self._format_duration_hms(total_seconds))
-
-    def _sync_integrations_footer_alignment(self) -> None:
-        prefix_width = self.integrations_table.columnWidth(4) + self.integrations_table.columnWidth(5)
-        total_width = self.integrations_table.columnWidth(6)
-        trailing_width = self.integrations_table.columnWidth(7) + self.integrations_table.columnWidth(8)
-        self.integration_total_label.setFixedWidth(prefix_width)
-        self.integration_total_value_label.setFixedWidth(total_width)
-        self.integration_total_trailing_spacer.setFixedWidth(trailing_width)
-        self.integration_total_footer.setFixedWidth(prefix_width + total_width + trailing_width)
-
-    @staticmethod
-    def _format_duration_hms(total_seconds: float) -> str:
-        seconds = int(max(0.0, total_seconds))
-        hours, rem = divmod(seconds, 3600)
-        minutes, secs = divmod(rem, 60)
-        return f"{hours}h {minutes:02d}m {secs:02d}s"
 
     def payload(self) -> Dict:
         integrations: List[Dict] = []
@@ -4678,7 +4569,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def _apply_dark_theme(self) -> None:
         checked_indicator_path = (PROJECT_ROOT / "assets" / "images" / "checked_yellow.png").as_posix()
-        date_dropdown_arrow_path = (PROJECT_ROOT / "assets" / "images" / "date_dropdown_arrow.svg").as_posix()
 
         self.setStyleSheet(
             """
@@ -4689,123 +4579,11 @@ class MainWindow(QtWidgets.QMainWindow):
                 selection-background-color: #5e5e5e;
                 selection-color: #f7f7f7;
             }
-            QLineEdit, QComboBox, QTextEdit, QAbstractSpinBox {
+            QLineEdit, QComboBox, QTextEdit {
                 background: #2a2a2a;
                 border: 1px solid #3d3d3d;
                 border-radius: 10px;
                 padding: 8px 10px;
-            }
-            QDateEdit {
-                background: #2a2a2a;
-                border: 1px solid #3d3d3d;
-                border-radius: 10px;
-                padding: 6px 10px;
-            }
-            QDateEdit::drop-down {
-                subcontrol-origin: border;
-                subcontrol-position: top right;
-                width: 24px;
-                border-left: 1px solid #3d3d3d;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                background: #343434;
-            }
-            QDateEdit::down-arrow {
-                image: url("__DATE_DROPDOWN_ARROW__");
-                width: 10px;
-                height: 6px;
-            }
-            QSpinBox::up-button,
-            QSpinBox::down-button,
-            QDoubleSpinBox::up-button,
-            QDoubleSpinBox::down-button {
-                width: 0px;
-                border: none;
-                background: transparent;
-            }
-            QLineEdit:focus, QComboBox:focus, QTextEdit:focus, QAbstractSpinBox:focus {
-                border-color: #b6935a;
-            }
-            QHeaderView::section {
-                background: transparent;
-                color: #e6e6e6;
-                border: none;
-                padding: 4px 6px;
-            }
-            QTableCornerButton::section {
-                background: transparent;
-                border: none;
-            }
-            QGroupBox {
-                margin-top: 12px;
-                padding: 12px;
-                background: #222222;
-                border: 1px solid #353535;
-                border-radius: 12px;
-            }
-            QGroupBox::title {
-                subcontrol-origin: margin;
-                subcontrol-position: top left;
-                left: 10px;
-                padding: 0 6px;
-                color: #d8c29a;
-                background: #222222;
-            }
-            QTableWidget, QTableView {
-                background: #1e1e1e;
-                alternate-background-color: #242424;
-                border: 1px solid #353535;
-                border-radius: 12px;
-                gridline-color: #343434;
-                selection-background-color: #3b3428;
-                selection-color: #f0d7ab;
-            }
-            QTableWidget::item, QTableView::item {
-                padding: 4px;
-            }
-            QTableWidget::item:selected, QTableView::item:selected {
-                background: #3b3428;
-                color: #f0d7ab;
-            }
-            QCalendarWidget QWidget {
-                background: #222222;
-                color: #e6e6e6;
-            }
-            QCalendarWidget QToolButton {
-                background: #2c2c2c;
-                border: 1px solid #434343;
-                border-radius: 8px;
-                color: #e6e6e6;
-                padding: 4px 8px;
-            }
-            QCalendarWidget QToolButton:hover {
-                background: #343434;
-                border-color: #5a5a5a;
-            }
-            QCalendarWidget QMenu {
-                background: #2a2a2a;
-                border: 1px solid #3d3d3d;
-            }
-            QCalendarWidget QSpinBox {
-                background: #2a2a2a;
-                border: 1px solid #3d3d3d;
-                border-radius: 8px;
-                color: #e6e6e6;
-                padding: 2px 6px;
-            }
-            QCalendarWidget QAbstractItemView {
-                background: #1f1f1f;
-                alternate-background-color: #252525;
-                border: 1px solid #353535;
-                selection-background-color: #3b3428;
-                selection-color: #f0d7ab;
-                outline: 0;
-            }
-            QCalendarWidget QAbstractItemView:enabled {
-                color: #e6e6e6;
-            }
-            QCalendarWidget QAbstractItemView:disabled {
-                color: #747474;
             }
             QTabWidget::pane {
                 background: #222222;
@@ -4833,6 +4611,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 color: #f0d7ab;
                 border-color: #b6935a;
                 border-bottom-color: #3b3428;
+            }
+            QLineEdit:focus, QComboBox:focus, QTextEdit:focus {
+                border-color: #b6935a;
             }
             QToolButton[compactPill="true"] {
                 background: #2c2c2c;
@@ -5019,9 +4800,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 background: #3a3327;
                 border-color: #caa972;
             }
-            """
-            .replace("__CHECKBOX_CHECKED_ICON__", checked_indicator_path)
-            .replace("__DATE_DROPDOWN_ARROW__", date_dropdown_arrow_path)
+            """.replace("__CHECKBOX_CHECKED_ICON__", checked_indicator_path)
         )
 
     def _sync_compact_combo_items(self, source: QtWidgets.QComboBox, target: QtWidgets.QComboBox) -> None:
@@ -5303,7 +5082,6 @@ class MainWindow(QtWidgets.QMainWindow):
         solve_hints: Optional[Dict[str, object]] = None,
         allow_guided_retry: bool = True,
     ) -> None:
-        item = self.detail.current_item()
         image_path = self.detail.current_image_path()
         image_name = self.detail.current_image_name()
         if image_path is None or not image_name:
@@ -5339,10 +5117,6 @@ class MainWindow(QtWidgets.QMainWindow):
         downsample = int(self._as_float(hints.get("downsample")) or 0)
         center_ra = self._as_float(hints.get("center_ra_deg"))
         center_dec = self._as_float(hints.get("center_dec_deg"))
-        if center_ra is None and center_dec is None and item is not None:
-            if item.ra_hours is not None and item.dec_deg is not None:
-                center_ra = float(item.ra_hours) * 15.0
-                center_dec = float(item.dec_deg)
 
         self._astap_running = True
         self._astap_running_image_id = image_name
@@ -9017,25 +8791,18 @@ class HelpDialog(QtWidgets.QDialog):
     def __init__(self, parent: Optional[QtWidgets.QWidget] = None) -> None:
         super().__init__(parent)
         self.setWindowTitle(tr("help.title"))
-        self.setMinimumSize(560, 420)
+        self.setMinimumWidth(560)
 
-        tabs = QtWidgets.QTabWidget()
-
-        quick_tab = QtWidgets.QWidget()
-        quick_layout = QtWidgets.QVBoxLayout(quick_tab)
-        quick_layout.setContentsMargins(14, 10, 14, 12)
-        quick_layout.setSpacing(8)
+        # ── démarrage rapide ──
+        quick_box = QtWidgets.QGroupBox(tr("about.quick_start"))
+        quick_box_layout = QtWidgets.QVBoxLayout(quick_box)
+        quick_box_layout.setContentsMargins(14, 10, 14, 12)
         quick_list = QtWidgets.QLabel(tr("help.quick_start_list"))
         quick_list.setWordWrap(True)
-        quick_layout.addWidget(quick_list)
-        quick_layout.addStretch(1)
+        quick_box_layout.addWidget(quick_list)
 
-        shortcuts_tab = QtWidgets.QWidget()
-        shortcuts_layout = QtWidgets.QVBoxLayout(shortcuts_tab)
-        shortcuts_layout.setContentsMargins(14, 10, 14, 12)
-        shortcuts_layout.setSpacing(8)
-
-        shortcuts_box = QtWidgets.QGroupBox(tr("help.shortcuts_group"))
+        # ── raccourcis clavier ──
+        shortcuts_box = QtWidgets.QGroupBox(tr("help.shortcuts"))
         shortcuts_box_layout = QtWidgets.QVBoxLayout(shortcuts_box)
         shortcuts_box_layout.setContentsMargins(14, 10, 14, 12)
         shortcuts_box_layout.setSpacing(8)
@@ -9066,40 +8833,15 @@ class HelpDialog(QtWidgets.QDialog):
         shortcut_three_row.addWidget(shortcut_three_suffix, stretch=1)
         shortcuts_box_layout.addLayout(shortcut_three_row)
 
-        icons_box = QtWidgets.QGroupBox(tr("help.icons_group"))
-        icons_box_layout = QtWidgets.QVBoxLayout(icons_box)
-        icons_box_layout.setContentsMargins(14, 10, 14, 12)
-        icons_box_layout.setSpacing(8)
-
-        icons_list = QtWidgets.QLabel(tr("help.icons_list"))
-        icons_list.setWordWrap(True)
-        icons_box_layout.addWidget(icons_list)
-
-        shortcuts_layout.addWidget(shortcuts_box)
-        shortcuts_layout.addWidget(icons_box)
-        shortcuts_layout.addStretch(1)
-
-        astrometry_tab = QtWidgets.QWidget()
-        astrometry_layout = QtWidgets.QVBoxLayout(astrometry_tab)
-        astrometry_layout.setContentsMargins(14, 10, 14, 12)
-        astrometry_layout.setSpacing(8)
-        astrometry_list = QtWidgets.QLabel(tr("help.astrometry_annotation_list"))
-        astrometry_list.setWordWrap(True)
-        astrometry_list.setOpenExternalLinks(True)
-        astrometry_layout.addWidget(astrometry_list)
-        astrometry_layout.addStretch(1)
-
-        tabs.addTab(quick_tab, tr("help.tab_quick_start"))
-        tabs.addTab(shortcuts_tab, tr("help.tab_shortcuts"))
-        tabs.addTab(astrometry_tab, tr("help.tab_astrometry_annotation"))
-
         close_button = QtWidgets.QPushButton(tr("settings.close"))
         close_button.clicked.connect(self.accept)
 
         layout = QtWidgets.QVBoxLayout(self)
         layout.setContentsMargins(18, 18, 18, 16)
         layout.setSpacing(14)
-        layout.addWidget(tabs)
+        layout.addWidget(quick_box)
+        layout.addWidget(shortcuts_box)
+        layout.addStretch(1)
         layout.addWidget(close_button, alignment=QtCore.Qt.AlignmentFlag.AlignRight)
 
 
