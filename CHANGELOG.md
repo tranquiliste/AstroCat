@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.8.1] - 2026-06-13
+### Added
+- SH catalog improvement
+### Fixed
+- Fixed issue causing duplicate entries in the photo strip. 
+
 ## [1.8.0] - 2026-05-29
 ### Added
 - ASTAP-based astrometric plate solving.
