@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.8.2] - 2026-06-20
+
+### Fixed
+- Fixed regression issue causing total integration time not being displayed. 
+
 ## [1.8.1] - 2026-06-13
 ### Added
 - SH catalog improvement
