@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 # ============================================================================
 # INTÉGRATION DES NOUVEAUX CATALOGUES — À AJOUTER DANS catalog.py
@@ -2423,7 +2423,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
 
         integrations_group = QtWidgets.QGroupBox(tr("imaging.integration_data"))
         integrations_layout = QtWidgets.QVBoxLayout(integrations_group)
-        self.integrations_table = QtWidgets.QTableWidget(0, 8)
+        self.integrations_table = QtWidgets.QTableWidget(0, 9)
         self.integrations_table.setHorizontalHeaderLabels(
             [
                 tr("imaging.col_filter"),
@@ -2432,6 +2432,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
                 tr("imaging.col_model"),
                 tr("imaging.col_frames"),
                 tr("imaging.col_exposure"),
+                tr("imaging.col_exposure_hms"),
                 tr("imaging.col_capture_date"),
                 tr("imaging.col_moon"),
             ]
@@ -2443,19 +2444,43 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         self.integrations_table.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.integrations_table.verticalHeader().setDefaultSectionSize(30)
         self.integrations_table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAsNeeded)
-        self.integrations_table.setColumnWidth(6, 120)
-        self.integrations_table.setColumnWidth(7, 64)
+        self.integrations_table.setColumnWidth(4, 58)
+        self.integrations_table.setColumnWidth(5, 92)
+        self.integrations_table.setColumnWidth(6, 96)
+        self.integrations_table.setColumnWidth(7, 120)
+        self.integrations_table.setColumnWidth(8, 64)
+        self.integrations_table.horizontalHeader().sectionResized.connect(
+            lambda _index, _old_size, _new_size: self._sync_integrations_footer_alignment()
+        )
         self._update_integrations_table_height()
         integrations_layout.addWidget(self.integrations_table)
 
         integration_buttons = QtWidgets.QHBoxLayout()
         self.integration_add_button = QtWidgets.QPushButton(tr("imaging.add_filter_row"))
         self.integration_remove_button = QtWidgets.QPushButton(tr("imaging.remove_filter_row"))
+        self.integration_total_label = QtWidgets.QLabel(tr("imaging.integrations_total"))
+        self.integration_total_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignRight | QtCore.Qt.AlignmentFlag.AlignVCenter
+        )
+        self.integration_total_value_label = QtWidgets.QLabel(self._format_duration_hms(0.0))
+        self.integration_total_value_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter
+        )
+        self.integration_total_footer = QtWidgets.QWidget()
+        integration_total_footer_layout = QtWidgets.QHBoxLayout(self.integration_total_footer)
+        integration_total_footer_layout.setContentsMargins(0, 0, 0, 0)
+        integration_total_footer_layout.setSpacing(0)
+        integration_total_footer_layout.addWidget(self.integration_total_label)
+        integration_total_footer_layout.addWidget(self.integration_total_value_label)
+        self.integration_total_trailing_spacer = QtWidgets.QWidget()
+        integration_total_footer_layout.addWidget(self.integration_total_trailing_spacer)
         self.integration_add_button.clicked.connect(lambda: self._add_integration_row())
         self.integration_remove_button.clicked.connect(self._remove_selected_integration_row)
         integration_buttons.addWidget(self.integration_add_button)
         integration_buttons.addWidget(self.integration_remove_button)
         integration_buttons.addStretch(1)
+        integration_buttons.addWidget(self.integration_total_footer)
+        self._sync_integrations_footer_alignment()
         integrations_layout.addLayout(integration_buttons)
         layout.addWidget(integrations_group, stretch=1)
 
@@ -2782,19 +2807,43 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         frames_spin.setMinimum(0)
         frames_spin.setMaximum(99999)
         frames_spin.setValue(int(defaults.get("subframe_count") or 1))
+        frames_spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.ButtonSymbols.NoButtons)
+        frames_spin.setMaximumWidth(52)
+        frames_spin.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        exposure_edit = line(str(defaults.get("exposure_seconds") or "0"))
+        exposure_edit.setMaximumWidth(86)
+        exposure_edit.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
+        exposure_duration_label = QtWidgets.QLabel("0h 00m 00s")
+        exposure_duration_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignCenter | QtCore.Qt.AlignmentFlag.AlignVCenter
+        )
+
+        def make_refresh_fn() -> Callable[[], None]:
+            def refresh_row_summary() -> None:
+                frames = frames_spin.value()
+                exposure = self._parse_float(exposure_edit.text().strip(), default=0.0) or 0.0
+                exposure_duration_label.setText(self._format_duration_hms(max(0.0, exposure * max(0, frames))))
+                self._update_integrations_total_label()
+            return refresh_row_summary
+
+        refresh_fn = make_refresh_fn()
+        frames_spin.valueChanged.connect(lambda _value: refresh_fn())
+        exposure_edit.textChanged.connect(lambda _text: refresh_fn())
 
         self.integrations_table.setCellWidget(row, 0, line(str(defaults.get("filter_name") or "")))
         self.integrations_table.setCellWidget(row, 1, line("" if bpv is None else str(bpv)))
         self.integrations_table.setCellWidget(row, 2, line(str(defaults.get("filter_brand") or "")))
         self.integrations_table.setCellWidget(row, 3, line(str(defaults.get("filter_model") or "")))
         self.integrations_table.setCellWidget(row, 4, frames_spin)
-        self.integrations_table.setCellWidget(row, 5, line(str(defaults.get("exposure_seconds") or "0")))
+        self.integrations_table.setCellWidget(row, 5, exposure_edit)
+        self.integrations_table.setCellWidget(row, 6, exposure_duration_label)
         date_edit = self._make_date_edit(str(defaults.get("captured_on") or ""))
         moon_icon_widget, moon_icon = self._make_moon_icon_widget()
         date_edit.dateChanged.connect(lambda _qdate, d=date_edit, i=moon_icon: self._update_moon_widget_state(d, i))
         self._update_moon_widget_state(date_edit, moon_icon)
-        self.integrations_table.setCellWidget(row, 6, date_edit)
-        self.integrations_table.setCellWidget(row, 7, moon_icon_widget)
+        self.integrations_table.setCellWidget(row, 7, date_edit)
+        self.integrations_table.setCellWidget(row, 8, moon_icon_widget)
+        refresh_fn()
         self._update_integrations_table_height()
 
     def _get_row_data(self, row: int) -> Dict:
@@ -2805,7 +2854,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         frames_w = self.integrations_table.cellWidget(row, 4)
         frames = frames_w.value() if isinstance(frames_w, QtWidgets.QSpinBox) else 1
 
-        date_widget = self.integrations_table.cellWidget(row, 6)
+        date_widget = self.integrations_table.cellWidget(row, 7)
         date_edit = date_widget if isinstance(date_widget, QtWidgets.QDateEdit) else None
 
         if isinstance(date_edit, QtWidgets.QDateEdit):
@@ -2843,6 +2892,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         if row >= 0:
             self.integrations_table.removeRow(row)
             self._update_integrations_table_height()
+            self._update_integrations_total_label()
 
     def set_payload(self, payload: Dict) -> None:
         self.capture_location_edit.setText(str(payload.get("capture_location") or ""))
@@ -2851,6 +2901,7 @@ class ImagingInfoDialog(QtWidgets.QDialog):
             if isinstance(integration, dict):
                 self._add_integration_row(integration)
         self._update_integrations_table_height()
+        self._update_integrations_total_label()
 
         imaging = payload.get("imaging_equipment") or {}
         self.imaging_telescope_edit.setText(str(imaging.get("telescope_or_refractor") or ""))
@@ -3031,6 +3082,32 @@ class ImagingInfoDialog(QtWidgets.QDialog):
         table_height = header_height + (visible_rows * row_height) + (2 * self.integrations_table.frameWidth()) + 8
         self.integrations_table.setMinimumHeight(table_height)
         self.integrations_table.setMaximumHeight(table_height)
+
+    def _update_integrations_total_label(self) -> None:
+        total_seconds = 0.0
+        for row in range(self.integrations_table.rowCount()):
+            data = self._get_row_data(row)
+            frames = max(0, int(data.get("subframe_count") or 0))
+            exposure = max(0.0, float(data.get("exposure_seconds") or 0.0))
+            total_seconds += frames * exposure
+        self.integration_total_label.setText(tr("imaging.integrations_total"))
+        self.integration_total_value_label.setText(self._format_duration_hms(total_seconds))
+
+    def _sync_integrations_footer_alignment(self) -> None:
+        prefix_width = self.integrations_table.columnWidth(4) + self.integrations_table.columnWidth(5)
+        total_width = self.integrations_table.columnWidth(6)
+        trailing_width = self.integrations_table.columnWidth(7) + self.integrations_table.columnWidth(8)
+        self.integration_total_label.setFixedWidth(prefix_width)
+        self.integration_total_value_label.setFixedWidth(total_width)
+        self.integration_total_trailing_spacer.setFixedWidth(trailing_width)
+        self.integration_total_footer.setFixedWidth(prefix_width + total_width + trailing_width)
+
+    @staticmethod
+    def _format_duration_hms(total_seconds: float) -> str:
+        seconds = int(max(0.0, total_seconds))
+        hours, rem = divmod(seconds, 3600)
+        minutes, secs = divmod(rem, 60)
+        return f"{hours}h {minutes:02d}m {secs:02d}s"
 
     def payload(self) -> Dict:
         integrations: List[Dict] = []
